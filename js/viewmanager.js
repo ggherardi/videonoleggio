@@ -9,12 +9,12 @@ class ViewManager{
         this.render(menuVoice.innerText.toLowerCase());
     }
 
-    render(view){
-        var renderSuccess = function(data){
+    setView(view){
+        var renderSuccess = function(data) {
             $(this.containerSelector).html(data);
         }
 
-        var renderError = function(error){
+        var renderError = function(error) {
             console.log(error);
         }
 
@@ -28,7 +28,14 @@ class ViewManager{
     }
 }
 
-$().ready(function(){
-    viewManager = new ViewManager("#content_zone_0");
-    viewManager.render("home");
-})
+class Menu{
+    constructor(menuItems){
+        this.menuItems = menuItems;
+    }
+    
+    buildMenu(){
+        for(i = 0; i < this.menuItems.length; i++){
+            
+        }
+    }
+}
