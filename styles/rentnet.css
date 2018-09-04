@@ -1,0 +1,21 @@
+.bg-purple-override 
+{
+    background-color: #8583e1!important;
+}
+
+.border-purple-override
+{
+    border: #8583e1!important;
+}
+
+#LoginForm 
+{
+    margin: 80px auto;
+    max-width: 400px;
+}
+
+#LoginForm button 
+{
+    margin-top: 20px;
+}
+

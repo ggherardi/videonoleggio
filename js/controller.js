@@ -16,19 +16,19 @@ class Controller {
 
     setView(view, completeFunction) {
         this.ajaxOptions.url = `/views/${view.toLowerCase()}.html`;
-        this.set(completeFunction);
+        return this.set(completeFunction);
     }
 
     setComponent(component, completeFunction) {
         this.ajaxOptions.url = `/components/${component.toLowerCase()}.html`;
-        this.set(completeFunction);
+        return this.set(completeFunction);
     }
 
     set(completeFunction) {
         if(completeFunction) {
             this.ajaxOptions.complete = completeFunction;
         }
-        $.ajax(this.ajaxOptions);
+        return $.ajax(this.ajaxOptions);
     }
 }
 
@@ -41,11 +41,14 @@ class Menu {
     
     buildMenu() {
         for(var key in this.menuItems) {
-            var itemText = this.menuItems[key];
-            this.html += 
-                `<li id='NavItem_${itemText}'>` +
-                `   <span onclick='menuClick(this);'>${itemText}</span>` +
-                `</li>`;                   
+            var item = this.menuItems[key];
+            if(item.showInMenu == undefined || item.showInMenu) {
+                var itemText = this.menuItems[key].title;
+                this.html += 
+                    `<li id='NavItem_${itemText}'>` +
+                    `   <span onclick='menuClick(this);'>${itemText}</span>` +
+                    `</li>`;   
+            }                
         }
         this.appendMenu();
     }
@@ -56,7 +59,7 @@ class Menu {
     }
 
     setMenuItemActive(view) {
-        var findActiveItem = function(el){return el.className == this.activeClassName};
+        var findActiveItem = function(el) { return el.className == this.activeClassName };
         var items = $("#DesktopNav").children();
         var prevItem = items.toArray().find(findActiveItem.bind(this));    
         if(prevItem){

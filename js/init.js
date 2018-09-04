@@ -1,13 +1,13 @@
 /* Settings */
 var views = {
-    home: "Home", 
-    login: "Login",
-    noleggi: "Noleggi"
+    home: { title: "Home" },
+    login: { title: "Login", showInMenu: false },
+    noleggi: { title: "Noleggi" }
 };
 
 var components = {
-    navbar: "Navbar",
-    sidebar: "Sidebar"
+    navbar: { title: "Navbar" },
+    sidebar: { title: "Sidebar" }
 };
 
 /* Properties */
@@ -20,7 +20,7 @@ authService = {};
 /* Document ready */
 $().ready(function() {
     initClasses();
-    if(!authService.isUserLogged()) {
+    if(authService.isUserLogged()) {
         initHomepage();
     } else {
         initLogin();
@@ -39,21 +39,20 @@ function initClasses(){
 
 function initHomepage() {
     initMasterpageComponents();
-    initView();
 }
 
 function initMasterpageComponents() {
-    sidebarController.setComponent(components.sidebar);
-    navbarController.setComponent(components.navbar, () => menu.buildMenu());
+    sidebarController.setComponent(components.sidebar.title);
+    $.when(navbarController.setComponent(components.navbar.title)).then(() => menu.buildMenu()).done(initView)
 } 
 
 function initView() {
-    mainContentController.setView(views.home);
-    menu.setMenuItemActive(views.home);
+    mainContentController.setView(views.home.title);
+    menu.setMenuItemActive(views.home.title);
 }
 
 function initLogin() {
-    mainContentController.setView(views.login);
+    mainContentController.setView(views.login.title);
 }
 
 /* Events */
