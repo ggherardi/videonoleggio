@@ -14,20 +14,17 @@ export class Controller {
         };
     }
 
-    setView(view, completeFunction) {
+    setView(view) {
         this.ajaxOptions.url = `/views/${view.toLowerCase()}.html`;
-        return this.set(completeFunction);
+        return this.set();
     }
 
-    setComponent(component, completeFunction) {
+    setComponent(component) {
         this.ajaxOptions.url = `/components/${component.toLowerCase()}.html`;
-        return this.set(completeFunction);
+        return this.set();
     }
 
-    set(completeFunction) {
-        if(completeFunction) {
-            this.ajaxOptions.complete = completeFunction;
-        }
+    set() {
         return $.ajax(this.ajaxOptions);
     }
 }

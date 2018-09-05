@@ -1,0 +1,1 @@
+Controllare se le keyword ES6 funzionano su altri browser

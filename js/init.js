@@ -1,9 +1,7 @@
 /* Import */
-import { Menu, Controller } from "../js/controller.js"
-import { CookiesManager } from "../js/cookiesmanager.js"
-import { AuthenticationManager } from "../js/authenticationmanager.js"
-import * as Services from "../js/phpapiservice.js"
-let h = new Services.Authentication;
+import { Menu, Controller } from "./controller.js"
+import { CookiesManager } from "./cookiesmanager.js"
+import { AuthenticationManager } from "./authenticationmanager.js"
 
 /* Settings */
 var views = {
@@ -27,7 +25,7 @@ var authManager = new AuthenticationManager(cookiesManager);
 
 /* Document ready */
 $().ready(function() {
-    if(authManager.isUserLogged()) {
+    if(!authManager.isUserLogged()) {
         initHomepage();
     } else {
         initLogin();

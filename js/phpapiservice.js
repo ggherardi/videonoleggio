@@ -1,10 +1,25 @@
-// var Services = Services || {}
+export class AuthenticationService {
+    constructor() {
+        this.endpoint = "php/AuthenticationService.php";
+    }
 
-// exportServices.Authentication = class {
-//     constructor(){}
-// }
-export class Authentication {
-    constructor(){}
+    getField() {
+        var action = "";
+        $.ajax({
+            url: this.endpoint,
+            success: function(data) {
+                console.log(data);
+            }
+        });
+    }
+}
 
-    getField(){}
+export class VideoRentalServce {
+    constructor() {
+
+    }
+
+    getField() {
+        
+    }
 }

@@ -39,6 +39,10 @@ class AuthenticationService {
         return $this->dbContext->ExecuteQuery($query);
     }
 
+    private function Test(){
+        exit(json_encode("test successful"));
+    }
+
     /** Effettua il login al sito con l'username inserito, ritorna:
     * -1 se non è stato trovato l'account associato
     * L'oggetto $user (UserModel) se l'account è stato trovato */
@@ -167,6 +171,8 @@ class AuthenticationService {
 
     // Switcha l'operazione richiesta lato client
     function Init(){
+        
+        exit(json_encode("test"));
         switch($_POST["action"]){
             case "signup":
                 self::SignUp();
