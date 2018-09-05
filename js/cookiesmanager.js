@@ -1,4 +1,4 @@
-export class CookiesManager{
+class CookiesManager{
     constructor() { }
 
     // Codifica il cookie in base64

@@ -1,8 +1,9 @@
-export class Controller {
+class Controller {
     constructor(containerSelector) {
         this.baseUrl = window.location.host;
         this.containerSelector = containerSelector;
         this.renderSuccess = function(data) {
+            this.loadCorrelatedScript();
             $(this.containerSelector).html(data);
         }
         this.renderError = function(error) {
@@ -15,11 +16,13 @@ export class Controller {
     }
 
     setView(view) {
+        this.correlatedScripUrl = `js/views/${view.toLowerCase()}.js`;
         this.ajaxOptions.url = `/views/${view.toLowerCase()}.html`;
         return this.set();
     }
 
     setComponent(component) {
+        this.correlatedScripUrl = `js/components/${component.toLowerCase()}.js`;
         this.ajaxOptions.url = `/components/${component.toLowerCase()}.html`;
         return this.set();
     }
@@ -27,9 +30,19 @@ export class Controller {
     set() {
         return $.ajax(this.ajaxOptions);
     }
+
+    loadCorrelatedScript() {
+        var allScripts = [...document.scripts];
+        var alreadyLoadedScript = allScripts.find((el) => { return el.src == this.correlatedScripUrl});
+        if(!alreadyLoadedScript) {
+            var script = document.createElement("script");
+            script.setAttribute("src", this.correlatedScripUrl);
+            document.head.appendChild(script);
+        }
+    }
 }
 
-export class Menu {
+class Menu {
     constructor(menuItems) {
         this.menuItems = menuItems;
         this.html = "";

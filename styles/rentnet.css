@@ -15,6 +15,10 @@
     text-align: center;
 }
 
+#LoginForm input {
+    text-align: center;
+}
+
 #LoginForm button 
 {
     margin-top: 20px;

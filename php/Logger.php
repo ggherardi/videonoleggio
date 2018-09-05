@@ -9,7 +9,7 @@ class Logger {
             return;
         }
         $date = date('dmy');
-        self::$LogFileName = "APILogger_$date.log";
+        self::$LogFileName = "logs/APILogger_$date.log";
         self::$Initialized = true;
     }
 

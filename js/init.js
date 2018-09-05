@@ -1,8 +1,3 @@
-/* Import */
-import { Menu, Controller } from "./controller.js"
-import { CookiesManager } from "./cookiesmanager.js"
-import { AuthenticationManager } from "./authenticationmanager.js"
-
 /* Settings */
 var views = {
     home: { title: "Home" },
@@ -25,7 +20,7 @@ var authManager = new AuthenticationManager(cookiesManager);
 
 /* Document ready */
 $().ready(function() {
-    if(!authManager.isUserLogged()) {
+    if(authManager.isUserLogged()) {
         initHomepage();
     } else {
         initLogin();
@@ -33,7 +28,6 @@ $().ready(function() {
 })
 
 /* Init functions */
-
 function initHomepage() {
     initMasterpageComponents();
 }

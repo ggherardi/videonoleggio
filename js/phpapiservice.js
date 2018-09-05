@@ -1,4 +1,4 @@
-export class AuthenticationService {
+class AuthenticationService {
     constructor() {
         this.endpoint = "php/AuthenticationService.php";
     }
@@ -14,7 +14,7 @@ export class AuthenticationService {
     }
 }
 
-export class VideoRentalServce {
+class VideoRentalServce {
     constructor() {
 
     }
