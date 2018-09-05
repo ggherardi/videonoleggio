@@ -1,4 +1,4 @@
-class Controller {
+export class Controller {
     constructor(containerSelector) {
         this.baseUrl = window.location.host;
         this.containerSelector = containerSelector;
@@ -32,7 +32,7 @@ class Controller {
     }
 }
 
-class Menu {
+export class Menu {
     constructor(menuItems) {
         this.menuItems = menuItems;
         this.html = "";

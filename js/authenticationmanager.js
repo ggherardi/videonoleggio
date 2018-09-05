@@ -1,5 +1,5 @@
 /* Requires: cookiesmanager.js */
-class AuthenticationService {
+export class AuthenticationManager {
     constructor(cookiesManager) {
         this.cookiesManager = cookiesManager;
         this.userCookieName = 'user';

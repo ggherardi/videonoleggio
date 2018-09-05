@@ -1,3 +1,10 @@
+/* Import */
+import { Menu, Controller } from "../js/controller.js"
+import { CookiesManager } from "../js/cookiesmanager.js"
+import { AuthenticationManager } from "../js/authenticationmanager.js"
+import * as Services from "../js/phpapiservice.js"
+let h = new Services.Authentication;
+
 /* Settings */
 var views = {
     home: { title: "Home" },
@@ -10,17 +17,17 @@ var components = {
     sidebar: { title: "Sidebar" }
 };
 
-/* Properties */
-mainContentController = {};
-sidebarController = {};
-menu = {};
-cookiesManager = {};
-authService = {};
+/* Classes */
+var menu = new Menu(views);
+var mainContentController = new Controller("#ContentZone0");
+var sidebarController = new Controller("#Sidebar");
+var navbarController = new Controller("#Navbar");
+var cookiesManager = new CookiesManager();
+var authManager = new AuthenticationManager(cookiesManager);
 
 /* Document ready */
 $().ready(function() {
-    initClasses();
-    if(authService.isUserLogged()) {
+    if(authManager.isUserLogged()) {
         initHomepage();
     } else {
         initLogin();
@@ -28,14 +35,6 @@ $().ready(function() {
 })
 
 /* Init functions */
-function initClasses(){
-    menu = new Menu(views);
-    mainContentController = new Controller("#ContentZone0");
-    sidebarController = new Controller("#Sidebar");
-    navbarController = new Controller("#Navbar");
-    cookiesManager = new CookiesManager();
-    authService = new AuthenticationService(cookiesManager);
-}
 
 function initHomepage() {
     initMasterpageComponents();
