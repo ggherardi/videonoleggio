@@ -24,3 +24,9 @@
     margin-top: 20px;
 }
 
+.spinner-loader {
+    background-color: #8583e1;
+    opacity: 0,5;
+    position: fixed;
+    z-index: 9999;
+}

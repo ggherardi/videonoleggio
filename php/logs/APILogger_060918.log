@@ -1,1 +1,458 @@
 [06/09/2018 01:45:09] - corrId_5b906a852a6ae7.68697776 - Reached AuthenticationService API 
+[06/09/2018 08:57:41] - corrId_5b90cfe50a84e2.90730142 - Reached AuthenticationService API 
+[06/09/2018 10:22:11] - corrId_5b90e3b3ab2737.96261796 - Reached AuthenticationService API 
+[06/09/2018 10:59:09] - corrId_5b90ec5d4b1334.03356865 - Reached AuthenticationService API 
+[06/09/2018 10:59:28] - corrId_5b90ec705c70d1.62115884 - Reached AuthenticationService API 
+[06/09/2018 11:00:29] - corrId_5b90ecad406bd8.02231713 - Reached AuthenticationService API 
+[06/09/2018 11:02:08] - corrId_5b90ed10429d75.49241868 - Reached AuthenticationService API 
+[06/09/2018 11:02:20] - corrId_5b90ed1c439601.16835308 - Reached AuthenticationService API 
+[06/09/2018 11:02:46] - corrId_5b90ed369b3c93.17794860 - Reached AuthenticationService API 
+[06/09/2018 11:03:01] - corrId_5b90ed45dee5a4.59435678 - Reached AuthenticationService API 
+[06/09/2018 11:34:13] - corrId_5b90f495cb8cc2.44781563 - Reached AuthenticationService API 
+[06/09/2018 11:34:18] - corrId_5b90f49abae143.70424969 - Reached AuthenticationService API 
+[06/09/2018 11:34:21] - corrId_5b90f49d5fed21.47216987 - Reached AuthenticationService API 
+[06/09/2018 11:34:22] - corrId_5b90f49e5df5d5.87825374 - Reached AuthenticationService API 
+[06/09/2018 11:34:24] - corrId_5b90f4a0659ff2.40852925 - Reached AuthenticationService API 
+[06/09/2018 11:59:32] - corrId_5b90fa847182e6.45660213 - Reached AuthenticationService API 
+[06/09/2018 11:59:48] - corrId_5b90fa94cbadc8.93599832 - Reached AuthenticationService API 
+[06/09/2018 12:00:42] - corrId_5b90facaf001e2.09407149 - Reached AuthenticationService API 
+[06/09/2018 12:00:42] - corrId_5b90facaf001e2.09407149 - Processing Login request. 
+[06/09/2018 12:01:40] - corrId_5b90fb04411ef2.06255222 - Reached AuthenticationService API 
+[06/09/2018 12:01:40] - corrId_5b90fb04411ef2.06255222 - Processing Login request. 
+[06/09/2018 12:02:06] - corrId_5b90fb1e600730.01122385 - Reached AuthenticationService API 
+[06/09/2018 12:02:06] - corrId_5b90fb1e600730.01122385 - Processing Login request. 
+[06/09/2018 12:02:27] - corrId_5b90fb33bc34f9.60486682 - Reached AuthenticationService API 
+[06/09/2018 12:02:27] - corrId_5b90fb33bc34f9.60486682 - Processing Login request. 
+[06/09/2018 12:02:33] - corrId_5b90fb39506812.42169074 - Reached AuthenticationService API 
+[06/09/2018 12:02:33] - corrId_5b90fb39506812.42169074 - Processing Login request. 
+[06/09/2018 12:02:39] - corrId_5b90fb3f0a4864.97532085 - Reached AuthenticationService API 
+[06/09/2018 12:02:39] - corrId_5b90fb3f0a4864.97532085 - Processing Login request. 
+[06/09/2018 12:02:57] - corrId_5b90fb51b93aa0.17606000 - Reached AuthenticationService API 
+[06/09/2018 12:02:57] - corrId_5b90fb51b93aa0.17606000 - Processing Login request. 
+[06/09/2018 12:10:48] - corrId_5b90fd285dd638.94857002 - Reached AuthenticationService API 
+[06/09/2018 12:10:48] - corrId_5b90fd285dd638.94857002 - Processing Login request. 
+[06/09/2018 12:12:57] - corrId_5b90fda9b21206.67409850 - Reached AuthenticationService API 
+[06/09/2018 12:12:57] - corrId_5b90fda9b21206.67409850 - Processing Login request. 
+[06/09/2018 12:13:07] - corrId_5b90fdb39c90f1.11942647 - Reached AuthenticationService API 
+[06/09/2018 12:13:07] - corrId_5b90fdb39c90f1.11942647 - Processing Login request. 
+[06/09/2018 12:29:17] - corrId_5b91017d26aa21.04156293 - Reached AuthenticationService API 
+[06/09/2018 12:29:17] - corrId_5b91017d26aa21.04156293 - Processing Login request. 
+[06/09/2018 12:29:17] - corrId_5b91017d26aa21.04156293 - Establishing connection to DB 
+[06/09/2018 12:29:17] - corrId_5b91017d26aa21.04156293 - Executing query 
+[06/09/2018 12:29:17] - corrId_5b91017d26aa21.04156293 - Error while executing query -> Table 'videonoleggio.user' doesn't exist 
+[06/09/2018 12:29:17] - corrId_5b91017d26aa21.04156293 - Error during the login of user -> Exception: Exception: Table 'videonoleggio.user' doesn't exist in C:\Websites\BDC\videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(44): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(164): AuthenticationService->Login()
+#3 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(177): AuthenticationService->Init()
+#4 {main} in C:\Websites\BDC\videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(44): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(164): AuthenticationService->Login()
+#3 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(177): AuthenticationService->Init()
+#4 {main} 
+[06/09/2018 12:29:27] - corrId_5b910187314c84.62683080 - Reached AuthenticationService API 
+[06/09/2018 12:29:27] - corrId_5b910187314c84.62683080 - Processing Login request. 
+[06/09/2018 12:29:27] - corrId_5b910187314c84.62683080 - Establishing connection to DB 
+[06/09/2018 12:29:27] - corrId_5b910187314c84.62683080 - Executing query 
+[06/09/2018 12:29:27] - corrId_5b910187314c84.62683080 - Error while executing query -> Table 'videonoleggio.user' doesn't exist 
+[06/09/2018 12:29:27] - corrId_5b910187314c84.62683080 - Error during the login of user -> Exception: Exception: Table 'videonoleggio.user' doesn't exist in C:\Websites\BDC\videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(44): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(164): AuthenticationService->Login()
+#3 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(177): AuthenticationService->Init()
+#4 {main} in C:\Websites\BDC\videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(44): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(164): AuthenticationService->Login()
+#3 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(177): AuthenticationService->Init()
+#4 {main} 
+[06/09/2018 12:29:42] - corrId_5b910196291700.42274055 - Reached AuthenticationService API 
+[06/09/2018 12:29:42] - corrId_5b910196291700.42274055 - Processing Login request. 
+[06/09/2018 12:29:42] - corrId_5b910196291700.42274055 - Establishing connection to DB 
+[06/09/2018 12:29:42] - corrId_5b910196291700.42274055 - Executing query 
+[06/09/2018 12:29:42] - corrId_5b910196291700.42274055 - Error while executing query -> Table 'videonoleggio.user' doesn't exist 
+[06/09/2018 12:29:42] - corrId_5b910196291700.42274055 - Error during the login of user -> Exception: Exception: Table 'videonoleggio.user' doesn't exist in C:\Websites\BDC\videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(44): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(164): AuthenticationService->Login()
+#3 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(177): AuthenticationService->Init()
+#4 {main} in C:\Websites\BDC\videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(44): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(164): AuthenticationService->Login()
+#3 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(177): AuthenticationService->Init()
+#4 {main} 
+[06/09/2018 12:29:56] - corrId_5b9101a4351266.41538459 - Reached AuthenticationService API 
+[06/09/2018 12:29:56] - corrId_5b9101a4351266.41538459 - Processing Login request. 
+[06/09/2018 12:30:09] - corrId_5b9101b16ed175.29746098 - Reached AuthenticationService API 
+[06/09/2018 12:30:09] - corrId_5b9101b16ed175.29746098 - Processing Login request. 
+[06/09/2018 12:30:09] - corrId_5b9101b16ed175.29746098 - Establishing connection to DB 
+[06/09/2018 12:30:27] - corrId_5b9101c358dfa3.43120189 - Reached AuthenticationService API 
+[06/09/2018 12:30:27] - corrId_5b9101c358dfa3.43120189 - Processing Login request. 
+[06/09/2018 12:30:27] - corrId_5b9101c358dfa3.43120189 - Establishing connection to DB 
+[06/09/2018 12:31:38] - corrId_5b91020aeb9cf1.47949807 - Reached AuthenticationService API 
+[06/09/2018 12:31:38] - corrId_5b91020aeb9cf1.47949807 - Processing Login request. 
+[06/09/2018 12:31:38] - corrId_5b91020aeb9cf1.47949807 - Establishing connection to DB 
+[06/09/2018 12:31:38] - corrId_5b91020aeb9cf1.47949807 - Executing query 
+[06/09/2018 12:31:44] - corrId_5b910210e67b03.78889239 - Reached AuthenticationService API 
+[06/09/2018 12:31:44] - corrId_5b910210e67b03.78889239 - Processing Login request. 
+[06/09/2018 12:31:44] - corrId_5b910210e67b03.78889239 - Establishing connection to DB 
+[06/09/2018 12:31:44] - corrId_5b910210e67b03.78889239 - Executing query 
+[06/09/2018 12:31:55] - corrId_5b91021b041c12.35311151 - Reached AuthenticationService API 
+[06/09/2018 12:31:55] - corrId_5b91021b041c12.35311151 - Processing Login request. 
+[06/09/2018 12:31:55] - corrId_5b91021b041c12.35311151 - Establishing connection to DB 
+[06/09/2018 12:31:55] - corrId_5b91021b041c12.35311151 - Executing query 
+[06/09/2018 12:31:55] - corrId_5b91021b041c12.35311151 - Error while executing query -> Table 'videonoleggio.user' doesn't exist 
+[06/09/2018 12:32:18] - corrId_5b9102326e1497.61666575 - Reached AuthenticationService API 
+[06/09/2018 12:32:18] - corrId_5b9102326e1497.61666575 - Processing Login request. 
+[06/09/2018 12:32:18] - corrId_5b9102326e1497.61666575 - Establishing connection to DB 
+[06/09/2018 12:32:18] - corrId_5b9102326e1497.61666575 - Executing query 
+[06/09/2018 12:32:18] - corrId_5b9102326e1497.61666575 - Error while executing query -> Table 'videonoleggio.user' doesn't exist 
+[06/09/2018 12:32:18] - corrId_5b9102326e1497.61666575 - Error during the login of user -> Exception: Exception: Table 'videonoleggio.user' doesn't exist in C:\Websites\BDC\videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(162): AuthenticationService->Login()
+#3 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(175): AuthenticationService->Init()
+#4 {main} in C:\Websites\BDC\videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(162): AuthenticationService->Login()
+#3 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(175): AuthenticationService->Init()
+#4 {main} 
+[06/09/2018 12:32:59] - corrId_5b91025bc12536.49490115 - Reached AuthenticationService API 
+[06/09/2018 12:32:59] - corrId_5b91025bc12536.49490115 - Processing Login request. 
+[06/09/2018 12:32:59] - corrId_5b91025bc12536.49490115 - Establishing connection to DB 
+[06/09/2018 12:32:59] - corrId_5b91025bc12536.49490115 - Executing query 
+[06/09/2018 12:32:59] - corrId_5b91025bc12536.49490115 - Error while executing query -> Table 'videonoleggio.user' doesn't exist 
+[06/09/2018 12:32:59] - corrId_5b91025bc12536.49490115 - Error during the login of user -> Exception: Exception: Table 'videonoleggio.user' doesn't exist in C:\Websites\BDC\videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(162): AuthenticationService->Login()
+#3 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(175): AuthenticationService->Init()
+#4 {main} in C:\Websites\BDC\videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(162): AuthenticationService->Login()
+#3 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(175): AuthenticationService->Init()
+#4 {main} 
+[06/09/2018 12:34:26] - corrId_5b9102b202a007.60730163 - Reached AuthenticationService API 
+[06/09/2018 12:34:26] - corrId_5b9102b202a007.60730163 - Processing Login request. 
+[06/09/2018 12:34:26] - corrId_5b9102b202a007.60730163 - Establishing connection to DB 
+[06/09/2018 12:34:26] - corrId_5b9102b202a007.60730163 - Executing query 
+[06/09/2018 12:34:26] - corrId_5b9102b202a007.60730163 - Error while executing query -> Table 'videonoleggio.user' doesn't exist 
+[06/09/2018 12:34:26] - corrId_5b9102b202a007.60730163 - Error during the login of user -> Exception: Exception: Table 'videonoleggio.user' doesn't exist in C:\Websites\BDC\videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(162): AuthenticationService->Login()
+#3 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(175): AuthenticationService->Init()
+#4 {main} in C:\Websites\BDC\videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(162): AuthenticationService->Login()
+#3 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(175): AuthenticationService->Init()
+#4 {main} 
+[06/09/2018 12:34:32] - corrId_5b9102b83dd022.91442565 - Reached AuthenticationService API 
+[06/09/2018 12:34:32] - corrId_5b9102b83dd022.91442565 - Processing Login request. 
+[06/09/2018 12:34:32] - corrId_5b9102b83dd022.91442565 - Establishing connection to DB 
+[06/09/2018 12:34:32] - corrId_5b9102b83dd022.91442565 - Executing query 
+[06/09/2018 12:34:32] - corrId_5b9102b83dd022.91442565 - Error during the login of user -> Exception: Wrong password in C:\Websites\BDC\videonoleggio\php\AuthenticationService.php:55
+Stack trace:
+#0 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(162): AuthenticationService->Login()
+#1 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(175): AuthenticationService->Init()
+#2 {main} 
+[06/09/2018 12:34:58] - corrId_5b9102d295d054.66274792 - Reached AuthenticationService API 
+[06/09/2018 12:34:58] - corrId_5b9102d295d054.66274792 - Processing Login request. 
+[06/09/2018 12:34:58] - corrId_5b9102d295d054.66274792 - Establishing connection to DB 
+[06/09/2018 12:34:58] - corrId_5b9102d295d054.66274792 - Executing query 
+[06/09/2018 12:34:58] - corrId_5b9102d295d054.66274792 - Error during the login of user -> Error: Cannot access empty property in C:\Websites\BDC\videonoleggio\php\AuthenticationService.php:193
+Stack trace:
+#0 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(189): User->generateTokenForUser()
+#1 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(49): User->__construct(Array)
+#2 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(162): AuthenticationService->Login()
+#3 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(175): AuthenticationService->Init()
+#4 {main} 
+[06/09/2018 12:35:08] - corrId_5b9102dc1e5df3.07507984 - Reached AuthenticationService API 
+[06/09/2018 12:35:08] - corrId_5b9102dc1e5df3.07507984 - Processing Login request. 
+[06/09/2018 12:35:08] - corrId_5b9102dc1e5df3.07507984 - Establishing connection to DB 
+[06/09/2018 12:35:08] - corrId_5b9102dc1e5df3.07507984 - Executing query 
+[06/09/2018 12:35:08] - corrId_5b9102dc1e5df3.07507984 - Error during the login of user -> Exception: Wrong password in C:\Websites\BDC\videonoleggio\php\AuthenticationService.php:55
+Stack trace:
+#0 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(162): AuthenticationService->Login()
+#1 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(175): AuthenticationService->Init()
+#2 {main} 
+[06/09/2018 12:35:25] - corrId_5b9102ededce35.05867410 - Reached AuthenticationService API 
+[06/09/2018 12:35:25] - corrId_5b9102ededce35.05867410 - Processing Login request. 
+[06/09/2018 12:35:25] - corrId_5b9102ededce35.05867410 - Establishing connection to DB 
+[06/09/2018 12:35:25] - corrId_5b9102ededce35.05867410 - Executing query 
+[06/09/2018 12:35:39] - corrId_5b9102fb609344.58085440 - Reached AuthenticationService API 
+[06/09/2018 12:35:39] - corrId_5b9102fb609344.58085440 - Processing Login request. 
+[06/09/2018 12:35:39] - corrId_5b9102fb609344.58085440 - Establishing connection to DB 
+[06/09/2018 12:35:39] - corrId_5b9102fb609344.58085440 - Executing query 
+[06/09/2018 12:35:39] - corrId_5b9102fb609344.58085440 - Error during the login of user -> Exception: Wrong password in C:\Websites\BDC\videonoleggio\php\AuthenticationService.php:56
+Stack trace:
+#0 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(163): AuthenticationService->Login()
+#1 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(176): AuthenticationService->Init()
+#2 {main} 
+[06/09/2018 12:35:46] - corrId_5b91030225f216.77229770 - Reached AuthenticationService API 
+[06/09/2018 12:35:46] - corrId_5b91030225f216.77229770 - Processing Login request. 
+[06/09/2018 12:35:46] - corrId_5b91030225f216.77229770 - Establishing connection to DB 
+[06/09/2018 12:35:46] - corrId_5b91030225f216.77229770 - Executing query 
+[06/09/2018 12:35:55] - corrId_5b91030b834f52.83152252 - Reached AuthenticationService API 
+[06/09/2018 12:35:55] - corrId_5b91030b834f52.83152252 - Processing Login request. 
+[06/09/2018 12:35:55] - corrId_5b91030b834f52.83152252 - Establishing connection to DB 
+[06/09/2018 12:35:55] - corrId_5b91030b834f52.83152252 - Executing query 
+[06/09/2018 12:36:02] - corrId_5b9103122f8a61.16248560 - Reached AuthenticationService API 
+[06/09/2018 12:36:02] - corrId_5b9103122f8a61.16248560 - Processing Login request. 
+[06/09/2018 12:36:02] - corrId_5b9103122f8a61.16248560 - Establishing connection to DB 
+[06/09/2018 12:36:02] - corrId_5b9103122f8a61.16248560 - Executing query 
+[06/09/2018 12:36:02] - corrId_5b9103122f8a61.16248560 - Error during the login of user -> Exception: Wrong password in C:\Websites\BDC\videonoleggio\php\AuthenticationService.php:55
+Stack trace:
+#0 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(162): AuthenticationService->Login()
+#1 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(175): AuthenticationService->Init()
+#2 {main} 
+[06/09/2018 12:36:10] - corrId_5b91031aca7dd9.12009901 - Reached AuthenticationService API 
+[06/09/2018 12:36:10] - corrId_5b91031aca7dd9.12009901 - Processing Login request. 
+[06/09/2018 12:36:10] - corrId_5b91031aca7dd9.12009901 - Establishing connection to DB 
+[06/09/2018 12:36:10] - corrId_5b91031aca7dd9.12009901 - Executing query 
+[06/09/2018 12:36:15] - corrId_5b91031fe02382.67614432 - Reached AuthenticationService API 
+[06/09/2018 12:36:15] - corrId_5b91031fe02382.67614432 - Processing Login request. 
+[06/09/2018 12:36:15] - corrId_5b91031fe02382.67614432 - Establishing connection to DB 
+[06/09/2018 12:36:15] - corrId_5b91031fe02382.67614432 - Executing query 
+[06/09/2018 12:36:38] - corrId_5b910336314028.29268226 - Reached AuthenticationService API 
+[06/09/2018 12:36:38] - corrId_5b910336314028.29268226 - Processing Login request. 
+[06/09/2018 12:36:38] - corrId_5b910336314028.29268226 - Establishing connection to DB 
+[06/09/2018 12:36:38] - corrId_5b910336314028.29268226 - Executing query 
+[06/09/2018 12:36:43] - corrId_5b91033b523824.10988008 - Reached AuthenticationService API 
+[06/09/2018 12:36:43] - corrId_5b91033b523824.10988008 - Processing Login request. 
+[06/09/2018 12:36:43] - corrId_5b91033b523824.10988008 - Establishing connection to DB 
+[06/09/2018 12:36:43] - corrId_5b91033b523824.10988008 - Executing query 
+[06/09/2018 12:36:57] - corrId_5b910349e10c70.01159180 - Reached AuthenticationService API 
+[06/09/2018 12:36:57] - corrId_5b910349e10c70.01159180 - Processing Login request. 
+[06/09/2018 12:36:57] - corrId_5b910349e10c70.01159180 - Establishing connection to DB 
+[06/09/2018 12:36:57] - corrId_5b910349e10c70.01159180 - Executing query 
+[06/09/2018 12:37:02] - corrId_5b91034e4dc070.28908918 - Reached AuthenticationService API 
+[06/09/2018 12:37:02] - corrId_5b91034e4dc070.28908918 - Processing Login request. 
+[06/09/2018 12:37:02] - corrId_5b91034e4dc070.28908918 - Establishing connection to DB 
+[06/09/2018 12:37:02] - corrId_5b91034e4dc070.28908918 - Executing query 
+[06/09/2018 12:37:13] - corrId_5b91035956eaf2.74493498 - Reached AuthenticationService API 
+[06/09/2018 12:37:13] - corrId_5b91035956eaf2.74493498 - Processing Login request. 
+[06/09/2018 12:37:13] - corrId_5b91035956eaf2.74493498 - Establishing connection to DB 
+[06/09/2018 12:37:13] - corrId_5b91035956eaf2.74493498 - Executing query 
+[06/09/2018 12:37:21] - corrId_5b910361a6d504.75640234 - Reached AuthenticationService API 
+[06/09/2018 12:37:21] - corrId_5b910361a6d504.75640234 - Processing Login request. 
+[06/09/2018 12:37:21] - corrId_5b910361a6d504.75640234 - Establishing connection to DB 
+[06/09/2018 12:37:21] - corrId_5b910361a6d504.75640234 - Executing query 
+[06/09/2018 12:37:21] - corrId_5b910361a6d504.75640234 - Error during the login of user -> Error: Cannot access empty property in C:\Websites\BDC\videonoleggio\php\AuthenticationService.php:192
+Stack trace:
+#0 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(188): User->generateTokenForUser()
+#1 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(49): User->__construct(Array)
+#2 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} 
+[06/09/2018 12:37:39] - corrId_5b9103737f6462.44609777 - Reached AuthenticationService API 
+[06/09/2018 12:37:39] - corrId_5b9103737f6462.44609777 - Processing Login request. 
+[06/09/2018 12:37:39] - corrId_5b9103737f6462.44609777 - Establishing connection to DB 
+[06/09/2018 12:37:39] - corrId_5b9103737f6462.44609777 - Executing query 
+[06/09/2018 12:38:03] - corrId_5b91038bdbc724.58337049 - Reached AuthenticationService API 
+[06/09/2018 12:38:03] - corrId_5b91038bdbc724.58337049 - Processing Login request. 
+[06/09/2018 12:38:03] - corrId_5b91038bdbc724.58337049 - Establishing connection to DB 
+[06/09/2018 12:38:03] - corrId_5b91038bdbc724.58337049 - Executing query 
+[06/09/2018 12:38:35] - corrId_5b9103ab62d701.01388361 - Reached AuthenticationService API 
+[06/09/2018 12:38:35] - corrId_5b9103ab62d701.01388361 - Processing Login request. 
+[06/09/2018 12:38:35] - corrId_5b9103ab62d701.01388361 - Establishing connection to DB 
+[06/09/2018 12:38:35] - corrId_5b9103ab62d701.01388361 - Executing query 
+[06/09/2018 12:38:50] - corrId_5b9103bad54cc6.04463369 - Reached AuthenticationService API 
+[06/09/2018 12:38:50] - corrId_5b9103bad54cc6.04463369 - Processing Login request. 
+[06/09/2018 12:38:50] - corrId_5b9103bad54cc6.04463369 - Establishing connection to DB 
+[06/09/2018 12:38:50] - corrId_5b9103bad54cc6.04463369 - Executing query 
+[06/09/2018 12:38:50] - corrId_5b9103bad54cc6.04463369 - Error during the login of user -> Error: Cannot access empty property in C:\Websites\BDC\videonoleggio\php\AuthenticationService.php:192
+Stack trace:
+#0 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(188): User->generateTokenForUser()
+#1 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(49): User->__construct(Array)
+#2 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} 
+[06/09/2018 12:39:27] - corrId_5b9103df5b0bb3.32862671 - Reached AuthenticationService API 
+[06/09/2018 12:39:27] - corrId_5b9103df5b0bb3.32862671 - Processing Login request. 
+[06/09/2018 12:39:27] - corrId_5b9103df5b0bb3.32862671 - Establishing connection to DB 
+[06/09/2018 12:39:27] - corrId_5b9103df5b0bb3.32862671 - Executing query 
+[06/09/2018 12:39:27] - corrId_5b9103df5b0bb3.32862671 - Token generated succesfully. 
+[06/09/2018 12:39:57] - corrId_5b9103fdd8a153.74593904 - Reached AuthenticationService API 
+[06/09/2018 12:39:57] - corrId_5b9103fdd8a153.74593904 - Processing Login request. 
+[06/09/2018 12:39:57] - corrId_5b9103fdd8a153.74593904 - Establishing connection to DB 
+[06/09/2018 12:39:57] - corrId_5b9103fdd8a153.74593904 - Executing query 
+[06/09/2018 12:39:58] - corrId_5b9103fdd8a153.74593904 - Error during the login of user -> Error: Cannot access empty property in C:\Websites\BDC\videonoleggio\php\AuthenticationService.php:192
+Stack trace:
+#0 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(188): User->generateTokenForUser()
+#1 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(49): User->__construct(Array)
+#2 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} 
+[06/09/2018 12:40:19] - corrId_5b910413423d71.24923711 - Reached AuthenticationService API 
+[06/09/2018 12:40:19] - corrId_5b910413423d71.24923711 - Processing Login request. 
+[06/09/2018 12:40:19] - corrId_5b910413423d71.24923711 - Establishing connection to DB 
+[06/09/2018 12:40:19] - corrId_5b910413423d71.24923711 - Executing query 
+[06/09/2018 12:40:19] - corrId_5b910413423d71.24923711 - validated 
+[06/09/2018 12:40:19] - corrId_5b910413423d71.24923711 - Token generated succesfully. 
+[06/09/2018 12:40:39] - corrId_5b910427da8509.37532696 - Reached AuthenticationService API 
+[06/09/2018 12:40:39] - corrId_5b910427da8509.37532696 - Processing Login request. 
+[06/09/2018 12:40:39] - corrId_5b910427da8509.37532696 - Establishing connection to DB 
+[06/09/2018 12:40:39] - corrId_5b910427da8509.37532696 - Executing query 
+[06/09/2018 12:40:40] - corrId_5b910427da8509.37532696 - admin 
+[06/09/2018 12:40:40] - corrId_5b910427da8509.37532696 - Token generated succesfully. 
+[06/09/2018 12:41:15] - corrId_5b91044b426561.65939861 - Reached AuthenticationService API 
+[06/09/2018 12:41:15] - corrId_5b91044b426561.65939861 - Processing Login request. 
+[06/09/2018 12:41:15] - corrId_5b91044b426561.65939861 - Establishing connection to DB 
+[06/09/2018 12:41:15] - corrId_5b91044b426561.65939861 - Executing query 
+[06/09/2018 12:41:15] - corrId_5b91044b426561.65939861 - Error during the login of user -> Error: Cannot access empty property in C:\Websites\BDC\videonoleggio\php\AuthenticationService.php:192
+Stack trace:
+#0 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(188): User->generateTokenForUser()
+#1 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(49): User->__construct(Array)
+#2 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} 
+[06/09/2018 12:41:46] - corrId_5b91046aba4e19.65676675 - Reached AuthenticationService API 
+[06/09/2018 12:41:46] - corrId_5b91046aba4e19.65676675 - Processing Login request. 
+[06/09/2018 12:41:46] - corrId_5b91046aba4e19.65676675 - Establishing connection to DB 
+[06/09/2018 12:41:46] - corrId_5b91046aba4e19.65676675 - Executing query 
+[06/09/2018 12:41:46] - corrId_5b91046aba4e19.65676675 - User admin validated, generating Token. 
+[06/09/2018 12:41:46] - corrId_5b91046aba4e19.65676675 - Token generated succesfully. 
+[06/09/2018 12:42:04] - corrId_5b91047cdf3657.77564209 - Reached AuthenticationService API 
+[06/09/2018 12:42:04] - corrId_5b91047cdf3657.77564209 - Processing Login request. 
+[06/09/2018 12:42:04] - corrId_5b91047cdf3657.77564209 - Establishing connection to DB 
+[06/09/2018 12:42:04] - corrId_5b91047cdf3657.77564209 - Executing query 
+[06/09/2018 12:42:05] - corrId_5b91047cdf3657.77564209 - User admin validated, generating Token. 
+[06/09/2018 12:42:05] - corrId_5b91047cdf3657.77564209 - Token generated succesfully. 
+[06/09/2018 12:42:09] - corrId_5b91048180d2c6.61855204 - Reached AuthenticationService API 
+[06/09/2018 12:42:09] - corrId_5b91048180d2c6.61855204 - Processing Login request. 
+[06/09/2018 12:42:09] - corrId_5b91048180d2c6.61855204 - Establishing connection to DB 
+[06/09/2018 12:42:09] - corrId_5b91048180d2c6.61855204 - Executing query 
+[06/09/2018 12:42:17] - corrId_5b91048974cb49.95317561 - Reached AuthenticationService API 
+[06/09/2018 12:42:17] - corrId_5b91048974cb49.95317561 - Processing Login request. 
+[06/09/2018 12:42:17] - corrId_5b91048974cb49.95317561 - Establishing connection to DB 
+[06/09/2018 12:42:17] - corrId_5b91048974cb49.95317561 - Executing query 
+[06/09/2018 12:51:34] - corrId_5b9106b6e7cad1.78992534 - Reached AuthenticationService API 
+[06/09/2018 12:51:34] - corrId_5b9106b6e7cad1.78992534 - Processing Login request. 
+[06/09/2018 12:51:34] - corrId_5b9106b6e7cad1.78992534 - Establishing connection to DB 
+[06/09/2018 12:51:34] - corrId_5b9106b6e7cad1.78992534 - Executing query 
+[06/09/2018 12:51:42] - corrId_5b9106bece1df3.43550711 - Reached AuthenticationService API 
+[06/09/2018 12:51:42] - corrId_5b9106bece1df3.43550711 - Processing Login request. 
+[06/09/2018 12:51:42] - corrId_5b9106bece1df3.43550711 - Establishing connection to DB 
+[06/09/2018 12:51:42] - corrId_5b9106bece1df3.43550711 - Executing query 
+[06/09/2018 12:51:57] - corrId_5b9106cde7dd87.33529288 - Reached AuthenticationService API 
+[06/09/2018 12:51:57] - corrId_5b9106cde7dd87.33529288 - Processing Login request. 
+[06/09/2018 12:51:57] - corrId_5b9106cde7dd87.33529288 - Establishing connection to DB 
+[06/09/2018 12:51:57] - corrId_5b9106cde7dd87.33529288 - Executing query 
+[06/09/2018 12:52:12] - corrId_5b9106dc209ba1.26114789 - Reached AuthenticationService API 
+[06/09/2018 12:52:12] - corrId_5b9106dc209ba1.26114789 - Processing Login request. 
+[06/09/2018 12:52:12] - corrId_5b9106dc209ba1.26114789 - Establishing connection to DB 
+[06/09/2018 12:52:12] - corrId_5b9106dc209ba1.26114789 - Executing query 
+[06/09/2018 12:52:15] - corrId_5b9106df886525.94284595 - Reached AuthenticationService API 
+[06/09/2018 12:52:15] - corrId_5b9106df886525.94284595 - Processing Login request. 
+[06/09/2018 12:52:15] - corrId_5b9106df886525.94284595 - Establishing connection to DB 
+[06/09/2018 12:52:15] - corrId_5b9106df886525.94284595 - Executing query 
+[06/09/2018 12:52:15] - corrId_5b9106df886525.94284595 - User admin validated, generating Token. 
+[06/09/2018 12:52:15] - corrId_5b9106df886525.94284595 - Token generated succesfully. 
+[06/09/2018 12:53:05] - corrId_5b910711d9e1b6.94565281 - Reached AuthenticationService API 
+[06/09/2018 12:53:05] - corrId_5b910711d9e1b6.94565281 - Processing Login request. 
+[06/09/2018 12:53:05] - corrId_5b910711d9e1b6.94565281 - Establishing connection to DB 
+[06/09/2018 12:53:05] - corrId_5b910711d9e1b6.94565281 - Executing query 
+[06/09/2018 12:53:06] - corrId_5b910711d9e1b6.94565281 - User admin validated, generating Token. 
+[06/09/2018 12:53:06] - corrId_5b910711d9e1b6.94565281 - Token generated succesfully. 
+[06/09/2018 12:54:13] - corrId_5b9107556f3773.89421097 - Reached AuthenticationService API 
+[06/09/2018 12:54:13] - corrId_5b9107556f3773.89421097 - Processing Login request. 
+[06/09/2018 12:54:13] - corrId_5b9107556f3773.89421097 - Establishing connection to DB 
+[06/09/2018 12:54:13] - corrId_5b9107556f3773.89421097 - Executing query 
+[06/09/2018 12:54:13] - corrId_5b9107556f3773.89421097 - User admin validated, generating Token. 
+[06/09/2018 12:54:13] - corrId_5b9107556f3773.89421097 - Token generated succesfully. 
+[06/09/2018 12:54:37] - corrId_5b91076d575b70.99329935 - Reached AuthenticationService API 
+[06/09/2018 12:54:37] - corrId_5b91076d575b70.99329935 - Processing Login request. 
+[06/09/2018 12:54:37] - corrId_5b91076d575b70.99329935 - Establishing connection to DB 
+[06/09/2018 12:54:37] - corrId_5b91076d575b70.99329935 - Executing query 
+[06/09/2018 12:54:37] - corrId_5b91076d575b70.99329935 - User admin validated, generating Token. 
+[06/09/2018 12:54:37] - corrId_5b91076d575b70.99329935 - Token generated succesfully. 
+[06/09/2018 12:54:48] - corrId_5b9107783e0ae8.35038393 - Reached AuthenticationService API 
+[06/09/2018 12:54:48] - corrId_5b9107783e0ae8.35038393 - Processing Login request. 
+[06/09/2018 12:54:48] - corrId_5b9107783e0ae8.35038393 - Establishing connection to DB 
+[06/09/2018 12:54:48] - corrId_5b9107783e0ae8.35038393 - Executing query 
+[06/09/2018 12:54:48] - corrId_5b9107783e0ae8.35038393 - User admin validated, generating Token. 
+[06/09/2018 12:54:48] - corrId_5b9107783e0ae8.35038393 - Token generated succesfully. 
+[06/09/2018 12:58:32] - corrId_5b91085836db71.17181191 - Reached AuthenticationService API 
+[06/09/2018 12:58:32] - corrId_5b91085836db71.17181191 - Processing Login request. 
+[06/09/2018 12:58:32] - corrId_5b91085836db71.17181191 - Establishing connection to DB 
+[06/09/2018 12:58:32] - corrId_5b91085836db71.17181191 - Executing query 
+[06/09/2018 12:58:32] - corrId_5b91085836db71.17181191 - User admin validated, generating Token. 
+[06/09/2018 12:58:32] - corrId_5b91085836db71.17181191 - Token generated succesfully. 
+[06/09/2018 12:58:37] - corrId_5b91085d8b5015.07292138 - Reached AuthenticationService API 
+[06/09/2018 12:58:37] - corrId_5b91085d8b5015.07292138 - Processing Login request. 
+[06/09/2018 12:58:37] - corrId_5b91085d8b5015.07292138 - Establishing connection to DB 
+[06/09/2018 12:58:37] - corrId_5b91085d8b5015.07292138 - Executing query 
+[06/09/2018 12:58:37] - corrId_5b91085d8b5015.07292138 - User admin validated, generating Token. 
+[06/09/2018 12:58:37] - corrId_5b91085d8b5015.07292138 - Token generated succesfully. 
+[06/09/2018 13:14:57] - corrId_5b910c3118fa96.85150884 - Reached AuthenticationService API 
+[06/09/2018 13:14:57] - corrId_5b910c3118fa96.85150884 - Processing Login request. 
+[06/09/2018 13:14:57] - corrId_5b910c3118fa96.85150884 - Establishing connection to DB 
+[06/09/2018 13:14:57] - corrId_5b910c3118fa96.85150884 - Executing query 
+[06/09/2018 13:14:57] - corrId_5b910c3118fa96.85150884 - User admin validated, generating Token. 
+[06/09/2018 13:14:57] - corrId_5b910c3118fa96.85150884 - Token generated succesfully. 
+[06/09/2018 13:15:22] - corrId_5b910c4a984f40.42297872 - Reached AuthenticationService API 
+[06/09/2018 13:15:22] - corrId_5b910c4a984f40.42297872 - Processing Login request. 
+[06/09/2018 13:15:22] - corrId_5b910c4a984f40.42297872 - Establishing connection to DB 
+[06/09/2018 13:15:22] - corrId_5b910c4a984f40.42297872 - Executing query 
+[06/09/2018 13:15:22] - corrId_5b910c4a984f40.42297872 - User admin validated, generating Token. 
+[06/09/2018 13:15:22] - corrId_5b910c4a984f40.42297872 - Token generated succesfully. 
+[06/09/2018 13:16:25] - corrId_5b910c895ea577.40758961 - Reached AuthenticationService API 
+[06/09/2018 13:16:25] - corrId_5b910c895ea577.40758961 - Processing Login request. 
+[06/09/2018 13:16:25] - corrId_5b910c895ea577.40758961 - Establishing connection to DB 
+[06/09/2018 13:16:25] - corrId_5b910c895ea577.40758961 - Executing query 
+[06/09/2018 13:16:25] - corrId_5b910c895ea577.40758961 - User admin validated, generating Token. 
+[06/09/2018 13:16:25] - corrId_5b910c895ea577.40758961 - Token generated succesfully. 
+[06/09/2018 13:17:21] - corrId_5b910cc19ef172.08983008 - Reached AuthenticationService API 
+[06/09/2018 13:17:21] - corrId_5b910cc19ef172.08983008 - Processing Login request. 
+[06/09/2018 13:17:21] - corrId_5b910cc19ef172.08983008 - Establishing connection to DB 
+[06/09/2018 13:17:21] - corrId_5b910cc19ef172.08983008 - Executing query 
+[06/09/2018 13:17:21] - corrId_5b910cc19ef172.08983008 - User admin validated, generating Token. 
+[06/09/2018 13:17:21] - corrId_5b910cc19ef172.08983008 - Token generated succesfully. 
+[06/09/2018 13:17:27] - corrId_5b910cc79c4b92.48984210 - Reached AuthenticationService API 
+[06/09/2018 13:17:27] - corrId_5b910cc79c4b92.48984210 - Processing Login request. 
+[06/09/2018 13:17:27] - corrId_5b910cc79c4b92.48984210 - Establishing connection to DB 
+[06/09/2018 13:17:27] - corrId_5b910cc79c4b92.48984210 - Executing query 
+[06/09/2018 13:17:27] - corrId_5b910cc79c4b92.48984210 - User admin validated, generating Token. 
+[06/09/2018 13:17:27] - corrId_5b910cc79c4b92.48984210 - Token generated succesfully. 
+[06/09/2018 13:17:34] - corrId_5b910cce833236.70797996 - Reached AuthenticationService API 
+[06/09/2018 13:17:34] - corrId_5b910cce833236.70797996 - Processing Login request. 
+[06/09/2018 13:17:34] - corrId_5b910cce833236.70797996 - Establishing connection to DB 
+[06/09/2018 13:17:34] - corrId_5b910cce833236.70797996 - Executing query 
+[06/09/2018 13:17:34] - corrId_5b910cce833236.70797996 - User admin validated, generating Token. 
+[06/09/2018 13:17:34] - corrId_5b910cce833236.70797996 - Token generated succesfully. 
+[06/09/2018 13:17:43] - corrId_5b910cd7c623d0.53701423 - Reached AuthenticationService API 
+[06/09/2018 13:17:43] - corrId_5b910cd7c623d0.53701423 - Processing Login request. 
+[06/09/2018 13:17:43] - corrId_5b910cd7c623d0.53701423 - Establishing connection to DB 
+[06/09/2018 13:17:43] - corrId_5b910cd7c623d0.53701423 - Executing query 
+[06/09/2018 13:17:43] - corrId_5b910cd7c623d0.53701423 - User admin validated, generating Token. 
+[06/09/2018 13:17:43] - corrId_5b910cd7c623d0.53701423 - Token generated succesfully. 
+[06/09/2018 13:17:59] - corrId_5b910ce77062e1.42817848 - Reached AuthenticationService API 
+[06/09/2018 13:17:59] - corrId_5b910ce77062e1.42817848 - Processing Login request. 
+[06/09/2018 13:17:59] - corrId_5b910ce77062e1.42817848 - Establishing connection to DB 
+[06/09/2018 13:17:59] - corrId_5b910ce77062e1.42817848 - Executing query 
+[06/09/2018 13:17:59] - corrId_5b910ce77062e1.42817848 - User admin validated, generating Token. 
+[06/09/2018 13:17:59] - corrId_5b910ce77062e1.42817848 - Token generated succesfully. 
+[06/09/2018 13:18:14] - corrId_5b910cf6c7f2f0.87442731 - Reached AuthenticationService API 
+[06/09/2018 13:18:14] - corrId_5b910cf6c7f2f0.87442731 - Processing Login request. 
+[06/09/2018 13:18:14] - corrId_5b910cf6c7f2f0.87442731 - Establishing connection to DB 
+[06/09/2018 13:18:14] - corrId_5b910cf6c7f2f0.87442731 - Executing query 
+[06/09/2018 13:18:14] - corrId_5b910cf6c7f2f0.87442731 - User admin validated, generating Token. 
+[06/09/2018 13:18:14] - corrId_5b910cf6c7f2f0.87442731 - Token generated succesfully. 

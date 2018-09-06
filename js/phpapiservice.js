@@ -1,20 +1,33 @@
+class RestClient {
+    static execute(url, data, action) {
+        data.action = action;
+        var ajaxOptions = {
+            url: url,
+            data: data,
+            type: "POST"
+        }
+        return $.ajax(ajaxOptions);
+    }
+}
+
 class AuthenticationService {
     constructor() {
         this.endpoint = "php/AuthenticationService.php";
     }
 
-    getField() {
-        var action = "";
-        $.ajax({
-            url: this.endpoint,
-            success: function(data) {
-                console.log(data);
-            }
+    login(username, password) {
+        var credentials = JSON.stringify({
+            username: username,
+            password: password
         });
+        var data = {
+            credentials: credentials
+        }
+        return RestClient.execute(this.endpoint, data, "login");
     }
 }
 
-class VideoRentalServce {
+class VideoRentalService {
     constructor() {
 
     }

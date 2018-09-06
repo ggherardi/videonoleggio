@@ -5,7 +5,6 @@ include 'models\Models.php';
 include 'TokenGenerator.php';
 use TokenGenerator;
 use Logger;
-use Models;
 
 $GLOBALS["CorrelationID"] = uniqid("corrId_", true);
 $correlationId = $GLOBALS["CorrelationID"];
@@ -18,18 +17,7 @@ class AuthenticationService {
     private $password;
     private $dbContext;
 
-    function __construct() {
-        self::RetrievePostVariables();
-    }
-
-    /** Recupera le variabili POST passate dalla chiamata lato client */
-    private function RetrievePostVariables() {
-        $this->name = isset($_POST["name"]) ? $_POST["name"] : "";
-        $this->surname = isset($_POST["surname"]) ? $_POST["surname"] : "";
-        $this->username = isset($_POST["username"]) ? $_POST["username"] : "";
-        $this->email = isset($_POST["email"]) ? $_POST["email"] : "";
-        $this->password = isset($_POST["password"]) ? $_POST["password"] : "";
-    }
+    function __construct() { }
 
     /** Metodo per eseguire le Query. Utilizza la classe ausiliare DBConnection */
     private function ExecuteQuery($query = "") {        
@@ -43,38 +31,32 @@ class AuthenticationService {
         exit(json_encode("test successful"));
     }
 
-    /** Effettua il login al sito con l'username inserito, ritorna:
-    * -1 se non è stato trovato l'account associato
-    * L'oggetto $user (UserModel) se l'account è stato trovato */
+    /** Effettua il login al sito con l'username inserito */
     private function Login(){             
         try {
             Logger::Write("Processing Login request.", $GLOBALS["CorrelationID"]);
+            $credentials = json_decode($_POST["credentials"]);
             $query = "SELECT *
-                FROM user 
-                WHERE Username = '$this->username'";
-
+                FROM dipendente 
+                WHERE username = '%s'";
+            $query = sprintf($query, $credentials->username);            
             $res = self::ExecuteQuery($query);
-
             while($row = $res->fetch_assoc()){
-                $fetchedPassword = $row["Password"];
+                $fetchedPassword = $row["password"];
                 $validRow = $row;
             }
-            if(password_verify($this->password, $fetchedPassword)){
-                $user = new Models\UserModel($validRow["Username"], $validRow["Id"], $validRow["Nome"]);
-                Logger::Write("User $this->username validated, generating Token.", $GLOBALS["CorrelationID"]);
-                $token = TokenGenerator::EncryptToken(json_encode($user));
-                $user->Token = $token;
-                echo json_encode($user);
+            if(password_verify($credentials->password, $fetchedPassword)){
+                $user = new User($validRow);
+                exit(json_encode($user));
                 Logger::Write("User $this->username succesfully logged in.", $GLOBALS["CorrelationID"]);
             }
             else{
-                echo json_encode(-1);
+                http_response_code(401);                
             }
         } 
         catch (Throwable $ex) {
-            Logger::Write("Error during the login of user $this->username -> $ex", $GLOBALS["CorrelationID"]);
-            http_response_code(500);
-            exit(json_encode($exMessage));
+            Logger::Write("Error during the login of user -> $ex", $GLOBALS["CorrelationID"]);
+            exit(json_encode($ex->getMessage()));
         }
     }
 
@@ -171,8 +153,6 @@ class AuthenticationService {
 
     // Switcha l'operazione richiesta lato client
     function Init(){
-        
-        exit(json_encode("test"));
         switch($_POST["action"]){
             case "signup":
                 self::SignUp();
@@ -197,5 +177,21 @@ catch(Throwable $ex) {
     Logger::Write("Error occured: $ex", $GLOBALS["CorrelationID"]);
     http_response_code(500);
     exit(json_encode($ex->getMessage()));
+}
+
+class User {
+    public $username;
+    public $token;
+
+    public function __construct($row) {
+        $this->username = $row["username"];
+        $this->generateTokenForUser();
+    }
+
+    private function generateTokenForUser() {
+        Logger::Write(sprintf("User %s validated, generating Token.", $this->username), $GLOBALS["CorrelationID"]);
+        $token = TokenGenerator::EncryptToken(json_encode($this));
+        $this->token = $token;
+    }
 }
 ?>

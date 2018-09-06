@@ -1,6 +1,10 @@
-var a = new AuthenticationService();
-a.getField();
-function login(form) {
-    console.log(form);
-    a.getField();
+var authService = new AuthenticationService();
+
+function login(sender) {
+    Loader.showLoader("#"+$(sender).parent()[0].id);
+    authService.login("admin", "admin").then(loginSuccess);
+}
+
+function loginSuccess(data) {
+    // initHomepage();
 }

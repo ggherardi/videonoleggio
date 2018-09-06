@@ -2,7 +2,8 @@
 var views = {
     home: { title: "Home" },
     login: { title: "Login", showInMenu: false },
-    noleggi: { title: "Noleggi" }
+    noleggi: { title: "Noleggi" },
+    accounts: { title: "Gestione utenti", needPermissions: permissions.levels.proprietario }
 };
 
 var components = {
