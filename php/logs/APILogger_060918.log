@@ -456,3 +456,195 @@ Stack trace:
 [06/09/2018 13:18:14] - corrId_5b910cf6c7f2f0.87442731 - Executing query 
 [06/09/2018 13:18:14] - corrId_5b910cf6c7f2f0.87442731 - User admin validated, generating Token. 
 [06/09/2018 13:18:14] - corrId_5b910cf6c7f2f0.87442731 - Token generated succesfully. 
+[06/09/2018 16:12:33] - corrId_5b9135d1d51675.82002723 - Reached AuthenticationService API 
+[06/09/2018 16:12:33] - corrId_5b9135d1d51675.82002723 - Processing Login request. 
+[06/09/2018 16:12:33] - corrId_5b9135d1d51675.82002723 - Establishing connection to DB 
+[06/09/2018 16:12:33] - corrId_5b9135d1d51675.82002723 - Executing query 
+[06/09/2018 16:12:33] - corrId_5b9135d1d51675.82002723 - User admin validated, generating Token. 
+[06/09/2018 16:12:33] - corrId_5b9135d1d51675.82002723 - Token generated succesfully. 
+[06/09/2018 16:12:56] - corrId_5b9135e89bf380.16970988 - Reached AuthenticationService API 
+[06/09/2018 16:12:56] - corrId_5b9135e89bf380.16970988 - Processing Login request. 
+[06/09/2018 16:12:56] - corrId_5b9135e89bf380.16970988 - Establishing connection to DB 
+[06/09/2018 16:12:56] - corrId_5b9135e89bf380.16970988 - Executing query 
+[06/09/2018 16:12:56] - corrId_5b9135e89bf380.16970988 - User admin validated, generating Token. 
+[06/09/2018 16:12:56] - corrId_5b9135e89bf380.16970988 - Token generated succesfully. 
+[06/09/2018 16:15:59] - corrId_5b91369f5b45f9.42661908 - Reached AuthenticationService API 
+[06/09/2018 16:15:59] - corrId_5b91369f5b45f9.42661908 - Processing Login request. 
+[06/09/2018 16:15:59] - corrId_5b91369f5b45f9.42661908 - Establishing connection to DB 
+[06/09/2018 16:15:59] - corrId_5b91369f5b45f9.42661908 - Executing query 
+[06/09/2018 16:15:59] - corrId_5b91369f5b45f9.42661908 - User admin validated, generating Token. 
+[06/09/2018 16:15:59] - corrId_5b91369f5b45f9.42661908 - Token generated succesfully. 
+[06/09/2018 16:16:16] - corrId_5b9136b0b491c0.27740298 - Reached AuthenticationService API 
+[06/09/2018 16:16:16] - corrId_5b9136b0b491c0.27740298 - Processing Login request. 
+[06/09/2018 16:16:16] - corrId_5b9136b0b491c0.27740298 - Establishing connection to DB 
+[06/09/2018 16:16:16] - corrId_5b9136b0b491c0.27740298 - Executing query 
+[06/09/2018 16:16:16] - corrId_5b9136b0b491c0.27740298 - User admin validated, generating Token. 
+[06/09/2018 16:16:16] - corrId_5b9136b0b491c0.27740298 - Token generated succesfully. 
+[06/09/2018 16:16:18] - corrId_5b9136b2ba8368.36308146 - Reached AuthenticationService API 
+[06/09/2018 16:16:18] - corrId_5b9136b2ba8368.36308146 - Processing Login request. 
+[06/09/2018 16:16:18] - corrId_5b9136b2ba8368.36308146 - Establishing connection to DB 
+[06/09/2018 16:16:18] - corrId_5b9136b2ba8368.36308146 - Executing query 
+[06/09/2018 16:16:18] - corrId_5b9136b2ba8368.36308146 - User admin validated, generating Token. 
+[06/09/2018 16:16:18] - corrId_5b9136b2ba8368.36308146 - Token generated succesfully. 
+[06/09/2018 16:16:22] - corrId_5b9136b6b37110.88024026 - Reached AuthenticationService API 
+[06/09/2018 16:16:22] - corrId_5b9136b6b37110.88024026 - Processing Login request. 
+[06/09/2018 16:16:22] - corrId_5b9136b6b37110.88024026 - Establishing connection to DB 
+[06/09/2018 16:16:22] - corrId_5b9136b6b37110.88024026 - Executing query 
+[06/09/2018 16:16:22] - corrId_5b9136b6b37110.88024026 - User admin validated, generating Token. 
+[06/09/2018 16:16:22] - corrId_5b9136b6b37110.88024026 - Token generated succesfully. 
+[06/09/2018 16:19:12] - corrId_5b913760c73e90.65982073 - Reached AuthenticationService API 
+[06/09/2018 16:19:12] - corrId_5b913760c73e90.65982073 - Processing Login request. 
+[06/09/2018 16:19:12] - corrId_5b913760c73e90.65982073 - Establishing connection to DB 
+[06/09/2018 16:19:12] - corrId_5b913760c73e90.65982073 - Executing query 
+[06/09/2018 16:19:12] - corrId_5b913760c73e90.65982073 - User admin validated, generating Token. 
+[06/09/2018 16:19:12] - corrId_5b913760c73e90.65982073 - Token generated succesfully. 
+[06/09/2018 16:19:15] - corrId_5b913763c87470.26231771 - Reached AuthenticationService API 
+[06/09/2018 16:19:15] - corrId_5b913763c87470.26231771 - Processing Login request. 
+[06/09/2018 16:19:15] - corrId_5b913763c87470.26231771 - Establishing connection to DB 
+[06/09/2018 16:19:15] - corrId_5b913763c87470.26231771 - Executing query 
+[06/09/2018 16:19:15] - corrId_5b913763c87470.26231771 - User admin validated, generating Token. 
+[06/09/2018 16:19:15] - corrId_5b913763c87470.26231771 - Token generated succesfully. 
+[06/09/2018 16:19:18] - corrId_5b9137664d5b16.45374997 - Reached AuthenticationService API 
+[06/09/2018 16:19:18] - corrId_5b9137664d5b16.45374997 - Processing Login request. 
+[06/09/2018 16:19:18] - corrId_5b9137664d5b16.45374997 - Establishing connection to DB 
+[06/09/2018 16:19:18] - corrId_5b9137664d5b16.45374997 - Executing query 
+[06/09/2018 16:19:18] - corrId_5b9137664d5b16.45374997 - User admin validated, generating Token. 
+[06/09/2018 16:19:18] - corrId_5b9137664d5b16.45374997 - Token generated succesfully. 
+[06/09/2018 16:19:27] - corrId_5b91376f0b4be3.12742149 - Reached AuthenticationService API 
+[06/09/2018 16:19:27] - corrId_5b91376f0b4be3.12742149 - Processing Login request. 
+[06/09/2018 16:19:27] - corrId_5b91376f0b4be3.12742149 - Establishing connection to DB 
+[06/09/2018 16:19:27] - corrId_5b91376f0b4be3.12742149 - Executing query 
+[06/09/2018 16:19:27] - corrId_5b91376f0b4be3.12742149 - User admin validated, generating Token. 
+[06/09/2018 16:19:27] - corrId_5b91376f0b4be3.12742149 - Token generated succesfully. 
+[06/09/2018 16:19:32] - corrId_5b9137742b32c3.95175450 - Reached AuthenticationService API 
+[06/09/2018 16:19:32] - corrId_5b9137742b32c3.95175450 - Processing Login request. 
+[06/09/2018 16:19:32] - corrId_5b9137742b32c3.95175450 - Establishing connection to DB 
+[06/09/2018 16:19:32] - corrId_5b9137742b32c3.95175450 - Executing query 
+[06/09/2018 16:19:32] - corrId_5b9137742b32c3.95175450 - User admin validated, generating Token. 
+[06/09/2018 16:19:32] - corrId_5b9137742b32c3.95175450 - Token generated succesfully. 
+[06/09/2018 16:19:50] - corrId_5b913786cc2945.74843290 - Reached AuthenticationService API 
+[06/09/2018 16:19:50] - corrId_5b913786cc2945.74843290 - Processing Login request. 
+[06/09/2018 16:19:50] - corrId_5b913786cc2945.74843290 - Establishing connection to DB 
+[06/09/2018 16:19:50] - corrId_5b913786cc2945.74843290 - Executing query 
+[06/09/2018 16:19:50] - corrId_5b913786cc2945.74843290 - User admin validated, generating Token. 
+[06/09/2018 16:19:50] - corrId_5b913786cc2945.74843290 - Token generated succesfully. 
+[06/09/2018 16:19:53] - corrId_5b91378949e671.87662637 - Reached AuthenticationService API 
+[06/09/2018 16:19:53] - corrId_5b91378949e671.87662637 - Processing Login request. 
+[06/09/2018 16:19:53] - corrId_5b91378949e671.87662637 - Establishing connection to DB 
+[06/09/2018 16:19:53] - corrId_5b91378949e671.87662637 - Executing query 
+[06/09/2018 16:19:53] - corrId_5b91378949e671.87662637 - User admin validated, generating Token. 
+[06/09/2018 16:19:53] - corrId_5b91378949e671.87662637 - Token generated succesfully. 
+[06/09/2018 16:20:27] - corrId_5b9137abcda850.11217125 - Reached AuthenticationService API 
+[06/09/2018 16:20:27] - corrId_5b9137abcda850.11217125 - Processing Login request. 
+[06/09/2018 16:20:27] - corrId_5b9137abcda850.11217125 - Establishing connection to DB 
+[06/09/2018 16:20:27] - corrId_5b9137abcda850.11217125 - Executing query 
+[06/09/2018 16:20:27] - corrId_5b9137abcda850.11217125 - User admin validated, generating Token. 
+[06/09/2018 16:20:27] - corrId_5b9137abcda850.11217125 - Token generated succesfully. 
+[06/09/2018 16:25:14] - corrId_5b9138cada5972.06996206 - Reached AuthenticationService API 
+[06/09/2018 16:25:14] - corrId_5b9138cada5972.06996206 - Processing Login request. 
+[06/09/2018 16:25:14] - corrId_5b9138cada5972.06996206 - Establishing connection to DB 
+[06/09/2018 16:25:14] - corrId_5b9138cada5972.06996206 - Executing query 
+[06/09/2018 16:25:15] - corrId_5b9138cada5972.06996206 - User admin validated, generating Token. 
+[06/09/2018 16:25:15] - corrId_5b9138cada5972.06996206 - Token generated succesfully. 
+[06/09/2018 16:30:34] - corrId_5b913a0a77d4a2.73637802 - Reached AuthenticationService API 
+[06/09/2018 16:30:34] - corrId_5b913a0a77d4a2.73637802 - Processing Login request. 
+[06/09/2018 16:30:34] - corrId_5b913a0a77d4a2.73637802 - Establishing connection to DB 
+[06/09/2018 16:30:34] - corrId_5b913a0a77d4a2.73637802 - Executing query 
+[06/09/2018 16:30:34] - corrId_5b913a0a77d4a2.73637802 - User admin validated, generating Token. 
+[06/09/2018 16:30:34] - corrId_5b913a0a77d4a2.73637802 - Token generated succesfully. 
+[06/09/2018 16:30:49] - corrId_5b913a193716d9.14967424 - Reached AuthenticationService API 
+[06/09/2018 16:30:49] - corrId_5b913a193716d9.14967424 - Processing Login request. 
+[06/09/2018 16:30:49] - corrId_5b913a193716d9.14967424 - Establishing connection to DB 
+[06/09/2018 16:30:49] - corrId_5b913a193716d9.14967424 - Executing query 
+[06/09/2018 16:30:49] - corrId_5b913a193716d9.14967424 - User admin validated, generating Token. 
+[06/09/2018 16:30:49] - corrId_5b913a193716d9.14967424 - Token generated succesfully. 
+[06/09/2018 16:37:32] - corrId_5b913bacd45591.13405240 - Reached AuthenticationService API 
+[06/09/2018 16:37:32] - corrId_5b913bacd45591.13405240 - Processing Login request. 
+[06/09/2018 16:37:32] - corrId_5b913bacd45591.13405240 - Establishing connection to DB 
+[06/09/2018 16:37:32] - corrId_5b913bacd45591.13405240 - Executing query 
+[06/09/2018 16:37:32] - corrId_5b913bacd45591.13405240 - User admin validated, generating Token. 
+[06/09/2018 16:37:32] - corrId_5b913bacd45591.13405240 - Token generated succesfully. 
+[06/09/2018 16:38:33] - corrId_5b913be9da5560.25812540 - Reached AuthenticationService API 
+[06/09/2018 16:38:33] - corrId_5b913be9da5560.25812540 - Processing Login request. 
+[06/09/2018 16:38:33] - corrId_5b913be9da5560.25812540 - Establishing connection to DB 
+[06/09/2018 16:38:33] - corrId_5b913be9da5560.25812540 - Executing query 
+[06/09/2018 16:38:34] - corrId_5b913be9da5560.25812540 - User admin validated, generating Token. 
+[06/09/2018 16:38:34] - corrId_5b913be9da5560.25812540 - Token generated succesfully. 
+[06/09/2018 16:38:39] - corrId_5b913befcfd140.73920795 - Reached AuthenticationService API 
+[06/09/2018 16:38:39] - corrId_5b913befcfd140.73920795 - Processing Login request. 
+[06/09/2018 16:38:39] - corrId_5b913befcfd140.73920795 - Establishing connection to DB 
+[06/09/2018 16:38:39] - corrId_5b913befcfd140.73920795 - Executing query 
+[06/09/2018 16:38:39] - corrId_5b913befcfd140.73920795 - User admin validated, generating Token. 
+[06/09/2018 16:38:39] - corrId_5b913befcfd140.73920795 - Token generated succesfully. 
+[06/09/2018 16:39:13] - corrId_5b913c1157cc95.27681286 - Reached AuthenticationService API 
+[06/09/2018 16:39:13] - corrId_5b913c1157cc95.27681286 - Processing Login request. 
+[06/09/2018 16:39:13] - corrId_5b913c1157cc95.27681286 - Establishing connection to DB 
+[06/09/2018 16:39:13] - corrId_5b913c1157cc95.27681286 - Executing query 
+[06/09/2018 16:39:13] - corrId_5b913c1157cc95.27681286 - User admin validated, generating Token. 
+[06/09/2018 16:39:13] - corrId_5b913c1157cc95.27681286 - Token generated succesfully. 
+[06/09/2018 16:42:23] - corrId_5b913ccf9aade9.32343768 - Reached AuthenticationService API 
+[06/09/2018 16:42:23] - corrId_5b913ccf9aade9.32343768 - Processing Login request. 
+[06/09/2018 16:42:23] - corrId_5b913ccf9aade9.32343768 - Establishing connection to DB 
+[06/09/2018 16:42:23] - corrId_5b913ccf9aade9.32343768 - Executing query 
+[06/09/2018 16:42:23] - corrId_5b913ccf9aade9.32343768 - User admin validated, generating Token. 
+[06/09/2018 16:42:23] - corrId_5b913ccf9aade9.32343768 - Token generated succesfully. 
+[06/09/2018 16:47:30] - corrId_5b913e02c0ed08.84438348 - Reached AuthenticationService API 
+[06/09/2018 16:47:30] - corrId_5b913e02c0ed08.84438348 - Processing Login request. 
+[06/09/2018 16:47:30] - corrId_5b913e02c0ed08.84438348 - Establishing connection to DB 
+[06/09/2018 16:47:30] - corrId_5b913e02c0ed08.84438348 - Executing query 
+[06/09/2018 16:47:30] - corrId_5b913e02c0ed08.84438348 - User admin validated, generating Token. 
+[06/09/2018 16:47:30] - corrId_5b913e02c0ed08.84438348 - Token generated succesfully. 
+[06/09/2018 16:48:14] - corrId_5b913e2ebdfbb7.58952503 - Reached AuthenticationService API 
+[06/09/2018 16:48:14] - corrId_5b913e2ebdfbb7.58952503 - Processing Login request. 
+[06/09/2018 16:48:14] - corrId_5b913e2ebdfbb7.58952503 - Establishing connection to DB 
+[06/09/2018 16:48:14] - corrId_5b913e2ebdfbb7.58952503 - Executing query 
+[06/09/2018 16:48:14] - corrId_5b913e2ebdfbb7.58952503 - User admin validated, generating Token. 
+[06/09/2018 16:48:14] - corrId_5b913e2ebdfbb7.58952503 - Token generated succesfully. 
+[06/09/2018 16:48:24] - corrId_5b913e38288251.04119677 - Reached AuthenticationService API 
+[06/09/2018 16:48:24] - corrId_5b913e38288251.04119677 - Processing Login request. 
+[06/09/2018 16:48:24] - corrId_5b913e38288251.04119677 - Establishing connection to DB 
+[06/09/2018 16:48:24] - corrId_5b913e38288251.04119677 - Executing query 
+[06/09/2018 16:48:24] - corrId_5b913e38288251.04119677 - User admin validated, generating Token. 
+[06/09/2018 16:48:24] - corrId_5b913e38288251.04119677 - Token generated succesfully. 
+[06/09/2018 16:48:29] - corrId_5b913e3d685d52.50027667 - Reached AuthenticationService API 
+[06/09/2018 16:48:29] - corrId_5b913e3d685d52.50027667 - Processing Login request. 
+[06/09/2018 16:48:29] - corrId_5b913e3d685d52.50027667 - Establishing connection to DB 
+[06/09/2018 16:48:29] - corrId_5b913e3d685d52.50027667 - Executing query 
+[06/09/2018 16:48:29] - corrId_5b913e3d685d52.50027667 - User admin validated, generating Token. 
+[06/09/2018 16:48:29] - corrId_5b913e3d685d52.50027667 - Token generated succesfully. 
+[06/09/2018 16:48:37] - corrId_5b913e45a2d972.27615214 - Reached AuthenticationService API 
+[06/09/2018 16:48:37] - corrId_5b913e45a2d972.27615214 - Processing Login request. 
+[06/09/2018 16:48:37] - corrId_5b913e45a2d972.27615214 - Establishing connection to DB 
+[06/09/2018 16:48:37] - corrId_5b913e45a2d972.27615214 - Executing query 
+[06/09/2018 16:48:37] - corrId_5b913e45a2d972.27615214 - User admin validated, generating Token. 
+[06/09/2018 16:48:37] - corrId_5b913e45a2d972.27615214 - Token generated succesfully. 
+[06/09/2018 16:48:41] - corrId_5b913e49f3d529.86100886 - Reached AuthenticationService API 
+[06/09/2018 16:48:41] - corrId_5b913e49f3d529.86100886 - Processing Login request. 
+[06/09/2018 16:48:42] - corrId_5b913e49f3d529.86100886 - Establishing connection to DB 
+[06/09/2018 16:48:42] - corrId_5b913e49f3d529.86100886 - Executing query 
+[06/09/2018 16:48:42] - corrId_5b913e49f3d529.86100886 - User admin validated, generating Token. 
+[06/09/2018 16:48:42] - corrId_5b913e49f3d529.86100886 - Token generated succesfully. 
+[06/09/2018 16:49:19] - corrId_5b913e6fefafd6.41205998 - Reached AuthenticationService API 
+[06/09/2018 16:49:19] - corrId_5b913e6fefafd6.41205998 - Processing Login request. 
+[06/09/2018 16:49:19] - corrId_5b913e6fefafd6.41205998 - Establishing connection to DB 
+[06/09/2018 16:49:19] - corrId_5b913e6fefafd6.41205998 - Executing query 
+[06/09/2018 16:49:20] - corrId_5b913e6fefafd6.41205998 - User admin validated, generating Token. 
+[06/09/2018 16:49:20] - corrId_5b913e6fefafd6.41205998 - Token generated succesfully. 
+[06/09/2018 16:49:22] - corrId_5b913e72f1e951.20190722 - Reached AuthenticationService API 
+[06/09/2018 16:49:22] - corrId_5b913e72f1e951.20190722 - Processing Login request. 
+[06/09/2018 16:49:22] - corrId_5b913e72f1e951.20190722 - Establishing connection to DB 
+[06/09/2018 16:49:22] - corrId_5b913e72f1e951.20190722 - Executing query 
+[06/09/2018 16:49:23] - corrId_5b913e72f1e951.20190722 - User admin validated, generating Token. 
+[06/09/2018 16:49:23] - corrId_5b913e72f1e951.20190722 - Token generated succesfully. 
+[06/09/2018 16:49:40] - corrId_5b913e84d66c70.13738218 - Reached AuthenticationService API 
+[06/09/2018 16:49:40] - corrId_5b913e84d66c70.13738218 - Processing Login request. 
+[06/09/2018 16:49:40] - corrId_5b913e84d66c70.13738218 - Establishing connection to DB 
+[06/09/2018 16:49:40] - corrId_5b913e84d66c70.13738218 - Executing query 
+[06/09/2018 16:49:41] - corrId_5b913e84d66c70.13738218 - User admin validated, generating Token. 
+[06/09/2018 16:49:41] - corrId_5b913e84d66c70.13738218 - Token generated succesfully. 
+[06/09/2018 16:49:54] - corrId_5b913e927d4593.78610496 - Reached AuthenticationService API 
+[06/09/2018 16:49:54] - corrId_5b913e927d4593.78610496 - Processing Login request. 
+[06/09/2018 16:49:54] - corrId_5b913e927d4593.78610496 - Establishing connection to DB 
+[06/09/2018 16:49:54] - corrId_5b913e927d4593.78610496 - Executing query 
+[06/09/2018 16:49:54] - corrId_5b913e927d4593.78610496 - User admin validated, generating Token. 
+[06/09/2018 16:49:54] - corrId_5b913e927d4593.78610496 - Token generated succesfully. 
