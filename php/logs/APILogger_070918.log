@@ -1,0 +1,486 @@
+[07/09/2018 00:00:11] - corrId_5b91a36b80dda0.58204034 - Reached AuthenticationService API 
+[07/09/2018 00:00:11] - corrId_5b91a36b80dda0.58204034 - Processing Login request. 
+[07/09/2018 00:00:11] - corrId_5b91a36b80dda0.58204034 - Establishing connection to DB 
+[07/09/2018 00:00:11] - corrId_5b91a36b80dda0.58204034 - Executing query 
+[07/09/2018 00:00:11] - corrId_5b91a36b80dda0.58204034 - Error while executing query -> Unknown column 'username' in 'where clause' 
+[07/09/2018 00:00:11] - corrId_5b91a36b80dda0.58204034 - Error during the login of user -> Exception: Exception: Unknown column 'username' in 'where clause' in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} 
+[07/09/2018 00:00:23] - corrId_5b91a377039a94.82232074 - Reached AuthenticationService API 
+[07/09/2018 00:00:23] - corrId_5b91a377039a94.82232074 - Processing Login request. 
+[07/09/2018 00:00:23] - corrId_5b91a377039a94.82232074 - Establishing connection to DB 
+[07/09/2018 00:00:23] - corrId_5b91a377039a94.82232074 - Executing query 
+[07/09/2018 00:00:23] - corrId_5b91a377039a94.82232074 - Error while executing query -> Unknown column 'username' in 'where clause' 
+[07/09/2018 00:00:23] - corrId_5b91a377039a94.82232074 - Error during the login of user -> Exception: Exception: Unknown column 'username' in 'where clause' in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} 
+[07/09/2018 00:01:28] - corrId_5b91a3b8f2bfd8.38041802 - Reached AuthenticationService API 
+[07/09/2018 00:01:28] - corrId_5b91a3b8f2bfd8.38041802 - Processing Login request. 
+[07/09/2018 00:01:29] - corrId_5b91a3b8f2bfd8.38041802 - Establishing connection to DB 
+[07/09/2018 00:01:29] - corrId_5b91a3b8f2bfd8.38041802 - Executing query 
+[07/09/2018 00:01:29] - corrId_5b91a3b8f2bfd8.38041802 - Error while executing query -> Unknown column 'username' in 'where clause' 
+[07/09/2018 00:01:29] - corrId_5b91a3b8f2bfd8.38041802 - Error during the login of user -> Exception: Exception: Unknown column 'username' in 'where clause' in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} 
+[07/09/2018 00:02:53] - corrId_5b91a40d9414a7.32564854 - Reached AuthenticationService API 
+[07/09/2018 00:02:53] - corrId_5b91a40d9414a7.32564854 - Processing Login request. 
+[07/09/2018 00:02:53] - corrId_5b91a40d9414a7.32564854 - Establishing connection to DB 
+[07/09/2018 00:02:53] - corrId_5b91a40d9414a7.32564854 - Executing query 
+[07/09/2018 00:02:53] - corrId_5b91a40d9414a7.32564854 - Error while executing query -> Unknown column 'username' in 'where clause' 
+[07/09/2018 00:02:53] - corrId_5b91a40d9414a7.32564854 - Error during the login of user -> Exception: Exception: Unknown column 'username' in 'where clause' in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} 
+[07/09/2018 00:02:55] - corrId_5b91a40fd6b096.38816061 - Reached AuthenticationService API 
+[07/09/2018 00:02:55] - corrId_5b91a40fd6b096.38816061 - Processing Login request. 
+[07/09/2018 00:02:55] - corrId_5b91a40fd6b096.38816061 - Establishing connection to DB 
+[07/09/2018 00:02:55] - corrId_5b91a40fd6b096.38816061 - Executing query 
+[07/09/2018 00:02:55] - corrId_5b91a40fd6b096.38816061 - Error while executing query -> Unknown column 'username' in 'where clause' 
+[07/09/2018 00:02:55] - corrId_5b91a40fd6b096.38816061 - Error during the login of user -> Exception: Exception: Unknown column 'username' in 'where clause' in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} 
+[07/09/2018 00:02:57] - corrId_5b91a411a07736.67092022 - Reached AuthenticationService API 
+[07/09/2018 00:02:57] - corrId_5b91a411a07736.67092022 - Processing Login request. 
+[07/09/2018 00:02:57] - corrId_5b91a411a07736.67092022 - Establishing connection to DB 
+[07/09/2018 00:02:57] - corrId_5b91a411a07736.67092022 - Executing query 
+[07/09/2018 00:02:57] - corrId_5b91a411a07736.67092022 - Error while executing query -> Unknown column 'username' in 'where clause' 
+[07/09/2018 00:02:57] - corrId_5b91a411a07736.67092022 - Error during the login of user -> Exception: Exception: Unknown column 'username' in 'where clause' in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} 
+[07/09/2018 00:05:14] - corrId_5b91a49a4e2b73.95536082 - Reached AuthenticationService API 
+[07/09/2018 00:05:14] - corrId_5b91a49a4e2b73.95536082 - Processing Login request. 
+[07/09/2018 00:05:14] - corrId_5b91a49a4e2b73.95536082 - Establishing connection to DB 
+[07/09/2018 00:05:14] - corrId_5b91a49a4e2b73.95536082 - Executing query 
+[07/09/2018 00:05:14] - corrId_5b91a49a4e2b73.95536082 - Error while executing query -> Unknown column 'username' in 'where clause' 
+[07/09/2018 00:05:14] - corrId_5b91a49a4e2b73.95536082 - Error during the login of user -> Exception: Exception: Unknown column 'username' in 'where clause' in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} 
+[07/09/2018 00:06:46] - corrId_5b91a4f655aca0.10354754 - Reached AuthenticationService API 
+[07/09/2018 00:06:46] - corrId_5b91a4f655aca0.10354754 - Processing Login request. 
+[07/09/2018 00:06:46] - corrId_5b91a4f655aca0.10354754 - Establishing connection to DB 
+[07/09/2018 00:06:46] - corrId_5b91a4f655aca0.10354754 - Executing query 
+[07/09/2018 00:06:46] - corrId_5b91a4f655aca0.10354754 - Error while executing query -> Unknown column 'username' in 'where clause' 
+[07/09/2018 00:06:46] - corrId_5b91a4f655aca0.10354754 - Error during the login of user -> Exception: Exception: Unknown column 'username' in 'where clause' in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} 
+[07/09/2018 00:06:52] - corrId_5b91a4fc03e166.06828074 - Reached AuthenticationService API 
+[07/09/2018 00:06:52] - corrId_5b91a4fc03e166.06828074 - Processing Login request. 
+[07/09/2018 00:06:52] - corrId_5b91a4fc03e166.06828074 - Establishing connection to DB 
+[07/09/2018 00:06:52] - corrId_5b91a4fc03e166.06828074 - Executing query 
+[07/09/2018 00:06:52] - corrId_5b91a4fc03e166.06828074 - Error while executing query -> Unknown column 'username' in 'where clause' 
+[07/09/2018 00:06:52] - corrId_5b91a4fc03e166.06828074 - Error during the login of user -> Exception: Exception: Unknown column 'username' in 'where clause' in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} 
+[07/09/2018 00:06:54] - corrId_5b91a4fe73e3d6.32605590 - Reached AuthenticationService API 
+[07/09/2018 00:06:54] - corrId_5b91a4fe73e3d6.32605590 - Processing Login request. 
+[07/09/2018 00:06:54] - corrId_5b91a4fe73e3d6.32605590 - Establishing connection to DB 
+[07/09/2018 00:06:54] - corrId_5b91a4fe73e3d6.32605590 - Executing query 
+[07/09/2018 00:06:54] - corrId_5b91a4fe73e3d6.32605590 - Error while executing query -> Unknown column 'username' in 'where clause' 
+[07/09/2018 00:06:54] - corrId_5b91a4fe73e3d6.32605590 - Error during the login of user -> Exception: Exception: Unknown column 'username' in 'where clause' in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} 
+[07/09/2018 00:06:57] - corrId_5b91a501e9adc3.05280841 - Reached AuthenticationService API 
+[07/09/2018 00:06:57] - corrId_5b91a501e9adc3.05280841 - Processing Login request. 
+[07/09/2018 00:06:57] - corrId_5b91a501e9adc3.05280841 - Establishing connection to DB 
+[07/09/2018 00:06:57] - corrId_5b91a501e9adc3.05280841 - Executing query 
+[07/09/2018 00:06:57] - corrId_5b91a501e9adc3.05280841 - Error while executing query -> Unknown column 'username' in 'where clause' 
+[07/09/2018 00:06:57] - corrId_5b91a501e9adc3.05280841 - Error during the login of user -> Exception: Exception: Unknown column 'username' in 'where clause' in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} 
+[07/09/2018 00:07:35] - corrId_5b91a527ae9dc6.71561707 - Reached AuthenticationService API 
+[07/09/2018 00:07:35] - corrId_5b91a527ae9dc6.71561707 - Processing Login request. 
+[07/09/2018 00:07:35] - corrId_5b91a527ae9dc6.71561707 - Establishing connection to DB 
+[07/09/2018 00:07:35] - corrId_5b91a527ae9dc6.71561707 - Executing query 
+[07/09/2018 00:07:35] - corrId_5b91a527ae9dc6.71561707 - Error while executing query -> Unknown column 'username' in 'where clause' 
+[07/09/2018 00:07:35] - corrId_5b91a527ae9dc6.71561707 - Error during the login of user -> Exception: Exception: Unknown column 'username' in 'where clause' in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} 
+[07/09/2018 00:07:37] - corrId_5b91a529c9ad09.23765805 - Reached AuthenticationService API 
+[07/09/2018 00:07:37] - corrId_5b91a529c9ad09.23765805 - Processing Login request. 
+[07/09/2018 00:07:37] - corrId_5b91a529c9ad09.23765805 - Establishing connection to DB 
+[07/09/2018 00:07:37] - corrId_5b91a529c9ad09.23765805 - Executing query 
+[07/09/2018 00:07:37] - corrId_5b91a529c9ad09.23765805 - Error while executing query -> Unknown column 'username' in 'where clause' 
+[07/09/2018 00:07:37] - corrId_5b91a529c9ad09.23765805 - Error during the login of user -> Exception: Exception: Unknown column 'username' in 'where clause' in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} 
+[07/09/2018 00:08:20] - corrId_5b91a5549c5006.57423480 - Reached AuthenticationService API 
+[07/09/2018 00:08:20] - corrId_5b91a5549c5006.57423480 - Processing Login request. 
+[07/09/2018 00:08:20] - corrId_5b91a5549c5006.57423480 - Establishing connection to DB 
+[07/09/2018 00:08:20] - corrId_5b91a5549c5006.57423480 - Executing query 
+[07/09/2018 00:08:20] - corrId_5b91a5549c5006.57423480 - Error while executing query -> Unknown column 'username' in 'where clause' 
+[07/09/2018 00:08:20] - corrId_5b91a5549c5006.57423480 - Error during the login of user -> Exception: Exception: Unknown column 'username' in 'where clause' in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} 
+[07/09/2018 00:11:20] - corrId_5b91a608b98912.12952981 - Reached AuthenticationService API 
+[07/09/2018 00:11:20] - corrId_5b91a608b98912.12952981 - Processing Login request. 
+[07/09/2018 00:11:20] - corrId_5b91a608b98912.12952981 - Establishing connection to DB 
+[07/09/2018 00:11:20] - corrId_5b91a608b98912.12952981 - Executing query 
+[07/09/2018 00:11:20] - corrId_5b91a608b98912.12952981 - Error while executing query -> Unknown column 'username' in 'where clause' 
+[07/09/2018 00:11:20] - corrId_5b91a608b98912.12952981 - Error during the login of user -> Exception: Exception: Unknown column 'username' in 'where clause' in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} 
+[07/09/2018 00:11:30] - corrId_5b91a6127ee454.17797064 - Reached AuthenticationService API 
+[07/09/2018 00:11:30] - corrId_5b91a6127ee454.17797064 - Processing Login request. 
+[07/09/2018 00:11:30] - corrId_5b91a6127ee454.17797064 - Establishing connection to DB 
+[07/09/2018 00:11:30] - corrId_5b91a6127ee454.17797064 - Executing query 
+[07/09/2018 00:11:30] - corrId_5b91a6127ee454.17797064 - Error while executing query -> Unknown column 'username' in 'where clause' 
+[07/09/2018 00:11:30] - corrId_5b91a6127ee454.17797064 - Error during the login of user -> Exception: Exception: Unknown column 'username' in 'where clause' in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} 
+[07/09/2018 00:12:09] - corrId_5b91a639e504e7.77545476 - Reached AuthenticationService API 
+[07/09/2018 00:12:09] - corrId_5b91a639e504e7.77545476 - Processing Login request. 
+[07/09/2018 00:12:09] - corrId_5b91a639e504e7.77545476 - Establishing connection to DB 
+[07/09/2018 00:12:09] - corrId_5b91a639e504e7.77545476 - Executing query 
+[07/09/2018 00:12:09] - corrId_5b91a639e504e7.77545476 - Error while executing query -> Unknown column 'username' in 'where clause' 
+[07/09/2018 00:12:09] - corrId_5b91a639e504e7.77545476 - Error during the login of user -> Exception: Exception: Unknown column 'username' in 'where clause' in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} 
+[07/09/2018 00:19:52] - corrId_5b91a808321880.66614424 - Reached AuthenticationService API 
+[07/09/2018 00:19:52] - corrId_5b91a808321880.66614424 - Processing Login request. 
+[07/09/2018 00:19:52] - corrId_5b91a808321880.66614424 - Establishing connection to DB 
+[07/09/2018 00:19:52] - corrId_5b91a808321880.66614424 - Executing query 
+[07/09/2018 00:19:52] - corrId_5b91a808321880.66614424 - Error while executing query -> Unknown column 'username' in 'where clause' 
+[07/09/2018 00:19:52] - corrId_5b91a808321880.66614424 - Error during the login of user -> Exception: Exception: Unknown column 'username' in 'where clause' in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} 
+[07/09/2018 00:20:03] - corrId_5b91a813bc2671.37262458 - Reached AuthenticationService API 
+[07/09/2018 00:20:03] - corrId_5b91a813bc2671.37262458 - Processing Login request. 
+[07/09/2018 00:20:03] - corrId_5b91a813bc2671.37262458 - Establishing connection to DB 
+[07/09/2018 00:20:03] - corrId_5b91a813bc2671.37262458 - Executing query 
+[07/09/2018 00:20:03] - corrId_5b91a813bc2671.37262458 - Error while executing query -> Unknown column 'username' in 'where clause' 
+[07/09/2018 00:20:03] - corrId_5b91a813bc2671.37262458 - Error during the login of user -> Exception: Exception: Unknown column 'username' in 'where clause' in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} 
+[07/09/2018 00:20:04] - corrId_5b91a8146eb192.74822533 - Reached AuthenticationService API 
+[07/09/2018 00:20:04] - corrId_5b91a8146eb192.74822533 - Processing Login request. 
+[07/09/2018 00:20:04] - corrId_5b91a8146eb192.74822533 - Establishing connection to DB 
+[07/09/2018 00:20:04] - corrId_5b91a8146eb192.74822533 - Executing query 
+[07/09/2018 00:20:04] - corrId_5b91a8146eb192.74822533 - Error while executing query -> Unknown column 'username' in 'where clause' 
+[07/09/2018 00:20:04] - corrId_5b91a8146eb192.74822533 - Error during the login of user -> Exception: Exception: Unknown column 'username' in 'where clause' in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} 
+[07/09/2018 00:20:06] - corrId_5b91a81649b023.60383672 - Reached AuthenticationService API 
+[07/09/2018 00:20:06] - corrId_5b91a81649b023.60383672 - Processing Login request. 
+[07/09/2018 00:20:06] - corrId_5b91a81649b023.60383672 - Establishing connection to DB 
+[07/09/2018 00:20:06] - corrId_5b91a81649b023.60383672 - Executing query 
+[07/09/2018 00:20:06] - corrId_5b91a81649b023.60383672 - Error while executing query -> Unknown column 'username' in 'where clause' 
+[07/09/2018 00:20:06] - corrId_5b91a81649b023.60383672 - Error during the login of user -> Exception: Exception: Unknown column 'username' in 'where clause' in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} 
+[07/09/2018 00:21:14] - corrId_5b91a85a1ac4e3.42229363 - Reached AuthenticationService API 
+[07/09/2018 00:21:14] - corrId_5b91a85a1ac4e3.42229363 - Processing Login request. 
+[07/09/2018 00:21:14] - corrId_5b91a85a1ac4e3.42229363 - Establishing connection to DB 
+[07/09/2018 00:21:14] - corrId_5b91a85a1ac4e3.42229363 - Executing query 
+[07/09/2018 00:21:14] - corrId_5b91a85a1ac4e3.42229363 - Error while executing query -> Unknown column 'username' in 'where clause' 
+[07/09/2018 00:21:14] - corrId_5b91a85a1ac4e3.42229363 - Error during the login of user -> Exception: Exception: Unknown column 'username' in 'where clause' in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} 
+[07/09/2018 00:21:25] - corrId_5b91a8654264a9.12892212 - Reached AuthenticationService API 
+[07/09/2018 00:21:25] - corrId_5b91a8654264a9.12892212 - Processing Login request. 
+[07/09/2018 00:21:25] - corrId_5b91a8654264a9.12892212 - Establishing connection to DB 
+[07/09/2018 00:21:25] - corrId_5b91a8654264a9.12892212 - Executing query 
+[07/09/2018 00:21:25] - corrId_5b91a8654264a9.12892212 - Error while executing query -> Unknown column 'username' in 'where clause' 
+[07/09/2018 00:21:25] - corrId_5b91a8654264a9.12892212 - Error during the login of user -> Exception: Exception: Unknown column 'username' in 'where clause' in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} 
+[07/09/2018 00:22:50] - corrId_5b91a8ba319531.72850267 - Reached AuthenticationService API 
+[07/09/2018 00:22:50] - corrId_5b91a8ba319531.72850267 - Processing Login request. 
+[07/09/2018 00:22:50] - corrId_5b91a8ba319531.72850267 - Establishing connection to DB 
+[07/09/2018 00:22:50] - corrId_5b91a8ba319531.72850267 - Executing query 
+[07/09/2018 00:22:50] - corrId_5b91a8ba319531.72850267 - Error while executing query -> Unknown column 'username' in 'where clause' 
+[07/09/2018 00:22:50] - corrId_5b91a8ba319531.72850267 - Error during the login of user -> Exception: Exception: Unknown column 'username' in 'where clause' in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} 
+[07/09/2018 00:24:26] - corrId_5b91a91a317955.46178722 - Reached AuthenticationService API 
+[07/09/2018 00:24:26] - corrId_5b91a91a317955.46178722 - Processing Login request. 
+[07/09/2018 00:24:26] - corrId_5b91a91a317955.46178722 - Establishing connection to DB 
+[07/09/2018 00:24:26] - corrId_5b91a91a317955.46178722 - Executing query 
+[07/09/2018 00:24:26] - corrId_5b91a91a317955.46178722 - Error while executing query -> Unknown column 'username' in 'where clause' 
+[07/09/2018 00:24:26] - corrId_5b91a91a317955.46178722 - Error during the login of user -> Exception: Exception: Unknown column 'username' in 'where clause' in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} 
+[07/09/2018 00:24:52] - corrId_5b91a934930815.63843219 - Reached AuthenticationService API 
+[07/09/2018 00:24:52] - corrId_5b91a934930815.63843219 - Processing Login request. 
+[07/09/2018 00:24:52] - corrId_5b91a934930815.63843219 - Establishing connection to DB 
+[07/09/2018 00:24:52] - corrId_5b91a934930815.63843219 - Executing query 
+[07/09/2018 00:24:52] - corrId_5b91a934930815.63843219 - Error while executing query -> Unknown column 'username' in 'where clause' 
+[07/09/2018 00:24:52] - corrId_5b91a934930815.63843219 - Error during the login of user -> Exception: Exception: Unknown column 'username' in 'where clause' in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} 
+[07/09/2018 00:56:02] - corrId_5b91b0821a4339.16788275 - Reached AuthenticationService API 
+[07/09/2018 00:56:02] - corrId_5b91b0821a4339.16788275 - Processing Login request. 
+[07/09/2018 00:56:02] - corrId_5b91b0821a4339.16788275 - Establishing connection to DB 
+[07/09/2018 00:56:02] - corrId_5b91b0821a4339.16788275 - Executing query 
+[07/09/2018 00:56:02] - corrId_5b91b0821a4339.16788275 - Error while executing query -> Unknown column 'username' in 'where clause' 
+[07/09/2018 00:56:02] - corrId_5b91b0821a4339.16788275 - Error during the login of user -> Exception: Exception: Unknown column 'username' in 'where clause' in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(43): AuthenticationService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(161): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(174): AuthenticationService->Init()
+#4 {main} 

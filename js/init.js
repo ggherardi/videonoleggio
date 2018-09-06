@@ -13,11 +13,14 @@ var components = {
 
 /* Classes */
 var menu = new Menu(views);
-var mainContentController = new Controller("#ContentZone0");
+var mainContentController = new Controller(placeholders.mainContentZone);
 var sidebarController = new Controller("#Sidebar");
 var navbarController = new Controller("#Navbar");
 var cookiesManager = new CookiesManager();
 var authManager = new AuthenticationManager(cookiesManager);
+
+/* Properties */
+var mainContentLoader;
 
 /* Document ready */
 $().ready(function() {
@@ -26,17 +29,25 @@ $().ready(function() {
     } else {
         initLogin();
     }
+    mainContentLoader = new Loader(placeholders.mainContentZone);
 })
 
 /* Init functions */
 function initHomepage() {
+    mainContentLoader.showLoader();
     initMasterpageComponents();
 }
 
 function initMasterpageComponents() {
-    sidebarController.setComponent(components.sidebar.title);
-    $.when(navbarController.setComponent(components.navbar.title)).then(() => menu.buildMenu()).done(initView)
+    $.when(navbarController.setComponent(components.navbar.title))
+        .then(() => { sidebarController.setComponent(components.sidebar.title); menu.buildMenu() })
+        .done(initView)
+        .then(endInitHome.bind(this));
 } 
+
+function endInitHome() {
+    mainContentLoader.hideLoader();
+}
 
 function initView() {
     mainContentController.setView(views.home.title);

@@ -1,6 +1,6 @@
 class Loader {
-    constructor(container) {
-        this.container = $(container);
+    constructor(containerSelector) {
+        this.container = $(containerSelector);
         this.containerChildren = this.container.children();
         this.spinnerClassName = "loader-spinner";
         this.spinnerImg = $(`<img class="${this.spinnerClassName}" src='/images/spinner-loader.gif' width='100'>`);

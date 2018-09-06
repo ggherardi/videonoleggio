@@ -7,4 +7,12 @@ class Permissions {
         }
     }
 }
+
+class Placeholders {
+    constructor() {
+        this.mainContentZone = "#ContentZone0";
+    }
+}
+
 permissions = new Permissions();
+placeholders = new Placeholders();
