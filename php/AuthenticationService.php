@@ -36,8 +36,10 @@ class AuthenticationService {
         try {
             Logger::Write("Processing Login request.", $GLOBALS["CorrelationID"]);
             $credentials = json_decode($_POST["credentials"]);
-            $query = "SELECT *
-                FROM dipendente 
+            $query = "SELECT dip.id_dipendente, dip.username, dip.password, del.codice, del.nome as delega_nome
+                FROM dipendente as dip
+                INNER JOIN delega as del
+                ON dip.id_delega = del.id_delega
                 WHERE username = '%s'";
             $query = sprintf($query, $credentials->username);            
             $res = self::ExecuteQuery($query);
@@ -180,11 +182,17 @@ catch(Throwable $ex) {
 }
 
 class User {
-    public $username;
+    public $dipendente_username;
+    public $dipendente_id_dipendente;
+    public $delega_codice;
+    public $delega_nome;
     public $token;
 
     public function __construct($row) {
-        $this->username = $row["username"];
+        $this->dipendente_username = $row["username"];
+        $this->dipendente_id_dipendente = $row["id_dipendente"];
+        $this->delega_codice = $row["codice"];
+        $this->delega_nome = $row["delega_nome"];
         $this->generateTokenForUser();
     }
 

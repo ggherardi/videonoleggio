@@ -8,6 +8,14 @@
     border: #8583e1!important;
 }
 
+#ContentZone0 {
+    background-color: #f5f0f0;
+}
+
+#TopLeftImage {
+    max-height: 200px;
+}
+
 #LoginForm 
 {
     margin: 80px auto;
@@ -29,4 +37,9 @@
     opacity: 0,5;
     position: fixed;
     z-index: 9999;
+}
+
+.errorSpan {
+    display: none;
+    color: #ff0000;
 }

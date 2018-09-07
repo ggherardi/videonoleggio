@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `videonoleggio` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `videonoleggio`;
--- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.5.60, for Win64 (AMD64)
 --
 -- Host: localhost    Database: videonoleggio
 -- ------------------------------------------------------
--- Server version	5.5.45
+-- Server version	5.5.60
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -161,7 +161,7 @@ CREATE TABLE `delega` (
   `codice` varchar(45) DEFAULT NULL,
   `nome` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id_delega`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -170,6 +170,7 @@ CREATE TABLE `delega` (
 
 LOCK TABLES `delega` WRITE;
 /*!40000 ALTER TABLE `delega` DISABLE KEYS */;
+INSERT INTO `delega` VALUES (1,'10','addetto'),(2,'20','responsabile'),(3,'30','proprietario');
 /*!40000 ALTER TABLE `delega` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -186,12 +187,14 @@ CREATE TABLE `dipendente` (
   `id_punto_vendita` int(11) DEFAULT NULL,
   `nome` varchar(45) DEFAULT NULL,
   `cognome` varchar(45) DEFAULT NULL,
+  `username` varchar(45) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_dipendente`),
   KEY `fk_dipendente_delega_idx` (`id_delega`),
   KEY `fk_dipendente_punto_vendita_idx` (`id_punto_vendita`),
   CONSTRAINT `fk_dipendente_delega` FOREIGN KEY (`id_delega`) REFERENCES `delega` (`id_delega`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_dipendente_punto_vendita` FOREIGN KEY (`id_punto_vendita`) REFERENCES `punto_vendita` (`id_punto_vendita`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -200,6 +203,7 @@ CREATE TABLE `dipendente` (
 
 LOCK TABLES `dipendente` WRITE;
 /*!40000 ALTER TABLE `dipendente` DISABLE KEYS */;
+INSERT INTO `dipendente` VALUES (1,3,1,'Gianmattia','Gherardi','admin','$2y$10$8BefxWbWyyJka.NQjlMS.uMvK9eZF50fbjsGct2eboNJnh6nmm.s2');
 /*!40000 ALTER TABLE `dipendente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -428,7 +432,7 @@ CREATE TABLE `punto_vendita` (
   PRIMARY KEY (`id_punto_vendita`),
   KEY `fk_punto_vendita_citta_idx` (`id_citta`),
   CONSTRAINT `fk_punto_vendita_citta` FOREIGN KEY (`id_citta`) REFERENCES `citta` (`id_citta`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -437,6 +441,7 @@ CREATE TABLE `punto_vendita` (
 
 LOCK TABLES `punto_vendita` WRITE;
 /*!40000 ALTER TABLE `punto_vendita` DISABLE KEYS */;
+INSERT INTO `punto_vendita` VALUES (1,'Roma01','Largo Giuseppe Veratti 37',4);
 /*!40000 ALTER TABLE `punto_vendita` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -519,4 +524,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-09-05  1:04:07
+-- Dump completed on 2018-09-06 16:53:02

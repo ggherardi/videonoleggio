@@ -11,8 +11,19 @@ class Permissions {
 class Placeholders {
     constructor() {
         this.mainContentZone = "#ContentZone0";
+        this.sidebar = "#Sidebar";
+    }
+}
+
+class HttpUtilities {
+    constructor() {
+        this.httpStatusCodes = {
+            "unauthorized": 401,
+            "internalServerError": 500
+        }
     }
 }
 
 permissions = new Permissions();
 placeholders = new Placeholders();
+httpUtilities = new HttpUtilities();
