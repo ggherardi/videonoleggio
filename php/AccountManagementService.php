@@ -1,7 +1,5 @@
 <?php
-include 'PHPConst.php';
 include 'DBConnection.php';
-include 'models\Models.php';
 include 'TokenGenerator.php';
 use TokenGenerator;
 use Logger;
@@ -23,6 +21,7 @@ class AccountManagementService {
 
     function GetCities() {
         Logger::Write("Processing request.", $GLOBALS["CorrelationID"]);
+        TokenGenerator.ValidateToken();
         exit(json_encode("works"));
     }
 

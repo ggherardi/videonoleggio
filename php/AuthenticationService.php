@@ -1,7 +1,5 @@
 <?php
-include 'PHPConst.php';
 include 'DBConnection.php';
-include 'models\Models.php';
 include 'TokenGenerator.php';
 use TokenGenerator;
 use Logger;

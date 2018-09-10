@@ -248,3 +248,9 @@ Stack trace:
 [10/09/2018 20:22:58] - corrId_5b96b682dffb65.82332920 - Executing query 
 [10/09/2018 20:22:59] - corrId_5b96b682dffb65.82332920 - User  validated, generating Token. 
 [10/09/2018 20:22:59] - corrId_5b96b682dffb65.82332920 - Token generated succesfully. 
+[10/09/2018 20:26:03] - corrId_5b96b73b484442.20456747 - Reached AuthenticationService API 
+[10/09/2018 20:26:11] - corrId_5b96b743a6c074.05859886 - Reached AccountManagementService API 
+[10/09/2018 20:26:14] - corrId_5b96b74621b5f6.47135588 - Reached AuthenticationService API 
+[10/09/2018 20:26:38] - corrId_5b96b75ecaf705.72533715 - Reached AccountManagementService API 
+[10/09/2018 20:27:54] - corrId_5b96b7aac5e4e3.22865827 - Reached AccountManagementService API 
+[10/09/2018 20:27:54] - corrId_5b96b7aac5e4e3.22865827 - Processing request. 
