@@ -1,6 +1,6 @@
 class SharedStorage {
     constructor() {
-        this.user = null;
+        this.loginContext = null;
     }
 }
 

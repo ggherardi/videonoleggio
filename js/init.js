@@ -1,9 +1,9 @@
 /* Settings */
 var views = {
-    home: { title: "Home" },
-    login: { title: "Login", showInMenu: false },
-    noleggi: { title: "Noleggi" },
-    accounts: { title: "Gestione utenti", needPermissions: permissions.levels.proprietario }
+    home: { title: "Home", name: "home" },
+    login: { title: "Login", name: "login", showInMenu: false },
+    noleggi: { title: "Noleggi", name: "noleggi" },
+    accounts: { title: "Gestione utenti", name: "accounts", needPermissions: permissions.levels.proprietario }
 };
 
 var components = {
@@ -38,21 +38,21 @@ function initHomepage() {
 }
 
 function initUser() {
-    if(!sharedStorage.user) {
-        sharedStorage.user = cookiesManager.getObjectFromCookie(authenticationManager.userCookieName);
+    if(!sharedStorage.loginContext) {
+        sharedStorage.loginContext = cookiesManager.getObjectFromCookie(authenticationManager.loginContext);
     }
 }
 
 function initMasterpageComponents() {
-    $.when(navbarController.setComponent(components.navbar.title), 
-        sidebarController.setComponent(components.sidebar.title))
+    $.when(navbarController.setComponent(components.navbar), 
+        sidebarController.setComponent(components.sidebar))
         .then(() => { menu.buildMenu() })
         .done(initView)
-} 
+}
 
 function initView() {
-    mainContentController.setView(views.home.title);
-    menu.setMenuItemActive(views.home.title);
+    mainContentController.setView(views.home);
+    menu.setMenuItemActive(views.home);
     initSidebarResize();
 }
 
@@ -68,11 +68,12 @@ function sideBarResize() {
 }
 
 function initLogin() {
-    mainContentController.setView(views.login.title);
+    mainContentController.setView(views.login);
 }
 
 /* Events */
 function menuClick(menuItem) {
-    mainContentController.setView(menuItem.innerText);
-    menu.setMenuItemActive(menuItem.innerText);
+    var view = views[menuItem.dataset["view"]];
+    mainContentController.setView(view);
+    menu.setMenuItemActive(view);
 }

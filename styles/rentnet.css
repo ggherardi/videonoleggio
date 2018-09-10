@@ -8,8 +8,34 @@
     border: #8583e1!important;
 }
 
+.spinner-loader {
+    background-color: #8583e1;
+    opacity: 0,5;
+    position: fixed;
+    z-index: 9999;
+}
+
+.errorSpan {
+    display: none;
+    color: #ff0000;
+}
+
+.simple-button {
+    font-size: 10px;
+    color: #fff;
+    display: table;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.simple-button:hover {
+    background-color: #8583e1;
+}
+
 #ContentZone0 {
     background-color: #f5f0f0;
+    height: auto!important;
+    padding-bottom: 30px;
 }
 
 #TopLeftImage {
@@ -32,14 +58,6 @@
     margin-top: 20px;
 }
 
-.spinner-loader {
-    background-color: #8583e1;
-    opacity: 0,5;
-    position: fixed;
-    z-index: 9999;
-}
-
-.errorSpan {
-    display: none;
-    color: #ff0000;
+#SidebarDelega {
+    font-size: 12px;
 }

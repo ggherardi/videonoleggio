@@ -36,10 +36,16 @@ class AuthenticationService {
         try {
             Logger::Write("Processing Login request.", $GLOBALS["CorrelationID"]);
             $credentials = json_decode($_POST["credentials"]);
-            $query = "SELECT dip.id_dipendente, dip.username, dip.password, del.codice, del.nome as delega_nome
+            $query = 
+                "SELECT dip.id_dipendente, dip.username, dip.password, del.codice, del.nome as delega_nome,
+                    pv.nome as punto_vendita_nome, pv.indirizzo as punto_vendita_indirizzo, c.nome as citta_nome
                 FROM dipendente as dip
                 INNER JOIN delega as del
                 ON dip.id_delega = del.id_delega
+                INNER JOIN punto_vendita as pv
+                ON dip.id_punto_vendita = pv.id_punto_vendita
+                INNER JOIN citta as c
+                ON pv.id_citta = c.id_citta
                 WHERE username = '%s'";
             $query = sprintf($query, $credentials->username);            
             $res = self::ExecuteQuery($query);
@@ -48,7 +54,7 @@ class AuthenticationService {
                 $validRow = $row;
             }
             if(password_verify($credentials->password, $fetchedPassword)){
-                $user = new User($validRow);
+                $user = new LoginContext($validRow);
                 exit(json_encode($user));
                 Logger::Write("User $this->username succesfully logged in.", $GLOBALS["CorrelationID"]);
             }
@@ -181,11 +187,14 @@ catch(Throwable $ex) {
     exit(json_encode($ex->getMessage()));
 }
 
-class User {
+class LoginContext {
     public $dipendente_username;
     public $dipendente_id_dipendente;
     public $delega_codice;
     public $delega_nome;
+    public $punto_vendita_nome;
+    public $citta_nome;
+    public $punto_vendita_indirizzo;
     public $token;
 
     public function __construct($row) {
@@ -193,6 +202,9 @@ class User {
         $this->dipendente_id_dipendente = $row["id_dipendente"];
         $this->delega_codice = $row["codice"];
         $this->delega_nome = $row["delega_nome"];
+        $this->punto_vendita_nome = $row["punto_vendita_nome"];
+        $this->punto_vendita_indirizzo = $row["punto_vendita_indirizzo"];
+        $this->citta_nome = $row["citta_nome"];
         $this->generateTokenForUser();
     }
 

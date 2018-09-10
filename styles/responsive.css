@@ -59,10 +59,10 @@
 	{
 		padding-left: 50px;
 	}
-	.main_content
+	/* .main_content
 	{
 		width: calc(100% - 400px);
-	}
+	} */
 	.main_title
 	{
 		font-size: 72px;
@@ -84,7 +84,7 @@
 
 @media only screen and (max-width: 1280px)
 {
-	.main_nav
+	/* .main_nav
 	{
 		display: none !important;
 	}
@@ -96,9 +96,9 @@
 	{
 		display: block;
 		left: 15px;
-		right: auto;
+		right: 15px;
 		bottom: 10px;
-	}
+	} */
 }
 
 /************
@@ -313,6 +313,21 @@
 	.about_title
 	{
 		font-size: 24px;
+	}
+	.main_nav
+	{
+		display: none !important;
+	}
+	.menu
+	{
+		display: block;
+	}
+	.header_button_2
+	{
+		display: block;
+		left: 15px;
+		right: 15px;
+		bottom: 10px;
 	}
 }
 

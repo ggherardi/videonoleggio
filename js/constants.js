@@ -12,6 +12,7 @@ class Placeholders {
     constructor() {
         this.mainContentZone = "#ContentZone0";
         this.sidebar = "#Sidebar";
+        this.navbar = "#Navbar";
     }
 }
 

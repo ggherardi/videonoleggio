@@ -2,10 +2,10 @@
 class AuthenticationManager {
     constructor(cookiesManager) {
         this.cookiesManager = cookiesManager;
-        this.userCookieName = 'user';
+        this.loginContext = 'loginContext';
     }
 
     isUserLogged() {
-        return this.cookiesManager.getCookie(this.userCookieName) != undefined;
+        return this.cookiesManager.getCookie(this.loginContext) != undefined;
     }
 }

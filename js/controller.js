@@ -16,14 +16,14 @@ class Controller {
     }
 
     setView(view) {
-        this.correlatedScripUrl = `js/views/${view.toLowerCase()}.js`;
-        this.ajaxOptions.url = `/views/${view.toLowerCase()}.html`;
+        this.correlatedScripUrl = `js/views/${view.name.toLowerCase()}.js`;
+        this.ajaxOptions.url = `/views/${view.name.toLowerCase()}.html`;
         return this.set();
     }
 
     setComponent(component) {
-        this.correlatedScripUrl = `js/components/${component.toLowerCase()}.js`;
-        this.ajaxOptions.url = `/components/${component.toLowerCase()}.html`;
+        this.correlatedScripUrl = `js/components/${component.title.toLowerCase()}.js`;
+        this.ajaxOptions.url = `/components/${component.title.toLowerCase()}.html`;
         return this.set();
     }
 
@@ -52,11 +52,11 @@ class Menu {
     buildMenu() {
         for(var key in this.menuItems) {
             var item = this.menuItems[key];
-            if(item.showInMenu == undefined || item.showInMenu) {
-                var itemText = this.menuItems[key].title;
+            var arePermissionsValid = item.needPermissions ? sharedStorage.loginContext.delega_codice >= item.needPermissions : true;
+            if(arePermissionsValid &&  item.showInMenu == undefined || item.showInMenu) {          
                 this.html += 
-                    `<li id='NavItem_${itemText}'>` +
-                    `   <span onclick='menuClick(this);'>${itemText}</span>` +
+                    `<li id='NavItem_${item.name}'>` +
+                    `   <span onclick='menuClick(this);' data-view='${item.name}'>${item.title}</span>` +
                     `</li>`;   
             }                
         }
@@ -75,13 +75,9 @@ class Menu {
         if(prevItem){
             $(prevItem).removeClass(this.activeClassName);
         }
-        var currItem = $(`#NavItem_${view}`);
+        var currItem = $(`#NavItem_${view.name}`);
         if(currItem){
             $(currItem).addClass(this.activeClassName);
         }
     }
-}
-
-class Spinner {
-    
 }
