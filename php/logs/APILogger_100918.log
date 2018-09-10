@@ -254,4 +254,97 @@ Stack trace:
 [10/09/2018 20:26:38] - corrId_5b96b75ecaf705.72533715 - Reached AccountManagementService API 
 [10/09/2018 20:27:54] - corrId_5b96b7aac5e4e3.22865827 - Reached AccountManagementService API 
 [10/09/2018 20:27:54] - corrId_5b96b7aac5e4e3.22865827 - Processing request. 
+<<<<<<< HEAD
 [10/09/2018 21:34:08] - corrId_5b96c730d840a1.66890448 - Reached AccountManagementService API 
+=======
+[10/09/2018 21:51:37] - corrId_5b96cb4978f684.09209189 - Reached AuthenticationService API 
+[10/09/2018 21:51:37] - corrId_5b96cb4978f684.09209189 - Processing Login request. 
+[10/09/2018 21:51:37] - corrId_5b96cb4978f684.09209189 - Establishing connection to DB 
+[10/09/2018 21:51:37] - corrId_5b96cb4978f684.09209189 - Executing query 
+[10/09/2018 21:51:37] - corrId_5b96cb4978f684.09209189 - Error while executing query -> Unknown column 'dip.username' in 'field list' 
+[10/09/2018 21:51:37] - corrId_5b96cb4978f684.09209189 - Error during the login of user -> Exception: Exception: Unknown column 'dip.username' in 'field list' in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(25): DBConnection->ExecuteQuery('SELECT dip.id_d...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(49): AuthenticationService->ExecuteQuery('SELECT dip.id_d...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(168): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(181): AuthenticationService->Init()
+#4 {main} in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(25): DBConnection->ExecuteQuery('SELECT dip.id_d...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(49): AuthenticationService->ExecuteQuery('SELECT dip.id_d...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(168): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(181): AuthenticationService->Init()
+#4 {main} 
+[10/09/2018 21:52:22] - corrId_5b96cb7672b0a4.31215203 - Reached AuthenticationService API 
+[10/09/2018 21:52:22] - corrId_5b96cb7672b0a4.31215203 - Processing Login request. 
+[10/09/2018 21:52:22] - corrId_5b96cb7672b0a4.31215203 - Establishing connection to DB 
+[10/09/2018 21:52:22] - corrId_5b96cb7672b0a4.31215203 - Executing query 
+[10/09/2018 21:52:22] - corrId_5b96cb7672b0a4.31215203 - Error while executing query -> Unknown column 'dip.username' in 'field list' 
+[10/09/2018 21:52:22] - corrId_5b96cb7672b0a4.31215203 - Error during the login of user -> Exception: Exception: Unknown column 'dip.username' in 'field list' in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(25): DBConnection->ExecuteQuery('SELECT dip.id_d...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(49): AuthenticationService->ExecuteQuery('SELECT dip.id_d...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(168): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(181): AuthenticationService->Init()
+#4 {main} in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(25): DBConnection->ExecuteQuery('SELECT dip.id_d...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(49): AuthenticationService->ExecuteQuery('SELECT dip.id_d...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(168): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(181): AuthenticationService->Init()
+#4 {main} 
+[10/09/2018 21:52:31] - corrId_5b96cb7f40dc31.16355884 - Reached AuthenticationService API 
+[10/09/2018 21:52:31] - corrId_5b96cb7f40dc31.16355884 - Processing Login request. 
+[10/09/2018 21:52:31] - corrId_5b96cb7f40dc31.16355884 - Establishing connection to DB 
+[10/09/2018 21:52:31] - corrId_5b96cb7f40dc31.16355884 - Executing query 
+[10/09/2018 21:52:31] - corrId_5b96cb7f40dc31.16355884 - Error while executing query -> Unknown column 'dip.username' in 'field list' 
+[10/09/2018 21:52:31] - corrId_5b96cb7f40dc31.16355884 - Error during the login of user -> Exception: Exception: Unknown column 'dip.username' in 'field list' in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(25): DBConnection->ExecuteQuery('SELECT dip.id_d...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(49): AuthenticationService->ExecuteQuery('SELECT dip.id_d...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(168): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(181): AuthenticationService->Init()
+#4 {main} in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(25): DBConnection->ExecuteQuery('SELECT dip.id_d...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(49): AuthenticationService->ExecuteQuery('SELECT dip.id_d...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(168): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(181): AuthenticationService->Init()
+#4 {main} 
+[10/09/2018 21:52:38] - corrId_5b96cb86e02878.01232272 - Reached AuthenticationService API 
+[10/09/2018 21:52:38] - corrId_5b96cb86e02878.01232272 - Processing Login request. 
+[10/09/2018 21:52:38] - corrId_5b96cb86e02878.01232272 - Establishing connection to DB 
+[10/09/2018 21:52:38] - corrId_5b96cb86e02878.01232272 - Executing query 
+[10/09/2018 21:52:38] - corrId_5b96cb86e02878.01232272 - Error while executing query -> Unknown column 'dip.username' in 'field list' 
+[10/09/2018 21:52:38] - corrId_5b96cb86e02878.01232272 - Error during the login of user -> Exception: Exception: Unknown column 'dip.username' in 'field list' in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(25): DBConnection->ExecuteQuery('SELECT dip.id_d...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(49): AuthenticationService->ExecuteQuery('SELECT dip.id_d...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(168): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(181): AuthenticationService->Init()
+#4 {main} in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(25): DBConnection->ExecuteQuery('SELECT dip.id_d...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(49): AuthenticationService->ExecuteQuery('SELECT dip.id_d...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(168): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(181): AuthenticationService->Init()
+#4 {main} 
+[10/09/2018 21:52:52] - corrId_5b96cb94adb674.44098250 - Reached AuthenticationService API 
+[10/09/2018 21:52:52] - corrId_5b96cb94adb674.44098250 - Processing Login request. 
+[10/09/2018 21:52:52] - corrId_5b96cb94adb674.44098250 - Establishing connection to DB 
+[10/09/2018 21:52:52] - corrId_5b96cb94adb674.44098250 - Executing query 
+[10/09/2018 21:52:52] - corrId_5b96cb94adb674.44098250 - Error while executing query -> Unknown column 'dip.username' in 'field list' 
+[10/09/2018 21:52:52] - corrId_5b96cb94adb674.44098250 - Error during the login of user -> Exception: Exception: Unknown column 'dip.username' in 'field list' in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(25): DBConnection->ExecuteQuery('SELECT dip.id_d...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(49): AuthenticationService->ExecuteQuery('SELECT dip.id_d...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(168): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(181): AuthenticationService->Init()
+#4 {main} in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(25): DBConnection->ExecuteQuery('SELECT dip.id_d...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(49): AuthenticationService->ExecuteQuery('SELECT dip.id_d...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(168): AuthenticationService->Login()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(181): AuthenticationService->Init()
+#4 {main} 
+>>>>>>> ded8270b9c6f1050b2ef50e27b75c90709e144d7
