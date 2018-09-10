@@ -28,3 +28,223 @@
 [10/09/2018 17:27:48] - corrId_5b968d74d76115.66268689 - Executing query 
 [10/09/2018 17:27:49] - corrId_5b968d74d76115.66268689 - User  validated, generating Token. 
 [10/09/2018 17:27:49] - corrId_5b968d74d76115.66268689 - Token generated succesfully. 
+[10/09/2018 19:16:35] - corrId_5b96a6f382c0e1.93764459 - Reached AuthenticationService API 
+[10/09/2018 19:16:35] - corrId_5b96a6f382c0e1.93764459 - Processing Login request. 
+[10/09/2018 19:16:35] - corrId_5b96a6f382c0e1.93764459 - Establishing connection to DB 
+[10/09/2018 19:16:35] - corrId_5b96a6f382c0e1.93764459 - Executing query 
+[10/09/2018 19:16:35] - corrId_5b96a6f382c0e1.93764459 - User  validated, generating Token. 
+[10/09/2018 19:16:35] - corrId_5b96a6f382c0e1.93764459 - Token generated succesfully. 
+[10/09/2018 19:16:47] - corrId_5b96a6ff6580d4.44780136 - Reached AuthenticationService API 
+[10/09/2018 19:16:47] - corrId_5b96a6ff6580d4.44780136 - Processing Login request. 
+[10/09/2018 19:16:47] - corrId_5b96a6ff6580d4.44780136 - Establishing connection to DB 
+[10/09/2018 19:16:47] - corrId_5b96a6ff6580d4.44780136 - Executing query 
+[10/09/2018 19:16:47] - corrId_5b96a6ff6580d4.44780136 - User  validated, generating Token. 
+[10/09/2018 19:16:47] - corrId_5b96a6ff6580d4.44780136 - Token generated succesfully. 
+[10/09/2018 19:18:50] - corrId_5b96a77a87b872.36112900 - Reached AuthenticationService API 
+[10/09/2018 19:18:50] - corrId_5b96a77a87b872.36112900 - Processing Login request. 
+[10/09/2018 19:18:50] - corrId_5b96a77a87b872.36112900 - Establishing connection to DB 
+[10/09/2018 19:18:50] - corrId_5b96a77a87b872.36112900 - Executing query 
+[10/09/2018 19:18:50] - corrId_5b96a77a87b872.36112900 - User  validated, generating Token. 
+[10/09/2018 19:18:50] - corrId_5b96a77a87b872.36112900 - Token generated succesfully. 
+[10/09/2018 19:19:59] - corrId_5b96a7bfdde909.91226725 - Reached AuthenticationService API 
+[10/09/2018 19:19:59] - corrId_5b96a7bfdde909.91226725 - Processing Login request. 
+[10/09/2018 19:19:59] - corrId_5b96a7bfdde909.91226725 - Establishing connection to DB 
+[10/09/2018 19:19:59] - corrId_5b96a7bfdde909.91226725 - Executing query 
+[10/09/2018 19:20:00] - corrId_5b96a7bfdde909.91226725 - User  validated, generating Token. 
+[10/09/2018 19:20:00] - corrId_5b96a7bfdde909.91226725 - Token generated succesfully. 
+[10/09/2018 19:21:26] - corrId_5b96a8164cb0f6.46198966 - Reached AuthenticationService API 
+[10/09/2018 19:21:26] - corrId_5b96a8164cb0f6.46198966 - Processing Login request. 
+[10/09/2018 19:21:26] - corrId_5b96a8164cb0f6.46198966 - Establishing connection to DB 
+[10/09/2018 19:21:26] - corrId_5b96a8164cb0f6.46198966 - Executing query 
+[10/09/2018 19:21:26] - corrId_5b96a8164cb0f6.46198966 - User  validated, generating Token. 
+[10/09/2018 19:21:26] - corrId_5b96a8164cb0f6.46198966 - Token generated succesfully. 
+[10/09/2018 19:22:22] - corrId_5b96a84ebd6051.08899441 - Reached AuthenticationService API 
+[10/09/2018 19:22:22] - corrId_5b96a84ebd6051.08899441 - Processing Login request. 
+[10/09/2018 19:22:22] - corrId_5b96a84ebd6051.08899441 - Establishing connection to DB 
+[10/09/2018 19:22:22] - corrId_5b96a84ebd6051.08899441 - Executing query 
+[10/09/2018 19:22:22] - corrId_5b96a84ebd6051.08899441 - User  validated, generating Token. 
+[10/09/2018 19:22:22] - corrId_5b96a84ebd6051.08899441 - Token generated succesfully. 
+[10/09/2018 19:22:31] - corrId_5b96a857c4d622.86568459 - Reached AuthenticationService API 
+[10/09/2018 19:22:31] - corrId_5b96a857c4d622.86568459 - Processing Login request. 
+[10/09/2018 19:22:31] - corrId_5b96a857c4d622.86568459 - Establishing connection to DB 
+[10/09/2018 19:22:31] - corrId_5b96a857c4d622.86568459 - Executing query 
+[10/09/2018 19:22:31] - corrId_5b96a857c4d622.86568459 - User  validated, generating Token. 
+[10/09/2018 19:22:31] - corrId_5b96a857c4d622.86568459 - Token generated succesfully. 
+[10/09/2018 19:32:37] - corrId_5b96aab5052ad6.30044831 - Reached AuthenticationService API 
+[10/09/2018 19:32:37] - corrId_5b96aab5052ad6.30044831 - Processing Login request. 
+[10/09/2018 19:32:37] - corrId_5b96aab5052ad6.30044831 - Establishing connection to DB 
+[10/09/2018 19:32:37] - corrId_5b96aab5052ad6.30044831 - Executing query 
+[10/09/2018 19:32:37] - corrId_5b96aab5052ad6.30044831 - User  validated, generating Token. 
+[10/09/2018 19:32:37] - corrId_5b96aab5052ad6.30044831 - Token generated succesfully. 
+[10/09/2018 19:34:17] - corrId_5b96ab1934a526.05182362 - Reached AuthenticationService API 
+[10/09/2018 19:34:17] - corrId_5b96ab1934a526.05182362 - Processing Login request. 
+[10/09/2018 19:34:17] - corrId_5b96ab1934a526.05182362 - Establishing connection to DB 
+[10/09/2018 19:34:17] - corrId_5b96ab1934a526.05182362 - Executing query 
+[10/09/2018 19:35:02] - corrId_5b96ab4628e704.32537683 - Reached AuthenticationService API 
+[10/09/2018 19:35:02] - corrId_5b96ab4628e704.32537683 - Processing Login request. 
+[10/09/2018 19:35:02] - corrId_5b96ab4628e704.32537683 - Establishing connection to DB 
+[10/09/2018 19:35:02] - corrId_5b96ab4628e704.32537683 - Executing query 
+[10/09/2018 19:35:55] - corrId_5b96ab7b250436.38918236 - Reached AuthenticationService API 
+[10/09/2018 19:35:55] - corrId_5b96ab7b250436.38918236 - Processing Login request. 
+[10/09/2018 19:35:55] - corrId_5b96ab7b250436.38918236 - Establishing connection to DB 
+[10/09/2018 19:35:55] - corrId_5b96ab7b250436.38918236 - Executing query 
+[10/09/2018 19:35:55] - corrId_5b96ab7b250436.38918236 - Error while executing query -> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 10 
+[10/09/2018 19:35:55] - corrId_5b96ab7b250436.38918236 - Error during the login of user -> Exception: Exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 10 in C:\Websites\BDC\videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT dip.id_d...')
+#1 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(51): AuthenticationService->ExecuteQuery('SELECT dip.id_d...')
+#2 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(169): AuthenticationService->Login()
+#3 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(182): AuthenticationService->Init()
+#4 {main} in C:\Websites\BDC\videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT dip.id_d...')
+#1 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(51): AuthenticationService->ExecuteQuery('SELECT dip.id_d...')
+#2 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(169): AuthenticationService->Login()
+#3 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(182): AuthenticationService->Init()
+#4 {main} 
+[10/09/2018 19:37:27] - corrId_5b96abd7d08d83.49255431 - Reached AuthenticationService API 
+[10/09/2018 19:37:27] - corrId_5b96abd7d08d83.49255431 - Processing Login request. 
+[10/09/2018 19:37:27] - corrId_5b96abd7d08d83.49255431 - Establishing connection to DB 
+[10/09/2018 19:37:27] - corrId_5b96abd7d08d83.49255431 - Executing query 
+[10/09/2018 19:37:47] - corrId_5b96abebc10a84.65110642 - Reached AuthenticationService API 
+[10/09/2018 19:37:47] - corrId_5b96abebc10a84.65110642 - Processing Login request. 
+[10/09/2018 19:37:47] - corrId_5b96abebc10a84.65110642 - Establishing connection to DB 
+[10/09/2018 19:37:47] - corrId_5b96abebc10a84.65110642 - Executing query 
+[10/09/2018 19:39:06] - corrId_5b96ac3a747eb8.69945222 - Reached AuthenticationService API 
+[10/09/2018 19:39:06] - corrId_5b96ac3a747eb8.69945222 - Processing Login request. 
+[10/09/2018 19:39:06] - corrId_5b96ac3a747eb8.69945222 - Establishing connection to DB 
+[10/09/2018 19:39:06] - corrId_5b96ac3a747eb8.69945222 - Executing query 
+[10/09/2018 19:39:28] - corrId_5b96ac50bd1d10.01155186 - Reached AuthenticationService API 
+[10/09/2018 19:39:28] - corrId_5b96ac50bd1d10.01155186 - Processing Login request. 
+[10/09/2018 19:39:28] - corrId_5b96ac50bd1d10.01155186 - Establishing connection to DB 
+[10/09/2018 19:39:28] - corrId_5b96ac50bd1d10.01155186 - Executing query 
+[10/09/2018 19:40:13] - corrId_5b96ac7d506808.82097915 - Reached AuthenticationService API 
+[10/09/2018 19:40:13] - corrId_5b96ac7d506808.82097915 - Processing Login request. 
+[10/09/2018 19:40:13] - corrId_5b96ac7d506808.82097915 - Establishing connection to DB 
+[10/09/2018 19:40:13] - corrId_5b96ac7d506808.82097915 - Executing query 
+[10/09/2018 19:40:34] - corrId_5b96ac9238bb24.36054721 - Reached AuthenticationService API 
+[10/09/2018 19:40:34] - corrId_5b96ac9238bb24.36054721 - Processing Login request. 
+[10/09/2018 19:40:34] - corrId_5b96ac9238bb24.36054721 - Establishing connection to DB 
+[10/09/2018 19:40:34] - corrId_5b96ac9238bb24.36054721 - Executing query 
+[10/09/2018 19:40:34] - corrId_5b96ac9238bb24.36054721 - User  validated, generating Token. 
+[10/09/2018 19:40:34] - corrId_5b96ac9238bb24.36054721 - Token generated succesfully. 
+[10/09/2018 19:41:03] - corrId_5b96acaf05b833.79557780 - Reached AuthenticationService API 
+[10/09/2018 19:41:03] - corrId_5b96acaf05b833.79557780 - Processing Login request. 
+[10/09/2018 19:41:03] - corrId_5b96acaf05b833.79557780 - Establishing connection to DB 
+[10/09/2018 19:41:03] - corrId_5b96acaf05b833.79557780 - Executing query 
+[10/09/2018 19:41:03] - corrId_5b96acaf05b833.79557780 - User  validated, generating Token. 
+[10/09/2018 19:41:03] - corrId_5b96acaf05b833.79557780 - Token generated succesfully. 
+[10/09/2018 19:42:46] - corrId_5b96ad164bbca4.68361029 - Reached AuthenticationService API 
+[10/09/2018 19:42:46] - corrId_5b96ad164bbca4.68361029 - Processing Login request. 
+[10/09/2018 19:42:46] - corrId_5b96ad164bbca4.68361029 - Establishing connection to DB 
+[10/09/2018 19:42:46] - corrId_5b96ad164bbca4.68361029 - Executing query 
+[10/09/2018 19:42:46] - corrId_5b96ad164bbca4.68361029 - User  validated, generating Token. 
+[10/09/2018 19:42:46] - corrId_5b96ad164bbca4.68361029 - Token generated succesfully. 
+[10/09/2018 19:42:58] - corrId_5b96ad221be055.81090369 - Reached AuthenticationService API 
+[10/09/2018 19:42:58] - corrId_5b96ad221be055.81090369 - Processing Login request. 
+[10/09/2018 19:42:58] - corrId_5b96ad221be055.81090369 - Establishing connection to DB 
+[10/09/2018 19:42:58] - corrId_5b96ad221be055.81090369 - Executing query 
+[10/09/2018 19:42:58] - corrId_5b96ad221be055.81090369 - User  validated, generating Token. 
+[10/09/2018 19:42:58] - corrId_5b96ad221be055.81090369 - Token generated succesfully. 
+[10/09/2018 19:43:31] - corrId_5b96ad43be9700.01378318 - Reached AuthenticationService API 
+[10/09/2018 19:43:31] - corrId_5b96ad43be9700.01378318 - Processing Login request. 
+[10/09/2018 19:43:31] - corrId_5b96ad43be9700.01378318 - Establishing connection to DB 
+[10/09/2018 19:43:31] - corrId_5b96ad43be9700.01378318 - Executing query 
+[10/09/2018 19:43:31] - corrId_5b96ad43be9700.01378318 - Error while executing query -> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 10 
+[10/09/2018 19:43:31] - corrId_5b96ad43be9700.01378318 - Error during the login of user -> Exception: Exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 10 in C:\Websites\BDC\videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT dip.id_d...')
+#1 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(51): AuthenticationService->ExecuteQuery('SELECT dip.id_d...')
+#2 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(170): AuthenticationService->Login()
+#3 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(183): AuthenticationService->Init()
+#4 {main} in C:\Websites\BDC\videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT dip.id_d...')
+#1 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(51): AuthenticationService->ExecuteQuery('SELECT dip.id_d...')
+#2 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(170): AuthenticationService->Login()
+#3 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(183): AuthenticationService->Init()
+#4 {main} 
+[10/09/2018 19:54:41] - corrId_5b96afe18bc290.61894043 - Reached AuthenticationService API 
+[10/09/2018 19:54:41] - corrId_5b96afe18bc290.61894043 - Processing Login request. 
+[10/09/2018 19:54:41] - corrId_5b96afe18bc290.61894043 - Establishing connection to DB 
+[10/09/2018 19:54:41] - corrId_5b96afe18bc290.61894043 - Executing query 
+[10/09/2018 19:54:41] - corrId_5b96afe18bc290.61894043 - Error while executing query -> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 10 
+[10/09/2018 19:54:41] - corrId_5b96afe18bc290.61894043 - Error during the login of user -> Exception: Exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 10 in C:\Websites\BDC\videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT dip.id_d...')
+#1 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(51): AuthenticationService->ExecuteQuery('SELECT dip.id_d...')
+#2 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(170): AuthenticationService->Login()
+#3 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(183): AuthenticationService->Init()
+#4 {main} in C:\Websites\BDC\videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT dip.id_d...')
+#1 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(51): AuthenticationService->ExecuteQuery('SELECT dip.id_d...')
+#2 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(170): AuthenticationService->Login()
+#3 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(183): AuthenticationService->Init()
+#4 {main} 
+[10/09/2018 19:55:17] - corrId_5b96b005ed2dc9.18727293 - Reached AuthenticationService API 
+[10/09/2018 19:55:17] - corrId_5b96b005ed2dc9.18727293 - Processing Login request. 
+[10/09/2018 19:55:17] - corrId_5b96b005ed2dc9.18727293 - Establishing connection to DB 
+[10/09/2018 19:55:17] - corrId_5b96b005ed2dc9.18727293 - Executing query 
+[10/09/2018 19:55:17] - corrId_5b96b005ed2dc9.18727293 - Error while executing query -> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '\'' at line 10 
+[10/09/2018 19:55:17] - corrId_5b96b005ed2dc9.18727293 - Error during the login of user -> Exception: Exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '\'' at line 10 in C:\Websites\BDC\videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT dip.id_d...')
+#1 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(51): AuthenticationService->ExecuteQuery('SELECT dip.id_d...')
+#2 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(170): AuthenticationService->Login()
+#3 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(183): AuthenticationService->Init()
+#4 {main} in C:\Websites\BDC\videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT dip.id_d...')
+#1 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(51): AuthenticationService->ExecuteQuery('SELECT dip.id_d...')
+#2 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(170): AuthenticationService->Login()
+#3 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(183): AuthenticationService->Init()
+#4 {main} 
+[10/09/2018 19:56:15] - corrId_5b96b03f268662.98654615 - Reached AuthenticationService API 
+[10/09/2018 19:56:15] - corrId_5b96b03f268662.98654615 - Processing Login request. 
+[10/09/2018 19:57:17] - corrId_5b96b07de803d4.10649937 - Reached AuthenticationService API 
+[10/09/2018 19:57:17] - corrId_5b96b07de803d4.10649937 - Processing Login request. 
+[10/09/2018 19:57:55] - corrId_5b96b0a34f0c03.73322719 - Reached AuthenticationService API 
+[10/09/2018 19:57:55] - corrId_5b96b0a34f0c03.73322719 - Processing Login request. 
+[10/09/2018 19:58:17] - corrId_5b96b0b9a1b042.46601658 - Reached AuthenticationService API 
+[10/09/2018 19:58:17] - corrId_5b96b0b9a1b042.46601658 - Processing Login request. 
+[10/09/2018 19:58:17] - corrId_5b96b0b9a1b042.46601658 - Establishing connection to DB 
+[10/09/2018 19:58:17] - corrId_5b96b0b9a1b042.46601658 - Executing query 
+[10/09/2018 19:58:17] - corrId_5b96b0b9a1b042.46601658 - Error while executing query -> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '''' at line 10 
+[10/09/2018 19:58:17] - corrId_5b96b0b9a1b042.46601658 - Error during the login of user -> Exception: Exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '''' at line 10 in C:\Websites\BDC\videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT dip.id_d...')
+#1 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(51): AuthenticationService->ExecuteQuery('SELECT dip.id_d...')
+#2 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(170): AuthenticationService->Login()
+#3 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(183): AuthenticationService->Init()
+#4 {main} in C:\Websites\BDC\videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(27): DBConnection->ExecuteQuery('SELECT dip.id_d...')
+#1 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(51): AuthenticationService->ExecuteQuery('SELECT dip.id_d...')
+#2 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(170): AuthenticationService->Login()
+#3 C:\Websites\BDC\videonoleggio\php\AuthenticationService.php(183): AuthenticationService->Init()
+#4 {main} 
+[10/09/2018 19:58:48] - corrId_5b96b0d870ec87.21514119 - Reached AuthenticationService API 
+[10/09/2018 19:58:48] - corrId_5b96b0d870ec87.21514119 - Processing Login request. 
+[10/09/2018 19:58:48] - corrId_5b96b0d870ec87.21514119 - Establishing connection to DB 
+[10/09/2018 19:58:48] - corrId_5b96b0d870ec87.21514119 - Executing query 
+[10/09/2018 19:58:48] - corrId_5b96b0d870ec87.21514119 - User  validated, generating Token. 
+[10/09/2018 19:58:48] - corrId_5b96b0d870ec87.21514119 - Token generated succesfully. 
+[10/09/2018 20:18:08] - corrId_5b96b5606126b6.06771132 - Reached AuthenticationService API 
+[10/09/2018 20:18:08] - corrId_5b96b5606126b6.06771132 - Processing Login request. 
+[10/09/2018 20:18:08] - corrId_5b96b5606126b6.06771132 - Establishing connection to DB 
+[10/09/2018 20:18:08] - corrId_5b96b5606126b6.06771132 - Executing query 
+[10/09/2018 20:18:08] - corrId_5b96b5606126b6.06771132 - User  validated, generating Token. 
+[10/09/2018 20:18:08] - corrId_5b96b5606126b6.06771132 - Token generated succesfully. 
+[10/09/2018 20:20:03] - corrId_5b96b5d34ff714.07018207 - Reached AuthenticationService API 
+[10/09/2018 20:20:03] - corrId_5b96b5d34ff714.07018207 - Processing Login request. 
+[10/09/2018 20:20:03] - corrId_5b96b5d34ff714.07018207 - Establishing connection to DB 
+[10/09/2018 20:20:03] - corrId_5b96b5d34ff714.07018207 - Executing query 
+[10/09/2018 20:20:03] - corrId_5b96b5d34ff714.07018207 - User  validated, generating Token. 
+[10/09/2018 20:20:03] - corrId_5b96b5d34ff714.07018207 - Token generated succesfully. 
+[10/09/2018 20:22:58] - corrId_5b96b682dffb65.82332920 - Reached AuthenticationService API 
+[10/09/2018 20:22:58] - corrId_5b96b682dffb65.82332920 - Processing Login request. 
+[10/09/2018 20:22:58] - corrId_5b96b682dffb65.82332920 - Establishing connection to DB 
+[10/09/2018 20:22:58] - corrId_5b96b682dffb65.82332920 - Executing query 
+[10/09/2018 20:22:59] - corrId_5b96b682dffb65.82332920 - User  validated, generating Token. 
+[10/09/2018 20:22:59] - corrId_5b96b682dffb65.82332920 - Token generated succesfully. 

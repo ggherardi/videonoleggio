@@ -45,11 +45,11 @@ class Controller {
 class Menu {
     constructor(menuItems) {
         this.menuItems = menuItems;
-        this.html = "";
         this.activeClassName = "active";
     }
     
     buildMenu() {
+        this.html = "";
         for(var key in this.menuItems) {
             var item = this.menuItems[key];
             var arePermissionsValid = item.needPermissions ? sharedStorage.loginContext.delega_codice >= item.needPermissions : true;

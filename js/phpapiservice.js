@@ -1,17 +1,19 @@
 class RestClient {
-    static execute(url, data, action) {
-        data.action = action;
+    constructor() { }
+
+    execute() {
         var ajaxOptions = {
-            url: url,
-            data: data,
+            url: this.endpoint,
+            data: this.data,
             type: "POST"
         }
         return $.ajax(ajaxOptions);
     }
 }
 
-class AuthenticationService {
+class AuthenticationService extends RestClient {
     constructor() {
+        super();
         this.endpoint = "php/AuthenticationService.php";
     }
 
@@ -20,10 +22,25 @@ class AuthenticationService {
             username: username,
             password: password
         });
-        var data = {
-            credentials: credentials
+        this.data = {
+            credentials: credentials,
+            action: "login"
         }
-        return RestClient.execute(this.endpoint, data, "login");
+        return super.execute();
+    }
+}
+
+class AccountManagementService extends RestClient {
+    constructor() {
+        super();
+        this.endpoint = "php/AccountManagementService.php;"
+    }
+
+    getCities() {
+        this.data = {
+            action: "getCities"
+        }
+        return super.execute();        
     }
 }
 

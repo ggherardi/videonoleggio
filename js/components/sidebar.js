@@ -24,7 +24,7 @@ function buildSidebarDetails() {
 function logout() {
     cookiesManager.disposeCookie(authenticationManager.loginContext)
     sharedStorage.user = null;
-    $(placeholders.sidebar).remove();
-    $(placeholders.navbar).remove();
+    $(placeholders.sidebar).html("");
+    $(placeholders.navbar).html("");
     mainContentController.setView(views.login);
 }

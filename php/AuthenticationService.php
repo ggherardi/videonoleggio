@@ -47,7 +47,7 @@ class AuthenticationService {
                 INNER JOIN citta as c
                 ON pv.id_citta = c.id_citta
                 WHERE username = '%s'";
-            $query = sprintf($query, $credentials->username);            
+            $query = sprintf($query, addslashes($credentials->username));
             $res = self::ExecuteQuery($query);
             while($row = $res->fetch_assoc()){
                 $fetchedPassword = $row["password"];
@@ -64,6 +64,7 @@ class AuthenticationService {
         } 
         catch (Throwable $ex) {
             Logger::Write("Error during the login of user -> $ex", $GLOBALS["CorrelationID"]);
+            http_response_code(500); 
             exit(json_encode($ex->getMessage()));
         }
     }
