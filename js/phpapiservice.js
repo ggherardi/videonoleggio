@@ -1,28 +1,28 @@
 class RestClient {
-    constructor() { }
+    constructor() {
+        this.ajaxOptions = {};
+     }
 
     executeWithoutToken() {
-        this.execute();
+        return this.execute();
     }
 
     executeWithToken() {
         this.getToken();
-        this.ajaxOptions = {
-
-        }
+        // set header
         console.log(this.token)
+        return this.execute();
     }
 
     execute() {
-        return $ajax(this.ajaxOptions);
+        this.setAjaxOptions();
+        return $.ajax(this.ajaxOptions);
     }
 
     setAjaxOptions() {
-        this.ajaxOptions = {
-            url: this.endpoint,
-            data: this.data,
-            type: "POST"
-        }
+        this.ajaxOptions.url = this.endpoint,
+        this.ajaxOptions.data = this.data,
+        this.ajaxOptions.type = "POST";
     }
 
     getToken() {

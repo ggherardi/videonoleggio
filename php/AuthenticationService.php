@@ -63,7 +63,7 @@ class AuthenticationService {
         catch (Throwable $ex) {
             Logger::Write("Error during the login of user -> $ex", $GLOBALS["CorrelationID"]);
             http_response_code(500); 
-            exit(json_encode($ex->getMessage()));
+            // exit(json_encode($ex->getMessage()));
         }
     }
 
