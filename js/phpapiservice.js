@@ -9,8 +9,9 @@ class RestClient {
 
     executeWithToken() {
         this.getToken();
-        // set header
-        console.log(this.token)
+        this.ajaxOptions.headers = {
+            AUTHORIZATION: `bearer ${this.token}`
+        }
         return this.execute();
     }
 
@@ -65,6 +66,14 @@ class AccountManagementService extends RestClient {
             action: "getCities"
         }
         return super.executeWithToken();        
+    }
+
+    getStores(id_citta) {
+        this.data = {
+            action: "getStores",
+            id_citta: id_citta
+        }
+        return super.executeWithToken();
     }
 }
 

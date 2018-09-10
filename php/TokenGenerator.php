@@ -1,7 +1,7 @@
 <?php
 
 // Classe che genera e legge il token per il JWT
-class TokenGenerator{
+class TokenGenerator {
     private static $Initialized = false;
 
     /* Configurazioni per i token, da spostare */
@@ -13,7 +13,7 @@ class TokenGenerator{
 
     // Metodo di inizializzazione della classe Logger, per consentire la staticità della stessa
     private static function initialize() {
-        if(self::$Initialized){
+        if(self::$Initialized) {
             return;
         }
         self::$Key = hash("sha256", self::$SecretKey);
@@ -26,7 +26,7 @@ class TokenGenerator{
         self::initialize();
         $output = openssl_encrypt($data, self::$EncryptMethod, self::$Key, false, self::$Iv);
         if($output != null) {
-            Logger::Write("Token generated succesfully.", $GLOBALS["CorrelationID"]);
+            Logger::Write("Token generated succesfully. $output", $GLOBALS["CorrelationID"]);
         } 
         return $output;
     }
@@ -34,6 +34,7 @@ class TokenGenerator{
     /* Decripta il token da restituire al client */
     public static function DecryptToken(string $data) {
         self::initialize();
+        // Logger::Write("Decrypting token. $data", $GLOBALS["CorrelationID"]); Add Levels
         $output = openssl_decrypt($data, self::$EncryptMethod, self::$Key, false, self::$Iv);
         return $output;
     }
@@ -48,13 +49,12 @@ class TokenGenerator{
         }
         $token = substr($authHeader, 7, strlen($authHeader));
         $decryptedToken = self::DecryptToken($token);
-        Logger::Write($authHeader, $GLOBALS["CorrelationID"]);
         if(strlen($token) == 0 || $decryptedToken == null) {
             Logger::Write("Authentication token missing or invalid.", $GLOBALS["CorrelationID"]);
             http_response_code(401);
-            exit("Header di autorizzazione non valido, effettuare l'accesso al sito.");
+            exit("Header di autorizzazione non valido, effettuare l'accesso al gestionale.");
         }
-        Logger::Write("Token validated $decryptedToken.", $GLOBALS["CorrelationID"]);
+        Logger::Write("Token validated.", $GLOBALS["CorrelationID"]);
     }
 }
 ?>

@@ -1,0 +1,380 @@
+[11/09/2018 00:16:22] - corrId_5b96ed36c5fc88.46393505 - Reached AuthenticationService API 
+[11/09/2018 00:16:22] - corrId_5b96ed36c5fc88.46393505 - Processing Login request. 
+[11/09/2018 00:16:22] - corrId_5b96ed36c5fc88.46393505 - Establishing connection to DB 
+[11/09/2018 00:16:22] - corrId_5b96ed36c5fc88.46393505 - Executing query 
+[11/09/2018 00:16:22] - corrId_5b96ed36c5fc88.46393505 - User  validated, generating Token. 
+[11/09/2018 00:16:22] - corrId_5b96ed36c5fc88.46393505 - Token generated succesfully. 
+[11/09/2018 00:16:25] - corrId_5b96ed39ca9455.30817091 - Reached AccountManagementService API 
+[11/09/2018 00:16:25] - corrId_5b96ed39ca9455.30817091 - Processing request. 
+[11/09/2018 00:16:25] - corrId_5b96ed39ca9455.30817091 - Error occured: Error: Call to undefined function ValidateToken() in C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php:24
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(36): AccountManagementService->GetCities()
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(52): AccountManagementService->Init()
+#2 {main} 
+[11/09/2018 00:33:31] - corrId_5b96f13b18c412.48662909 - Reached AccountManagementService API 
+[11/09/2018 00:33:31] - corrId_5b96f13b18c412.48662909 - Processing request. 
+[11/09/2018 00:33:31] - corrId_5b96f13b18c412.48662909 - Error occured: Error: Call to undefined function ValidateToken() in C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php:24
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(36): AccountManagementService->GetCities()
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(52): AccountManagementService->Init()
+#2 {main} 
+[11/09/2018 00:36:00] - corrId_5b96f1d0889468.02526266 - Reached AccountManagementService API 
+[11/09/2018 00:36:00] - corrId_5b96f1d0889468.02526266 - Processing request. 
+[11/09/2018 00:36:00] - corrId_5b96f1d0889468.02526266 - Request is missing the Authorization header. 
+[11/09/2018 00:37:38] - corrId_5b96f232eb46d4.89265879 - Reached AccountManagementService API 
+[11/09/2018 00:37:38] - corrId_5b96f232eb46d4.89265879 - Processing request. 
+[11/09/2018 00:38:54] - corrId_5b96f27e7bfab9.27191874 - Reached AccountManagementService API 
+[11/09/2018 00:38:54] - corrId_5b96f27e7bfab9.27191874 - Processing request. 
+[11/09/2018 00:39:16] - corrId_5b96f2942b6e38.55900841 - Reached AccountManagementService API 
+[11/09/2018 00:39:16] - corrId_5b96f2942b6e38.55900841 - Processing request. 
+[11/09/2018 00:39:34] - corrId_5b96f2a6a2f5c0.99389737 - Reached AccountManagementService API 
+[11/09/2018 00:39:34] - corrId_5b96f2a6a2f5c0.99389737 - Processing request. 
+[11/09/2018 00:39:34] - corrId_5b96f2a6a2f5c0.99389737 - SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 00:39:34] - corrId_5b96f2a6a2f5c0.99389737 - Authentication token missing or invalid. 
+[11/09/2018 00:39:50] - corrId_5b96f2b6cc9f29.47265436 - Reached AuthenticationService API 
+[11/09/2018 00:39:50] - corrId_5b96f2b6cc9f29.47265436 - Processing Login request. 
+[11/09/2018 00:39:50] - corrId_5b96f2b6cc9f29.47265436 - Establishing connection to DB 
+[11/09/2018 00:39:50] - corrId_5b96f2b6cc9f29.47265436 - Executing query 
+[11/09/2018 00:39:50] - corrId_5b96f2b6cc9f29.47265436 - User  validated, generating Token. 
+[11/09/2018 00:39:50] - corrId_5b96f2b6cc9f29.47265436 - Token generated succesfully. 
+[11/09/2018 00:39:51] - corrId_5b96f2b7d60396.78763708 - Reached AccountManagementService API 
+[11/09/2018 00:39:51] - corrId_5b96f2b7d60396.78763708 - Processing request. 
+[11/09/2018 00:39:51] - corrId_5b96f2b7d60396.78763708 - SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 00:39:51] - corrId_5b96f2b7d60396.78763708 - Authentication token missing or invalid. 
+[11/09/2018 00:40:17] - corrId_5b96f2d1e7d2b8.29891154 - Reached AccountManagementService API 
+[11/09/2018 00:40:17] - corrId_5b96f2d1e7d2b8.29891154 - Processing request. 
+[11/09/2018 00:41:18] - corrId_5b96f30ec7dc83.93648253 - Reached AccountManagementService API 
+[11/09/2018 00:41:18] - corrId_5b96f30ec7dc83.93648253 - Processing request. 
+[11/09/2018 00:41:38] - corrId_5b96f322934a69.41489957 - Reached AccountManagementService API 
+[11/09/2018 00:41:38] - corrId_5b96f322934a69.41489957 - Processing request. 
+[11/09/2018 00:43:20] - corrId_5b96f388c40930.91856021 - Reached AuthenticationService API 
+[11/09/2018 00:43:20] - corrId_5b96f388c40930.91856021 - Processing Login request. 
+[11/09/2018 00:43:20] - corrId_5b96f388c40930.91856021 - Establishing connection to DB 
+[11/09/2018 00:43:20] - corrId_5b96f388c40930.91856021 - Executing query 
+[11/09/2018 00:43:20] - corrId_5b96f388c40930.91856021 - User  validated, generating Token. 
+[11/09/2018 00:43:20] - corrId_5b96f388c40930.91856021 - Token generated succesfully. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 00:44:19] - corrId_5b96f3c3553c66.48348334 - Reached AccountManagementService API 
+[11/09/2018 00:44:19] - corrId_5b96f3c3553c66.48348334 - Processing request. 
+[11/09/2018 00:44:19] - corrId_5b96f3c3553c66.48348334 - Decryptin token. Fv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 00:46:47] - corrId_5b96f457770e42.46308675 - Reached AccountManagementService API 
+[11/09/2018 00:46:47] - corrId_5b96f457770e42.46308675 - Processing request. 
+[11/09/2018 00:46:47] - corrId_5b96f457770e42.46308675 - Decryptin token. Fv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 00:46:47] - corrId_5b96f457770e42.46308675 - SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 00:46:47] - corrId_5b96f457770e42.46308675 - Authentication token missing or invalid. 
+[11/09/2018 00:48:02] - corrId_5b96f4a264f3f9.41137773 - Reached AccountManagementService API 
+[11/09/2018 00:48:02] - corrId_5b96f4a264f3f9.41137773 - Processing request. 
+[11/09/2018 00:48:02] - corrId_5b96f4a264f3f9.41137773 - Decryptin token. Fv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 00:48:02] - corrId_5b96f4a264f3f9.41137773 - SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 00:48:02] - corrId_5b96f4a264f3f9.41137773 - Authentication token missing or invalid. 
+[11/09/2018 00:48:40] - corrId_5b96f4c82062b6.22291928 - Reached AccountManagementService API 
+[11/09/2018 00:48:40] - corrId_5b96f4c82062b6.22291928 - Processing request. 
+[11/09/2018 00:48:40] - corrId_5b96f4c82062b6.22291928 - Decrypting token. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 00:48:40] - corrId_5b96f4c82062b6.22291928 - bearer SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 00:48:40] - corrId_5b96f4c82062b6.22291928 - Token validated {"dipendente_username":"admin","dipendente_id_dipendente":"1","delega_codice":"30","delega_nome":"proprietario","punto_vendita_nome":"Roma01","citta_nome":"Roma","punto_vendita_indirizzo":"Largo Giuseppe Veratti 37","token":null}. 
+[11/09/2018 00:49:35] - corrId_5b96f4ff91c567.37860568 - Reached AccountManagementService API 
+[11/09/2018 00:49:35] - corrId_5b96f4ff91c567.37860568 - Processing request. 
+[11/09/2018 00:49:35] - corrId_5b96f4ff91c567.37860568 - Decrypting token. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 00:49:35] - corrId_5b96f4ff91c567.37860568 - Token validated {"dipendente_username":"admin","dipendente_id_dipendente":"1","delega_codice":"30","delega_nome":"proprietario","punto_vendita_nome":"Roma01","citta_nome":"Roma","punto_vendita_indirizzo":"Largo Giuseppe Veratti 37","token":null}. 
+[11/09/2018 00:50:16] - corrId_5b96f528dee4e6.27404004 - Reached AccountManagementService API 
+[11/09/2018 00:50:16] - corrId_5b96f528dee4e6.27404004 - Processing __FUNCTION__ request. 
+[11/09/2018 00:50:16] - corrId_5b96f528dee4e6.27404004 - Decrypting token. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 00:50:16] - corrId_5b96f528dee4e6.27404004 - Token validated {"dipendente_username":"admin","dipendente_id_dipendente":"1","delega_codice":"30","delega_nome":"proprietario","punto_vendita_nome":"Roma01","citta_nome":"Roma","punto_vendita_indirizzo":"Largo Giuseppe Veratti 37","token":null}. 
+[11/09/2018 00:50:31] - corrId_5b96f537560939.59453480 - Reached AccountManagementService API 
+[11/09/2018 00:50:31] - corrId_5b96f537560939.59453480 - Processing __FUNCTION__ request. 
+[11/09/2018 00:50:31] - corrId_5b96f537560939.59453480 - Decrypting token. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 00:50:31] - corrId_5b96f537560939.59453480 - Token validated {"dipendente_username":"admin","dipendente_id_dipendente":"1","delega_codice":"30","delega_nome":"proprietario","punto_vendita_nome":"Roma01","citta_nome":"Roma","punto_vendita_indirizzo":"Largo Giuseppe Veratti 37","token":null}. 
+[11/09/2018 00:50:44] - corrId_5b96f54416fe55.11651962 - Reached AccountManagementService API 
+[11/09/2018 00:50:44] - corrId_5b96f54416fe55.11651962 - ProcessingGetCitiesrequest. 
+[11/09/2018 00:50:44] - corrId_5b96f54416fe55.11651962 - Decrypting token. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 00:50:44] - corrId_5b96f54416fe55.11651962 - Token validated {"dipendente_username":"admin","dipendente_id_dipendente":"1","delega_codice":"30","delega_nome":"proprietario","punto_vendita_nome":"Roma01","citta_nome":"Roma","punto_vendita_indirizzo":"Largo Giuseppe Veratti 37","token":null}. 
+[11/09/2018 00:51:28] - corrId_5b96f57074f463.84666621 - Reached AuthenticationService API 
+[11/09/2018 00:51:28] - corrId_5b96f57074f463.84666621 - Processing Login request. 
+[11/09/2018 00:51:28] - corrId_5b96f57074f463.84666621 - Establishing connection to DB 
+[11/09/2018 00:51:28] - corrId_5b96f57074f463.84666621 - Executing query 
+[11/09/2018 00:51:28] - corrId_5b96f57074f463.84666621 - User  validated, generating Token. 
+[11/09/2018 00:51:28] - corrId_5b96f57074f463.84666621 - Token generated succesfully. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 00:51:29] - corrId_5b96f571a2e7a2.44256580 - Reached AccountManagementService API 
+[11/09/2018 00:51:29] - corrId_5b96f571a2e7a2.44256580 - Processing GetCities request. 
+[11/09/2018 00:51:29] - corrId_5b96f571a2e7a2.44256580 - Decrypting token. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 00:51:29] - corrId_5b96f571a2e7a2.44256580 - Token validated {"dipendente_username":"admin","dipendente_id_dipendente":"1","delega_codice":"30","delega_nome":"proprietario","punto_vendita_nome":"Roma01","citta_nome":"Roma","punto_vendita_indirizzo":"Largo Giuseppe Veratti 37","token":null}. 
+[11/09/2018 00:57:05] - corrId_5b96f6c13a0361.40632150 - Reached AccountManagementService API 
+[11/09/2018 00:57:05] - corrId_5b96f6c13a0361.40632150 - Processing GetCities request. 
+[11/09/2018 00:57:05] - corrId_5b96f6c13a0361.40632150 - Decrypting token. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 00:57:05] - corrId_5b96f6c13a0361.40632150 - Token validated {"dipendente_username":"admin","dipendente_id_dipendente":"1","delega_codice":"30","delega_nome":"proprietario","punto_vendita_nome":"Roma01","citta_nome":"Roma","punto_vendita_indirizzo":"Largo Giuseppe Veratti 37","token":null}. 
+[11/09/2018 00:57:05] - corrId_5b96f6c13a0361.40632150 - Establishing connection to DB 
+[11/09/2018 00:57:05] - corrId_5b96f6c13a0361.40632150 - Executing query 
+[11/09/2018 00:57:11] - corrId_5b96f6c7e0d377.95059145 - Reached AccountManagementService API 
+[11/09/2018 00:57:11] - corrId_5b96f6c7e0d377.95059145 - Processing GetCities request. 
+[11/09/2018 00:57:11] - corrId_5b96f6c7e0d377.95059145 - Decrypting token. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 00:57:11] - corrId_5b96f6c7e0d377.95059145 - Token validated {"dipendente_username":"admin","dipendente_id_dipendente":"1","delega_codice":"30","delega_nome":"proprietario","punto_vendita_nome":"Roma01","citta_nome":"Roma","punto_vendita_indirizzo":"Largo Giuseppe Veratti 37","token":null}. 
+[11/09/2018 00:57:11] - corrId_5b96f6c7e0d377.95059145 - Establishing connection to DB 
+[11/09/2018 00:57:11] - corrId_5b96f6c7e0d377.95059145 - Executing query 
+[11/09/2018 00:57:19] - corrId_5b96f6cfde4157.54680060 - Reached AccountManagementService API 
+[11/09/2018 00:57:19] - corrId_5b96f6cfde4157.54680060 - Processing GetCities request. 
+[11/09/2018 00:57:19] - corrId_5b96f6cfde4157.54680060 - Decrypting token. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 00:57:19] - corrId_5b96f6cfde4157.54680060 - Token validated {"dipendente_username":"admin","dipendente_id_dipendente":"1","delega_codice":"30","delega_nome":"proprietario","punto_vendita_nome":"Roma01","citta_nome":"Roma","punto_vendita_indirizzo":"Largo Giuseppe Veratti 37","token":null}. 
+[11/09/2018 00:57:19] - corrId_5b96f6cfde4157.54680060 - Establishing connection to DB 
+[11/09/2018 00:57:19] - corrId_5b96f6cfde4157.54680060 - Executing query 
+[11/09/2018 01:03:30] - corrId_5b96f8422e67b4.73132002 - Reached AccountManagementService API 
+[11/09/2018 01:03:30] - corrId_5b96f8422e67b4.73132002 - Processing GetCities request. 
+[11/09/2018 01:03:30] - corrId_5b96f8422e67b4.73132002 - Decrypting token. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 01:03:30] - corrId_5b96f8422e67b4.73132002 - Token validated {"dipendente_username":"admin","dipendente_id_dipendente":"1","delega_codice":"30","delega_nome":"proprietario","punto_vendita_nome":"Roma01","citta_nome":"Roma","punto_vendita_indirizzo":"Largo Giuseppe Veratti 37","token":null}. 
+[11/09/2018 01:03:30] - corrId_5b96f8422e67b4.73132002 - Establishing connection to DB 
+[11/09/2018 01:03:30] - corrId_5b96f8422e67b4.73132002 - Executing query 
+[11/09/2018 01:03:30] - corrId_5b96f8422e67b4.73132002 - Error while executing query -> Unknown column 'citta_id' in 'field list' 
+[11/09/2018 01:03:30] - corrId_5b96f8422e67b4.73132002 - Error occured -> Exception: Exception: Unknown column 'citta_id' in 'field list' in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(19): DBConnection->ExecuteQuery('SELECT citta_id...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(28): AccountManagementService->ExecuteQuery('SELECT citta_id...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(45): AccountManagementService->GetCities()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(66): AccountManagementService->Init()
+#4 {main} in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(19): DBConnection->ExecuteQuery('SELECT citta_id...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(28): AccountManagementService->ExecuteQuery('SELECT citta_id...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(45): AccountManagementService->GetCities()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(66): AccountManagementService->Init()
+#4 {main} 
+[11/09/2018 01:03:30] - corrId_5b96f8422e67b4.73132002 - Error occured: Error: Call to undefined function http_header() in C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php:57
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(66): AccountManagementService->Init()
+#1 {main} 
+[11/09/2018 01:03:40] - corrId_5b96f84c4d8508.49469100 - Reached AccountManagementService API 
+[11/09/2018 01:03:40] - corrId_5b96f84c4d8508.49469100 - Processing GetCities request. 
+[11/09/2018 01:03:40] - corrId_5b96f84c4d8508.49469100 - Decrypting token. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 01:03:40] - corrId_5b96f84c4d8508.49469100 - Token validated {"dipendente_username":"admin","dipendente_id_dipendente":"1","delega_codice":"30","delega_nome":"proprietario","punto_vendita_nome":"Roma01","citta_nome":"Roma","punto_vendita_indirizzo":"Largo Giuseppe Veratti 37","token":null}. 
+[11/09/2018 01:03:40] - corrId_5b96f84c4d8508.49469100 - Establishing connection to DB 
+[11/09/2018 01:03:40] - corrId_5b96f84c4d8508.49469100 - Executing query 
+[11/09/2018 01:03:40] - corrId_5b96f84c4d8508.49469100 - Error while executing query -> Unknown column 'citta_id' in 'field list' 
+[11/09/2018 01:03:40] - corrId_5b96f84c4d8508.49469100 - Error occured -> Exception: Exception: Unknown column 'citta_id' in 'field list' in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(19): DBConnection->ExecuteQuery('SELECT citta_id...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(28): AccountManagementService->ExecuteQuery('SELECT citta_id...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(45): AccountManagementService->GetCities()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(66): AccountManagementService->Init()
+#4 {main} in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(19): DBConnection->ExecuteQuery('SELECT citta_id...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(28): AccountManagementService->ExecuteQuery('SELECT citta_id...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(45): AccountManagementService->GetCities()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(66): AccountManagementService->Init()
+#4 {main} 
+[11/09/2018 01:03:40] - corrId_5b96f84c4d8508.49469100 - Error occured: Error: Call to undefined function http_header() in C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php:57
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(66): AccountManagementService->Init()
+#1 {main} 
+[11/09/2018 01:04:17] - corrId_5b96f87195cbe6.33076458 - Reached AccountManagementService API 
+[11/09/2018 01:04:17] - corrId_5b96f87195cbe6.33076458 - Processing GetCities request. 
+[11/09/2018 01:04:17] - corrId_5b96f87195cbe6.33076458 - Decrypting token. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 01:04:17] - corrId_5b96f87195cbe6.33076458 - Token validated {"dipendente_username":"admin","dipendente_id_dipendente":"1","delega_codice":"30","delega_nome":"proprietario","punto_vendita_nome":"Roma01","citta_nome":"Roma","punto_vendita_indirizzo":"Largo Giuseppe Veratti 37","token":null}. 
+[11/09/2018 01:04:17] - corrId_5b96f87195cbe6.33076458 - Establishing connection to DB 
+[11/09/2018 01:04:17] - corrId_5b96f87195cbe6.33076458 - Executing query 
+[11/09/2018 01:04:17] - corrId_5b96f87195cbe6.33076458 - Error while executing query -> Unknown column 'citta_id' in 'field list' 
+[11/09/2018 01:04:17] - corrId_5b96f87195cbe6.33076458 - Error occured -> Exception: Exception: Unknown column 'citta_id' in 'field list' in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(19): DBConnection->ExecuteQuery('SELECT citta_id...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(28): AccountManagementService->ExecuteQuery('SELECT citta_id...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(45): AccountManagementService->GetCities()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(66): AccountManagementService->Init()
+#4 {main} in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(19): DBConnection->ExecuteQuery('SELECT citta_id...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(28): AccountManagementService->ExecuteQuery('SELECT citta_id...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(45): AccountManagementService->GetCities()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(66): AccountManagementService->Init()
+#4 {main} 
+[11/09/2018 01:04:39] - corrId_5b96f8873a7040.76787558 - Reached AccountManagementService API 
+[11/09/2018 01:04:39] - corrId_5b96f8873a7040.76787558 - Processing GetCities request. 
+[11/09/2018 01:04:39] - corrId_5b96f8873a7040.76787558 - Decrypting token. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 01:04:39] - corrId_5b96f8873a7040.76787558 - Token validated {"dipendente_username":"admin","dipendente_id_dipendente":"1","delega_codice":"30","delega_nome":"proprietario","punto_vendita_nome":"Roma01","citta_nome":"Roma","punto_vendita_indirizzo":"Largo Giuseppe Veratti 37","token":null}. 
+[11/09/2018 01:04:39] - corrId_5b96f8873a7040.76787558 - Establishing connection to DB 
+[11/09/2018 01:04:39] - corrId_5b96f8873a7040.76787558 - Executing query 
+[11/09/2018 01:06:11] - corrId_5b96f8e3172ed0.58516927 - Reached AccountManagementService API 
+[11/09/2018 01:06:11] - corrId_5b96f8e3172ed0.58516927 - Processing GetCities request. 
+[11/09/2018 01:06:11] - corrId_5b96f8e3172ed0.58516927 - Decrypting token. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 01:06:11] - corrId_5b96f8e3172ed0.58516927 - Token validated {"dipendente_username":"admin","dipendente_id_dipendente":"1","delega_codice":"30","delega_nome":"proprietario","punto_vendita_nome":"Roma01","citta_nome":"Roma","punto_vendita_indirizzo":"Largo Giuseppe Veratti 37","token":null}. 
+[11/09/2018 01:06:11] - corrId_5b96f8e3172ed0.58516927 - Establishing connection to DB 
+[11/09/2018 01:06:11] - corrId_5b96f8e3172ed0.58516927 - Executing query 
+[11/09/2018 01:06:23] - corrId_5b96f8ef2d0814.61939296 - Reached AccountManagementService API 
+[11/09/2018 01:06:23] - corrId_5b96f8ef2d0814.61939296 - Processing GetCities request. 
+[11/09/2018 01:06:23] - corrId_5b96f8ef2d0814.61939296 - Decrypting token. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 01:06:23] - corrId_5b96f8ef2d0814.61939296 - Token validated {"dipendente_username":"admin","dipendente_id_dipendente":"1","delega_codice":"30","delega_nome":"proprietario","punto_vendita_nome":"Roma01","citta_nome":"Roma","punto_vendita_indirizzo":"Largo Giuseppe Veratti 37","token":null}. 
+[11/09/2018 01:06:23] - corrId_5b96f8ef2d0814.61939296 - Establishing connection to DB 
+[11/09/2018 01:06:23] - corrId_5b96f8ef2d0814.61939296 - Executing query 
+[11/09/2018 01:12:36] - corrId_5b96fa649ec3e0.62884071 - Reached AccountManagementService API 
+[11/09/2018 01:12:36] - corrId_5b96fa649ec3e0.62884071 - Processing GetCities request. 
+[11/09/2018 01:12:36] - corrId_5b96fa649ec3e0.62884071 - Decrypting token. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 01:12:36] - corrId_5b96fa649ec3e0.62884071 - Token validated {"dipendente_username":"admin","dipendente_id_dipendente":"1","delega_codice":"30","delega_nome":"proprietario","punto_vendita_nome":"Roma01","citta_nome":"Roma","punto_vendita_indirizzo":"Largo Giuseppe Veratti 37","token":null}. 
+[11/09/2018 01:12:36] - corrId_5b96fa649ec3e0.62884071 - Establishing connection to DB 
+[11/09/2018 01:12:36] - corrId_5b96fa649ec3e0.62884071 - Executing query 
+[11/09/2018 01:13:08] - corrId_5b96fa846be110.30465549 - Reached AccountManagementService API 
+[11/09/2018 01:13:08] - corrId_5b96fa846be110.30465549 - Processing GetCities request. 
+[11/09/2018 01:13:08] - corrId_5b96fa846be110.30465549 - Decrypting token. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 01:13:08] - corrId_5b96fa846be110.30465549 - Token validated {"dipendente_username":"admin","dipendente_id_dipendente":"1","delega_codice":"30","delega_nome":"proprietario","punto_vendita_nome":"Roma01","citta_nome":"Roma","punto_vendita_indirizzo":"Largo Giuseppe Veratti 37","token":null}. 
+[11/09/2018 01:13:08] - corrId_5b96fa846be110.30465549 - Establishing connection to DB 
+[11/09/2018 01:13:08] - corrId_5b96fa846be110.30465549 - Executing query 
+[11/09/2018 01:13:38] - corrId_5b96faa2ea9fe7.32829981 - Reached AccountManagementService API 
+[11/09/2018 01:13:38] - corrId_5b96faa2ea9fe7.32829981 - Processing GetCities request. 
+[11/09/2018 01:13:38] - corrId_5b96faa2ea9fe7.32829981 - Decrypting token. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 01:13:38] - corrId_5b96faa2ea9fe7.32829981 - Token validated {"dipendente_username":"admin","dipendente_id_dipendente":"1","delega_codice":"30","delega_nome":"proprietario","punto_vendita_nome":"Roma01","citta_nome":"Roma","punto_vendita_indirizzo":"Largo Giuseppe Veratti 37","token":null}. 
+[11/09/2018 01:13:38] - corrId_5b96faa2ea9fe7.32829981 - Establishing connection to DB 
+[11/09/2018 01:13:38] - corrId_5b96faa2ea9fe7.32829981 - Executing query 
+[11/09/2018 01:13:56] - corrId_5b96fab4a634b4.23818358 - Reached AccountManagementService API 
+[11/09/2018 01:13:56] - corrId_5b96fab4a634b4.23818358 - Processing GetCities request. 
+[11/09/2018 01:13:56] - corrId_5b96fab4a634b4.23818358 - Decrypting token. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 01:13:56] - corrId_5b96fab4a634b4.23818358 - Token validated {"dipendente_username":"admin","dipendente_id_dipendente":"1","delega_codice":"30","delega_nome":"proprietario","punto_vendita_nome":"Roma01","citta_nome":"Roma","punto_vendita_indirizzo":"Largo Giuseppe Veratti 37","token":null}. 
+[11/09/2018 01:13:56] - corrId_5b96fab4a634b4.23818358 - Establishing connection to DB 
+[11/09/2018 01:13:56] - corrId_5b96fab4a634b4.23818358 - Executing query 
+[11/09/2018 01:15:03] - corrId_5b96faf737c1e7.11522601 - Reached AccountManagementService API 
+[11/09/2018 01:15:03] - corrId_5b96faf737c1e7.11522601 - Processing GetCities request. 
+[11/09/2018 01:15:03] - corrId_5b96faf737c1e7.11522601 - Decrypting token. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 01:15:03] - corrId_5b96faf737c1e7.11522601 - Token validated {"dipendente_username":"admin","dipendente_id_dipendente":"1","delega_codice":"30","delega_nome":"proprietario","punto_vendita_nome":"Roma01","citta_nome":"Roma","punto_vendita_indirizzo":"Largo Giuseppe Veratti 37","token":null}. 
+[11/09/2018 01:15:03] - corrId_5b96faf737c1e7.11522601 - Establishing connection to DB 
+[11/09/2018 01:15:03] - corrId_5b96faf737c1e7.11522601 - Executing query 
+[11/09/2018 01:15:20] - corrId_5b96fb0870e6d5.69813425 - Reached AccountManagementService API 
+[11/09/2018 01:15:20] - corrId_5b96fb0870e6d5.69813425 - Processing GetCities request. 
+[11/09/2018 01:15:20] - corrId_5b96fb0870e6d5.69813425 - Decrypting token. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 01:15:20] - corrId_5b96fb0870e6d5.69813425 - Token validated {"dipendente_username":"admin","dipendente_id_dipendente":"1","delega_codice":"30","delega_nome":"proprietario","punto_vendita_nome":"Roma01","citta_nome":"Roma","punto_vendita_indirizzo":"Largo Giuseppe Veratti 37","token":null}. 
+[11/09/2018 01:15:20] - corrId_5b96fb0870e6d5.69813425 - Establishing connection to DB 
+[11/09/2018 01:15:20] - corrId_5b96fb0870e6d5.69813425 - Executing query 
+[11/09/2018 01:15:29] - corrId_5b96fb1192a6d6.85207764 - Reached AccountManagementService API 
+[11/09/2018 01:15:29] - corrId_5b96fb1192a6d6.85207764 - Processing GetCities request. 
+[11/09/2018 01:15:29] - corrId_5b96fb1192a6d6.85207764 - Decrypting token. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 01:15:29] - corrId_5b96fb1192a6d6.85207764 - Token validated {"dipendente_username":"admin","dipendente_id_dipendente":"1","delega_codice":"30","delega_nome":"proprietario","punto_vendita_nome":"Roma01","citta_nome":"Roma","punto_vendita_indirizzo":"Largo Giuseppe Veratti 37","token":null}. 
+[11/09/2018 01:15:29] - corrId_5b96fb1192a6d6.85207764 - Establishing connection to DB 
+[11/09/2018 01:15:29] - corrId_5b96fb1192a6d6.85207764 - Executing query 
+[11/09/2018 01:15:43] - corrId_5b96fb1fce40e7.81678996 - Reached AccountManagementService API 
+[11/09/2018 01:15:43] - corrId_5b96fb1fce40e7.81678996 - Processing GetCities request. 
+[11/09/2018 01:15:43] - corrId_5b96fb1fce40e7.81678996 - Decrypting token. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 01:15:43] - corrId_5b96fb1fce40e7.81678996 - Token validated {"dipendente_username":"admin","dipendente_id_dipendente":"1","delega_codice":"30","delega_nome":"proprietario","punto_vendita_nome":"Roma01","citta_nome":"Roma","punto_vendita_indirizzo":"Largo Giuseppe Veratti 37","token":null}. 
+[11/09/2018 01:15:43] - corrId_5b96fb1fce40e7.81678996 - Establishing connection to DB 
+[11/09/2018 01:15:43] - corrId_5b96fb1fce40e7.81678996 - Executing query 
+[11/09/2018 01:15:46] - corrId_5b96fb223883c7.51781920 - Reached AccountManagementService API 
+[11/09/2018 01:15:46] - corrId_5b96fb223883c7.51781920 - Processing GetCities request. 
+[11/09/2018 01:15:46] - corrId_5b96fb223883c7.51781920 - Decrypting token. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 01:15:46] - corrId_5b96fb223883c7.51781920 - Token validated {"dipendente_username":"admin","dipendente_id_dipendente":"1","delega_codice":"30","delega_nome":"proprietario","punto_vendita_nome":"Roma01","citta_nome":"Roma","punto_vendita_indirizzo":"Largo Giuseppe Veratti 37","token":null}. 
+[11/09/2018 01:15:46] - corrId_5b96fb223883c7.51781920 - Establishing connection to DB 
+[11/09/2018 01:15:46] - corrId_5b96fb223883c7.51781920 - Executing query 
+[11/09/2018 01:17:18] - corrId_5b96fb7e268b03.94241635 - Reached AccountManagementService API 
+[11/09/2018 01:17:18] - corrId_5b96fb7e268b03.94241635 - Processing GetCities request. 
+[11/09/2018 01:17:18] - corrId_5b96fb7e268b03.94241635 - Decrypting token. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 01:17:18] - corrId_5b96fb7e268b03.94241635 - Token validated {"dipendente_username":"admin","dipendente_id_dipendente":"1","delega_codice":"30","delega_nome":"proprietario","punto_vendita_nome":"Roma01","citta_nome":"Roma","punto_vendita_indirizzo":"Largo Giuseppe Veratti 37","token":null}. 
+[11/09/2018 01:17:18] - corrId_5b96fb7e268b03.94241635 - Establishing connection to DB 
+[11/09/2018 01:17:18] - corrId_5b96fb7e268b03.94241635 - Executing query 
+[11/09/2018 01:17:27] - corrId_5b96fb879c82d8.25924121 - Reached AccountManagementService API 
+[11/09/2018 01:17:27] - corrId_5b96fb879c82d8.25924121 - Processing GetCities request. 
+[11/09/2018 01:17:27] - corrId_5b96fb879c82d8.25924121 - Decrypting token. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 01:17:27] - corrId_5b96fb879c82d8.25924121 - Token validated {"dipendente_username":"admin","dipendente_id_dipendente":"1","delega_codice":"30","delega_nome":"proprietario","punto_vendita_nome":"Roma01","citta_nome":"Roma","punto_vendita_indirizzo":"Largo Giuseppe Veratti 37","token":null}. 
+[11/09/2018 01:17:27] - corrId_5b96fb879c82d8.25924121 - Establishing connection to DB 
+[11/09/2018 01:17:27] - corrId_5b96fb879c82d8.25924121 - Executing query 
+[11/09/2018 01:17:59] - corrId_5b96fba71ee947.82782709 - Reached AccountManagementService API 
+[11/09/2018 01:17:59] - corrId_5b96fba71ee947.82782709 - Processing GetCities request. 
+[11/09/2018 01:17:59] - corrId_5b96fba71ee947.82782709 - Decrypting token. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 01:17:59] - corrId_5b96fba71ee947.82782709 - Token validated {"dipendente_username":"admin","dipendente_id_dipendente":"1","delega_codice":"30","delega_nome":"proprietario","punto_vendita_nome":"Roma01","citta_nome":"Roma","punto_vendita_indirizzo":"Largo Giuseppe Veratti 37","token":null}. 
+[11/09/2018 01:17:59] - corrId_5b96fba71ee947.82782709 - Establishing connection to DB 
+[11/09/2018 01:17:59] - corrId_5b96fba71ee947.82782709 - Executing query 
+[11/09/2018 01:18:16] - corrId_5b96fbb8beb159.24875308 - Reached AccountManagementService API 
+[11/09/2018 01:18:16] - corrId_5b96fbb8beb159.24875308 - Processing GetCities request. 
+[11/09/2018 01:18:16] - corrId_5b96fbb8beb159.24875308 - Decrypting token. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 01:18:16] - corrId_5b96fbb8beb159.24875308 - Token validated {"dipendente_username":"admin","dipendente_id_dipendente":"1","delega_codice":"30","delega_nome":"proprietario","punto_vendita_nome":"Roma01","citta_nome":"Roma","punto_vendita_indirizzo":"Largo Giuseppe Veratti 37","token":null}. 
+[11/09/2018 01:18:16] - corrId_5b96fbb8beb159.24875308 - Establishing connection to DB 
+[11/09/2018 01:18:16] - corrId_5b96fbb8beb159.24875308 - Executing query 
+[11/09/2018 01:19:13] - corrId_5b96fbf13d8369.35678058 - Reached AccountManagementService API 
+[11/09/2018 01:19:13] - corrId_5b96fbf13d8369.35678058 - Processing GetCities request. 
+[11/09/2018 01:19:13] - corrId_5b96fbf13d8369.35678058 - Decrypting token. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 01:19:13] - corrId_5b96fbf13d8369.35678058 - Token validated {"dipendente_username":"admin","dipendente_id_dipendente":"1","delega_codice":"30","delega_nome":"proprietario","punto_vendita_nome":"Roma01","citta_nome":"Roma","punto_vendita_indirizzo":"Largo Giuseppe Veratti 37","token":null}. 
+[11/09/2018 01:19:13] - corrId_5b96fbf13d8369.35678058 - Establishing connection to DB 
+[11/09/2018 01:19:13] - corrId_5b96fbf13d8369.35678058 - Executing query 
+[11/09/2018 01:19:25] - corrId_5b96fbfd9ec0a7.50189208 - Reached AccountManagementService API 
+[11/09/2018 01:19:25] - corrId_5b96fbfd9ec0a7.50189208 - Processing GetCities request. 
+[11/09/2018 01:19:25] - corrId_5b96fbfd9ec0a7.50189208 - Decrypting token. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 01:19:25] - corrId_5b96fbfd9ec0a7.50189208 - Token validated {"dipendente_username":"admin","dipendente_id_dipendente":"1","delega_codice":"30","delega_nome":"proprietario","punto_vendita_nome":"Roma01","citta_nome":"Roma","punto_vendita_indirizzo":"Largo Giuseppe Veratti 37","token":null}. 
+[11/09/2018 01:19:25] - corrId_5b96fbfd9ec0a7.50189208 - Establishing connection to DB 
+[11/09/2018 01:19:25] - corrId_5b96fbfd9ec0a7.50189208 - Executing query 
+[11/09/2018 01:20:18] - corrId_5b96fc32ba6fa0.93378035 - Reached AccountManagementService API 
+[11/09/2018 01:20:18] - corrId_5b96fc32ba6fa0.93378035 - Processing GetCities request. 
+[11/09/2018 01:20:18] - corrId_5b96fc32ba6fa0.93378035 - Decrypting token. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 01:20:18] - corrId_5b96fc32ba6fa0.93378035 - Token validated {"dipendente_username":"admin","dipendente_id_dipendente":"1","delega_codice":"30","delega_nome":"proprietario","punto_vendita_nome":"Roma01","citta_nome":"Roma","punto_vendita_indirizzo":"Largo Giuseppe Veratti 37","token":null}. 
+[11/09/2018 01:20:18] - corrId_5b96fc32ba6fa0.93378035 - Establishing connection to DB 
+[11/09/2018 01:20:18] - corrId_5b96fc32ba6fa0.93378035 - Executing query 
+[11/09/2018 01:20:28] - corrId_5b96fc3c5621b1.64508475 - Reached AccountManagementService API 
+[11/09/2018 01:20:28] - corrId_5b96fc3c5621b1.64508475 - Processing GetCities request. 
+[11/09/2018 01:20:28] - corrId_5b96fc3c5621b1.64508475 - Decrypting token. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 01:20:28] - corrId_5b96fc3c5621b1.64508475 - Token validated {"dipendente_username":"admin","dipendente_id_dipendente":"1","delega_codice":"30","delega_nome":"proprietario","punto_vendita_nome":"Roma01","citta_nome":"Roma","punto_vendita_indirizzo":"Largo Giuseppe Veratti 37","token":null}. 
+[11/09/2018 01:20:28] - corrId_5b96fc3c5621b1.64508475 - Establishing connection to DB 
+[11/09/2018 01:20:28] - corrId_5b96fc3c5621b1.64508475 - Executing query 
+[11/09/2018 01:20:59] - corrId_5b96fc5b184a04.95136877 - Reached AccountManagementService API 
+[11/09/2018 01:20:59] - corrId_5b96fc5b184a04.95136877 - Processing GetCities request. 
+[11/09/2018 01:20:59] - corrId_5b96fc5b184a04.95136877 - Decrypting token. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 01:20:59] - corrId_5b96fc5b184a04.95136877 - Token validated {"dipendente_username":"admin","dipendente_id_dipendente":"1","delega_codice":"30","delega_nome":"proprietario","punto_vendita_nome":"Roma01","citta_nome":"Roma","punto_vendita_indirizzo":"Largo Giuseppe Veratti 37","token":null}. 
+[11/09/2018 01:20:59] - corrId_5b96fc5b184a04.95136877 - Establishing connection to DB 
+[11/09/2018 01:20:59] - corrId_5b96fc5b184a04.95136877 - Executing query 
+[11/09/2018 01:21:34] - corrId_5b96fc7e578f88.65370257 - Reached AccountManagementService API 
+[11/09/2018 01:21:34] - corrId_5b96fc7e578f88.65370257 - Processing GetCities request. 
+[11/09/2018 01:21:34] - corrId_5b96fc7e578f88.65370257 - Decrypting token. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 01:21:34] - corrId_5b96fc7e578f88.65370257 - Token validated {"dipendente_username":"admin","dipendente_id_dipendente":"1","delega_codice":"30","delega_nome":"proprietario","punto_vendita_nome":"Roma01","citta_nome":"Roma","punto_vendita_indirizzo":"Largo Giuseppe Veratti 37","token":null}. 
+[11/09/2018 01:21:34] - corrId_5b96fc7e578f88.65370257 - Establishing connection to DB 
+[11/09/2018 01:21:34] - corrId_5b96fc7e578f88.65370257 - Executing query 
+[11/09/2018 01:21:48] - corrId_5b96fc8cf236d5.05946397 - Reached AccountManagementService API 
+[11/09/2018 01:21:48] - corrId_5b96fc8cf236d5.05946397 - Processing GetCities request. 
+[11/09/2018 01:21:48] - corrId_5b96fc8cf236d5.05946397 - Decrypting token. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 01:21:48] - corrId_5b96fc8cf236d5.05946397 - Token validated {"dipendente_username":"admin","dipendente_id_dipendente":"1","delega_codice":"30","delega_nome":"proprietario","punto_vendita_nome":"Roma01","citta_nome":"Roma","punto_vendita_indirizzo":"Largo Giuseppe Veratti 37","token":null}. 
+[11/09/2018 01:21:49] - corrId_5b96fc8cf236d5.05946397 - Establishing connection to DB 
+[11/09/2018 01:21:49] - corrId_5b96fc8cf236d5.05946397 - Executing query 
+[11/09/2018 01:22:05] - corrId_5b96fc9df1b641.10128352 - Reached AccountManagementService API 
+[11/09/2018 01:22:05] - corrId_5b96fc9df1b641.10128352 - Processing GetCities request. 
+[11/09/2018 01:22:05] - corrId_5b96fc9df1b641.10128352 - Decrypting token. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 01:22:05] - corrId_5b96fc9df1b641.10128352 - Token validated {"dipendente_username":"admin","dipendente_id_dipendente":"1","delega_codice":"30","delega_nome":"proprietario","punto_vendita_nome":"Roma01","citta_nome":"Roma","punto_vendita_indirizzo":"Largo Giuseppe Veratti 37","token":null}. 
+[11/09/2018 01:22:05] - corrId_5b96fc9df1b641.10128352 - Establishing connection to DB 
+[11/09/2018 01:22:06] - corrId_5b96fc9df1b641.10128352 - Executing query 
+[11/09/2018 01:22:19] - corrId_5b96fcabd6d888.24391903 - Reached AccountManagementService API 
+[11/09/2018 01:22:19] - corrId_5b96fcabd6d888.24391903 - Processing GetCities request. 
+[11/09/2018 01:22:19] - corrId_5b96fcabd6d888.24391903 - Decrypting token. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 01:22:19] - corrId_5b96fcabd6d888.24391903 - Token validated {"dipendente_username":"admin","dipendente_id_dipendente":"1","delega_codice":"30","delega_nome":"proprietario","punto_vendita_nome":"Roma01","citta_nome":"Roma","punto_vendita_indirizzo":"Largo Giuseppe Veratti 37","token":null}. 
+[11/09/2018 01:22:19] - corrId_5b96fcabd6d888.24391903 - Establishing connection to DB 
+[11/09/2018 01:22:19] - corrId_5b96fcabd6d888.24391903 - Executing query 
+[11/09/2018 01:22:45] - corrId_5b96fcc5dd9218.58040175 - Reached AccountManagementService API 
+[11/09/2018 01:22:45] - corrId_5b96fcc5dd9218.58040175 - Processing GetCities request. 
+[11/09/2018 01:22:45] - corrId_5b96fcc5dd9218.58040175 - Decrypting token. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 01:22:45] - corrId_5b96fcc5dd9218.58040175 - Token validated {"dipendente_username":"admin","dipendente_id_dipendente":"1","delega_codice":"30","delega_nome":"proprietario","punto_vendita_nome":"Roma01","citta_nome":"Roma","punto_vendita_indirizzo":"Largo Giuseppe Veratti 37","token":null}. 
+[11/09/2018 01:22:45] - corrId_5b96fcc5dd9218.58040175 - Establishing connection to DB 
+[11/09/2018 01:22:45] - corrId_5b96fcc5dd9218.58040175 - Executing query 
+[11/09/2018 01:24:03] - corrId_5b96fd13387418.66596499 - Reached AccountManagementService API 
+[11/09/2018 01:24:03] - corrId_5b96fd13387418.66596499 - Processing GetCities request. 
+[11/09/2018 01:24:03] - corrId_5b96fd13387418.66596499 - Decrypting token. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 01:24:03] - corrId_5b96fd13387418.66596499 - Token validated {"dipendente_username":"admin","dipendente_id_dipendente":"1","delega_codice":"30","delega_nome":"proprietario","punto_vendita_nome":"Roma01","citta_nome":"Roma","punto_vendita_indirizzo":"Largo Giuseppe Veratti 37","token":null}. 
+[11/09/2018 01:24:03] - corrId_5b96fd13387418.66596499 - Establishing connection to DB 
+[11/09/2018 01:24:03] - corrId_5b96fd13387418.66596499 - Executing query 
+[11/09/2018 01:28:30] - corrId_5b96fe1e7d3966.22361930 - Reached AccountManagementService API 
+[11/09/2018 01:28:30] - corrId_5b96fe1e7d3966.22361930 - Processing GetCities request. 
+[11/09/2018 01:28:30] - corrId_5b96fe1e7d3966.22361930 - Decrypting token. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 01:28:30] - corrId_5b96fe1e7d3966.22361930 - Token validated {"dipendente_username":"admin","dipendente_id_dipendente":"1","delega_codice":"30","delega_nome":"proprietario","punto_vendita_nome":"Roma01","citta_nome":"Roma","punto_vendita_indirizzo":"Largo Giuseppe Veratti 37","token":null}. 
+[11/09/2018 01:28:30] - corrId_5b96fe1e7d3966.22361930 - Establishing connection to DB 
+[11/09/2018 01:28:30] - corrId_5b96fe1e7d3966.22361930 - Executing query 
+[11/09/2018 01:28:44] - corrId_5b96fe2cb59e34.61943017 - Reached AccountManagementService API 
+[11/09/2018 01:28:44] - corrId_5b96fe2cb59e34.61943017 - Processing GetCities request. 
+[11/09/2018 01:28:44] - corrId_5b96fe2cb59e34.61943017 - Decrypting token. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 01:28:44] - corrId_5b96fe2cb59e34.61943017 - Token validated {"dipendente_username":"admin","dipendente_id_dipendente":"1","delega_codice":"30","delega_nome":"proprietario","punto_vendita_nome":"Roma01","citta_nome":"Roma","punto_vendita_indirizzo":"Largo Giuseppe Veratti 37","token":null}. 
+[11/09/2018 01:28:44] - corrId_5b96fe2cb59e34.61943017 - Establishing connection to DB 
+[11/09/2018 01:28:44] - corrId_5b96fe2cb59e34.61943017 - Executing query 
+[11/09/2018 01:29:02] - corrId_5b96fe3e0dcbb7.50224106 - Reached AccountManagementService API 
+[11/09/2018 01:29:02] - corrId_5b96fe3e0dcbb7.50224106 - Processing GetCities request. 
+[11/09/2018 01:29:02] - corrId_5b96fe3e0dcbb7.50224106 - Decrypting token. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 01:29:02] - corrId_5b96fe3e0dcbb7.50224106 - Token validated {"dipendente_username":"admin","dipendente_id_dipendente":"1","delega_codice":"30","delega_nome":"proprietario","punto_vendita_nome":"Roma01","citta_nome":"Roma","punto_vendita_indirizzo":"Largo Giuseppe Veratti 37","token":null}. 
+[11/09/2018 01:29:02] - corrId_5b96fe3e0dcbb7.50224106 - Establishing connection to DB 
+[11/09/2018 01:29:02] - corrId_5b96fe3e0dcbb7.50224106 - Executing query 
+[11/09/2018 01:32:46] - corrId_5b96ff1e0851e0.23779520 - Reached AccountManagementService API 
+[11/09/2018 01:32:46] - corrId_5b96ff1e0851e0.23779520 - Processing GetCities request. 
+[11/09/2018 01:32:46] - corrId_5b96ff1e0851e0.23779520 - Decrypting token. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 01:32:46] - corrId_5b96ff1e0851e0.23779520 - Token validated {"dipendente_username":"admin","dipendente_id_dipendente":"1","delega_codice":"30","delega_nome":"proprietario","punto_vendita_nome":"Roma01","citta_nome":"Roma","punto_vendita_indirizzo":"Largo Giuseppe Veratti 37","token":null}. 
+[11/09/2018 01:32:46] - corrId_5b96ff1e0851e0.23779520 - Establishing connection to DB 
+[11/09/2018 01:32:46] - corrId_5b96ff1e0851e0.23779520 - Executing query 
+[11/09/2018 01:32:48] - corrId_5b96ff20b3c152.00643947 - Reached AccountManagementService API 
+[11/09/2018 01:32:48] - corrId_5b96ff20b3c152.00643947 - Processing GetStores request. 
+[11/09/2018 01:33:38] - corrId_5b96ff52eb7a31.55920348 - Reached AccountManagementService API 
+[11/09/2018 01:33:38] - corrId_5b96ff52eb7a31.55920348 - Processing GetCities request. 
+[11/09/2018 01:33:38] - corrId_5b96ff52eb7a31.55920348 - Token validated. 
+[11/09/2018 01:33:38] - corrId_5b96ff52eb7a31.55920348 - Establishing connection to DB 
+[11/09/2018 01:33:38] - corrId_5b96ff52eb7a31.55920348 - Executing query 
+[11/09/2018 01:33:39] - corrId_5b96ff53f25738.95373617 - Reached AccountManagementService API 
+[11/09/2018 01:33:39] - corrId_5b96ff53f25738.95373617 - Processing GetStores request. 

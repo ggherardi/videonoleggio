@@ -4,13 +4,25 @@
     <div class="main_content_scroll mCustomScrollbar">                    
         <span>Da questa pagina è possibile gestire gli account di tutti gli operatori di tutti i punti vendita.</span>
     </div>
+    <br>
     <div>
-        <span>Selezionare la città:</span>
-        <select id="AccountsSelectCity"></select>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="row">
+                    <span class="col-sm-7">Selezionare la città:</span>
+                    <select class="col-sm-5" id="AccountsSelectCity" onchange="getStores(this);"></select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="row">
+                    <span class="col-sm-7">Selezionare il punto vendita:</span>
+                    <select class="col-sm-5" id="AccountsSelectStore"></select>
+                </div>
+            </div>
+        </div>
     </div>
-    <div>
-        <span>Selezionare il punto vendita:</span>
-        <select id="AccountsSelectStore"></select>
-    </div>
+    <br>
     <div class="simple-button" onclick="searchAccounts();">Cerca account</div>
 </div>

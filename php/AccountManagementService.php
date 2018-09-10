@@ -20,27 +20,42 @@ class AccountManagementService {
     }
 
     function GetCities() {
-        Logger::Write("Processing request.", $GLOBALS["CorrelationID"]);
-        TokenGenerator.ValidateToken();
-        exit(json_encode("works"));
+        Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
+        TokenGenerator::ValidateToken();
+        $query = 
+            "SELECT *
+            FROM citta";
+        $res = self::ExecuteQuery($query);
+        $array = array();
+        while($row = $res->fetch_assoc()){
+            $city = new City($row);
+            $array[] = $city;
+        }
+        exit(json_encode($array));
     }
 
     function GetStores() {
-        Logger::Write("Processing request.", $GLOBALS["CorrelationID"]);
+        Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
     }
 
     // Switcha l'operazione richiesta lato client
     function Init() {
-        switch($_POST["action"]) {
-            case "getCities":
-                self::GetCities();
-            break;
-            case "getStores":
-                self::GetStores();
+        try {
+            switch($_POST["action"]) {
+                case "getCities":
+                    self::GetCities();
                 break;
-            default: 
-                echo json_encode($_POST);
-                break;
+                case "getStores":
+                    self::GetStores();
+                    break;
+                default: 
+                    exit(json_encode($_POST));
+                    break;
+            }
+        }
+        catch(Throwable $ex) {
+            Logger::Write("Error occured -> $ex", $GLOBALS["CorrelationID"]);
+            http_response_code(500);
         }
     }
 }
@@ -55,5 +70,15 @@ catch(Throwable $ex) {
     Logger::Write("Error occured: $ex", $GLOBALS["CorrelationID"]);
     http_response_code(500);
     exit(json_encode($ex->getMessage()));
+}
+
+class City {
+    public $citta_id;
+    public $citta_nome;
+
+    public function __construct($row) {
+        $this->citta_id = $row["id_citta"];
+        $this->citta_nome = $row["nome"];
+    }
 }
 ?>

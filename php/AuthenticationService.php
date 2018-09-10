@@ -32,7 +32,7 @@ class AuthenticationService {
     /** Effettua il login al sito con l'username inserito */
     private function Login(){             
         try {
-            Logger::Write("Processing Login request.", $GLOBALS["CorrelationID"]);
+            Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
             $credentials = json_decode($_POST["credentials"]);
             $query = 
                 "SELECT dip.id_dipendente, dip.username, dip.password, del.codice, del.nome as delega_nome,
@@ -61,9 +61,8 @@ class AuthenticationService {
             }
         } 
         catch (Throwable $ex) {
-            Logger::Write("Error during the login of user -> $ex", $GLOBALS["CorrelationID"]);
+            Logger::Write("Error occured in " . __FUNCTION__. " -> $ex", $GLOBALS["CorrelationID"]);
             http_response_code(500); 
-            // exit(json_encode($ex->getMessage()));
         }
     }
 
@@ -151,7 +150,7 @@ class AuthenticationService {
         }
         catch(Throwable $ex) {
             $this->dbContext->RollBack();
-            Logger::Write("Error occured in InsertNewUser -> $ex", $GLOBALS["CorrelationID"]);
+            Logger::Write("Error occured in " . __FUNCTION__. " -> $ex", $GLOBALS["CorrelationID"]);
             http_response_code(500);
             $res = $false;
         }

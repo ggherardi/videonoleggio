@@ -348,3 +348,9 @@ Stack trace:
 #3 C:\Projects\ProgettiBDC\Videonoleggio\php\AuthenticationService.php(181): AuthenticationService->Init()
 #4 {main} 
 >>>>>>> ded8270b9c6f1050b2ef50e27b75c90709e144d7
+[10/09/2018 23:19:34] - corrId_5b96dfe6ea0f61.34553533 - Reached AuthenticationService API 
+[10/09/2018 23:19:34] - corrId_5b96dfe6ea0f61.34553533 - Processing Login request. 
+[10/09/2018 23:19:34] - corrId_5b96dfe6ea0f61.34553533 - Establishing connection to DB 
+[10/09/2018 23:19:34] - corrId_5b96dfe6ea0f61.34553533 - Executing query 
+[10/09/2018 23:19:35] - corrId_5b96dfe6ea0f61.34553533 - User  validated, generating Token. 
+[10/09/2018 23:19:35] - corrId_5b96dfe6ea0f61.34553533 - Token generated succesfully. 
