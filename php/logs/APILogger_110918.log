@@ -1786,3 +1786,8 @@ Stack trace:
 [11/09/2018 17:14:26] - corrId_5b97dbd22346a6.24068736 - Token validated. 
 [11/09/2018 17:14:26] - corrId_5b97dbd22346a6.24068736 - Establishing connection to DB 
 [11/09/2018 17:14:26] - corrId_5b97dbd22346a6.24068736 - Executing query 
+[11/09/2018 17:26:52] - corrId_5b97debc379d95.89126580 - Reached AccountManagementService API 
+[11/09/2018 17:26:52] - corrId_5b97debc379d95.89126580 - Processing GetCities request. 
+[11/09/2018 17:26:52] - corrId_5b97debc379d95.89126580 - Token validated. 
+[11/09/2018 17:26:52] - corrId_5b97debc379d95.89126580 - Establishing connection to DB 
+[11/09/2018 17:26:52] - corrId_5b97debc379d95.89126580 - Executing query 
