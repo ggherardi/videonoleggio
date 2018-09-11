@@ -112,7 +112,7 @@ CREATE TABLE `citta` (
 
 LOCK TABLES `citta` WRITE;
 /*!40000 ALTER TABLE `citta` DISABLE KEYS */;
-INSERT INTO `citta` VALUES (1,'Genova'),(2,'Milano'),(3,'Torino'),(4,'Roma'),(5,'Triste'),(6,'Napoli'),(7,'Venezia');
+INSERT INTO `citta` VALUES (1,'Genova'),(2,'Milano'),(3,'Torino'),(4,'Roma'),(5,'Trieste'),(6,'Napoli'),(7,'Venezia');
 /*!40000 ALTER TABLE `citta` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -194,7 +194,7 @@ CREATE TABLE `dipendente` (
   KEY `fk_dipendente_punto_vendita_idx` (`id_punto_vendita`),
   CONSTRAINT `fk_dipendente_delega` FOREIGN KEY (`id_delega`) REFERENCES `delega` (`id_delega`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_dipendente_punto_vendita` FOREIGN KEY (`id_punto_vendita`) REFERENCES `punto_vendita` (`id_punto_vendita`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -203,7 +203,7 @@ CREATE TABLE `dipendente` (
 
 LOCK TABLES `dipendente` WRITE;
 /*!40000 ALTER TABLE `dipendente` DISABLE KEYS */;
-INSERT INTO `dipendente` VALUES (1,3,1,'Gianmattia','Gherardi','admin','$2y$10$8BefxWbWyyJka.NQjlMS.uMvK9eZF50fbjsGct2eboNJnh6nmm.s2');
+INSERT INTO `dipendente` VALUES (1,3,1,'Gianmattia','Gherardi','admin','$2y$10$8BefxWbWyyJka.NQjlMS.uMvK9eZF50fbjsGct2eboNJnh6nmm.s2'),(2,2,1,'Mario','Rossi','MarRosRoma01','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(3,1,1,'Luigi','Verdi','LuiVerRoma01','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(4,1,1,'Calliope','Sagese','CalSagRoma01','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(5,1,1,'Adamo','Padovano','AdaPadRoma01','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(6,2,2,'Abelino','Genovesi','AbeGenRoma02','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(7,1,2,'Maria Rosa','Lucchesi','MarRosRoma02','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(8,1,2,'Dafne','Loggia','DafLogRoma02','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(9,2,3,'Guerrino','Manna','GueManRoma03','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(10,1,3,'Olga','Siciliani','OlgSicRoma03','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(11,2,4,'Tiziano','Calabrese','TizCalRoma04','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(12,1,4,'Clementina','Colombo','CleColRoma04','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(13,2,5,'Federico','Longo','FedLonGenova01','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(14,1,5,'Curzio','Cremonesi','CurCreGenova01','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(15,1,5,'Edgardo','Lucchesi','EdgLucGenova01','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(16,2,6,'Clementina','Lucciano','CleLucGenova02','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(17,1,6,'Bellina','Arcuri','BelArcGenova02','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(18,2,7,'Agostino','Li Fonti','AgoLifGenova03','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(19,1,7,'Sesto','Mancini','SesManGenova03','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(20,1,7,'Delfino','Calabresi','DelCalGenova03','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(21,2,8,'Lioba','Lori','LioLorTrieste01','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(22,1,8,'Monica','Rossi','MonRosTrieste01','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(23,1,8,'Gennaro','Trevisani','GenTreTrieste01','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(24,1,8,'Ireneo','Lucchesi','IreLucTrieste01','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(25,2,9,'Graziella','Padovesi','GraPadTrieste02','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(26,1,9,'Addolorata','DeRose','AddDerTrieste02','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(27,2,10,'Efisio','Milano','EfiMilTorino01','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(28,1,10,'Virginia','Trentini','VirTreTorino01','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(29,1,10,'Eric','Dellucci','EriDelTorino01','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(30,2,11,'Osvaldo','Baresi','OsvBarTorino02','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(31,1,11,'Marcello','Moretti','MarMorTorino02','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(32,1,11,'Giulio','Baresi','GiuBarTorino02','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(33,2,12,'Rodolfo','Lucchesi','RodLucTorino03','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(34,1,12,'Luciana','Zetticci','LucZetTorino03','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(35,2,13,'Agata','Li Fonti','AgaLifTorino04','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(36,1,13,'Olindo','Dellucci','OliDelTorino04','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(37,1,13,'Albino','Costa','AlbCosTorino04','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS');
 /*!40000 ALTER TABLE `dipendente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -432,7 +432,7 @@ CREATE TABLE `punto_vendita` (
   PRIMARY KEY (`id_punto_vendita`),
   KEY `fk_punto_vendita_citta_idx` (`id_citta`),
   CONSTRAINT `fk_punto_vendita_citta` FOREIGN KEY (`id_citta`) REFERENCES `citta` (`id_citta`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -441,7 +441,7 @@ CREATE TABLE `punto_vendita` (
 
 LOCK TABLES `punto_vendita` WRITE;
 /*!40000 ALTER TABLE `punto_vendita` DISABLE KEYS */;
-INSERT INTO `punto_vendita` VALUES (1,'Roma01','Largo Giuseppe Veratti 37',4);
+INSERT INTO `punto_vendita` VALUES (1,'Roma01','Largo Giuseppe Veratti 37',4),(2,'Roma02','Via Riccardo Morandi 32',4),(3,'Roma03','Viale Marconi 5',4),(4,'Roma04','Via Tuscolana 112',4),(5,'Genova01','Via Marcello Prestinari 12',1),(6,'Genova02','Via Martiri della libertà 22',1),(7,'Genova03','Via Cantore 150',1),(8,'Trieste01','Viale Gabriele d\'Annunzio 2',5),(9,'Trieste02','Via Dandolo Enrico 8',5),(10,'Torino01','Via Adamello 16',3),(11,'Torino02','Via Stelvio 27',3),(12,'Torino03','Via Principessa Clotilde 123',3),(13,'Torino04','Corso Principe Oddone 23',3);
 /*!40000 ALTER TABLE `punto_vendita` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -524,4 +524,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-09-10 22:05:39
+-- Dump completed on 2018-09-11 17:31:43
