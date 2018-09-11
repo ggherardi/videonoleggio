@@ -11,7 +11,7 @@ function login(sender) {
     authService.login(username, password)
         .done(loginSuccess)
         .fail(loginFail)
-        .always(endLogin.bind(this));
+        .always(() => formLoader.hideLoader());
 }
 
 function loginSuccess(data) {
@@ -37,8 +37,4 @@ function loginFail(jqXHR, textStatus, errorThrown) {
     }
     errorSpan.show();
     errorSpan.text(errorText);
-}
-
-function endLogin() {
-    formLoader.hideLoader();
 }

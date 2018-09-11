@@ -1,19 +1,20 @@
 class Loader {
-    constructor(containerSelector) {
+    constructor(containerSelector, width = 100, height = 100) {
         this.container = $(containerSelector);
         this.containerChildren = this.container.children();
         this.spinnerClassName = "loader-spinner";
-        this.spinnerImg = $(`<img class="${this.spinnerClassName}" src='/images/spinner-loader.gif' width='100'>`);
+        this.spinnerImg = $(`<img class="${this.spinnerClassName}" src='/images/spinner-loader.gif' width='${width}' height='${height}'>`);
     }
 
     showLoader() {
-        // this.tempHtml = $(this.container).html();
         for(var i = 0; i < this.containerChildren.length; i++) {
             $(this.containerChildren[i]).hide();
         }
-        this.spinnerImg.insertBefore(this.container[0].firstElementChild);
-        // $(this.container).html();
-        // setTimeout(() => { $(this.container).html(this.tempHtml); }, 1000);
+        if(this.container[0].firstElementChild) {
+            this.spinnerImg.insertBefore(this.container[0].firstElementChild);
+        } else {
+            this.container.append(this.spinnerImg);
+        }
     }
 
     hideLoader() {

@@ -30,7 +30,7 @@ class AuthenticationService {
     }
 
     /** Effettua il login al sito con l'username inserito */
-    private function Login(){             
+    private function Login() {             
         try {
             Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
             $credentials = json_decode($_POST["credentials"]);

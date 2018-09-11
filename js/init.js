@@ -53,18 +53,6 @@ function initMasterpageComponents() {
 function initView() {
     mainContentController.setView(views.home);
     menu.setMenuItemActive(views.home);
-    initSidebarResize();
-}
-
-function initSidebarResize() {
-    // sideBarResize();
-    // window.removeEventListener("resize", sideBarResize);
-    // window.addEventListener("resize", sideBarResize);
-}
-
-function sideBarResize() {
-    var contentHeight = $(placeholders.mainContentZone).height();
-    $(placeholders.sidebar).height(contentHeight);
 }
 
 function initLogin() {

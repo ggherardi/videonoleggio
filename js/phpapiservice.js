@@ -75,9 +75,17 @@ class AccountManagementService extends RestClient {
         }
         return super.executeWithToken();
     }
+
+    getEmployees(id_punto_vendita) {
+        this.data = {
+            action: "getEmployees",
+            id_punto_vendita: id_punto_vendita
+        }
+        return super.executeWithToken();
+    }
 }
 
-class VideoRentalService {
+class VideoRentalService extends RestClient {
     constructor() {
 
     }

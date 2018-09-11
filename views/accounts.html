@@ -5,22 +5,22 @@
         <span>Da questa pagina è possibile gestire gli account di tutti gli operatori di tutti i punti vendita.</span>
     </div>
     <br>
-    <div>
+    <div id="ManageAccountContainer">
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-8">
                 <div class="row">
-                    <span class="col-sm-7">Selezionare la città:</span>
-                    <select class="col-sm-5" id="AccountsSelectCity" onchange="getStores(this);"></select>
+                    <span class="col-sm-6">Selezionare la città:</span>
+                    <div class="col-sm-6 row" id="SelectCityContainer">
+                        <select id="AccountsSelectCity" class="col-sm-12" onchange="getStores(this);"></select>
+                    </div>                    
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-4">
-                <div class="row">
-                    <span class="col-sm-7">Selezionare il punto vendita:</span>
-                    <select class="col-sm-5" id="AccountsSelectStore"></select>
-                </div>
-            </div>
+            <div id="SelectStoreContainer" class="col-sm-8"></div>
+        </div>
+        <div class="">
+            <table class="table mt-3" id="EmployeesTable"></table>
         </div>
     </div>
     <br>

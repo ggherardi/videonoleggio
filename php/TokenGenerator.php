@@ -1,5 +1,4 @@
 <?php
-
 // Classe che genera e legge il token per il JWT
 class TokenGenerator {
     private static $Initialized = false;

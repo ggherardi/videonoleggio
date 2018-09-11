@@ -8,11 +8,8 @@
     border: #8583e1!important;
 }
 
-.spinner-loader {
-    background-color: #8583e1;
-    opacity: 0,5;
-    position: fixed;
-    z-index: 9999;
+.loader-spinner {
+    margin: 0 auto;
 }
 
 .errorSpan {
