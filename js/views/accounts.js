@@ -3,15 +3,39 @@ var selectStoreContainer =  $("#SelectStoreContainer");
 var employeesTableContainer = $("#EmployeesTableContainer");
 var employeesDataTable;
 var dataTableOptions = {
-    select: true,
-    columnDefs: [
-        {
+        dom: 'Bftpil',
+        buttons: true,
+        select: true,
+        columns: [{
+                name: 'id'
+            }, {
+                name: 'punto_vendita'
+            }, {
+                name: 'username'
+            }, {
+                name: 'nome'
+            }, {
+                name: 'cognome'
+            }, {
+                name: 'ruolo'
+            }
+        ],
+        columnDefs: [{
             targets: 0,
             visible: false,
             searchable: false
-        }
-    ]
+        }],
+        buttons: [
+            { extend: 'copy', text: "Copia" },
+            { extend: 'selectedSingle', text: "Modifica", action: editEmployee },
+            { extend: 'selected', text: "Cancella", action: (e, dt, node, config, a, b, c, d) => console.log(config) },
+            { text: "Nuovo", action: (e, dt, node, config) => console.log("Nuovo") },
+        ]
 };
+
+function editEmployee(e, dt, node, config) {
+    console.log(dt.rows({selected: true}).data());
+}
 
 initAccountManager();
 
