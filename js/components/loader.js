@@ -3,7 +3,11 @@ class Loader {
         this.container = $(containerSelector);
         this.containerChildren = this.container.children();
         this.spinnerClassName = "loader-spinner";
-        this.spinnerImg = $(`<img class="${this.spinnerClassName}" src='/images/spinner-loader.gif' width='${width}' height='${height}'>`);
+        this.spinnerContainerName = "spinner-container";
+        var spinnerHtml = ` <div class="${this.spinnerContainerName} text-center" style="width: 100%">
+                                <img class="${this.spinnerClassName}" src='/images/spinner-loader.gif' width='${width}' height='${height}'>
+                            </div>`;
+        this.spinnerImg = $(spinnerHtml);
     }
 
     showLoader() {
@@ -22,7 +26,7 @@ class Loader {
             $(this.containerChildren[i]).show();
         }
         var firstChild = this.container[0].firstElementChild;
-        if($(firstChild).hasClass(this.spinnerClassName)) {
+        if($(firstChild).hasClass(this.spinnerContainerName)) {
             firstChild.remove();
         } else {
             // this.container.children()

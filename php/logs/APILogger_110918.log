@@ -1791,3 +1791,760 @@ Stack trace:
 [11/09/2018 17:26:52] - corrId_5b97debc379d95.89126580 - Token validated. 
 [11/09/2018 17:26:52] - corrId_5b97debc379d95.89126580 - Establishing connection to DB 
 [11/09/2018 17:26:52] - corrId_5b97debc379d95.89126580 - Executing query 
+[11/09/2018 21:03:39] - corrId_5b98118b666794.52245991 - Reached AuthenticationService API 
+[11/09/2018 21:03:39] - corrId_5b98118b666794.52245991 - Processing Login request. 
+[11/09/2018 21:03:39] - corrId_5b98118b666794.52245991 - Establishing connection to DB 
+[11/09/2018 21:03:39] - corrId_5b98118b666794.52245991 - Executing query 
+[11/09/2018 21:03:39] - corrId_5b98118b666794.52245991 - User  validated, generating Token. 
+[11/09/2018 21:03:39] - corrId_5b98118b666794.52245991 - Token generated succesfully. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 21:03:46] - corrId_5b9811927adf46.97640176 - Reached AuthenticationService API 
+[11/09/2018 21:03:46] - corrId_5b9811927adf46.97640176 - Processing Login request. 
+[11/09/2018 21:03:46] - corrId_5b9811927adf46.97640176 - Establishing connection to DB 
+[11/09/2018 21:03:46] - corrId_5b9811927adf46.97640176 - Executing query 
+[11/09/2018 21:03:46] - corrId_5b9811927adf46.97640176 - User  validated, generating Token. 
+[11/09/2018 21:03:46] - corrId_5b9811927adf46.97640176 - Token generated succesfully. SizKILRFv7hRfOGQBmb4JE6mULRCdMIluwQycMQzvxd+TziCKNpuhHo65AhwziQkQwPd5b3dKzq/P07J9ND0eBHBP2qC5roS2YRY0VeSNOPZAqO/5LGVYkpHNm119lbqomOy99fdaJUeN8TKUYXcFK+DuDeXrF9Em55vOw5TOtDsn/lehMC6r230sm9auVCnm+B4bBCa4OWYQmVeTLPZNJ2ICvORQitxWCmp1ComV4SK/rr9w/SZbhYr2Ck4PU+rxyEZf3qhUwBPusVKfTRIjA6j3pR4DzrXA+YknNHAO5JRWsV8XxJEdMfMhfr7gmeV 
+[11/09/2018 21:03:54] - corrId_5b98119a5c8125.95914147 - Reached AuthenticationService API 
+[11/09/2018 21:03:54] - corrId_5b98119a5c8125.95914147 - Processing Login request. 
+[11/09/2018 21:03:54] - corrId_5b98119a5c8125.95914147 - Establishing connection to DB 
+[11/09/2018 21:03:54] - corrId_5b98119a5c8125.95914147 - Executing query 
+[11/09/2018 21:03:54] - corrId_5b98119a5c8125.95914147 - User  validated, generating Token. 
+[11/09/2018 21:03:54] - corrId_5b98119a5c8125.95914147 - Token generated succesfully. SizKILRFv7hRfOGQBmb4JApPIoiNhWOv0FtzeXQL1ReoQl4HtxdWXFUJGwJqbJcWvVfGYdnshasaeCBgITG/OosiSueDayEXkbNMnFZgOfODgB2VhFUosEFovsTyyx3ElGuKIy5wDSlfh0AThy07GnHFvyVgTN66yvJWs0KGWVMzjcM7sVRbsjCJ67AcqJqDl7h9CycGjyivFED0MY4HoB+WuL25+ZnynQeSiXTwNdXWTCcOlUJLU7R7gHJDnjOPcdcBhyrrmhVDJR94mR8o/Feoe7UytIZEeEN1JZJ/ADj3rvTtGmzTpOPzuQKg1cnr 
+[11/09/2018 21:38:56] - corrId_5b9819d00d4669.44191026 - Reached AuthenticationService API 
+[11/09/2018 21:38:56] - corrId_5b9819d00d4669.44191026 - Processing Login request. 
+[11/09/2018 21:38:56] - corrId_5b9819d00d4669.44191026 - Establishing connection to DB 
+[11/09/2018 21:38:56] - corrId_5b9819d00d4669.44191026 - Executing query 
+[11/09/2018 21:38:56] - corrId_5b9819d00d4669.44191026 - User  validated, generating Token. 
+[11/09/2018 21:38:56] - corrId_5b9819d00d4669.44191026 - Token generated succesfully. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 21:38:57] - corrId_5b9819d1218a28.22908728 - Reached AccountManagementService API 
+[11/09/2018 21:38:57] - corrId_5b9819d1218a28.22908728 - Processing GetCities request. 
+[11/09/2018 21:38:57] - corrId_5b9819d1218a28.22908728 - Token validated. 
+[11/09/2018 21:38:57] - corrId_5b9819d1218a28.22908728 - Establishing connection to DB 
+[11/09/2018 21:38:57] - corrId_5b9819d1218a28.22908728 - Executing query 
+[11/09/2018 21:38:58] - corrId_5b9819d2d15201.98683175 - Reached AccountManagementService API 
+[11/09/2018 21:38:58] - corrId_5b9819d2d15201.98683175 - Processing GetStores request. 
+[11/09/2018 21:38:58] - corrId_5b9819d2d15201.98683175 - Token validated. 
+[11/09/2018 21:38:58] - corrId_5b9819d2d15201.98683175 - Establishing connection to DB 
+[11/09/2018 21:38:58] - corrId_5b9819d2d15201.98683175 - Executing query 
+[11/09/2018 21:39:00] - corrId_5b9819d425ef10.05895163 - Reached AccountManagementService API 
+[11/09/2018 21:39:00] - corrId_5b9819d425ef10.05895163 - Processing GetEmployees request. 
+[11/09/2018 21:39:00] - corrId_5b9819d425ef10.05895163 - Token validated. 
+[11/09/2018 21:39:00] - corrId_5b9819d425ef10.05895163 - Establishing connection to DB 
+[11/09/2018 21:39:00] - corrId_5b9819d425ef10.05895163 - Executing query 
+[11/09/2018 21:39:04] - corrId_5b9819d81ec225.90011868 - Reached AccountManagementService API 
+[11/09/2018 21:39:04] - corrId_5b9819d81ec225.90011868 - Processing GetStores request. 
+[11/09/2018 21:39:04] - corrId_5b9819d81ec225.90011868 - Token validated. 
+[11/09/2018 21:39:04] - corrId_5b9819d81ec225.90011868 - Establishing connection to DB 
+[11/09/2018 21:39:04] - corrId_5b9819d81ec225.90011868 - Executing query 
+[11/09/2018 21:39:07] - corrId_5b9819db95e614.40849471 - Reached AccountManagementService API 
+[11/09/2018 21:39:07] - corrId_5b9819db95e614.40849471 - Processing GetStores request. 
+[11/09/2018 21:39:07] - corrId_5b9819db95e614.40849471 - Token validated. 
+[11/09/2018 21:39:07] - corrId_5b9819db95e614.40849471 - Establishing connection to DB 
+[11/09/2018 21:39:07] - corrId_5b9819db95e614.40849471 - Executing query 
+[11/09/2018 21:39:09] - corrId_5b9819dde73292.00752028 - Reached AccountManagementService API 
+[11/09/2018 21:39:09] - corrId_5b9819dde73292.00752028 - Processing GetEmployees request. 
+[11/09/2018 21:39:09] - corrId_5b9819dde73292.00752028 - Token validated. 
+[11/09/2018 21:39:09] - corrId_5b9819dde73292.00752028 - Establishing connection to DB 
+[11/09/2018 21:39:09] - corrId_5b9819dde73292.00752028 - Executing query 
+[11/09/2018 21:49:28] - corrId_5b981c483034a3.21095762 - Reached AccountManagementService API 
+[11/09/2018 21:49:28] - corrId_5b981c483034a3.21095762 - Processing GetCities request. 
+[11/09/2018 21:49:28] - corrId_5b981c483034a3.21095762 - Token validated. 
+[11/09/2018 21:49:28] - corrId_5b981c483034a3.21095762 - Establishing connection to DB 
+[11/09/2018 21:49:28] - corrId_5b981c483034a3.21095762 - Executing query 
+[11/09/2018 21:49:30] - corrId_5b981c4a9856c5.77673904 - Reached AccountManagementService API 
+[11/09/2018 21:49:30] - corrId_5b981c4a9856c5.77673904 - Processing GetStores request. 
+[11/09/2018 21:49:30] - corrId_5b981c4a9856c5.77673904 - Token validated. 
+[11/09/2018 21:49:30] - corrId_5b981c4a9856c5.77673904 - Establishing connection to DB 
+[11/09/2018 21:49:30] - corrId_5b981c4a9856c5.77673904 - Executing query 
+[11/09/2018 21:49:31] - corrId_5b981c4bad4c03.85572009 - Reached AccountManagementService API 
+[11/09/2018 21:49:31] - corrId_5b981c4bad4c03.85572009 - Processing GetEmployees request. 
+[11/09/2018 21:49:31] - corrId_5b981c4bad4c03.85572009 - Token validated. 
+[11/09/2018 21:49:31] - corrId_5b981c4bad4c03.85572009 - Establishing connection to DB 
+[11/09/2018 21:49:31] - corrId_5b981c4bad4c03.85572009 - Executing query 
+[11/09/2018 21:49:31] - corrId_5b981c4bad4c03.85572009 - Error while executing query -> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'pv.nome as punto_vendita_nome
+            FROM dipendente as dip
+            I' at line 3 
+[11/09/2018 21:49:31] - corrId_5b981c4bad4c03.85572009 - Error occured -> Exception: Exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'pv.nome as punto_vendita_nome
+            FROM dipendente as dip
+            I' at line 3 in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(19): DBConnection->ExecuteQuery('SELECT dip.id_d...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(70): AccountManagementService->ExecuteQuery('SELECT dip.id_d...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(90): AccountManagementService->GetEmployees()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(108): AccountManagementService->Init()
+#4 {main} in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(19): DBConnection->ExecuteQuery('SELECT dip.id_d...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(70): AccountManagementService->ExecuteQuery('SELECT dip.id_d...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(90): AccountManagementService->GetEmployees()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(108): AccountManagementService->Init()
+#4 {main} 
+[11/09/2018 21:49:50] - corrId_5b981c5e766aa3.29950520 - Reached AccountManagementService API 
+[11/09/2018 21:49:50] - corrId_5b981c5e766aa3.29950520 - Processing GetEmployees request. 
+[11/09/2018 21:49:50] - corrId_5b981c5e766aa3.29950520 - Token validated. 
+[11/09/2018 21:49:50] - corrId_5b981c5e766aa3.29950520 - Establishing connection to DB 
+[11/09/2018 21:49:50] - corrId_5b981c5e766aa3.29950520 - Executing query 
+[11/09/2018 21:49:50] - corrId_5b981c5e766aa3.29950520 - Error while executing query -> Column 'id_punto_vendita' in where clause is ambiguous 
+[11/09/2018 21:49:50] - corrId_5b981c5e766aa3.29950520 - Error occured -> Exception: Exception: Column 'id_punto_vendita' in where clause is ambiguous in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(19): DBConnection->ExecuteQuery('SELECT dip.id_d...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(70): AccountManagementService->ExecuteQuery('SELECT dip.id_d...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(90): AccountManagementService->GetEmployees()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(108): AccountManagementService->Init()
+#4 {main} in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(19): DBConnection->ExecuteQuery('SELECT dip.id_d...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(70): AccountManagementService->ExecuteQuery('SELECT dip.id_d...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(90): AccountManagementService->GetEmployees()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(108): AccountManagementService->Init()
+#4 {main} 
+[11/09/2018 21:49:51] - corrId_5b981c5f97c5a7.49819400 - Reached AccountManagementService API 
+[11/09/2018 21:49:51] - corrId_5b981c5f97c5a7.49819400 - Processing GetEmployees request. 
+[11/09/2018 21:49:51] - corrId_5b981c5f97c5a7.49819400 - Token validated. 
+[11/09/2018 21:49:51] - corrId_5b981c5f97c5a7.49819400 - Establishing connection to DB 
+[11/09/2018 21:49:51] - corrId_5b981c5f97c5a7.49819400 - Executing query 
+[11/09/2018 21:49:51] - corrId_5b981c5f97c5a7.49819400 - Error while executing query -> Column 'id_punto_vendita' in where clause is ambiguous 
+[11/09/2018 21:49:51] - corrId_5b981c5f97c5a7.49819400 - Error occured -> Exception: Exception: Column 'id_punto_vendita' in where clause is ambiguous in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(19): DBConnection->ExecuteQuery('SELECT dip.id_d...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(70): AccountManagementService->ExecuteQuery('SELECT dip.id_d...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(90): AccountManagementService->GetEmployees()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(108): AccountManagementService->Init()
+#4 {main} in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(19): DBConnection->ExecuteQuery('SELECT dip.id_d...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(70): AccountManagementService->ExecuteQuery('SELECT dip.id_d...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(90): AccountManagementService->GetEmployees()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\AccountManagementService.php(108): AccountManagementService->Init()
+#4 {main} 
+[11/09/2018 21:51:20] - corrId_5b981cb87ccc43.42606583 - Reached AccountManagementService API 
+[11/09/2018 21:51:20] - corrId_5b981cb87ccc43.42606583 - Processing GetEmployees request. 
+[11/09/2018 21:51:20] - corrId_5b981cb87ccc43.42606583 - Token validated. 
+[11/09/2018 21:51:20] - corrId_5b981cb87ccc43.42606583 - Establishing connection to DB 
+[11/09/2018 21:51:20] - corrId_5b981cb87ccc43.42606583 - Executing query 
+[11/09/2018 21:51:21] - corrId_5b981cb9e455e1.47213149 - Reached AccountManagementService API 
+[11/09/2018 21:51:21] - corrId_5b981cb9e455e1.47213149 - Processing GetEmployees request. 
+[11/09/2018 21:51:21] - corrId_5b981cb9e455e1.47213149 - Token validated. 
+[11/09/2018 21:51:21] - corrId_5b981cb9e455e1.47213149 - Establishing connection to DB 
+[11/09/2018 21:51:21] - corrId_5b981cb9e455e1.47213149 - Executing query 
+[11/09/2018 21:51:49] - corrId_5b981cd5124a95.76058710 - Reached AccountManagementService API 
+[11/09/2018 21:51:49] - corrId_5b981cd5124a95.76058710 - Processing GetCities request. 
+[11/09/2018 21:51:49] - corrId_5b981cd5124a95.76058710 - Token validated. 
+[11/09/2018 21:51:49] - corrId_5b981cd5124a95.76058710 - Establishing connection to DB 
+[11/09/2018 21:51:49] - corrId_5b981cd5124a95.76058710 - Executing query 
+[11/09/2018 21:51:50] - corrId_5b981cd64739c2.87036909 - Reached AccountManagementService API 
+[11/09/2018 21:51:50] - corrId_5b981cd64739c2.87036909 - Processing GetStores request. 
+[11/09/2018 21:51:50] - corrId_5b981cd64739c2.87036909 - Token validated. 
+[11/09/2018 21:51:50] - corrId_5b981cd64739c2.87036909 - Establishing connection to DB 
+[11/09/2018 21:51:50] - corrId_5b981cd64739c2.87036909 - Executing query 
+[11/09/2018 21:51:51] - corrId_5b981cd7a27d01.59963376 - Reached AccountManagementService API 
+[11/09/2018 21:51:51] - corrId_5b981cd7a27d01.59963376 - Processing GetEmployees request. 
+[11/09/2018 21:51:51] - corrId_5b981cd7a27d01.59963376 - Token validated. 
+[11/09/2018 21:51:51] - corrId_5b981cd7a27d01.59963376 - Establishing connection to DB 
+[11/09/2018 21:51:51] - corrId_5b981cd7a27d01.59963376 - Executing query 
+[11/09/2018 21:59:43] - corrId_5b981eafe4ec92.71324426 - Reached AccountManagementService API 
+[11/09/2018 21:59:43] - corrId_5b981eafe4ec92.71324426 - Processing GetCities request. 
+[11/09/2018 21:59:43] - corrId_5b981eafe4ec92.71324426 - Token validated. 
+[11/09/2018 21:59:43] - corrId_5b981eafe4ec92.71324426 - Establishing connection to DB 
+[11/09/2018 21:59:43] - corrId_5b981eafe4ec92.71324426 - Executing query 
+[11/09/2018 21:59:45] - corrId_5b981eb18e7714.19844649 - Reached AccountManagementService API 
+[11/09/2018 21:59:45] - corrId_5b981eb18e7714.19844649 - Processing GetStores request. 
+[11/09/2018 21:59:45] - corrId_5b981eb18e7714.19844649 - Token validated. 
+[11/09/2018 21:59:45] - corrId_5b981eb18e7714.19844649 - Establishing connection to DB 
+[11/09/2018 21:59:45] - corrId_5b981eb18e7714.19844649 - Executing query 
+[11/09/2018 21:59:46] - corrId_5b981eb2ef0774.33964204 - Reached AccountManagementService API 
+[11/09/2018 21:59:46] - corrId_5b981eb2ef0774.33964204 - Processing GetEmployees request. 
+[11/09/2018 21:59:46] - corrId_5b981eb2ef0774.33964204 - Token validated. 
+[11/09/2018 21:59:46] - corrId_5b981eb2ef0774.33964204 - Establishing connection to DB 
+[11/09/2018 21:59:46] - corrId_5b981eb2ef0774.33964204 - Executing query 
+[11/09/2018 22:00:17] - corrId_5b981ed102e5c3.02368588 - Reached AccountManagementService API 
+[11/09/2018 22:00:17] - corrId_5b981ed102e5c3.02368588 - Processing GetCities request. 
+[11/09/2018 22:00:17] - corrId_5b981ed102e5c3.02368588 - Token validated. 
+[11/09/2018 22:00:17] - corrId_5b981ed102e5c3.02368588 - Establishing connection to DB 
+[11/09/2018 22:00:17] - corrId_5b981ed102e5c3.02368588 - Executing query 
+[11/09/2018 22:00:18] - corrId_5b981ed2047dd0.73893087 - Reached AccountManagementService API 
+[11/09/2018 22:00:18] - corrId_5b981ed2047dd0.73893087 - Processing GetStores request. 
+[11/09/2018 22:00:18] - corrId_5b981ed2047dd0.73893087 - Token validated. 
+[11/09/2018 22:00:18] - corrId_5b981ed2047dd0.73893087 - Establishing connection to DB 
+[11/09/2018 22:00:18] - corrId_5b981ed2047dd0.73893087 - Executing query 
+[11/09/2018 22:00:19] - corrId_5b981ed36074f4.57071343 - Reached AccountManagementService API 
+[11/09/2018 22:00:19] - corrId_5b981ed36074f4.57071343 - Processing GetStores request. 
+[11/09/2018 22:00:19] - corrId_5b981ed36074f4.57071343 - Token validated. 
+[11/09/2018 22:00:19] - corrId_5b981ed36074f4.57071343 - Establishing connection to DB 
+[11/09/2018 22:00:19] - corrId_5b981ed36074f4.57071343 - Executing query 
+[11/09/2018 22:00:20] - corrId_5b981ed4655bb3.62797756 - Reached AccountManagementService API 
+[11/09/2018 22:00:20] - corrId_5b981ed4655bb3.62797756 - Processing GetEmployees request. 
+[11/09/2018 22:00:20] - corrId_5b981ed4655bb3.62797756 - Token validated. 
+[11/09/2018 22:00:20] - corrId_5b981ed4655bb3.62797756 - Establishing connection to DB 
+[11/09/2018 22:00:20] - corrId_5b981ed4655bb3.62797756 - Executing query 
+[11/09/2018 22:00:47] - corrId_5b981eefd30446.26902110 - Reached AccountManagementService API 
+[11/09/2018 22:00:47] - corrId_5b981eefd30446.26902110 - Processing GetEmployees request. 
+[11/09/2018 22:00:47] - corrId_5b981eefd30446.26902110 - Token validated. 
+[11/09/2018 22:00:47] - corrId_5b981eefd30446.26902110 - Establishing connection to DB 
+[11/09/2018 22:00:47] - corrId_5b981eefd30446.26902110 - Executing query 
+[11/09/2018 22:01:15] - corrId_5b981f0b808e98.33946609 - Reached AccountManagementService API 
+[11/09/2018 22:01:15] - corrId_5b981f0b808e98.33946609 - Processing GetEmployees request. 
+[11/09/2018 22:01:15] - corrId_5b981f0b808e98.33946609 - Token validated. 
+[11/09/2018 22:01:15] - corrId_5b981f0b808e98.33946609 - Establishing connection to DB 
+[11/09/2018 22:01:15] - corrId_5b981f0b808e98.33946609 - Executing query 
+[11/09/2018 22:03:37] - corrId_5b981f9928a314.61529044 - Reached AccountManagementService API 
+[11/09/2018 22:03:37] - corrId_5b981f9928a314.61529044 - Processing GetCities request. 
+[11/09/2018 22:03:37] - corrId_5b981f9928a314.61529044 - Token validated. 
+[11/09/2018 22:03:37] - corrId_5b981f9928a314.61529044 - Establishing connection to DB 
+[11/09/2018 22:03:37] - corrId_5b981f9928a314.61529044 - Executing query 
+[11/09/2018 22:03:38] - corrId_5b981f9a32a5d4.12104341 - Reached AccountManagementService API 
+[11/09/2018 22:03:38] - corrId_5b981f9a32a5d4.12104341 - Processing GetStores request. 
+[11/09/2018 22:03:38] - corrId_5b981f9a32a5d4.12104341 - Token validated. 
+[11/09/2018 22:03:38] - corrId_5b981f9a32a5d4.12104341 - Establishing connection to DB 
+[11/09/2018 22:03:38] - corrId_5b981f9a32a5d4.12104341 - Executing query 
+[11/09/2018 22:05:21] - corrId_5b9820015954a0.25842912 - Reached AccountManagementService API 
+[11/09/2018 22:05:21] - corrId_5b9820015954a0.25842912 - Processing GetCities request. 
+[11/09/2018 22:05:21] - corrId_5b9820015954a0.25842912 - Token validated. 
+[11/09/2018 22:05:21] - corrId_5b9820015954a0.25842912 - Establishing connection to DB 
+[11/09/2018 22:05:21] - corrId_5b9820015954a0.25842912 - Executing query 
+[11/09/2018 22:05:22] - corrId_5b982002879793.84659629 - Reached AccountManagementService API 
+[11/09/2018 22:05:22] - corrId_5b982002879793.84659629 - Processing GetStores request. 
+[11/09/2018 22:05:22] - corrId_5b982002879793.84659629 - Token validated. 
+[11/09/2018 22:05:22] - corrId_5b982002879793.84659629 - Establishing connection to DB 
+[11/09/2018 22:05:22] - corrId_5b982002879793.84659629 - Executing query 
+[11/09/2018 22:05:23] - corrId_5b98200354f087.31276151 - Reached AccountManagementService API 
+[11/09/2018 22:05:23] - corrId_5b98200354f087.31276151 - Processing GetEmployees request. 
+[11/09/2018 22:05:23] - corrId_5b98200354f087.31276151 - Token validated. 
+[11/09/2018 22:05:23] - corrId_5b98200354f087.31276151 - Establishing connection to DB 
+[11/09/2018 22:05:23] - corrId_5b98200354f087.31276151 - Executing query 
+[11/09/2018 22:05:39] - corrId_5b982013e783d1.32580090 - Reached AccountManagementService API 
+[11/09/2018 22:05:39] - corrId_5b982013e783d1.32580090 - Processing GetCities request. 
+[11/09/2018 22:05:39] - corrId_5b982013e783d1.32580090 - Token validated. 
+[11/09/2018 22:05:39] - corrId_5b982013e783d1.32580090 - Establishing connection to DB 
+[11/09/2018 22:05:39] - corrId_5b982013e783d1.32580090 - Executing query 
+[11/09/2018 22:05:41] - corrId_5b9820150b89f8.92829083 - Reached AccountManagementService API 
+[11/09/2018 22:05:41] - corrId_5b9820150b89f8.92829083 - Processing GetStores request. 
+[11/09/2018 22:05:41] - corrId_5b9820150b89f8.92829083 - Token validated. 
+[11/09/2018 22:05:41] - corrId_5b9820150b89f8.92829083 - Establishing connection to DB 
+[11/09/2018 22:05:41] - corrId_5b9820150b89f8.92829083 - Executing query 
+[11/09/2018 22:05:42] - corrId_5b98201616c785.08036849 - Reached AccountManagementService API 
+[11/09/2018 22:05:42] - corrId_5b98201616c785.08036849 - Processing GetEmployees request. 
+[11/09/2018 22:05:42] - corrId_5b98201616c785.08036849 - Token validated. 
+[11/09/2018 22:05:42] - corrId_5b98201616c785.08036849 - Establishing connection to DB 
+[11/09/2018 22:05:42] - corrId_5b98201616c785.08036849 - Executing query 
+[11/09/2018 22:05:46] - corrId_5b98201a38ce49.94470629 - Reached AccountManagementService API 
+[11/09/2018 22:05:46] - corrId_5b98201a38ce49.94470629 - Processing GetEmployees request. 
+[11/09/2018 22:05:46] - corrId_5b98201a38ce49.94470629 - Token validated. 
+[11/09/2018 22:05:46] - corrId_5b98201a38ce49.94470629 - Establishing connection to DB 
+[11/09/2018 22:05:46] - corrId_5b98201a38ce49.94470629 - Executing query 
+[11/09/2018 22:06:38] - corrId_5b98204e10c6b2.80995091 - Reached AccountManagementService API 
+[11/09/2018 22:06:38] - corrId_5b98204e10c6b2.80995091 - Processing GetCities request. 
+[11/09/2018 22:06:38] - corrId_5b98204e10c6b2.80995091 - Token validated. 
+[11/09/2018 22:06:38] - corrId_5b98204e10c6b2.80995091 - Establishing connection to DB 
+[11/09/2018 22:06:38] - corrId_5b98204e10c6b2.80995091 - Executing query 
+[11/09/2018 22:06:39] - corrId_5b98204f72a5d4.24575569 - Reached AccountManagementService API 
+[11/09/2018 22:06:39] - corrId_5b98204f72a5d4.24575569 - Processing GetStores request. 
+[11/09/2018 22:06:39] - corrId_5b98204f72a5d4.24575569 - Token validated. 
+[11/09/2018 22:06:39] - corrId_5b98204f72a5d4.24575569 - Establishing connection to DB 
+[11/09/2018 22:06:39] - corrId_5b98204f72a5d4.24575569 - Executing query 
+[11/09/2018 22:06:40] - corrId_5b982050203fe8.76467402 - Reached AccountManagementService API 
+[11/09/2018 22:06:40] - corrId_5b982050203fe8.76467402 - Processing GetEmployees request. 
+[11/09/2018 22:06:40] - corrId_5b982050203fe8.76467402 - Token validated. 
+[11/09/2018 22:06:40] - corrId_5b982050203fe8.76467402 - Establishing connection to DB 
+[11/09/2018 22:06:40] - corrId_5b982050203fe8.76467402 - Executing query 
+[11/09/2018 22:11:45] - corrId_5b982181255760.51245690 - Reached AccountManagementService API 
+[11/09/2018 22:11:45] - corrId_5b982181255760.51245690 - Processing GetCities request. 
+[11/09/2018 22:11:45] - corrId_5b982181255760.51245690 - Token validated. 
+[11/09/2018 22:11:45] - corrId_5b982181255760.51245690 - Establishing connection to DB 
+[11/09/2018 22:11:45] - corrId_5b982181255760.51245690 - Executing query 
+[11/09/2018 22:11:49] - corrId_5b98218589f499.29433695 - Reached AccountManagementService API 
+[11/09/2018 22:11:49] - corrId_5b98218589f499.29433695 - Processing GetStores request. 
+[11/09/2018 22:11:49] - corrId_5b98218589f499.29433695 - Token validated. 
+[11/09/2018 22:11:49] - corrId_5b98218589f499.29433695 - Establishing connection to DB 
+[11/09/2018 22:11:49] - corrId_5b98218589f499.29433695 - Executing query 
+[11/09/2018 22:11:50] - corrId_5b982186ac0697.08018049 - Reached AccountManagementService API 
+[11/09/2018 22:11:50] - corrId_5b982186ac0697.08018049 - Processing GetStores request. 
+[11/09/2018 22:11:50] - corrId_5b982186ac0697.08018049 - Token validated. 
+[11/09/2018 22:11:50] - corrId_5b982186ac0697.08018049 - Establishing connection to DB 
+[11/09/2018 22:11:50] - corrId_5b982186ac0697.08018049 - Executing query 
+[11/09/2018 22:12:14] - corrId_5b98219e61f0f2.34674735 - Reached AccountManagementService API 
+[11/09/2018 22:12:14] - corrId_5b98219e61f0f2.34674735 - Processing GetCities request. 
+[11/09/2018 22:12:14] - corrId_5b98219e61f0f2.34674735 - Token validated. 
+[11/09/2018 22:12:14] - corrId_5b98219e61f0f2.34674735 - Establishing connection to DB 
+[11/09/2018 22:12:14] - corrId_5b98219e61f0f2.34674735 - Executing query 
+[11/09/2018 22:12:15] - corrId_5b98219f8884a4.18569376 - Reached AccountManagementService API 
+[11/09/2018 22:12:15] - corrId_5b98219f8884a4.18569376 - Processing GetStores request. 
+[11/09/2018 22:12:15] - corrId_5b98219f8884a4.18569376 - Token validated. 
+[11/09/2018 22:12:15] - corrId_5b98219f8884a4.18569376 - Establishing connection to DB 
+[11/09/2018 22:12:15] - corrId_5b98219f8884a4.18569376 - Executing query 
+[11/09/2018 22:12:37] - corrId_5b9821b51cd444.22318851 - Reached AccountManagementService API 
+[11/09/2018 22:12:37] - corrId_5b9821b51cd444.22318851 - Processing GetCities request. 
+[11/09/2018 22:12:37] - corrId_5b9821b51cd444.22318851 - Token validated. 
+[11/09/2018 22:12:37] - corrId_5b9821b51cd444.22318851 - Establishing connection to DB 
+[11/09/2018 22:12:37] - corrId_5b9821b51cd444.22318851 - Executing query 
+[11/09/2018 22:12:38] - corrId_5b9821b67a6225.85709540 - Reached AccountManagementService API 
+[11/09/2018 22:12:38] - corrId_5b9821b67a6225.85709540 - Processing GetStores request. 
+[11/09/2018 22:12:38] - corrId_5b9821b67a6225.85709540 - Token validated. 
+[11/09/2018 22:12:38] - corrId_5b9821b67a6225.85709540 - Establishing connection to DB 
+[11/09/2018 22:12:38] - corrId_5b9821b67a6225.85709540 - Executing query 
+[11/09/2018 22:13:34] - corrId_5b9821ee03b332.25610210 - Reached AccountManagementService API 
+[11/09/2018 22:13:34] - corrId_5b9821ee03b332.25610210 - Processing GetStores request. 
+[11/09/2018 22:13:34] - corrId_5b9821ee03b332.25610210 - Token validated. 
+[11/09/2018 22:13:38] - corrId_5b9821f28dc3b8.12324527 - Reached AccountManagementService API 
+[11/09/2018 22:13:38] - corrId_5b9821f28dc3b8.12324527 - Processing GetStores request. 
+[11/09/2018 22:13:38] - corrId_5b9821f28dc3b8.12324527 - Token validated. 
+[11/09/2018 22:14:01] - corrId_5b982209995250.19555597 - Reached AccountManagementService API 
+[11/09/2018 22:14:01] - corrId_5b982209995250.19555597 - Processing GetStores request. 
+[11/09/2018 22:14:01] - corrId_5b982209995250.19555597 - Token validated. 
+[11/09/2018 22:14:15] - corrId_5b98221790cd87.22766207 - Reached AccountManagementService API 
+[11/09/2018 22:14:15] - corrId_5b98221790cd87.22766207 - Processing GetStores request. 
+[11/09/2018 22:14:15] - corrId_5b98221790cd87.22766207 - Token validated. 
+[11/09/2018 22:16:29] - corrId_5b98229d2a4054.37132831 - Reached AccountManagementService API 
+[11/09/2018 22:16:29] - corrId_5b98229d2a4054.37132831 - Processing GetStores request. 
+[11/09/2018 22:16:29] - corrId_5b98229d2a4054.37132831 - Token validated. 
+[11/09/2018 22:17:48] - corrId_5b9822ec345508.97848076 - Reached AccountManagementService API 
+[11/09/2018 22:17:48] - corrId_5b9822ec345508.97848076 - Processing GetStores request. 
+[11/09/2018 22:17:48] - corrId_5b9822ec345508.97848076 - Token validated. 
+[11/09/2018 22:18:33] - corrId_5b98231995fad8.57465149 - Reached AccountManagementService API 
+[11/09/2018 22:18:33] - corrId_5b98231995fad8.57465149 - Processing GetStores request. 
+[11/09/2018 22:18:33] - corrId_5b98231995fad8.57465149 - Token validated. 
+[11/09/2018 22:18:49] - corrId_5b982329439c50.02251577 - Reached AccountManagementService API 
+[11/09/2018 22:18:49] - corrId_5b982329439c50.02251577 - Processing GetStores request. 
+[11/09/2018 22:18:49] - corrId_5b982329439c50.02251577 - Token validated. 
+[11/09/2018 22:20:07] - corrId_5b9823771dfd51.65523299 - Reached AccountManagementService API 
+[11/09/2018 22:20:07] - corrId_5b9823771dfd51.65523299 - Processing GetStores request. 
+[11/09/2018 22:20:07] - corrId_5b9823771dfd51.65523299 - Token validated. 
+[11/09/2018 22:20:11] - corrId_5b98237bb0dde6.65756553 - Reached AccountManagementService API 
+[11/09/2018 22:20:11] - corrId_5b98237bb0dde6.65756553 - Processing GetStores request. 
+[11/09/2018 22:20:11] - corrId_5b98237bb0dde6.65756553 - Token validated. 
+[11/09/2018 22:20:40] - corrId_5b9823987cda19.17765569 - Reached AccountManagementService API 
+[11/09/2018 22:20:40] - corrId_5b9823987cda19.17765569 - Processing GetStores request. 
+[11/09/2018 22:20:40] - corrId_5b9823987cda19.17765569 - Token validated. 
+[11/09/2018 22:20:40] - corrId_5b9823987cda19.17765569 - Establishing connection to DB 
+[11/09/2018 22:20:40] - corrId_5b9823987cda19.17765569 - Executing query 
+[11/09/2018 22:20:46] - corrId_5b98239edc9ca6.74208923 - Reached AccountManagementService API 
+[11/09/2018 22:20:46] - corrId_5b98239edc9ca6.74208923 - Processing GetStores request. 
+[11/09/2018 22:20:46] - corrId_5b98239edc9ca6.74208923 - Token validated. 
+[11/09/2018 22:20:46] - corrId_5b98239edc9ca6.74208923 - Establishing connection to DB 
+[11/09/2018 22:20:46] - corrId_5b98239edc9ca6.74208923 - Executing query 
+[11/09/2018 22:20:48] - corrId_5b9823a0776409.37181730 - Reached AccountManagementService API 
+[11/09/2018 22:20:48] - corrId_5b9823a0776409.37181730 - Processing GetEmployees request. 
+[11/09/2018 22:20:48] - corrId_5b9823a0776409.37181730 - Token validated. 
+[11/09/2018 22:20:48] - corrId_5b9823a0776409.37181730 - Establishing connection to DB 
+[11/09/2018 22:20:48] - corrId_5b9823a0776409.37181730 - Executing query 
+[11/09/2018 22:20:50] - corrId_5b9823a2069756.14377047 - Reached AccountManagementService API 
+[11/09/2018 22:20:50] - corrId_5b9823a2069756.14377047 - Processing GetEmployees request. 
+[11/09/2018 22:20:50] - corrId_5b9823a2069756.14377047 - Token validated. 
+[11/09/2018 22:20:50] - corrId_5b9823a2069756.14377047 - Establishing connection to DB 
+[11/09/2018 22:20:50] - corrId_5b9823a2069756.14377047 - Executing query 
+[11/09/2018 22:20:51] - corrId_5b9823a33a3e43.11480548 - Reached AccountManagementService API 
+[11/09/2018 22:20:51] - corrId_5b9823a33a3e43.11480548 - Processing GetEmployees request. 
+[11/09/2018 22:20:51] - corrId_5b9823a33a3e43.11480548 - Token validated. 
+[11/09/2018 22:20:51] - corrId_5b9823a33a3e43.11480548 - Establishing connection to DB 
+[11/09/2018 22:20:51] - corrId_5b9823a33a3e43.11480548 - Executing query 
+[11/09/2018 22:20:52] - corrId_5b9823a4806a52.06786150 - Reached AccountManagementService API 
+[11/09/2018 22:20:52] - corrId_5b9823a4806a52.06786150 - Processing GetEmployees request. 
+[11/09/2018 22:20:52] - corrId_5b9823a4806a52.06786150 - Token validated. 
+[11/09/2018 22:20:52] - corrId_5b9823a4806a52.06786150 - Establishing connection to DB 
+[11/09/2018 22:20:52] - corrId_5b9823a4806a52.06786150 - Executing query 
+[11/09/2018 22:20:53] - corrId_5b9823a5c2b638.00226198 - Reached AccountManagementService API 
+[11/09/2018 22:20:53] - corrId_5b9823a5c2b638.00226198 - Processing GetEmployees request. 
+[11/09/2018 22:20:53] - corrId_5b9823a5c2b638.00226198 - Token validated. 
+[11/09/2018 22:20:53] - corrId_5b9823a5c2b638.00226198 - Establishing connection to DB 
+[11/09/2018 22:20:53] - corrId_5b9823a5c2b638.00226198 - Executing query 
+[11/09/2018 22:20:57] - corrId_5b9823a96a1061.05937693 - Reached AccountManagementService API 
+[11/09/2018 22:20:57] - corrId_5b9823a96a1061.05937693 - Processing GetEmployees request. 
+[11/09/2018 22:20:57] - corrId_5b9823a96a1061.05937693 - Token validated. 
+[11/09/2018 22:20:57] - corrId_5b9823a96a1061.05937693 - Establishing connection to DB 
+[11/09/2018 22:20:57] - corrId_5b9823a96a1061.05937693 - Executing query 
+[11/09/2018 22:20:58] - corrId_5b9823aa745a30.02687281 - Reached AccountManagementService API 
+[11/09/2018 22:20:58] - corrId_5b9823aa745a30.02687281 - Processing GetEmployees request. 
+[11/09/2018 22:20:58] - corrId_5b9823aa745a30.02687281 - Token validated. 
+[11/09/2018 22:20:58] - corrId_5b9823aa745a30.02687281 - Establishing connection to DB 
+[11/09/2018 22:20:58] - corrId_5b9823aa745a30.02687281 - Executing query 
+[11/09/2018 22:20:59] - corrId_5b9823ab7567f4.34767359 - Reached AccountManagementService API 
+[11/09/2018 22:20:59] - corrId_5b9823ab7567f4.34767359 - Processing GetEmployees request. 
+[11/09/2018 22:20:59] - corrId_5b9823ab7567f4.34767359 - Token validated. 
+[11/09/2018 22:20:59] - corrId_5b9823ab7567f4.34767359 - Establishing connection to DB 
+[11/09/2018 22:20:59] - corrId_5b9823ab7567f4.34767359 - Executing query 
+[11/09/2018 22:21:00] - corrId_5b9823ac7f1632.54247035 - Reached AccountManagementService API 
+[11/09/2018 22:21:00] - corrId_5b9823ac7f1632.54247035 - Processing GetEmployees request. 
+[11/09/2018 22:21:00] - corrId_5b9823ac7f1632.54247035 - Token validated. 
+[11/09/2018 22:21:00] - corrId_5b9823ac7f1632.54247035 - Establishing connection to DB 
+[11/09/2018 22:21:00] - corrId_5b9823ac7f1632.54247035 - Executing query 
+[11/09/2018 22:21:01] - corrId_5b9823adbc01c0.12119942 - Reached AccountManagementService API 
+[11/09/2018 22:21:01] - corrId_5b9823adbc01c0.12119942 - Processing GetEmployees request. 
+[11/09/2018 22:21:01] - corrId_5b9823adbc01c0.12119942 - Token validated. 
+[11/09/2018 22:21:01] - corrId_5b9823adbc01c0.12119942 - Establishing connection to DB 
+[11/09/2018 22:21:01] - corrId_5b9823adbc01c0.12119942 - Executing query 
+[11/09/2018 22:21:26] - corrId_5b9823c64a3ae4.62923493 - Reached AccountManagementService API 
+[11/09/2018 22:21:26] - corrId_5b9823c64a3ae4.62923493 - Processing GetCities request. 
+[11/09/2018 22:21:26] - corrId_5b9823c64a3ae4.62923493 - Token validated. 
+[11/09/2018 22:21:26] - corrId_5b9823c64a3ae4.62923493 - Establishing connection to DB 
+[11/09/2018 22:21:26] - corrId_5b9823c64a3ae4.62923493 - Executing query 
+[11/09/2018 22:21:27] - corrId_5b9823c72c3899.83369417 - Reached AccountManagementService API 
+[11/09/2018 22:21:27] - corrId_5b9823c72c3899.83369417 - Processing GetStores request. 
+[11/09/2018 22:21:27] - corrId_5b9823c72c3899.83369417 - Token validated. 
+[11/09/2018 22:21:27] - corrId_5b9823c72c3899.83369417 - Establishing connection to DB 
+[11/09/2018 22:21:27] - corrId_5b9823c72c3899.83369417 - Executing query 
+[11/09/2018 22:21:28] - corrId_5b9823c84c70a0.40694135 - Reached AccountManagementService API 
+[11/09/2018 22:21:28] - corrId_5b9823c84c70a0.40694135 - Processing GetEmployees request. 
+[11/09/2018 22:21:28] - corrId_5b9823c84c70a0.40694135 - Token validated. 
+[11/09/2018 22:21:28] - corrId_5b9823c84c70a0.40694135 - Establishing connection to DB 
+[11/09/2018 22:21:28] - corrId_5b9823c84c70a0.40694135 - Executing query 
+[11/09/2018 22:21:29] - corrId_5b9823c986ec00.90456639 - Reached AccountManagementService API 
+[11/09/2018 22:21:29] - corrId_5b9823c986ec00.90456639 - Processing GetEmployees request. 
+[11/09/2018 22:21:29] - corrId_5b9823c986ec00.90456639 - Token validated. 
+[11/09/2018 22:21:29] - corrId_5b9823c986ec00.90456639 - Establishing connection to DB 
+[11/09/2018 22:21:29] - corrId_5b9823c986ec00.90456639 - Executing query 
+[11/09/2018 22:22:37] - corrId_5b98240dda1fb8.25906430 - Reached AccountManagementService API 
+[11/09/2018 22:22:37] - corrId_5b98240dda1fb8.25906430 - Processing GetCities request. 
+[11/09/2018 22:22:37] - corrId_5b98240dda1fb8.25906430 - Token validated. 
+[11/09/2018 22:22:37] - corrId_5b98240dda1fb8.25906430 - Establishing connection to DB 
+[11/09/2018 22:22:37] - corrId_5b98240dda1fb8.25906430 - Executing query 
+[11/09/2018 22:22:39] - corrId_5b98240f117897.47978820 - Reached AccountManagementService API 
+[11/09/2018 22:22:39] - corrId_5b98240f117897.47978820 - Processing GetStores request. 
+[11/09/2018 22:22:39] - corrId_5b98240f117897.47978820 - Token validated. 
+[11/09/2018 22:22:39] - corrId_5b98240f117897.47978820 - Establishing connection to DB 
+[11/09/2018 22:22:39] - corrId_5b98240f117897.47978820 - Executing query 
+[11/09/2018 22:22:39] - corrId_5b98240fd7a7e5.49100890 - Reached AccountManagementService API 
+[11/09/2018 22:22:39] - corrId_5b98240fd7a7e5.49100890 - Processing GetEmployees request. 
+[11/09/2018 22:22:39] - corrId_5b98240fd7a7e5.49100890 - Token validated. 
+[11/09/2018 22:22:39] - corrId_5b98240fd7a7e5.49100890 - Establishing connection to DB 
+[11/09/2018 22:22:39] - corrId_5b98240fd7a7e5.49100890 - Executing query 
+[11/09/2018 22:23:46] - corrId_5b982452e04578.72432787 - Reached AccountManagementService API 
+[11/09/2018 22:23:46] - corrId_5b982452e04578.72432787 - Processing GetCities request. 
+[11/09/2018 22:23:46] - corrId_5b982452e04578.72432787 - Token validated. 
+[11/09/2018 22:23:46] - corrId_5b982452e04578.72432787 - Establishing connection to DB 
+[11/09/2018 22:23:46] - corrId_5b982452e04578.72432787 - Executing query 
+[11/09/2018 22:23:48] - corrId_5b982454ac8894.46577478 - Reached AccountManagementService API 
+[11/09/2018 22:23:48] - corrId_5b982454ac8894.46577478 - Processing GetStores request. 
+[11/09/2018 22:23:48] - corrId_5b982454ac8894.46577478 - Token validated. 
+[11/09/2018 22:23:48] - corrId_5b982454ac8894.46577478 - Establishing connection to DB 
+[11/09/2018 22:23:48] - corrId_5b982454ac8894.46577478 - Executing query 
+[11/09/2018 22:23:49] - corrId_5b982455d198a5.15971872 - Reached AccountManagementService API 
+[11/09/2018 22:23:49] - corrId_5b982455d198a5.15971872 - Processing GetEmployees request. 
+[11/09/2018 22:23:49] - corrId_5b982455d198a5.15971872 - Token validated. 
+[11/09/2018 22:23:49] - corrId_5b982455d198a5.15971872 - Establishing connection to DB 
+[11/09/2018 22:23:49] - corrId_5b982455d198a5.15971872 - Executing query 
+[11/09/2018 22:24:03] - corrId_5b982463db3154.51360127 - Reached AccountManagementService API 
+[11/09/2018 22:24:03] - corrId_5b982463db3154.51360127 - Processing GetCities request. 
+[11/09/2018 22:24:03] - corrId_5b982463db3154.51360127 - Token validated. 
+[11/09/2018 22:24:03] - corrId_5b982463db3154.51360127 - Establishing connection to DB 
+[11/09/2018 22:24:03] - corrId_5b982463db3154.51360127 - Executing query 
+[11/09/2018 22:24:04] - corrId_5b982464e4abe6.27242203 - Reached AccountManagementService API 
+[11/09/2018 22:24:04] - corrId_5b982464e4abe6.27242203 - Processing GetStores request. 
+[11/09/2018 22:24:04] - corrId_5b982464e4abe6.27242203 - Token validated. 
+[11/09/2018 22:24:04] - corrId_5b982464e4abe6.27242203 - Establishing connection to DB 
+[11/09/2018 22:24:04] - corrId_5b982464e4abe6.27242203 - Executing query 
+[11/09/2018 22:24:05] - corrId_5b982465c648e2.56278378 - Reached AccountManagementService API 
+[11/09/2018 22:24:05] - corrId_5b982465c648e2.56278378 - Processing GetEmployees request. 
+[11/09/2018 22:24:05] - corrId_5b982465c648e2.56278378 - Token validated. 
+[11/09/2018 22:24:05] - corrId_5b982465c648e2.56278378 - Establishing connection to DB 
+[11/09/2018 22:24:05] - corrId_5b982465c648e2.56278378 - Executing query 
+[11/09/2018 22:25:28] - corrId_5b9824b8f0f205.06990409 - Reached AccountManagementService API 
+[11/09/2018 22:25:28] - corrId_5b9824b8f0f205.06990409 - Processing GetCities request. 
+[11/09/2018 22:25:28] - corrId_5b9824b8f0f205.06990409 - Token validated. 
+[11/09/2018 22:25:28] - corrId_5b9824b8f0f205.06990409 - Establishing connection to DB 
+[11/09/2018 22:25:29] - corrId_5b9824b8f0f205.06990409 - Executing query 
+[11/09/2018 22:25:30] - corrId_5b9824ba224206.19700270 - Reached AccountManagementService API 
+[11/09/2018 22:25:30] - corrId_5b9824ba224206.19700270 - Processing GetStores request. 
+[11/09/2018 22:25:30] - corrId_5b9824ba224206.19700270 - Token validated. 
+[11/09/2018 22:25:30] - corrId_5b9824ba224206.19700270 - Establishing connection to DB 
+[11/09/2018 22:25:30] - corrId_5b9824ba224206.19700270 - Executing query 
+[11/09/2018 22:25:30] - corrId_5b9824bac60717.35878191 - Reached AccountManagementService API 
+[11/09/2018 22:25:30] - corrId_5b9824bac60717.35878191 - Processing GetEmployees request. 
+[11/09/2018 22:25:30] - corrId_5b9824bac60717.35878191 - Token validated. 
+[11/09/2018 22:25:30] - corrId_5b9824bac60717.35878191 - Establishing connection to DB 
+[11/09/2018 22:25:30] - corrId_5b9824bac60717.35878191 - Executing query 
+[11/09/2018 22:25:40] - corrId_5b9824c4f2de46.28120456 - Reached AccountManagementService API 
+[11/09/2018 22:25:40] - corrId_5b9824c4f2de46.28120456 - Processing GetCities request. 
+[11/09/2018 22:25:40] - corrId_5b9824c4f2de46.28120456 - Token validated. 
+[11/09/2018 22:25:40] - corrId_5b9824c4f2de46.28120456 - Establishing connection to DB 
+[11/09/2018 22:25:41] - corrId_5b9824c4f2de46.28120456 - Executing query 
+[11/09/2018 22:25:42] - corrId_5b9824c649b581.29629479 - Reached AccountManagementService API 
+[11/09/2018 22:25:42] - corrId_5b9824c649b581.29629479 - Processing GetStores request. 
+[11/09/2018 22:25:42] - corrId_5b9824c649b581.29629479 - Token validated. 
+[11/09/2018 22:25:42] - corrId_5b9824c649b581.29629479 - Establishing connection to DB 
+[11/09/2018 22:25:42] - corrId_5b9824c649b581.29629479 - Executing query 
+[11/09/2018 22:25:42] - corrId_5b9824c6dfbda9.96130982 - Reached AccountManagementService API 
+[11/09/2018 22:25:42] - corrId_5b9824c6dfbda9.96130982 - Processing GetEmployees request. 
+[11/09/2018 22:25:42] - corrId_5b9824c6dfbda9.96130982 - Token validated. 
+[11/09/2018 22:25:42] - corrId_5b9824c6dfbda9.96130982 - Establishing connection to DB 
+[11/09/2018 22:25:42] - corrId_5b9824c6dfbda9.96130982 - Executing query 
+[11/09/2018 22:27:39] - corrId_5b98253b0fe0a3.21654995 - Reached AccountManagementService API 
+[11/09/2018 22:27:39] - corrId_5b98253b0fe0a3.21654995 - Processing GetCities request. 
+[11/09/2018 22:27:39] - corrId_5b98253b0fe0a3.21654995 - Token validated. 
+[11/09/2018 22:27:39] - corrId_5b98253b0fe0a3.21654995 - Establishing connection to DB 
+[11/09/2018 22:27:39] - corrId_5b98253b0fe0a3.21654995 - Executing query 
+[11/09/2018 22:27:40] - corrId_5b98253c207ba0.67971994 - Reached AccountManagementService API 
+[11/09/2018 22:27:40] - corrId_5b98253c207ba0.67971994 - Processing GetStores request. 
+[11/09/2018 22:27:40] - corrId_5b98253c207ba0.67971994 - Token validated. 
+[11/09/2018 22:27:40] - corrId_5b98253c207ba0.67971994 - Establishing connection to DB 
+[11/09/2018 22:27:40] - corrId_5b98253c207ba0.67971994 - Executing query 
+[11/09/2018 22:27:41] - corrId_5b98253d2a2665.81115862 - Reached AccountManagementService API 
+[11/09/2018 22:27:41] - corrId_5b98253d2a2665.81115862 - Processing GetEmployees request. 
+[11/09/2018 22:27:41] - corrId_5b98253d2a2665.81115862 - Token validated. 
+[11/09/2018 22:27:41] - corrId_5b98253d2a2665.81115862 - Establishing connection to DB 
+[11/09/2018 22:27:41] - corrId_5b98253d2a2665.81115862 - Executing query 
+[11/09/2018 22:30:40] - corrId_5b9825f0a2d460.02008116 - Reached AccountManagementService API 
+[11/09/2018 22:30:40] - corrId_5b9825f0a2d460.02008116 - Processing GetCities request. 
+[11/09/2018 22:30:40] - corrId_5b9825f0a2d460.02008116 - Token validated. 
+[11/09/2018 22:30:40] - corrId_5b9825f0a2d460.02008116 - Establishing connection to DB 
+[11/09/2018 22:30:40] - corrId_5b9825f0a2d460.02008116 - Executing query 
+[11/09/2018 22:30:41] - corrId_5b9825f1bee700.25202629 - Reached AccountManagementService API 
+[11/09/2018 22:30:41] - corrId_5b9825f1bee700.25202629 - Processing GetStores request. 
+[11/09/2018 22:30:41] - corrId_5b9825f1bee700.25202629 - Token validated. 
+[11/09/2018 22:30:41] - corrId_5b9825f1bee700.25202629 - Establishing connection to DB 
+[11/09/2018 22:30:41] - corrId_5b9825f1bee700.25202629 - Executing query 
+[11/09/2018 22:30:42] - corrId_5b9825f2df9069.45462611 - Reached AccountManagementService API 
+[11/09/2018 22:30:42] - corrId_5b9825f2df9069.45462611 - Processing GetEmployees request. 
+[11/09/2018 22:30:42] - corrId_5b9825f2df9069.45462611 - Token validated. 
+[11/09/2018 22:30:42] - corrId_5b9825f2df9069.45462611 - Establishing connection to DB 
+[11/09/2018 22:30:42] - corrId_5b9825f2df9069.45462611 - Executing query 
+[11/09/2018 22:31:17] - corrId_5b9826158e96a3.36262267 - Reached AccountManagementService API 
+[11/09/2018 22:31:17] - corrId_5b9826158e96a3.36262267 - Processing GetEmployees request. 
+[11/09/2018 22:31:17] - corrId_5b9826158e96a3.36262267 - Token validated. 
+[11/09/2018 22:31:17] - corrId_5b9826158e96a3.36262267 - Establishing connection to DB 
+[11/09/2018 22:31:17] - corrId_5b9826158e96a3.36262267 - Executing query 
+[11/09/2018 22:32:11] - corrId_5b98264b6b54e7.50199572 - Reached AccountManagementService API 
+[11/09/2018 22:32:11] - corrId_5b98264b6b54e7.50199572 - Processing GetCities request. 
+[11/09/2018 22:32:11] - corrId_5b98264b6b54e7.50199572 - Token validated. 
+[11/09/2018 22:32:11] - corrId_5b98264b6b54e7.50199572 - Establishing connection to DB 
+[11/09/2018 22:32:11] - corrId_5b98264b6b54e7.50199572 - Executing query 
+[11/09/2018 22:32:12] - corrId_5b98264cac08c3.69447847 - Reached AccountManagementService API 
+[11/09/2018 22:32:12] - corrId_5b98264cac08c3.69447847 - Processing GetStores request. 
+[11/09/2018 22:32:12] - corrId_5b98264cac08c3.69447847 - Token validated. 
+[11/09/2018 22:32:12] - corrId_5b98264cac08c3.69447847 - Establishing connection to DB 
+[11/09/2018 22:32:12] - corrId_5b98264cac08c3.69447847 - Executing query 
+[11/09/2018 22:32:13] - corrId_5b98264d99eec7.32788739 - Reached AccountManagementService API 
+[11/09/2018 22:32:13] - corrId_5b98264d99eec7.32788739 - Processing GetEmployees request. 
+[11/09/2018 22:32:13] - corrId_5b98264d99eec7.32788739 - Token validated. 
+[11/09/2018 22:32:13] - corrId_5b98264d99eec7.32788739 - Establishing connection to DB 
+[11/09/2018 22:32:13] - corrId_5b98264d99eec7.32788739 - Executing query 
+[11/09/2018 22:32:44] - corrId_5b98266ccddd74.02073665 - Reached AccountManagementService API 
+[11/09/2018 22:32:44] - corrId_5b98266ccddd74.02073665 - Processing GetEmployees request. 
+[11/09/2018 22:32:44] - corrId_5b98266ccddd74.02073665 - Token validated. 
+[11/09/2018 22:32:44] - corrId_5b98266ccddd74.02073665 - Establishing connection to DB 
+[11/09/2018 22:32:44] - corrId_5b98266ccddd74.02073665 - Executing query 
+[11/09/2018 22:32:47] - corrId_5b98266f167f69.71105655 - Reached AccountManagementService API 
+[11/09/2018 22:32:47] - corrId_5b98266f167f69.71105655 - Processing GetEmployees request. 
+[11/09/2018 22:32:47] - corrId_5b98266f167f69.71105655 - Token validated. 
+[11/09/2018 22:32:47] - corrId_5b98266f167f69.71105655 - Establishing connection to DB 
+[11/09/2018 22:32:47] - corrId_5b98266f167f69.71105655 - Executing query 
+[11/09/2018 22:33:07] - corrId_5b9826838d7606.22354205 - Reached AccountManagementService API 
+[11/09/2018 22:33:07] - corrId_5b9826838d7606.22354205 - Processing GetEmployees request. 
+[11/09/2018 22:33:07] - corrId_5b9826838d7606.22354205 - Token validated. 
+[11/09/2018 22:33:07] - corrId_5b9826838d7606.22354205 - Establishing connection to DB 
+[11/09/2018 22:33:07] - corrId_5b9826838d7606.22354205 - Executing query 
+[11/09/2018 22:33:12] - corrId_5b982688c81626.84557992 - Reached AccountManagementService API 
+[11/09/2018 22:33:12] - corrId_5b982688c81626.84557992 - Processing GetEmployees request. 
+[11/09/2018 22:33:12] - corrId_5b982688c81626.84557992 - Token validated. 
+[11/09/2018 22:33:12] - corrId_5b982688c81626.84557992 - Establishing connection to DB 
+[11/09/2018 22:33:12] - corrId_5b982688c81626.84557992 - Executing query 
+[11/09/2018 22:33:21] - corrId_5b9826916a5ab4.51416701 - Reached AccountManagementService API 
+[11/09/2018 22:33:21] - corrId_5b9826916a5ab4.51416701 - Processing GetStores request. 
+[11/09/2018 22:33:21] - corrId_5b9826916a5ab4.51416701 - Token validated. 
+[11/09/2018 22:33:21] - corrId_5b9826916a5ab4.51416701 - Establishing connection to DB 
+[11/09/2018 22:33:21] - corrId_5b9826916a5ab4.51416701 - Executing query 
+[11/09/2018 22:33:22] - corrId_5b98269295bf45.55857747 - Reached AccountManagementService API 
+[11/09/2018 22:33:22] - corrId_5b98269295bf45.55857747 - Processing GetEmployees request. 
+[11/09/2018 22:33:22] - corrId_5b98269295bf45.55857747 - Token validated. 
+[11/09/2018 22:33:22] - corrId_5b98269295bf45.55857747 - Establishing connection to DB 
+[11/09/2018 22:33:22] - corrId_5b98269295bf45.55857747 - Executing query 
+[11/09/2018 22:33:24] - corrId_5b982694787b45.82294153 - Reached AccountManagementService API 
+[11/09/2018 22:33:24] - corrId_5b982694787b45.82294153 - Processing GetStores request. 
+[11/09/2018 22:33:24] - corrId_5b982694787b45.82294153 - Token validated. 
+[11/09/2018 22:33:24] - corrId_5b982694787b45.82294153 - Establishing connection to DB 
+[11/09/2018 22:33:24] - corrId_5b982694787b45.82294153 - Executing query 
+[11/09/2018 22:33:25] - corrId_5b982695b101b1.17957277 - Reached AccountManagementService API 
+[11/09/2018 22:33:25] - corrId_5b982695b101b1.17957277 - Processing GetEmployees request. 
+[11/09/2018 22:33:25] - corrId_5b982695b101b1.17957277 - Token validated. 
+[11/09/2018 22:33:25] - corrId_5b982695b101b1.17957277 - Establishing connection to DB 
+[11/09/2018 22:33:25] - corrId_5b982695b101b1.17957277 - Executing query 
+[11/09/2018 22:37:41] - corrId_5b982795347116.12800158 - Reached AccountManagementService API 
+[11/09/2018 22:37:41] - corrId_5b982795347116.12800158 - Processing GetEmployees request. 
+[11/09/2018 22:37:41] - corrId_5b982795347116.12800158 - Token validated. 
+[11/09/2018 22:37:41] - corrId_5b982795347116.12800158 - Establishing connection to DB 
+[11/09/2018 22:37:41] - corrId_5b982795347116.12800158 - Executing query 
+[11/09/2018 22:37:43] - corrId_5b98279714f295.86230298 - Reached AccountManagementService API 
+[11/09/2018 22:37:43] - corrId_5b98279714f295.86230298 - Processing GetEmployees request. 
+[11/09/2018 22:37:43] - corrId_5b98279714f295.86230298 - Token validated. 
+[11/09/2018 22:37:43] - corrId_5b98279714f295.86230298 - Establishing connection to DB 
+[11/09/2018 22:37:43] - corrId_5b98279714f295.86230298 - Executing query 
+[11/09/2018 22:40:58] - corrId_5b98285ad331b7.18360208 - Reached AuthenticationService API 
+[11/09/2018 22:40:58] - corrId_5b98285ad331b7.18360208 - Processing Login request. 
+[11/09/2018 22:40:58] - corrId_5b98285ad331b7.18360208 - Establishing connection to DB 
+[11/09/2018 22:40:58] - corrId_5b98285ad331b7.18360208 - Executing query 
+[11/09/2018 22:40:58] - corrId_5b98285ad331b7.18360208 - User  validated, generating Token. 
+[11/09/2018 22:40:58] - corrId_5b98285ad331b7.18360208 - Token generated succesfully. SizKILRFv7hRfOGQBmb4JApPIoiNhWOv0FtzeXQL1ReoQl4HtxdWXFUJGwJqbJcWvVfGYdnshasaeCBgITG/OosiSueDayEXkbNMnFZgOfODgB2VhFUosEFovsTyyx3ElGuKIy5wDSlfh0AThy07GnHFvyVgTN66yvJWs0KGWVMzjcM7sVRbsjCJ67AcqJqDl7h9CycGjyivFED0MY4HoB+WuL25+ZnynQeSiXTwNdXWTCcOlUJLU7R7gHJDnjOPcdcBhyrrmhVDJR94mR8o/Feoe7UytIZEeEN1JZJ/ADj3rvTtGmzTpOPzuQKg1cnr 
+[11/09/2018 23:41:09] - corrId_5b983675b681e6.00966833 - Reached AuthenticationService API 
+[11/09/2018 23:41:09] - corrId_5b983675b681e6.00966833 - Processing Login request. 
+[11/09/2018 23:41:09] - corrId_5b983675b681e6.00966833 - Establishing connection to DB 
+[11/09/2018 23:41:09] - corrId_5b983675b681e6.00966833 - Executing query 
+[11/09/2018 23:41:09] - corrId_5b983675b681e6.00966833 - User  validated, generating Token. 
+[11/09/2018 23:41:09] - corrId_5b983675b681e6.00966833 - Token generated succesfully. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[11/09/2018 23:41:10] - corrId_5b983676d56896.07247216 - Reached AccountManagementService API 
+[11/09/2018 23:41:10] - corrId_5b983676d56896.07247216 - Processing GetCities request. 
+[11/09/2018 23:41:10] - corrId_5b983676d56896.07247216 - Token validated. 
+[11/09/2018 23:41:10] - corrId_5b983676d56896.07247216 - Establishing connection to DB 
+[11/09/2018 23:41:10] - corrId_5b983676d56896.07247216 - Executing query 
+[11/09/2018 23:41:12] - corrId_5b9836785e81b5.21525509 - Reached AccountManagementService API 
+[11/09/2018 23:41:12] - corrId_5b9836785e81b5.21525509 - Processing GetStores request. 
+[11/09/2018 23:41:12] - corrId_5b9836785e81b5.21525509 - Token validated. 
+[11/09/2018 23:41:12] - corrId_5b9836785e81b5.21525509 - Establishing connection to DB 
+[11/09/2018 23:41:12] - corrId_5b9836785e81b5.21525509 - Executing query 
+[11/09/2018 23:41:13] - corrId_5b9836795c4529.15010305 - Reached AccountManagementService API 
+[11/09/2018 23:41:13] - corrId_5b9836795c4529.15010305 - Processing GetEmployees request. 
+[11/09/2018 23:41:13] - corrId_5b9836795c4529.15010305 - Token validated. 
+[11/09/2018 23:41:13] - corrId_5b9836795c4529.15010305 - Establishing connection to DB 
+[11/09/2018 23:41:13] - corrId_5b9836795c4529.15010305 - Executing query 
+[11/09/2018 23:43:29] - corrId_5b983701ec49b3.52910242 - Reached AccountManagementService API 
+[11/09/2018 23:43:29] - corrId_5b983701ec49b3.52910242 - Processing GetCities request. 
+[11/09/2018 23:43:29] - corrId_5b983701ec49b3.52910242 - Token validated. 
+[11/09/2018 23:43:29] - corrId_5b983701ec49b3.52910242 - Establishing connection to DB 
+[11/09/2018 23:43:29] - corrId_5b983701ec49b3.52910242 - Executing query 
+[11/09/2018 23:43:32] - corrId_5b983704b81f41.60966309 - Reached AccountManagementService API 
+[11/09/2018 23:43:32] - corrId_5b983704b81f41.60966309 - Processing GetStores request. 
+[11/09/2018 23:43:32] - corrId_5b983704b81f41.60966309 - Token validated. 
+[11/09/2018 23:43:32] - corrId_5b983704b81f41.60966309 - Establishing connection to DB 
+[11/09/2018 23:43:32] - corrId_5b983704b81f41.60966309 - Executing query 
+[11/09/2018 23:43:33] - corrId_5b983705d6cf97.14911047 - Reached AccountManagementService API 
+[11/09/2018 23:43:33] - corrId_5b983705d6cf97.14911047 - Processing GetEmployees request. 
+[11/09/2018 23:43:33] - corrId_5b983705d6cf97.14911047 - Token validated. 
+[11/09/2018 23:43:33] - corrId_5b983705d6cf97.14911047 - Establishing connection to DB 
+[11/09/2018 23:43:33] - corrId_5b983705d6cf97.14911047 - Executing query 
+[11/09/2018 23:43:39] - corrId_5b98370b56a908.89163174 - Reached AccountManagementService API 
+[11/09/2018 23:43:39] - corrId_5b98370b56a908.89163174 - Processing GetEmployees request. 
+[11/09/2018 23:43:39] - corrId_5b98370b56a908.89163174 - Token validated. 
+[11/09/2018 23:43:39] - corrId_5b98370b56a908.89163174 - Establishing connection to DB 
+[11/09/2018 23:43:39] - corrId_5b98370b56a908.89163174 - Executing query 
+[11/09/2018 23:43:45] - corrId_5b9837114286a7.82945843 - Reached AccountManagementService API 
+[11/09/2018 23:43:45] - corrId_5b9837114286a7.82945843 - Processing GetStores request. 
+[11/09/2018 23:43:45] - corrId_5b9837114286a7.82945843 - Token validated. 
+[11/09/2018 23:43:45] - corrId_5b9837114286a7.82945843 - Establishing connection to DB 
+[11/09/2018 23:43:45] - corrId_5b9837114286a7.82945843 - Executing query 
+[11/09/2018 23:43:47] - corrId_5b98371323b1f3.40767462 - Reached AccountManagementService API 
+[11/09/2018 23:43:47] - corrId_5b98371323b1f3.40767462 - Processing GetEmployees request. 
+[11/09/2018 23:43:47] - corrId_5b98371323b1f3.40767462 - Token validated. 
+[11/09/2018 23:43:47] - corrId_5b98371323b1f3.40767462 - Establishing connection to DB 
+[11/09/2018 23:43:47] - corrId_5b98371323b1f3.40767462 - Executing query 
+[11/09/2018 23:44:57] - corrId_5b983759de6465.88642050 - Reached AccountManagementService API 
+[11/09/2018 23:44:57] - corrId_5b983759de6465.88642050 - Processing GetCities request. 
+[11/09/2018 23:44:57] - corrId_5b983759de6465.88642050 - Token validated. 
+[11/09/2018 23:44:57] - corrId_5b983759de6465.88642050 - Establishing connection to DB 
+[11/09/2018 23:44:57] - corrId_5b983759de6465.88642050 - Executing query 
+[11/09/2018 23:44:59] - corrId_5b98375b4e1204.57777811 - Reached AccountManagementService API 
+[11/09/2018 23:44:59] - corrId_5b98375b4e1204.57777811 - Processing GetStores request. 
+[11/09/2018 23:44:59] - corrId_5b98375b4e1204.57777811 - Token validated. 
+[11/09/2018 23:44:59] - corrId_5b98375b4e1204.57777811 - Establishing connection to DB 
+[11/09/2018 23:44:59] - corrId_5b98375b4e1204.57777811 - Executing query 
+[11/09/2018 23:45:00] - corrId_5b98375c424950.10622391 - Reached AccountManagementService API 
+[11/09/2018 23:45:00] - corrId_5b98375c424950.10622391 - Processing GetEmployees request. 
+[11/09/2018 23:45:00] - corrId_5b98375c424950.10622391 - Token validated. 
+[11/09/2018 23:45:00] - corrId_5b98375c424950.10622391 - Establishing connection to DB 
+[11/09/2018 23:45:00] - corrId_5b98375c424950.10622391 - Executing query 
+[11/09/2018 23:46:09] - corrId_5b9837a1000d02.82278865 - Reached AccountManagementService API 
+[11/09/2018 23:46:09] - corrId_5b9837a1000d02.82278865 - Processing GetCities request. 
+[11/09/2018 23:46:09] - corrId_5b9837a1000d02.82278865 - Token validated. 
+[11/09/2018 23:46:09] - corrId_5b9837a1000d02.82278865 - Establishing connection to DB 
+[11/09/2018 23:46:09] - corrId_5b9837a1000d02.82278865 - Executing query 
+[11/09/2018 23:46:35] - corrId_5b9837bbf3a331.40125061 - Reached AccountManagementService API 
+[11/09/2018 23:46:35] - corrId_5b9837bbf3a331.40125061 - Processing GetCities request. 
+[11/09/2018 23:46:35] - corrId_5b9837bbf3a331.40125061 - Token validated. 
+[11/09/2018 23:46:36] - corrId_5b9837bbf3a331.40125061 - Establishing connection to DB 
+[11/09/2018 23:46:36] - corrId_5b9837bbf3a331.40125061 - Executing query 
+[11/09/2018 23:47:30] - corrId_5b9837f21cfff7.17790960 - Reached AccountManagementService API 
+[11/09/2018 23:47:30] - corrId_5b9837f21cfff7.17790960 - Processing GetCities request. 
+[11/09/2018 23:47:30] - corrId_5b9837f21cfff7.17790960 - Token validated. 
+[11/09/2018 23:47:30] - corrId_5b9837f21cfff7.17790960 - Establishing connection to DB 
+[11/09/2018 23:47:30] - corrId_5b9837f21cfff7.17790960 - Executing query 
+[11/09/2018 23:47:33] - corrId_5b9837f519e875.83567725 - Reached AccountManagementService API 
+[11/09/2018 23:47:33] - corrId_5b9837f519e875.83567725 - Processing GetStores request. 
+[11/09/2018 23:47:33] - corrId_5b9837f519e875.83567725 - Token validated. 
+[11/09/2018 23:47:33] - corrId_5b9837f519e875.83567725 - Establishing connection to DB 
+[11/09/2018 23:47:33] - corrId_5b9837f519e875.83567725 - Executing query 
+[11/09/2018 23:47:34] - corrId_5b9837f60d4864.50044840 - Reached AccountManagementService API 
+[11/09/2018 23:47:34] - corrId_5b9837f60d4864.50044840 - Processing GetEmployees request. 
+[11/09/2018 23:47:34] - corrId_5b9837f60d4864.50044840 - Token validated. 
+[11/09/2018 23:47:34] - corrId_5b9837f60d4864.50044840 - Establishing connection to DB 
+[11/09/2018 23:47:34] - corrId_5b9837f60d4864.50044840 - Executing query 
+[11/09/2018 23:47:37] - corrId_5b9837f91ce9f7.64635089 - Reached AccountManagementService API 
+[11/09/2018 23:47:37] - corrId_5b9837f91ce9f7.64635089 - Processing GetCities request. 
+[11/09/2018 23:47:37] - corrId_5b9837f91ce9f7.64635089 - Token validated. 
+[11/09/2018 23:47:37] - corrId_5b9837f91ce9f7.64635089 - Establishing connection to DB 
+[11/09/2018 23:47:37] - corrId_5b9837f91ce9f7.64635089 - Executing query 
+[11/09/2018 23:47:38] - corrId_5b9837fa8edda7.64323881 - Reached AccountManagementService API 
+[11/09/2018 23:47:38] - corrId_5b9837fa8edda7.64323881 - Processing GetStores request. 
+[11/09/2018 23:47:38] - corrId_5b9837fa8edda7.64323881 - Token validated. 
+[11/09/2018 23:47:38] - corrId_5b9837fa8edda7.64323881 - Establishing connection to DB 
+[11/09/2018 23:47:38] - corrId_5b9837fa8edda7.64323881 - Executing query 
+[11/09/2018 23:47:41] - corrId_5b9837fd132ac8.54335059 - Reached AccountManagementService API 
+[11/09/2018 23:47:41] - corrId_5b9837fd132ac8.54335059 - Processing GetEmployees request. 
+[11/09/2018 23:47:41] - corrId_5b9837fd132ac8.54335059 - Token validated. 
+[11/09/2018 23:47:41] - corrId_5b9837fd132ac8.54335059 - Establishing connection to DB 
+[11/09/2018 23:47:41] - corrId_5b9837fd132ac8.54335059 - Executing query 
+[11/09/2018 23:47:44] - corrId_5b983800820bb0.20566620 - Reached AccountManagementService API 
+[11/09/2018 23:47:44] - corrId_5b983800820bb0.20566620 - Processing GetCities request. 
+[11/09/2018 23:47:44] - corrId_5b983800820bb0.20566620 - Token validated. 
+[11/09/2018 23:47:44] - corrId_5b983800820bb0.20566620 - Establishing connection to DB 
+[11/09/2018 23:47:44] - corrId_5b983800820bb0.20566620 - Executing query 
+[11/09/2018 23:48:46] - corrId_5b98383e031d06.43024654 - Reached AccountManagementService API 
+[11/09/2018 23:48:46] - corrId_5b98383e031d06.43024654 - Processing GetCities request. 
+[11/09/2018 23:48:46] - corrId_5b98383e031d06.43024654 - Token validated. 
+[11/09/2018 23:48:46] - corrId_5b98383e031d06.43024654 - Establishing connection to DB 
+[11/09/2018 23:48:46] - corrId_5b98383e031d06.43024654 - Executing query 
+[11/09/2018 23:48:47] - corrId_5b98383f37b378.46733376 - Reached AccountManagementService API 
+[11/09/2018 23:48:47] - corrId_5b98383f37b378.46733376 - Processing GetStores request. 
+[11/09/2018 23:48:47] - corrId_5b98383f37b378.46733376 - Token validated. 
+[11/09/2018 23:48:47] - corrId_5b98383f37b378.46733376 - Establishing connection to DB 
+[11/09/2018 23:48:47] - corrId_5b98383f37b378.46733376 - Executing query 
+[11/09/2018 23:48:50] - corrId_5b983842397d62.95375399 - Reached AccountManagementService API 
+[11/09/2018 23:48:50] - corrId_5b983842397d62.95375399 - Processing GetStores request. 
+[11/09/2018 23:48:50] - corrId_5b983842397d62.95375399 - Token validated. 
+[11/09/2018 23:48:50] - corrId_5b983842397d62.95375399 - Establishing connection to DB 
+[11/09/2018 23:48:50] - corrId_5b983842397d62.95375399 - Executing query 
+[11/09/2018 23:48:51] - corrId_5b9838432000c4.20038525 - Reached AccountManagementService API 
+[11/09/2018 23:48:51] - corrId_5b9838432000c4.20038525 - Processing GetEmployees request. 
+[11/09/2018 23:48:51] - corrId_5b9838432000c4.20038525 - Token validated. 
+[11/09/2018 23:48:51] - corrId_5b9838432000c4.20038525 - Establishing connection to DB 
+[11/09/2018 23:48:51] - corrId_5b9838432000c4.20038525 - Executing query 
+[11/09/2018 23:50:17] - corrId_5b983899474d34.96279158 - Reached AccountManagementService API 
+[11/09/2018 23:50:17] - corrId_5b983899474d34.96279158 - Processing GetCities request. 
+[11/09/2018 23:50:17] - corrId_5b983899474d34.96279158 - Token validated. 
+[11/09/2018 23:50:17] - corrId_5b983899474d34.96279158 - Establishing connection to DB 
+[11/09/2018 23:50:17] - corrId_5b983899474d34.96279158 - Executing query 
+[11/09/2018 23:50:35] - corrId_5b9838ab71fbf5.65780605 - Reached AccountManagementService API 
+[11/09/2018 23:50:35] - corrId_5b9838ab71fbf5.65780605 - Processing GetCities request. 
+[11/09/2018 23:50:35] - corrId_5b9838ab71fbf5.65780605 - Token validated. 
+[11/09/2018 23:50:35] - corrId_5b9838ab71fbf5.65780605 - Establishing connection to DB 
+[11/09/2018 23:50:35] - corrId_5b9838ab71fbf5.65780605 - Executing query 
+[11/09/2018 23:52:21] - corrId_5b983915885e78.65817358 - Reached AccountManagementService API 
+[11/09/2018 23:52:21] - corrId_5b983915885e78.65817358 - Processing GetCities request. 
+[11/09/2018 23:52:21] - corrId_5b983915885e78.65817358 - Token validated. 
+[11/09/2018 23:52:21] - corrId_5b983915885e78.65817358 - Establishing connection to DB 
+[11/09/2018 23:52:21] - corrId_5b983915885e78.65817358 - Executing query 
+[11/09/2018 23:52:24] - corrId_5b983918047b06.31248804 - Reached AccountManagementService API 
+[11/09/2018 23:52:24] - corrId_5b983918047b06.31248804 - Processing GetStores request. 
+[11/09/2018 23:52:24] - corrId_5b983918047b06.31248804 - Token validated. 
+[11/09/2018 23:52:24] - corrId_5b983918047b06.31248804 - Establishing connection to DB 
+[11/09/2018 23:52:24] - corrId_5b983918047b06.31248804 - Executing query 
+[11/09/2018 23:52:25] - corrId_5b983919290265.41741786 - Reached AccountManagementService API 
+[11/09/2018 23:52:25] - corrId_5b983919290265.41741786 - Processing GetStores request. 
+[11/09/2018 23:52:25] - corrId_5b983919290265.41741786 - Token validated. 
+[11/09/2018 23:52:25] - corrId_5b983919290265.41741786 - Establishing connection to DB 
+[11/09/2018 23:52:25] - corrId_5b983919290265.41741786 - Executing query 
+[11/09/2018 23:52:25] - corrId_5b983919dd5b92.91746853 - Reached AccountManagementService API 
+[11/09/2018 23:52:25] - corrId_5b983919dd5b92.91746853 - Processing GetEmployees request. 
+[11/09/2018 23:52:25] - corrId_5b983919dd5b92.91746853 - Token validated. 
+[11/09/2018 23:52:25] - corrId_5b983919dd5b92.91746853 - Establishing connection to DB 
+[11/09/2018 23:52:25] - corrId_5b983919dd5b92.91746853 - Executing query 
+[11/09/2018 23:54:51] - corrId_5b9839abb6c0f4.35526746 - Reached AccountManagementService API 
+[11/09/2018 23:54:51] - corrId_5b9839abb6c0f4.35526746 - Processing GetCities request. 
+[11/09/2018 23:54:51] - corrId_5b9839abb6c0f4.35526746 - Token validated. 
+[11/09/2018 23:54:51] - corrId_5b9839abb6c0f4.35526746 - Establishing connection to DB 
+[11/09/2018 23:54:51] - corrId_5b9839abb6c0f4.35526746 - Executing query 
+[11/09/2018 23:54:52] - corrId_5b9839acca4d02.02370747 - Reached AccountManagementService API 
+[11/09/2018 23:54:52] - corrId_5b9839acca4d02.02370747 - Processing GetStores request. 
+[11/09/2018 23:54:52] - corrId_5b9839acca4d02.02370747 - Token validated. 
+[11/09/2018 23:54:52] - corrId_5b9839acca4d02.02370747 - Establishing connection to DB 
+[11/09/2018 23:54:52] - corrId_5b9839acca4d02.02370747 - Executing query 
+[11/09/2018 23:54:54] - corrId_5b9839ae2e7e75.61814611 - Reached AccountManagementService API 
+[11/09/2018 23:54:54] - corrId_5b9839ae2e7e75.61814611 - Processing GetEmployees request. 
+[11/09/2018 23:54:54] - corrId_5b9839ae2e7e75.61814611 - Token validated. 
+[11/09/2018 23:54:54] - corrId_5b9839ae2e7e75.61814611 - Establishing connection to DB 
+[11/09/2018 23:54:54] - corrId_5b9839ae2e7e75.61814611 - Executing query 
