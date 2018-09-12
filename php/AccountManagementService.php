@@ -40,9 +40,9 @@ class AccountManagementService {
         $id_citta = json_decode($_POST["id_citta"]); 
         $query = 
             "SELECT *
-            FROM punto_vendita
-            WHERE id_citta = %d";
-        $query = sprintf($query, addslashes($id_citta));
+            FROM punto_vendita 
+            %s";                    
+        $query = sprintf($query, ($id_citta == -1 ? "" : sprintf("WHERE id_citta = %d", addslashes($id_citta)))); 
         $res = self::ExecuteQuery($query);
         $array = array();
         while($row = $res->fetch_assoc()){
@@ -55,15 +55,18 @@ class AccountManagementService {
     function GetEmployees() {
         Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
         TokenGenerator::ValidateToken();
-        $id_citta = json_decode($_POST["id_punto_vendita"]); 
+        $id_store = json_decode($_POST["id_punto_vendita"]); 
         $query = 
             "SELECT dip.id_dipendente, dip.nome as dipendente_nome, dip.cognome as dipendente_cognome,
-                dip.username as dipendente_username, del.nome as delega_nome, del.codice as delega_codice
-            FROM dipendente dip
-            INNER JOIN delega del
+                dip.username as dipendente_username, del.nome as delega_nome, del.codice as delega_codice,
+                pv.nome as punto_vendita_nome
+            FROM dipendente as dip
+            INNER JOIN delega as del
             ON dip.id_delega = del.id_delega
-            WHERE id_punto_vendita = %d";
-        $query = sprintf($query, addslashes($id_citta));
+            INNER JOIN punto_vendita as pv
+            ON dip.id_punto_vendita = pv.id_punto_vendita 
+            %s";
+        $query = sprintf($query, ($id_store == -1 ? "" : sprintf("WHERE dip.id_punto_vendita = %d", addslashes($id_store))));
         $res = self::ExecuteQuery($query);
         $array = array();
         while($row = $res->fetch_assoc()){
@@ -141,6 +144,7 @@ class Employee {
     public $dipendente_username;
     public $delega_nome;
     public $delega_codice;
+    public $punto_vendita_nome;
 
     public function __construct($row) {
         $this->dipendente_id = $row["id_dipendente"];
@@ -148,7 +152,7 @@ class Employee {
         $this->dipendente_cognome = $row["dipendente_cognome"];
         $this->dipendente_username = $row["dipendente_username"];
         $this->delega_nome = $row["delega_nome"];
-        $this->dipendente_username = $row["delega_codice"];
+        $this->punto_vendita_nome = $row["punto_vendita_nome"];
     }
 }
 ?>
