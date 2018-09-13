@@ -6,6 +6,7 @@ use Logger;
 
 $GLOBALS["CorrelationID"] = uniqid("corrId_", true);
 $correlationId = $GLOBALS["CorrelationID"];
+$development = true;
 
 class AccountManagementService {
 
@@ -25,6 +26,7 @@ class AccountManagementService {
         $query = 
             "SELECT *
             FROM citta";
+        Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
         $res = self::ExecuteQuery($query);
         $array = array();
         while($row = $res->fetch_assoc()){
@@ -43,6 +45,7 @@ class AccountManagementService {
             FROM punto_vendita 
             %s";                    
         $query = sprintf($query, ($id_citta == -1 ? "" : sprintf("WHERE id_citta = %d", addslashes($id_citta)))); 
+        Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
         $res = self::ExecuteQuery($query);
         $array = array();
         while($row = $res->fetch_assoc()){
@@ -67,6 +70,7 @@ class AccountManagementService {
             ON dip.id_punto_vendita = pv.id_punto_vendita 
             %s";
         $query = sprintf($query, ($id_store == -1 ? "" : sprintf("WHERE dip.id_punto_vendita = %d", addslashes($id_store))));
+        Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
         $res = self::ExecuteQuery($query);
         $array = array();
         while($row = $res->fetch_assoc()){
@@ -76,10 +80,51 @@ class AccountManagementService {
         exit(json_encode($array));
     }
 
+    function DeleteEmployee() {
+        Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
+        TokenGenerator::ValidateToken();
+        $id_dipendente = $_POST["id_dipendente"]; 
+        $query = 
+            "DELETE FROM dipendente              
+            WHERE id_dipendente = %d";
+        $query = sprintf($query, $id_dipendente);
+        Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
+        $res = self::ExecuteQuery($query);
+        if($res) {
+            exit(json_encode($res));
+        } else {
+            http_response_code(500);
+        }       
+    }
+
+    function InsertEmployee() {
+        Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
+        TokenGenerator::ValidateToken();
+        $dip = json_decode($_POST["dipendente"]); 
+        $password = $development ? "password" : uniqid();
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);     
+        $query = 
+            "INSERT INTO dipendente (id_delega, id_punto_vendita, nome, cognome, username, password)
+            VALUES (%d, %d, '%s', '%s', '%s', '%s')";            
+        $query = sprintf($query, 
+                            $dip->id_delega, 
+                            $dip->id_punto_vendita,
+                            $dip->nome, 
+                            $dip->cognome,  
+                            $dip->username,
+                            $hashedPassword);
+        Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
+        $res = self::ExecuteQuery($query);
+        if($res) {
+            exit(json_encode($res));
+        } else {
+            http_response_code(500);
+        } 
+    }
+
     function EditEmployee() {
         Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
         TokenGenerator::ValidateToken();
-        $resetPassword = $_POST["passwordReset"];
         $dip = json_decode($_POST["dipendente"]); 
         $query = 
             "UPDATE dipendente
@@ -89,18 +134,13 @@ class AccountManagementService {
             nome = '%s',
             cognome = '%s',
             username = '%s'
-            %s
             WHERE `id_dipendente` = %d";
-        if($resetPassword) {
-            $newPassword = password_hash(uniqid(), PASSWORD_DEFAULT);
-        }           
         $query = sprintf($query, 
                             $dip->id_delega, 
                             $dip->id_punto_vendita,
                             $dip->nome, 
                             $dip->cognome,  
                             $dip->username, 
-                            ($resetPassword ? sprintf(", `password` = `%s`", $newPassword) : ""), 
                             $dip->id_dipendente);
         Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
         $res = self::ExecuteQuery($query);
@@ -139,6 +179,12 @@ class AccountManagementService {
                     break;
                 case "getEmployees":
                     self::GetEmployees();
+                    break;
+                case "deleteEmployee":
+                    self::DeleteEmployee();
+                    break;
+                case "insertEmployee":
+                    self::InsertEmployee();
                     break;
                 case "editEmployee":
                     self::EditEmployee();

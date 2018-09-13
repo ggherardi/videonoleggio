@@ -22,8 +22,8 @@ var dataTableOptions = {
             { extend: 'copy', text: "Copia" },
             { extend: 'selectedSingle', text: "Resetta password", action: resetPassword },
             { extend: 'selectedSingle', text: "Modifica", action: editEmployee },
-            { extend: 'selected', text: "Cancella", action: (e, dt, node, config, a, b, c, d) => console.log(config) },
-            { text: "Nuovo", action: (e, dt, node, config) => console.log("Nuovo") },
+            { extend: 'selected', text: "Cancella", action: deleteEmployee },
+            { text: "Nuovo", action: insertEmployee },
         ]
 };
 
@@ -150,6 +150,63 @@ function restCallError(jqXHR, textStatus, errorThrown) {
     console.log(jqXHR.status);
 }
 
+/* Delete Employee */
+function deleteEmployee(e, dt, node, config) {
+    var row = dt.rows({ selected: true }).data()[0];    
+    modalOptions = {
+        title: "Cancella account",
+        body: `<span>Si desidera eliminare l'account dell'utente ${row[3]}?</span>`,
+        cancelButton: {
+            text: "Annulla"
+        },
+        confirmButton: {
+            text: "Conferma",
+            action: deleteItem.bind(row)
+        }
+    }
+    modal = new Modal(modalOptions);
+    modal.open();  
+}
+
+function deleteItem() {
+    accountManagementService.deleteEmployee(this[0])
+        .done(deleteItemSuccess)
+        .fail(restCallError);
+}
+
+function deleteItemSuccess(data) {
+    if(data) {
+        modal.openSuccessModal();
+        getEmployees($("#AccountsSelectStore")[0]);
+    }
+}
+
+/* New Employee */
+function insertEmployee(e, dt, node, config) {
+    var body = buildEmployeeForm();
+    modalOptions = {
+        title: "Nuovo account",
+        body: body,
+        cancelButton: {
+            text: "Annulla"
+        },
+        confirmButton: {
+            text: "Crea account",
+            action: insertItem
+        }
+    }
+    modal = new Modal(modalOptions);
+    modal.open(); 
+    loadSelects();
+}
+
+function insertItem() {
+    var employee = getEmployeeFromForm();
+    accountManagementService.insertEmployee(employee)
+        .done(editItemSuccess)
+        .fail(restCallError);
+}
+
 /* Edit Employee */
 function editEmployee(e, dt, node, config) {
     var row = dt.rows({ selected: true }).data()[0];    
@@ -168,6 +225,32 @@ function editEmployee(e, dt, node, config) {
     }
     modal = new Modal(modalOptions);
     modal.open();  
+    loadSelects(row);
+}
+
+function buildEmployeeForm(row) {
+    var isEditForm = row != undefined;
+    var html = `<form class="form-signin">
+                    <input id="EmployeeForm_dipendente_id" type="hidden" value="${isEditForm ? row[0] : ""}">
+                    <label for="EmployeeForm_punto_vendita" class="mt-2">Punto vendita</label>
+                    <div id="EmployeeForm_punto_vendita_container">
+                        <select id="EmployeeForm_punto_vendita" type="text" class="form-control"></select>
+                    </div>
+                    <label for="EmployeeForm_username" class="mt-2">Username</label>
+                    <input id="EmployeeForm_username" type="text" class="form-control" value="${isEditForm ? row[3] : ""}" text="${isEditForm ? row[3] : ""}">
+                    <label for="EmployeeForm_nome" class="mt-2">Nome</label>
+                    <input id="EmployeeForm_nome" type="text" class="form-control" value="${isEditForm ? row[4] : ""}" text="${isEditForm ? row[4] : ""}">
+                    <label for="EmployeeForm_cognome" class="mt-2">Cognome</label>
+                    <input id="EmployeeForm_cognome" type="text" class="form-control" value="${isEditForm ? row[5] : ""}" text="${isEditForm ? row[5] : ""}">
+                    <label for="EmployeeForm_ruolo" class="mt-2">Punto vendita</label>
+                    <div id="EmployeeForm_ruolo_container">
+                        <select id="EmployeeForm_ruolo" type="text" class="form-control"></select>
+                    </div>
+                </form>`;
+    return html;
+}
+
+function loadSelects(row) {
     selectStoreLoader = new Loader("#EmployeeForm_punto_vendita_container", 25, 25);
     selectStoreLoader.showLoader();
     selectRoleLoeader = new Loader("#EmployeeForm_ruolo_container", 25, 25);
@@ -176,27 +259,6 @@ function editEmployee(e, dt, node, config) {
     $.when(getAllItemsService.getAllStores(), getAllItemsService.getAllRoles())
         .done(buildSelects.bind(row))
         .always(() => { selectStoreLoader.hideLoader(); selectRoleLoeader.hideLoader(); });   
-}
-
-function buildEmployeeForm(row) {
-    var html = `<form class="form-signin">
-                    <input id="EmployeeForm_dipendente_id" type="hidden" value="${row[0]}">
-                    <label for="EmployeeForm_punto_vendita" class="mt-2">Punto vendita</label>
-                    <div id="EmployeeForm_punto_vendita_container">
-                        <select id="EmployeeForm_punto_vendita" type="text" class="form-control"></select>
-                    </div>
-                    <label for="EmployeeForm_username" class="mt-2">Username</label>
-                    <input id="EmployeeForm_username" type="text" class="form-control" value="${row[3]}" text="${row[3]}">
-                    <label for="EmployeeForm_nome" class="mt-2">Nome</label>
-                    <input id="EmployeeForm_nome" type="text" class="form-control" value="${row[4]}" text="${row[4]}">
-                    <label for="EmployeeForm_cognome" class="mt-2">Cognome</label>
-                    <input id="EmployeeForm_cognome" type="text" class="form-control" value="${row[5]}" text="${row[5]}">
-                    <label for="EmployeeForm_ruolo" class="mt-2">Punto vendita</label>
-                    <div id="EmployeeForm_ruolo_container">
-                        <select id="EmployeeForm_ruolo" type="text" class="form-control"></select>
-                    </div>
-                </form>`;
-    return html;
 }
 
 function buildSelects(stores, roles) {
@@ -211,15 +273,22 @@ function buildOptions(table, row, selectId) {
     var html = "";
     for(var i = 0; i < array.length; i++) {
         if(table.title == "stores") {
-            html += `<option value="${array[i].id_punto_vendita}" ${array[i].id_punto_vendita == row[1] ? "selected" : ""}>${array[i].nome}</option>`;
+            html += `<option value="${array[i].id_punto_vendita}" ${row ? array[i].id_punto_vendita == row[1] ? "selected" : "" : ""}>${array[i].nome}</option>`;
         } else {
-            html += `<option value="${array[i].id_delega}" ${array[i].nome == row[6] ? "selected" : ""}>${array[i].nome}</option>`;
+            html += `<option value="${array[i].id_delega}" ${row ? array[i].nome == row[6] ? "selected" : "" : ""}>${array[i].nome}</option>`;
         }
     }    
     $(selectId).html(html);
 }
 
 function editItem() {
+    var employee = getEmployeeFromForm();
+    accountManagementService.editEmployee(employee)
+        .done(editItemSuccess)
+        .fail(restCallError);
+}
+
+function getEmployeeFromForm() {
     var employee = {
         id_dipendente: $("#EmployeeForm_dipendente_id").val(),
         id_punto_vendita: $("#EmployeeForm_punto_vendita option:selected").val(),
@@ -228,14 +297,12 @@ function editItem() {
         cognome: $("#EmployeeForm_cognome").val(),
         id_delega: $("#EmployeeForm_ruolo option:selected").val(),
     };
-    accountManagementService.editEmployee(employee)
-        .done(editItemSuccess)
-        .fail(restCallError);
+    return employee;
 }
 
 function editItemSuccess(data) {
     if(data) {
-        modal.close();
+        modal.openSuccessModal();
         getEmployees($("#AccountsSelectStore")[0]);
     }
 }
@@ -260,13 +327,17 @@ function resetPassword(e, dt, node, config) {
 
 function resetItem() {
     accountManagementService.resetPassword(this[0])
-        .done(resetPasswordSuccess)
+        .done(resetPasswordSuccess.bind(this[3]))
         .fail(restCallError);
 }
 
 function resetPasswordSuccess(data) {
-    modal.close();
-    console.log(data);
+    var modalOptions = {
+        title: "Password cambiata", 
+        body: `<span>La nuova password dell'utente ${this} è: ${data}</span>`
+    }
+    modal = new Modal(modalOptions);
+    modal.open();
 }
 
 /** Init */

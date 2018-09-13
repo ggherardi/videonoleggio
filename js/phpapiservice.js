@@ -84,6 +84,23 @@ class AccountManagementService extends RestClient {
         return super.executeWithToken();
     }
 
+    deleteEmployee(id_dipendente) {
+        this.data = {
+            action: "deleteEmployee",
+            id_dipendente: id_dipendente
+        }
+        return super.executeWithToken();
+    }
+
+    insertEmployee(dipendente) {
+        dipendente = JSON.stringify(dipendente);
+        this.data = {
+            action: "insertEmployee",
+            dipendente: dipendente
+        }
+        return super.executeWithToken();
+    }
+
     editEmployee(dipendente) {
         dipendente = JSON.stringify(dipendente);
         this.data = {

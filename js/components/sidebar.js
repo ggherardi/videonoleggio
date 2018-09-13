@@ -10,7 +10,7 @@ function buildSidebarDetails() {
     var html = "";
     html += `<span id="SidebarUsername" class="general_info_title">${sharedStorage.loginContext.dipendente_username}</span>`;
     html += `<div id="SidebarDelega" class="general_info_title">(${sharedStorage.loginContext.delega_nome})</div>`;
-    html += `<div class="simple-button" onclick="logout();">Logout</div>`;
+    html += `<div class="simple-button simple-button-small" onclick="logout();">Logout</div>`;
     html += `<ul class="general_info_list">`;
     for(var i = 0; i < details.length; i++) {
         html += `   <li class="d-flex flex-row align-items-center justify-content-start">`;

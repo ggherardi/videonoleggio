@@ -23,10 +23,11 @@ class Modal {
     }
 
     reset() {
-        this.cancelButton.text("Annulla");
+        this.cancelButton.text("Chiudi");
         this.cancelButton.off("click")
-        this.confirmButton.text("Conferma");        
+        this.confirmButton.text("");        
         this.confirmButton.off("click");
+        this.confirmButton.hide();
         this.title.text("");
         this.body.html("");
     }
@@ -34,11 +35,12 @@ class Modal {
     buildModal() {
         this.title.text(this.modalOptions.title);
         this.body.html(this.modalOptions.body);
-        if(modalOptions.cancelButton) {
+        if(this.modalOptions.cancelButton) {
             this.cancelButton.text(this.modalOptions.cancelButton.text);
             this.cancelButton.click(this.modalOptions.cancelButton.action);
         }
-        if(modalOptions.confirmButton) {
+        if(this.modalOptions.confirmButton) {
+            this.confirmButton.show();
             this.confirmButton.text(this.modalOptions.confirmButton.text);        
             this.confirmButton.click(this.modalOptions.confirmButton.action);
         }
@@ -50,5 +52,15 @@ class Modal {
 
     close() {
         this.sharedModal.modal(`toggle`);
+    }
+
+    openSuccessModal() {
+        this.reset();
+        this.modalOptions = {
+            title: "Operazione completata",
+            body: "<span>L'operazione è stata completata con successo</span>"            
+        }
+        this.buildModal();
+        this.open();
     }
 }

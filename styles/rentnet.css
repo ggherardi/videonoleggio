@@ -32,7 +32,11 @@
 
 .simple-button-cancel {
     background-color: #EEEEEE;
-    color: #000000;
+    color: #000;
+}
+
+.simple-button-small {
+    padding: 5px 0 5px 0!important;
 }
 
 #ContentZone0 {
