@@ -1,7 +1,10 @@
 var accountManagementService = new AccountManagementService();
+var getAllItemsService;
 var selectStoreContainer =  $("#SelectStoreContainer");
 var employeesTableContainer = $("#EmployeesTableContainer");
 var employeesDataTable;
+var allRoles;
+var allStores;
 var dataTableOptions = {
         dom: 'Bftpil',
         buttons: true,
@@ -10,46 +13,19 @@ var dataTableOptions = {
             targets: 0,
             visible: false,
             searchable: false
+        }, {
+            targets: 1,
+            visible: false,
+            searchable: false
         }],
         buttons: [
             { extend: 'copy', text: "Copia" },
+            { extend: 'selectedSingle', text: "Resetta password", action: resetPassword },
             { extend: 'selectedSingle', text: "Modifica", action: editEmployee },
             { extend: 'selected', text: "Cancella", action: (e, dt, node, config, a, b, c, d) => console.log(config) },
             { text: "Nuovo", action: (e, dt, node, config) => console.log("Nuovo") },
         ]
 };
-
-function editEmployee(e, dt, node, config) {
-    var row = dt.rows({ selected: true }).data()[0];
-    // var editModalBody = `<table>`;
-    // editModalBody +=     getEmployeeTableHtml();
-    // editModalBody += `  <tr>
-    //                         <td><input type="text"></td>
-    //                         <td><input type="text"></td>
-    //                     </tr>
-    //                 </table>`;
-    var editModalBody = `<form class="form-signin">`;
-    editModalBody += `      <input id="dipendente_id" type="hidden" value="${row != undefined ? row[0] : ''}">`;
-    for(var i = 0; i < 4; i++) {
-        editModalBody += `  <label for="InputUsername" class="sr-only">Username</label>`;
-        editModalBody += `  <input type="text" class="form-control" value="${row != undefined ? row[i] : ''}" text="${row != undefined ? row[i] : ''}" />`;
-    }
-    // editModalBody += `      <input type="text" class="form-control" value="${row[1]}" text="${row[1]}" />`;
-    // editModalBody += `      <input type="text" class="form-control" value="${row[2]}" text="${row[2]}" />`;
-    // editModalBody += `      <input type="text" class="form-control" value="${row[3]}" text="${row[3]}" />`;
-    // editModalBody += `      <input type="text" class="form-control" value="${row[4]}" text="${row[4]}" />`;
-    editModalBody += `      <select type="text" class="form-control" />`;
-    editModalBody += `  </form>`;
-    modalOptions = {
-        title: "Modifica account",
-        body: editModalBody
-    }
-    modal = new Modal(modalOptions);
-    modal.open();     
-    console.log(dt.rows({selected: true}).data());
-}
-
-initAccountManager();
 
 function initAccountManager() {
     loader = new Loader("#SelectCityContainer", 25, 25);
@@ -127,13 +103,13 @@ function getEmployees(select) {
 
 function getEmployeesSuccess(data) {
     var employees = JSON.parse(data);
-    console.log(employees);
     var html = `<table class="table mt-3" id="EmployeesTable">`
     html +=         getEmployeeTableHtml();
     html +=        `<tbody>`;            
     for(var i = 0; i < employees.length; i++) {
             html +=     `<tr>
                             <td>${employees[i].dipendente_id}</td>
+                            <td>${employees[i].punto_vendita_id}</td>
                             <td>${employees[i].punto_vendita_nome}</td>
                             <td>${employees[i].dipendente_username}</td>
                             <td>${employees[i].dipendente_nome}</td>
@@ -145,13 +121,22 @@ function getEmployeesSuccess(data) {
                 </table>`;
     employeesTableContainer.html(html);
     employeesDataTable = $("#EmployeesTable").DataTable(dataTableOptions);
-    employeesDataTable.on("select", dtSelectEvent);
+    setManageAccountMaxWidth();
+}
+
+function setManageAccountMaxWidth() {
+    var containerMaxWidth = $("#EmployeesTable").width();
+    var childrenArray = $("#ManageAccountContainer").children();
+    for(var i = 0; i < childrenArray.length; i++) {
+        $(childrenArray[i]).css(`max-width`, `${containerMaxWidth}px`);
+    }
 }
 
 function getEmployeeTableHtml() {
     return `<thead>
                 <tr>
                     <th scope="col">Id dipendente</th>
+                    <th scope="col">Id punto vendita</th>
                     <th scope="col">Punto vendita</th>
                     <th scope="col">Username</th>
                     <th scope="col">Nome</th>
@@ -161,10 +146,128 @@ function getEmployeeTableHtml() {
             </thead>`;
 }
 
-function dtSelectEvent(e, dt, type, indexes) {
-    console.log(dt.rows(indexes).data());
-}
-
 function restCallError(jqXHR, textStatus, errorThrown) {
     console.log(jqXHR.status);
 }
+
+/* Edit Employee */
+function editEmployee(e, dt, node, config) {
+    var row = dt.rows({ selected: true }).data()[0];    
+    var editModalBody = buildEmployeeForm(row);
+
+    modalOptions = {
+        title: "Modifica account",
+        body: editModalBody,
+        cancelButton: {
+            text: "Annulla"
+        },
+        confirmButton: {
+            text: "Applica modifiche",
+            action: editItem
+        }
+    }
+    modal = new Modal(modalOptions);
+    modal.open();  
+    selectStoreLoader = new Loader("#EmployeeForm_punto_vendita_container", 25, 25);
+    selectStoreLoader.showLoader();
+    selectRoleLoeader = new Loader("#EmployeeForm_ruolo_container", 25, 25);
+    selectRoleLoeader.showLoader();
+    getAllItemsService = new GetAllItemsService();
+    $.when(getAllItemsService.getAllStores(), getAllItemsService.getAllRoles())
+        .done(buildSelects.bind(row))
+        .always(() => { selectStoreLoader.hideLoader(); selectRoleLoeader.hideLoader(); });   
+}
+
+function buildEmployeeForm(row) {
+    var html = `<form class="form-signin">
+                    <input id="EmployeeForm_dipendente_id" type="hidden" value="${row[0]}">
+                    <label for="EmployeeForm_punto_vendita" class="mt-2">Punto vendita</label>
+                    <div id="EmployeeForm_punto_vendita_container">
+                        <select id="EmployeeForm_punto_vendita" type="text" class="form-control"></select>
+                    </div>
+                    <label for="EmployeeForm_username" class="mt-2">Username</label>
+                    <input id="EmployeeForm_username" type="text" class="form-control" value="${row[3]}" text="${row[3]}">
+                    <label for="EmployeeForm_nome" class="mt-2">Nome</label>
+                    <input id="EmployeeForm_nome" type="text" class="form-control" value="${row[4]}" text="${row[4]}">
+                    <label for="EmployeeForm_cognome" class="mt-2">Cognome</label>
+                    <input id="EmployeeForm_cognome" type="text" class="form-control" value="${row[5]}" text="${row[5]}">
+                    <label for="EmployeeForm_ruolo" class="mt-2">Punto vendita</label>
+                    <div id="EmployeeForm_ruolo_container">
+                        <select id="EmployeeForm_ruolo" type="text" class="form-control"></select>
+                    </div>
+                </form>`;
+    return html;
+}
+
+function buildSelects(stores, roles) {
+    allStores = JSON.parse(stores[0]);
+    allRoles = JSON.parse(roles[0]);
+    buildOptions({ title: "stores", items: allStores }, this, "#EmployeeForm_punto_vendita");
+    buildOptions({ title: "roles", items: allRoles }, this, "#EmployeeForm_ruolo");
+}
+
+function buildOptions(table, row, selectId) {
+    var array = table.items;
+    var html = "";
+    for(var i = 0; i < array.length; i++) {
+        if(table.title == "stores") {
+            html += `<option value="${array[i].id_punto_vendita}" ${array[i].id_punto_vendita == row[1] ? "selected" : ""}>${array[i].nome}</option>`;
+        } else {
+            html += `<option value="${array[i].id_delega}" ${array[i].nome == row[6] ? "selected" : ""}>${array[i].nome}</option>`;
+        }
+    }    
+    $(selectId).html(html);
+}
+
+function editItem() {
+    var employee = {
+        id_dipendente: $("#EmployeeForm_dipendente_id").val(),
+        id_punto_vendita: $("#EmployeeForm_punto_vendita option:selected").val(),
+        username: $("#EmployeeForm_username").val(),
+        nome: $("#EmployeeForm_nome").val(),
+        cognome: $("#EmployeeForm_cognome").val(),
+        id_delega: $("#EmployeeForm_ruolo option:selected").val(),
+    };
+    accountManagementService.editEmployee(employee)
+        .done(editItemSuccess)
+        .fail(restCallError);
+}
+
+function editItemSuccess(data) {
+    if(data) {
+        modal.close();
+        getEmployees($("#AccountsSelectStore")[0]);
+    }
+}
+
+/* Reset Password */
+function resetPassword(e, dt, node, config) {
+    var row = dt.rows({ selected: true }).data()[0];    
+    modalOptions = {
+        title: "Resetta password",
+        body: `<span>Si desidera resettare la password dell'utente ${row[3]}?</span>`,
+        cancelButton: {
+            text: "Annulla"
+        },
+        confirmButton: {
+            text: "Conferma",
+            action: resetItem.bind(row)
+        }
+    }
+    modal = new Modal(modalOptions);
+    modal.open();  
+}
+
+function resetItem() {
+    accountManagementService.resetPassword(this[0])
+        .done(resetPasswordSuccess)
+        .fail(restCallError);
+}
+
+function resetPasswordSuccess(data) {
+    modal.close();
+    console.log(data);
+}
+
+/** Init */
+initAccountManager();

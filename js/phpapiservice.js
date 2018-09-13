@@ -30,7 +30,7 @@ class RestClient {
         var token = '';
         var loginContext = cookiesManager.getObjectFromCookie(authenticationManager.loginContext);
         if (loginContext !== undefined) {
-          cookiesManager.refreshCookie(authenticationManager.loginContext);
+          cookiesManager.refreshCookie(authenticationManager.loginContext, 12);
           this.token = loginContext.token;
         }
       }
@@ -80,6 +80,58 @@ class AccountManagementService extends RestClient {
         this.data = {
             action: "getEmployees",
             id_punto_vendita: id_punto_vendita
+        }
+        return super.executeWithToken();
+    }
+
+    editEmployee(dipendente) {
+        dipendente = JSON.stringify(dipendente);
+        this.data = {
+            action: "editEmployee",
+            dipendente: dipendente
+        }
+        return super.executeWithToken();
+    }
+
+    resetPassword(id_dipendente) {
+        this.data = {
+            action: "resetPassword",
+            id_dipendente: id_dipendente
+        }
+        return super.executeWithToken();
+    }
+}
+
+class GetAllItemsService extends RestClient {
+    constructor() {
+        super();
+        this.endpoint = "php/GetAllItemsService.php";
+    }
+
+    getAllCities() {
+        this.data = {
+            action: "getAllCities"
+        }
+        return super.executeWithToken();        
+    }
+
+    getAllStores() {
+        this.data = {
+            action: "getAllStores"
+        }
+        return super.executeWithToken();
+    }
+
+    getAllEmployees() {
+        this.data = {
+            action: "getAllEmployees"
+        }
+        return super.executeWithToken();
+    }
+
+    getAllRoles() {
+        this.data = {
+            action: "getAllRoles"
         }
         return super.executeWithToken();
     }

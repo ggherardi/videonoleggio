@@ -54,9 +54,9 @@ class CookiesManager{
     }
 
     // Estende la durata del cookie
-    refreshCookie(cookie) {
+    refreshCookie(cookie, hours) {
         const data = this.getObjectFromCookie(cookie);
-        this.setEncodedCookie(cookie, data, 0.5);
+        this.setEncodedCookie(cookie, data, hours);
     }
 
     // Elimina il cookie dalla lista dei cookies

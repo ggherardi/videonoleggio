@@ -59,7 +59,7 @@ class AccountManagementService {
         $query = 
             "SELECT dip.id_dipendente, dip.nome as dipendente_nome, dip.cognome as dipendente_cognome,
                 dip.username as dipendente_username, del.nome as delega_nome, del.codice as delega_codice,
-                pv.nome as punto_vendita_nome
+                pv.nome as punto_vendita_nome, dip.id_punto_vendita as punto_vendita_id
             FROM dipendente as dip
             INNER JOIN delega as del
             ON dip.id_delega = del.id_delega
@@ -76,6 +76,57 @@ class AccountManagementService {
         exit(json_encode($array));
     }
 
+    function EditEmployee() {
+        Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
+        TokenGenerator::ValidateToken();
+        $resetPassword = $_POST["passwordReset"];
+        $dip = json_decode($_POST["dipendente"]); 
+        $query = 
+            "UPDATE dipendente
+            SET 
+            id_delega = %d,
+            id_punto_vendita = %d,
+            nome = '%s',
+            cognome = '%s',
+            username = '%s'
+            %s
+            WHERE `id_dipendente` = %d";
+        if($resetPassword) {
+            $newPassword = password_hash(uniqid(), PASSWORD_DEFAULT);
+        }           
+        $query = sprintf($query, 
+                            $dip->id_delega, 
+                            $dip->id_punto_vendita,
+                            $dip->nome, 
+                            $dip->cognome,  
+                            $dip->username, 
+                            ($resetPassword ? sprintf(", `password` = `%s`", $newPassword) : ""), 
+                            $dip->id_dipendente);
+        Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
+        $res = self::ExecuteQuery($query);
+        exit(json_encode($res));
+    }
+
+    function ResetPassword() {
+        Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
+        TokenGenerator::ValidateToken();
+        $id_dipendente = $_POST["id_dipendente"]; 
+        $query = 
+            "UPDATE dipendente
+            SET password = '%s'                     
+            WHERE id_dipendente = %d";
+        $newPassword = uniqid();
+        $hashedNewPassword = password_hash($newPassword, PASSWORD_DEFAULT);       
+        $query = sprintf($query, $hashedNewPassword, $id_dipendente);
+        Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
+        $res = self::ExecuteQuery($query);
+        if($res) {
+            exit(json_encode($newPassword));
+        } else {
+            http_response_code(500);
+        }       
+    }
+
     // Switcha l'operazione richiesta lato client
     function Init() {
         try {
@@ -88,6 +139,12 @@ class AccountManagementService {
                     break;
                 case "getEmployees":
                     self::GetEmployees();
+                    break;
+                case "editEmployee":
+                    self::EditEmployee();
+                    break;
+                case "resetPassword":
+                    self::ResetPassword();
                     break;
                 default: 
                     exit(json_encode($_POST));
@@ -144,6 +201,7 @@ class Employee {
     public $dipendente_username;
     public $delega_nome;
     public $delega_codice;
+    public $punto_vendita_id;
     public $punto_vendita_nome;
 
     public function __construct($row) {
@@ -153,6 +211,7 @@ class Employee {
         $this->dipendente_username = $row["dipendente_username"];
         $this->delega_nome = $row["delega_nome"];
         $this->punto_vendita_nome = $row["punto_vendita_nome"];
+        $this->punto_vendita_id = $row["punto_vendita_id"];
     }
 }
 ?>
