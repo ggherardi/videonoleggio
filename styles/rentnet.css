@@ -22,12 +22,17 @@
     font-size: 10px;
     color: #fff;
     display: table;
-    padding: 5px;
+    padding: 10px;
     cursor: pointer;
 }
 
 .simple-button:hover {
     background-color: #8583e1;
+}
+
+.simple-button-cancel {
+    background-color: #EEEEEE;
+    color: #000000;
 }
 
 #ContentZone0 {

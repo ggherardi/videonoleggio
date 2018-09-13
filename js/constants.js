@@ -16,6 +16,7 @@ class Placeholders {
         this.accounts = {
             mainContainer: "#ManageAccountContainer",
         }
+        this.sharedModal = "#SharedModal";
     }
 }
 
