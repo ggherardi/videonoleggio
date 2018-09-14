@@ -1227,3 +1227,153 @@ les request.
             FROM citta 
 [14/09/2018 13:00:29] - corrId_5b9b94cd8d15e3.20604908 - Establishing connection to DB 
 [14/09/2018 13:00:29] - corrId_5b9b94cd8d15e3.20604908 - Executing query 
+[14/09/2018 13:05:00] - corrId_5b9b95dcb6bd16.58099647 - Reached AccountManagementService API 
+[14/09/2018 13:05:00] - corrId_5b9b95dcb6bd16.58099647 - Processing GetCities request. 
+[14/09/2018 13:05:00] - corrId_5b9b95dcb6bd16.58099647 - Token validated. 
+[14/09/2018 13:05:00] - corrId_5b9b95dcb6bd16.58099647 - Query: SELECT *
+            FROM citta 
+[14/09/2018 13:05:00] - corrId_5b9b95dcb6bd16.58099647 - Establishing connection to DB 
+[14/09/2018 13:05:00] - corrId_5b9b95dcb6bd16.58099647 - Executing query 
+[14/09/2018 13:05:03] - corrId_5b9b95df4a3a25.31501201 - Reached AccountManagementService API 
+[14/09/2018 13:05:03] - corrId_5b9b95df4a3a25.31501201 - Processing GetStores request. 
+[14/09/2018 13:05:03] - corrId_5b9b95df4a3a25.31501201 - Token validated. 
+[14/09/2018 13:05:03] - corrId_5b9b95df4a3a25.31501201 - Query: SELECT *
+            FROM punto_vendita 
+             
+[14/09/2018 13:05:03] - corrId_5b9b95df4a3a25.31501201 - Establishing connection to DB 
+[14/09/2018 13:05:03] - corrId_5b9b95df4a3a25.31501201 - Executing query 
+[14/09/2018 13:05:04] - corrId_5b9b95e0d61351.34655532 - Reached AccountManagementService API 
+[14/09/2018 13:05:04] - corrId_5b9b95e0d61351.34655532 - Processing GetEmployees request. 
+[14/09/2018 13:05:04] - corrId_5b9b95e0d61351.34655532 - Token validated. 
+[14/09/2018 13:05:04] - corrId_5b9b95e0d61351.34655532 - Query: SELECT dip.id_dipendente, dip.nome as dipendente_nome, dip.cognome as dipendente_cognome,
+                dip.username as dipendente_username, del.nome as delega_nome, del.codice as delega_codice,
+                pv.nome as punto_vendita_nome, dip.id_punto_vendita as punto_vendita_id
+            FROM dipendente as dip
+            INNER JOIN delega as del
+            ON dip.id_delega = del.id_delega
+            INNER JOIN punto_vendita as pv
+            ON dip.id_punto_vendita = pv.id_punto_vendita 
+            WHERE dip.id_punto_vendita = 1 
+[14/09/2018 13:05:04] - corrId_5b9b95e0d61351.34655532 - Establishing connection to DB 
+[14/09/2018 13:05:04] - corrId_5b9b95e0d61351.34655532 - Executing query 
+[14/09/2018 16:17:10] - corrId_5b9bc2e6731d48.43498584 - Reached AccountManagementService API 
+[14/09/2018 16:17:10] - corrId_5b9bc2e6731d48.43498584 - Processing GetCities request. 
+[14/09/2018 16:17:10] - corrId_5b9bc2e6731d48.43498584 - Token validated. 
+[14/09/2018 16:17:10] - corrId_5b9bc2e6731d48.43498584 - Query: SELECT *
+            FROM citta 
+[14/09/2018 16:17:10] - corrId_5b9bc2e6731d48.43498584 - Establishing connection to DB 
+[14/09/2018 16:17:10] - corrId_5b9bc2e6731d48.43498584 - Executing query 
+[14/09/2018 16:17:11] - corrId_5b9bc2e7765b12.05959184 - Reached AccountManagementService API 
+[14/09/2018 16:17:11] - corrId_5b9bc2e7765b12.05959184 - Processing GetCities request. 
+[14/09/2018 16:17:11] - corrId_5b9bc2e7765b12.05959184 - Token validated. 
+[14/09/2018 16:17:11] - corrId_5b9bc2e7765b12.05959184 - Query: SELECT *
+            FROM citta 
+[14/09/2018 16:17:11] - corrId_5b9bc2e7765b12.05959184 - Establishing connection to DB 
+[14/09/2018 16:17:11] - corrId_5b9bc2e7765b12.05959184 - Executing query 
+[14/09/2018 16:17:13] - corrId_5b9bc2e9ae90a2.39583586 - Reached AccountManagementService API 
+[14/09/2018 16:17:13] - corrId_5b9bc2e9ae90a2.39583586 - Processing GetCities request. 
+[14/09/2018 16:17:13] - corrId_5b9bc2e9ae90a2.39583586 - Token validated. 
+[14/09/2018 16:17:13] - corrId_5b9bc2e9ae90a2.39583586 - Query: SELECT *
+            FROM citta 
+[14/09/2018 16:17:13] - corrId_5b9bc2e9ae90a2.39583586 - Establishing connection to DB 
+[14/09/2018 16:17:13] - corrId_5b9bc2e9ae90a2.39583586 - Executing query 
+[14/09/2018 16:17:45] - corrId_5b9bc30966dca0.09921831 - Reached AccountManagementService API 
+[14/09/2018 16:17:45] - corrId_5b9bc30966dca0.09921831 - Processing GetStores request. 
+[14/09/2018 16:17:45] - corrId_5b9bc30966dca0.09921831 - Token validated. 
+[14/09/2018 16:17:45] - corrId_5b9bc30966dca0.09921831 - Query: SELECT *
+            FROM punto_vendita 
+            WHERE id_citta = 2 
+[14/09/2018 16:17:45] - corrId_5b9bc30966dca0.09921831 - Establishing connection to DB 
+[14/09/2018 16:17:45] - corrId_5b9bc30966dca0.09921831 - Executing query 
+[14/09/2018 16:17:48] - corrId_5b9bc30c24c104.30744785 - Reached AccountManagementService API 
+[14/09/2018 16:17:48] - corrId_5b9bc30c24c104.30744785 - Processing GetStores request. 
+[14/09/2018 16:17:48] - corrId_5b9bc30c24c104.30744785 - Token validated. 
+[14/09/2018 16:17:48] - corrId_5b9bc30c24c104.30744785 - Query: SELECT *
+            FROM punto_vendita 
+             
+[14/09/2018 16:17:48] - corrId_5b9bc30c24c104.30744785 - Establishing connection to DB 
+[14/09/2018 16:17:48] - corrId_5b9bc30c24c104.30744785 - Executing query 
+[14/09/2018 16:17:49] - corrId_5b9bc30d6f6874.33522555 - Reached AccountManagementService API 
+[14/09/2018 16:17:49] - corrId_5b9bc30d6f6874.33522555 - Processing GetEmployees request. 
+[14/09/2018 16:17:49] - corrId_5b9bc30d6f6874.33522555 - Token validated. 
+[14/09/2018 16:17:49] - corrId_5b9bc30d6f6874.33522555 - Query: SELECT dip.id_dipendente, dip.nome as dipendente_nome, dip.cognome as dipendente_cognome,
+                dip.username as dipendente_username, del.nome as delega_nome, del.codice as delega_codice,
+                pv.nome as punto_vendita_nome, dip.id_punto_vendita as punto_vendita_id
+            FROM dipendente as dip
+            INNER JOIN delega as del
+            ON dip.id_delega = del.id_delega
+            INNER JOIN punto_vendita as pv
+            ON dip.id_punto_vendita = pv.id_punto_vendita 
+             
+[14/09/2018 16:17:49] - corrId_5b9bc30d6f6874.33522555 - Establishing connection to DB 
+[14/09/2018 16:17:49] - corrId_5b9bc30d6f6874.33522555 - Executing query 
+[14/09/2018 16:18:19] - corrId_5b9bc32bd8b349.59765168 - Reached AccountManagementService API 
+[14/09/2018 16:18:19] - corrId_5b9bc32bd8b349.59765168 - Processing GetCities request. 
+[14/09/2018 16:18:19] - corrId_5b9bc32bd8b349.59765168 - Token validated. 
+[14/09/2018 16:18:19] - corrId_5b9bc32bd8b349.59765168 - Query: SELECT *
+            FROM citta 
+[14/09/2018 16:18:19] - corrId_5b9bc32bd8b349.59765168 - Establishing connection to DB 
+[14/09/2018 16:18:19] - corrId_5b9bc32bd8b349.59765168 - Executing query 
+[14/09/2018 16:18:36] - corrId_5b9bc33c317f85.13914493 - Reached AccountManagementService API 
+[14/09/2018 16:18:36] - corrId_5b9bc33c317f85.13914493 - Processing GetCities request. 
+[14/09/2018 16:18:36] - corrId_5b9bc33c317f85.13914493 - Token validated. 
+[14/09/2018 16:18:36] - corrId_5b9bc33c317f85.13914493 - Query: SELECT *
+            FROM citta 
+[14/09/2018 16:18:36] - corrId_5b9bc33c317f85.13914493 - Establishing connection to DB 
+[14/09/2018 16:18:36] - corrId_5b9bc33c317f85.13914493 - Executing query 
+[14/09/2018 16:18:40] - corrId_5b9bc340ed9ee7.34403741 - Reached AccountManagementService API 
+[14/09/2018 16:18:40] - corrId_5b9bc340ed9ee7.34403741 - Processing GetCities request. 
+[14/09/2018 16:18:40] - corrId_5b9bc340ed9ee7.34403741 - Token validated. 
+[14/09/2018 16:18:40] - corrId_5b9bc340ed9ee7.34403741 - Query: SELECT *
+            FROM citta 
+[14/09/2018 16:18:40] - corrId_5b9bc340ed9ee7.34403741 - Establishing connection to DB 
+[14/09/2018 16:18:40] - corrId_5b9bc340ed9ee7.34403741 - Executing query 
+[14/09/2018 16:19:18] - corrId_5b9bc366a950c4.60841743 - Reached AccountManagementService API 
+[14/09/2018 16:19:18] - corrId_5b9bc366a950c4.60841743 - Processing GetCities request. 
+[14/09/2018 16:19:18] - corrId_5b9bc366a950c4.60841743 - Token validated. 
+[14/09/2018 16:19:18] - corrId_5b9bc366a950c4.60841743 - Query: SELECT *
+            FROM citta 
+[14/09/2018 16:19:18] - corrId_5b9bc366a950c4.60841743 - Establishing connection to DB 
+[14/09/2018 16:19:18] - corrId_5b9bc366a950c4.60841743 - Executing query 
+[14/09/2018 16:19:29] - corrId_5b9bc371580b11.74679994 - Reached AccountManagementService API 
+[14/09/2018 16:19:29] - corrId_5b9bc371580b11.74679994 - Processing GetCities request. 
+[14/09/2018 16:19:29] - corrId_5b9bc371580b11.74679994 - Token validated. 
+[14/09/2018 16:19:29] - corrId_5b9bc371580b11.74679994 - Query: SELECT *
+            FROM citta 
+[14/09/2018 16:19:29] - corrId_5b9bc371580b11.74679994 - Establishing connection to DB 
+[14/09/2018 16:19:29] - corrId_5b9bc371580b11.74679994 - Executing query 
+[14/09/2018 16:19:37] - corrId_5b9bc3791ff726.55018508 - Reached AccountManagementService API 
+[14/09/2018 16:19:37] - corrId_5b9bc3791ff726.55018508 - Processing GetCities request. 
+[14/09/2018 16:19:37] - corrId_5b9bc3791ff726.55018508 - Token validated. 
+[14/09/2018 16:19:37] - corrId_5b9bc3791ff726.55018508 - Query: SELECT *
+            FROM citta 
+[14/09/2018 16:19:37] - corrId_5b9bc3791ff726.55018508 - Establishing connection to DB 
+[14/09/2018 16:19:37] - corrId_5b9bc3791ff726.55018508 - Executing query 
+[14/09/2018 16:19:39] - corrId_5b9bc37b68b4e9.92435287 - Reached AccountManagementService API 
+[14/09/2018 16:19:39] - corrId_5b9bc37b68b4e9.92435287 - Processing GetCities request. 
+[14/09/2018 16:19:39] - corrId_5b9bc37b68b4e9.92435287 - Token validated. 
+[14/09/2018 16:19:39] - corrId_5b9bc37b68b4e9.92435287 - Query: SELECT *
+            FROM citta 
+[14/09/2018 16:19:39] - corrId_5b9bc37b68b4e9.92435287 - Establishing connection to DB 
+[14/09/2018 16:19:39] - corrId_5b9bc37b68b4e9.92435287 - Executing query 
+[14/09/2018 16:21:27] - corrId_5b9bc3e79837c2.48153933 - Reached AccountManagementService API 
+[14/09/2018 16:21:27] - corrId_5b9bc3e79837c2.48153933 - Processing GetCities request. 
+[14/09/2018 16:21:27] - corrId_5b9bc3e79837c2.48153933 - Token validated. 
+[14/09/2018 16:21:27] - corrId_5b9bc3e79837c2.48153933 - Query: SELECT *
+            FROM citta 
+[14/09/2018 16:21:27] - corrId_5b9bc3e79837c2.48153933 - Establishing connection to DB 
+[14/09/2018 16:21:27] - corrId_5b9bc3e79837c2.48153933 - Executing query 
+[14/09/2018 16:21:48] - corrId_5b9bc3fc4e6376.22090779 - Reached AccountManagementService API 
+[14/09/2018 16:21:48] - corrId_5b9bc3fc4e6376.22090779 - Processing GetCities request. 
+[14/09/2018 16:21:48] - corrId_5b9bc3fc4e6376.22090779 - Token validated. 
+[14/09/2018 16:21:48] - corrId_5b9bc3fc4e6376.22090779 - Query: SELECT *
+            FROM citta 
+[14/09/2018 16:21:48] - corrId_5b9bc3fc4e6376.22090779 - Establishing connection to DB 
+[14/09/2018 16:21:48] - corrId_5b9bc3fc4e6376.22090779 - Executing query 
+[14/09/2018 16:23:16] - corrId_5b9bc454bf6467.46115237 - Reached AccountManagementService API 
+[14/09/2018 16:23:16] - corrId_5b9bc454bf6467.46115237 - Processing GetCities request. 
+[14/09/2018 16:23:16] - corrId_5b9bc454bf6467.46115237 - Token validated. 
+[14/09/2018 16:23:16] - corrId_5b9bc454bf6467.46115237 - Query: SELECT *
+            FROM citta 
+[14/09/2018 16:23:16] - corrId_5b9bc454bf6467.46115237 - Establishing connection to DB 
+[14/09/2018 16:23:16] - corrId_5b9bc454bf6467.46115237 - Executing query 
