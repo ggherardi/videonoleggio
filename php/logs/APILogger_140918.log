@@ -1119,3 +1119,111 @@ les request.
             WHERE dip.id_punto_vendita = 1 
 [14/09/2018 01:43:36] - corrId_5b9af628abf8f0.78058527 - Establishing connection to DB 
 [14/09/2018 01:43:36] - corrId_5b9af628abf8f0.78058527 - Executing query 
+[14/09/2018 08:45:15] - corrId_5b9b58fbe4dd20.02305087 - Reached AuthenticationService API 
+[14/09/2018 08:45:15] - corrId_5b9b58fbe4dd20.02305087 - Processing Login request. 
+[14/09/2018 08:45:15] - corrId_5b9b58fbe4dd20.02305087 - Establishing connection to DB 
+[14/09/2018 08:45:15] - corrId_5b9b58fbe4dd20.02305087 - Executing query 
+[14/09/2018 08:45:16] - corrId_5b9b58fbe4dd20.02305087 - User  validated, generating Token. 
+[14/09/2018 08:45:16] - corrId_5b9b58fbe4dd20.02305087 - Token generated succesfully. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbBcphvfDrmTmJL1I9NjniDfJpCv9hn5nYhqWQcbGhs5f 
+[14/09/2018 08:50:53] - corrId_5b9b5a4deb7999.58424461 - Reached AccountManagementService API 
+[14/09/2018 08:50:53] - corrId_5b9b5a4deb7999.58424461 - Processing GetCities request. 
+[14/09/2018 08:50:53] - corrId_5b9b5a4deb7999.58424461 - Token validated. 
+[14/09/2018 08:50:53] - corrId_5b9b5a4deb7999.58424461 - Query: SELECT *
+            FROM citta 
+[14/09/2018 08:50:53] - corrId_5b9b5a4deb7999.58424461 - Establishing connection to DB 
+[14/09/2018 08:50:53] - corrId_5b9b5a4deb7999.58424461 - Executing query 
+[14/09/2018 08:50:55] - corrId_5b9b5a4f690a07.04416987 - Reached AccountManagementService API 
+[14/09/2018 08:50:55] - corrId_5b9b5a4f690a07.04416987 - Processing GetStores request. 
+[14/09/2018 08:50:55] - corrId_5b9b5a4f690a07.04416987 - Token validated. 
+[14/09/2018 08:50:55] - corrId_5b9b5a4f690a07.04416987 - Query: SELECT *
+            FROM punto_vendita 
+             
+[14/09/2018 08:50:55] - corrId_5b9b5a4f690a07.04416987 - Establishing connection to DB 
+[14/09/2018 08:50:55] - corrId_5b9b5a4f690a07.04416987 - Executing query 
+[14/09/2018 08:50:56] - corrId_5b9b5a50b91e76.46814989 - Reached AccountManagementService API 
+[14/09/2018 08:50:56] - corrId_5b9b5a50b91e76.46814989 - Processing GetEmployees request. 
+[14/09/2018 08:50:56] - corrId_5b9b5a50b91e76.46814989 - Token validated. 
+[14/09/2018 08:50:56] - corrId_5b9b5a50b91e76.46814989 - Query: SELECT dip.id_dipendente, dip.nome as dipendente_nome, dip.cognome as dipendente_cognome,
+                dip.username as dipendente_username, del.nome as delega_nome, del.codice as delega_codice,
+                pv.nome as punto_vendita_nome, dip.id_punto_vendita as punto_vendita_id
+            FROM dipendente as dip
+            INNER JOIN delega as del
+            ON dip.id_delega = del.id_delega
+            INNER JOIN punto_vendita as pv
+            ON dip.id_punto_vendita = pv.id_punto_vendita 
+             
+[14/09/2018 08:50:56] - corrId_5b9b5a50b91e76.46814989 - Establishing connection to DB 
+[14/09/2018 08:50:56] - corrId_5b9b5a50b91e76.46814989 - Executing query 
+[14/09/2018 08:51:00] - corrId_5b9b5a543e61c8.27841692 - Reached AccountManagementService API 
+[14/09/2018 08:51:00] - corrId_5b9b5a543e61c8.27841692 - Processing GetEmployees request. 
+[14/09/2018 08:51:00] - corrId_5b9b5a543e61c8.27841692 - Token validated. 
+[14/09/2018 08:51:00] - corrId_5b9b5a543e61c8.27841692 - Query: SELECT dip.id_dipendente, dip.nome as dipendente_nome, dip.cognome as dipendente_cognome,
+                dip.username as dipendente_username, del.nome as delega_nome, del.codice as delega_codice,
+                pv.nome as punto_vendita_nome, dip.id_punto_vendita as punto_vendita_id
+            FROM dipendente as dip
+            INNER JOIN delega as del
+            ON dip.id_delega = del.id_delega
+            INNER JOIN punto_vendita as pv
+            ON dip.id_punto_vendita = pv.id_punto_vendita 
+            WHERE dip.id_punto_vendita = 1 
+[14/09/2018 08:51:00] - corrId_5b9b5a543e61c8.27841692 - Establishing connection to DB 
+[14/09/2018 08:51:00] - corrId_5b9b5a543e61c8.27841692 - Executing query 
+[14/09/2018 08:51:04] - corrId_5b9b5a58254243.70640817 - Reached GetAllItemsService API 
+[14/09/2018 08:51:04] - corrId_5b9b5a58254243.70640817 - Processing GetAllRoles request. 
+[14/09/2018 08:51:04] - corrId_5b9b5a58254243.70640817 - Token validated. 
+[14/09/2018 08:51:04] - corrId_5b9b5a58254243.70640817 - Establishing connection to DB 
+[14/09/2018 08:51:04] - corrId_5b9b5a58254243.70640817 - Executing query 
+[14/09/2018 08:51:04] - corrId_5b9b5a588ba1c2.92882824 - Reached GetAllItemsService API 
+[14/09/2018 08:51:04] - corrId_5b9b5a588ba1c2.92882824 - Processing GetAllStores request. 
+[14/09/2018 08:51:04] - corrId_5b9b5a588ba1c2.92882824 - Token validated. 
+[14/09/2018 08:51:04] - corrId_5b9b5a588ba1c2.92882824 - Establishing connection to DB 
+[14/09/2018 08:51:04] - corrId_5b9b5a588ba1c2.92882824 - Executing query 
+[14/09/2018 08:51:07] - corrId_5b9b5a5b8b2ac0.47536350 - Reached AccountManagementService API 
+[14/09/2018 08:51:07] - corrId_5b9b5a5b8b2ac0.47536350 - Processing InsertEmployee request. 
+[14/09/2018 08:51:07] - corrId_5b9b5a5b8b2ac0.47536350 - Token validated. 
+[14/09/2018 08:51:07] - corrId_5b9b5a5b8b2ac0.47536350 - Query: INSERT INTO dipendente (id_delega, id_punto_vendita, nome, cognome, username, password)
+            VALUES (1, 1, 'asd', 'asd', 'asd', '$2y$10$5ai4BUUMqaBPnDRN.Wegc.oxLO.PAMTGCn25cVjG5MUa5Gdi/LSCK') 
+[14/09/2018 08:51:07] - corrId_5b9b5a5b8b2ac0.47536350 - Establishing connection to DB 
+[14/09/2018 08:51:07] - corrId_5b9b5a5b8b2ac0.47536350 - Executing query 
+[14/09/2018 08:51:08] - corrId_5b9b5a5c194836.48040189 - Reached AccountManagementService API 
+[14/09/2018 08:51:08] - corrId_5b9b5a5c194836.48040189 - Processing GetEmployees request. 
+[14/09/2018 08:51:08] - corrId_5b9b5a5c194836.48040189 - Token validated. 
+[14/09/2018 08:51:08] - corrId_5b9b5a5c194836.48040189 - Query: SELECT dip.id_dipendente, dip.nome as dipendente_nome, dip.cognome as dipendente_cognome,
+                dip.username as dipendente_username, del.nome as delega_nome, del.codice as delega_codice,
+                pv.nome as punto_vendita_nome, dip.id_punto_vendita as punto_vendita_id
+            FROM dipendente as dip
+            INNER JOIN delega as del
+            ON dip.id_delega = del.id_delega
+            INNER JOIN punto_vendita as pv
+            ON dip.id_punto_vendita = pv.id_punto_vendita 
+            WHERE dip.id_punto_vendita = 1 
+[14/09/2018 08:51:08] - corrId_5b9b5a5c194836.48040189 - Establishing connection to DB 
+[14/09/2018 08:51:08] - corrId_5b9b5a5c194836.48040189 - Executing query 
+[14/09/2018 08:51:13] - corrId_5b9b5a61070f31.84200078 - Reached AccountManagementService API 
+[14/09/2018 08:51:13] - corrId_5b9b5a61070f31.84200078 - Processing DeleteEmployee request. 
+[14/09/2018 08:51:13] - corrId_5b9b5a61070f31.84200078 - Token validated. 
+[14/09/2018 08:51:13] - corrId_5b9b5a61070f31.84200078 - Query: DELETE FROM dipendente              
+            WHERE id_dipendente = 38 
+[14/09/2018 08:51:13] - corrId_5b9b5a61070f31.84200078 - Establishing connection to DB 
+[14/09/2018 08:51:13] - corrId_5b9b5a61070f31.84200078 - Executing query 
+[14/09/2018 08:51:13] - corrId_5b9b5a617d52c7.67166613 - Reached AccountManagementService API 
+[14/09/2018 08:51:13] - corrId_5b9b5a617d52c7.67166613 - Processing GetEmployees request. 
+[14/09/2018 08:51:13] - corrId_5b9b5a617d52c7.67166613 - Token validated. 
+[14/09/2018 08:51:13] - corrId_5b9b5a617d52c7.67166613 - Query: SELECT dip.id_dipendente, dip.nome as dipendente_nome, dip.cognome as dipendente_cognome,
+                dip.username as dipendente_username, del.nome as delega_nome, del.codice as delega_codice,
+                pv.nome as punto_vendita_nome, dip.id_punto_vendita as punto_vendita_id
+            FROM dipendente as dip
+            INNER JOIN delega as del
+            ON dip.id_delega = del.id_delega
+            INNER JOIN punto_vendita as pv
+            ON dip.id_punto_vendita = pv.id_punto_vendita 
+            WHERE dip.id_punto_vendita = 1 
+[14/09/2018 08:51:13] - corrId_5b9b5a617d52c7.67166613 - Establishing connection to DB 
+[14/09/2018 08:51:13] - corrId_5b9b5a617d52c7.67166613 - Executing query 
+[14/09/2018 13:00:29] - corrId_5b9b94cd8d15e3.20604908 - Reached AccountManagementService API 
+[14/09/2018 13:00:29] - corrId_5b9b94cd8d15e3.20604908 - Processing GetCities request. 
+[14/09/2018 13:00:29] - corrId_5b9b94cd8d15e3.20604908 - Token validated. 
+[14/09/2018 13:00:29] - corrId_5b9b94cd8d15e3.20604908 - Query: SELECT *
+            FROM citta 
+[14/09/2018 13:00:29] - corrId_5b9b94cd8d15e3.20604908 - Establishing connection to DB 
+[14/09/2018 13:00:29] - corrId_5b9b94cd8d15e3.20604908 - Executing query 

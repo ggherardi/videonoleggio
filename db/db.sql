@@ -25,11 +25,11 @@ DROP TABLE IF EXISTS `attore`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `attore` (
-  `id_attore` int(11) NOT NULL,
+  `id_attore` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(45) DEFAULT NULL,
   `cognome` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id_attore`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,6 +38,7 @@ CREATE TABLE `attore` (
 
 LOCK TABLES `attore` WRITE;
 /*!40000 ALTER TABLE `attore` DISABLE KEYS */;
+INSERT INTO `attore` VALUES (1,'Tim','Robbins'),(2,'Morgan','Freeman'),(3,'Bob','Gunton'),(4,'Marlon','Brando'),(5,'Al','Pacino'),(6,'James','Caan'),(7,'Christian','Bale'),(8,'Heath','Ledger'),(9,'Michael','Caine'),(10,'Tim','Roth'),(11,'John','Travolta'),(12,'Bruce','Willis'),(13,'Samuel L.','Jackson'),(14,'Liam','Neeson'),(15,'Orlando','Bloom'),(16,'Sean','Astin'),(17,'Viggo','Mortensen'),(18,'Clint','Eastwood'),(19,'Lee','Van Cleef'),(20,'Eli','Wallach'),(21,'Henry','Fonda'),(22,'Martin','Balsam');
 /*!40000 ALTER TABLE `attore` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -52,7 +53,7 @@ CREATE TABLE `casa_produttrice` (
   `id_casa_produttrice` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id_casa_produttrice`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -61,6 +62,7 @@ CREATE TABLE `casa_produttrice` (
 
 LOCK TABLES `casa_produttrice` WRITE;
 /*!40000 ALTER TABLE `casa_produttrice` DISABLE KEYS */;
+INSERT INTO `casa_produttrice` VALUES (1,'Castle Rock Entertainment'),(2,'Paramount Pictures'),(3,'Warner Bros.'),(4,'Miramax'),(5,'New Line Cinema'),(6,'Produzioni Europee Associate (PEA)'),(7,'Orion-Nova Productions'),(8,'New Line Cinema'),(9,'Universal Pictures');
 /*!40000 ALTER TABLE `casa_produttrice` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -78,9 +80,9 @@ CREATE TABLE `cast` (
   PRIMARY KEY (`id_cast`),
   KEY `fk_attore_film_idx` (`id_attore`),
   KEY `fk_cast_film_idx` (`id_film`),
-  CONSTRAINT `fk_cast_attore` FOREIGN KEY (`id_attore`) REFERENCES `attore` (`id_attore`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_cast_film` FOREIGN KEY (`id_film`) REFERENCES `film` (`id_film`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  CONSTRAINT `fk_cast_film` FOREIGN KEY (`id_film`) REFERENCES `film` (`id_film`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_cast_attore` FOREIGN KEY (`id_attore`) REFERENCES `attore` (`id_attore`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -89,6 +91,7 @@ CREATE TABLE `cast` (
 
 LOCK TABLES `cast` WRITE;
 /*!40000 ALTER TABLE `cast` DISABLE KEYS */;
+INSERT INTO `cast` VALUES (4,1,1),(5,2,1),(6,3,1),(7,4,2),(8,5,2),(9,6,2),(10,7,3),(11,8,3),(12,9,3),(13,10,4),(14,11,4),(15,12,4),(16,13,4),(17,14,5),(18,15,12),(19,16,12),(20,17,12),(21,15,14),(22,16,14),(23,17,14),(24,18,15),(25,19,15),(26,20,15),(27,21,16),(28,22,16);
 /*!40000 ALTER TABLE `cast` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -194,7 +197,7 @@ CREATE TABLE `dipendente` (
   KEY `fk_dipendente_punto_vendita_idx` (`id_punto_vendita`),
   CONSTRAINT `fk_dipendente_delega` FOREIGN KEY (`id_delega`) REFERENCES `delega` (`id_delega`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_dipendente_punto_vendita` FOREIGN KEY (`id_punto_vendita`) REFERENCES `punto_vendita` (`id_punto_vendita`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -219,7 +222,7 @@ CREATE TABLE `film` (
   `id_regista` int(11) DEFAULT NULL,
   `id_genere` int(11) DEFAULT NULL,
   `id_casa_produttrice` int(11) DEFAULT NULL,
-  `titolo` varchar(45) DEFAULT NULL,
+  `titolo` varchar(100) DEFAULT NULL,
   `durata` int(11) DEFAULT NULL,
   `prezzo_giornaliero` float DEFAULT NULL,
   PRIMARY KEY (`id_film`),
@@ -229,7 +232,7 @@ CREATE TABLE `film` (
   CONSTRAINT `fk_film_casa_produttrice` FOREIGN KEY (`id_casa_produttrice`) REFERENCES `casa_produttrice` (`id_casa_produttrice`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_film_genere` FOREIGN KEY (`id_genere`) REFERENCES `genere` (`id_genere`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_film_regista` FOREIGN KEY (`id_regista`) REFERENCES `regista` (`id_regista`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -238,6 +241,7 @@ CREATE TABLE `film` (
 
 LOCK TABLES `film` WRITE;
 /*!40000 ALTER TABLE `film` DISABLE KEYS */;
+INSERT INTO `film` VALUES (1,1,1,1,'Le ali della libertà',142,5),(2,4,2,2,'Il padrino',175,5),(3,3,2,3,'Il cavaliere oscuro',152,8),(4,2,2,4,'Pulp fiction',154,6),(5,5,1,9,'Schindler\'s List',195,5),(12,6,4,5,'Il Signore degli Anelli - Il ritorno del re',201,8),(14,6,4,5,'Il Signore degli Anelli - La compagnia dell\'Anello',178,8),(15,7,5,6,'Il buono, il brutto, il cattivo',161,5),(16,8,2,7,'La parola ai giurati',96,4);
 /*!40000 ALTER TABLE `film` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -252,7 +256,7 @@ CREATE TABLE `fornitore` (
   `id_fornitore` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id_fornitore`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -261,35 +265,8 @@ CREATE TABLE `fornitore` (
 
 LOCK TABLES `fornitore` WRITE;
 /*!40000 ALTER TABLE `fornitore` DISABLE KEYS */;
+INSERT INTO `fornitore` VALUES (1,'Cinema Soul S.p.A.'),(2,'Movie Provider S.r.l.'),(3,'Home Video S.p.A.'),(4,'Big Cinema S.r.l.'),(5,'Shady Dealer S.r.l.'),(6,'No need for Theatres S.p.A.');
 /*!40000 ALTER TABLE `fornitore` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `fornitura`
---
-
-DROP TABLE IF EXISTS `fornitura`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `fornitura` (
-  `id_fornitura` int(11) NOT NULL AUTO_INCREMENT,
-  `id_punto_vendita` int(11) DEFAULT NULL,
-  `id_fornitore` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_fornitura`),
-  KEY `id_punto_vendita_idx` (`id_punto_vendita`),
-  KEY `fk_fornitura_fornitore_idx` (`id_fornitore`),
-  CONSTRAINT `fk_fornitura_fornitore` FOREIGN KEY (`id_fornitore`) REFERENCES `fornitore` (`id_fornitore`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_fornitura_punto_vendita` FOREIGN KEY (`id_punto_vendita`) REFERENCES `punto_vendita` (`id_punto_vendita`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `fornitura`
---
-
-LOCK TABLES `fornitura` WRITE;
-/*!40000 ALTER TABLE `fornitura` DISABLE KEYS */;
-/*!40000 ALTER TABLE `fornitura` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -303,7 +280,7 @@ CREATE TABLE `genere` (
   `id_genere` int(11) NOT NULL AUTO_INCREMENT,
   `tipo` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id_genere`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -312,6 +289,7 @@ CREATE TABLE `genere` (
 
 LOCK TABLES `genere` WRITE;
 /*!40000 ALTER TABLE `genere` DISABLE KEYS */;
+INSERT INTO `genere` VALUES (1,'Drammatico'),(2,'Thriller'),(3,'Azione'),(4,'Fantasy'),(5,'Western');
 /*!40000 ALTER TABLE `genere` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -361,16 +339,19 @@ DROP TABLE IF EXISTS `partita`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `partita` (
   `id_partita` int(11) NOT NULL AUTO_INCREMENT,
-  `id_fornitura` int(11) DEFAULT NULL,
   `id_film` int(11) DEFAULT NULL,
+  `id_punto_vendita` int(11) DEFAULT NULL,
+  `id_fornitore` int(11) DEFAULT NULL,
   `disponibilita_massima` int(11) DEFAULT NULL,
   `disponibilita_attuale` int(11) DEFAULT NULL,
   `data_scarico` datetime DEFAULT NULL,
   PRIMARY KEY (`id_partita`),
-  KEY `fk_partita_fornitura_idx` (`id_fornitura`),
   KEY `fk_partita_film_idx` (`id_film`),
-  CONSTRAINT `fk_partita_film` FOREIGN KEY (`id_film`) REFERENCES `film` (`id_film`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_partita_fornitura` FOREIGN KEY (`id_fornitura`) REFERENCES `fornitura` (`id_fornitura`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  KEY `fk_partita_punto_vendita_idx` (`id_punto_vendita`),
+  KEY `fk_partita_fornitore_idx` (`id_fornitore`),
+  CONSTRAINT `fk_partita_punto_vendita` FOREIGN KEY (`id_punto_vendita`) REFERENCES `punto_vendita` (`id_punto_vendita`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_partita_fornitore` FOREIGN KEY (`id_fornitore`) REFERENCES `fornitore` (`id_fornitore`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_partita_film` FOREIGN KEY (`id_film`) REFERENCES `film` (`id_film`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -457,7 +438,7 @@ CREATE TABLE `regista` (
   `nome` varchar(45) DEFAULT NULL,
   `cognome` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id_regista`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -466,6 +447,7 @@ CREATE TABLE `regista` (
 
 LOCK TABLES `regista` WRITE;
 /*!40000 ALTER TABLE `regista` DISABLE KEYS */;
+INSERT INTO `regista` VALUES (1,'Frank','Darabont'),(2,'Quentin','Tarantino'),(3,'Christopher','Nolan'),(4,'Francis','Ford Coppola'),(5,'Steven','Spielberg'),(6,'Peter','Jackson'),(7,'Sergio','Leone'),(8,'Sidney','Lumet');
 /*!40000 ALTER TABLE `regista` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -524,4 +506,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-09-11 17:31:43
+-- Dump completed on 2018-09-14 13:01:03
