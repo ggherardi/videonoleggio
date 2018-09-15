@@ -36,7 +36,8 @@ class AuthenticationService {
             $credentials = json_decode($_POST["credentials"]);
             $query = 
                 "SELECT dip.id_dipendente, dip.username, dip.password, del.codice, del.nome as delega_nome,
-                    pv.nome as punto_vendita_nome, pv.indirizzo as punto_vendita_indirizzo, c.nome as citta_nome
+                    pv.nome as punto_vendita_nome, pv.indirizzo as punto_vendita_indirizzo, c.nome as citta_nome,
+                    dip.id_punto_vendita as punto_vendita_id_punto_vendita
                 FROM dipendente as dip
                 INNER JOIN delega as del
                 ON dip.id_delega = del.id_delega
@@ -66,103 +67,9 @@ class AuthenticationService {
         }
     }
 
-    /** Effettua l'iscrizione al sito, ritorna responseCode:
-    * -1 se l'email e lo username esistono già nel DB
-    * -2 se l'username esiste già nel DB
-    * -3 se l'email esiste già nel DB
-    * -4 per errori incontrati durante l'inserimento
-    * se l'iscrizione è andata a buon fine */
-    private function SignUp(){  
-        Logger::Write("Signup process started.", $GLOBALS["CorrelationID"]);    
-        $responseCode = self::CheckIfUserAlreadyExists();
-
-        if($responseCode != 0) {
-            echo json_encode($responseCode);
-            return;
-        }
-
-        $successInsert = self::InsertNewUser();
-        if(!$successInsert){
-            $responseCode = -4;
-        }
-
-        echo json_encode($responseCode);
-    }
-
-    /** Controlla se lo username o l'email sono già presenti nel DB */
-    private function CheckIfUserAlreadyExists() {
-        $errorCode = 0;
-
-        $query = 
-            "SELECT *
-            FROM user
-            WHERE Username = '$this->username'
-            OR Email = '$this->email'";
-
-        $res = self::ExecuteQuery($query);
-
-        while($row = $res->fetch_assoc()){
-            if($row["Username"] == $this->username && $row["Email"] == $this->email) {
-                $errorCode = -1;
-            }
-            else if($row["Username"] == $this->username) {
-                $errorCode = -2;
-            }
-            else {
-                $errorCode = -3;
-            }
-        }
-        return $errorCode;
-    }
-
-    /** Registra il nuovo utente creando una row nella table user e una nella table user_detail */
-    private function InsertNewUser() {
-        Logger::Write("Registering new user: $this->name $this->surname with email: $this->email", $GLOBALS["CorrelationID"]);  
-        $res = false;
-        $this->dbContext->StartTransaction();
-        try {
-            $encodedPassword = password_hash($this->password, PASSWORD_DEFAULT);
-            $query = 
-                "INSERT INTO user
-                VALUES (DEFAULT, '$this->username', '$this->email', '$encodedPassword', '$this->name', '$this->surname')";
-            $res = self::ExecuteQuery($query);
-            if(!$res) {
-                throw new Exception("Error while inserting new user");
-            }
-            $userId = $this->dbContext->GetLastID();
-            $query = 
-                "INSERT INTO user_detail
-                VALUES (DEFAULT, $userId, DEFAULT, DEFAULT, DEFAULT)";
-            $res = self::ExecuteQuery($query);
-            Logger::Write("$query", $GLOBALS["CorrelationID"]);
-            if(!$res) {
-                throw new Exception("Error while inserting new user details");
-            } 
-            $query = 
-                "INSERT INTO car_detail
-                VALUES (DEFAULT, $userId, DEFAULT, DEFAULT)";
-            $res = self::ExecuteQuery($query);
-            Logger::Write("$query", $GLOBALS["CorrelationID"]);
-            if(!$res) {
-                throw new Exception("Error while inserting new user details");
-            } 
-            $transactionRes = $this->dbContext->CommitTransaction();
-        }
-        catch(Throwable $ex) {
-            $this->dbContext->RollBack();
-            Logger::Write("Error occured in " . __FUNCTION__. " -> $ex", $GLOBALS["CorrelationID"]);
-            http_response_code(500);
-            $res = $false;
-        }
-        return $res;
-    }
-
     // Switcha l'operazione richiesta lato client
     function Init(){
         switch($_POST["action"]){
-            case "signup":
-                self::SignUp();
-            break;
             case "login":
                 self::Login();
                 break;
@@ -193,6 +100,7 @@ class LoginContext {
     public $punto_vendita_nome;
     public $citta_nome;
     public $punto_vendita_indirizzo;
+    public $punto_vendita_id_punto_vendita;
     public $token;
 
     public function __construct($row) {
@@ -202,6 +110,7 @@ class LoginContext {
         $this->delega_nome = $row["delega_nome"];
         $this->punto_vendita_nome = $row["punto_vendita_nome"];
         $this->punto_vendita_indirizzo = $row["punto_vendita_indirizzo"];
+        $this->punto_vendita_id_punto_vendita = $row["punto_vendita_id_punto_vendita"];
         $this->citta_nome = $row["citta_nome"];
         $this->generateTokenForUser();
     }

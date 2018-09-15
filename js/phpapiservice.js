@@ -154,6 +154,20 @@ class GetAllItemsService extends RestClient {
     }
 }
 
+class StorageManagementService extends RestClient {
+    constructor() {
+        super();
+        this.endpoint = "php/StorageManagementService.php";
+    }
+
+    getAllCities() {
+        this.data = {
+            action: "getMoviesCopies"
+        }
+        return super.executeWithToken();        
+    }
+}
+
 class VideoRentalService extends RestClient {
     constructor() {
 

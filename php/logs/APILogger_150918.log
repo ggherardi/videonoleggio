@@ -1,0 +1,36 @@
+[15/09/2018 00:25:57] - corrId_5b9c3575a15d39.21616760 - Reached AccountManagementService API 
+[15/09/2018 00:25:57] - corrId_5b9c3575a15d39.21616760 - Processing GetCities request. 
+[15/09/2018 00:25:57] - corrId_5b9c3575a15d39.21616760 - Token validated. 
+[15/09/2018 00:25:57] - corrId_5b9c3575a15d39.21616760 - Query: SELECT *
+            FROM citta 
+[15/09/2018 00:25:57] - corrId_5b9c3575a15d39.21616760 - Establishing connection to DB 
+[15/09/2018 00:25:57] - corrId_5b9c3575a15d39.21616760 - Executing query 
+[15/09/2018 00:51:09] - corrId_5b9c3b5d0241a1.69312557 - Reached AccountManagementService API 
+[15/09/2018 00:51:09] - corrId_5b9c3b5d0241a1.69312557 - Processing GetCities request. 
+[15/09/2018 00:51:09] - corrId_5b9c3b5d0241a1.69312557 - Token validated. 
+[15/09/2018 00:51:09] - corrId_5b9c3b5d0241a1.69312557 - Query: SELECT *
+            FROM citta 
+[15/09/2018 00:51:09] - corrId_5b9c3b5d0241a1.69312557 - Establishing connection to DB 
+[15/09/2018 00:51:09] - corrId_5b9c3b5d0241a1.69312557 - Executing query 
+[15/09/2018 00:51:10] - corrId_5b9c3b5e284554.94711340 - Reached AccountManagementService API 
+[15/09/2018 00:51:10] - corrId_5b9c3b5e284554.94711340 - Processing GetStores request. 
+[15/09/2018 00:51:10] - corrId_5b9c3b5e284554.94711340 - Token validated. 
+[15/09/2018 00:51:10] - corrId_5b9c3b5e284554.94711340 - Query: SELECT *
+            FROM punto_vendita 
+             
+[15/09/2018 00:51:10] - corrId_5b9c3b5e284554.94711340 - Establishing connection to DB 
+[15/09/2018 00:51:10] - corrId_5b9c3b5e284554.94711340 - Executing query 
+[15/09/2018 00:51:11] - corrId_5b9c3b5f054442.60739578 - Reached AccountManagementService API 
+[15/09/2018 00:51:11] - corrId_5b9c3b5f054442.60739578 - Processing GetEmployees request. 
+[15/09/2018 00:51:11] - corrId_5b9c3b5f054442.60739578 - Token validated. 
+[15/09/2018 00:51:11] - corrId_5b9c3b5f054442.60739578 - Query: SELECT dip.id_dipendente, dip.nome as dipendente_nome, dip.cognome as dipendente_cognome,
+                dip.username as dipendente_username, del.nome as delega_nome, del.codice as delega_codice,
+                pv.nome as punto_vendita_nome, dip.id_punto_vendita as punto_vendita_id
+            FROM dipendente as dip
+            INNER JOIN delega as del
+            ON dip.id_delega = del.id_delega
+            INNER JOIN punto_vendita as pv
+            ON dip.id_punto_vendita = pv.id_punto_vendita 
+             
+[15/09/2018 00:51:11] - corrId_5b9c3b5f054442.60739578 - Establishing connection to DB 
+[15/09/2018 00:51:11] - corrId_5b9c3b5f054442.60739578 - Executing query 

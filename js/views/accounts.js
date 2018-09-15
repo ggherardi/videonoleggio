@@ -104,7 +104,7 @@ function getEmployees(select) {
 function getEmployeesSuccess(data) {
     var employees = JSON.parse(data);
     var html = `<table class="table mt-3" id="EmployeesTable">`
-    html +=         getEmployeeTableHtml();
+    html +=         buildEmployeeTableHtml();
     html +=        `<tbody>`;            
     for(var i = 0; i < employees.length; i++) {
             html +=     `<tr>
@@ -132,7 +132,7 @@ function setManageAccountMaxWidth() {
     }
 }
 
-function getEmployeeTableHtml() {
+function buildEmployeeTableHtml() {
     return `<thead>
                 <tr>
                     <th scope="col">Id dipendente</th>

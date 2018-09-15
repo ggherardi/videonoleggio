@@ -1377,3 +1377,23 @@ les request.
             FROM citta 
 [14/09/2018 16:23:16] - corrId_5b9bc454bf6467.46115237 - Establishing connection to DB 
 [14/09/2018 16:23:16] - corrId_5b9bc454bf6467.46115237 - Executing query 
+[14/09/2018 18:26:10] - corrId_5b9be12205aa73.68219640 - Reached AccountManagementService API 
+[14/09/2018 18:26:10] - corrId_5b9be12205aa73.68219640 - Processing GetCities request. 
+[14/09/2018 18:26:10] - corrId_5b9be12205aa73.68219640 - Token validated. 
+[14/09/2018 18:26:10] - corrId_5b9be12205aa73.68219640 - Query: SELECT *
+            FROM citta 
+[14/09/2018 18:26:10] - corrId_5b9be12205aa73.68219640 - Establishing connection to DB 
+[14/09/2018 18:26:10] - corrId_5b9be12205aa73.68219640 - Executing query 
+[14/09/2018 19:05:31] - corrId_5b9bea5bc6cb94.43422804 - Reached AccountManagementService API 
+[14/09/2018 19:05:31] - corrId_5b9bea5bc6cb94.43422804 - Processing GetCities request. 
+[14/09/2018 19:05:31] - corrId_5b9bea5bc6cb94.43422804 - Token validated. 
+[14/09/2018 19:05:31] - corrId_5b9bea5bc6cb94.43422804 - Query: SELECT *
+            FROM citta 
+[14/09/2018 19:05:31] - corrId_5b9bea5bc6cb94.43422804 - Establishing connection to DB 
+[14/09/2018 19:05:31] - corrId_5b9bea5bc6cb94.43422804 - Executing query 
+[14/09/2018 22:47:14] - corrId_5b9c1e5296f1a9.38488685 - Reached AuthenticationService API 
+[14/09/2018 22:47:14] - corrId_5b9c1e5296f1a9.38488685 - Processing Login request. 
+[14/09/2018 22:47:14] - corrId_5b9c1e5296f1a9.38488685 - Establishing connection to DB 
+[14/09/2018 22:47:14] - corrId_5b9c1e5296f1a9.38488685 - Executing query 
+[14/09/2018 22:47:14] - corrId_5b9c1e5296f1a9.38488685 - User  validated, generating Token. 
+[14/09/2018 22:47:14] - corrId_5b9c1e5296f1a9.38488685 - Token generated succesfully. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbEFjtn4XsFhOFmG30n4PcTI8wXPzxm/waElwFXqpafElJvaHFkRClq8P8HhE3bM9sG3F8CQ4FotzAJ8TbfAh+Fk= 

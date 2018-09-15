@@ -5,6 +5,23 @@
         <span>Da questa pagina è possibile registrare lo scarico/carico dei film.</span><br>
     </div>
     <br>
-    <div id="ManageAccountStorage"></div>
+    <div id="StorageManagementContainer">
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="row">
+                    <span class="col-sm-6">Titolo film:</span>
+                    <div class="col-sm-6 row">
+                        <input type="text" id="InputMovieName" class="col-sm-12" onchange="getStores(this);">
+                    </div>                    
+                </div>
+                <div class="row">
+                    <span class="col-sm-6">Selezionare un genere:</span>
+                    <div class="col-sm-6 row">
+                        <select id="SelectMovieGenre" class="col-sm-12" onchange="getStores(this);"></select>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <!-- <div class="simple-button" onclick="searchAccounts();">Cerca account</div> -->
