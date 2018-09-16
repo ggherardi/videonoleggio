@@ -164,14 +164,15 @@ CREATE TABLE `copia` (
   `id_film` int(11) DEFAULT NULL,
   `id_punto_vendita` int(11) DEFAULT NULL,
   `id_fornitore` int(11) DEFAULT NULL,
-  `data_scarico` datetime DEFAULT NULL,
+  `data_scarico` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `danneggiato` tinyint(4) DEFAULT '0',
-  `disponibile` tinyint(4) DEFAULT '0',
+  `noleggiato` tinyint(4) DEFAULT '0',
+  `restituito` tinyint(4) DEFAULT '0',
   PRIMARY KEY (`id_copia`),
   KEY `fk_partita_film_idx` (`id_film`),
   KEY `fk_partita_punto_vendita_idx` (`id_punto_vendita`),
   KEY `fk_partita_fornitore_idx` (`id_fornitore`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -180,6 +181,7 @@ CREATE TABLE `copia` (
 
 LOCK TABLES `copia` WRITE;
 /*!40000 ALTER TABLE `copia` DISABLE KEYS */;
+INSERT INTO `copia` VALUES (1,1,1,1,'2018-07-05 15:13:42',0,1,0),(53,1,1,1,'2018-09-16 16:08:52',0,0,0),(54,1,1,1,'2018-09-16 16:08:52',0,0,1),(55,12,1,4,'2018-06-29 16:09:02',0,1,0),(56,12,1,4,'2018-09-16 16:09:02',0,0,0),(57,12,1,4,'2018-09-16 16:09:02',0,1,0),(58,12,1,4,'2018-09-16 16:09:02',0,0,0),(59,12,1,4,'2018-09-16 16:09:02',0,0,0),(60,12,1,4,'2018-09-16 16:09:02',0,0,0),(61,12,1,4,'2018-09-16 16:09:02',0,0,1),(62,12,1,4,'2018-09-16 16:09:02',0,0,1),(63,12,1,4,'2018-09-16 16:09:02',0,0,1),(64,12,1,4,'2018-09-16 16:09:02',0,0,1);
 /*!40000 ALTER TABLE `copia` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -256,6 +258,7 @@ CREATE TABLE `film` (
   `titolo` varchar(100) DEFAULT NULL,
   `durata` int(11) DEFAULT NULL,
   `prezzo_giornaliero` float DEFAULT NULL,
+  `inUscita` tinyint(4) DEFAULT '0',
   PRIMARY KEY (`id_film`),
   KEY `fk_film_regista_idx` (`id_regista`),
   KEY `fk_film_genere_idx` (`id_genere`),
@@ -272,7 +275,7 @@ CREATE TABLE `film` (
 
 LOCK TABLES `film` WRITE;
 /*!40000 ALTER TABLE `film` DISABLE KEYS */;
-INSERT INTO `film` VALUES (1,1,1,1,'Le ali della libertà',142,5),(2,4,2,2,'Il padrino',175,5),(3,3,2,3,'Il cavaliere oscuro',152,8),(4,2,2,4,'Pulp fiction',154,6),(5,5,1,9,'Schindler\'s List',195,5),(12,6,4,5,'Il Signore degli Anelli - Il ritorno del re',201,8),(14,6,4,5,'Il Signore degli Anelli - La compagnia dell\'Anello',178,8),(15,7,5,6,'Il buono, il brutto, il cattivo',161,5),(16,8,2,7,'La parola ai giurati',96,4);
+INSERT INTO `film` VALUES (1,1,1,1,'Le ali della libertà',142,5,0),(2,4,2,2,'Il padrino',175,5,0),(3,3,2,3,'Il cavaliere oscuro',152,8,0),(4,2,2,4,'Pulp fiction',154,6,0),(5,5,1,9,'Schindler\'s List',195,5,0),(12,6,4,5,'Il Signore degli Anelli - Il ritorno del re',201,8,0),(14,6,4,5,'Il Signore degli Anelli - La compagnia dell\'Anello',178,8,0),(15,7,5,6,'Il buono, il brutto, il cattivo',161,5,0),(16,8,2,7,'La parola ai giurati',96,4,0);
 /*!40000 ALTER TABLE `film` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -298,34 +301,6 @@ LOCK TABLES `fornitore` WRITE;
 /*!40000 ALTER TABLE `fornitore` DISABLE KEYS */;
 INSERT INTO `fornitore` VALUES (1,'Cinema Soul S.p.A.'),(2,'Movie Provider S.r.l.'),(3,'Home Video S.p.A.'),(4,'Big Cinema S.r.l.'),(5,'Shady Dealer S.r.l.'),(6,'No need for Theatres S.p.A.');
 /*!40000 ALTER TABLE `fornitore` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `fornitura`
---
-
-DROP TABLE IF EXISTS `fornitura`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `fornitura` (
-  `id_fornitura` int(11) NOT NULL AUTO_INCREMENT,
-  `id_punto_vendita` int(11) DEFAULT NULL,
-  `id_fornitore` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_fornitura`),
-  KEY `id_punto_vendita_idx` (`id_punto_vendita`),
-  KEY `fk_fornitura_fornitore_idx` (`id_fornitore`),
-  CONSTRAINT `fk_fornitura_fornitore` FOREIGN KEY (`id_fornitore`) REFERENCES `fornitore` (`id_fornitore`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_fornitura_punto_vendita` FOREIGN KEY (`id_punto_vendita`) REFERENCES `punto_vendita` (`id_punto_vendita`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `fornitura`
---
-
-LOCK TABLES `fornitura` WRITE;
-/*!40000 ALTER TABLE `fornitura` DISABLE KEYS */;
-/*!40000 ALTER TABLE `fornitura` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -364,7 +339,7 @@ CREATE TABLE `noleggio` (
   `id_dipendente` int(11) DEFAULT NULL,
   `id_punto_vendita` int(11) DEFAULT NULL,
   `id_cliente` int(11) DEFAULT NULL,
-  `id_partita` int(11) DEFAULT NULL,
+  `id_copia` int(11) DEFAULT NULL,
   `data_inizio` datetime DEFAULT NULL,
   `data_fine` datetime DEFAULT NULL,
   `prezzo_totale` float DEFAULT NULL,
@@ -372,10 +347,10 @@ CREATE TABLE `noleggio` (
   KEY `fk_noleggio_punto_vendita_idx` (`id_punto_vendita`),
   KEY `fk_noleggio_cliente_idx` (`id_cliente`),
   KEY `fk_noleggio_dipendente_idx` (`id_dipendente`),
-  KEY `fk_noleggio_partita_idx` (`id_partita`),
+  KEY `fk_noleggio_copia_idx` (`id_copia`),
   CONSTRAINT `fk_noleggio_cliente` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id_cliente`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_noleggio_copia` FOREIGN KEY (`id_copia`) REFERENCES `copia` (`id_copia`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_noleggio_dipendente` FOREIGN KEY (`id_dipendente`) REFERENCES `dipendente` (`id_dipendente`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_noleggio_partita` FOREIGN KEY (`id_partita`) REFERENCES `partita` (`id_partita`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_noleggio_punto_vendita` FOREIGN KEY (`id_punto_vendita`) REFERENCES `punto_vendita` (`id_punto_vendita`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -531,4 +506,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-09-15 11:01:51
+-- Dump completed on 2018-09-16 19:07:59

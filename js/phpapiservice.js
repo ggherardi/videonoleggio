@@ -152,6 +152,20 @@ class GetAllItemsService extends RestClient {
         }
         return super.executeWithToken();
     }
+
+    getAllFilms() {
+        this.data = {
+            action: "getAllFilms"
+        }
+        return super.executeWithToken();
+    }
+
+    getAllSuppliers() {
+        this.data = {
+            action: "getAllSuppliers"
+        }
+        return super.executeWithToken();
+    }
 }
 
 class StorageManagementService extends RestClient {
@@ -160,9 +174,36 @@ class StorageManagementService extends RestClient {
         this.endpoint = "php/StorageManagementService.php";
     }
 
-    getAllCities() {
+    getVideosInStorage(filters) {
+        filters = JSON.stringify(filters);
         this.data = {
-            action: "getMoviesCopies"
+            action: "getVideosInStorage",
+            filters: filters
+        }
+        return super.executeWithToken();        
+    }
+
+    getAlreadyAvailableMovies() {
+        this.data = {
+            action: "getAlreadyAvailableMovies",
+        }
+        return super.executeWithToken();        
+    }
+
+    unloadCopies(copies) {
+        copies = JSON.stringify(copies);
+        this.data = {
+            action: "unloadCopies",
+            copies: copies
+        }
+        return super.executeWithToken();        
+    }
+
+    loadCopies(copies) {
+        copies = JSON.stringify(copies);
+        this.data = {
+            action: "loadCopies",
+            copies: copies
         }
         return super.executeWithToken();        
     }

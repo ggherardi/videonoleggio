@@ -201,7 +201,7 @@ function insertEmployee(e, dt, node, config) {
 }
 
 function insertItem() {
-    var employee = getEmployeeFromForm();
+    var employee = getEmployeeFromFormData();
     accountManagementService.insertEmployee(employee)
         .done(editItemSuccess)
         .fail(restCallError);
@@ -282,13 +282,13 @@ function buildOptions(table, row, selectId) {
 }
 
 function editItem() {
-    var employee = getEmployeeFromForm();
+    var employee = getEmployeeFromFormData();
     accountManagementService.editEmployee(employee)
         .done(editItemSuccess)
         .fail(restCallError);
 }
 
-function getEmployeeFromForm() {
+function getEmployeeFromFormData() {
     var employee = {
         id_dipendente: $("#EmployeeForm_dipendente_id").val(),
         id_punto_vendita: $("#EmployeeForm_punto_vendita option:selected").val(),

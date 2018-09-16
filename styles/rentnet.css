@@ -8,6 +8,12 @@
     border: #8583e1!important;
 }
 
+.form-control::placeholder
+{
+    font-style: italic;
+    opacity: 0.3;
+}
+
 .loader-spinner {
     margin: 0 auto;
 }

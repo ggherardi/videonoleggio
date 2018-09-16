@@ -66,3 +66,8 @@ function menuClick(menuItem) {
     mainContentController.setView(view);
     menu.setMenuItemActive(view);
 }
+
+/* Shared functions */
+function validateForm(formId) {
+    return $(formId)[0].checkValidity();
+}

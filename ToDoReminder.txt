@@ -1,1 +1,2 @@
-Controllare se le keyword ES6 funzionano su altri browser
+- Controllare se le keyword ES6 funzionano su altri browser
+- storage.js line 72: Prendere i giorni massimi dalla tabella config
