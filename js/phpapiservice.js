@@ -166,6 +166,13 @@ class GetAllItemsService extends RestClient {
         }
         return super.executeWithToken();
     }
+
+    getAllCustomers() {
+        this.data = {
+            action: "getAllCustomers"
+        }
+        return super.executeWithToken();
+    }
 }
 
 class StorageManagementService extends RestClient {
@@ -204,6 +211,20 @@ class StorageManagementService extends RestClient {
         this.data = {
             action: "loadCopies",
             copies: copies
+        }
+        return super.executeWithToken();        
+    }
+}
+
+class CustomersManagementService extends RestClient {
+    constructor() {
+        super();
+        this.endpoint = "php/CustomerManagementService.php";
+    }
+
+    getAllPremiumCustomers() {
+        this.data = {
+            action: "getAllPremiumCustomers"
         }
         return super.executeWithToken();        
     }

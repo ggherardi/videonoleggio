@@ -6,25 +6,25 @@ var employeesDataTable;
 var allRoles;
 var allStores;
 var dataTableOptions = {
-        dom: 'Bftpil',
-        buttons: true,
-        select: true,
-        columnDefs: [{
-            targets: 0,
-            visible: false,
-            searchable: false
-        }, {
-            targets: 1,
-            visible: false,
-            searchable: false
-        }],
-        buttons: [
-            { extend: 'copy', text: "Copia" },
-            { extend: 'selectedSingle', text: "Resetta password", action: resetPassword },
-            { extend: 'selectedSingle', text: "Modifica", action: editEmployee },
-            { extend: 'selected', text: "Cancella", action: deleteEmployee },
-            { text: "Nuovo", action: insertEmployee },
-        ]
+    dom: 'Bftpil',
+    buttons: true,
+    select: true,
+    columnDefs: [{
+        targets: 0,
+        visible: false,
+        searchable: false
+    }, {
+        targets: 1,
+        visible: false,
+        searchable: false
+    }],
+    buttons: [
+        { extend: 'copy', text: "Copia" },
+        { extend: 'selectedSingle', text: "Resetta password", action: resetPassword },
+        { extend: 'selectedSingle', text: "Modifica", action: editEmployee },
+        { extend: 'selected', text: "Cancella", action: deleteEmployee },
+        { text: "Nuovo", action: insertEmployee },
+    ]
 };
 
 function initAccountManager() {
@@ -144,10 +144,6 @@ function buildEmployeeTableHtml() {
                     <th scope="col">Ruolo</th>
                 </tr>
             </thead>`;
-}
-
-function restCallError(jqXHR, textStatus, errorThrown) {
-    console.log(jqXHR.status);
 }
 
 /* Delete Employee */

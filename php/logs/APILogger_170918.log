@@ -1,0 +1,838 @@
+[17/09/2018 00:12:18] - corrId_5b9ed5428ca352.35716315 - Reached AccountManagementService API 
+[17/09/2018 00:12:18] - corrId_5b9ed5428ca352.35716315 - Processing GetCities request. 
+[17/09/2018 00:12:18] - corrId_5b9ed5428ca352.35716315 - Token validated. 
+[17/09/2018 00:12:18] - corrId_5b9ed5428ca352.35716315 - Query: SELECT *
+            FROM citta 
+[17/09/2018 00:12:18] - corrId_5b9ed5428ca352.35716315 - Establishing connection to DB 
+[17/09/2018 00:12:18] - corrId_5b9ed5428ca352.35716315 - Executing query 
+[17/09/2018 00:12:31] - corrId_5b9ed54fb991f1.26811260 - Reached AccountManagementService API 
+[17/09/2018 00:12:31] - corrId_5b9ed54fb991f1.26811260 - Processing GetCities request. 
+[17/09/2018 00:12:31] - corrId_5b9ed54fb991f1.26811260 - Token validated. 
+[17/09/2018 00:12:31] - corrId_5b9ed54fb991f1.26811260 - Query: SELECT *
+            FROM citta 
+[17/09/2018 00:12:31] - corrId_5b9ed54fb991f1.26811260 - Establishing connection to DB 
+[17/09/2018 00:12:31] - corrId_5b9ed54fb991f1.26811260 - Executing query 
+[17/09/2018 00:13:18] - corrId_5b9ed57e7de5d4.75299084 - Reached GetAllItemsService API 
+[17/09/2018 00:13:18] - corrId_5b9ed57e7de5d4.75299084 - Processing GetAllCustomers request. 
+[17/09/2018 00:13:18] - corrId_5b9ed57e7de5d4.75299084 - Token validated. 
+[17/09/2018 00:13:18] - corrId_5b9ed57e7de5d4.75299084 - Establishing connection to DB 
+[17/09/2018 00:13:18] - corrId_5b9ed57e7de5d4.75299084 - Executing query 
+[17/09/2018 00:13:31] - corrId_5b9ed58b206834.26788741 - Reached GetAllItemsService API 
+[17/09/2018 00:13:31] - corrId_5b9ed58b206834.26788741 - Processing GetAllCustomers request. 
+[17/09/2018 00:13:31] - corrId_5b9ed58b206834.26788741 - Token validated. 
+[17/09/2018 00:13:31] - corrId_5b9ed58b206834.26788741 - Establishing connection to DB 
+[17/09/2018 00:13:31] - corrId_5b9ed58b206834.26788741 - Executing query 
+[17/09/2018 00:13:55] - corrId_5b9ed5a3786fa9.30310223 - Reached GetAllItemsService API 
+[17/09/2018 00:13:55] - corrId_5b9ed5a3786fa9.30310223 - Processing GetAllCustomers request. 
+[17/09/2018 00:13:55] - corrId_5b9ed5a3786fa9.30310223 - Token validated. 
+[17/09/2018 00:13:55] - corrId_5b9ed5a3786fa9.30310223 - Establishing connection to DB 
+[17/09/2018 00:13:55] - corrId_5b9ed5a3786fa9.30310223 - Executing query 
+[17/09/2018 00:14:07] - corrId_5b9ed5afec1ec1.10959435 - Reached GetAllItemsService API 
+[17/09/2018 00:14:07] - corrId_5b9ed5afec1ec1.10959435 - Processing GetAllCustomers request. 
+[17/09/2018 00:14:07] - corrId_5b9ed5afec1ec1.10959435 - Token validated. 
+[17/09/2018 00:14:07] - corrId_5b9ed5afec1ec1.10959435 - Establishing connection to DB 
+[17/09/2018 00:14:07] - corrId_5b9ed5afec1ec1.10959435 - Executing query 
+[17/09/2018 00:14:26] - corrId_5b9ed5c2af2f48.23699064 - Reached GetAllItemsService API 
+[17/09/2018 00:14:26] - corrId_5b9ed5c2af2f48.23699064 - Processing GetAllCustomers request. 
+[17/09/2018 00:14:26] - corrId_5b9ed5c2af2f48.23699064 - Token validated. 
+[17/09/2018 00:14:26] - corrId_5b9ed5c2af2f48.23699064 - Establishing connection to DB 
+[17/09/2018 00:14:26] - corrId_5b9ed5c2af2f48.23699064 - Executing query 
+[17/09/2018 00:14:49] - corrId_5b9ed5d98bb3e9.89338637 - Reached AccountManagementService API 
+[17/09/2018 00:14:49] - corrId_5b9ed5d98bb3e9.89338637 - Processing GetCities request. 
+[17/09/2018 00:14:49] - corrId_5b9ed5d98bb3e9.89338637 - Token validated. 
+[17/09/2018 00:14:49] - corrId_5b9ed5d98bb3e9.89338637 - Query: SELECT *
+            FROM citta 
+[17/09/2018 00:14:49] - corrId_5b9ed5d98bb3e9.89338637 - Establishing connection to DB 
+[17/09/2018 00:14:49] - corrId_5b9ed5d98bb3e9.89338637 - Executing query 
+[17/09/2018 00:15:23] - corrId_5b9ed5fb5b2dd1.65251590 - Reached GetAllItemsService API 
+[17/09/2018 00:15:23] - corrId_5b9ed5fb5b2dd1.65251590 - Processing GetAllCustomers request. 
+[17/09/2018 00:15:23] - corrId_5b9ed5fb5b2dd1.65251590 - Token validated. 
+[17/09/2018 00:15:23] - corrId_5b9ed5fb5b2dd1.65251590 - Establishing connection to DB 
+[17/09/2018 00:15:23] - corrId_5b9ed5fb5b2dd1.65251590 - Executing query 
+[17/09/2018 00:16:52] - corrId_5b9ed6549da9f3.74885531 - Reached GetAllItemsService API 
+[17/09/2018 00:16:52] - corrId_5b9ed6549da9f3.74885531 - Processing GetAllCustomers request. 
+[17/09/2018 00:16:52] - corrId_5b9ed6549da9f3.74885531 - Token validated. 
+[17/09/2018 00:16:52] - corrId_5b9ed6549da9f3.74885531 - Establishing connection to DB 
+[17/09/2018 00:16:52] - corrId_5b9ed6549da9f3.74885531 - Executing query 
+[17/09/2018 00:17:36] - corrId_5b9ed680178796.53930135 - Reached GetAllItemsService API 
+[17/09/2018 00:17:36] - corrId_5b9ed680178796.53930135 - Processing GetAllCustomers request. 
+[17/09/2018 00:17:36] - corrId_5b9ed680178796.53930135 - Token validated. 
+[17/09/2018 00:17:36] - corrId_5b9ed680178796.53930135 - Establishing connection to DB 
+[17/09/2018 00:17:36] - corrId_5b9ed680178796.53930135 - Executing query 
+[17/09/2018 00:18:01] - corrId_5b9ed699e25f18.89387131 - Reached GetAllItemsService API 
+[17/09/2018 00:18:01] - corrId_5b9ed699e25f18.89387131 - Processing GetAllCustomers request. 
+[17/09/2018 00:18:01] - corrId_5b9ed699e25f18.89387131 - Token validated. 
+[17/09/2018 00:18:01] - corrId_5b9ed699e25f18.89387131 - Establishing connection to DB 
+[17/09/2018 00:18:01] - corrId_5b9ed699e25f18.89387131 - Executing query 
+[17/09/2018 00:18:15] - corrId_5b9ed6a7877229.85507627 - Reached GetAllItemsService API 
+[17/09/2018 00:18:15] - corrId_5b9ed6a7877229.85507627 - Processing GetAllCustomers request. 
+[17/09/2018 00:18:15] - corrId_5b9ed6a7877229.85507627 - Token validated. 
+[17/09/2018 00:18:15] - corrId_5b9ed6a7877229.85507627 - Establishing connection to DB 
+[17/09/2018 00:18:15] - corrId_5b9ed6a7877229.85507627 - Executing query 
+[17/09/2018 00:18:41] - corrId_5b9ed6c1cb7045.29577050 - Reached GetAllItemsService API 
+[17/09/2018 00:18:41] - corrId_5b9ed6c1cb7045.29577050 - Processing GetAllCustomers request. 
+[17/09/2018 00:18:41] - corrId_5b9ed6c1cb7045.29577050 - Token validated. 
+[17/09/2018 00:18:41] - corrId_5b9ed6c1cb7045.29577050 - Establishing connection to DB 
+[17/09/2018 00:18:41] - corrId_5b9ed6c1cb7045.29577050 - Executing query 
+[17/09/2018 00:20:17] - corrId_5b9ed721ac6640.96117292 - Reached GetAllItemsService API 
+[17/09/2018 00:20:17] - corrId_5b9ed721ac6640.96117292 - Processing GetAllCustomers request. 
+[17/09/2018 00:20:17] - corrId_5b9ed721ac6640.96117292 - Token validated. 
+[17/09/2018 00:20:17] - corrId_5b9ed721ac6640.96117292 - Establishing connection to DB 
+[17/09/2018 00:20:17] - corrId_5b9ed721ac6640.96117292 - Executing query 
+[17/09/2018 00:20:30] - corrId_5b9ed72eb4b836.75292742 - Reached GetAllItemsService API 
+[17/09/2018 00:20:30] - corrId_5b9ed72eb4b836.75292742 - Processing GetAllCustomers request. 
+[17/09/2018 00:20:30] - corrId_5b9ed72eb4b836.75292742 - Token validated. 
+[17/09/2018 00:20:30] - corrId_5b9ed72eb4b836.75292742 - Establishing connection to DB 
+[17/09/2018 00:20:30] - corrId_5b9ed72eb4b836.75292742 - Executing query 
+[17/09/2018 00:20:34] - corrId_5b9ed73293f189.31444349 - Reached AccountManagementService API 
+[17/09/2018 00:20:34] - corrId_5b9ed73293f189.31444349 - Processing GetCities request. 
+[17/09/2018 00:20:34] - corrId_5b9ed73293f189.31444349 - Token validated. 
+[17/09/2018 00:20:34] - corrId_5b9ed73293f189.31444349 - Query: SELECT *
+            FROM citta 
+[17/09/2018 00:20:34] - corrId_5b9ed73293f189.31444349 - Establishing connection to DB 
+[17/09/2018 00:20:34] - corrId_5b9ed73293f189.31444349 - Executing query 
+[17/09/2018 00:20:35] - corrId_5b9ed73367e147.94758388 - Reached StorageManagementService API 
+[17/09/2018 00:20:35] - corrId_5b9ed73367e147.94758388 - Processing GetVideosInStorage request. 
+[17/09/2018 00:20:35] - corrId_5b9ed73367e147.94758388 - Token validated. 
+[17/09/2018 00:20:35] - corrId_5b9ed73367e147.94758388 - Query: SELECT co.id_copia, co.data_scarico, co.danneggiato, co.noleggiato, fi.id_film, fi.titolo, fo.nome
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN fornitore fo
+            ON co.id_fornitore = fo.id_fornitore
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0 
+[17/09/2018 00:20:35] - corrId_5b9ed73367e147.94758388 - Establishing connection to DB 
+[17/09/2018 00:20:35] - corrId_5b9ed73367e147.94758388 - Executing query 
+[17/09/2018 00:20:48] - corrId_5b9ed740267f51.01581466 - Reached AccountManagementService API 
+[17/09/2018 00:20:48] - corrId_5b9ed740267f51.01581466 - Processing GetCities request. 
+[17/09/2018 00:20:48] - corrId_5b9ed740267f51.01581466 - Token validated. 
+[17/09/2018 00:20:48] - corrId_5b9ed740267f51.01581466 - Query: SELECT *
+            FROM citta 
+[17/09/2018 00:20:48] - corrId_5b9ed740267f51.01581466 - Establishing connection to DB 
+[17/09/2018 00:20:48] - corrId_5b9ed740267f51.01581466 - Executing query 
+[17/09/2018 00:20:49] - corrId_5b9ed7415596a7.92274353 - Reached AccountManagementService API 
+[17/09/2018 00:20:49] - corrId_5b9ed7415596a7.92274353 - Processing GetStores request. 
+[17/09/2018 00:20:49] - corrId_5b9ed7415596a7.92274353 - Token validated. 
+[17/09/2018 00:20:49] - corrId_5b9ed7415596a7.92274353 - Query: SELECT *
+            FROM punto_vendita 
+             
+[17/09/2018 00:20:49] - corrId_5b9ed7415596a7.92274353 - Establishing connection to DB 
+[17/09/2018 00:20:49] - corrId_5b9ed7415596a7.92274353 - Executing query 
+[17/09/2018 00:20:50] - corrId_5b9ed7421581d8.84990598 - Reached AccountManagementService API 
+[17/09/2018 00:20:50] - corrId_5b9ed7421581d8.84990598 - Processing GetEmployees request. 
+[17/09/2018 00:20:50] - corrId_5b9ed7421581d8.84990598 - Token validated. 
+[17/09/2018 00:20:50] - corrId_5b9ed7421581d8.84990598 - Query: SELECT dip.id_dipendente, dip.nome as dipendente_nome, dip.cognome as dipendente_cognome,
+                dip.username as dipendente_username, del.nome as delega_nome, del.codice as delega_codice,
+                pv.nome as punto_vendita_nome, dip.id_punto_vendita as punto_vendita_id
+            FROM dipendente as dip
+            INNER JOIN delega as del
+            ON dip.id_delega = del.id_delega
+            INNER JOIN punto_vendita as pv
+            ON dip.id_punto_vendita = pv.id_punto_vendita 
+             
+[17/09/2018 00:20:50] - corrId_5b9ed7421581d8.84990598 - Establishing connection to DB 
+[17/09/2018 00:20:50] - corrId_5b9ed7421581d8.84990598 - Executing query 
+[17/09/2018 00:20:52] - corrId_5b9ed744a63321.14687726 - Reached GetAllItemsService API 
+[17/09/2018 00:20:52] - corrId_5b9ed744a63321.14687726 - Processing GetAllCustomers request. 
+[17/09/2018 00:20:52] - corrId_5b9ed744a63321.14687726 - Token validated. 
+[17/09/2018 00:20:52] - corrId_5b9ed744a63321.14687726 - Establishing connection to DB 
+[17/09/2018 00:20:52] - corrId_5b9ed744a63321.14687726 - Executing query 
+[17/09/2018 00:20:54] - corrId_5b9ed7469b6b84.66938673 - Reached StorageManagementService API 
+[17/09/2018 00:20:54] - corrId_5b9ed7469b6b84.66938673 - Processing GetVideosInStorage request. 
+[17/09/2018 00:20:54] - corrId_5b9ed7469b6b84.66938673 - Token validated. 
+[17/09/2018 00:20:54] - corrId_5b9ed7469b6b84.66938673 - Query: SELECT co.id_copia, co.data_scarico, co.danneggiato, co.noleggiato, fi.id_film, fi.titolo, fo.nome
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN fornitore fo
+            ON co.id_fornitore = fo.id_fornitore
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0 
+[17/09/2018 00:20:54] - corrId_5b9ed7469b6b84.66938673 - Establishing connection to DB 
+[17/09/2018 00:20:54] - corrId_5b9ed7469b6b84.66938673 - Executing query 
+[17/09/2018 00:21:10] - corrId_5b9ed75637d544.95601904 - Reached GetAllItemsService API 
+[17/09/2018 00:21:10] - corrId_5b9ed75637d544.95601904 - Processing GetAllCustomers request. 
+[17/09/2018 00:21:10] - corrId_5b9ed75637d544.95601904 - Token validated. 
+[17/09/2018 00:21:10] - corrId_5b9ed75637d544.95601904 - Establishing connection to DB 
+[17/09/2018 00:21:10] - corrId_5b9ed75637d544.95601904 - Executing query 
+[17/09/2018 00:21:11] - corrId_5b9ed7579177b7.38840816 - Reached GetAllItemsService API 
+[17/09/2018 00:21:11] - corrId_5b9ed7579177b7.38840816 - Processing GetAllCustomers request. 
+[17/09/2018 00:21:11] - corrId_5b9ed7579177b7.38840816 - Token validated. 
+[17/09/2018 00:21:11] - corrId_5b9ed7579177b7.38840816 - Establishing connection to DB 
+[17/09/2018 00:21:11] - corrId_5b9ed7579177b7.38840816 - Executing query 
+[17/09/2018 00:21:23] - corrId_5b9ed763381d20.13053902 - Reached AccountManagementService API 
+[17/09/2018 00:21:23] - corrId_5b9ed763381d20.13053902 - Processing GetCities request. 
+[17/09/2018 00:21:23] - corrId_5b9ed763381d20.13053902 - Token validated. 
+[17/09/2018 00:21:23] - corrId_5b9ed763381d20.13053902 - Query: SELECT *
+            FROM citta 
+[17/09/2018 00:21:23] - corrId_5b9ed763381d20.13053902 - Establishing connection to DB 
+[17/09/2018 00:21:23] - corrId_5b9ed763381d20.13053902 - Executing query 
+[17/09/2018 00:21:24] - corrId_5b9ed764235bb7.90278707 - Reached StorageManagementService API 
+[17/09/2018 00:21:24] - corrId_5b9ed764235bb7.90278707 - Processing GetVideosInStorage request. 
+[17/09/2018 00:21:24] - corrId_5b9ed764235bb7.90278707 - Token validated. 
+[17/09/2018 00:21:24] - corrId_5b9ed764235bb7.90278707 - Query: SELECT co.id_copia, co.data_scarico, co.danneggiato, co.noleggiato, fi.id_film, fi.titolo, fo.nome
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN fornitore fo
+            ON co.id_fornitore = fo.id_fornitore
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0 
+[17/09/2018 00:21:24] - corrId_5b9ed764235bb7.90278707 - Establishing connection to DB 
+[17/09/2018 00:21:24] - corrId_5b9ed764235bb7.90278707 - Executing query 
+[17/09/2018 00:21:32] - corrId_5b9ed76cbccfd6.53456468 - Reached GetAllItemsService API 
+[17/09/2018 00:21:32] - corrId_5b9ed76cbccfd6.53456468 - Processing GetAllSuppliers request. 
+[17/09/2018 00:21:32] - corrId_5b9ed76cbccfd6.53456468 - Token validated. 
+[17/09/2018 00:21:32] - corrId_5b9ed76cbccfd6.53456468 - Establishing connection to DB 
+[17/09/2018 00:21:32] - corrId_5b9ed76cbccfd6.53456468 - Executing query 
+[17/09/2018 00:21:32] - corrId_5b9ed76ccbf2b1.75124364 - Reached StorageManagementService API 
+[17/09/2018 00:21:32] - corrId_5b9ed76ccbf2b1.75124364 - Processing GetAlreadyAvailableMovies request. 
+[17/09/2018 00:21:32] - corrId_5b9ed76ccbf2b1.75124364 - Token validated. 
+[17/09/2018 00:21:32] - corrId_5b9ed76ccbf2b1.75124364 - Establishing connection to DB 
+[17/09/2018 00:21:32] - corrId_5b9ed76ccbf2b1.75124364 - Executing query 
+[17/09/2018 00:22:19] - corrId_5b9ed79bd7a886.92254042 - Reached StorageManagementService API 
+[17/09/2018 00:22:19] - corrId_5b9ed79bd7a886.92254042 - Processing GetVideosInStorage request. 
+[17/09/2018 00:22:19] - corrId_5b9ed79bd7a886.92254042 - Token validated. 
+[17/09/2018 00:22:19] - corrId_5b9ed79bd7a886.92254042 - Query: SELECT co.id_copia, co.data_scarico, co.danneggiato, co.noleggiato, fi.id_film, fi.titolo, fo.nome
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN fornitore fo
+            ON co.id_fornitore = fo.id_fornitore
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0 
+[17/09/2018 00:22:19] - corrId_5b9ed79bd7a886.92254042 - Establishing connection to DB 
+[17/09/2018 00:22:19] - corrId_5b9ed79bd7a886.92254042 - Executing query 
+[17/09/2018 00:22:21] - corrId_5b9ed79da81e77.32250069 - Reached StorageManagementService API 
+[17/09/2018 00:22:21] - corrId_5b9ed79da81e77.32250069 - Processing GetAlreadyAvailableMovies request. 
+[17/09/2018 00:22:21] - corrId_5b9ed79da81e77.32250069 - Token validated. 
+[17/09/2018 00:22:21] - corrId_5b9ed79da89b90.81209779 - Reached GetAllItemsService API 
+[17/09/2018 00:22:21] - corrId_5b9ed79da89b90.81209779 - Processing GetAllSuppliers request. 
+[17/09/2018 00:22:21] - corrId_5b9ed79da81e77.32250069 - Establishing connection to DB 
+[17/09/2018 00:22:21] - corrId_5b9ed79da89b90.81209779 - Token validated. 
+[17/09/2018 00:22:21] - corrId_5b9ed79da89b90.81209779 - Establishing connection to DB 
+[17/09/2018 00:22:21] - corrId_5b9ed79da81e77.32250069 - Executing query 
+[17/09/2018 00:22:21] - corrId_5b9ed79da89b90.81209779 - Executing query 
+[17/09/2018 00:22:40] - corrId_5b9ed7b0659c40.82198460 - Reached StorageManagementService API 
+[17/09/2018 00:22:40] - corrId_5b9ed7b0659c40.82198460 - Processing GetAlreadyAvailableMovies request. 
+[17/09/2018 00:22:40] - corrId_5b9ed7b065db17.25442365 - Reached GetAllItemsService API 
+[17/09/2018 00:22:40] - corrId_5b9ed7b065db17.25442365 - Processing GetAllSuppliers request. 
+[17/09/2018 00:22:40] - corrId_5b9ed7b0659c40.82198460 - Establishing connection to DB 
+[17/09/2018 00:22:40] - corrId_5b9ed7b065db17.25442365 - Token validated. 
+[17/09/2018 00:22:40] - corrId_5b9ed7b0659c40.82198460 - Executing query 
+[17/09/2018 00:22:40] - corrId_5b9ed7b065db17.25442365 - Establishing connection to DB 
+[17/09/2018 00:22:40] - corrId_5b9ed7b065db17.25442365 - Executing query 
+[17/09/2018 00:23:15] - corrId_5b9ed7d3914650.35081799 - Reached StorageManagementService API 
+[17/09/2018 00:23:15] - corrId_5b9ed7d3914650.35081799 - Processing GetVideosInStorage request. 
+[17/09/2018 00:23:15] - corrId_5b9ed7d3914650.35081799 - Token validated. 
+[17/09/2018 00:23:15] - corrId_5b9ed7d3914650.35081799 - Query: SELECT co.id_copia, co.data_scarico, co.danneggiato, co.noleggiato, fi.id_film, fi.titolo, fo.nome
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN fornitore fo
+            ON co.id_fornitore = fo.id_fornitore
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0 
+[17/09/2018 00:23:15] - corrId_5b9ed7d3914650.35081799 - Establishing connection to DB 
+[17/09/2018 00:23:15] - corrId_5b9ed7d3914650.35081799 - Executing query 
+[17/09/2018 00:23:16] - corrId_5b9ed7d495b314.95404013 - Reached StorageManagementService API 
+[17/09/2018 00:23:16] - corrId_5b9ed7d495b314.95404013 - Processing GetAlreadyAvailableMovies request. 
+[17/09/2018 00:23:16] - corrId_5b9ed7d4963061.69111557 - Reached GetAllItemsService API 
+[17/09/2018 00:23:16] - corrId_5b9ed7d4963061.69111557 - Processing GetAllSuppliers request. 
+[17/09/2018 00:23:16] - corrId_5b9ed7d4963061.69111557 - Token validated. 
+[17/09/2018 00:23:16] - corrId_5b9ed7d495b314.95404013 - Establishing connection to DB 
+[17/09/2018 00:23:16] - corrId_5b9ed7d4963061.69111557 - Establishing connection to DB 
+[17/09/2018 00:23:16] - corrId_5b9ed7d4963061.69111557 - Executing query 
+[17/09/2018 00:23:16] - corrId_5b9ed7d495b314.95404013 - Executing query 
+[17/09/2018 00:23:30] - corrId_5b9ed7e2931f37.55232027 - Reached StorageManagementService API 
+[17/09/2018 00:23:30] - corrId_5b9ed7e2931f37.55232027 - Processing GetAlreadyAvailableMovies request. 
+[17/09/2018 00:23:30] - corrId_5b9ed7e2931f37.55232027 - Token validated. 
+[17/09/2018 00:23:30] - corrId_5b9ed7e2939c48.76962254 - Reached GetAllItemsService API 
+[17/09/2018 00:23:30] - corrId_5b9ed7e2939c48.76962254 - Processing GetAllSuppliers request. 
+[17/09/2018 00:23:30] - corrId_5b9ed7e2931f37.55232027 - Establishing connection to DB 
+[17/09/2018 00:23:30] - corrId_5b9ed7e2939c48.76962254 - Establishing connection to DB 
+[17/09/2018 00:23:30] - corrId_5b9ed7e2931f37.55232027 - Executing query 
+[17/09/2018 00:23:30] - corrId_5b9ed7e2939c48.76962254 - Executing query 
+[17/09/2018 00:23:45] - corrId_5b9ed7f18ac697.80769088 - Reached GetAllItemsService API 
+[17/09/2018 00:23:45] - corrId_5b9ed7f18ac697.80769088 - Processing GetAllCustomers request. 
+[17/09/2018 00:23:45] - corrId_5b9ed7f18ac697.80769088 - Token validated. 
+[17/09/2018 00:23:45] - corrId_5b9ed7f18ac697.80769088 - Establishing connection to DB 
+[17/09/2018 00:23:45] - corrId_5b9ed7f18ac697.80769088 - Executing query 
+[17/09/2018 00:24:09] - corrId_5b9ed809118ca7.67654987 - Reached GetAllItemsService API 
+[17/09/2018 00:24:09] - corrId_5b9ed809118ca7.67654987 - Processing GetAllCustomers request. 
+[17/09/2018 00:24:09] - corrId_5b9ed809118ca7.67654987 - Token validated. 
+[17/09/2018 00:24:09] - corrId_5b9ed809118ca7.67654987 - Establishing connection to DB 
+[17/09/2018 00:24:09] - corrId_5b9ed809118ca7.67654987 - Executing query 
+[17/09/2018 00:24:13] - corrId_5b9ed80d4b7115.71119908 - Reached AccountManagementService API 
+[17/09/2018 00:24:13] - corrId_5b9ed80d4b7115.71119908 - Processing GetCities request. 
+[17/09/2018 00:24:13] - corrId_5b9ed80d4b7115.71119908 - Token validated. 
+[17/09/2018 00:24:13] - corrId_5b9ed80d4b7115.71119908 - Query: SELECT *
+            FROM citta 
+[17/09/2018 00:24:13] - corrId_5b9ed80d4b7115.71119908 - Establishing connection to DB 
+[17/09/2018 00:24:13] - corrId_5b9ed80d4b7115.71119908 - Executing query 
+[17/09/2018 00:24:13] - corrId_5b9ed80df1bd39.47059792 - Reached GetAllItemsService API 
+[17/09/2018 00:24:13] - corrId_5b9ed80df1bd39.47059792 - Processing GetAllCustomers request. 
+[17/09/2018 00:24:13] - corrId_5b9ed80df1bd39.47059792 - Token validated. 
+[17/09/2018 00:24:13] - corrId_5b9ed80df1bd39.47059792 - Establishing connection to DB 
+[17/09/2018 00:24:14] - corrId_5b9ed80df1bd39.47059792 - Executing query 
+[17/09/2018 00:29:44] - corrId_5b9ed958112ca7.59068567 - Reached GetAllItemsService API 
+[17/09/2018 00:29:44] - corrId_5b9ed958112ca7.59068567 - Processing GetAllCustomers request. 
+[17/09/2018 00:29:44] - corrId_5b9ed958112ca7.59068567 - Token validated. 
+[17/09/2018 00:29:44] - corrId_5b9ed958112ca7.59068567 - Establishing connection to DB 
+[17/09/2018 00:29:44] - corrId_5b9ed958112ca7.59068567 - Executing query 
+[17/09/2018 00:31:26] - corrId_5b9ed9beaadd19.75496321 - Reached GetAllItemsService API 
+[17/09/2018 00:31:26] - corrId_5b9ed9beaadd19.75496321 - Processing GetAllCustomers request. 
+[17/09/2018 00:31:26] - corrId_5b9ed9beaadd19.75496321 - Token validated. 
+[17/09/2018 00:31:26] - corrId_5b9ed9beaadd19.75496321 - Establishing connection to DB 
+[17/09/2018 00:31:26] - corrId_5b9ed9beaadd19.75496321 - Executing query 
+[17/09/2018 00:31:50] - corrId_5b9ed9d68b8c23.13056301 - Reached GetAllItemsService API 
+[17/09/2018 00:31:50] - corrId_5b9ed9d68b8c23.13056301 - Processing GetAllCustomers request. 
+[17/09/2018 00:31:50] - corrId_5b9ed9d68b8c23.13056301 - Token validated. 
+[17/09/2018 00:31:50] - corrId_5b9ed9d68b8c23.13056301 - Establishing connection to DB 
+[17/09/2018 00:31:50] - corrId_5b9ed9d68b8c23.13056301 - Executing query 
+[17/09/2018 00:32:00] - corrId_5b9ed9e0a44330.88360639 - Reached GetAllItemsService API 
+[17/09/2018 00:32:00] - corrId_5b9ed9e0a44330.88360639 - Processing GetAllCustomers request. 
+[17/09/2018 00:32:00] - corrId_5b9ed9e0a44330.88360639 - Token validated. 
+[17/09/2018 00:32:00] - corrId_5b9ed9e0a44330.88360639 - Establishing connection to DB 
+[17/09/2018 00:32:00] - corrId_5b9ed9e0a44330.88360639 - Executing query 
+[17/09/2018 00:32:09] - corrId_5b9ed9e90e0a98.24121539 - Reached GetAllItemsService API 
+[17/09/2018 00:32:09] - corrId_5b9ed9e90e0a98.24121539 - Processing GetAllCustomers request. 
+[17/09/2018 00:32:09] - corrId_5b9ed9e90e0a98.24121539 - Token validated. 
+[17/09/2018 00:32:09] - corrId_5b9ed9e90e0a98.24121539 - Establishing connection to DB 
+[17/09/2018 00:32:09] - corrId_5b9ed9e90e0a98.24121539 - Executing query 
+[17/09/2018 00:32:59] - corrId_5b9eda1b0c72c0.66046161 - Reached AccountManagementService API 
+[17/09/2018 00:32:59] - corrId_5b9eda1b0c72c0.66046161 - Processing GetCities request. 
+[17/09/2018 00:32:59] - corrId_5b9eda1b0c72c0.66046161 - Token validated. 
+[17/09/2018 00:32:59] - corrId_5b9eda1b0c72c0.66046161 - Query: SELECT *
+            FROM citta 
+[17/09/2018 00:32:59] - corrId_5b9eda1b0c72c0.66046161 - Establishing connection to DB 
+[17/09/2018 00:32:59] - corrId_5b9eda1b0c72c0.66046161 - Executing query 
+[17/09/2018 00:33:00] - corrId_5b9eda1cc7fe80.97788301 - Reached AccountManagementService API 
+[17/09/2018 00:33:00] - corrId_5b9eda1cc7fe80.97788301 - Processing GetCities request. 
+[17/09/2018 00:33:00] - corrId_5b9eda1cc7fe80.97788301 - Token validated. 
+[17/09/2018 00:33:00] - corrId_5b9eda1cc7fe80.97788301 - Query: SELECT *
+            FROM citta 
+[17/09/2018 00:33:00] - corrId_5b9eda1cc7fe80.97788301 - Establishing connection to DB 
+[17/09/2018 00:33:00] - corrId_5b9eda1cc7fe80.97788301 - Executing query 
+[17/09/2018 00:33:01] - corrId_5b9eda1d2a7e66.40183417 - Reached GetAllItemsService API 
+[17/09/2018 00:33:01] - corrId_5b9eda1d2a7e66.40183417 - Processing GetAllCustomers request. 
+[17/09/2018 00:33:01] - corrId_5b9eda1d2a7e66.40183417 - Token validated. 
+[17/09/2018 00:33:01] - corrId_5b9eda1d2a7e66.40183417 - Establishing connection to DB 
+[17/09/2018 00:33:01] - corrId_5b9eda1d2a7e66.40183417 - Executing query 
+[17/09/2018 00:33:41] - corrId_5b9eda45b2b8e1.50784950 - Reached GetAllItemsService API 
+[17/09/2018 00:33:41] - corrId_5b9eda45b2b8e1.50784950 - Processing GetAllCustomers request. 
+[17/09/2018 00:33:41] - corrId_5b9eda45b2b8e1.50784950 - Token validated. 
+[17/09/2018 00:33:41] - corrId_5b9eda45b2b8e1.50784950 - Establishing connection to DB 
+[17/09/2018 00:33:41] - corrId_5b9eda45b2b8e1.50784950 - Executing query 
+[17/09/2018 00:33:59] - corrId_5b9eda575aa4a1.12007514 - Reached GetAllItemsService API 
+[17/09/2018 00:33:59] - corrId_5b9eda575aa4a1.12007514 - Processing GetAllCustomers request. 
+[17/09/2018 00:33:59] - corrId_5b9eda575aa4a1.12007514 - Token validated. 
+[17/09/2018 00:33:59] - corrId_5b9eda575aa4a1.12007514 - Establishing connection to DB 
+[17/09/2018 00:33:59] - corrId_5b9eda575aa4a1.12007514 - Executing query 
+[17/09/2018 00:36:50] - corrId_5b9edb0228a027.66748497 - Reached GetAllItemsService API 
+[17/09/2018 00:36:50] - corrId_5b9edb0228a027.66748497 - Processing GetAllCustomers request. 
+[17/09/2018 00:36:50] - corrId_5b9edb0228a027.66748497 - Token validated. 
+[17/09/2018 00:36:50] - corrId_5b9edb0228a027.66748497 - Establishing connection to DB 
+[17/09/2018 00:36:50] - corrId_5b9edb0228a027.66748497 - Executing query 
+[17/09/2018 00:42:07] - corrId_5b9edc3f6d8d90.42172109 - Reached GetAllItemsService API 
+[17/09/2018 00:42:07] - corrId_5b9edc3f6d8d90.42172109 - Processing GetAllCustomers request. 
+[17/09/2018 00:42:07] - corrId_5b9edc3f6d8d90.42172109 - Token validated. 
+[17/09/2018 00:42:07] - corrId_5b9edc3f6d8d90.42172109 - Establishing connection to DB 
+[17/09/2018 00:42:07] - corrId_5b9edc3f6d8d90.42172109 - Executing query 
+[17/09/2018 00:44:47] - corrId_5b9edcdf9850e4.25575007 - Reached GetAllItemsService API 
+[17/09/2018 00:44:47] - corrId_5b9edcdf9850e4.25575007 - Processing GetAllCustomers request. 
+[17/09/2018 00:44:47] - corrId_5b9edcdf9850e4.25575007 - Token validated. 
+[17/09/2018 00:44:47] - corrId_5b9edcdf9850e4.25575007 - Establishing connection to DB 
+[17/09/2018 00:44:47] - corrId_5b9edcdf9850e4.25575007 - Executing query 
+[17/09/2018 00:45:27] - corrId_5b9edd07bd7f21.51669539 - Reached GetAllItemsService API 
+[17/09/2018 00:45:27] - corrId_5b9edd07bd7f21.51669539 - Processing GetAllCustomers request. 
+[17/09/2018 00:45:27] - corrId_5b9edd07bd7f21.51669539 - Token validated. 
+[17/09/2018 00:45:27] - corrId_5b9edd07bd7f21.51669539 - Establishing connection to DB 
+[17/09/2018 00:45:27] - corrId_5b9edd07bd7f21.51669539 - Executing query 
+[17/09/2018 00:45:55] - corrId_5b9edd233ffac9.21704110 - Reached GetAllItemsService API 
+[17/09/2018 00:45:55] - corrId_5b9edd233ffac9.21704110 - Processing GetAllCustomers request. 
+[17/09/2018 00:45:55] - corrId_5b9edd233ffac9.21704110 - Token validated. 
+[17/09/2018 00:45:55] - corrId_5b9edd233ffac9.21704110 - Establishing connection to DB 
+[17/09/2018 00:45:55] - corrId_5b9edd233ffac9.21704110 - Executing query 
+[17/09/2018 00:47:15] - corrId_5b9edd73e5fb31.25963445 - Reached GetAllItemsService API 
+[17/09/2018 00:47:15] - corrId_5b9edd73e5fb31.25963445 - Processing GetAllCustomers request. 
+[17/09/2018 00:47:15] - corrId_5b9edd73e5fb31.25963445 - Token validated. 
+[17/09/2018 00:47:15] - corrId_5b9edd73e5fb31.25963445 - Establishing connection to DB 
+[17/09/2018 00:47:15] - corrId_5b9edd73e5fb31.25963445 - Executing query 
+[17/09/2018 00:47:39] - corrId_5b9edd8b49e3e3.76860192 - Reached AccountManagementService API 
+[17/09/2018 00:47:39] - corrId_5b9edd8b49e3e3.76860192 - Processing GetCities request. 
+[17/09/2018 00:47:39] - corrId_5b9edd8b49e3e3.76860192 - Token validated. 
+[17/09/2018 00:47:39] - corrId_5b9edd8b49e3e3.76860192 - Query: SELECT *
+            FROM citta 
+[17/09/2018 00:47:39] - corrId_5b9edd8b49e3e3.76860192 - Establishing connection to DB 
+[17/09/2018 00:47:39] - corrId_5b9edd8b49e3e3.76860192 - Executing query 
+[17/09/2018 00:47:40] - corrId_5b9edd8c756ec3.81975361 - Reached GetAllItemsService API 
+[17/09/2018 00:47:40] - corrId_5b9edd8c756ec3.81975361 - Processing GetAllCustomers request. 
+[17/09/2018 00:47:40] - corrId_5b9edd8c756ec3.81975361 - Token validated. 
+[17/09/2018 00:47:40] - corrId_5b9edd8c756ec3.81975361 - Establishing connection to DB 
+[17/09/2018 00:47:40] - corrId_5b9edd8c756ec3.81975361 - Executing query 
+[17/09/2018 00:48:48] - corrId_5b9eddd0eae9c3.93134624 - Reached GetAllItemsService API 
+[17/09/2018 00:48:48] - corrId_5b9eddd0eae9c3.93134624 - Processing GetAllCustomers request. 
+[17/09/2018 00:48:48] - corrId_5b9eddd0eae9c3.93134624 - Token validated. 
+[17/09/2018 00:48:48] - corrId_5b9eddd0eae9c3.93134624 - Establishing connection to DB 
+[17/09/2018 00:48:48] - corrId_5b9eddd0eae9c3.93134624 - Executing query 
+[17/09/2018 00:49:24] - corrId_5b9eddf4037303.38210202 - Reached GetAllItemsService API 
+[17/09/2018 00:49:24] - corrId_5b9eddf4037303.38210202 - Processing GetAllCustomers request. 
+[17/09/2018 00:49:24] - corrId_5b9eddf4037303.38210202 - Token validated. 
+[17/09/2018 00:49:24] - corrId_5b9eddf4037303.38210202 - Establishing connection to DB 
+[17/09/2018 00:49:24] - corrId_5b9eddf4037303.38210202 - Executing query 
+[17/09/2018 00:49:36] - corrId_5b9ede003abb68.18264452 - Reached GetAllItemsService API 
+[17/09/2018 00:49:36] - corrId_5b9ede003abb68.18264452 - Processing GetAllCustomers request. 
+[17/09/2018 00:49:36] - corrId_5b9ede003abb68.18264452 - Token validated. 
+[17/09/2018 00:49:36] - corrId_5b9ede003abb68.18264452 - Establishing connection to DB 
+[17/09/2018 00:49:36] - corrId_5b9ede003abb68.18264452 - Executing query 
+[17/09/2018 00:51:33] - corrId_5b9ede750415f2.21124133 - Reached GetAllItemsService API 
+[17/09/2018 00:51:33] - corrId_5b9ede750415f2.21124133 - Processing GetAllCustomers request. 
+[17/09/2018 00:51:33] - corrId_5b9ede750415f2.21124133 - Token validated. 
+[17/09/2018 00:51:33] - corrId_5b9ede750415f2.21124133 - Establishing connection to DB 
+[17/09/2018 00:51:33] - corrId_5b9ede750415f2.21124133 - Executing query 
+[17/09/2018 00:51:51] - corrId_5b9ede8725a8e2.11115217 - Reached GetAllItemsService API 
+[17/09/2018 00:51:51] - corrId_5b9ede8725a8e2.11115217 - Processing GetAllCustomers request. 
+[17/09/2018 00:51:51] - corrId_5b9ede8725a8e2.11115217 - Token validated. 
+[17/09/2018 00:51:51] - corrId_5b9ede8725a8e2.11115217 - Establishing connection to DB 
+[17/09/2018 00:51:51] - corrId_5b9ede8725a8e2.11115217 - Executing query 
+[17/09/2018 00:52:32] - corrId_5b9edeb0759a13.85267331 - Reached GetAllItemsService API 
+[17/09/2018 00:52:32] - corrId_5b9edeb0759a13.85267331 - Processing GetAllCustomers request. 
+[17/09/2018 00:52:32] - corrId_5b9edeb0759a13.85267331 - Token validated. 
+[17/09/2018 00:52:32] - corrId_5b9edeb0759a13.85267331 - Establishing connection to DB 
+[17/09/2018 00:52:32] - corrId_5b9edeb0759a13.85267331 - Executing query 
+[17/09/2018 00:52:41] - corrId_5b9edeb9d54475.17388116 - Reached GetAllItemsService API 
+[17/09/2018 00:52:41] - corrId_5b9edeb9d54475.17388116 - Processing GetAllCustomers request. 
+[17/09/2018 00:52:41] - corrId_5b9edeb9d54475.17388116 - Token validated. 
+[17/09/2018 00:52:41] - corrId_5b9edeb9d54475.17388116 - Establishing connection to DB 
+[17/09/2018 00:52:41] - corrId_5b9edeb9d54475.17388116 - Executing query 
+[17/09/2018 00:53:23] - corrId_5b9edee3656640.33645810 - Reached GetAllItemsService API 
+[17/09/2018 00:53:23] - corrId_5b9edee3656640.33645810 - Processing GetAllCustomers request. 
+[17/09/2018 00:53:23] - corrId_5b9edee3656640.33645810 - Token validated. 
+[17/09/2018 00:53:23] - corrId_5b9edee3656640.33645810 - Establishing connection to DB 
+[17/09/2018 00:53:23] - corrId_5b9edee3656640.33645810 - Executing query 
+[17/09/2018 00:53:37] - corrId_5b9edef1f1ce26.75158173 - Reached GetAllItemsService API 
+[17/09/2018 00:53:37] - corrId_5b9edef1f1ce26.75158173 - Processing GetAllCustomers request. 
+[17/09/2018 00:53:37] - corrId_5b9edef1f1ce26.75158173 - Token validated. 
+[17/09/2018 00:53:37] - corrId_5b9edef1f1ce26.75158173 - Establishing connection to DB 
+[17/09/2018 00:53:37] - corrId_5b9edef1f1ce26.75158173 - Executing query 
+[17/09/2018 00:53:52] - corrId_5b9edf001faff3.02225911 - Reached GetAllItemsService API 
+[17/09/2018 00:53:52] - corrId_5b9edf001faff3.02225911 - Processing GetAllCustomers request. 
+[17/09/2018 00:53:52] - corrId_5b9edf001faff3.02225911 - Token validated. 
+[17/09/2018 00:53:52] - corrId_5b9edf001faff3.02225911 - Establishing connection to DB 
+[17/09/2018 00:53:52] - corrId_5b9edf001faff3.02225911 - Executing query 
+[17/09/2018 00:54:09] - corrId_5b9edf11e43690.21652942 - Reached GetAllItemsService API 
+[17/09/2018 00:54:09] - corrId_5b9edf11e43690.21652942 - Processing GetAllCustomers request. 
+[17/09/2018 00:54:09] - corrId_5b9edf11e43690.21652942 - Token validated. 
+[17/09/2018 00:54:09] - corrId_5b9edf11e43690.21652942 - Establishing connection to DB 
+[17/09/2018 00:54:09] - corrId_5b9edf11e43690.21652942 - Executing query 
+[17/09/2018 00:54:24] - corrId_5b9edf206e5062.56952644 - Reached GetAllItemsService API 
+[17/09/2018 00:54:24] - corrId_5b9edf206e5062.56952644 - Processing GetAllCustomers request. 
+[17/09/2018 00:54:24] - corrId_5b9edf206e5062.56952644 - Token validated. 
+[17/09/2018 00:54:24] - corrId_5b9edf206e5062.56952644 - Establishing connection to DB 
+[17/09/2018 00:54:24] - corrId_5b9edf206e5062.56952644 - Executing query 
+[17/09/2018 01:14:17] - corrId_5b9ee3c9e7cf52.96154047 - Reached GetAllItemsService API 
+[17/09/2018 01:14:17] - corrId_5b9ee3c9e7cf52.96154047 - Processing GetAllCustomers request. 
+[17/09/2018 01:14:17] - corrId_5b9ee3c9e7cf52.96154047 - Token validated. 
+[17/09/2018 01:14:17] - corrId_5b9ee3c9e7cf52.96154047 - Establishing connection to DB 
+[17/09/2018 01:14:17] - corrId_5b9ee3c9e7cf52.96154047 - Executing query 
+[17/09/2018 01:14:44] - corrId_5b9ee3e418d253.21247266 - Reached GetAllItemsService API 
+[17/09/2018 01:14:44] - corrId_5b9ee3e418d253.21247266 - Processing GetAllCustomers request. 
+[17/09/2018 01:14:44] - corrId_5b9ee3e418d253.21247266 - Token validated. 
+[17/09/2018 01:14:44] - corrId_5b9ee3e418d253.21247266 - Establishing connection to DB 
+[17/09/2018 01:14:44] - corrId_5b9ee3e418d253.21247266 - Executing query 
+[17/09/2018 01:15:47] - corrId_5b9ee423799472.53752104 - Reached GetAllItemsService API 
+[17/09/2018 01:15:47] - corrId_5b9ee423799472.53752104 - Processing GetAllCustomers request. 
+[17/09/2018 01:15:47] - corrId_5b9ee423799472.53752104 - Token validated. 
+[17/09/2018 01:15:47] - corrId_5b9ee423799472.53752104 - Establishing connection to DB 
+[17/09/2018 01:15:47] - corrId_5b9ee423799472.53752104 - Executing query 
+[17/09/2018 01:15:55] - corrId_5b9ee42b2a63e5.86749911 - Reached GetAllItemsService API 
+[17/09/2018 01:15:55] - corrId_5b9ee42b2a63e5.86749911 - Processing GetAllCustomers request. 
+[17/09/2018 01:15:55] - corrId_5b9ee42b2a63e5.86749911 - Token validated. 
+[17/09/2018 01:15:55] - corrId_5b9ee42b2a63e5.86749911 - Establishing connection to DB 
+[17/09/2018 01:15:55] - corrId_5b9ee42b2a63e5.86749911 - Executing query 
+[17/09/2018 01:15:55] - corrId_5b9ee42b7e1ff4.27634698 - Reached GetAllItemsService API 
+[17/09/2018 01:15:55] - corrId_5b9ee42b7e1ff4.27634698 - Processing GetAllCustomers request. 
+[17/09/2018 01:15:55] - corrId_5b9ee42b7e1ff4.27634698 - Token validated. 
+[17/09/2018 01:15:55] - corrId_5b9ee42b7e1ff4.27634698 - Establishing connection to DB 
+[17/09/2018 01:15:55] - corrId_5b9ee42b7e1ff4.27634698 - Executing query 
+[17/09/2018 01:15:56] - corrId_5b9ee42c77f111.57189581 - Reached GetAllItemsService API 
+[17/09/2018 01:15:56] - corrId_5b9ee42c77f111.57189581 - Processing GetAllCustomers request. 
+[17/09/2018 01:15:56] - corrId_5b9ee42c77f111.57189581 - Token validated. 
+[17/09/2018 01:15:56] - corrId_5b9ee42c77f111.57189581 - Establishing connection to DB 
+[17/09/2018 01:15:56] - corrId_5b9ee42c77f111.57189581 - Executing query 
+[17/09/2018 01:16:13] - corrId_5b9ee43d132a35.81435795 - Reached GetAllItemsService API 
+[17/09/2018 01:16:13] - corrId_5b9ee43d132a35.81435795 - Processing GetAllCustomers request. 
+[17/09/2018 01:16:13] - corrId_5b9ee43d132a35.81435795 - Token validated. 
+[17/09/2018 01:16:13] - corrId_5b9ee43d132a35.81435795 - Establishing connection to DB 
+[17/09/2018 01:16:13] - corrId_5b9ee43d132a35.81435795 - Executing query 
+[17/09/2018 01:16:30] - corrId_5b9ee44e202b80.26973954 - Reached GetAllItemsService API 
+[17/09/2018 01:16:30] - corrId_5b9ee44e202b80.26973954 - Processing GetAllCustomers request. 
+[17/09/2018 01:16:30] - corrId_5b9ee44e202b80.26973954 - Token validated. 
+[17/09/2018 01:16:30] - corrId_5b9ee44e202b80.26973954 - Establishing connection to DB 
+[17/09/2018 01:16:30] - corrId_5b9ee44e202b80.26973954 - Executing query 
+[17/09/2018 01:16:38] - corrId_5b9ee456530bd9.63968384 - Reached GetAllItemsService API 
+[17/09/2018 01:16:38] - corrId_5b9ee456530bd9.63968384 - Processing GetAllCustomers request. 
+[17/09/2018 01:16:38] - corrId_5b9ee456530bd9.63968384 - Token validated. 
+[17/09/2018 01:16:38] - corrId_5b9ee456530bd9.63968384 - Establishing connection to DB 
+[17/09/2018 01:16:38] - corrId_5b9ee456530bd9.63968384 - Executing query 
+[17/09/2018 01:16:55] - corrId_5b9ee4676e6d21.41257622 - Reached GetAllItemsService API 
+[17/09/2018 01:16:55] - corrId_5b9ee4676e6d21.41257622 - Processing GetAllCustomers request. 
+[17/09/2018 01:16:55] - corrId_5b9ee4676e6d21.41257622 - Token validated. 
+[17/09/2018 01:16:55] - corrId_5b9ee4676e6d21.41257622 - Establishing connection to DB 
+[17/09/2018 01:16:55] - corrId_5b9ee4676e6d21.41257622 - Executing query 
+[17/09/2018 01:19:09] - corrId_5b9ee4edbc5ef3.43367263 - Reached GetAllItemsService API 
+[17/09/2018 01:19:09] - corrId_5b9ee4edbc5ef3.43367263 - Processing GetAllCustomers request. 
+[17/09/2018 01:19:09] - corrId_5b9ee4edbc5ef3.43367263 - Token validated. 
+[17/09/2018 01:19:09] - corrId_5b9ee4edbc5ef3.43367263 - Establishing connection to DB 
+[17/09/2018 01:19:09] - corrId_5b9ee4edbc5ef3.43367263 - Executing query 
+[17/09/2018 01:19:17] - corrId_5b9ee4f511dde5.41306391 - Reached GetAllItemsService API 
+[17/09/2018 01:19:17] - corrId_5b9ee4f511dde5.41306391 - Processing GetAllCustomers request. 
+[17/09/2018 01:19:17] - corrId_5b9ee4f511dde5.41306391 - Token validated. 
+[17/09/2018 01:19:17] - corrId_5b9ee4f511dde5.41306391 - Establishing connection to DB 
+[17/09/2018 01:19:17] - corrId_5b9ee4f511dde5.41306391 - Executing query 
+[17/09/2018 01:19:22] - corrId_5b9ee4fabd8886.41548636 - Reached GetAllItemsService API 
+[17/09/2018 01:19:22] - corrId_5b9ee4fabd8886.41548636 - Processing GetAllCustomers request. 
+[17/09/2018 01:19:22] - corrId_5b9ee4fabd8886.41548636 - Token validated. 
+[17/09/2018 01:19:22] - corrId_5b9ee4fabd8886.41548636 - Establishing connection to DB 
+[17/09/2018 01:19:22] - corrId_5b9ee4fabd8886.41548636 - Executing query 
+[17/09/2018 01:19:36] - corrId_5b9ee508cf1128.23498031 - Reached GetAllItemsService API 
+[17/09/2018 01:19:36] - corrId_5b9ee508cf1128.23498031 - Processing GetAllCustomers request. 
+[17/09/2018 01:19:36] - corrId_5b9ee508cf1128.23498031 - Token validated. 
+[17/09/2018 01:19:36] - corrId_5b9ee508cf1128.23498031 - Establishing connection to DB 
+[17/09/2018 01:19:36] - corrId_5b9ee508cf1128.23498031 - Executing query 
+[17/09/2018 01:19:45] - corrId_5b9ee5111327a4.84225837 - Reached GetAllItemsService API 
+[17/09/2018 01:19:45] - corrId_5b9ee5111327a4.84225837 - Processing GetAllCustomers request. 
+[17/09/2018 01:19:45] - corrId_5b9ee5111327a4.84225837 - Token validated. 
+[17/09/2018 01:19:45] - corrId_5b9ee5111327a4.84225837 - Establishing connection to DB 
+[17/09/2018 01:19:45] - corrId_5b9ee5111327a4.84225837 - Executing query 
+[17/09/2018 01:19:49] - corrId_5b9ee515bd23a2.63620938 - Reached GetAllItemsService API 
+[17/09/2018 01:19:49] - corrId_5b9ee515bd23a2.63620938 - Processing GetAllCustomers request. 
+[17/09/2018 01:19:49] - corrId_5b9ee515bd23a2.63620938 - Token validated. 
+[17/09/2018 01:19:49] - corrId_5b9ee515bd23a2.63620938 - Establishing connection to DB 
+[17/09/2018 01:19:49] - corrId_5b9ee515bd23a2.63620938 - Executing query 
+[17/09/2018 01:19:55] - corrId_5b9ee51b700240.29091623 - Reached GetAllItemsService API 
+[17/09/2018 01:19:55] - corrId_5b9ee51b700240.29091623 - Processing GetAllCustomers request. 
+[17/09/2018 01:19:55] - corrId_5b9ee51b700240.29091623 - Token validated. 
+[17/09/2018 01:19:55] - corrId_5b9ee51b700240.29091623 - Establishing connection to DB 
+[17/09/2018 01:19:55] - corrId_5b9ee51b700240.29091623 - Executing query 
+[17/09/2018 01:20:12] - corrId_5b9ee52c2adb45.04939632 - Reached GetAllItemsService API 
+[17/09/2018 01:20:12] - corrId_5b9ee52c2adb45.04939632 - Processing GetAllCustomers request. 
+[17/09/2018 01:20:12] - corrId_5b9ee52c2adb45.04939632 - Token validated. 
+[17/09/2018 01:20:12] - corrId_5b9ee52c2adb45.04939632 - Establishing connection to DB 
+[17/09/2018 01:20:12] - corrId_5b9ee52c2adb45.04939632 - Executing query 
+[17/09/2018 01:20:59] - corrId_5b9ee55b7c1148.28755141 - Reached GetAllItemsService API 
+[17/09/2018 01:20:59] - corrId_5b9ee55b7c1148.28755141 - Processing GetAllCustomers request. 
+[17/09/2018 01:20:59] - corrId_5b9ee55b7c1148.28755141 - Token validated. 
+[17/09/2018 01:20:59] - corrId_5b9ee55b7c1148.28755141 - Establishing connection to DB 
+[17/09/2018 01:20:59] - corrId_5b9ee55b7c1148.28755141 - Executing query 
+[17/09/2018 01:21:20] - corrId_5b9ee570e57836.95730789 - Reached GetAllItemsService API 
+[17/09/2018 01:21:20] - corrId_5b9ee570e57836.95730789 - Processing GetAllCustomers request. 
+[17/09/2018 01:21:20] - corrId_5b9ee570e57836.95730789 - Token validated. 
+[17/09/2018 01:21:20] - corrId_5b9ee570e57836.95730789 - Establishing connection to DB 
+[17/09/2018 01:21:20] - corrId_5b9ee570e57836.95730789 - Executing query 
+[17/09/2018 01:21:54] - corrId_5b9ee59297eac9.90226753 - Reached GetAllItemsService API 
+[17/09/2018 01:21:54] - corrId_5b9ee59297eac9.90226753 - Processing GetAllCustomers request. 
+[17/09/2018 01:21:54] - corrId_5b9ee59297eac9.90226753 - Token validated. 
+[17/09/2018 01:21:54] - corrId_5b9ee59297eac9.90226753 - Establishing connection to DB 
+[17/09/2018 01:21:54] - corrId_5b9ee59297eac9.90226753 - Executing query 
+[17/09/2018 01:22:21] - corrId_5b9ee5ad572092.49605965 - Reached GetAllItemsService API 
+[17/09/2018 01:22:21] - corrId_5b9ee5ad572092.49605965 - Processing GetAllCustomers request. 
+[17/09/2018 01:22:21] - corrId_5b9ee5ad572092.49605965 - Token validated. 
+[17/09/2018 01:22:21] - corrId_5b9ee5ad572092.49605965 - Establishing connection to DB 
+[17/09/2018 01:22:21] - corrId_5b9ee5ad572092.49605965 - Executing query 
+[17/09/2018 01:22:31] - corrId_5b9ee5b735ad84.15557606 - Reached GetAllItemsService API 
+[17/09/2018 01:22:31] - corrId_5b9ee5b735ad84.15557606 - Processing GetAllCustomers request. 
+[17/09/2018 01:22:31] - corrId_5b9ee5b735ad84.15557606 - Token validated. 
+[17/09/2018 01:22:31] - corrId_5b9ee5b735ad84.15557606 - Establishing connection to DB 
+[17/09/2018 01:22:31] - corrId_5b9ee5b735ad84.15557606 - Executing query 
+[17/09/2018 01:22:43] - corrId_5b9ee5c322dc47.07367414 - Reached GetAllItemsService API 
+[17/09/2018 01:22:43] - corrId_5b9ee5c322dc47.07367414 - Processing GetAllCustomers request. 
+[17/09/2018 01:22:43] - corrId_5b9ee5c322dc47.07367414 - Token validated. 
+[17/09/2018 01:22:43] - corrId_5b9ee5c322dc47.07367414 - Establishing connection to DB 
+[17/09/2018 01:22:43] - corrId_5b9ee5c322dc47.07367414 - Executing query 
+[17/09/2018 01:23:24] - corrId_5b9ee5ecaeded2.20744756 - Reached GetAllItemsService API 
+[17/09/2018 01:23:24] - corrId_5b9ee5ecaeded2.20744756 - Processing GetAllCustomers request. 
+[17/09/2018 01:23:24] - corrId_5b9ee5ecaeded2.20744756 - Token validated. 
+[17/09/2018 01:23:24] - corrId_5b9ee5ecaeded2.20744756 - Establishing connection to DB 
+[17/09/2018 01:23:24] - corrId_5b9ee5ecaeded2.20744756 - Executing query 
+[17/09/2018 01:30:23] - corrId_5b9ee78f9b9a80.93929437 - Reached AccountManagementService API 
+[17/09/2018 01:30:23] - corrId_5b9ee78f9b9a80.93929437 - Processing GetCities request. 
+[17/09/2018 01:30:23] - corrId_5b9ee78f9b9a80.93929437 - Token validated. 
+[17/09/2018 01:30:23] - corrId_5b9ee78f9b9a80.93929437 - Query: SELECT *
+            FROM citta 
+[17/09/2018 01:30:23] - corrId_5b9ee78f9b9a80.93929437 - Establishing connection to DB 
+[17/09/2018 01:30:23] - corrId_5b9ee78f9b9a80.93929437 - Executing query 
+[17/09/2018 01:30:24] - corrId_5b9ee790321681.66073437 - Reached GetAllItemsService API 
+[17/09/2018 01:30:24] - corrId_5b9ee790321681.66073437 - Processing GetAllCustomers request. 
+[17/09/2018 01:30:24] - corrId_5b9ee790321681.66073437 - Token validated. 
+[17/09/2018 01:30:24] - corrId_5b9ee790321681.66073437 - Establishing connection to DB 
+[17/09/2018 01:30:24] - corrId_5b9ee790321681.66073437 - Executing query 
+[17/09/2018 01:30:29] - corrId_5b9ee79548c1e6.00530870 - Reached AccountManagementService API 
+[17/09/2018 01:30:29] - corrId_5b9ee79548c1e6.00530870 - Processing GetCities request. 
+[17/09/2018 01:30:29] - corrId_5b9ee79548c1e6.00530870 - Token validated. 
+[17/09/2018 01:30:29] - corrId_5b9ee79548c1e6.00530870 - Query: SELECT *
+            FROM citta 
+[17/09/2018 01:30:29] - corrId_5b9ee79548c1e6.00530870 - Establishing connection to DB 
+[17/09/2018 01:30:29] - corrId_5b9ee79548c1e6.00530870 - Executing query 
+[17/09/2018 01:30:30] - corrId_5b9ee796094a86.21324422 - Reached StorageManagementService API 
+[17/09/2018 01:30:30] - corrId_5b9ee796094a86.21324422 - Processing GetVideosInStorage request. 
+[17/09/2018 01:30:30] - corrId_5b9ee796094a86.21324422 - Token validated. 
+[17/09/2018 01:30:30] - corrId_5b9ee796094a86.21324422 - Query: SELECT co.id_copia, co.data_scarico, co.danneggiato, co.noleggiato, fi.id_film, fi.titolo, fo.nome
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN fornitore fo
+            ON co.id_fornitore = fo.id_fornitore
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0 
+[17/09/2018 01:30:30] - corrId_5b9ee796094a86.21324422 - Establishing connection to DB 
+[17/09/2018 01:30:30] - corrId_5b9ee796094a86.21324422 - Executing query 
+[17/09/2018 01:30:37] - corrId_5b9ee79d5670a2.64581111 - Reached AccountManagementService API 
+[17/09/2018 01:30:37] - corrId_5b9ee79d5670a2.64581111 - Processing GetCities request. 
+[17/09/2018 01:30:37] - corrId_5b9ee79d5670a2.64581111 - Token validated. 
+[17/09/2018 01:30:37] - corrId_5b9ee79d5670a2.64581111 - Query: SELECT *
+            FROM citta 
+[17/09/2018 01:30:37] - corrId_5b9ee79d5670a2.64581111 - Establishing connection to DB 
+[17/09/2018 01:30:37] - corrId_5b9ee79d5670a2.64581111 - Executing query 
+[17/09/2018 01:30:38] - corrId_5b9ee79e6d6e18.62680624 - Reached AccountManagementService API 
+[17/09/2018 01:30:38] - corrId_5b9ee79e6d6e18.62680624 - Processing GetStores request. 
+[17/09/2018 01:30:38] - corrId_5b9ee79e6d6e18.62680624 - Token validated. 
+[17/09/2018 01:30:38] - corrId_5b9ee79e6d6e18.62680624 - Query: SELECT *
+            FROM punto_vendita 
+            WHERE id_citta = 2 
+[17/09/2018 01:30:38] - corrId_5b9ee79e6d6e18.62680624 - Establishing connection to DB 
+[17/09/2018 01:30:38] - corrId_5b9ee79e6d6e18.62680624 - Executing query 
+[17/09/2018 01:30:40] - corrId_5b9ee7a05f5f62.42926676 - Reached AccountManagementService API 
+[17/09/2018 01:30:40] - corrId_5b9ee7a05f5f62.42926676 - Processing GetStores request. 
+[17/09/2018 01:30:40] - corrId_5b9ee7a05f5f62.42926676 - Token validated. 
+[17/09/2018 01:30:40] - corrId_5b9ee7a05f5f62.42926676 - Query: SELECT *
+            FROM punto_vendita 
+            WHERE id_citta = 1 
+[17/09/2018 01:30:40] - corrId_5b9ee7a05f5f62.42926676 - Establishing connection to DB 
+[17/09/2018 01:30:40] - corrId_5b9ee7a05f5f62.42926676 - Executing query 
+[17/09/2018 01:30:41] - corrId_5b9ee7a14d3e41.51357173 - Reached AccountManagementService API 
+[17/09/2018 01:30:41] - corrId_5b9ee7a14d3e41.51357173 - Processing GetEmployees request. 
+[17/09/2018 01:30:41] - corrId_5b9ee7a14d3e41.51357173 - Token validated. 
+[17/09/2018 01:30:41] - corrId_5b9ee7a14d3e41.51357173 - Query: SELECT dip.id_dipendente, dip.nome as dipendente_nome, dip.cognome as dipendente_cognome,
+                dip.username as dipendente_username, del.nome as delega_nome, del.codice as delega_codice,
+                pv.nome as punto_vendita_nome, dip.id_punto_vendita as punto_vendita_id
+            FROM dipendente as dip
+            INNER JOIN delega as del
+            ON dip.id_delega = del.id_delega
+            INNER JOIN punto_vendita as pv
+            ON dip.id_punto_vendita = pv.id_punto_vendita 
+             
+[17/09/2018 01:30:41] - corrId_5b9ee7a14d3e41.51357173 - Establishing connection to DB 
+[17/09/2018 01:30:41] - corrId_5b9ee7a14d3e41.51357173 - Executing query 
+[17/09/2018 01:30:47] - corrId_5b9ee7a7907dc0.32965750 - Reached AccountManagementService API 
+[17/09/2018 01:30:47] - corrId_5b9ee7a7907dc0.32965750 - Processing GetEmployees request. 
+[17/09/2018 01:30:47] - corrId_5b9ee7a7907dc0.32965750 - Token validated. 
+[17/09/2018 01:30:47] - corrId_5b9ee7a7907dc0.32965750 - Query: SELECT dip.id_dipendente, dip.nome as dipendente_nome, dip.cognome as dipendente_cognome,
+                dip.username as dipendente_username, del.nome as delega_nome, del.codice as delega_codice,
+                pv.nome as punto_vendita_nome, dip.id_punto_vendita as punto_vendita_id
+            FROM dipendente as dip
+            INNER JOIN delega as del
+            ON dip.id_delega = del.id_delega
+            INNER JOIN punto_vendita as pv
+            ON dip.id_punto_vendita = pv.id_punto_vendita 
+            WHERE dip.id_punto_vendita = 5 
+[17/09/2018 01:30:47] - corrId_5b9ee7a7907dc0.32965750 - Establishing connection to DB 
+[17/09/2018 01:30:47] - corrId_5b9ee7a7907dc0.32965750 - Executing query 
+[17/09/2018 01:30:50] - corrId_5b9ee7aac732f6.80719532 - Reached GetAllItemsService API 
+[17/09/2018 01:30:50] - corrId_5b9ee7aac732f6.80719532 - Processing GetAllStores request. 
+[17/09/2018 01:30:50] - corrId_5b9ee7aac732f6.80719532 - Token validated. 
+[17/09/2018 01:30:50] - corrId_5b9ee7aac732f6.80719532 - Establishing connection to DB 
+[17/09/2018 01:30:50] - corrId_5b9ee7aac732f6.80719532 - Executing query 
+[17/09/2018 01:30:50] - corrId_5b9ee7aad2eaf2.34355657 - Reached GetAllItemsService API 
+[17/09/2018 01:30:50] - corrId_5b9ee7aad2eaf2.34355657 - Processing GetAllRoles request. 
+[17/09/2018 01:30:50] - corrId_5b9ee7aad2eaf2.34355657 - Token validated. 
+[17/09/2018 01:30:50] - corrId_5b9ee7aad2eaf2.34355657 - Establishing connection to DB 
+[17/09/2018 01:30:50] - corrId_5b9ee7aad2eaf2.34355657 - Executing query 
+[17/09/2018 01:30:53] - corrId_5b9ee7ad8cd790.88279709 - Reached GetAllItemsService API 
+[17/09/2018 01:30:53] - corrId_5b9ee7ad8cd790.88279709 - Processing GetAllStores request. 
+[17/09/2018 01:30:53] - corrId_5b9ee7ad8cd790.88279709 - Token validated. 
+[17/09/2018 01:30:53] - corrId_5b9ee7ad8d54b0.98160001 - Reached GetAllItemsService API 
+[17/09/2018 01:30:53] - corrId_5b9ee7ad8cd790.88279709 - Establishing connection to DB 
+[17/09/2018 01:30:53] - corrId_5b9ee7ad8d54b0.98160001 - Processing GetAllRoles request. 
+[17/09/2018 01:30:53] - corrId_5b9ee7ad8cd790.88279709 - Executing query 
+[17/09/2018 01:30:53] - corrId_5b9ee7ad8d54b0.98160001 - Token validated. 
+[17/09/2018 01:30:53] - corrId_5b9ee7ad8d54b0.98160001 - Establishing connection to DB 
+[17/09/2018 01:30:53] - corrId_5b9ee7ad8d54b0.98160001 - Executing query 
+[17/09/2018 01:31:02] - corrId_5b9ee7b6b3e070.67209224 - Reached GetAllItemsService API 
+[17/09/2018 01:31:02] - corrId_5b9ee7b6b3e070.67209224 - Processing GetAllCustomers request. 
+[17/09/2018 01:31:02] - corrId_5b9ee7b6b3e070.67209224 - Token validated. 
+[17/09/2018 01:31:02] - corrId_5b9ee7b6b3e070.67209224 - Establishing connection to DB 
+[17/09/2018 01:31:02] - corrId_5b9ee7b6b3e070.67209224 - Executing query 
+[17/09/2018 01:31:05] - corrId_5b9ee7b9f15ef6.84726000 - Reached GetAllItemsService API 
+[17/09/2018 01:31:05] - corrId_5b9ee7b9f15ef6.84726000 - Processing GetAllCustomers request. 
+[17/09/2018 01:31:05] - corrId_5b9ee7b9f15ef6.84726000 - Token validated. 
+[17/09/2018 01:31:05] - corrId_5b9ee7b9f15ef6.84726000 - Establishing connection to DB 
+[17/09/2018 01:31:06] - corrId_5b9ee7b9f15ef6.84726000 - Executing query 
+[17/09/2018 01:42:18] - corrId_5b9eea5a6dd693.13425346 - Reached StorageManagementService API 
+[17/09/2018 01:42:32] - corrId_5b9eea680ff599.73549464 - Reached CustomerManagementService API 
+[17/09/2018 01:42:32] - corrId_5b9eea680ff599.73549464 - Processing GetAllPremiumCustomers request. 
+[17/09/2018 01:42:32] - corrId_5b9eea680ff599.73549464 - Token validated. 
+[17/09/2018 01:42:32] - corrId_5b9eea680ff599.73549464 - Establishing connection to DB 
+[17/09/2018 01:42:32] - corrId_5b9eea680ff599.73549464 - Executing query 
+[17/09/2018 01:43:05] - corrId_5b9eea892edec0.13012962 - Reached CustomerManagementService API 
+[17/09/2018 01:43:05] - corrId_5b9eea892edec0.13012962 - Processing GetAllPremiumCustomers request. 
+[17/09/2018 01:43:05] - corrId_5b9eea892edec0.13012962 - Token validated. 
+[17/09/2018 01:43:05] - corrId_5b9eea892edec0.13012962 - Establishing connection to DB 
+[17/09/2018 01:43:05] - corrId_5b9eea892edec0.13012962 - Executing query 
+[17/09/2018 01:43:11] - corrId_5b9eea8f192991.17169868 - Reached CustomerManagementService API 
+[17/09/2018 01:43:11] - corrId_5b9eea8f192991.17169868 - Processing GetAllPremiumCustomers request. 
+[17/09/2018 01:43:11] - corrId_5b9eea8f192991.17169868 - Token validated. 
+[17/09/2018 01:43:11] - corrId_5b9eea8f192991.17169868 - Establishing connection to DB 
+[17/09/2018 01:43:11] - corrId_5b9eea8f192991.17169868 - Executing query 
+[17/09/2018 01:43:19] - corrId_5b9eea97093bd4.22000209 - Reached CustomerManagementService API 
+[17/09/2018 01:43:19] - corrId_5b9eea97093bd4.22000209 - Processing GetAllPremiumCustomers request. 
+[17/09/2018 01:43:19] - corrId_5b9eea97093bd4.22000209 - Token validated. 
+[17/09/2018 01:43:19] - corrId_5b9eea97093bd4.22000209 - Establishing connection to DB 
+[17/09/2018 01:43:19] - corrId_5b9eea97093bd4.22000209 - Executing query 
+[17/09/2018 01:43:24] - corrId_5b9eea9c71b583.39648203 - Reached CustomerManagementService API 
+[17/09/2018 01:43:24] - corrId_5b9eea9c71b583.39648203 - Processing GetAllPremiumCustomers request. 
+[17/09/2018 01:43:24] - corrId_5b9eea9c71b583.39648203 - Token validated. 
+[17/09/2018 01:43:24] - corrId_5b9eea9c71b583.39648203 - Establishing connection to DB 
+[17/09/2018 01:43:24] - corrId_5b9eea9c71b583.39648203 - Executing query 
+[17/09/2018 01:43:51] - corrId_5b9eeab70d4924.70096704 - Reached CustomerManagementService API 
+[17/09/2018 01:43:51] - corrId_5b9eeab70d4924.70096704 - Processing GetAllPremiumCustomers request. 
+[17/09/2018 01:43:51] - corrId_5b9eeab70d4924.70096704 - Token validated. 
+[17/09/2018 01:43:51] - corrId_5b9eeab70d4924.70096704 - Establishing connection to DB 
+[17/09/2018 01:43:51] - corrId_5b9eeab70d4924.70096704 - Executing query 
+[17/09/2018 01:44:37] - corrId_5b9eeae5636b17.15673587 - Reached CustomerManagementService API 
+[17/09/2018 01:44:37] - corrId_5b9eeae5636b17.15673587 - Processing GetAllPremiumCustomers request. 
+[17/09/2018 01:44:37] - corrId_5b9eeae5636b17.15673587 - Token validated. 
+[17/09/2018 01:44:37] - corrId_5b9eeae5636b17.15673587 - Establishing connection to DB 
+[17/09/2018 01:44:37] - corrId_5b9eeae5636b17.15673587 - Executing query 
+[17/09/2018 01:45:18] - corrId_5b9eeb0e1cc7a3.82399274 - Reached CustomerManagementService API 
+[17/09/2018 01:45:18] - corrId_5b9eeb0e1cc7a3.82399274 - Processing GetAllPremiumCustomers request. 
+[17/09/2018 01:45:18] - corrId_5b9eeb0e1cc7a3.82399274 - Token validated. 
+[17/09/2018 01:45:18] - corrId_5b9eeb0e1cc7a3.82399274 - Establishing connection to DB 
+[17/09/2018 01:45:18] - corrId_5b9eeb0e1cc7a3.82399274 - Executing query 
+[17/09/2018 01:45:45] - corrId_5b9eeb2998d2d1.84687717 - Reached CustomerManagementService API 
+[17/09/2018 01:45:45] - corrId_5b9eeb2998d2d1.84687717 - Processing GetAllPremiumCustomers request. 
+[17/09/2018 01:45:45] - corrId_5b9eeb2998d2d1.84687717 - Token validated. 
+[17/09/2018 01:45:45] - corrId_5b9eeb2998d2d1.84687717 - Establishing connection to DB 
+[17/09/2018 01:45:45] - corrId_5b9eeb2998d2d1.84687717 - Executing query 
+[17/09/2018 01:46:19] - corrId_5b9eeb4b20c580.23618575 - Reached CustomerManagementService API 
+[17/09/2018 01:46:19] - corrId_5b9eeb4b20c580.23618575 - Processing GetAllPremiumCustomers request. 
+[17/09/2018 01:46:19] - corrId_5b9eeb4b20c580.23618575 - Token validated. 
+[17/09/2018 01:46:19] - corrId_5b9eeb4b20c580.23618575 - Establishing connection to DB 
+[17/09/2018 01:46:19] - corrId_5b9eeb4b20c580.23618575 - Executing query 
+[17/09/2018 01:46:34] - corrId_5b9eeb5a105b68.30951702 - Reached CustomerManagementService API 
+[17/09/2018 01:46:34] - corrId_5b9eeb5a105b68.30951702 - Processing GetAllPremiumCustomers request. 
+[17/09/2018 01:46:34] - corrId_5b9eeb5a105b68.30951702 - Token validated. 
+[17/09/2018 01:46:34] - corrId_5b9eeb5a105b68.30951702 - Establishing connection to DB 
+[17/09/2018 01:46:34] - corrId_5b9eeb5a105b68.30951702 - Executing query 
+[17/09/2018 01:46:59] - corrId_5b9eeb73522815.59058536 - Reached CustomerManagementService API 
+[17/09/2018 01:46:59] - corrId_5b9eeb73522815.59058536 - Processing GetAllPremiumCustomers request. 
+[17/09/2018 01:46:59] - corrId_5b9eeb73522815.59058536 - Token validated. 
+[17/09/2018 01:46:59] - corrId_5b9eeb73522815.59058536 - Establishing connection to DB 
+[17/09/2018 01:46:59] - corrId_5b9eeb73522815.59058536 - Executing query 
+[17/09/2018 01:46:59] - corrId_5b9eeb7381c347.57148371 - Reached CustomerManagementService API 
+[17/09/2018 01:46:59] - corrId_5b9eeb7381c347.57148371 - Processing GetAllPremiumCustomers request. 
+[17/09/2018 01:46:59] - corrId_5b9eeb7381c347.57148371 - Token validated. 
+[17/09/2018 01:46:59] - corrId_5b9eeb7381c347.57148371 - Establishing connection to DB 
+[17/09/2018 01:46:59] - corrId_5b9eeb7381c347.57148371 - Executing query 
+[17/09/2018 01:47:39] - corrId_5b9eeb9b793b21.99452811 - Reached CustomerManagementService API 
+[17/09/2018 01:47:39] - corrId_5b9eeb9b793b21.99452811 - Processing GetAllPremiumCustomers request. 
+[17/09/2018 01:47:39] - corrId_5b9eeb9b793b21.99452811 - Token validated. 
+[17/09/2018 01:47:39] - corrId_5b9eeb9b793b21.99452811 - Establishing connection to DB 
+[17/09/2018 01:47:39] - corrId_5b9eeb9b793b21.99452811 - Executing query 
+[17/09/2018 01:47:48] - corrId_5b9eeba4897e46.96724194 - Reached CustomerManagementService API 
+[17/09/2018 01:47:48] - corrId_5b9eeba4897e46.96724194 - Processing GetAllPremiumCustomers request. 
+[17/09/2018 01:47:48] - corrId_5b9eeba4897e46.96724194 - Token validated. 
+[17/09/2018 01:47:48] - corrId_5b9eeba4897e46.96724194 - Establishing connection to DB 
+[17/09/2018 01:47:48] - corrId_5b9eeba4897e46.96724194 - Executing query 
+[17/09/2018 01:47:54] - corrId_5b9eebaa6eaf87.07639099 - Reached CustomerManagementService API 
+[17/09/2018 01:47:54] - corrId_5b9eebaa6eaf87.07639099 - Processing GetAllPremiumCustomers request. 
+[17/09/2018 01:47:54] - corrId_5b9eebaa6eaf87.07639099 - Token validated. 
+[17/09/2018 01:47:54] - corrId_5b9eebaa6eaf87.07639099 - Establishing connection to DB 
+[17/09/2018 01:47:54] - corrId_5b9eebaa6eaf87.07639099 - Executing query 
+[17/09/2018 01:47:59] - corrId_5b9eebafcab562.09897369 - Reached CustomerManagementService API 
+[17/09/2018 01:47:59] - corrId_5b9eebafcab562.09897369 - Processing GetAllPremiumCustomers request. 
+[17/09/2018 01:47:59] - corrId_5b9eebafcab562.09897369 - Token validated. 
+[17/09/2018 01:47:59] - corrId_5b9eebafcab562.09897369 - Establishing connection to DB 
+[17/09/2018 01:47:59] - corrId_5b9eebafcab562.09897369 - Executing query 
+[17/09/2018 01:48:03] - corrId_5b9eebb38c3c10.47029449 - Reached CustomerManagementService API 
+[17/09/2018 01:48:03] - corrId_5b9eebb38c3c10.47029449 - Processing GetAllPremiumCustomers request. 
+[17/09/2018 01:48:03] - corrId_5b9eebb38c3c10.47029449 - Token validated. 
+[17/09/2018 01:48:03] - corrId_5b9eebb38c3c10.47029449 - Establishing connection to DB 
+[17/09/2018 01:48:03] - corrId_5b9eebb38c3c10.47029449 - Executing query 
+[17/09/2018 01:48:11] - corrId_5b9eebbbd12683.84015027 - Reached CustomerManagementService API 
+[17/09/2018 01:48:11] - corrId_5b9eebbbd12683.84015027 - Processing GetAllPremiumCustomers request. 
+[17/09/2018 01:48:11] - corrId_5b9eebbbd12683.84015027 - Token validated. 
+[17/09/2018 01:48:11] - corrId_5b9eebbbd12683.84015027 - Establishing connection to DB 
+[17/09/2018 01:48:11] - corrId_5b9eebbbd12683.84015027 - Executing query 
+[17/09/2018 01:48:47] - corrId_5b9eebdf071862.16233816 - Reached CustomerManagementService API 
+[17/09/2018 01:48:47] - corrId_5b9eebdf071862.16233816 - Processing GetAllPremiumCustomers request. 
+[17/09/2018 01:48:47] - corrId_5b9eebdf071862.16233816 - Token validated. 
+[17/09/2018 01:48:47] - corrId_5b9eebdf071862.16233816 - Establishing connection to DB 
+[17/09/2018 01:48:47] - corrId_5b9eebdf071862.16233816 - Executing query 
+[17/09/2018 01:48:56] - corrId_5b9eebe8c91047.62265896 - Reached CustomerManagementService API 
+[17/09/2018 01:48:56] - corrId_5b9eebe8c91047.62265896 - Processing GetAllPremiumCustomers request. 
+[17/09/2018 01:48:56] - corrId_5b9eebe8c91047.62265896 - Token validated. 
+[17/09/2018 01:48:56] - corrId_5b9eebe8c91047.62265896 - Establishing connection to DB 
+[17/09/2018 01:48:56] - corrId_5b9eebe8c91047.62265896 - Executing query 
+[17/09/2018 01:49:08] - corrId_5b9eebf4085487.08816658 - Reached CustomerManagementService API 
+[17/09/2018 01:49:08] - corrId_5b9eebf4085487.08816658 - Processing GetAllPremiumCustomers request. 
+[17/09/2018 01:49:08] - corrId_5b9eebf4085487.08816658 - Token validated. 
+[17/09/2018 01:49:08] - corrId_5b9eebf4085487.08816658 - Establishing connection to DB 
+[17/09/2018 01:49:08] - corrId_5b9eebf4085487.08816658 - Executing query 
+[17/09/2018 01:49:14] - corrId_5b9eebfaaedc36.65422406 - Reached CustomerManagementService API 
+[17/09/2018 01:49:14] - corrId_5b9eebfaaedc36.65422406 - Processing GetAllPremiumCustomers request. 
+[17/09/2018 01:49:14] - corrId_5b9eebfaaedc36.65422406 - Token validated. 
+[17/09/2018 01:49:14] - corrId_5b9eebfaaedc36.65422406 - Establishing connection to DB 
+[17/09/2018 01:49:14] - corrId_5b9eebfaaedc36.65422406 - Executing query 
+[17/09/2018 01:49:20] - corrId_5b9eec007efb77.65623015 - Reached CustomerManagementService API 
+[17/09/2018 01:49:20] - corrId_5b9eec007efb77.65623015 - Processing GetAllPremiumCustomers request. 
+[17/09/2018 01:49:20] - corrId_5b9eec007efb77.65623015 - Token validated. 
+[17/09/2018 01:49:20] - corrId_5b9eec007efb77.65623015 - Establishing connection to DB 
+[17/09/2018 01:49:20] - corrId_5b9eec007efb77.65623015 - Executing query 
+[17/09/2018 01:49:34] - corrId_5b9eec0eb68b31.16065003 - Reached CustomerManagementService API 
+[17/09/2018 01:49:34] - corrId_5b9eec0eb68b31.16065003 - Processing GetAllPremiumCustomers request. 
+[17/09/2018 01:49:34] - corrId_5b9eec0eb68b31.16065003 - Token validated. 
+[17/09/2018 01:49:34] - corrId_5b9eec0eb68b31.16065003 - Establishing connection to DB 
+[17/09/2018 01:49:34] - corrId_5b9eec0eb68b31.16065003 - Executing query 
+[17/09/2018 01:49:45] - corrId_5b9eec19562fc7.56639915 - Reached CustomerManagementService API 
+[17/09/2018 01:49:45] - corrId_5b9eec19562fc7.56639915 - Processing GetAllPremiumCustomers request. 
+[17/09/2018 01:49:45] - corrId_5b9eec19562fc7.56639915 - Token validated. 
+[17/09/2018 01:49:45] - corrId_5b9eec19562fc7.56639915 - Establishing connection to DB 
+[17/09/2018 01:49:45] - corrId_5b9eec19562fc7.56639915 - Executing query 
+[17/09/2018 01:50:24] - corrId_5b9eec40d16b22.48458554 - Reached CustomerManagementService API 
+[17/09/2018 01:50:24] - corrId_5b9eec40d16b22.48458554 - Processing GetAllPremiumCustomers request. 
+[17/09/2018 01:50:24] - corrId_5b9eec40d16b22.48458554 - Token validated. 
+[17/09/2018 01:50:24] - corrId_5b9eec40d16b22.48458554 - Establishing connection to DB 
+[17/09/2018 01:50:24] - corrId_5b9eec40d16b22.48458554 - Executing query 
+[17/09/2018 01:50:39] - corrId_5b9eec4f6a6fc3.81463421 - Reached CustomerManagementService API 
+[17/09/2018 01:50:39] - corrId_5b9eec4f6a6fc3.81463421 - Processing GetAllPremiumCustomers request. 
+[17/09/2018 01:50:39] - corrId_5b9eec4f6a6fc3.81463421 - Token validated. 
+[17/09/2018 01:50:39] - corrId_5b9eec4f6a6fc3.81463421 - Establishing connection to DB 
+[17/09/2018 01:50:39] - corrId_5b9eec4f6a6fc3.81463421 - Executing query 
+[17/09/2018 01:50:46] - corrId_5b9eec564e0a33.01454500 - Reached AccountManagementService API 
+[17/09/2018 01:50:46] - corrId_5b9eec564e0a33.01454500 - Processing GetCities request. 
+[17/09/2018 01:50:46] - corrId_5b9eec564e0a33.01454500 - Token validated. 
+[17/09/2018 01:50:46] - corrId_5b9eec564e0a33.01454500 - Query: SELECT *
+            FROM citta 
+[17/09/2018 01:50:46] - corrId_5b9eec564e0a33.01454500 - Establishing connection to DB 
+[17/09/2018 01:50:46] - corrId_5b9eec564e0a33.01454500 - Executing query 
+[17/09/2018 01:50:46] - corrId_5b9eec56d63b20.28318467 - Reached StorageManagementService API 
+[17/09/2018 01:50:46] - corrId_5b9eec56d63b20.28318467 - Processing GetVideosInStorage request. 
+[17/09/2018 01:50:46] - corrId_5b9eec56d63b20.28318467 - Token validated. 
+[17/09/2018 01:50:46] - corrId_5b9eec56d63b20.28318467 - Query: SELECT co.id_copia, co.data_scarico, co.danneggiato, co.noleggiato, fi.id_film, fi.titolo, fo.nome
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN fornitore fo
+            ON co.id_fornitore = fo.id_fornitore
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0 
+[17/09/2018 01:50:46] - corrId_5b9eec56d63b20.28318467 - Establishing connection to DB 
+[17/09/2018 01:50:46] - corrId_5b9eec56d63b20.28318467 - Executing query 
+[17/09/2018 01:50:47] - corrId_5b9eec57db9668.66449321 - Reached CustomerManagementService API 
+[17/09/2018 01:50:47] - corrId_5b9eec57db9668.66449321 - Processing GetAllPremiumCustomers request. 
+[17/09/2018 01:50:47] - corrId_5b9eec57db9668.66449321 - Token validated. 
+[17/09/2018 01:50:47] - corrId_5b9eec57db9668.66449321 - Establishing connection to DB 
+[17/09/2018 01:50:47] - corrId_5b9eec57db9668.66449321 - Executing query 

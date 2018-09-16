@@ -135,12 +135,12 @@ CREATE TABLE `cliente` (
   `telefono_cellulare` varchar(12) DEFAULT NULL,
   `email` varchar(45) DEFAULT NULL,
   `data_nascita` date DEFAULT NULL,
-  `posizione_liberatoria` varchar(45) DEFAULT NULL,
-  `id_sconto` int(11) DEFAULT NULL,
+  `liberatoria` mediumblob,
+  `id_fidelizzazione` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_cliente`),
-  KEY `fk_cliente_sconto_idx` (`id_sconto`),
-  CONSTRAINT `fk_cliente_sconto` FOREIGN KEY (`id_sconto`) REFERENCES `sconto` (`id_sconto`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  KEY `fk_cliente_fidelizzazione_idx` (`id_fidelizzazione`),
+  CONSTRAINT `fk_cliente_fidelizzazione` FOREIGN KEY (`id_fidelizzazione`) REFERENCES `fidelizzazione` (`id_fidelizzazione`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -149,6 +149,7 @@ CREATE TABLE `cliente` (
 
 LOCK TABLES `cliente` WRITE;
 /*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
+INSERT INTO `cliente` VALUES (1,'Pippo','Paperino','Largo Pippo','432342','53425435','dsfsd@yahs.it','1986-10-04',NULL,1);
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -172,7 +173,7 @@ CREATE TABLE `copia` (
   KEY `fk_partita_film_idx` (`id_film`),
   KEY `fk_partita_punto_vendita_idx` (`id_punto_vendita`),
   KEY `fk_partita_fornitore_idx` (`id_fornitore`)
-) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -181,7 +182,7 @@ CREATE TABLE `copia` (
 
 LOCK TABLES `copia` WRITE;
 /*!40000 ALTER TABLE `copia` DISABLE KEYS */;
-INSERT INTO `copia` VALUES (1,1,1,1,'2018-07-05 15:13:42',0,1,0),(53,1,1,1,'2018-09-16 16:08:52',0,0,0),(54,1,1,1,'2018-09-16 16:08:52',0,0,1),(55,12,1,4,'2018-06-29 16:09:02',0,1,0),(56,12,1,4,'2018-09-16 16:09:02',0,0,0),(57,12,1,4,'2018-09-16 16:09:02',0,1,0),(58,12,1,4,'2018-09-16 16:09:02',0,0,0),(59,12,1,4,'2018-09-16 16:09:02',0,0,0),(60,12,1,4,'2018-09-16 16:09:02',0,0,0),(61,12,1,4,'2018-09-16 16:09:02',0,0,1),(62,12,1,4,'2018-09-16 16:09:02',0,0,1),(63,12,1,4,'2018-09-16 16:09:02',0,0,1),(64,12,1,4,'2018-09-16 16:09:02',0,0,1);
+INSERT INTO `copia` VALUES (1,1,1,1,'2018-07-05 15:13:42',0,1,0),(53,1,1,1,'2018-09-16 16:08:52',0,0,0),(54,1,1,1,'2018-09-16 16:08:52',0,0,1),(55,12,1,4,'2018-06-29 16:09:02',0,1,0),(56,12,1,4,'2018-09-16 16:09:02',0,0,0),(57,12,1,4,'2018-09-16 16:09:02',0,1,0),(58,12,1,4,'2018-09-16 16:09:02',0,0,0),(59,12,1,4,'2018-09-16 16:09:02',0,0,0),(60,12,1,4,'2018-09-16 16:09:02',0,0,0),(61,12,1,4,'2018-09-16 16:09:02',0,0,1),(62,12,1,4,'2018-09-16 16:09:02',0,0,1),(63,12,1,4,'2018-09-16 16:09:02',0,0,1),(64,12,1,4,'2018-09-16 16:09:02',0,0,1),(65,15,2,6,'2018-09-16 17:14:07',0,0,0),(66,15,2,6,'2018-09-16 17:14:07',0,0,0),(67,15,2,6,'2018-09-16 17:14:07',0,0,0),(68,15,2,6,'2018-09-16 17:14:07',0,0,0),(69,15,2,6,'2018-09-16 17:14:07',0,0,0),(70,15,2,6,'2018-09-16 17:14:07',0,0,0),(71,15,2,6,'2018-09-16 17:14:07',0,0,0),(72,15,2,6,'2018-09-16 17:14:07',0,0,0),(73,15,2,6,'2018-09-16 17:14:07',0,0,0),(74,15,2,6,'2018-09-16 17:14:07',0,0,0);
 /*!40000 ALTER TABLE `copia` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -241,6 +242,31 @@ LOCK TABLES `dipendente` WRITE;
 /*!40000 ALTER TABLE `dipendente` DISABLE KEYS */;
 INSERT INTO `dipendente` VALUES (1,3,1,'Gianmattia','Gherardi','admin','$2y$10$8BefxWbWyyJka.NQjlMS.uMvK9eZF50fbjsGct2eboNJnh6nmm.s2'),(2,2,1,'Mario','Rossi','MarRosRoma01','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(3,1,1,'Luigi','Verdi','LuiVerRoma01','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(4,1,1,'Calliope','Sagese','CalSagRoma01','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(5,1,1,'Adamo','Padovano','AdaPadRoma01','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(6,2,2,'Abelino','Genovesi','AbeGenRoma02','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(7,1,2,'Maria Rosa','Lucchesi','MarRosRoma02','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(8,1,2,'Dafne','Loggia','DafLogRoma02','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(9,2,3,'Guerrino','Manna','GueManRoma03','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(10,1,3,'Olga','Siciliani','OlgSicRoma03','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(11,2,4,'Tiziano','Calabrese','TizCalRoma04','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(12,1,4,'Clementina','Colombo','CleColRoma04','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(13,2,5,'Federico','Longo','FedLonGenova01','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(14,1,5,'Curzio','Cremonesi','CurCreGenova01','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(15,1,5,'Edgardo','Lucchesi','EdgLucGenova01','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(16,2,6,'Clementina','Lucciano','CleLucGenova02','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(17,1,6,'Bellina','Arcuri','BelArcGenova02','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(18,2,7,'Agostino','Li Fonti','AgoLifGenova03','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(19,1,7,'Sesto','Mancini','SesManGenova03','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(20,1,7,'Delfino','Calabresi','DelCalGenova03','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(21,2,8,'Lioba','Lori','LioLorTrieste01','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(22,1,8,'Monica','Rossi','MonRosTrieste01','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(23,1,8,'Gennaro','Trevisani','GenTreTrieste01','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(24,1,8,'Ireneo','Lucchesi','IreLucTrieste01','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(25,2,9,'Graziella','Padovesi','GraPadTrieste02','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(26,1,9,'Addolorata','DeRose','AddDerTrieste02','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(27,2,10,'Efisio','Milano','EfiMilTorino01','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(28,1,10,'Virginia','Trentini','VirTreTorino01','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(29,1,10,'Eric','Dellucci','EriDelTorino01','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(30,2,11,'Osvaldo','Baresi','OsvBarTorino02','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(31,1,11,'Marcello','Moretti','MarMorTorino02','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(32,1,11,'Giulio','Baresi','GiuBarTorino02','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(33,2,12,'Rodolfo','Lucchesi','RodLucTorino03','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(34,1,12,'Luciana','Zetticci','LucZetTorino03','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(35,2,13,'Agata','Li Fonti','AgaLifTorino04','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(36,1,13,'Olindo','Dellucci','OliDelTorino04','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS'),(37,1,13,'Albino','Costa','AlbCosTorino04','$2y$10$BXXyQk20Pm1Nj8j3gTcANOobedZFrvM7X.6OPIwAu0Cm6k6uAVRQS');
 /*!40000 ALTER TABLE `dipendente` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `fidelizzazione`
+--
+
+DROP TABLE IF EXISTS `fidelizzazione`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `fidelizzazione` (
+  `id_fidelizzazione` int(11) NOT NULL,
+  `nome_fidelizzazione` varchar(45) DEFAULT NULL,
+  `percentuale` float DEFAULT NULL,
+  PRIMARY KEY (`id_fidelizzazione`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `fidelizzazione`
+--
+
+LOCK TABLES `fidelizzazione` WRITE;
+/*!40000 ALTER TABLE `fidelizzazione` DISABLE KEYS */;
+INSERT INTO `fidelizzazione` VALUES (1,'Silver',10),(2,'Gold',15),(3,'Platinum',20);
+/*!40000 ALTER TABLE `fidelizzazione` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -452,29 +478,6 @@ INSERT INTO `regista` VALUES (1,'Frank','Darabont'),(2,'Quentin','Tarantino'),(3
 UNLOCK TABLES;
 
 --
--- Table structure for table `sconto`
---
-
-DROP TABLE IF EXISTS `sconto`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `sconto` (
-  `id_sconto` int(11) NOT NULL AUTO_INCREMENT,
-  `percentuale` float DEFAULT NULL,
-  PRIMARY KEY (`id_sconto`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `sconto`
---
-
-LOCK TABLES `sconto` WRITE;
-/*!40000 ALTER TABLE `sconto` DISABLE KEYS */;
-/*!40000 ALTER TABLE `sconto` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `stato_prenotazione`
 --
 
@@ -506,4 +509,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-09-16 19:07:59
+-- Dump completed on 2018-09-17  1:52:41

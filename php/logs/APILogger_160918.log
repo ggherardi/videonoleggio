@@ -2502,3 +2502,201 @@ Stack trace:
             AND co.restituito = 0 
 [16/09/2018 19:11:15] - corrId_5b9e8eb3e8c0a2.91794214 - Establishing connection to DB 
 [16/09/2018 19:11:15] - corrId_5b9e8eb3e8c0a2.91794214 - Executing query 
+[16/09/2018 19:13:38] - corrId_5b9e8f42946fd8.73142452 - Reached AuthenticationService API 
+[16/09/2018 19:13:38] - corrId_5b9e8f42946fd8.73142452 - Processing Login request. 
+[16/09/2018 19:13:38] - corrId_5b9e8f42946fd8.73142452 - Establishing connection to DB 
+[16/09/2018 19:13:38] - corrId_5b9e8f42946fd8.73142452 - Executing query 
+[16/09/2018 19:13:38] - corrId_5b9e8f42946fd8.73142452 - User  validated, generating Token. 
+[16/09/2018 19:13:38] - corrId_5b9e8f42946fd8.73142452 - Token generated succesfully. SizKILRFv7hRfOGQBmb4JE6mULRCdMIluwQycMQzvxd+TziCKNpuhHo65AhwziQkQwPd5b3dKzq/P07J9ND0eBHBP2qC5roS2YRY0VeSNOPZAqO/5LGVYkpHNm119lbqomOy99fdaJUeN8TKUYXcFK+DuDeXrF9Em55vOw5TOtDsn/lehMC6r230sm9auVCnm+B4bBCa4OWYQmVeTLPZNJ2ICvORQitxWCmp1ComV4SK/rr9w/SZbhYr2Ck4PU+rxyEZf3qhUwBPusVKfTRIjA6j3pR4DzrXA+YknNHAO5Ih8uUJjBBXm9DuSN+ek92DNkSrEbOn3r++zVovOmbAYnTMgnIoWhMVcX9QFNnkOaD9ej5szRcOLK4ZoTXg0ROI 
+[16/09/2018 19:13:39] - corrId_5b9e8f43d302d5.78753967 - Reached StorageManagementService API 
+[16/09/2018 19:13:39] - corrId_5b9e8f43d302d5.78753967 - Processing GetVideosInStorage request. 
+[16/09/2018 19:13:39] - corrId_5b9e8f43d302d5.78753967 - Token validated. 
+[16/09/2018 19:13:39] - corrId_5b9e8f43d302d5.78753967 - Query: SELECT co.id_copia, co.data_scarico, co.danneggiato, co.noleggiato, fi.id_film, fi.titolo, fo.nome
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN fornitore fo
+            ON co.id_fornitore = fo.id_fornitore
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0 
+[16/09/2018 19:13:39] - corrId_5b9e8f43d302d5.78753967 - Establishing connection to DB 
+[16/09/2018 19:13:39] - corrId_5b9e8f43d302d5.78753967 - Executing query 
+[16/09/2018 19:13:59] - corrId_5b9e8f5761e918.21734325 - Reached AuthenticationService API 
+[16/09/2018 19:13:59] - corrId_5b9e8f5761e918.21734325 - Processing Login request. 
+[16/09/2018 19:13:59] - corrId_5b9e8f5761e918.21734325 - Establishing connection to DB 
+[16/09/2018 19:13:59] - corrId_5b9e8f5761e918.21734325 - Executing query 
+[16/09/2018 19:13:59] - corrId_5b9e8f5761e918.21734325 - User  validated, generating Token. 
+[16/09/2018 19:13:59] - corrId_5b9e8f5761e918.21734325 - Token generated succesfully. SizKILRFv7hRfOGQBmb4JDA6y9eki7yD4wlBtfCHzFz9TKtiLSQ4YpzPnM9b5hInhOs1Ov/T/yt/IJekd6DLDVOSqPHSilZF6lrAsSFQrcqtf/EfzyzrRZo5bN9+bbiyRzpZ16SdzG9dmreJdrCLAgq4s+MShWJcjo7zDmoI7gnxwLoCSS5QjmzGQwRwwaEkU9cEXrzkqw3VEdqs4Vt74jWyj/fqXJz/54xWIRMOTY3P2kEdtjF99QYzKonU3NX+wahD94+Fwbfj6evIkREAuerby3rLQGw/omIGGXR1bWYmy7lrw+unHld3oXxvNEzh/LeLPG/NGsAeCCfB65/QH5231RTZsx50N7u+62hCq1U= 
+[16/09/2018 19:14:01] - corrId_5b9e8f590da7a8.05772143 - Reached StorageManagementService API 
+[16/09/2018 19:14:01] - corrId_5b9e8f590da7a8.05772143 - Processing GetVideosInStorage request. 
+[16/09/2018 19:14:01] - corrId_5b9e8f590da7a8.05772143 - Token validated. 
+[16/09/2018 19:14:01] - corrId_5b9e8f590da7a8.05772143 - Query: SELECT co.id_copia, co.data_scarico, co.danneggiato, co.noleggiato, fi.id_film, fi.titolo, fo.nome
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN fornitore fo
+            ON co.id_fornitore = fo.id_fornitore
+            WHERE co.id_punto_vendita = 2
+            AND co.restituito = 0 
+[16/09/2018 19:14:01] - corrId_5b9e8f590da7a8.05772143 - Establishing connection to DB 
+[16/09/2018 19:14:01] - corrId_5b9e8f590da7a8.05772143 - Executing query 
+[16/09/2018 19:14:02] - corrId_5b9e8f5ab37b55.63786201 - Reached GetAllItemsService API 
+[16/09/2018 19:14:02] - corrId_5b9e8f5ab37b55.63786201 - Processing GetAllSuppliers request. 
+[16/09/2018 19:14:02] - corrId_5b9e8f5ab436f8.59153032 - Reached StorageManagementService API 
+[16/09/2018 19:14:02] - corrId_5b9e8f5ab37b55.63786201 - Token validated. 
+[16/09/2018 19:14:02] - corrId_5b9e8f5ab436f8.59153032 - Processing GetAlreadyAvailableMovies request. 
+[16/09/2018 19:14:02] - corrId_5b9e8f5ab37b55.63786201 - Establishing connection to DB 
+[16/09/2018 19:14:02] - corrId_5b9e8f5ab436f8.59153032 - Token validated. 
+[16/09/2018 19:14:02] - corrId_5b9e8f5ab37b55.63786201 - Executing query 
+[16/09/2018 19:14:02] - corrId_5b9e8f5ab436f8.59153032 - Establishing connection to DB 
+[16/09/2018 19:14:02] - corrId_5b9e8f5ab436f8.59153032 - Executing query 
+[16/09/2018 19:14:07] - corrId_5b9e8f5feb7166.59431865 - Reached StorageManagementService API 
+[16/09/2018 19:14:07] - corrId_5b9e8f5feb7166.59431865 - Processing UnloadCopies request. 
+[16/09/2018 19:14:07] - corrId_5b9e8f5feb7166.59431865 - Token validated. 
+[16/09/2018 19:14:07] - corrId_5b9e8f5feb7166.59431865 - Query: INSERT INTO copia
+            (id_film, id_punto_vendita, id_fornitore)
+            VALUES (15, 2, 6), (15, 2, 6), (15, 2, 6), (15, 2, 6), (15, 2, 6), (15, 2, 6), (15, 2, 6), (15, 2, 6), (15, 2, 6), (15, 2, 6) 
+[16/09/2018 19:14:07] - corrId_5b9e8f5feb7166.59431865 - Establishing connection to DB 
+[16/09/2018 19:14:07] - corrId_5b9e8f5feb7166.59431865 - Executing query 
+[16/09/2018 19:14:07] - corrId_5b9e8f5ff20936.19198888 - Reached StorageManagementService API 
+[16/09/2018 19:14:07] - corrId_5b9e8f5ff20936.19198888 - Processing GetVideosInStorage request. 
+[16/09/2018 19:14:07] - corrId_5b9e8f5ff20936.19198888 - Token validated. 
+[16/09/2018 19:14:07] - corrId_5b9e8f5ff20936.19198888 - Query: SELECT co.id_copia, co.data_scarico, co.danneggiato, co.noleggiato, fi.id_film, fi.titolo, fo.nome
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN fornitore fo
+            ON co.id_fornitore = fo.id_fornitore
+            WHERE co.id_punto_vendita = 2
+            AND co.restituito = 0 
+[16/09/2018 19:14:07] - corrId_5b9e8f5ff20936.19198888 - Establishing connection to DB 
+[16/09/2018 19:14:07] - corrId_5b9e8f5ff20936.19198888 - Executing query 
+[16/09/2018 19:14:58] - corrId_5b9e8f92ec4234.56103223 - Reached AuthenticationService API 
+[16/09/2018 19:14:58] - corrId_5b9e8f92ec4234.56103223 - Processing Login request. 
+[16/09/2018 19:14:58] - corrId_5b9e8f92ec4234.56103223 - Establishing connection to DB 
+[16/09/2018 19:14:58] - corrId_5b9e8f92ec4234.56103223 - Executing query 
+[16/09/2018 19:14:59] - corrId_5b9e8f92ec4234.56103223 - User  validated, generating Token. 
+[16/09/2018 19:14:59] - corrId_5b9e8f92ec4234.56103223 - Token generated succesfully. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbEFjtn4XsFhOFmG30n4PcTI8wXPzxm/waElwFXqpafElJvaHFkRClq8P8HhE3bM9sG3F8CQ4FotzAJ8TbfAh+Fk= 
+[16/09/2018 19:20:30] - corrId_5b9e90de280e54.30757749 - Reached AccountManagementService API 
+[16/09/2018 19:20:30] - corrId_5b9e90de280e54.30757749 - Processing GetCities request. 
+[16/09/2018 19:20:30] - corrId_5b9e90de280e54.30757749 - Token validated. 
+[16/09/2018 19:20:30] - corrId_5b9e90de280e54.30757749 - Query: SELECT *
+            FROM citta 
+[16/09/2018 19:20:30] - corrId_5b9e90de280e54.30757749 - Establishing connection to DB 
+[16/09/2018 19:20:30] - corrId_5b9e90de280e54.30757749 - Executing query 
+[16/09/2018 19:20:30] - corrId_5b9e90de9a0361.13694281 - Reached StorageManagementService API 
+[16/09/2018 19:20:30] - corrId_5b9e90de9a0361.13694281 - Processing GetVideosInStorage request. 
+[16/09/2018 19:20:30] - corrId_5b9e90de9a0361.13694281 - Token validated. 
+[16/09/2018 19:20:30] - corrId_5b9e90de9a0361.13694281 - Query: SELECT co.id_copia, co.data_scarico, co.danneggiato, co.noleggiato, fi.id_film, fi.titolo, fo.nome
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN fornitore fo
+            ON co.id_fornitore = fo.id_fornitore
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0 
+[16/09/2018 19:20:30] - corrId_5b9e90de9a0361.13694281 - Establishing connection to DB 
+[16/09/2018 19:20:30] - corrId_5b9e90de9a0361.13694281 - Executing query 
+[16/09/2018 19:20:32] - corrId_5b9e90e09a4214.61655650 - Reached AccountManagementService API 
+[16/09/2018 19:20:32] - corrId_5b9e90e09a4214.61655650 - Processing GetCities request. 
+[16/09/2018 19:20:32] - corrId_5b9e90e09a4214.61655650 - Token validated. 
+[16/09/2018 19:20:32] - corrId_5b9e90e09a4214.61655650 - Query: SELECT *
+            FROM citta 
+[16/09/2018 19:20:32] - corrId_5b9e90e09a4214.61655650 - Establishing connection to DB 
+[16/09/2018 19:20:32] - corrId_5b9e90e09a4214.61655650 - Executing query 
+[16/09/2018 19:25:14] - corrId_5b9e91fa5c7ff2.06500885 - Reached AccountManagementService API 
+[16/09/2018 19:25:14] - corrId_5b9e91fa5c7ff2.06500885 - Processing GetCities request. 
+[16/09/2018 19:25:14] - corrId_5b9e91fa5c7ff2.06500885 - Token validated. 
+[16/09/2018 19:25:14] - corrId_5b9e91fa5c7ff2.06500885 - Query: SELECT *
+            FROM citta 
+[16/09/2018 19:25:14] - corrId_5b9e91fa5c7ff2.06500885 - Establishing connection to DB 
+[16/09/2018 19:25:14] - corrId_5b9e91fa5c7ff2.06500885 - Executing query 
+[16/09/2018 19:25:15] - corrId_5b9e91fb401063.45031988 - Reached StorageManagementService API 
+[16/09/2018 19:25:15] - corrId_5b9e91fb401063.45031988 - Processing GetVideosInStorage request. 
+[16/09/2018 19:25:15] - corrId_5b9e91fb401063.45031988 - Token validated. 
+[16/09/2018 19:25:15] - corrId_5b9e91fb401063.45031988 - Query: SELECT co.id_copia, co.data_scarico, co.danneggiato, co.noleggiato, fi.id_film, fi.titolo, fo.nome
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN fornitore fo
+            ON co.id_fornitore = fo.id_fornitore
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0 
+[16/09/2018 19:25:15] - corrId_5b9e91fb401063.45031988 - Establishing connection to DB 
+[16/09/2018 19:25:15] - corrId_5b9e91fb401063.45031988 - Executing query 
+[16/09/2018 19:25:16] - corrId_5b9e91fcd75ec9.61398324 - Reached StorageManagementService API 
+[16/09/2018 19:25:16] - corrId_5b9e91fcd75ec9.61398324 - Processing GetVideosInStorage request. 
+[16/09/2018 19:25:16] - corrId_5b9e91fcd75ec9.61398324 - Token validated. 
+[16/09/2018 19:25:16] - corrId_5b9e91fcd75ec9.61398324 - Query: SELECT co.id_copia, co.data_scarico, co.danneggiato, co.noleggiato, fi.id_film, fi.titolo, fo.nome
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN fornitore fo
+            ON co.id_fornitore = fo.id_fornitore
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0 
+[16/09/2018 19:25:16] - corrId_5b9e91fcd75ec9.61398324 - Establishing connection to DB 
+[16/09/2018 19:25:16] - corrId_5b9e91fcd75ec9.61398324 - Executing query 
+[16/09/2018 19:25:17] - corrId_5b9e91fd8e6723.71368304 - Reached AccountManagementService API 
+[16/09/2018 19:25:17] - corrId_5b9e91fd8e6723.71368304 - Processing GetCities request. 
+[16/09/2018 19:25:17] - corrId_5b9e91fd8e6723.71368304 - Token validated. 
+[16/09/2018 19:25:17] - corrId_5b9e91fd8e6723.71368304 - Query: SELECT *
+            FROM citta 
+[16/09/2018 19:25:17] - corrId_5b9e91fd8e6723.71368304 - Establishing connection to DB 
+[16/09/2018 19:25:17] - corrId_5b9e91fd8e6723.71368304 - Executing query 
+[16/09/2018 19:25:18] - corrId_5b9e91feb20a32.69124954 - Reached AccountManagementService API 
+[16/09/2018 19:25:18] - corrId_5b9e91feb20a32.69124954 - Processing GetStores request. 
+[16/09/2018 19:25:18] - corrId_5b9e91feb20a32.69124954 - Token validated. 
+[16/09/2018 19:25:18] - corrId_5b9e91feb20a32.69124954 - Query: SELECT *
+            FROM punto_vendita 
+             
+[16/09/2018 19:25:18] - corrId_5b9e91feb20a32.69124954 - Establishing connection to DB 
+[16/09/2018 19:25:18] - corrId_5b9e91feb20a32.69124954 - Executing query 
+[16/09/2018 19:25:20] - corrId_5b9e9200ec72d5.59972477 - Reached AccountManagementService API 
+[16/09/2018 19:25:20] - corrId_5b9e9200ec72d5.59972477 - Processing GetEmployees request. 
+[16/09/2018 19:25:20] - corrId_5b9e9200ec72d5.59972477 - Token validated. 
+[16/09/2018 19:25:20] - corrId_5b9e9200ec72d5.59972477 - Query: SELECT dip.id_dipendente, dip.nome as dipendente_nome, dip.cognome as dipendente_cognome,
+                dip.username as dipendente_username, del.nome as delega_nome, del.codice as delega_codice,
+                pv.nome as punto_vendita_nome, dip.id_punto_vendita as punto_vendita_id
+            FROM dipendente as dip
+            INNER JOIN delega as del
+            ON dip.id_delega = del.id_delega
+            INNER JOIN punto_vendita as pv
+            ON dip.id_punto_vendita = pv.id_punto_vendita 
+             
+[16/09/2018 19:25:20] - corrId_5b9e9200ec72d5.59972477 - Establishing connection to DB 
+[16/09/2018 19:25:20] - corrId_5b9e9200ec72d5.59972477 - Executing query 
+[16/09/2018 19:49:45] - corrId_5b9e97b98dded2.74649104 - Reached StorageManagementService API 
+[16/09/2018 19:49:45] - corrId_5b9e97b98dded2.74649104 - Processing GetVideosInStorage request. 
+[16/09/2018 19:49:45] - corrId_5b9e97b98dded2.74649104 - Token validated. 
+[16/09/2018 19:49:45] - corrId_5b9e97b98dded2.74649104 - Query: SELECT co.id_copia, co.data_scarico, co.danneggiato, co.noleggiato, fi.id_film, fi.titolo, fo.nome
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN fornitore fo
+            ON co.id_fornitore = fo.id_fornitore
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0 
+[16/09/2018 19:49:45] - corrId_5b9e97b98dded2.74649104 - Establishing connection to DB 
+[16/09/2018 19:49:45] - corrId_5b9e97b98dded2.74649104 - Executing query 
+[16/09/2018 20:41:03] - corrId_5b9ea3bfe750f2.32955355 - Reached AccountManagementService API 
+[16/09/2018 20:41:03] - corrId_5b9ea3bfe750f2.32955355 - Processing GetCities request. 
+[16/09/2018 20:41:03] - corrId_5b9ea3bfe750f2.32955355 - Token validated. 
+[16/09/2018 20:41:03] - corrId_5b9ea3bfe750f2.32955355 - Query: SELECT *
+            FROM citta 
+[16/09/2018 20:41:03] - corrId_5b9ea3bfe750f2.32955355 - Establishing connection to DB 
+[16/09/2018 20:41:03] - corrId_5b9ea3bfe750f2.32955355 - Executing query 
+[16/09/2018 23:51:56] - corrId_5b9ed07cbb0097.45891734 - Reached AccountManagementService API 
+[16/09/2018 23:51:56] - corrId_5b9ed07cbb0097.45891734 - Processing GetCities request. 
+[16/09/2018 23:51:56] - corrId_5b9ed07cbb0097.45891734 - Token validated. 
+[16/09/2018 23:51:56] - corrId_5b9ed07cbb0097.45891734 - Query: SELECT *
+            FROM citta 
+[16/09/2018 23:51:56] - corrId_5b9ed07cbb0097.45891734 - Establishing connection to DB 
+[16/09/2018 23:51:56] - corrId_5b9ed07cbb0097.45891734 - Executing query 
+[16/09/2018 23:51:58] - corrId_5b9ed07e0af358.97610145 - Reached AccountManagementService API 
+[16/09/2018 23:51:58] - corrId_5b9ed07e0af358.97610145 - Processing GetCities request. 
+[16/09/2018 23:51:58] - corrId_5b9ed07e0af358.97610145 - Token validated. 
+[16/09/2018 23:51:58] - corrId_5b9ed07e0af358.97610145 - Query: SELECT *
+            FROM citta 
+[16/09/2018 23:51:58] - corrId_5b9ed07e0af358.97610145 - Establishing connection to DB 
+[16/09/2018 23:51:58] - corrId_5b9ed07e0af358.97610145 - Executing query 

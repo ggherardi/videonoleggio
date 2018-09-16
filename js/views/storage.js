@@ -13,24 +13,24 @@ var storageTableColumns = {
     noleggiato: 7
 }
 var dataTableOptions = {
-        dom: 'Bftpil',
-        buttons: true,
-        select: true,
-        columnDefs: [{
-            targets: 0,
-            visible: false,
-            searchable: false
-        }, {
-            targets: 1,
-            visible: false,
-            searchable: false
-        }],
-        buttons: [
-            { extend: 'copy', text: "Copia" },
-            { extend: 'selected', text: "Scarica", action: loadVideos },
-            { text: "Carica nuove copie", action: unloadVideos },
-        ]
-    };
+    dom: 'Bftpil',
+    buttons: true,
+    select: true,
+    columnDefs: [{
+        targets: 0,
+        visible: false,
+        searchable: false
+    }, {
+        targets: 1,
+        visible: false,
+        searchable: false
+    }],
+    buttons: [
+        { extend: 'copy', text: "Copia" },
+        { extend: 'selected', text: "Carico merce", action: loadVideos },
+        { text: "Scarico merce", action: unloadVideos },
+    ]
+};
     
 function initStorageTable() {
     var filters = {
@@ -123,7 +123,7 @@ function loadVideos(e, dt, node, config) {
                 text: "Annulla"
             },
             confirmButton: {
-                text: "Conferma scarico",
+                text: "Conferma carico",
                 action: loadVideosAction.bind(rows)
             }
         }
@@ -157,7 +157,7 @@ function loadVideosAction() {
 function unloadVideos() {
     var body = buildStorageForm();
     modalOptions = {
-        title: "Caricamento nuove copie",
+        title: "Scaricamento nuove copie",
         body: body,
         cancelButton: {
             text: "Annulla"
@@ -175,7 +175,7 @@ function unloadVideos() {
 function buildStorageForm(row) {
     var isEditForm = row != undefined;
     var html = `<form id="StorageForm" class="form-signin" onsubmit="insertItem();return false;">
-                    <label for="StorageForm_film_container" class="mt-2">Film da caricare</label>
+                    <label for="StorageForm_film_container" class="mt-2">Film da scaricare</label>
                     <div id="StorageForm_film_container">
                         <select id="StorageForm_film" class="form-control"></select>
                     </div>

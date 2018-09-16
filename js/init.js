@@ -3,8 +3,9 @@ var views = {
     home: { title: "Home", name: "home" },
     login: { title: "Login", name: "login", showInMenu: false },
     rentals: { title: "Noleggi", name: "rentals" },
-    storage: { title: "Magazzino", name: "storage", needPermissions: permissions.levels.responsabile },
-    accounts: { title: "Gestione utenti", name: "accounts", needPermissions: permissions.levels.proprietario }
+    customers: { title: "Gestione clienti", name: "customers" },
+    accounts: { title: "Gestione utenti", name: "accounts", needPermissions: permissions.levels.proprietario },
+    storage: { title: "Magazzino", name: "storage", needPermissions: permissions.levels.responsabile }
 };
 
 var components = {
@@ -70,4 +71,8 @@ function menuClick(menuItem) {
 /* Shared functions */
 function validateForm(formId) {
     return $(formId)[0].checkValidity();
+}
+
+function restCallError(jqXHR, textStatus, errorThrown) {
+    console.log(jqXHR.status);
 }
