@@ -836,3 +836,162 @@
 [17/09/2018 01:50:47] - corrId_5b9eec57db9668.66449321 - Token validated. 
 [17/09/2018 01:50:47] - corrId_5b9eec57db9668.66449321 - Establishing connection to DB 
 [17/09/2018 01:50:47] - corrId_5b9eec57db9668.66449321 - Executing query 
+[17/09/2018 08:34:13] - corrId_5b9f4ae5e5a9f5.00782757 - Reached AuthenticationService API 
+[17/09/2018 08:34:13] - corrId_5b9f4ae5e5a9f5.00782757 - Processing Login request. 
+[17/09/2018 08:34:13] - corrId_5b9f4ae5e5a9f5.00782757 - Establishing connection to DB 
+[17/09/2018 08:34:13] - corrId_5b9f4ae5e5a9f5.00782757 - Executing query 
+[17/09/2018 08:34:14] - corrId_5b9f4ae5e5a9f5.00782757 - User  validated, generating Token. 
+[17/09/2018 08:34:14] - corrId_5b9f4ae5e5a9f5.00782757 - Token generated succesfully. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbEFjtn4XsFhOFmG30n4PcTI8wXPzxm/waElwFXqpafElJvaHFkRClq8P8HhE3bM9sG3F8CQ4FotzAJ8TbfAh+Fk= 
+[17/09/2018 08:34:15] - corrId_5b9f4ae7b310f0.56722170 - Reached CustomerManagementService API 
+[17/09/2018 08:34:15] - corrId_5b9f4ae7b310f0.56722170 - Processing GetAllPremiumCustomers request. 
+[17/09/2018 08:34:15] - corrId_5b9f4ae7b310f0.56722170 - Token validated. 
+[17/09/2018 08:34:15] - corrId_5b9f4ae7b310f0.56722170 - Establishing connection to DB 
+[17/09/2018 08:34:15] - corrId_5b9f4ae7b310f0.56722170 - Executing query 
+[17/09/2018 08:34:15] - corrId_5b9f4ae7b310f0.56722170 - Error while executing query -> Table 'videonoleggio.fidelizzazione' doesn't exist 
+[17/09/2018 08:34:15] - corrId_5b9f4ae7b310f0.56722170 - Error occured -> Exception: Exception: Table 'videonoleggio.fidelizzazione' doesn't exist in C:\Websites\BDC\videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Websites\BDC\videonoleggio\php\CustomerManagementService.php(20): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Websites\BDC\videonoleggio\php\CustomerManagementService.php(31): CustomerManagementService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Websites\BDC\videonoleggio\php\CustomerManagementService.php(44): CustomerManagementService->GetAllPremiumCustomers()
+#3 C:\Websites\BDC\videonoleggio\php\CustomerManagementService.php(62): CustomerManagementService->Init()
+#4 {main} in C:\Websites\BDC\videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Websites\BDC\videonoleggio\php\CustomerManagementService.php(20): DBConnection->ExecuteQuery('SELECT *\r\n     ...')
+#1 C:\Websites\BDC\videonoleggio\php\CustomerManagementService.php(31): CustomerManagementService->ExecuteQuery('SELECT *\r\n     ...')
+#2 C:\Websites\BDC\videonoleggio\php\CustomerManagementService.php(44): CustomerManagementService->GetAllPremiumCustomers()
+#3 C:\Websites\BDC\videonoleggio\php\CustomerManagementService.php(62): CustomerManagementService->Init()
+#4 {main} 
+[17/09/2018 08:34:16] - corrId_5b9f4ae8794782.54164507 - Reached AccountManagementService API 
+[17/09/2018 08:34:16] - corrId_5b9f4ae8794782.54164507 - Processing GetCities request. 
+[17/09/2018 08:34:16] - corrId_5b9f4ae8794782.54164507 - Token validated. 
+[17/09/2018 08:34:16] - corrId_5b9f4ae8794782.54164507 - Query: SELECT *
+            FROM citta 
+[17/09/2018 08:34:16] - corrId_5b9f4ae8794782.54164507 - Establishing connection to DB 
+[17/09/2018 08:34:16] - corrId_5b9f4ae8794782.54164507 - Executing query 
+[17/09/2018 08:34:17] - corrId_5b9f4ae9444d54.94110406 - Reached StorageManagementService API 
+[17/09/2018 08:34:17] - corrId_5b9f4ae9444d54.94110406 - Processing GetVideosInStorage request. 
+[17/09/2018 08:34:17] - corrId_5b9f4ae9444d54.94110406 - Token validated. 
+[17/09/2018 08:34:17] - corrId_5b9f4ae9444d54.94110406 - Query: SELECT co.id_copia, co.data_scarico, co.danneggiato, co.noleggiato, fi.id_film, fi.titolo, fo.nome
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN fornitore fo
+            ON co.id_fornitore = fo.id_fornitore
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0 
+[17/09/2018 08:34:17] - corrId_5b9f4ae9444d54.94110406 - Establishing connection to DB 
+[17/09/2018 08:34:17] - corrId_5b9f4ae9444d54.94110406 - Executing query 
+[17/09/2018 08:34:17] - corrId_5b9f4ae9444d54.94110406 - Error while executing query -> Table 'videonoleggio.copia' doesn't exist 
+[17/09/2018 08:34:17] - corrId_5b9f4ae9444d54.94110406 - Error occured -> Exception: Exception: Table 'videonoleggio.copia' doesn't exist in C:\Websites\BDC\videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Websites\BDC\videonoleggio\php\StorageManagementService.php(20): DBConnection->ExecuteQuery('SELECT co.id_co...')
+#1 C:\Websites\BDC\videonoleggio\php\StorageManagementService.php(38): StorageManagementService->ExecuteQuery('SELECT co.id_co...')
+#2 C:\Websites\BDC\videonoleggio\php\StorageManagementService.php(118): StorageManagementService->GetVideosInStorage()
+#3 C:\Websites\BDC\videonoleggio\php\StorageManagementService.php(145): StorageManagementService->Init()
+#4 {main} in C:\Websites\BDC\videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Websites\BDC\videonoleggio\php\StorageManagementService.php(20): DBConnection->ExecuteQuery('SELECT co.id_co...')
+#1 C:\Websites\BDC\videonoleggio\php\StorageManagementService.php(38): StorageManagementService->ExecuteQuery('SELECT co.id_co...')
+#2 C:\Websites\BDC\videonoleggio\php\StorageManagementService.php(118): StorageManagementService->GetVideosInStorage()
+#3 C:\Websites\BDC\videonoleggio\php\StorageManagementService.php(145): StorageManagementService->Init()
+#4 {main} 
+[17/09/2018 08:34:17] - corrId_5b9f4ae9aefb43.49484463 - Reached AccountManagementService API 
+[17/09/2018 08:34:17] - corrId_5b9f4ae9aefb43.49484463 - Processing GetCities request. 
+[17/09/2018 08:34:17] - corrId_5b9f4ae9aefb43.49484463 - Token validated. 
+[17/09/2018 08:34:17] - corrId_5b9f4ae9aefb43.49484463 - Query: SELECT *
+            FROM citta 
+[17/09/2018 08:34:17] - corrId_5b9f4ae9aefb43.49484463 - Establishing connection to DB 
+[17/09/2018 08:34:17] - corrId_5b9f4ae9aefb43.49484463 - Executing query 
+[17/09/2018 08:34:28] - corrId_5b9f4af44cc670.26958193 - Reached AccountManagementService API 
+[17/09/2018 08:34:28] - corrId_5b9f4af44cc670.26958193 - Processing GetCities request. 
+[17/09/2018 08:34:28] - corrId_5b9f4af44cc670.26958193 - Token validated. 
+[17/09/2018 08:34:28] - corrId_5b9f4af44cc670.26958193 - Query: SELECT *
+            FROM citta 
+[17/09/2018 08:34:28] - corrId_5b9f4af44cc670.26958193 - Establishing connection to DB 
+[17/09/2018 08:34:28] - corrId_5b9f4af44cc670.26958193 - Executing query 
+[17/09/2018 08:34:30] - corrId_5b9f4af6292b12.49270200 - Reached StorageManagementService API 
+[17/09/2018 08:34:30] - corrId_5b9f4af6292b12.49270200 - Processing GetVideosInStorage request. 
+[17/09/2018 08:34:30] - corrId_5b9f4af6292b12.49270200 - Token validated. 
+[17/09/2018 08:34:30] - corrId_5b9f4af6292b12.49270200 - Query: SELECT co.id_copia, co.data_scarico, co.danneggiato, co.noleggiato, fi.id_film, fi.titolo, fo.nome
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN fornitore fo
+            ON co.id_fornitore = fo.id_fornitore
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0 
+[17/09/2018 08:34:30] - corrId_5b9f4af6292b12.49270200 - Establishing connection to DB 
+[17/09/2018 08:34:30] - corrId_5b9f4af6292b12.49270200 - Executing query 
+[17/09/2018 08:34:30] - corrId_5b9f4af6292b12.49270200 - Error while executing query -> Table 'videonoleggio.copia' doesn't exist 
+[17/09/2018 08:34:30] - corrId_5b9f4af6292b12.49270200 - Error occured -> Exception: Exception: Table 'videonoleggio.copia' doesn't exist in C:\Websites\BDC\videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Websites\BDC\videonoleggio\php\StorageManagementService.php(20): DBConnection->ExecuteQuery('SELECT co.id_co...')
+#1 C:\Websites\BDC\videonoleggio\php\StorageManagementService.php(38): StorageManagementService->ExecuteQuery('SELECT co.id_co...')
+#2 C:\Websites\BDC\videonoleggio\php\StorageManagementService.php(118): StorageManagementService->GetVideosInStorage()
+#3 C:\Websites\BDC\videonoleggio\php\StorageManagementService.php(145): StorageManagementService->Init()
+#4 {main} in C:\Websites\BDC\videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Websites\BDC\videonoleggio\php\StorageManagementService.php(20): DBConnection->ExecuteQuery('SELECT co.id_co...')
+#1 C:\Websites\BDC\videonoleggio\php\StorageManagementService.php(38): StorageManagementService->ExecuteQuery('SELECT co.id_co...')
+#2 C:\Websites\BDC\videonoleggio\php\StorageManagementService.php(118): StorageManagementService->GetVideosInStorage()
+#3 C:\Websites\BDC\videonoleggio\php\StorageManagementService.php(145): StorageManagementService->Init()
+#4 {main} 
+[17/09/2018 08:34:30] - corrId_5b9f4af6e7bf71.71199487 - Reached AccountManagementService API 
+[17/09/2018 08:34:30] - corrId_5b9f4af6e7bf71.71199487 - Processing GetCities request. 
+[17/09/2018 08:34:30] - corrId_5b9f4af6e7bf71.71199487 - Token validated. 
+[17/09/2018 08:34:30] - corrId_5b9f4af6e7bf71.71199487 - Query: SELECT *
+            FROM citta 
+[17/09/2018 08:34:30] - corrId_5b9f4af6e7bf71.71199487 - Establishing connection to DB 
+[17/09/2018 08:34:30] - corrId_5b9f4af6e7bf71.71199487 - Executing query 
+[17/09/2018 08:34:33] - corrId_5b9f4af91b3024.70250014 - Reached StorageManagementService API 
+[17/09/2018 08:34:33] - corrId_5b9f4af91b3024.70250014 - Processing GetVideosInStorage request. 
+[17/09/2018 08:34:33] - corrId_5b9f4af91b3024.70250014 - Token validated. 
+[17/09/2018 08:34:33] - corrId_5b9f4af91b3024.70250014 - Query: SELECT co.id_copia, co.data_scarico, co.danneggiato, co.noleggiato, fi.id_film, fi.titolo, fo.nome
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN fornitore fo
+            ON co.id_fornitore = fo.id_fornitore
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0 
+[17/09/2018 08:34:33] - corrId_5b9f4af91b3024.70250014 - Establishing connection to DB 
+[17/09/2018 08:34:33] - corrId_5b9f4af91b3024.70250014 - Executing query 
+[17/09/2018 08:34:33] - corrId_5b9f4af91b3024.70250014 - Error while executing query -> Table 'videonoleggio.copia' doesn't exist 
+[17/09/2018 08:34:33] - corrId_5b9f4af91b3024.70250014 - Error occured -> Exception: Exception: Table 'videonoleggio.copia' doesn't exist in C:\Websites\BDC\videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Websites\BDC\videonoleggio\php\StorageManagementService.php(20): DBConnection->ExecuteQuery('SELECT co.id_co...')
+#1 C:\Websites\BDC\videonoleggio\php\StorageManagementService.php(38): StorageManagementService->ExecuteQuery('SELECT co.id_co...')
+#2 C:\Websites\BDC\videonoleggio\php\StorageManagementService.php(118): StorageManagementService->GetVideosInStorage()
+#3 C:\Websites\BDC\videonoleggio\php\StorageManagementService.php(145): StorageManagementService->Init()
+#4 {main} in C:\Websites\BDC\videonoleggio\php\DBConnection.php:75
+Stack trace:
+#0 C:\Websites\BDC\videonoleggio\php\StorageManagementService.php(20): DBConnection->ExecuteQuery('SELECT co.id_co...')
+#1 C:\Websites\BDC\videonoleggio\php\StorageManagementService.php(38): StorageManagementService->ExecuteQuery('SELECT co.id_co...')
+#2 C:\Websites\BDC\videonoleggio\php\StorageManagementService.php(118): StorageManagementService->GetVideosInStorage()
+#3 C:\Websites\BDC\videonoleggio\php\StorageManagementService.php(145): StorageManagementService->Init()
+#4 {main} 
+[17/09/2018 08:35:58] - corrId_5b9f4b4eb78085.72682492 - Reached AccountManagementService API 
+[17/09/2018 08:35:58] - corrId_5b9f4b4eb78085.72682492 - Processing GetCities request. 
+[17/09/2018 08:35:58] - corrId_5b9f4b4eb78085.72682492 - Token validated. 
+[17/09/2018 08:35:58] - corrId_5b9f4b4eb78085.72682492 - Query: SELECT *
+            FROM citta 
+[17/09/2018 08:35:58] - corrId_5b9f4b4eb78085.72682492 - Establishing connection to DB 
+[17/09/2018 08:35:58] - corrId_5b9f4b4eb78085.72682492 - Executing query 
+[17/09/2018 08:35:59] - corrId_5b9f4b4fd57738.84923151 - Reached StorageManagementService API 
+[17/09/2018 08:35:59] - corrId_5b9f4b4fd57738.84923151 - Processing GetVideosInStorage request. 
+[17/09/2018 08:35:59] - corrId_5b9f4b4fd57738.84923151 - Token validated. 
+[17/09/2018 08:35:59] - corrId_5b9f4b4fd57738.84923151 - Query: SELECT co.id_copia, co.data_scarico, co.danneggiato, co.noleggiato, fi.id_film, fi.titolo, fo.nome
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN fornitore fo
+            ON co.id_fornitore = fo.id_fornitore
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0 
+[17/09/2018 08:35:59] - corrId_5b9f4b4fd57738.84923151 - Establishing connection to DB 
+[17/09/2018 08:35:59] - corrId_5b9f4b4fd57738.84923151 - Executing query 
+[17/09/2018 08:36:03] - corrId_5b9f4b5316a769.79523843 - Reached CustomerManagementService API 
+[17/09/2018 08:36:03] - corrId_5b9f4b5316a769.79523843 - Processing GetAllPremiumCustomers request. 
+[17/09/2018 08:36:03] - corrId_5b9f4b5316a769.79523843 - Token validated. 
+[17/09/2018 08:36:03] - corrId_5b9f4b5316a769.79523843 - Establishing connection to DB 
+[17/09/2018 08:36:03] - corrId_5b9f4b5316a769.79523843 - Executing query 
