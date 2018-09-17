@@ -20,7 +20,7 @@ class CustomerManagementService {
         return $this->dbContext->ExecuteQuery($query);
     }
 
-    function GetAllPremiumCustomers() {
+    function GetAllCustomersWithPremiumCode() {
         Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
         TokenGenerator::ValidateToken();
         $query = 
@@ -31,17 +31,56 @@ class CustomerManagementService {
         $res = self::ExecuteQuery($query);
         $array = array();
         while($row = $res->fetch_assoc()){
+            if(strlen($row["liberatoria"]) > 0) {
+                $blob = $row["liberatoria"];
+                $encoded64Blob = base64_encode("$blob");
+                $row["liberatoria"] = $encoded64Blob;
+            }
             $array[] = $row;
         }
+        header("Content-Type: application/pdf");
         exit(json_encode($array));
+    }
+
+    function InsertNewCustomer() {
+        Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
+        TokenGenerator::ValidateToken();
+        if(count($_FILES) > 0) {
+            $fileData = self::GetFileData();
+        }
+        $query = 
+            "INSERT INTO cliente
+            (liberatoria, id_fidelizzazione)
+            VALUES
+            (%s, %d)";
+        $query = sprintf($query, ($fileData != null ? "'$fileData'" : "DEFAULT"), 1);
+        Logger::Write("query: " .$query, $GLOBALS["CorrelationID"]);
+        $res = self::ExecuteQuery($query);
+        if($res) {
+            exit(json_encode("Success!"));
+        } else {
+            http_response_code(500);
+        }
+    }
+
+    private function GetFileData() {
+        $filename = $_FILES['file']['tmp_name'];
+        $file = readfile($_FILES['file']['tmp_name']);
+        $filePointer = fopen($_FILES['file']['tmp_name'], 'rb');
+        $fileData = fread($filePointer, filesize($_FILES['file']['tmp_name']));
+        $fileData = addslashes($fileData);
+        return $fileData;
     }
 
     // Switcha l'operazione richiesta lato client
     function Init() {
         try {
             switch($_POST["action"]) {
-                case "getAllPremiumCustomers":
-                    self::GetAllPremiumCustomers();
+                case "getAllCustomersWithPremiumCode":
+                    self::GetAllCustomersWithPremiumCode();
+                    break;
+                case "insertNewCustomer":
+                    self::InsertNewCustomer();
                     break;
                 default: 
                     exit(json_encode($_POST));

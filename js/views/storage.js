@@ -99,7 +99,7 @@ function buildStorageTableHead() {
             </thead>`;
 }
 
-/* Load Videos Form */
+/* Load Videos Action */
 function loadVideos(e, dt, node, config) {
     var rows = dt.rows({ selected: true }).data();
     var modalOptions = {};
@@ -153,7 +153,7 @@ function loadVideosAction() {
         .fail(restCallError);
 }
 
-/* Unload Videos Form */
+/* Unload Videos Actions */
 function unloadVideos() {
     var body = buildStorageForm();
     modalOptions = {

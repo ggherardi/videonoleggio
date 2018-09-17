@@ -222,10 +222,19 @@ class CustomersManagementService extends RestClient {
         this.endpoint = "php/CustomerManagementService.php";
     }
 
-    getAllPremiumCustomers() {
+    getAllCustomersWithPremiumCode() {
         this.data = {
-            action: "getAllPremiumCustomers"
+            action: "getAllCustomersWithPremiumCode"
         }
+        return super.executeWithToken();        
+    }
+
+    insertNewCustomer(file) {
+        this.data = new FormData();
+        this.data.append('file', file);
+        this.data.append('action', 'insertNewCustomer');
+        this.ajaxOptions.processData = false;
+        this.ajaxOptions.contentType = false;
         return super.executeWithToken();        
     }
 }

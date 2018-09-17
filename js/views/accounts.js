@@ -240,7 +240,7 @@ function buildEmployeeForm(row) {
                     <input id="EmployeeForm_cognome" type="text" class="form-control" value="${isEditForm ? row[5] : ""}" text="${isEditForm ? row[5] : ""}">
                     <label for="EmployeeForm_ruolo" class="mt-2">Punto vendita</label>
                     <div id="EmployeeForm_ruolo_container">
-                        <select id="EmployeeForm_ruolo" type="text" class="form-control"></select>
+                        <select id="EmployeeForm_ruolo" class="form-control"></select>
                     </div>
                 </form>`;
     return html;
