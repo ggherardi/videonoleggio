@@ -36,6 +36,69 @@ class RestClient {
       }
 }
 
+class GetAllItemsService extends RestClient {
+    constructor() {
+        super();
+        this.endpoint = "php/GetAllItemsService.php";
+    }
+
+    getAllCities() {
+        this.data = {
+            action: "getAllCities"
+        }
+        return super.executeWithToken();        
+    }
+
+    getAllStores() {
+        this.data = {
+            action: "getAllStores"
+        }
+        return super.executeWithToken();
+    }
+
+    getAllEmployees() {
+        this.data = {
+            action: "getAllEmployees"
+        }
+        return super.executeWithToken();
+    }
+
+    getAllRoles() {
+        this.data = {
+            action: "getAllRoles"
+        }
+        return super.executeWithToken();
+    }
+
+    getAllFilms() {
+        this.data = {
+            action: "getAllFilms"
+        }
+        return super.executeWithToken();
+    }
+
+    getAllSuppliers() {
+        this.data = {
+            action: "getAllSuppliers"
+        }
+        return super.executeWithToken();
+    }
+
+    getAllCustomers() {
+        this.data = {
+            action: "getAllCustomers"
+        }
+        return super.executeWithToken();
+    }
+    
+    getAllDiscounts() {
+        this.data = {
+            action: "getAllDiscounts"
+        }
+        return super.executeWithToken();
+    }
+}
+
 class AuthenticationService extends RestClient {
     constructor() {
         super();
@@ -119,69 +182,6 @@ class AccountManagementService extends RestClient {
     }
 }
 
-class GetAllItemsService extends RestClient {
-    constructor() {
-        super();
-        this.endpoint = "php/GetAllItemsService.php";
-    }
-
-    getAllCities() {
-        this.data = {
-            action: "getAllCities"
-        }
-        return super.executeWithToken();        
-    }
-
-    getAllStores() {
-        this.data = {
-            action: "getAllStores"
-        }
-        return super.executeWithToken();
-    }
-
-    getAllEmployees() {
-        this.data = {
-            action: "getAllEmployees"
-        }
-        return super.executeWithToken();
-    }
-
-    getAllRoles() {
-        this.data = {
-            action: "getAllRoles"
-        }
-        return super.executeWithToken();
-    }
-
-    getAllFilms() {
-        this.data = {
-            action: "getAllFilms"
-        }
-        return super.executeWithToken();
-    }
-
-    getAllSuppliers() {
-        this.data = {
-            action: "getAllSuppliers"
-        }
-        return super.executeWithToken();
-    }
-
-    getAllCustomers() {
-        this.data = {
-            action: "getAllCustomers"
-        }
-        return super.executeWithToken();
-    }
-    
-    getAllDiscounts() {
-        this.data = {
-            action: "getAllDiscounts"
-        }
-        return super.executeWithToken();
-    }
-}
-
 class StorageManagementService extends RestClient {
     constructor() {
         super();
@@ -241,6 +241,24 @@ class CustomersManagementService extends RestClient {
         this.data.append('file', file);
         this.data.append('customer', JSON.stringify(customer));
         this.data.append('action', 'insertNewCustomer');
+        this.ajaxOptions.processData = false;
+        this.ajaxOptions.contentType = false;
+        return super.executeWithToken();        
+    }
+
+    deleteCustomer(id_cliente) {
+        this.data = {
+            action: "deleteCustomer",
+            id_cliente: id_cliente
+        }
+        return super.executeWithToken();        
+    }
+
+    editCustomer(customer, file) {
+        this.data = new FormData();
+        this.data.append('file', file);
+        this.data.append('customer', JSON.stringify(customer));
+        this.data.append('action', 'editCustomer');
         this.ajaxOptions.processData = false;
         this.ajaxOptions.contentType = false;
         return super.executeWithToken();        

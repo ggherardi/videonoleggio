@@ -43,9 +43,10 @@ class CustomerManagementService {
     }
 
     function InsertNewCustomer() {
+        ob_start();
         Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
         TokenGenerator::ValidateToken();
-        $customer = $_POST["customer"];
+        $customer = json_decode($_POST["customer"]);
         if(count($_FILES) > 0) {
             $fileData = self::GetFileData();
         }
@@ -53,9 +54,9 @@ class CustomerManagementService {
             "INSERT INTO cliente
             (liberatoria, id_fidelizzazione, nome, cognome, indirizzo, telefono_casa, telefono_cellulare, email, data_nascita)
             VALUES
-            (%s, %d, %s, %s, %s, %s, %s, %s, %s)";
-        $query = sprintf($query, ($fileData != null ? "'$fileData'" : "DEFAULT"), 
-            1, 
+            (%s, %d, '%s', '%s', '%s', '%s', '%s', '%s', '%s')";
+        $query = sprintf($query, ($fileData != null ? "'$fileData'" : "DEFAULT"), // Ho aggiunto gli apici a $fileData qui, altrimenti non prende il DEFAULT
+            $customer->id_fidelizzazione, 
             $customer->nome, 
             $customer->cognome, 
             $customer->indirizzo, 
@@ -63,10 +64,10 @@ class CustomerManagementService {
             $customer->telefono_cellulare, 
             $customer->email,
             $customer->data_nascita);
-        Logger::Write("query: " .$query, $GLOBALS["CorrelationID"]);
         $res = self::ExecuteQuery($query);
+        ob_clean();
         if($res) {
-            exit(json_encode("Success!"));
+            exit(json_encode($res));
         } else {
             http_response_code(500);
         }
@@ -81,6 +82,63 @@ class CustomerManagementService {
         return $fileData;
     }
 
+    function DeleteCustomer() {
+        Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
+        TokenGenerator::ValidateToken();
+        $id_cliente = $_POST["id_cliente"]; 
+        $query = 
+            "DELETE FROM cliente              
+            WHERE id_cliente = %d";
+        $query = sprintf($query, $id_cliente);
+        Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
+        $res = self::ExecuteQuery($query);
+        if($res) {
+            exit(json_encode($res));
+        } else {
+            http_response_code(500);
+        }       
+    }
+
+    function EditCustomer() {
+        Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
+        TokenGenerator::ValidateToken();
+        $customer = json_decode($_POST["customer"]);
+        if(count($_FILES) > 0) {
+            $fileData = self::GetFileData();
+        }
+        $query = 
+            "UPDATE `videonoleggio`.`cliente`
+            SET
+            id_fidelizzazione = %d,
+            nome = '%s',
+            cognome = '%s',
+            indirizzo = '%s',
+            telefono_casa = '%s',
+            telefono_cellulare = '%s',
+            email = '%s',
+            data_nascita = '%s',
+            liberatoria = %s
+            WHERE id_cliente = %d";
+        $query = sprintf($query,             
+                $customer->id_fidelizzazione, 
+                $customer->nome, 
+                $customer->cognome, 
+                $customer->indirizzo, 
+                $customer->telefono_casa,
+                $customer->telefono_cellulare, 
+                $customer->email,
+                $customer->data_nascita,
+                ($fileData != null ? "'$fileData'" : "DEFAULT"), // Ho aggiunto gli apici a $fileData qui, altrimenti non prende il DEFAULT
+                $customer->id_cliente);
+        Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
+        $res = self::ExecuteQuery($query);
+        if($res) {
+            exit(json_encode($res));
+        } else {
+            http_response_code(500);
+        }    
+    }
+
     // Switcha l'operazione richiesta lato client
     function Init() {
         try {
@@ -90,6 +148,12 @@ class CustomerManagementService {
                     break;
                 case "insertNewCustomer":
                     self::InsertNewCustomer();
+                    break;
+                case "deleteCustomer":
+                    self::DeleteCustomer();
+                    break;
+                case "editCustomer":
+                    self::EditCustomer();
                     break;
                 default: 
                     exit(json_encode($_POST));

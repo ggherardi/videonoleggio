@@ -13,13 +13,28 @@
             <div class="row">
                 <span class="col-sm-6">Selezionare la città:</span>
                 <div class="col-sm-6 row" id="SelectCityContainer">
-                    <select id="AccountsSelectCity" class="col-sm-12" onchange="getStores(this);"></select>
-                </div>                    
+                    <select id="AccountsSelectCity" class="col-sm-12" onchange="getStores(this);">
+                        <option>-seleziona-</option>
+                        <option value="-1">Tutte</option></select>
+                </div> 
+            </div>
+            <div class="row">
+                          
             </div>
         </div>
     </div>
     <div class="row">
-        <div id="SelectStoreContainer" class="col-sm-8"></div>
+        <div id="SelectStoreContainer" class="col-sm-8">
+            <div class="row">
+                <span class="col-sm-6">Selezionare il punto vendita:</span>
+                <div class="col-sm-6 row" id="SelectStoreContainer">
+                    <select id="AccountsSelectStore" class="col-sm-12" onchange="getEmployees(this);">
+                        <option>-seleziona-</option>
+                        <option value="-1" selected>Tutti</option>
+                    </select>
+                </div>       
+            </div>  
+        </div>          
     </div>
     <div class="mt-3" id="EmployeesTableContainer"></div>
 </div>

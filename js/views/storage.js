@@ -164,7 +164,7 @@ function unloadVideos() {
         },
         confirmButton: {
             text: "Carica copie",
-            action: delegateInsertItem
+            action: insertItemDelegate
         }
     }
     modal = new Modal(modalOptions);
@@ -222,7 +222,7 @@ function buildOptions(table, selectId) {
 }
 
 /* Form actions */
-function delegateInsertItem() {
+function insertItemDelegate() {
     $("#StorageForm_insert_button").click();
 }
 

@@ -22,7 +22,7 @@ var dataTableOptions = {
         { extend: 'copy', text: "Copia" },
         { extend: 'selectedSingle', text: "Resetta password", action: resetPassword },
         { extend: 'selectedSingle', text: "Modifica", action: editEmployee },
-        { extend: 'selected', text: "Cancella", action: deleteEmployee },
+        { extend: 'selectedSingle', text: "Cancella", action: deleteEmployee },
         { text: "Nuovo", action: insertEmployee },
     ]
 };
@@ -39,7 +39,7 @@ function initAccountManager() {
 function getCitiesSuccess(data) {
     var cities = JSON.parse(data);
     var citiesSelectHtml =  "<option>-seleziona-</option>";
-    citiesSelectHtml += "<option value='-1'>Tutte</option>";
+    citiesSelectHtml += "<option value='-1' selected>Tutte</option>";
     for(var i = 0; i < cities.length; i++) {
         citiesSelectHtml += `<option value='${cities[i].citta_id}'>${cities[i].citta_nome}</option>`;
     }
@@ -47,6 +47,7 @@ function getCitiesSuccess(data) {
     if(select[0]) {
         select.html(citiesSelectHtml);
     }
+    setTimeout(() => getStores($("#AccountsSelectCity")[0]), 100);
 }
 
 function getStores(select) {
@@ -73,7 +74,7 @@ function getStoresSuccess(data) {
                     <div class="col-sm-6 row">
                         <select id="AccountsSelectStore" class="col-sm-12" onchange="getEmployees(this);">
                             <option>-seleziona-</option>
-                            <option value="-1">Tutti</option>`;
+                            <option value="-1" selected>Tutti</option>`;
         for(var i = 0; i < stores.length; i++) {
             html += `       <option value='${stores[i].punto_vendita_id}'>${stores[i].punto_vendita_nome}</option>`
         }
@@ -84,6 +85,7 @@ function getStoresSuccess(data) {
         html += `<span>Nessun punto vendita trovato per la città selezionata.</span>`;
     }
     selectStoreContainer.html(html);
+    getEmployees($("#AccountsSelectStore")[0]);
 }
 
 function getEmployees(select) {
