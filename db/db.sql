@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `videonoleggio` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `videonoleggio`;
--- MySQL dump 10.13  Distrib 5.5.61, for Win64 (AMD64)
+-- MySQL dump 10.13  Distrib 5.5.60, for Win64 (AMD64)
 --
 -- Host: localhost    Database: videonoleggio
 -- ------------------------------------------------------
--- Server version	5.5.61
+-- Server version	5.5.60
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -265,7 +265,7 @@ CREATE TABLE `fidelizzazione` (
 
 LOCK TABLES `fidelizzazione` WRITE;
 /*!40000 ALTER TABLE `fidelizzazione` DISABLE KEYS */;
-INSERT INTO `fidelizzazione` VALUES (1,'Silver',10),(2,'Gold',15),(3,'Platinum',20),(4,'Regular',0);
+INSERT INTO `fidelizzazione` VALUES (1,'Argento',10),(2,'Oro',15),(3,'Platino',20),(4,'Base',0);
 /*!40000 ALTER TABLE `fidelizzazione` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -391,6 +391,40 @@ LOCK TABLES `noleggio` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `partita`
+--
+
+DROP TABLE IF EXISTS `partita`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `partita` (
+  `id_partita` int(11) NOT NULL AUTO_INCREMENT,
+  `id_film` int(11) DEFAULT NULL,
+  `id_punto_vendita` int(11) DEFAULT NULL,
+  `id_fornitore` int(11) DEFAULT NULL,
+  `disponibilita_massima` int(11) DEFAULT NULL,
+  `disponibilita_attuale` int(11) DEFAULT NULL,
+  `data_scarico` datetime DEFAULT NULL,
+  PRIMARY KEY (`id_partita`),
+  KEY `fk_partita_film_idx` (`id_film`),
+  KEY `fk_partita_punto_vendita_idx` (`id_punto_vendita`),
+  KEY `fk_partita_fornitore_idx` (`id_fornitore`),
+  CONSTRAINT `fk_partita_punto_vendita` FOREIGN KEY (`id_punto_vendita`) REFERENCES `punto_vendita` (`id_punto_vendita`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_partita_fornitore` FOREIGN KEY (`id_fornitore`) REFERENCES `fornitore` (`id_fornitore`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_partita_film` FOREIGN KEY (`id_film`) REFERENCES `film` (`id_film`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `partita`
+--
+
+LOCK TABLES `partita` WRITE;
+/*!40000 ALTER TABLE `partita` DISABLE KEYS */;
+/*!40000 ALTER TABLE `partita` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `prenotazione`
 --
 
@@ -478,6 +512,29 @@ INSERT INTO `regista` VALUES (1,'Frank','Darabont'),(2,'Quentin','Tarantino'),(3
 UNLOCK TABLES;
 
 --
+-- Table structure for table `sconto`
+--
+
+DROP TABLE IF EXISTS `sconto`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `sconto` (
+  `id_sconto` int(11) NOT NULL AUTO_INCREMENT,
+  `percentuale` float DEFAULT NULL,
+  PRIMARY KEY (`id_sconto`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sconto`
+--
+
+LOCK TABLES `sconto` WRITE;
+/*!40000 ALTER TABLE `sconto` DISABLE KEYS */;
+/*!40000 ALTER TABLE `sconto` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `stato_prenotazione`
 --
 
@@ -509,4 +566,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-09-18  1:28:04
+-- Dump completed on 2018-09-18 16:59:05
