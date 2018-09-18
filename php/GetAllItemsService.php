@@ -117,6 +117,20 @@ class GetAllItemsService {
         exit(json_encode($array));
     }
 
+    function GetAllDiscounts() {
+        Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
+        TokenGenerator::ValidateToken();
+        $query = 
+            "SELECT *
+            FROM fidelizzazione";
+        $res = self::ExecuteQuery($query);
+        $array = array();
+        while($row = $res->fetch_assoc()){
+            $array[] = $row;
+        }
+        exit(json_encode($array));
+    }
+
     // Switcha l'operazione richiesta lato client
     function Init() {
         try {
@@ -141,6 +155,9 @@ class GetAllItemsService {
                     break;
                 case "getAllCustomers":
                     self::GetAllCustomers();
+                    break;
+                case "getAllDiscounts":
+                    self::GetAllDiscounts();
                     break;
                 default: 
                     exit(json_encode($_POST));

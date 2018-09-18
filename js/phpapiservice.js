@@ -173,6 +173,13 @@ class GetAllItemsService extends RestClient {
         }
         return super.executeWithToken();
     }
+    
+    getAllDiscounts() {
+        this.data = {
+            action: "getAllDiscounts"
+        }
+        return super.executeWithToken();
+    }
 }
 
 class StorageManagementService extends RestClient {
@@ -229,9 +236,10 @@ class CustomersManagementService extends RestClient {
         return super.executeWithToken();        
     }
 
-    insertNewCustomer(file) {
+    insertNewCustomer(customer, file) {
         this.data = new FormData();
         this.data.append('file', file);
+        this.data.append('customer', JSON.stringify(customer));
         this.data.append('action', 'insertNewCustomer');
         this.ajaxOptions.processData = false;
         this.ajaxOptions.contentType = false;

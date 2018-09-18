@@ -45,15 +45,24 @@ class CustomerManagementService {
     function InsertNewCustomer() {
         Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
         TokenGenerator::ValidateToken();
+        $customer = $_POST["customer"];
         if(count($_FILES) > 0) {
             $fileData = self::GetFileData();
         }
         $query = 
             "INSERT INTO cliente
-            (liberatoria, id_fidelizzazione)
+            (liberatoria, id_fidelizzazione, nome, cognome, indirizzo, telefono_casa, telefono_cellulare, email, data_nascita)
             VALUES
-            (%s, %d)";
-        $query = sprintf($query, ($fileData != null ? "'$fileData'" : "DEFAULT"), 1);
+            (%s, %d, %s, %s, %s, %s, %s, %s, %s)";
+        $query = sprintf($query, ($fileData != null ? "'$fileData'" : "DEFAULT"), 
+            1, 
+            $customer->nome, 
+            $customer->cognome, 
+            $customer->indirizzo, 
+            $customer->telefono_casa,
+            $customer->telefono_cellulare, 
+            $customer->email,
+            $customer->data_nascita);
         Logger::Write("query: " .$query, $GLOBALS["CorrelationID"]);
         $res = self::ExecuteQuery($query);
         if($res) {
@@ -104,25 +113,5 @@ catch(Throwable $ex) {
     Logger::Write("Error occured: $ex", $GLOBALS["CorrelationID"]);
     http_response_code(500);
     exit(json_encode($ex->getMessage()));
-}
-
-class Customer {
-    public $id_copia;
-    public $id_film;
-    public $titolo;  
-    public $fornitore;  
-    public $data_scarico;
-    public $danneggiato;
-    public $noleggiato;  
-
-    function __construct($row) {
-        $this->id_copia = $row["id_copia"];
-        $this->id_film = $row["id_film"];
-        $this->titolo = $row["titolo"];
-        $this->fornitore = $row["nome"];
-        $this->data_scarico = $row["data_scarico"];
-        $this->danneggiato = $row["danneggiato"];
-        $this->noleggiato = $row["noleggiato"];        
-    }
 }
 ?>

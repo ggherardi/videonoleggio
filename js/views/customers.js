@@ -12,6 +12,7 @@ var dataTableOptions = {
         { data: "telefono_casa" },
         { data: "liberatoria" },
         { data: "nome_fidelizzazione" },
+        { data: "percentuale" },
         {
             class: "more-details",
             orderable: false,
@@ -24,7 +25,7 @@ var dataTableOptions = {
         { data: "telefono_cellulare" }
     ],
     columnDefs: [{
-        targets: [ 0, 1, 2, 3, 4 ],
+        targets: [ 0, 1, 2, 3, 4, 5],
         visible: false,
         searchable: false
     }],
@@ -59,7 +60,8 @@ function getAllCustomersWithPremiumCode(data) {
                             <td>${customers[i].email}</td>
                             <td>${customers[i].telefono_casa}</td>
                             <td>${customers[i].liberatoria}</td>
-                            <td>${customers[i].nome_fidelizzazione}</td>                       
+                            <td>${customers[i].nome_fidelizzazione}</td>   
+                            <td>${customers[i].percentuale}</td>                     
                             <td></td>
                             <td>${customers[i].cognome}</td>
                             <td>${customers[i].nome}</td>
@@ -83,6 +85,7 @@ function buildCustomersTableHead() {
                     <th scope="col"></th>
                     <th scope="col"></th>
                     <th scope="col"></th>
+                    <th scope="col"></th>
                     <th scope="col">Cognome</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Data di nascita</th>
@@ -94,7 +97,6 @@ function buildCustomersTableHead() {
 function getLiberatoriaBlob(base64Liberatoria) {
     var bytes = base64ToArrayBuffer(base64Liberatoria);
     var blobUrl = saveByteArray("cliente.pdf", bytes);
-    console.log(blobUrl);
     return blobUrl;
 }
 
@@ -126,7 +128,7 @@ function formatCollapsedDetails (row) {
                     </tr>
                     <tr>
                         <td>Sottoscrizione</td>
-                        <td>${row.nome_fidelizzazione}</td>
+                        <td>${row.nome_fidelizzazione} (sconto del ${row.percentuale}%)</td>
                     </tr>`;
     if(row.liberatoria != "null") {
         html +=     `<tr>
@@ -162,6 +164,7 @@ function addCustomerAction(e, dt, node, config) {
 
     modal = new Modal(modalOptions);
     modal.open(); 
+    loadSelect();
 }
 
 function buildCustomerForm(row) {
@@ -184,20 +187,58 @@ function buildCustomerForm(row) {
                     <input id="CustomerForm_data_nascita" type="date" class="form-control" value="${isEditForm ? row.data_nascita : ""}" text="${isEditForm ? row.data_nascita : ""}">
                     <label for="CustomerForm_liberatoria" class="mt-2">Liberatoria</label>
                     <input id="CustomerForm_liberatoria" type="file" class="form-control">
-                    <label for="EmployeeForm_fidelizzazione" class="mt-2">Punto vendita</label>
-                    <div id="EmployeeForm_fidelizzazione_container">
-                        <select id="EmployeeForm_fidelizzazione" class="form-control"></select>
+                    <label for="CustomerForm_fidelizzazione" class="mt-2">Punto vendita</label>
+                    <div id="CustomerForm_fidelizzazione_container">
+                        <select id="CustomerForm_fidelizzazione" class="form-control"></select>
                     </div>
                 </form>`;
     return html;
 }
 
+function loadSelect(row) {
+    selectLoader = new Loader("#CustomerForm_fidelizzazione_container", 25, 25);
+    selectLoader.showLoader();
+    getAllItemsService = new GetAllItemsService();
+    getAllItemsService.getAllDiscounts()
+        .done(buildSelects.bind(row))
+        .fail(restCallError)
+        .always(() => selectLoader.hideLoader());   
+}
+
+function buildSelects(data) {
+    allDiscounts = JSON.parse(data);
+    allDiscounts = allDiscounts.sort((a, b) => { if(a.percentuale > b.percentuale) return 1; return -1; })
+    var html = "";
+    for(var i = 0; i < allDiscounts.length; i++) {
+            html += `<option value="${allDiscounts[i].id_fidelizzazione}" ${this ? allDiscounts[i].id_fidelizzazione == this[1] ? "selected" : "" : ""}>
+                        ${allDiscounts[i].nome_fidelizzazione} (${allDiscounts[i].percentuale})
+                    </option>`;
+    }    
+    $("#CustomerForm_fidelizzazione").html(html);
+}
+
 function addCustomer() {
     var files = $("#CustomerForm_liberatoria")[0].files;
-    customersManagementService.insertNewCustomer(files[0])
+    var customer = getCustomerFromForm();
+    customersManagementService.insertNewCustomer(customer, files[0])
         .done(insertItemSuccess)
         .fail(restCallError)
         .always(() => customersManagementService = new CustomersManagementService());
+}
+
+function getCustomerFromForm() {
+    var customer = {
+        id_cliente: $("#CustomerForm_id_cliente").val(),
+        nome: $("#CustomerForm_nome").val(),
+        cognome: $("#CustomerForm_cognome").val(),
+        indirizzo: $("#CustomerForm_indirizzo").val(),
+        telefono_cellulare: $("#CustomerForm_telefono_cellulare").val(),
+        telefono_casa: $("#CustomerForm_telefono_casa").val(),
+        email: $("#CustomerForm_email").val(),
+        data_nascita: $("#CustomerForm_data_nascita").val(),        
+        id_delega: $("#CustomerForm_fidelizzazione_container option:selected").val(),
+    };
+    return customer;
 }
 
 function insertItemSuccess(data) {
