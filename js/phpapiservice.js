@@ -265,12 +265,18 @@ class CustomersManagementService extends RestClient {
     }
 }
 
-class VideoRentalService extends RestClient {
+class RentalManagementService extends RestClient {
     constructor() {
-
+        super();
+        this.endpoint = "php/RentalManagementService.php";
     }
 
-    getField() {
-        
+    getVideosInStorageWithCount(filters) {
+        filters = JSON.stringify(filters);
+        this.data = {
+            action: "getVideosInStorageWithCount",
+            filters: filters
+        }
+        return super.executeWithToken();        
     }
 }

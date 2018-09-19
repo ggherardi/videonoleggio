@@ -3,9 +3,11 @@ var views = {
     home: { title: "Home", name: "home" },
     login: { title: "Login", name: "login", showInMenu: false },
     rentals: { title: "Noleggi", name: "rentals" },
+    // returns: { title: "Restituzioni", name: "returns" },
+    // bookings: { title: "Prenotazioni", name: "bookings" },
     customers: { title: "Gestione clienti", name: "customers" },
-    accounts: { title: "Gestione dipendenti", name: "accounts", needPermissions: permissions.levels.proprietario },
-    storage: { title: "Magazzino", name: "storage", needPermissions: permissions.levels.responsabile }
+    storage: { title: "Magazzino", name: "storage", needPermissions: permissions.levels.responsabile },
+    accounts: { title: "Gestione dipendenti", name: "accounts", needPermissions: permissions.levels.proprietario }
 };
 
 var components = {

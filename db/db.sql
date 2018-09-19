@@ -174,7 +174,7 @@ CREATE TABLE `copia` (
   KEY `fk_partita_film_idx` (`id_film`),
   KEY `fk_partita_punto_vendita_idx` (`id_punto_vendita`),
   KEY `fk_partita_fornitore_idx` (`id_fornitore`)
-) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=95 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -183,7 +183,7 @@ CREATE TABLE `copia` (
 
 LOCK TABLES `copia` WRITE;
 /*!40000 ALTER TABLE `copia` DISABLE KEYS */;
-INSERT INTO `copia` VALUES (1,1,1,1,'2018-07-05 15:13:42',0,1,0),(53,1,1,1,'2018-09-16 16:08:52',0,0,0),(54,1,1,1,'2018-09-16 16:08:52',0,0,1),(55,12,1,4,'2018-06-29 16:09:02',0,1,0),(56,12,1,4,'2018-09-16 16:09:02',0,0,0),(57,12,1,4,'2018-09-16 16:09:02',0,1,0),(58,12,1,4,'2018-09-16 16:09:02',0,0,1),(59,12,1,4,'2018-09-16 16:09:02',0,0,0),(60,12,1,4,'2018-09-16 16:09:02',0,0,0),(61,12,1,4,'2018-09-16 16:09:02',0,0,1),(62,12,1,4,'2018-09-16 16:09:02',0,0,1),(63,12,1,4,'2018-09-16 16:09:02',0,0,1),(64,12,1,4,'2018-09-16 16:09:02',0,0,1),(65,15,2,6,'2018-09-16 17:14:07',0,0,0),(66,15,2,6,'2018-09-16 17:14:07',0,0,0),(67,15,2,6,'2018-09-16 17:14:07',0,0,0),(68,15,2,6,'2018-09-16 17:14:07',0,0,0),(69,15,2,6,'2018-09-16 17:14:07',0,0,0),(70,15,2,6,'2018-09-16 17:14:07',0,0,0),(71,15,2,6,'2018-09-16 17:14:07',0,0,0),(72,15,2,6,'2018-09-16 17:14:07',0,0,0),(73,15,2,6,'2018-09-16 17:14:07',0,0,0),(74,15,2,6,'2018-09-16 17:14:07',0,0,0);
+INSERT INTO `copia` VALUES (1,1,1,1,'2018-07-05 15:13:42',0,1,0),(53,1,1,1,'2018-09-16 16:08:52',0,0,0),(54,1,1,1,'2018-09-16 16:08:52',0,0,1),(55,12,1,4,'2018-06-29 16:09:02',0,1,0),(56,12,1,4,'2018-09-16 16:09:02',0,0,0),(57,12,1,4,'2018-09-16 16:09:02',0,1,0),(58,12,1,4,'2018-09-16 16:09:02',0,0,1),(59,12,1,4,'2018-09-16 16:09:02',0,0,0),(60,12,1,4,'2018-09-16 16:09:02',0,0,0),(61,12,1,4,'2018-09-16 16:09:02',0,0,1),(62,12,1,4,'2018-09-16 16:09:02',0,0,1),(63,12,1,4,'2018-09-16 16:09:02',0,0,1),(64,12,1,4,'2018-09-16 16:09:02',0,0,1),(65,15,2,6,'2018-09-16 17:14:07',0,0,0),(66,15,2,6,'2018-09-16 17:14:07',0,0,0),(67,15,2,6,'2018-09-16 17:14:07',0,0,0),(68,15,2,6,'2018-09-16 17:14:07',0,0,0),(69,15,2,6,'2018-09-16 17:14:07',0,0,0),(70,15,2,6,'2018-09-16 17:14:07',0,1,0),(71,15,2,6,'2018-09-16 17:14:07',0,1,0),(72,15,2,6,'2018-09-16 17:14:07',0,1,0),(73,15,2,6,'2018-09-16 17:14:07',0,1,0),(74,15,2,6,'2018-09-16 17:14:07',0,0,0),(75,2,1,5,'2018-09-19 18:36:07',0,0,0),(76,2,1,5,'2018-09-19 18:36:07',0,0,0),(77,2,1,5,'2018-09-19 18:36:07',0,0,0),(78,2,1,5,'2018-09-19 18:36:07',0,0,0),(79,2,1,5,'2018-09-19 18:36:07',0,0,0),(80,16,1,6,'2018-09-19 18:36:15',1,0,0),(81,16,1,6,'2018-09-19 18:36:15',1,0,0),(82,16,1,6,'2018-09-19 18:36:15',0,0,0),(83,16,1,6,'2018-09-19 18:36:15',0,0,0),(84,16,1,6,'2018-09-19 18:36:15',0,0,0),(85,16,1,6,'2018-09-19 18:36:15',0,0,0),(86,16,1,6,'2018-09-19 18:36:15',0,0,0),(87,16,1,6,'2018-09-19 18:36:15',0,0,0),(88,16,1,6,'2018-09-19 18:36:15',0,0,0),(89,16,1,6,'2018-09-19 18:36:15',0,0,0),(90,14,1,3,'2018-09-19 18:36:26',0,1,0),(91,14,1,3,'2018-09-19 18:36:26',0,1,0),(92,14,1,3,'2018-09-19 18:36:26',0,1,0),(93,14,1,3,'2018-09-19 18:36:26',1,0,0),(94,14,1,3,'2018-09-19 18:36:26',0,0,0);
 /*!40000 ALTER TABLE `copia` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -302,7 +302,7 @@ CREATE TABLE `film` (
 
 LOCK TABLES `film` WRITE;
 /*!40000 ALTER TABLE `film` DISABLE KEYS */;
-INSERT INTO `film` VALUES (1,1,1,1,'Le ali della libertà',142,5,0),(2,4,2,2,'Il padrino',175,5,0),(3,3,2,3,'Il cavaliere oscuro',152,8,0),(4,2,2,4,'Pulp fiction',154,6,0),(5,5,1,9,'Schindler\'s List',195,5,0),(12,6,4,5,'Il Signore degli Anelli - Il ritorno del re',201,8,0),(14,6,4,5,'Il Signore degli Anelli - La compagnia dell\'Anello',178,8,0),(15,7,5,6,'Il buono, il brutto, il cattivo',161,5,0),(16,8,2,7,'La parola ai giurati',96,4,0);
+INSERT INTO `film` VALUES (1,1,1,1,'Le ali della libertà',142,5,0),(2,4,2,2,'Il padrino',175,5,0),(3,3,2,3,'Il cavaliere oscuro',152,8,0),(4,2,2,4,'Pulp fiction',154,6,1),(5,5,1,9,'Schindler\'s List',195,5,1),(12,6,4,5,'Il Signore degli Anelli - Il ritorno del re',201,8,0),(14,6,4,5,'Il Signore degli Anelli - La compagnia dell\'Anello',178,8,0),(15,7,5,6,'Il buono, il brutto, il cattivo',161,5,0),(16,8,2,7,'La parola ai giurati',96,4.5,0);
 /*!40000 ALTER TABLE `film` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -367,7 +367,7 @@ CREATE TABLE `noleggio` (
   `id_punto_vendita` int(11) DEFAULT NULL,
   `id_cliente` int(11) DEFAULT NULL,
   `id_copia` int(11) DEFAULT NULL,
-  `data_inizio` datetime DEFAULT NULL,
+  `data_inizio` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `data_fine` datetime DEFAULT NULL,
   `prezzo_totale` float DEFAULT NULL,
   PRIMARY KEY (`id_noleggio`),
@@ -500,6 +500,35 @@ LOCK TABLES `stato_prenotazione` WRITE;
 /*!40000 ALTER TABLE `stato_prenotazione` DISABLE KEYS */;
 /*!40000 ALTER TABLE `stato_prenotazione` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `storico_noleggio`
+--
+
+DROP TABLE IF EXISTS `storico_noleggio`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `storico_noleggio` (
+  `id_storico_noleggio` bigint(20) NOT NULL AUTO_INCREMENT,
+  `id_dipendente` bigint(20) DEFAULT NULL,
+  `id_punto_vendita` bigint(20) DEFAULT NULL,
+  `id_cliente` bigint(20) DEFAULT NULL,
+  `id_copia` bigint(20) DEFAULT NULL,
+  `data_inizio` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `data_fine` datetime DEFAULT NULL,
+  `prezzo_totale` float DEFAULT NULL,
+  PRIMARY KEY (`id_storico_noleggio`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `storico_noleggio`
+--
+
+LOCK TABLES `storico_noleggio` WRITE;
+/*!40000 ALTER TABLE `storico_noleggio` DISABLE KEYS */;
+/*!40000 ALTER TABLE `storico_noleggio` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -510,4 +539,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-09-19  2:11:51
+-- Dump completed on 2018-09-20  1:41:27

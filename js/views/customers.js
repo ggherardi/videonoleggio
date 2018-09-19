@@ -1,6 +1,6 @@
 var getAllItemsService = getAllItemsService || new GetAllItemsService();
 var customersManagementService = customersManagementService || new CustomersManagementService();
-var customersTableContainer = $("#ManageCustomersContainer");
+var manageCustomersContainer = $("#ManageCustomersContainer");
 var customersDataTable;
 var customerForm_showFileHtml;
 var dataTableOptions = {
@@ -41,7 +41,7 @@ var dataTableOptions = {
 };
     
 function initCustomersTable() {
-    var loader = new Loader(`#${customersTableContainer.attr("id")}`);
+    var loader = new Loader(`#${manageCustomersContainer.attr("id")}`);
     loader.showLoader();
     customersManagementService.getAllCustomersWithPremiumCode()
         .done(getAllCustomersWithPremiumCode)
@@ -52,7 +52,7 @@ function initCustomersTable() {
 function getAllCustomersWithPremiumCode(data) {
     var customers = JSON.parse(data);
     var html = `<table class="table mt-3" id="CustomersTable">`
-    html +=         buildCustomersTableHead();
+    html +=         BuildVideosTableHead();
     html +=        `<tbody>`;            
     for(var i = 0; i < customers.length; i++) {
         if(customers[i].liberatoria != null) {
@@ -77,15 +77,15 @@ function getAllCustomersWithPremiumCode(data) {
     }	
     html += `       </tbody>
                 </table>`;
-    customersTableContainer.html(html);
+    manageCustomersContainer.html(html);
     customersDataTable = $("#CustomersTable").DataTable(dataTableOptions);
     attachCollapseRowEvent();
 }
 
-function buildCustomersTableHead() {
+function BuildVideosTableHead() {
     var html = `<thead>
                     <tr>`;
-    for(var i = 0; i < dataTableOptions.columnDefs[0].targets.length +1; i++) {
+    for(var i = 0; i < dataTableOptions.columnDefs[0].targets.length + 1; i++) {
         html += `       <th scope="col"></th>`;
     }
     html += `           <th scope="col">Cognome</th>

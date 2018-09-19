@@ -1,4 +1,47 @@
 <?php
+
+// $array = array();
+
+// $array[] = new Cast(5, "Cinque");
+// $array[] = new Cast(2, "Due");
+// $array[] = new Cast(3, "Tre");
+// $array[] = new Cast(6, "Sei");
+// $array[] = new Cast(1, "Uno");
+// $array[] = new Cast(10, "Dieci");
+// foreach($array as $ac) {
+//     echo $ac->nome_attore;
+// }
+// echo "<br>";
+// echo "<br>";
+// usort($array, "SortById");
+// foreach($array as $ac) {
+//     echo $ac->nome_attore;
+// }
+
+// function SortById($a, $b) {
+//     return $a->id_film > $b->id_film;
+// }
+
+// class Cast {
+//     public $id_film;
+//     public $actor;
+
+//     function __construct($row) {
+//         $this->id_film = $row->id_film;
+//         $this->actor = new Actor($row);
+//     }
+// }
+
+// class Actor {
+//     public $nome_attore;
+//     public $cognome_attore;
+
+//     function __construct($row) {
+//         $this->nome_attore = $row->nome_attore;
+//         $this->cognome_attore = $row->cognome_attore;
+//     }
+// }
+
 // Classe che genera e legge il token per il JWT
 class TokenGenerator {
     private static $Initialized = false;
