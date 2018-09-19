@@ -4,7 +4,7 @@ var views = {
     login: { title: "Login", name: "login", showInMenu: false },
     rentals: { title: "Noleggi", name: "rentals" },
     customers: { title: "Gestione clienti", name: "customers" },
-    accounts: { title: "Gestione utenti", name: "accounts", needPermissions: permissions.levels.proprietario },
+    accounts: { title: "Gestione dipendenti", name: "accounts", needPermissions: permissions.levels.proprietario },
     storage: { title: "Magazzino", name: "storage", needPermissions: permissions.levels.responsabile }
 };
 
@@ -75,6 +75,20 @@ function validateForm(formId) {
 
 function restCallError(jqXHR, textStatus, errorThrown) {
     console.log(jqXHR.status);
+}
+
+function formatDateFromString(dateString) {
+    var date = new Date(dateString);
+    var day = date.getDate();
+    var month = date.getMonth() + 1;
+    var year = date.getFullYear();
+    return `${day < 10 ? `0${day}` : day}-${month < 10 ? `0${month}` : month}-${year}`;
+}
+
+function switchDateDigitsPosition(dateString) {
+    var arr = dateString.split("-");
+    var newDateString = `${arr[2]}-${arr[1]}-${arr[0]}`;
+    return newDateString;
 }
 
 function base64ToArrayBuffer(base64) {

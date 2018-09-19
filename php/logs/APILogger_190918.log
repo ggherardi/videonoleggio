@@ -1,0 +1,85 @@
+[19/09/2018 02:06:43] - corrId_5ba193135d7dd0.67840881 - Reached CustomerManagementService API 
+[19/09/2018 02:06:43] - corrId_5ba193135d7dd0.67840881 - Processing GetAllCustomersWithPremiumCode request. 
+[19/09/2018 02:06:43] - corrId_5ba193135d7dd0.67840881 - Token validated. 
+[19/09/2018 02:06:43] - corrId_5ba193135d7dd0.67840881 - Establishing connection to DB 
+[19/09/2018 02:06:43] - corrId_5ba193135d7dd0.67840881 - Executing query 
+[19/09/2018 02:06:45] - corrId_5ba19315198a81.41436787 - Reached GetAllItemsService API 
+[19/09/2018 02:06:45] - corrId_5ba19315198a81.41436787 - Processing GetAllDiscounts request. 
+[19/09/2018 02:06:45] - corrId_5ba19315198a81.41436787 - Token validated. 
+[19/09/2018 02:06:45] - corrId_5ba19315198a81.41436787 - Establishing connection to DB 
+[19/09/2018 02:06:45] - corrId_5ba19315198a81.41436787 - Executing query 
+[19/09/2018 02:06:56] - corrId_5ba1932028a2f4.11044119 - Reached GetAllItemsService API 
+[19/09/2018 02:06:56] - corrId_5ba1932028a2f4.11044119 - Processing GetAllDiscounts request. 
+[19/09/2018 02:06:56] - corrId_5ba1932028a2f4.11044119 - Token validated. 
+[19/09/2018 02:06:56] - corrId_5ba1932028a2f4.11044119 - Establishing connection to DB 
+[19/09/2018 02:06:56] - corrId_5ba1932028a2f4.11044119 - Executing query 
+[19/09/2018 02:07:00] - corrId_5ba19324771797.09263154 - Reached GetAllItemsService API 
+[19/09/2018 02:07:00] - corrId_5ba19324771797.09263154 - Processing GetAllDiscounts request. 
+[19/09/2018 02:07:00] - corrId_5ba19324771797.09263154 - Token validated. 
+[19/09/2018 02:07:00] - corrId_5ba19324771797.09263154 - Establishing connection to DB 
+[19/09/2018 02:07:00] - corrId_5ba19324771797.09263154 - Executing query 
+[19/09/2018 02:07:43] - corrId_5ba1934f244585.96520556 - Reached CustomerManagementService API 
+[19/09/2018 02:07:43] - corrId_5ba1934f244585.96520556 - Processing EditCustomer request. 
+[19/09/2018 02:07:43] - corrId_5ba1934f244585.96520556 - Token validated. 
+[19/09/2018 02:07:43] - corrId_5ba1934f244585.96520556 - Establishing connection to DB 
+[19/09/2018 02:07:43] - corrId_5ba1934f244585.96520556 - Executing query 
+[19/09/2018 02:07:43] - corrId_5ba1934f29a465.84052665 - Reached CustomerManagementService API 
+[19/09/2018 02:07:43] - corrId_5ba1934f29a465.84052665 - Processing GetAllCustomersWithPremiumCode request. 
+[19/09/2018 02:07:43] - corrId_5ba1934f29a465.84052665 - Token validated. 
+[19/09/2018 02:07:43] - corrId_5ba1934f29a465.84052665 - Establishing connection to DB 
+[19/09/2018 02:07:43] - corrId_5ba1934f29a465.84052665 - Executing query 
+[19/09/2018 02:07:47] - corrId_5ba193537a2a49.15519600 - Reached GetAllItemsService API 
+[19/09/2018 02:07:47] - corrId_5ba193537a2a49.15519600 - Processing GetAllDiscounts request. 
+[19/09/2018 02:07:47] - corrId_5ba193537a2a49.15519600 - Token validated. 
+[19/09/2018 02:07:47] - corrId_5ba193537a2a49.15519600 - Establishing connection to DB 
+[19/09/2018 02:07:47] - corrId_5ba193537a2a49.15519600 - Executing query 
+[19/09/2018 02:08:36] - corrId_5ba193844db559.61558268 - Reached CustomerManagementService API 
+[19/09/2018 02:08:36] - corrId_5ba193844db559.61558268 - Processing GetAllCustomersWithPremiumCode request. 
+[19/09/2018 02:08:36] - corrId_5ba193844db559.61558268 - Token validated. 
+[19/09/2018 02:08:36] - corrId_5ba193844db559.61558268 - Establishing connection to DB 
+[19/09/2018 02:08:36] - corrId_5ba193844db559.61558268 - Executing query 
+[19/09/2018 02:08:42] - corrId_5ba1938a829808.01994110 - Reached GetAllItemsService API 
+[19/09/2018 02:08:42] - corrId_5ba1938a829808.01994110 - Processing GetAllDiscounts request. 
+[19/09/2018 02:08:42] - corrId_5ba1938a829808.01994110 - Token validated. 
+[19/09/2018 02:08:42] - corrId_5ba1938a829808.01994110 - Establishing connection to DB 
+[19/09/2018 02:08:42] - corrId_5ba1938a829808.01994110 - Executing query 
+[19/09/2018 02:09:28] - corrId_5ba193b847ee96.28029672 - Reached CustomerManagementService API 
+[19/09/2018 02:09:28] - corrId_5ba193b847ee96.28029672 - Processing EditCustomer request. 
+[19/09/2018 02:09:28] - corrId_5ba193b847ee96.28029672 - Token validated. 
+[19/09/2018 02:09:28] - corrId_5ba193b847ee96.28029672 - Establishing connection to DB 
+[19/09/2018 02:09:28] - corrId_5ba193b847ee96.28029672 - Executing query 
+[19/09/2018 02:09:28] - corrId_5ba193b84d5f75.13064139 - Reached CustomerManagementService API 
+[19/09/2018 02:09:28] - corrId_5ba193b84d5f75.13064139 - Processing GetAllCustomersWithPremiumCode request. 
+[19/09/2018 02:09:28] - corrId_5ba193b84d5f75.13064139 - Token validated. 
+[19/09/2018 02:09:28] - corrId_5ba193b84d5f75.13064139 - Establishing connection to DB 
+[19/09/2018 02:09:28] - corrId_5ba193b84d5f75.13064139 - Executing query 
+[19/09/2018 02:09:30] - corrId_5ba193ba835d02.59773397 - Reached GetAllItemsService API 
+[19/09/2018 02:09:30] - corrId_5ba193ba835d02.59773397 - Processing GetAllDiscounts request. 
+[19/09/2018 02:09:30] - corrId_5ba193ba835d02.59773397 - Token validated. 
+[19/09/2018 02:09:30] - corrId_5ba193ba835d02.59773397 - Establishing connection to DB 
+[19/09/2018 02:09:30] - corrId_5ba193ba835d02.59773397 - Executing query 
+[19/09/2018 02:09:37] - corrId_5ba193c1404c56.67839135 - Reached CustomerManagementService API 
+[19/09/2018 02:09:37] - corrId_5ba193c1404c56.67839135 - Processing EditCustomer request. 
+[19/09/2018 02:09:37] - corrId_5ba193c1404c56.67839135 - Token validated. 
+[19/09/2018 02:09:37] - corrId_5ba193c1404c56.67839135 - Establishing connection to DB 
+[19/09/2018 02:09:37] - corrId_5ba193c1404c56.67839135 - Executing query 
+[19/09/2018 02:09:37] - corrId_5ba193c14d4777.22632465 - Reached CustomerManagementService API 
+[19/09/2018 02:09:37] - corrId_5ba193c14d4777.22632465 - Processing GetAllCustomersWithPremiumCode request. 
+[19/09/2018 02:09:37] - corrId_5ba193c14d4777.22632465 - Token validated. 
+[19/09/2018 02:09:37] - corrId_5ba193c14d4777.22632465 - Establishing connection to DB 
+[19/09/2018 02:09:37] - corrId_5ba193c14d4777.22632465 - Executing query 
+[19/09/2018 02:09:39] - corrId_5ba193c3607609.39723769 - Reached GetAllItemsService API 
+[19/09/2018 02:09:39] - corrId_5ba193c3607609.39723769 - Processing GetAllDiscounts request. 
+[19/09/2018 02:09:39] - corrId_5ba193c3607609.39723769 - Token validated. 
+[19/09/2018 02:09:39] - corrId_5ba193c3607609.39723769 - Establishing connection to DB 
+[19/09/2018 02:09:39] - corrId_5ba193c3607609.39723769 - Executing query 
+[19/09/2018 02:10:59] - corrId_5ba1941376f270.89841912 - Reached CustomerManagementService API 
+[19/09/2018 02:10:59] - corrId_5ba1941376f270.89841912 - Processing GetAllCustomersWithPremiumCode request. 
+[19/09/2018 02:10:59] - corrId_5ba1941376f270.89841912 - Token validated. 
+[19/09/2018 02:10:59] - corrId_5ba1941376f270.89841912 - Establishing connection to DB 
+[19/09/2018 02:10:59] - corrId_5ba1941376f270.89841912 - Executing query 
+[19/09/2018 02:11:01] - corrId_5ba1941563b5b2.94747721 - Reached GetAllItemsService API 
+[19/09/2018 02:11:01] - corrId_5ba1941563b5b2.94747721 - Processing GetAllDiscounts request. 
+[19/09/2018 02:11:01] - corrId_5ba1941563b5b2.94747721 - Token validated. 
+[19/09/2018 02:11:01] - corrId_5ba1941563b5b2.94747721 - Establishing connection to DB 
+[19/09/2018 02:11:01] - corrId_5ba1941563b5b2.94747721 - Executing query 

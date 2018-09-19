@@ -2,6 +2,7 @@ var getAllItemsService = getAllItemsService || new GetAllItemsService();
 var customersManagementService = customersManagementService || new CustomersManagementService();
 var customersTableContainer = $("#ManageCustomersContainer");
 var customersDataTable;
+var customerForm_showFileHtml;
 var dataTableOptions = {
     dom: 'Bftpil',
     buttons: true,
@@ -32,9 +33,9 @@ var dataTableOptions = {
     }],
     buttons: [
         { extend: 'copy', text: "Copia" },
-        { text: "Inserisci nuovo contatto", action: addCustomerAction },
-        { extend: 'selectedSingle', text: "Modifica contatto", action: editCustomerAction },
-        { extend: 'selectedSingle', text: "Cancella contatto", action: deleteCustomerAction },
+        { text: "Nuovo cliente", action: addCustomerAction },
+        { extend: 'selectedSingle', text: "Modifica cliente", action: editCustomerAction },
+        { extend: 'selectedSingle', text: "Cancella cliente", action: deleteCustomerAction },
     ]
 };
     
@@ -68,7 +69,7 @@ function getAllCustomersWithPremiumCode(data) {
                             <td></td>
                             <td>${customers[i].cognome}</td>
                             <td>${customers[i].nome}</td>
-                            <td>${new Date(customers[i].data_nascita).toLocaleDateString()}</td>
+                            <td>${formatDateFromString(customers[i].data_nascita)}</td>
                             <td>${customers[i].telefono_cellulare}</td>
                         </tr>`;
     }	
@@ -207,8 +208,8 @@ function actionSuccess(data) {
 function deleteCustomerAction(e, dt, node, config) {
     var row = dt.rows({ selected: true }).data()[0];    
     modalOptions = {
-        title: "Cancella contatto",
-        body: `<span>Si desidera eliminare il contatto ${row.nome} ${row.cognome}?</span>`,
+        title: "Cancella cliente",
+        body: `<span>Si desidera eliminare il cliente ${row.nome} ${row.cognome}?</span>`,
         cancelButton: {
             text: "Annulla"
         },
@@ -233,7 +234,7 @@ function editCustomerAction(e, dt, node, config) {
     var editModalBody = buildCustomerForm(row);
 
     modalOptions = {
-        title: "Modifica contatto cliente",
+        title: "Modifica cliente",
         body: editModalBody,
         cancelButton: {
             text: "Annulla"
@@ -249,8 +250,14 @@ function editCustomerAction(e, dt, node, config) {
 }
 
 function editItem() {
-    var files = $("#CustomerForm_liberatoria")[0].files;
+    var fileInput = $("#CustomerForm_liberatoria");
     var customer = getCustomerFromForm();
+    var files = [];
+    if(fileInput.length > 0) {
+        files = $("#CustomerForm_liberatoria")[0].files;
+    } else {
+        customer.keepExistingFile = true;
+    }
     customersManagementService.editCustomer(customer, files[0])
         .done(actionSuccess)
         .fail(restCallError);
@@ -274,16 +281,40 @@ function buildCustomerForm(row) {
                     <label for="CustomerForm_email" class="mt-2">Email</label>
                     <input id="CustomerForm_email" type="text" class="form-control" value="${isEditForm ? row.email : ""}" text="${isEditForm ? row.email : ""}" required>
                     <label for="CustomerForm_data_nascita" class="mt-2">Data di nascita</label>
-                    <input id="CustomerForm_data_nascita" type="date" class="form-control" value="${isEditForm ? row.data_nascita : ""}" text="${isEditForm ? row.data_nascita : ""}" required>
+                    <input id="CustomerForm_data_nascita" type="date" class="form-control" value="${isEditForm ? switchDateDigitsPosition(row.data_nascita) : ""}" text="${isEditForm ? switchDateDigitsPosition(row.data_nascita) : ""}" required>
                     <label for="CustomerForm_liberatoria" class="mt-2">Liberatoria</label>
-                    <input id="CustomerForm_liberatoria" type="file" class="form-control" accept="pdf">
-                    <label for="CustomerForm_fidelizzazione" class="mt-2">Punto vendita</label>
+                    <div id="CustomerForm_fileInputContainer" class="row px-3">
+                        ${isEditForm && row.liberatoria != "null" ? buildLiberatoriaDynamicTag(row) : `<input id="CustomerForm_liberatoria" type="file" class="form-control" accept="pdf">`}
+                    </div>
+                    <label for="CustomerForm_fidelizzazione" class="mt-2">Tipo fidelizzazione</label>
                     <div id="CustomerForm_fidelizzazione_container">
                         <select id="CustomerForm_fidelizzazione" class="form-control"></select>
                     </div>
                     <button id="CustomerForm_insert_button" class="d-none" type="submit">
                 </form>`;
     return html;
+}
+
+function buildLiberatoriaDynamicTag(row) {
+    var fileName = `liberatoria_${row.cognome}_${row.nome}.pdf`;
+    return `<div id="CustomerForm_showFile">
+                <a href="${row.liberatoria}" download="${fileName}"><img src="images/adobe.ico" width="25"/><span class="ml-2">${fileName}<span></a>
+                <button class="btn btn-light ml-3" type="button" onclick="showFileInput();" title="Il file verrà eliminato dal server cliccando il pulsante 'Applica modifiche'">Elimina file</btn>
+            </div>`;
+}
+
+function showFileInput() {
+    var fileInputContainer = $("#CustomerForm_fileInputContainer");
+    customerForm_showFileHtml = fileInputContainer.html();
+    var inputFileHtml = `<input id="CustomerForm_liberatoria" type="file" class="form-control col-sm-8" accept="pdf">
+                         <span class="col-sm-4">
+                            <button class="btn btn-light" type="button" onclick="restoreShowFile();" title="Annulla il nuovo caricamento ripristinando il file precedente">Ripristina file</button>
+                        <span>`;
+    $("#CustomerForm_fileInputContainer").html(inputFileHtml);
+}
+
+function restoreShowFile() {
+    $("#CustomerForm_fileInputContainer").html(customerForm_showFileHtml);
 }
 
 function loadSelect(row) {
@@ -302,7 +333,7 @@ function buildSelects(data) {
     var html = "";
     for(var i = 0; i < allDiscounts.length; i++) {
             html += `<option value="${allDiscounts[i].id_fidelizzazione}" ${this ? allDiscounts[i].id_fidelizzazione == this[1] ? "selected" : "" : ""}>
-                        ${allDiscounts[i].nome_fidelizzazione} (${allDiscounts[i].percentuale})
+                        ${allDiscounts[i].nome_fidelizzazione} (sconto ${allDiscounts[i].percentuale}%)
                     </option>`;
     }    
     $("#CustomerForm_fidelizzazione").html(html);

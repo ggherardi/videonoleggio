@@ -4349,3 +4349,291 @@ startxref
 [18/09/2018 22:46:48] - corrId_5ba164388c0d34.51071807 - Token validated. 
 [18/09/2018 22:46:48] - corrId_5ba164388c0d34.51071807 - Establishing connection to DB 
 [18/09/2018 22:46:48] - corrId_5ba164388c0d34.51071807 - Executing query 
+[18/09/2018 23:23:12] - corrId_5ba16cc0c07a48.35331900 - Reached CustomerManagementService API 
+[18/09/2018 23:23:12] - corrId_5ba16cc0c07a48.35331900 - Processing GetAllCustomersWithPremiumCode request. 
+[18/09/2018 23:23:12] - corrId_5ba16cc0c07a48.35331900 - Token validated. 
+[18/09/2018 23:23:12] - corrId_5ba16cc0c07a48.35331900 - Establishing connection to DB 
+[18/09/2018 23:23:12] - corrId_5ba16cc0c07a48.35331900 - Executing query 
+[18/09/2018 23:23:13] - corrId_5ba16cc1c5ab28.70907165 - Reached AccountManagementService API 
+[18/09/2018 23:23:13] - corrId_5ba16cc1c5ab28.70907165 - Processing GetCities request. 
+[18/09/2018 23:23:13] - corrId_5ba16cc1c5ab28.70907165 - Token validated. 
+[18/09/2018 23:23:13] - corrId_5ba16cc1c5ab28.70907165 - Query: SELECT *
+            FROM citta 
+[18/09/2018 23:23:13] - corrId_5ba16cc1c5ab28.70907165 - Establishing connection to DB 
+[18/09/2018 23:23:13] - corrId_5ba16cc1c5ab28.70907165 - Executing query 
+[18/09/2018 23:23:13] - corrId_5ba16cc1e6a091.03040996 - Reached AccountManagementService API 
+[18/09/2018 23:23:13] - corrId_5ba16cc1e6a091.03040996 - Processing GetStores request. 
+[18/09/2018 23:23:13] - corrId_5ba16cc1e6a091.03040996 - Token validated. 
+[18/09/2018 23:23:13] - corrId_5ba16cc1e6a091.03040996 - Query: SELECT *
+            FROM punto_vendita 
+             
+[18/09/2018 23:23:13] - corrId_5ba16cc1e6a091.03040996 - Establishing connection to DB 
+[18/09/2018 23:23:13] - corrId_5ba16cc1e6a091.03040996 - Executing query 
+[18/09/2018 23:23:13] - corrId_5ba16cc1ecfca4.09064465 - Reached AccountManagementService API 
+[18/09/2018 23:23:13] - corrId_5ba16cc1ecfca4.09064465 - Processing GetEmployees request. 
+[18/09/2018 23:23:13] - corrId_5ba16cc1ecfca4.09064465 - Token validated. 
+[18/09/2018 23:23:13] - corrId_5ba16cc1ecfca4.09064465 - Query: SELECT dip.id_dipendente, dip.nome as dipendente_nome, dip.cognome as dipendente_cognome,
+                dip.username as dipendente_username, del.nome as delega_nome, del.codice as delega_codice,
+                pv.nome as punto_vendita_nome, dip.id_punto_vendita as punto_vendita_id
+            FROM dipendente as dip
+            INNER JOIN delega as del
+            ON dip.id_delega = del.id_delega
+            INNER JOIN punto_vendita as pv
+            ON dip.id_punto_vendita = pv.id_punto_vendita 
+             
+[18/09/2018 23:23:13] - corrId_5ba16cc1ecfca4.09064465 - Establishing connection to DB 
+[18/09/2018 23:23:13] - corrId_5ba16cc1ecfca4.09064465 - Executing query 
+[18/09/2018 23:23:15] - corrId_5ba16cc374ca17.41847004 - Reached CustomerManagementService API 
+[18/09/2018 23:23:15] - corrId_5ba16cc374ca17.41847004 - Processing GetAllCustomersWithPremiumCode request. 
+[18/09/2018 23:23:15] - corrId_5ba16cc374ca17.41847004 - Token validated. 
+[18/09/2018 23:23:15] - corrId_5ba16cc374ca17.41847004 - Establishing connection to DB 
+[18/09/2018 23:23:15] - corrId_5ba16cc374ca17.41847004 - Executing query 
+[18/09/2018 23:23:16] - corrId_5ba16cc4199df2.28094660 - Reached AccountManagementService API 
+[18/09/2018 23:23:16] - corrId_5ba16cc4199df2.28094660 - Processing GetCities request. 
+[18/09/2018 23:23:16] - corrId_5ba16cc4199df2.28094660 - Token validated. 
+[18/09/2018 23:23:16] - corrId_5ba16cc4199df2.28094660 - Query: SELECT *
+            FROM citta 
+[18/09/2018 23:23:16] - corrId_5ba16cc4199df2.28094660 - Establishing connection to DB 
+[18/09/2018 23:23:16] - corrId_5ba16cc4199df2.28094660 - Executing query 
+[18/09/2018 23:23:16] - corrId_5ba16cc4389f40.81611450 - Reached AccountManagementService API 
+[18/09/2018 23:23:16] - corrId_5ba16cc4389f40.81611450 - Processing GetStores request. 
+[18/09/2018 23:23:16] - corrId_5ba16cc4389f40.81611450 - Token validated. 
+[18/09/2018 23:23:16] - corrId_5ba16cc4389f40.81611450 - Query: SELECT *
+            FROM punto_vendita 
+             
+[18/09/2018 23:23:16] - corrId_5ba16cc4389f40.81611450 - Establishing connection to DB 
+[18/09/2018 23:23:16] - corrId_5ba16cc4389f40.81611450 - Executing query 
+[18/09/2018 23:23:16] - corrId_5ba16cc43eb9c3.78075091 - Reached AccountManagementService API 
+[18/09/2018 23:23:16] - corrId_5ba16cc43eb9c3.78075091 - Processing GetEmployees request. 
+[18/09/2018 23:23:16] - corrId_5ba16cc43eb9c3.78075091 - Token validated. 
+[18/09/2018 23:23:16] - corrId_5ba16cc43eb9c3.78075091 - Query: SELECT dip.id_dipendente, dip.nome as dipendente_nome, dip.cognome as dipendente_cognome,
+                dip.username as dipendente_username, del.nome as delega_nome, del.codice as delega_codice,
+                pv.nome as punto_vendita_nome, dip.id_punto_vendita as punto_vendita_id
+            FROM dipendente as dip
+            INNER JOIN delega as del
+            ON dip.id_delega = del.id_delega
+            INNER JOIN punto_vendita as pv
+            ON dip.id_punto_vendita = pv.id_punto_vendita 
+             
+[18/09/2018 23:23:16] - corrId_5ba16cc43eb9c3.78075091 - Establishing connection to DB 
+[18/09/2018 23:23:16] - corrId_5ba16cc43eb9c3.78075091 - Executing query 
+[18/09/2018 23:23:17] - corrId_5ba16cc5582301.27420554 - Reached CustomerManagementService API 
+[18/09/2018 23:23:17] - corrId_5ba16cc5582301.27420554 - Processing GetAllCustomersWithPremiumCode request. 
+[18/09/2018 23:23:17] - corrId_5ba16cc5582301.27420554 - Token validated. 
+[18/09/2018 23:23:17] - corrId_5ba16cc5582301.27420554 - Establishing connection to DB 
+[18/09/2018 23:23:17] - corrId_5ba16cc5582301.27420554 - Executing query 
+[18/09/2018 23:23:17] - corrId_5ba16cc5e8ae68.90091272 - Reached AccountManagementService API 
+[18/09/2018 23:23:17] - corrId_5ba16cc5e8ae68.90091272 - Processing GetCities request. 
+[18/09/2018 23:23:17] - corrId_5ba16cc5e8ae68.90091272 - Token validated. 
+[18/09/2018 23:23:17] - corrId_5ba16cc5e8ae68.90091272 - Query: SELECT *
+            FROM citta 
+[18/09/2018 23:23:17] - corrId_5ba16cc5e8ae68.90091272 - Establishing connection to DB 
+[18/09/2018 23:23:17] - corrId_5ba16cc5e8ae68.90091272 - Executing query 
+[18/09/2018 23:23:18] - corrId_5ba16cc6134d61.43361940 - Reached AccountManagementService API 
+[18/09/2018 23:23:18] - corrId_5ba16cc6134d61.43361940 - Processing GetStores request. 
+[18/09/2018 23:23:18] - corrId_5ba16cc6134d61.43361940 - Token validated. 
+[18/09/2018 23:23:18] - corrId_5ba16cc6134d61.43361940 - Query: SELECT *
+            FROM punto_vendita 
+             
+[18/09/2018 23:23:18] - corrId_5ba16cc6134d61.43361940 - Establishing connection to DB 
+[18/09/2018 23:23:18] - corrId_5ba16cc6134d61.43361940 - Executing query 
+[18/09/2018 23:23:18] - corrId_5ba16cc61adf08.94512910 - Reached AccountManagementService API 
+[18/09/2018 23:23:18] - corrId_5ba16cc61adf08.94512910 - Processing GetEmployees request. 
+[18/09/2018 23:23:18] - corrId_5ba16cc61adf08.94512910 - Token validated. 
+[18/09/2018 23:23:18] - corrId_5ba16cc61adf08.94512910 - Query: SELECT dip.id_dipendente, dip.nome as dipendente_nome, dip.cognome as dipendente_cognome,
+                dip.username as dipendente_username, del.nome as delega_nome, del.codice as delega_codice,
+                pv.nome as punto_vendita_nome, dip.id_punto_vendita as punto_vendita_id
+            FROM dipendente as dip
+            INNER JOIN delega as del
+            ON dip.id_delega = del.id_delega
+            INNER JOIN punto_vendita as pv
+            ON dip.id_punto_vendita = pv.id_punto_vendita 
+             
+[18/09/2018 23:23:18] - corrId_5ba16cc61adf08.94512910 - Establishing connection to DB 
+[18/09/2018 23:23:18] - corrId_5ba16cc61adf08.94512910 - Executing query 
+[18/09/2018 23:23:19] - corrId_5ba16cc75d2b01.77269499 - Reached StorageManagementService API 
+[18/09/2018 23:23:19] - corrId_5ba16cc75d2b01.77269499 - Processing GetVideosInStorage request. 
+[18/09/2018 23:23:19] - corrId_5ba16cc75d2b01.77269499 - Token validated. 
+[18/09/2018 23:23:19] - corrId_5ba16cc75d2b01.77269499 - Query: SELECT co.id_copia, co.data_scarico, co.danneggiato, co.noleggiato, fi.id_film, fi.titolo, fo.nome
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN fornitore fo
+            ON co.id_fornitore = fo.id_fornitore
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0 
+[18/09/2018 23:23:19] - corrId_5ba16cc75d2b01.77269499 - Establishing connection to DB 
+[18/09/2018 23:23:19] - corrId_5ba16cc75d2b01.77269499 - Executing query 
+[18/09/2018 23:23:20] - corrId_5ba16cc8041866.70032407 - Reached AccountManagementService API 
+[18/09/2018 23:23:20] - corrId_5ba16cc8041866.70032407 - Processing GetCities request. 
+[18/09/2018 23:23:20] - corrId_5ba16cc8041866.70032407 - Token validated. 
+[18/09/2018 23:23:20] - corrId_5ba16cc8041866.70032407 - Query: SELECT *
+            FROM citta 
+[18/09/2018 23:23:20] - corrId_5ba16cc8041866.70032407 - Establishing connection to DB 
+[18/09/2018 23:23:20] - corrId_5ba16cc8041866.70032407 - Executing query 
+[18/09/2018 23:23:20] - corrId_5ba16cc8229dd0.08557384 - Reached AccountManagementService API 
+[18/09/2018 23:23:20] - corrId_5ba16cc8229dd0.08557384 - Processing GetStores request. 
+[18/09/2018 23:23:20] - corrId_5ba16cc8229dd0.08557384 - Token validated. 
+[18/09/2018 23:23:20] - corrId_5ba16cc8229dd0.08557384 - Query: SELECT *
+            FROM punto_vendita 
+             
+[18/09/2018 23:23:20] - corrId_5ba16cc8229dd0.08557384 - Establishing connection to DB 
+[18/09/2018 23:23:20] - corrId_5ba16cc8229dd0.08557384 - Executing query 
+[18/09/2018 23:23:20] - corrId_5ba16cc8274077.05680785 - Reached AccountManagementService API 
+[18/09/2018 23:23:20] - corrId_5ba16cc8274077.05680785 - Processing GetEmployees request. 
+[18/09/2018 23:23:20] - corrId_5ba16cc8274077.05680785 - Token validated. 
+[18/09/2018 23:23:20] - corrId_5ba16cc8274077.05680785 - Query: SELECT dip.id_dipendente, dip.nome as dipendente_nome, dip.cognome as dipendente_cognome,
+                dip.username as dipendente_username, del.nome as delega_nome, del.codice as delega_codice,
+                pv.nome as punto_vendita_nome, dip.id_punto_vendita as punto_vendita_id
+            FROM dipendente as dip
+            INNER JOIN delega as del
+            ON dip.id_delega = del.id_delega
+            INNER JOIN punto_vendita as pv
+            ON dip.id_punto_vendita = pv.id_punto_vendita 
+             
+[18/09/2018 23:23:20] - corrId_5ba16cc8274077.05680785 - Establishing connection to DB 
+[18/09/2018 23:23:20] - corrId_5ba16cc8274077.05680785 - Executing query 
+[18/09/2018 23:23:20] - corrId_5ba16cc8bacae3.03854810 - Reached CustomerManagementService API 
+[18/09/2018 23:23:20] - corrId_5ba16cc8bacae3.03854810 - Processing GetAllCustomersWithPremiumCode request. 
+[18/09/2018 23:23:20] - corrId_5ba16cc8bacae3.03854810 - Token validated. 
+[18/09/2018 23:23:20] - corrId_5ba16cc8bacae3.03854810 - Establishing connection to DB 
+[18/09/2018 23:23:20] - corrId_5ba16cc8bacae3.03854810 - Executing query 
+[18/09/2018 23:24:06] - corrId_5ba16cf6b33062.21390899 - Reached AccountManagementService API 
+[18/09/2018 23:24:06] - corrId_5ba16cf6b33062.21390899 - Processing GetCities request. 
+[18/09/2018 23:24:06] - corrId_5ba16cf6b33062.21390899 - Token validated. 
+[18/09/2018 23:24:06] - corrId_5ba16cf6b33062.21390899 - Query: SELECT *
+            FROM citta 
+[18/09/2018 23:24:06] - corrId_5ba16cf6b33062.21390899 - Establishing connection to DB 
+[18/09/2018 23:24:06] - corrId_5ba16cf6b33062.21390899 - Executing query 
+[18/09/2018 23:24:06] - corrId_5ba16cf6d17643.46653276 - Reached AccountManagementService API 
+[18/09/2018 23:24:06] - corrId_5ba16cf6d17643.46653276 - Processing GetStores request. 
+[18/09/2018 23:24:06] - corrId_5ba16cf6d17643.46653276 - Token validated. 
+[18/09/2018 23:24:06] - corrId_5ba16cf6d17643.46653276 - Query: SELECT *
+            FROM punto_vendita 
+             
+[18/09/2018 23:24:06] - corrId_5ba16cf6d17643.46653276 - Establishing connection to DB 
+[18/09/2018 23:24:06] - corrId_5ba16cf6d17643.46653276 - Executing query 
+[18/09/2018 23:24:06] - corrId_5ba16cf6d80df3.16965570 - Reached AccountManagementService API 
+[18/09/2018 23:24:06] - corrId_5ba16cf6d80df3.16965570 - Processing GetEmployees request. 
+[18/09/2018 23:24:06] - corrId_5ba16cf6d80df3.16965570 - Token validated. 
+[18/09/2018 23:24:06] - corrId_5ba16cf6d80df3.16965570 - Query: SELECT dip.id_dipendente, dip.nome as dipendente_nome, dip.cognome as dipendente_cognome,
+                dip.username as dipendente_username, del.nome as delega_nome, del.codice as delega_codice,
+                pv.nome as punto_vendita_nome, dip.id_punto_vendita as punto_vendita_id
+            FROM dipendente as dip
+            INNER JOIN delega as del
+            ON dip.id_delega = del.id_delega
+            INNER JOIN punto_vendita as pv
+            ON dip.id_punto_vendita = pv.id_punto_vendita 
+             
+[18/09/2018 23:24:06] - corrId_5ba16cf6d80df3.16965570 - Establishing connection to DB 
+[18/09/2018 23:24:06] - corrId_5ba16cf6d80df3.16965570 - Executing query 
+[18/09/2018 23:24:07] - corrId_5ba16cf7a4dc99.78565513 - Reached CustomerManagementService API 
+[18/09/2018 23:24:07] - corrId_5ba16cf7a4dc99.78565513 - Processing GetAllCustomersWithPremiumCode request. 
+[18/09/2018 23:24:07] - corrId_5ba16cf7a4dc99.78565513 - Token validated. 
+[18/09/2018 23:24:07] - corrId_5ba16cf7a4dc99.78565513 - Establishing connection to DB 
+[18/09/2018 23:24:07] - corrId_5ba16cf7a4dc99.78565513 - Executing query 
+[18/09/2018 23:24:08] - corrId_5ba16cf80d08b4.66777662 - Reached AccountManagementService API 
+[18/09/2018 23:24:08] - corrId_5ba16cf80d08b4.66777662 - Processing GetCities request. 
+[18/09/2018 23:24:08] - corrId_5ba16cf80d08b4.66777662 - Token validated. 
+[18/09/2018 23:24:08] - corrId_5ba16cf80d08b4.66777662 - Query: SELECT *
+            FROM citta 
+[18/09/2018 23:24:08] - corrId_5ba16cf80d08b4.66777662 - Establishing connection to DB 
+[18/09/2018 23:24:08] - corrId_5ba16cf80d08b4.66777662 - Executing query 
+[18/09/2018 23:24:08] - corrId_5ba16cf82ad307.70381371 - Reached AccountManagementService API 
+[18/09/2018 23:24:08] - corrId_5ba16cf82ad307.70381371 - Processing GetStores request. 
+[18/09/2018 23:24:08] - corrId_5ba16cf82ad307.70381371 - Token validated. 
+[18/09/2018 23:24:08] - corrId_5ba16cf82ad307.70381371 - Query: SELECT *
+            FROM punto_vendita 
+             
+[18/09/2018 23:24:08] - corrId_5ba16cf82ad307.70381371 - Establishing connection to DB 
+[18/09/2018 23:24:08] - corrId_5ba16cf82ad307.70381371 - Executing query 
+[18/09/2018 23:24:08] - corrId_5ba16cf832e184.44074354 - Reached AccountManagementService API 
+[18/09/2018 23:24:08] - corrId_5ba16cf832e184.44074354 - Processing GetEmployees request. 
+[18/09/2018 23:24:08] - corrId_5ba16cf832e184.44074354 - Token validated. 
+[18/09/2018 23:24:08] - corrId_5ba16cf832e184.44074354 - Query: SELECT dip.id_dipendente, dip.nome as dipendente_nome, dip.cognome as dipendente_cognome,
+                dip.username as dipendente_username, del.nome as delega_nome, del.codice as delega_codice,
+                pv.nome as punto_vendita_nome, dip.id_punto_vendita as punto_vendita_id
+            FROM dipendente as dip
+            INNER JOIN delega as del
+            ON dip.id_delega = del.id_delega
+            INNER JOIN punto_vendita as pv
+            ON dip.id_punto_vendita = pv.id_punto_vendita 
+             
+[18/09/2018 23:24:08] - corrId_5ba16cf832e184.44074354 - Establishing connection to DB 
+[18/09/2018 23:24:08] - corrId_5ba16cf832e184.44074354 - Executing query 
+[18/09/2018 23:24:09] - corrId_5ba16cf91add75.05447507 - Reached CustomerManagementService API 
+[18/09/2018 23:24:09] - corrId_5ba16cf91add75.05447507 - Processing GetAllCustomersWithPremiumCode request. 
+[18/09/2018 23:24:09] - corrId_5ba16cf91add75.05447507 - Token validated. 
+[18/09/2018 23:24:09] - corrId_5ba16cf91add75.05447507 - Establishing connection to DB 
+[18/09/2018 23:24:09] - corrId_5ba16cf91add75.05447507 - Executing query 
+[18/09/2018 23:24:09] - corrId_5ba16cf9671155.21795626 - Reached AccountManagementService API 
+[18/09/2018 23:24:09] - corrId_5ba16cf9671155.21795626 - Processing GetCities request. 
+[18/09/2018 23:24:09] - corrId_5ba16cf9671155.21795626 - Token validated. 
+[18/09/2018 23:24:09] - corrId_5ba16cf9671155.21795626 - Query: SELECT *
+            FROM citta 
+[18/09/2018 23:24:09] - corrId_5ba16cf9671155.21795626 - Establishing connection to DB 
+[18/09/2018 23:24:09] - corrId_5ba16cf9671155.21795626 - Executing query 
+[18/09/2018 23:24:09] - corrId_5ba16cf9841e92.00360790 - Reached AccountManagementService API 
+[18/09/2018 23:24:09] - corrId_5ba16cf9841e92.00360790 - Processing GetStores request. 
+[18/09/2018 23:24:09] - corrId_5ba16cf9841e92.00360790 - Token validated. 
+[18/09/2018 23:24:09] - corrId_5ba16cf9841e92.00360790 - Query: SELECT *
+            FROM punto_vendita 
+             
+[18/09/2018 23:24:09] - corrId_5ba16cf9841e92.00360790 - Establishing connection to DB 
+[18/09/2018 23:24:09] - corrId_5ba16cf9841e92.00360790 - Executing query 
+[18/09/2018 23:24:09] - corrId_5ba16cf98ab658.69256023 - Reached AccountManagementService API 
+[18/09/2018 23:24:09] - corrId_5ba16cf98ab658.69256023 - Processing GetEmployees request. 
+[18/09/2018 23:24:09] - corrId_5ba16cf98ab658.69256023 - Token validated. 
+[18/09/2018 23:24:09] - corrId_5ba16cf98ab658.69256023 - Query: SELECT dip.id_dipendente, dip.nome as dipendente_nome, dip.cognome as dipendente_cognome,
+                dip.username as dipendente_username, del.nome as delega_nome, del.codice as delega_codice,
+                pv.nome as punto_vendita_nome, dip.id_punto_vendita as punto_vendita_id
+            FROM dipendente as dip
+            INNER JOIN delega as del
+            ON dip.id_delega = del.id_delega
+            INNER JOIN punto_vendita as pv
+            ON dip.id_punto_vendita = pv.id_punto_vendita 
+             
+[18/09/2018 23:24:09] - corrId_5ba16cf98ab658.69256023 - Establishing connection to DB 
+[18/09/2018 23:24:09] - corrId_5ba16cf98ab658.69256023 - Executing query 
+[18/09/2018 23:24:14] - corrId_5ba16cfead5725.20530460 - Reached CustomerManagementService API 
+[18/09/2018 23:24:14] - corrId_5ba16cfead5725.20530460 - Processing GetAllCustomersWithPremiumCode request. 
+[18/09/2018 23:24:14] - corrId_5ba16cfead5725.20530460 - Token validated. 
+[18/09/2018 23:24:14] - corrId_5ba16cfead5725.20530460 - Establishing connection to DB 
+[18/09/2018 23:24:14] - corrId_5ba16cfead5725.20530460 - Executing query 
+[18/09/2018 23:24:15] - corrId_5ba16cffa7d620.34341918 - Reached StorageManagementService API 
+[18/09/2018 23:24:15] - corrId_5ba16cffa7d620.34341918 - Processing GetVideosInStorage request. 
+[18/09/2018 23:24:15] - corrId_5ba16cffa7d620.34341918 - Token validated. 
+[18/09/2018 23:24:15] - corrId_5ba16cffa7d620.34341918 - Query: SELECT co.id_copia, co.data_scarico, co.danneggiato, co.noleggiato, fi.id_film, fi.titolo, fo.nome
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN fornitore fo
+            ON co.id_fornitore = fo.id_fornitore
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0 
+[18/09/2018 23:24:15] - corrId_5ba16cffa7d620.34341918 - Establishing connection to DB 
+[18/09/2018 23:24:15] - corrId_5ba16cffa7d620.34341918 - Executing query 
+[18/09/2018 23:24:30] - corrId_5ba16d0e3e7146.29408454 - Reached AuthenticationService API 
+[18/09/2018 23:24:30] - corrId_5ba16d0e3e7146.29408454 - Processing Login request. 
+[18/09/2018 23:24:30] - corrId_5ba16d0e3e7146.29408454 - Establishing connection to DB 
+[18/09/2018 23:24:30] - corrId_5ba16d0e3e7146.29408454 - Executing query 
+[18/09/2018 23:24:30] - corrId_5ba16d0e3e7146.29408454 - User  validated, generating Token. 
+[18/09/2018 23:24:30] - corrId_5ba16d0e3e7146.29408454 - Token generated succesfully. SizKILRFv7hRfOGQBmb4JE6mULRCdMIluwQycMQzvxd+TziCKNpuhHo65AhwziQkQwPd5b3dKzq/P07J9ND0eBHBP2qC5roS2YRY0VeSNOPZAqO/5LGVYkpHNm119lbqomOy99fdaJUeN8TKUYXcFK+DuDeXrF9Em55vOw5TOtDsn/lehMC6r230sm9auVCnm+B4bBCa4OWYQmVeTLPZNJ2ICvORQitxWCmp1ComV4SK/rr9w/SZbhYr2Ck4PU+rxyEZf3qhUwBPusVKfTRIjA6j3pR4DzrXA+YknNHAO5Ih8uUJjBBXm9DuSN+ek92DNkSrEbOn3r++zVovOmbAYnTMgnIoWhMVcX9QFNnkOaD9ej5szRcOLK4ZoTXg0ROI 
+[18/09/2018 23:24:31] - corrId_5ba16d0f8cad51.74341822 - Reached StorageManagementService API 
+[18/09/2018 23:24:31] - corrId_5ba16d0f8cad51.74341822 - Processing GetVideosInStorage request. 
+[18/09/2018 23:24:31] - corrId_5ba16d0f8cad51.74341822 - Token validated. 
+[18/09/2018 23:24:31] - corrId_5ba16d0f8cad51.74341822 - Query: SELECT co.id_copia, co.data_scarico, co.danneggiato, co.noleggiato, fi.id_film, fi.titolo, fo.nome
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN fornitore fo
+            ON co.id_fornitore = fo.id_fornitore
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0 
+[18/09/2018 23:24:31] - corrId_5ba16d0f8cad51.74341822 - Establishing connection to DB 
+[18/09/2018 23:24:31] - corrId_5ba16d0f8cad51.74341822 - Executing query 
+[18/09/2018 23:24:32] - corrId_5ba16d10c90ea2.00127473 - Reached CustomerManagementService API 
+[18/09/2018 23:24:32] - corrId_5ba16d10c90ea2.00127473 - Processing GetAllCustomersWithPremiumCode request. 
+[18/09/2018 23:24:32] - corrId_5ba16d10c90ea2.00127473 - Token validated. 
+[18/09/2018 23:24:32] - corrId_5ba16d10c90ea2.00127473 - Establishing connection to DB 
+[18/09/2018 23:24:32] - corrId_5ba16d10c90ea2.00127473 - Executing query 

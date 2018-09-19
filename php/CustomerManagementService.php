@@ -103,6 +103,7 @@ class CustomerManagementService {
         Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
         TokenGenerator::ValidateToken();
         $customer = json_decode($_POST["customer"]);
+        $keepFile = $customer->keepExistingFile;
         if(count($_FILES) > 0) {
             $fileData = self::GetFileData();
         }
@@ -116,8 +117,9 @@ class CustomerManagementService {
             telefono_casa = '%s',
             telefono_cellulare = '%s',
             email = '%s',
-            data_nascita = '%s',
-            liberatoria = %s
+            data_nascita = '%s'".
+            (!$keepFile ? ", liberatoria = " : "")
+            ."%s
             WHERE id_cliente = %d";
         $query = sprintf($query,             
                 $customer->id_fidelizzazione, 
@@ -128,9 +130,8 @@ class CustomerManagementService {
                 $customer->telefono_cellulare, 
                 $customer->email,
                 $customer->data_nascita,
-                ($fileData != null ? "'$fileData'" : "DEFAULT"), // Ho aggiunto gli apici a $fileData qui, altrimenti non prende il DEFAULT
+                (!$keepFile ? ($fileData != null ? "'$fileData'" : "DEFAULT") : ""), // Ho aggiunto gli apici a $fileData qui, altrimenti non prende il DEFAULT
                 $customer->id_cliente);
-        Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
         $res = self::ExecuteQuery($query);
         if($res) {
             exit(json_encode($res));

@@ -20,10 +20,10 @@ var dataTableOptions = {
     }],
     buttons: [
         { extend: 'copy', text: "Copia" },
+        { text: "Nuovo dipendente", action: insertEmployee },
         { extend: 'selectedSingle', text: "Resetta password", action: resetPassword },
-        { extend: 'selectedSingle', text: "Modifica", action: editEmployee },
-        { extend: 'selectedSingle', text: "Cancella", action: deleteEmployee },
-        { text: "Nuovo", action: insertEmployee },
+        { extend: 'selectedSingle', text: "Modifica account", action: editEmployee },
+        { extend: 'selectedSingle', text: "Cancella account", action: deleteEmployee }
     ]
 };
 
@@ -183,7 +183,7 @@ function deleteItemSuccess(data) {
 function insertEmployee(e, dt, node, config) {
     var body = buildEmployeeForm();
     modalOptions = {
-        title: "Nuovo account",
+        title: "Nuovo account dipendente",
         body: body,
         cancelButton: {
             text: "Annulla"

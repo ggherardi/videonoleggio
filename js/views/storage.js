@@ -56,7 +56,7 @@ function getVideosInStorageSuccess(data) {
                             <td>${copies[i].id_film}</td>
                             <td>${copies[i].titolo}</td>
                             <td>${copies[i].fornitore}</td>
-                            <td>${new Date(copies[i].data_scarico).toLocaleDateString()}</td>
+                            <td>${formatDateFromString(copies[i].data_scarico)}</td>
                             <td class="${oMissingDays.cssClass}">${oMissingDays.days}</td>
                             <td>${parseInt(copies[i].danneggiato) ? "Sì" : "No"}</td>
                             <td>${parseInt(copies[i].noleggiato) ? "Sì" : "No"}</td>
