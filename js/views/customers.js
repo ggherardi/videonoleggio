@@ -13,6 +13,7 @@ var dataTableOptions = {
         { data: "email" },
         { data: "telefono_casa" },
         { data: "liberatoria" },
+        { data: "id_fidelizzazione" },
         { data: "nome_fidelizzazione" },
         { data: "percentuale" },
         {
@@ -27,7 +28,7 @@ var dataTableOptions = {
         { data: "telefono_cellulare" }
     ],
     columnDefs: [{
-        targets: [ 0, 1, 2, 3, 4, 5, 6],
+        targets: [ 0, 1, 2, 3, 4, 5, 6, 7],
         visible: false,
         searchable: false
     }],
@@ -63,7 +64,8 @@ function getAllCustomersWithPremiumCode(data) {
                             <td>${customers[i].indirizzo}</td>
                             <td>${customers[i].email}</td>
                             <td>${customers[i].telefono_casa}</td>
-                            <td>${customers[i].liberatoria}</td>                            
+                            <td>${customers[i].liberatoria}</td> 
+                            <td>${customers[i].id_fidelizzazione}</td>                             
                             <td>${customers[i].nome_fidelizzazione}</td>   
                             <td>${customers[i].percentuale}</td>                     
                             <td></td>
@@ -81,23 +83,20 @@ function getAllCustomersWithPremiumCode(data) {
 }
 
 function buildCustomersTableHead() {
-    return `<thead>
-                <tr>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
-                    <th scope="col">Cognome</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Data di nascita</th>
-                    <th scope="col">Cellulare</th>
-                </tr>
-            </thead>`;
+    var html = `<thead>
+                    <tr>`;
+    for(var i = 0; i < dataTableOptions.columnDefs[0].targets.length +1; i++) {
+        html += `       <th scope="col"></th>`;
+    }
+    html += `           <th scope="col">Cognome</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Data di nascita</th>
+                        <th scope="col">Cellulare</th>
+                    </tr>
+                </thead>`;
+    return html;
 }
+
 
 function getLiberatoriaBlob(base64Liberatoria) {
     var bytes = base64ToArrayBuffer(base64Liberatoria);
@@ -124,7 +123,7 @@ function attachCollapseRowEvent() {
 function formatCollapsedDetails (row) {
     var html = `<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">
                     <tr>
-                        <td>Email</td>
+                        <td>Indirizzo</td>
                         <td>${row.indirizzo}</td>
                     </tr>
                     <tr>
@@ -332,7 +331,7 @@ function buildSelects(data) {
     allDiscounts = allDiscounts.sort((a, b) => { if(a.percentuale > b.percentuale) return 1; return -1; })
     var html = "";
     for(var i = 0; i < allDiscounts.length; i++) {
-            html += `<option value="${allDiscounts[i].id_fidelizzazione}" ${this ? allDiscounts[i].id_fidelizzazione == this[1] ? "selected" : "" : ""}>
+            html += `<option value="${allDiscounts[i].id_fidelizzazione}" ${this ? allDiscounts[i].id_fidelizzazione == this.id_fidelizzazione ? "selected" : "" : ""}>
                         ${allDiscounts[i].nome_fidelizzazione} (sconto ${allDiscounts[i].percentuale}%)
                     </option>`;
     }    
