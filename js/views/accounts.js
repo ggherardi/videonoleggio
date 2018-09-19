@@ -1,4 +1,5 @@
 var accountManagementService = new AccountManagementService();
+var tableLoader = new Loader("#EmployeesTableContainer", 100, 100);
 var getAllItemsService;
 var selectStoreContainer =  $("#SelectStoreContainer");
 var employeesTableContainer = $("#EmployeesTableContainer");
@@ -9,12 +10,17 @@ var dataTableOptions = {
     dom: 'Bftpil',
     buttons: true,
     select: true,
+    columns: [
+        { data: "dipendente_id" },
+        { data: "punto_vendita_id" },
+        { data: "punto_vendita_nome" },
+        { data: "dipendente_username" },
+        { data: "dipendente_nome" },
+        { data: "dipendente_cognome" },
+        { data: "delega_nome" }
+    ],
     columnDefs: [{
-        targets: 0,
-        visible: false,
-        searchable: false
-    }, {
-        targets: 1,
+        targets: [ 0, 1 ],
         visible: false,
         searchable: false
     }],
@@ -29,6 +35,7 @@ var dataTableOptions = {
 
 function initAccountManager() {
     loader = new Loader("#SelectCityContainer", 25, 25);
+    tableLoader.showLoader();
     loader.showLoader();
     accountManagementService.getCities()
         .done(getCitiesSuccess)
@@ -85,6 +92,7 @@ function getStoresSuccess(data) {
         html += `<span>Nessun punto vendita trovato per la città selezionata.</span>`;
     }
     selectStoreContainer.html(html);
+    tableLoader.hideLoader();
     getEmployees($("#AccountsSelectStore")[0]);
 }
 
@@ -167,7 +175,7 @@ function deleteEmployee(e, dt, node, config) {
 }
 
 function deleteItem() {
-    accountManagementService.deleteEmployee(this[0])
+    accountManagementService.deleteEmployee(this.dipendente_id)
         .done(deleteItemSuccess)
         .fail(restCallError);
 }
@@ -229,17 +237,17 @@ function editEmployee(e, dt, node, config) {
 function buildEmployeeForm(row) {
     var isEditForm = row != undefined;
     var html = `<form class="form-signin">
-                    <input id="EmployeeForm_dipendente_id" type="hidden" value="${isEditForm ? row[0] : ""}">
+                    <input id="EmployeeForm_dipendente_id" type="hidden" value="${isEditForm ? row.dipendente_id : ""}">
                     <label for="EmployeeForm_punto_vendita" class="mt-2">Punto vendita</label>
                     <div id="EmployeeForm_punto_vendita_container">
                         <select id="EmployeeForm_punto_vendita" type="text" class="form-control"></select>
                     </div>
                     <label for="EmployeeForm_username" class="mt-2">Username</label>
-                    <input id="EmployeeForm_username" type="text" class="form-control" value="${isEditForm ? row[3] : ""}" text="${isEditForm ? row[3] : ""}">
+                    <input id="EmployeeForm_username" type="text" class="form-control" value="${isEditForm ? row.dipendente_username : ""}" text="${isEditForm ? row.dipendente_username : ""}">
                     <label for="EmployeeForm_nome" class="mt-2">Nome</label>
-                    <input id="EmployeeForm_nome" type="text" class="form-control" value="${isEditForm ? row[4] : ""}" text="${isEditForm ? row[4] : ""}">
+                    <input id="EmployeeForm_nome" type="text" class="form-control" value="${isEditForm ? row.dipendente_nome : ""}" text="${isEditForm ? row.dipendente_nome : ""}">
                     <label for="EmployeeForm_cognome" class="mt-2">Cognome</label>
-                    <input id="EmployeeForm_cognome" type="text" class="form-control" value="${isEditForm ? row[5] : ""}" text="${isEditForm ? row[5] : ""}">
+                    <input id="EmployeeForm_cognome" type="text" class="form-control" value="${isEditForm ? row.dipendente_cognome : ""}" text="${isEditForm ? row.dipendente_cognome : ""}">
                     <label for="EmployeeForm_ruolo" class="mt-2">Punto vendita</label>
                     <div id="EmployeeForm_ruolo_container">
                         <select id="EmployeeForm_ruolo" class="form-control"></select>
@@ -271,9 +279,9 @@ function buildOptions(table, row, selectId) {
     var html = "";
     for(var i = 0; i < array.length; i++) {
         if(table.title == "stores") {
-            html += `<option value="${array[i].id_punto_vendita}" ${row ? array[i].id_punto_vendita == row[1] ? "selected" : "" : ""}>${array[i].nome}</option>`;
+            html += `<option value="${array[i].id_punto_vendita}" ${row ? array[i].id_punto_vendita == row.punto_vendita_id ? "selected" : "" : ""}>${array[i].nome}</option>`;
         } else {
-            html += `<option value="${array[i].id_delega}" ${row ? array[i].nome == row[6] ? "selected" : "" : ""}>${array[i].nome}</option>`;
+            html += `<option value="${array[i].id_delega}" ${row ? array[i].nome == row.delega_nome ? "selected" : "" : ""}>${array[i].nome}</option>`;
         }
     }    
     $(selectId).html(html);
@@ -310,7 +318,7 @@ function resetPassword(e, dt, node, config) {
     var row = dt.rows({ selected: true }).data()[0];    
     modalOptions = {
         title: "Resetta password",
-        body: `<span>Si desidera resettare la password dell'utente ${row[3]}?</span>`,
+        body: `<span>Si desidera resettare la password dell'utente ${row.dipendente_username}?</span>`,
         cancelButton: {
             text: "Annulla"
         },
@@ -324,8 +332,8 @@ function resetPassword(e, dt, node, config) {
 }
 
 function resetItem() {
-    accountManagementService.resetPassword(this[0])
-        .done(resetPasswordSuccess.bind(this[3]))
+    accountManagementService.resetPassword(this.dipendente_id)
+        .done(resetPasswordSuccess.bind(this.dipendente_username))
         .fail(restCallError);
 }
 

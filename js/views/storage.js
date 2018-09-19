@@ -2,26 +2,22 @@ var storageManagementService = new StorageManagementService();
 var getAllItemsService;
 var storageTableContainer = $("#StorageTableContainer");
 var storageDataTable;
-var storageTableColumns = {
-    id_copia: 0,
-    id_film: 1,
-    titolo: 2,
-    fornitore: 3,
-    data_scarico: 4,
-    giorniRiconsegna: 5,
-    danneggiato: 6,
-    noleggiato: 7
-}
 var dataTableOptions = {
     dom: 'Bftpil',
     buttons: true,
     select: true,
+    columns: [
+        { data: "id_copia" },
+        { data: "id_film" },
+        { data: "titolo" },
+        { data: "fornitore" },
+        { data: "data_scarico" },
+        { data: "giorniRiconsegna" },
+        { data: "danneggiato" },
+        { data: "noleggiato" }
+    ],
     columnDefs: [{
-        targets: 0,
-        visible: false,
-        searchable: false
-    }, {
-        targets: 1,
+        targets: [ 1 ],
         visible: false,
         searchable: false
     }],
@@ -107,7 +103,7 @@ function loadVideos(e, dt, node, config) {
         var body = `<span>Tra gli elementi selezionati è presente un video noleggiato:
                     deselezionare i video noleggiati e riprovare.</span><br>
                     <span>Qualora il video fosse stato già restituito, effettuare la restituzione dal 
-                    cliente al punto vendita tramite l'apposito tab "Noleggi".</span>`;
+                    cliente al punto vendita tramite l'apposito tab "Restituzione noleggi".</span>`;
         modalOptions = {
             title: "Attenzione",
             body: body,
@@ -135,7 +131,7 @@ function loadVideos(e, dt, node, config) {
 
 function containsRentedVideos(rows) {
     for(var i = 0; i < rows.length; i++) {
-        if(rows[i][storageTableColumns.noleggiato] == "Sì") {
+        if(rows[i].noleggiato == "Sì") {
             return true;
         }            
     }
@@ -146,7 +142,7 @@ function loadVideosAction() {
     var rows = this;
     var idsToUpdate = [];
     for(var i = 0; i < rows.length; i++) {
-        idsToUpdate.push(rows[i][storageTableColumns.id_copia]);
+        idsToUpdate.push(rows[i].id_copia);
     }
     storageManagementService.loadCopies(idsToUpdate)
         .done(insertItemSuccess)
