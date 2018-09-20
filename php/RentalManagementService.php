@@ -83,12 +83,46 @@ class RentalManagementService {
         return $a->id_film > $b->id_film;
     }
 
+    function GetMostRecentCopies() {
+        Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
+        TokenGenerator::ValidateToken();
+        $filters = json_decode($_POST["filters"]);
+        $query = 
+            "SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = %d
+            AND co.restituito = 0
+            GROUP BY fi.id_film";
+        $query = sprintf($query, $filters->id_punto_vendita);
+        Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
+        $res = self::ExecuteQuery($query);
+        $videosArray = array();
+        while($row = $res->fetch_assoc()){
+            // $video = new Video($row);
+            $videosArray[] = $row;
+        }
+        
+    }
+
     // Switcha l'operazione richiesta lato client
     function Init() {
         try {
             switch($_POST["action"]) {
                 case "getVideosInStorageWithCount":
                     self::GetVideosInStorageWithCount();
+                    break;
+                case "getMostRecentCopies":
+                    self::GetMostRecentCopies();
                     break;
                 default: 
                     exit(json_encode($_POST));

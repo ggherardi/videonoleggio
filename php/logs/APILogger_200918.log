@@ -3102,3 +3102,790 @@ Stack trace:
             IN (1, 2, 12, 14, 16) 
 [20/09/2018 01:40:18] - corrId_5ba2de622524f3.69387041 - Executing query 
 [20/09/2018 01:40:18] - corrId_5ba2de622524f3.69387041 - Actor: [{"id_film":"1","titolo":"Le ali della libert\u00e0","durata":"142","prezzo_giornaliero":"5","tipo":"Drammatico","casa_produttrice_nome":"Castle Rock Entertainment","regista_nome":"Frank","regista_cognome":"Darabont","copie_totali":"2","copie_noleggiate":"1","copie_danneggiate":"0","cast":["TEST","TEST","TEST"]},{"id_film":"2","titolo":"Il padrino","durata":"175","prezzo_giornaliero":"5","tipo":"Thriller","casa_produttrice_nome":"Paramount Pictures","regista_nome":"Francis","regista_cognome":"Ford Coppola","copie_totali":"5","copie_noleggiate":"0","copie_danneggiate":"0","cast":["TEST","TEST","TEST"]},{"id_film":"12","titolo":"Il Signore degli Anelli - Il ritorno del re","durata":"201","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"2","copie_danneggiate":"0","cast":["TEST","TEST","TEST"]},{"id_film":"14","titolo":"Il Signore degli Anelli - La compagnia dell'Anello","durata":"178","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"3","copie_danneggiate":"1","cast":["TEST","TEST","TEST"]},{"id_film":"16","titolo":"La parola ai giurati","durata":"96","prezzo_giornaliero":"4.5","tipo":"Thriller","casa_produttrice_nome":"Orion-Nova Productions","regista_nome":"Sidney","regista_cognome":"Lumet","copie_totali":"10","copie_noleggiate":"0","copie_danneggiate":"2","cast":["TEST","TEST"]}] 
+[20/09/2018 08:50:36] - corrId_5ba3433c2374c6.76262492 - Reached AuthenticationService API 
+[20/09/2018 08:50:36] - corrId_5ba3433c2374c6.76262492 - Processing Login request. 
+[20/09/2018 08:50:36] - corrId_5ba3433c2374c6.76262492 - Establishing connection to DB 
+[20/09/2018 08:50:36] - corrId_5ba3433c2374c6.76262492 - Executing query 
+[20/09/2018 08:50:36] - corrId_5ba3433c2374c6.76262492 - User  validated, generating Token. 
+[20/09/2018 08:50:36] - corrId_5ba3433c2374c6.76262492 - Token generated succesfully. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbEFjtn4XsFhOFmG30n4PcTI8wXPzxm/waElwFXqpafElJvaHFkRClq8P8HhE3bM9sG3F8CQ4FotzAJ8TbfAh+Fk= 
+[20/09/2018 08:50:37] - corrId_5ba3433db6b351.78327543 - Reached RentalManagementService API 
+[20/09/2018 08:50:37] - corrId_5ba3433db6b351.78327543 - Processing GetVideosInStorageWithCount request. 
+[20/09/2018 08:50:37] - corrId_5ba3433db6b351.78327543 - Token validated. 
+[20/09/2018 08:50:37] - corrId_5ba3433db6b351.78327543 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[20/09/2018 08:50:37] - corrId_5ba3433db6b351.78327543 - Establishing connection to DB 
+[20/09/2018 08:50:37] - corrId_5ba3433db6b351.78327543 - Executing query 
+[20/09/2018 08:50:37] - corrId_5ba3433db6b351.78327543 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 12) 
+[20/09/2018 08:50:37] - corrId_5ba3433db6b351.78327543 - Executing query 
+[20/09/2018 08:50:37] - corrId_5ba3433db6b351.78327543 - Actor: [{"id_film":"1","titolo":"Le ali della libert\u00e0","durata":"142","prezzo_giornaliero":"5","tipo":"Drammatico","casa_produttrice_nome":"Castle Rock Entertainment","regista_nome":"Frank","regista_cognome":"Darabont","copie_totali":"2","copie_noleggiate":"1","copie_danneggiate":"0","cast":[{"nome_attore":"Tim","cognome_attore":"Robbins"},{"nome_attore":"Morgan","cognome_attore":"Freeman"},{"nome_attore":"Bob","cognome_attore":"Gunton"}]},{"id_film":"12","titolo":"Il Signore degli Anelli - Il ritorno del re","durata":"201","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"2","copie_danneggiate":"0","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]}] 
+[20/09/2018 08:52:20] - corrId_5ba343a4ce9807.51696015 - Reached RentalManagementService API 
+[20/09/2018 08:52:20] - corrId_5ba343a4ce9807.51696015 - Processing GetVideosInStorageWithCount request. 
+[20/09/2018 08:52:20] - corrId_5ba343a4ce9807.51696015 - Token validated. 
+[20/09/2018 08:52:20] - corrId_5ba343a4ce9807.51696015 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[20/09/2018 08:52:20] - corrId_5ba343a4ce9807.51696015 - Establishing connection to DB 
+[20/09/2018 08:52:20] - corrId_5ba343a4ce9807.51696015 - Executing query 
+[20/09/2018 08:52:20] - corrId_5ba343a4ce9807.51696015 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 12, 14, 16) 
+[20/09/2018 08:52:20] - corrId_5ba343a4ce9807.51696015 - Executing query 
+[20/09/2018 08:52:20] - corrId_5ba343a4ce9807.51696015 - Actor: [{"id_film":"1","titolo":"Le ali della libert\u00e0","durata":"142","prezzo_giornaliero":"5","tipo":"Drammatico","casa_produttrice_nome":"Castle Rock Entertainment","regista_nome":"Frank","regista_cognome":"Darabont","copie_totali":"2","copie_noleggiate":"1","copie_danneggiate":"0","cast":[{"nome_attore":"Tim","cognome_attore":"Robbins"},{"nome_attore":"Morgan","cognome_attore":"Freeman"},{"nome_attore":"Bob","cognome_attore":"Gunton"}]},{"id_film":"2","titolo":"Il padrino","durata":"175","prezzo_giornaliero":"5","tipo":"Thriller","casa_produttrice_nome":"Paramount Pictures","regista_nome":"Francis","regista_cognome":"Ford Coppola","copie_totali":"5","copie_noleggiate":"0","copie_danneggiate":"0","cast":[{"nome_attore":"Marlon","cognome_attore":"Brando"},{"nome_attore":"Al","cognome_attore":"Pacino"},{"nome_attore":"James","cognome_attore":"Caan"}]},{"id_film":"12","titolo":"Il Signore degli Anelli - Il ritorno del re","durata":"201","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"2","copie_danneggiate":"0","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"14","titolo":"Il Signore degli Anelli - La compagnia dell'Anello","durata":"178","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"3","copie_danneggiate":"1","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"16","titolo":"La parola ai giurati","durata":"96","prezzo_giornaliero":"4.5","tipo":"Thriller","casa_produttrice_nome":"Orion-Nova Productions","regista_nome":"Sidney","regista_cognome":"Lumet","copie_totali":"10","copie_noleggiate":"0","copie_danneggiate":"2","cast":[{"nome_attore":"Henry","cognome_attore":"Fonda"},{"nome_attore":"Martin","cognome_attore":"Balsam"}]}] 
+[20/09/2018 09:09:33] - corrId_5ba347ad6ad166.58550877 - Reached RentalManagementService API 
+[20/09/2018 09:09:33] - corrId_5ba347ad6ad166.58550877 - Processing GetVideosInStorageWithCount request. 
+[20/09/2018 09:09:33] - corrId_5ba347ad6ad166.58550877 - Token validated. 
+[20/09/2018 09:09:33] - corrId_5ba347ad6ad166.58550877 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[20/09/2018 09:09:33] - corrId_5ba347ad6ad166.58550877 - Establishing connection to DB 
+[20/09/2018 09:09:33] - corrId_5ba347ad6ad166.58550877 - Executing query 
+[20/09/2018 09:09:33] - corrId_5ba347ad6ad166.58550877 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 12, 14, 16) 
+[20/09/2018 09:09:33] - corrId_5ba347ad6ad166.58550877 - Executing query 
+[20/09/2018 09:09:33] - corrId_5ba347ad6ad166.58550877 - Actor: [{"id_film":"1","titolo":"Le ali della libert\u00e0","durata":"142","prezzo_giornaliero":"5","tipo":"Drammatico","casa_produttrice_nome":"Castle Rock Entertainment","regista_nome":"Frank","regista_cognome":"Darabont","copie_totali":"2","copie_noleggiate":"1","copie_danneggiate":"0","cast":[{"nome_attore":"Tim","cognome_attore":"Robbins"},{"nome_attore":"Morgan","cognome_attore":"Freeman"},{"nome_attore":"Bob","cognome_attore":"Gunton"}]},{"id_film":"2","titolo":"Il padrino","durata":"175","prezzo_giornaliero":"5","tipo":"Thriller","casa_produttrice_nome":"Paramount Pictures","regista_nome":"Francis","regista_cognome":"Ford Coppola","copie_totali":"5","copie_noleggiate":"0","copie_danneggiate":"0","cast":[{"nome_attore":"Marlon","cognome_attore":"Brando"},{"nome_attore":"Al","cognome_attore":"Pacino"},{"nome_attore":"James","cognome_attore":"Caan"}]},{"id_film":"12","titolo":"Il Signore degli Anelli - Il ritorno del re","durata":"201","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"2","copie_danneggiate":"0","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"14","titolo":"Il Signore degli Anelli - La compagnia dell'Anello","durata":"178","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"3","copie_danneggiate":"1","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"16","titolo":"La parola ai giurati","durata":"96","prezzo_giornaliero":"4.5","tipo":"Thriller","casa_produttrice_nome":"Orion-Nova Productions","regista_nome":"Sidney","regista_cognome":"Lumet","copie_totali":"10","copie_noleggiate":"0","copie_danneggiate":"2","cast":[{"nome_attore":"Henry","cognome_attore":"Fonda"},{"nome_attore":"Martin","cognome_attore":"Balsam"}]}] 
+[20/09/2018 09:11:44] - corrId_5ba34830851096.98798736 - Reached RentalManagementService API 
+[20/09/2018 09:11:44] - corrId_5ba34830851096.98798736 - Processing GetVideosInStorageWithCount request. 
+[20/09/2018 09:11:44] - corrId_5ba34830851096.98798736 - Token validated. 
+[20/09/2018 09:11:44] - corrId_5ba34830851096.98798736 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[20/09/2018 09:11:44] - corrId_5ba34830851096.98798736 - Establishing connection to DB 
+[20/09/2018 09:11:44] - corrId_5ba34830851096.98798736 - Executing query 
+[20/09/2018 09:11:44] - corrId_5ba34830851096.98798736 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 12, 14, 16) 
+[20/09/2018 09:11:44] - corrId_5ba34830851096.98798736 - Executing query 
+[20/09/2018 09:11:44] - corrId_5ba34830851096.98798736 - Actor: [{"id_film":"1","titolo":"Le ali della libert\u00e0","durata":"142","prezzo_giornaliero":"5","tipo":"Drammatico","casa_produttrice_nome":"Castle Rock Entertainment","regista_nome":"Frank","regista_cognome":"Darabont","copie_totali":"2","copie_noleggiate":"1","copie_danneggiate":"0","cast":[{"nome_attore":"Tim","cognome_attore":"Robbins"},{"nome_attore":"Morgan","cognome_attore":"Freeman"},{"nome_attore":"Bob","cognome_attore":"Gunton"}]},{"id_film":"2","titolo":"Il padrino","durata":"175","prezzo_giornaliero":"5","tipo":"Thriller","casa_produttrice_nome":"Paramount Pictures","regista_nome":"Francis","regista_cognome":"Ford Coppola","copie_totali":"5","copie_noleggiate":"0","copie_danneggiate":"0","cast":[{"nome_attore":"Marlon","cognome_attore":"Brando"},{"nome_attore":"Al","cognome_attore":"Pacino"},{"nome_attore":"James","cognome_attore":"Caan"}]},{"id_film":"12","titolo":"Il Signore degli Anelli - Il ritorno del re","durata":"201","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"2","copie_danneggiate":"0","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"14","titolo":"Il Signore degli Anelli - La compagnia dell'Anello","durata":"178","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"3","copie_danneggiate":"1","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"16","titolo":"La parola ai giurati","durata":"96","prezzo_giornaliero":"4.5","tipo":"Thriller","casa_produttrice_nome":"Orion-Nova Productions","regista_nome":"Sidney","regista_cognome":"Lumet","copie_totali":"10","copie_noleggiate":"0","copie_danneggiate":"2","cast":[{"nome_attore":"Henry","cognome_attore":"Fonda"},{"nome_attore":"Martin","cognome_attore":"Balsam"}]}] 
+[20/09/2018 09:12:07] - corrId_5ba34847e6bcf4.85633979 - Reached CustomerManagementService API 
+[20/09/2018 09:12:07] - corrId_5ba34847e6bcf4.85633979 - Processing GetAllCustomersWithPremiumCode request. 
+[20/09/2018 09:12:07] - corrId_5ba34847e6bcf4.85633979 - Token validated. 
+[20/09/2018 09:12:07] - corrId_5ba34847e6bcf4.85633979 - Establishing connection to DB 
+[20/09/2018 09:12:07] - corrId_5ba34847e6bcf4.85633979 - Executing query 
+[20/09/2018 09:12:08] - corrId_5ba34848654494.12979793 - Reached RentalManagementService API 
+[20/09/2018 09:12:08] - corrId_5ba34848654494.12979793 - Processing GetVideosInStorageWithCount request. 
+[20/09/2018 09:12:08] - corrId_5ba34848654494.12979793 - Token validated. 
+[20/09/2018 09:12:08] - corrId_5ba34848654494.12979793 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[20/09/2018 09:12:08] - corrId_5ba34848654494.12979793 - Establishing connection to DB 
+[20/09/2018 09:12:08] - corrId_5ba34848654494.12979793 - Executing query 
+[20/09/2018 09:12:08] - corrId_5ba34848654494.12979793 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 12, 14, 16) 
+[20/09/2018 09:12:08] - corrId_5ba34848654494.12979793 - Executing query 
+[20/09/2018 09:12:08] - corrId_5ba34848654494.12979793 - Actor: [{"id_film":"1","titolo":"Le ali della libert\u00e0","durata":"142","prezzo_giornaliero":"5","tipo":"Drammatico","casa_produttrice_nome":"Castle Rock Entertainment","regista_nome":"Frank","regista_cognome":"Darabont","copie_totali":"2","copie_noleggiate":"1","copie_danneggiate":"0","cast":[{"nome_attore":"Tim","cognome_attore":"Robbins"},{"nome_attore":"Morgan","cognome_attore":"Freeman"},{"nome_attore":"Bob","cognome_attore":"Gunton"}]},{"id_film":"2","titolo":"Il padrino","durata":"175","prezzo_giornaliero":"5","tipo":"Thriller","casa_produttrice_nome":"Paramount Pictures","regista_nome":"Francis","regista_cognome":"Ford Coppola","copie_totali":"5","copie_noleggiate":"0","copie_danneggiate":"0","cast":[{"nome_attore":"Marlon","cognome_attore":"Brando"},{"nome_attore":"Al","cognome_attore":"Pacino"},{"nome_attore":"James","cognome_attore":"Caan"}]},{"id_film":"12","titolo":"Il Signore degli Anelli - Il ritorno del re","durata":"201","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"2","copie_danneggiate":"0","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"14","titolo":"Il Signore degli Anelli - La compagnia dell'Anello","durata":"178","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"3","copie_danneggiate":"1","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"16","titolo":"La parola ai giurati","durata":"96","prezzo_giornaliero":"4.5","tipo":"Thriller","casa_produttrice_nome":"Orion-Nova Productions","regista_nome":"Sidney","regista_cognome":"Lumet","copie_totali":"10","copie_noleggiate":"0","copie_danneggiate":"2","cast":[{"nome_attore":"Henry","cognome_attore":"Fonda"},{"nome_attore":"Martin","cognome_attore":"Balsam"}]}] 
+[20/09/2018 09:13:21] - corrId_5ba3489128f644.93818673 - Reached RentalManagementService API 
+[20/09/2018 09:13:21] - corrId_5ba3489128f644.93818673 - Processing GetVideosInStorageWithCount request. 
+[20/09/2018 09:13:21] - corrId_5ba3489128f644.93818673 - Token validated. 
+[20/09/2018 09:13:21] - corrId_5ba3489128f644.93818673 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[20/09/2018 09:13:21] - corrId_5ba3489128f644.93818673 - Establishing connection to DB 
+[20/09/2018 09:13:21] - corrId_5ba3489128f644.93818673 - Executing query 
+[20/09/2018 09:13:21] - corrId_5ba3489128f644.93818673 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 12, 14, 16) 
+[20/09/2018 09:13:21] - corrId_5ba3489128f644.93818673 - Executing query 
+[20/09/2018 09:13:21] - corrId_5ba3489128f644.93818673 - Actor: [{"id_film":"1","titolo":"Le ali della libert\u00e0","durata":"142","prezzo_giornaliero":"5","tipo":"Drammatico","casa_produttrice_nome":"Castle Rock Entertainment","regista_nome":"Frank","regista_cognome":"Darabont","copie_totali":"2","copie_noleggiate":"1","copie_danneggiate":"0","cast":[{"nome_attore":"Tim","cognome_attore":"Robbins"},{"nome_attore":"Morgan","cognome_attore":"Freeman"},{"nome_attore":"Bob","cognome_attore":"Gunton"}]},{"id_film":"2","titolo":"Il padrino","durata":"175","prezzo_giornaliero":"5","tipo":"Thriller","casa_produttrice_nome":"Paramount Pictures","regista_nome":"Francis","regista_cognome":"Ford Coppola","copie_totali":"5","copie_noleggiate":"0","copie_danneggiate":"0","cast":[{"nome_attore":"Marlon","cognome_attore":"Brando"},{"nome_attore":"Al","cognome_attore":"Pacino"},{"nome_attore":"James","cognome_attore":"Caan"}]},{"id_film":"12","titolo":"Il Signore degli Anelli - Il ritorno del re","durata":"201","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"2","copie_danneggiate":"0","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"14","titolo":"Il Signore degli Anelli - La compagnia dell'Anello","durata":"178","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"3","copie_danneggiate":"1","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"16","titolo":"La parola ai giurati","durata":"96","prezzo_giornaliero":"4.5","tipo":"Thriller","casa_produttrice_nome":"Orion-Nova Productions","regista_nome":"Sidney","regista_cognome":"Lumet","copie_totali":"10","copie_noleggiate":"0","copie_danneggiate":"2","cast":[{"nome_attore":"Henry","cognome_attore":"Fonda"},{"nome_attore":"Martin","cognome_attore":"Balsam"}]}] 
+[20/09/2018 09:13:51] - corrId_5ba348afd12df9.49832487 - Reached CustomerManagementService API 
+[20/09/2018 09:13:51] - corrId_5ba348afd12df9.49832487 - Processing GetAllCustomersWithPremiumCode request. 
+[20/09/2018 09:13:51] - corrId_5ba348afd12df9.49832487 - Token validated. 
+[20/09/2018 09:13:51] - corrId_5ba348afd12df9.49832487 - Establishing connection to DB 
+[20/09/2018 09:13:51] - corrId_5ba348afd12df9.49832487 - Executing query 
+[20/09/2018 09:13:52] - corrId_5ba348b04df6b1.02112928 - Reached RentalManagementService API 
+[20/09/2018 09:13:52] - corrId_5ba348b04df6b1.02112928 - Processing GetVideosInStorageWithCount request. 
+[20/09/2018 09:13:52] - corrId_5ba348b04df6b1.02112928 - Token validated. 
+[20/09/2018 09:13:52] - corrId_5ba348b04df6b1.02112928 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[20/09/2018 09:13:52] - corrId_5ba348b04df6b1.02112928 - Establishing connection to DB 
+[20/09/2018 09:13:52] - corrId_5ba348b04df6b1.02112928 - Executing query 
+[20/09/2018 09:13:52] - corrId_5ba348b04df6b1.02112928 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 12, 14, 16) 
+[20/09/2018 09:13:52] - corrId_5ba348b04df6b1.02112928 - Executing query 
+[20/09/2018 09:13:52] - corrId_5ba348b04df6b1.02112928 - Actor: [{"id_film":"1","titolo":"Le ali della libert\u00e0","durata":"142","prezzo_giornaliero":"5","tipo":"Drammatico","casa_produttrice_nome":"Castle Rock Entertainment","regista_nome":"Frank","regista_cognome":"Darabont","copie_totali":"2","copie_noleggiate":"1","copie_danneggiate":"0","cast":[{"nome_attore":"Tim","cognome_attore":"Robbins"},{"nome_attore":"Morgan","cognome_attore":"Freeman"},{"nome_attore":"Bob","cognome_attore":"Gunton"}]},{"id_film":"2","titolo":"Il padrino","durata":"175","prezzo_giornaliero":"5","tipo":"Thriller","casa_produttrice_nome":"Paramount Pictures","regista_nome":"Francis","regista_cognome":"Ford Coppola","copie_totali":"5","copie_noleggiate":"0","copie_danneggiate":"0","cast":[{"nome_attore":"Marlon","cognome_attore":"Brando"},{"nome_attore":"Al","cognome_attore":"Pacino"},{"nome_attore":"James","cognome_attore":"Caan"}]},{"id_film":"12","titolo":"Il Signore degli Anelli - Il ritorno del re","durata":"201","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"2","copie_danneggiate":"0","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"14","titolo":"Il Signore degli Anelli - La compagnia dell'Anello","durata":"178","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"3","copie_danneggiate":"1","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"16","titolo":"La parola ai giurati","durata":"96","prezzo_giornaliero":"4.5","tipo":"Thriller","casa_produttrice_nome":"Orion-Nova Productions","regista_nome":"Sidney","regista_cognome":"Lumet","copie_totali":"10","copie_noleggiate":"0","copie_danneggiate":"2","cast":[{"nome_attore":"Henry","cognome_attore":"Fonda"},{"nome_attore":"Martin","cognome_attore":"Balsam"}]}] 
+[20/09/2018 09:14:59] - corrId_5ba348f3b948d1.88821288 - Reached RentalManagementService API 
+[20/09/2018 09:14:59] - corrId_5ba348f3b948d1.88821288 - Processing GetVideosInStorageWithCount request. 
+[20/09/2018 09:14:59] - corrId_5ba348f3b948d1.88821288 - Token validated. 
+[20/09/2018 09:14:59] - corrId_5ba348f3b948d1.88821288 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[20/09/2018 09:14:59] - corrId_5ba348f3b948d1.88821288 - Establishing connection to DB 
+[20/09/2018 09:14:59] - corrId_5ba348f3b948d1.88821288 - Executing query 
+[20/09/2018 09:14:59] - corrId_5ba348f3b948d1.88821288 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 12, 14, 16) 
+[20/09/2018 09:14:59] - corrId_5ba348f3b948d1.88821288 - Executing query 
+[20/09/2018 09:14:59] - corrId_5ba348f3b948d1.88821288 - Actor: [{"id_film":"1","titolo":"Le ali della libert\u00e0","durata":"142","prezzo_giornaliero":"5","tipo":"Drammatico","casa_produttrice_nome":"Castle Rock Entertainment","regista_nome":"Frank","regista_cognome":"Darabont","copie_totali":"2","copie_noleggiate":"1","copie_danneggiate":"0","cast":[{"nome_attore":"Tim","cognome_attore":"Robbins"},{"nome_attore":"Morgan","cognome_attore":"Freeman"},{"nome_attore":"Bob","cognome_attore":"Gunton"}]},{"id_film":"2","titolo":"Il padrino","durata":"175","prezzo_giornaliero":"5","tipo":"Thriller","casa_produttrice_nome":"Paramount Pictures","regista_nome":"Francis","regista_cognome":"Ford Coppola","copie_totali":"5","copie_noleggiate":"0","copie_danneggiate":"0","cast":[{"nome_attore":"Marlon","cognome_attore":"Brando"},{"nome_attore":"Al","cognome_attore":"Pacino"},{"nome_attore":"James","cognome_attore":"Caan"}]},{"id_film":"12","titolo":"Il Signore degli Anelli - Il ritorno del re","durata":"201","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"2","copie_danneggiate":"0","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"14","titolo":"Il Signore degli Anelli - La compagnia dell'Anello","durata":"178","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"3","copie_danneggiate":"1","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"16","titolo":"La parola ai giurati","durata":"96","prezzo_giornaliero":"4.5","tipo":"Thriller","casa_produttrice_nome":"Orion-Nova Productions","regista_nome":"Sidney","regista_cognome":"Lumet","copie_totali":"10","copie_noleggiate":"0","copie_danneggiate":"2","cast":[{"nome_attore":"Henry","cognome_attore":"Fonda"},{"nome_attore":"Martin","cognome_attore":"Balsam"}]}] 
+[20/09/2018 09:23:32] - corrId_5ba34af4d738b8.02534551 - Reached RentalManagementService API 
+[20/09/2018 09:23:32] - corrId_5ba34af4d738b8.02534551 - Processing GetVideosInStorageWithCount request. 
+[20/09/2018 09:23:32] - corrId_5ba34af4d738b8.02534551 - Token validated. 
+[20/09/2018 09:23:32] - corrId_5ba34af4d738b8.02534551 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[20/09/2018 09:23:32] - corrId_5ba34af4d738b8.02534551 - Establishing connection to DB 
+[20/09/2018 09:23:32] - corrId_5ba34af4d738b8.02534551 - Executing query 
+[20/09/2018 09:23:32] - corrId_5ba34af4d738b8.02534551 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 12, 14, 16) 
+[20/09/2018 09:23:32] - corrId_5ba34af4d738b8.02534551 - Executing query 
+[20/09/2018 09:23:32] - corrId_5ba34af4d738b8.02534551 - Actor: [{"id_film":"1","titolo":"Le ali della libert\u00e0","durata":"142","prezzo_giornaliero":"5","tipo":"Drammatico","casa_produttrice_nome":"Castle Rock Entertainment","regista_nome":"Frank","regista_cognome":"Darabont","copie_totali":"2","copie_noleggiate":"1","copie_danneggiate":"0","cast":[{"nome_attore":"Tim","cognome_attore":"Robbins"},{"nome_attore":"Morgan","cognome_attore":"Freeman"},{"nome_attore":"Bob","cognome_attore":"Gunton"}]},{"id_film":"2","titolo":"Il padrino","durata":"175","prezzo_giornaliero":"5","tipo":"Thriller","casa_produttrice_nome":"Paramount Pictures","regista_nome":"Francis","regista_cognome":"Ford Coppola","copie_totali":"5","copie_noleggiate":"0","copie_danneggiate":"0","cast":[{"nome_attore":"Marlon","cognome_attore":"Brando"},{"nome_attore":"Al","cognome_attore":"Pacino"},{"nome_attore":"James","cognome_attore":"Caan"}]},{"id_film":"12","titolo":"Il Signore degli Anelli - Il ritorno del re","durata":"201","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"2","copie_danneggiate":"0","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"14","titolo":"Il Signore degli Anelli - La compagnia dell'Anello","durata":"178","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"3","copie_danneggiate":"1","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"16","titolo":"La parola ai giurati","durata":"96","prezzo_giornaliero":"4.5","tipo":"Thriller","casa_produttrice_nome":"Orion-Nova Productions","regista_nome":"Sidney","regista_cognome":"Lumet","copie_totali":"10","copie_noleggiate":"0","copie_danneggiate":"2","cast":[{"nome_attore":"Henry","cognome_attore":"Fonda"},{"nome_attore":"Martin","cognome_attore":"Balsam"}]}] 
+[20/09/2018 09:24:23] - corrId_5ba34b27b63a72.67446716 - Reached RentalManagementService API 
+[20/09/2018 09:24:23] - corrId_5ba34b27b63a72.67446716 - Processing GetVideosInStorageWithCount request. 
+[20/09/2018 09:24:23] - corrId_5ba34b27b63a72.67446716 - Token validated. 
+[20/09/2018 09:24:23] - corrId_5ba34b27b63a72.67446716 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[20/09/2018 09:24:23] - corrId_5ba34b27b63a72.67446716 - Establishing connection to DB 
+[20/09/2018 09:24:23] - corrId_5ba34b27b63a72.67446716 - Executing query 
+[20/09/2018 09:24:23] - corrId_5ba34b27b63a72.67446716 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 12, 14, 16) 
+[20/09/2018 09:24:23] - corrId_5ba34b27b63a72.67446716 - Executing query 
+[20/09/2018 09:24:23] - corrId_5ba34b27b63a72.67446716 - Actor: [{"id_film":"1","titolo":"Le ali della libert\u00e0","durata":"142","prezzo_giornaliero":"5","tipo":"Drammatico","casa_produttrice_nome":"Castle Rock Entertainment","regista_nome":"Frank","regista_cognome":"Darabont","copie_totali":"2","copie_noleggiate":"1","copie_danneggiate":"0","cast":[{"nome_attore":"Tim","cognome_attore":"Robbins"},{"nome_attore":"Morgan","cognome_attore":"Freeman"},{"nome_attore":"Bob","cognome_attore":"Gunton"}]},{"id_film":"2","titolo":"Il padrino","durata":"175","prezzo_giornaliero":"5","tipo":"Thriller","casa_produttrice_nome":"Paramount Pictures","regista_nome":"Francis","regista_cognome":"Ford Coppola","copie_totali":"5","copie_noleggiate":"0","copie_danneggiate":"0","cast":[{"nome_attore":"Marlon","cognome_attore":"Brando"},{"nome_attore":"Al","cognome_attore":"Pacino"},{"nome_attore":"James","cognome_attore":"Caan"}]},{"id_film":"12","titolo":"Il Signore degli Anelli - Il ritorno del re","durata":"201","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"2","copie_danneggiate":"0","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"14","titolo":"Il Signore degli Anelli - La compagnia dell'Anello","durata":"178","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"3","copie_danneggiate":"1","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"16","titolo":"La parola ai giurati","durata":"96","prezzo_giornaliero":"4.5","tipo":"Thriller","casa_produttrice_nome":"Orion-Nova Productions","regista_nome":"Sidney","regista_cognome":"Lumet","copie_totali":"10","copie_noleggiate":"0","copie_danneggiate":"2","cast":[{"nome_attore":"Henry","cognome_attore":"Fonda"},{"nome_attore":"Martin","cognome_attore":"Balsam"}]}] 
+[20/09/2018 09:24:36] - corrId_5ba34b34a80647.41505107 - Reached RentalManagementService API 
+[20/09/2018 09:24:36] - corrId_5ba34b34a80647.41505107 - Processing GetVideosInStorageWithCount request. 
+[20/09/2018 09:24:36] - corrId_5ba34b34a80647.41505107 - Token validated. 
+[20/09/2018 09:24:36] - corrId_5ba34b34a80647.41505107 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[20/09/2018 09:24:36] - corrId_5ba34b34a80647.41505107 - Establishing connection to DB 
+[20/09/2018 09:24:36] - corrId_5ba34b34a80647.41505107 - Executing query 
+[20/09/2018 09:24:36] - corrId_5ba34b34a80647.41505107 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 12, 14, 16) 
+[20/09/2018 09:24:36] - corrId_5ba34b34a80647.41505107 - Executing query 
+[20/09/2018 09:24:36] - corrId_5ba34b34a80647.41505107 - Actor: [{"id_film":"1","titolo":"Le ali della libert\u00e0","durata":"142","prezzo_giornaliero":"5","tipo":"Drammatico","casa_produttrice_nome":"Castle Rock Entertainment","regista_nome":"Frank","regista_cognome":"Darabont","copie_totali":"2","copie_noleggiate":"1","copie_danneggiate":"0","cast":[{"nome_attore":"Tim","cognome_attore":"Robbins"},{"nome_attore":"Morgan","cognome_attore":"Freeman"},{"nome_attore":"Bob","cognome_attore":"Gunton"}]},{"id_film":"2","titolo":"Il padrino","durata":"175","prezzo_giornaliero":"5","tipo":"Thriller","casa_produttrice_nome":"Paramount Pictures","regista_nome":"Francis","regista_cognome":"Ford Coppola","copie_totali":"5","copie_noleggiate":"0","copie_danneggiate":"0","cast":[{"nome_attore":"Marlon","cognome_attore":"Brando"},{"nome_attore":"Al","cognome_attore":"Pacino"},{"nome_attore":"James","cognome_attore":"Caan"}]},{"id_film":"12","titolo":"Il Signore degli Anelli - Il ritorno del re","durata":"201","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"2","copie_danneggiate":"0","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"14","titolo":"Il Signore degli Anelli - La compagnia dell'Anello","durata":"178","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"3","copie_danneggiate":"1","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"16","titolo":"La parola ai giurati","durata":"96","prezzo_giornaliero":"4.5","tipo":"Thriller","casa_produttrice_nome":"Orion-Nova Productions","regista_nome":"Sidney","regista_cognome":"Lumet","copie_totali":"10","copie_noleggiate":"0","copie_danneggiate":"2","cast":[{"nome_attore":"Henry","cognome_attore":"Fonda"},{"nome_attore":"Martin","cognome_attore":"Balsam"}]}] 
+[20/09/2018 09:25:04] - corrId_5ba34b50a5ba37.25071034 - Reached RentalManagementService API 
+[20/09/2018 09:25:04] - corrId_5ba34b50a5ba37.25071034 - Processing GetVideosInStorageWithCount request. 
+[20/09/2018 09:25:04] - corrId_5ba34b50a5ba37.25071034 - Token validated. 
+[20/09/2018 09:25:04] - corrId_5ba34b50a5ba37.25071034 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[20/09/2018 09:25:04] - corrId_5ba34b50a5ba37.25071034 - Establishing connection to DB 
+[20/09/2018 09:25:04] - corrId_5ba34b50a5ba37.25071034 - Executing query 
+[20/09/2018 09:25:04] - corrId_5ba34b50a5ba37.25071034 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 12, 14, 16) 
+[20/09/2018 09:25:04] - corrId_5ba34b50a5ba37.25071034 - Executing query 
+[20/09/2018 09:25:04] - corrId_5ba34b50a5ba37.25071034 - Actor: [{"id_film":"1","titolo":"Le ali della libert\u00e0","durata":"142","prezzo_giornaliero":"5","tipo":"Drammatico","casa_produttrice_nome":"Castle Rock Entertainment","regista_nome":"Frank","regista_cognome":"Darabont","copie_totali":"2","copie_noleggiate":"1","copie_danneggiate":"0","cast":[{"nome_attore":"Tim","cognome_attore":"Robbins"},{"nome_attore":"Morgan","cognome_attore":"Freeman"},{"nome_attore":"Bob","cognome_attore":"Gunton"}]},{"id_film":"2","titolo":"Il padrino","durata":"175","prezzo_giornaliero":"5","tipo":"Thriller","casa_produttrice_nome":"Paramount Pictures","regista_nome":"Francis","regista_cognome":"Ford Coppola","copie_totali":"5","copie_noleggiate":"0","copie_danneggiate":"0","cast":[{"nome_attore":"Marlon","cognome_attore":"Brando"},{"nome_attore":"Al","cognome_attore":"Pacino"},{"nome_attore":"James","cognome_attore":"Caan"}]},{"id_film":"12","titolo":"Il Signore degli Anelli - Il ritorno del re","durata":"201","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"2","copie_danneggiate":"0","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"14","titolo":"Il Signore degli Anelli - La compagnia dell'Anello","durata":"178","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"3","copie_danneggiate":"1","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"16","titolo":"La parola ai giurati","durata":"96","prezzo_giornaliero":"4.5","tipo":"Thriller","casa_produttrice_nome":"Orion-Nova Productions","regista_nome":"Sidney","regista_cognome":"Lumet","copie_totali":"10","copie_noleggiate":"0","copie_danneggiate":"2","cast":[{"nome_attore":"Henry","cognome_attore":"Fonda"},{"nome_attore":"Martin","cognome_attore":"Balsam"}]}] 
+[20/09/2018 09:25:23] - corrId_5ba34b63b0c404.28938672 - Reached CustomerManagementService API 
+[20/09/2018 09:25:23] - corrId_5ba34b63b0c404.28938672 - Processing GetAllCustomersWithPremiumCode request. 
+[20/09/2018 09:25:23] - corrId_5ba34b63b0c404.28938672 - Token validated. 
+[20/09/2018 09:25:23] - corrId_5ba34b63b0c404.28938672 - Establishing connection to DB 
+[20/09/2018 09:25:23] - corrId_5ba34b63b0c404.28938672 - Executing query 
+[20/09/2018 09:25:24] - corrId_5ba34b642bc285.13842369 - Reached RentalManagementService API 
+[20/09/2018 09:25:24] - corrId_5ba34b642bc285.13842369 - Processing GetVideosInStorageWithCount request. 
+[20/09/2018 09:25:24] - corrId_5ba34b642bc285.13842369 - Token validated. 
+[20/09/2018 09:25:24] - corrId_5ba34b642bc285.13842369 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[20/09/2018 09:25:24] - corrId_5ba34b642bc285.13842369 - Establishing connection to DB 
+[20/09/2018 09:25:24] - corrId_5ba34b642bc285.13842369 - Executing query 
+[20/09/2018 09:25:24] - corrId_5ba34b642bc285.13842369 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 12, 14, 16) 
+[20/09/2018 09:25:24] - corrId_5ba34b642bc285.13842369 - Executing query 
+[20/09/2018 09:25:24] - corrId_5ba34b642bc285.13842369 - Actor: [{"id_film":"1","titolo":"Le ali della libert\u00e0","durata":"142","prezzo_giornaliero":"5","tipo":"Drammatico","casa_produttrice_nome":"Castle Rock Entertainment","regista_nome":"Frank","regista_cognome":"Darabont","copie_totali":"2","copie_noleggiate":"1","copie_danneggiate":"0","cast":[{"nome_attore":"Tim","cognome_attore":"Robbins"},{"nome_attore":"Morgan","cognome_attore":"Freeman"},{"nome_attore":"Bob","cognome_attore":"Gunton"}]},{"id_film":"2","titolo":"Il padrino","durata":"175","prezzo_giornaliero":"5","tipo":"Thriller","casa_produttrice_nome":"Paramount Pictures","regista_nome":"Francis","regista_cognome":"Ford Coppola","copie_totali":"5","copie_noleggiate":"0","copie_danneggiate":"0","cast":[{"nome_attore":"Marlon","cognome_attore":"Brando"},{"nome_attore":"Al","cognome_attore":"Pacino"},{"nome_attore":"James","cognome_attore":"Caan"}]},{"id_film":"12","titolo":"Il Signore degli Anelli - Il ritorno del re","durata":"201","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"2","copie_danneggiate":"0","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"14","titolo":"Il Signore degli Anelli - La compagnia dell'Anello","durata":"178","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"3","copie_danneggiate":"1","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"16","titolo":"La parola ai giurati","durata":"96","prezzo_giornaliero":"4.5","tipo":"Thriller","casa_produttrice_nome":"Orion-Nova Productions","regista_nome":"Sidney","regista_cognome":"Lumet","copie_totali":"10","copie_noleggiate":"0","copie_danneggiate":"2","cast":[{"nome_attore":"Henry","cognome_attore":"Fonda"},{"nome_attore":"Martin","cognome_attore":"Balsam"}]}] 
+[20/09/2018 09:28:49] - corrId_5ba34c31c2da44.15410608 - Reached CustomerManagementService API 
+[20/09/2018 09:28:49] - corrId_5ba34c31c2da44.15410608 - Processing GetAllCustomersWithPremiumCode request. 
+[20/09/2018 09:28:49] - corrId_5ba34c31c2da44.15410608 - Token validated. 
+[20/09/2018 09:28:49] - corrId_5ba34c31c2da44.15410608 - Establishing connection to DB 
+[20/09/2018 09:28:49] - corrId_5ba34c31c2da44.15410608 - Executing query 
+[20/09/2018 09:28:50] - corrId_5ba34c3248a5d2.95542076 - Reached RentalManagementService API 
+[20/09/2018 09:28:50] - corrId_5ba34c3248a5d2.95542076 - Processing GetVideosInStorageWithCount request. 
+[20/09/2018 09:28:50] - corrId_5ba34c3248a5d2.95542076 - Token validated. 
+[20/09/2018 09:28:50] - corrId_5ba34c3248a5d2.95542076 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[20/09/2018 09:28:50] - corrId_5ba34c3248a5d2.95542076 - Establishing connection to DB 
+[20/09/2018 09:28:50] - corrId_5ba34c3248a5d2.95542076 - Executing query 
+[20/09/2018 09:28:50] - corrId_5ba34c3248a5d2.95542076 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 12, 14, 16) 
+[20/09/2018 09:28:50] - corrId_5ba34c3248a5d2.95542076 - Executing query 
+[20/09/2018 09:28:50] - corrId_5ba34c3248a5d2.95542076 - Actor: [{"id_film":"1","titolo":"Le ali della libert\u00e0","durata":"142","prezzo_giornaliero":"5","tipo":"Drammatico","casa_produttrice_nome":"Castle Rock Entertainment","regista_nome":"Frank","regista_cognome":"Darabont","copie_totali":"2","copie_noleggiate":"1","copie_danneggiate":"0","cast":[{"nome_attore":"Tim","cognome_attore":"Robbins"},{"nome_attore":"Morgan","cognome_attore":"Freeman"},{"nome_attore":"Bob","cognome_attore":"Gunton"}]},{"id_film":"2","titolo":"Il padrino","durata":"175","prezzo_giornaliero":"5","tipo":"Thriller","casa_produttrice_nome":"Paramount Pictures","regista_nome":"Francis","regista_cognome":"Ford Coppola","copie_totali":"5","copie_noleggiate":"0","copie_danneggiate":"0","cast":[{"nome_attore":"Marlon","cognome_attore":"Brando"},{"nome_attore":"Al","cognome_attore":"Pacino"},{"nome_attore":"James","cognome_attore":"Caan"}]},{"id_film":"12","titolo":"Il Signore degli Anelli - Il ritorno del re","durata":"201","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"2","copie_danneggiate":"0","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"14","titolo":"Il Signore degli Anelli - La compagnia dell'Anello","durata":"178","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"3","copie_danneggiate":"1","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"16","titolo":"La parola ai giurati","durata":"96","prezzo_giornaliero":"4.5","tipo":"Thriller","casa_produttrice_nome":"Orion-Nova Productions","regista_nome":"Sidney","regista_cognome":"Lumet","copie_totali":"10","copie_noleggiate":"0","copie_danneggiate":"2","cast":[{"nome_attore":"Henry","cognome_attore":"Fonda"},{"nome_attore":"Martin","cognome_attore":"Balsam"}]}] 
+[20/09/2018 09:29:50] - corrId_5ba34c6e3c2ed7.31236924 - Reached RentalManagementService API 
+[20/09/2018 09:29:50] - corrId_5ba34c6e3c2ed7.31236924 - Processing GetVideosInStorageWithCount request. 
+[20/09/2018 09:29:50] - corrId_5ba34c6e3c2ed7.31236924 - Token validated. 
+[20/09/2018 09:29:50] - corrId_5ba34c6e3c2ed7.31236924 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[20/09/2018 09:29:50] - corrId_5ba34c6e3c2ed7.31236924 - Establishing connection to DB 
+[20/09/2018 09:29:50] - corrId_5ba34c6e3c2ed7.31236924 - Executing query 
+[20/09/2018 09:29:50] - corrId_5ba34c6e3c2ed7.31236924 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 12, 14, 16) 
+[20/09/2018 09:29:50] - corrId_5ba34c6e3c2ed7.31236924 - Executing query 
+[20/09/2018 09:29:50] - corrId_5ba34c6e3c2ed7.31236924 - Actor: [{"id_film":"1","titolo":"Le ali della libert\u00e0","durata":"142","prezzo_giornaliero":"5","tipo":"Drammatico","casa_produttrice_nome":"Castle Rock Entertainment","regista_nome":"Frank","regista_cognome":"Darabont","copie_totali":"2","copie_noleggiate":"1","copie_danneggiate":"0","cast":[{"nome_attore":"Tim","cognome_attore":"Robbins"},{"nome_attore":"Morgan","cognome_attore":"Freeman"},{"nome_attore":"Bob","cognome_attore":"Gunton"}]},{"id_film":"2","titolo":"Il padrino","durata":"175","prezzo_giornaliero":"5","tipo":"Thriller","casa_produttrice_nome":"Paramount Pictures","regista_nome":"Francis","regista_cognome":"Ford Coppola","copie_totali":"5","copie_noleggiate":"0","copie_danneggiate":"0","cast":[{"nome_attore":"Marlon","cognome_attore":"Brando"},{"nome_attore":"Al","cognome_attore":"Pacino"},{"nome_attore":"James","cognome_attore":"Caan"}]},{"id_film":"12","titolo":"Il Signore degli Anelli - Il ritorno del re","durata":"201","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"2","copie_danneggiate":"0","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"14","titolo":"Il Signore degli Anelli - La compagnia dell'Anello","durata":"178","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"3","copie_danneggiate":"1","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"16","titolo":"La parola ai giurati","durata":"96","prezzo_giornaliero":"4.5","tipo":"Thriller","casa_produttrice_nome":"Orion-Nova Productions","regista_nome":"Sidney","regista_cognome":"Lumet","copie_totali":"10","copie_noleggiate":"0","copie_danneggiate":"2","cast":[{"nome_attore":"Henry","cognome_attore":"Fonda"},{"nome_attore":"Martin","cognome_attore":"Balsam"}]}] 
+[20/09/2018 09:30:16] - corrId_5ba34c88ddd522.75959942 - Reached CustomerManagementService API 
+[20/09/2018 09:30:16] - corrId_5ba34c88ddd522.75959942 - Processing GetAllCustomersWithPremiumCode request. 
+[20/09/2018 09:30:16] - corrId_5ba34c88ddd522.75959942 - Token validated. 
+[20/09/2018 09:30:16] - corrId_5ba34c88ddd522.75959942 - Establishing connection to DB 
+[20/09/2018 09:30:16] - corrId_5ba34c88ddd522.75959942 - Executing query 
+[20/09/2018 09:30:17] - corrId_5ba34c895c3cc7.53938646 - Reached RentalManagementService API 
+[20/09/2018 09:30:17] - corrId_5ba34c895c3cc7.53938646 - Processing GetVideosInStorageWithCount request. 
+[20/09/2018 09:30:17] - corrId_5ba34c895c3cc7.53938646 - Token validated. 
+[20/09/2018 09:30:17] - corrId_5ba34c895c3cc7.53938646 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[20/09/2018 09:30:17] - corrId_5ba34c895c3cc7.53938646 - Establishing connection to DB 
+[20/09/2018 09:30:17] - corrId_5ba34c895c3cc7.53938646 - Executing query 
+[20/09/2018 09:30:17] - corrId_5ba34c895c3cc7.53938646 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 12, 14, 16) 
+[20/09/2018 09:30:17] - corrId_5ba34c895c3cc7.53938646 - Executing query 
+[20/09/2018 09:30:17] - corrId_5ba34c895c3cc7.53938646 - Actor: [{"id_film":"1","titolo":"Le ali della libert\u00e0","durata":"142","prezzo_giornaliero":"5","tipo":"Drammatico","casa_produttrice_nome":"Castle Rock Entertainment","regista_nome":"Frank","regista_cognome":"Darabont","copie_totali":"2","copie_noleggiate":"1","copie_danneggiate":"0","cast":[{"nome_attore":"Tim","cognome_attore":"Robbins"},{"nome_attore":"Morgan","cognome_attore":"Freeman"},{"nome_attore":"Bob","cognome_attore":"Gunton"}]},{"id_film":"2","titolo":"Il padrino","durata":"175","prezzo_giornaliero":"5","tipo":"Thriller","casa_produttrice_nome":"Paramount Pictures","regista_nome":"Francis","regista_cognome":"Ford Coppola","copie_totali":"5","copie_noleggiate":"0","copie_danneggiate":"0","cast":[{"nome_attore":"Marlon","cognome_attore":"Brando"},{"nome_attore":"Al","cognome_attore":"Pacino"},{"nome_attore":"James","cognome_attore":"Caan"}]},{"id_film":"12","titolo":"Il Signore degli Anelli - Il ritorno del re","durata":"201","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"2","copie_danneggiate":"0","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"14","titolo":"Il Signore degli Anelli - La compagnia dell'Anello","durata":"178","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"3","copie_danneggiate":"1","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"16","titolo":"La parola ai giurati","durata":"96","prezzo_giornaliero":"4.5","tipo":"Thriller","casa_produttrice_nome":"Orion-Nova Productions","regista_nome":"Sidney","regista_cognome":"Lumet","copie_totali":"10","copie_noleggiate":"0","copie_danneggiate":"2","cast":[{"nome_attore":"Henry","cognome_attore":"Fonda"},{"nome_attore":"Martin","cognome_attore":"Balsam"}]}] 
+[20/09/2018 09:33:42] - corrId_5ba34d56575091.79857943 - Reached RentalManagementService API 
+[20/09/2018 09:33:42] - corrId_5ba34d56575091.79857943 - Processing GetVideosInStorageWithCount request. 
+[20/09/2018 09:33:42] - corrId_5ba34d56575091.79857943 - Token validated. 
+[20/09/2018 09:33:42] - corrId_5ba34d56575091.79857943 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[20/09/2018 09:33:42] - corrId_5ba34d56575091.79857943 - Establishing connection to DB 
+[20/09/2018 09:33:42] - corrId_5ba34d56575091.79857943 - Executing query 
+[20/09/2018 09:33:42] - corrId_5ba34d56575091.79857943 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 12, 14, 16) 
+[20/09/2018 09:33:42] - corrId_5ba34d56575091.79857943 - Executing query 
+[20/09/2018 09:33:42] - corrId_5ba34d56575091.79857943 - Actor: [{"id_film":"1","titolo":"Le ali della libert\u00e0","durata":"142","prezzo_giornaliero":"5","tipo":"Drammatico","casa_produttrice_nome":"Castle Rock Entertainment","regista_nome":"Frank","regista_cognome":"Darabont","copie_totali":"2","copie_noleggiate":"1","copie_danneggiate":"0","cast":[{"nome_attore":"Tim","cognome_attore":"Robbins"},{"nome_attore":"Morgan","cognome_attore":"Freeman"},{"nome_attore":"Bob","cognome_attore":"Gunton"}]},{"id_film":"2","titolo":"Il padrino","durata":"175","prezzo_giornaliero":"5","tipo":"Thriller","casa_produttrice_nome":"Paramount Pictures","regista_nome":"Francis","regista_cognome":"Ford Coppola","copie_totali":"5","copie_noleggiate":"0","copie_danneggiate":"0","cast":[{"nome_attore":"Marlon","cognome_attore":"Brando"},{"nome_attore":"Al","cognome_attore":"Pacino"},{"nome_attore":"James","cognome_attore":"Caan"}]},{"id_film":"12","titolo":"Il Signore degli Anelli - Il ritorno del re","durata":"201","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"2","copie_danneggiate":"0","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"14","titolo":"Il Signore degli Anelli - La compagnia dell'Anello","durata":"178","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"3","copie_danneggiate":"1","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"16","titolo":"La parola ai giurati","durata":"96","prezzo_giornaliero":"4.5","tipo":"Thriller","casa_produttrice_nome":"Orion-Nova Productions","regista_nome":"Sidney","regista_cognome":"Lumet","copie_totali":"10","copie_noleggiate":"0","copie_danneggiate":"2","cast":[{"nome_attore":"Henry","cognome_attore":"Fonda"},{"nome_attore":"Martin","cognome_attore":"Balsam"}]}] 
+[20/09/2018 09:34:27] - corrId_5ba34d83c4ce96.50532682 - Reached RentalManagementService API 
+[20/09/2018 09:34:27] - corrId_5ba34d83c4ce96.50532682 - Processing GetVideosInStorageWithCount request. 
+[20/09/2018 09:34:27] - corrId_5ba34d83c4ce96.50532682 - Token validated. 
+[20/09/2018 09:34:27] - corrId_5ba34d83c4ce96.50532682 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[20/09/2018 09:34:27] - corrId_5ba34d83c4ce96.50532682 - Establishing connection to DB 
+[20/09/2018 09:34:27] - corrId_5ba34d83c4ce96.50532682 - Executing query 
+[20/09/2018 09:34:27] - corrId_5ba34d83c4ce96.50532682 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 12, 14, 16) 
+[20/09/2018 09:34:27] - corrId_5ba34d83c4ce96.50532682 - Executing query 
+[20/09/2018 09:34:27] - corrId_5ba34d83c4ce96.50532682 - Actor: [{"id_film":"1","titolo":"Le ali della libert\u00e0","durata":"142","prezzo_giornaliero":"5","tipo":"Drammatico","casa_produttrice_nome":"Castle Rock Entertainment","regista_nome":"Frank","regista_cognome":"Darabont","copie_totali":"2","copie_noleggiate":"1","copie_danneggiate":"0","cast":[{"nome_attore":"Tim","cognome_attore":"Robbins"},{"nome_attore":"Morgan","cognome_attore":"Freeman"},{"nome_attore":"Bob","cognome_attore":"Gunton"}]},{"id_film":"2","titolo":"Il padrino","durata":"175","prezzo_giornaliero":"5","tipo":"Thriller","casa_produttrice_nome":"Paramount Pictures","regista_nome":"Francis","regista_cognome":"Ford Coppola","copie_totali":"5","copie_noleggiate":"0","copie_danneggiate":"0","cast":[{"nome_attore":"Marlon","cognome_attore":"Brando"},{"nome_attore":"Al","cognome_attore":"Pacino"},{"nome_attore":"James","cognome_attore":"Caan"}]},{"id_film":"12","titolo":"Il Signore degli Anelli - Il ritorno del re","durata":"201","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"2","copie_danneggiate":"0","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"14","titolo":"Il Signore degli Anelli - La compagnia dell'Anello","durata":"178","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"3","copie_danneggiate":"1","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"16","titolo":"La parola ai giurati","durata":"96","prezzo_giornaliero":"4.5","tipo":"Thriller","casa_produttrice_nome":"Orion-Nova Productions","regista_nome":"Sidney","regista_cognome":"Lumet","copie_totali":"10","copie_noleggiate":"0","copie_danneggiate":"2","cast":[{"nome_attore":"Henry","cognome_attore":"Fonda"},{"nome_attore":"Martin","cognome_attore":"Balsam"}]}] 
+[20/09/2018 09:34:51] - corrId_5ba34d9bd95389.02321770 - Reached RentalManagementService API 
+[20/09/2018 09:34:51] - corrId_5ba34d9bd95389.02321770 - Processing GetVideosInStorageWithCount request. 
+[20/09/2018 09:34:51] - corrId_5ba34d9bd95389.02321770 - Token validated. 
+[20/09/2018 09:34:51] - corrId_5ba34d9bd95389.02321770 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[20/09/2018 09:34:51] - corrId_5ba34d9bd95389.02321770 - Establishing connection to DB 
+[20/09/2018 09:34:51] - corrId_5ba34d9bd95389.02321770 - Executing query 
+[20/09/2018 09:34:51] - corrId_5ba34d9bd95389.02321770 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 12, 14, 16) 
+[20/09/2018 09:34:51] - corrId_5ba34d9bd95389.02321770 - Executing query 
+[20/09/2018 09:34:51] - corrId_5ba34d9bd95389.02321770 - Actor: [{"id_film":"1","titolo":"Le ali della libert\u00e0","durata":"142","prezzo_giornaliero":"5","tipo":"Drammatico","casa_produttrice_nome":"Castle Rock Entertainment","regista_nome":"Frank","regista_cognome":"Darabont","copie_totali":"2","copie_noleggiate":"1","copie_danneggiate":"0","cast":[{"nome_attore":"Tim","cognome_attore":"Robbins"},{"nome_attore":"Morgan","cognome_attore":"Freeman"},{"nome_attore":"Bob","cognome_attore":"Gunton"}]},{"id_film":"2","titolo":"Il padrino","durata":"175","prezzo_giornaliero":"5","tipo":"Thriller","casa_produttrice_nome":"Paramount Pictures","regista_nome":"Francis","regista_cognome":"Ford Coppola","copie_totali":"5","copie_noleggiate":"0","copie_danneggiate":"0","cast":[{"nome_attore":"Marlon","cognome_attore":"Brando"},{"nome_attore":"Al","cognome_attore":"Pacino"},{"nome_attore":"James","cognome_attore":"Caan"}]},{"id_film":"12","titolo":"Il Signore degli Anelli - Il ritorno del re","durata":"201","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"2","copie_danneggiate":"0","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"14","titolo":"Il Signore degli Anelli - La compagnia dell'Anello","durata":"178","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"3","copie_danneggiate":"1","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"16","titolo":"La parola ai giurati","durata":"96","prezzo_giornaliero":"4.5","tipo":"Thriller","casa_produttrice_nome":"Orion-Nova Productions","regista_nome":"Sidney","regista_cognome":"Lumet","copie_totali":"10","copie_noleggiate":"0","copie_danneggiate":"2","cast":[{"nome_attore":"Henry","cognome_attore":"Fonda"},{"nome_attore":"Martin","cognome_attore":"Balsam"}]}] 
+[20/09/2018 09:35:07] - corrId_5ba34dab22dc83.78855118 - Reached CustomerManagementService API 
+[20/09/2018 09:35:07] - corrId_5ba34dab22dc83.78855118 - Processing GetAllCustomersWithPremiumCode request. 
+[20/09/2018 09:35:07] - corrId_5ba34dab22dc83.78855118 - Token validated. 
+[20/09/2018 09:35:07] - corrId_5ba34dab22dc83.78855118 - Establishing connection to DB 
+[20/09/2018 09:35:07] - corrId_5ba34dab22dc83.78855118 - Executing query 
+[20/09/2018 09:35:07] - corrId_5ba34dab910e51.59452692 - Reached RentalManagementService API 
+[20/09/2018 09:35:07] - corrId_5ba34dab910e51.59452692 - Processing GetVideosInStorageWithCount request. 
+[20/09/2018 09:35:07] - corrId_5ba34dab910e51.59452692 - Token validated. 
+[20/09/2018 09:35:07] - corrId_5ba34dab910e51.59452692 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[20/09/2018 09:35:07] - corrId_5ba34dab910e51.59452692 - Establishing connection to DB 
+[20/09/2018 09:35:07] - corrId_5ba34dab910e51.59452692 - Executing query 
+[20/09/2018 09:35:07] - corrId_5ba34dab910e51.59452692 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 12, 14, 16) 
+[20/09/2018 09:35:07] - corrId_5ba34dab910e51.59452692 - Executing query 
+[20/09/2018 09:35:07] - corrId_5ba34dab910e51.59452692 - Actor: [{"id_film":"1","titolo":"Le ali della libert\u00e0","durata":"142","prezzo_giornaliero":"5","tipo":"Drammatico","casa_produttrice_nome":"Castle Rock Entertainment","regista_nome":"Frank","regista_cognome":"Darabont","copie_totali":"2","copie_noleggiate":"1","copie_danneggiate":"0","cast":[{"nome_attore":"Tim","cognome_attore":"Robbins"},{"nome_attore":"Morgan","cognome_attore":"Freeman"},{"nome_attore":"Bob","cognome_attore":"Gunton"}]},{"id_film":"2","titolo":"Il padrino","durata":"175","prezzo_giornaliero":"5","tipo":"Thriller","casa_produttrice_nome":"Paramount Pictures","regista_nome":"Francis","regista_cognome":"Ford Coppola","copie_totali":"5","copie_noleggiate":"0","copie_danneggiate":"0","cast":[{"nome_attore":"Marlon","cognome_attore":"Brando"},{"nome_attore":"Al","cognome_attore":"Pacino"},{"nome_attore":"James","cognome_attore":"Caan"}]},{"id_film":"12","titolo":"Il Signore degli Anelli - Il ritorno del re","durata":"201","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"2","copie_danneggiate":"0","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"14","titolo":"Il Signore degli Anelli - La compagnia dell'Anello","durata":"178","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"3","copie_danneggiate":"1","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"16","titolo":"La parola ai giurati","durata":"96","prezzo_giornaliero":"4.5","tipo":"Thriller","casa_produttrice_nome":"Orion-Nova Productions","regista_nome":"Sidney","regista_cognome":"Lumet","copie_totali":"10","copie_noleggiate":"0","copie_danneggiate":"2","cast":[{"nome_attore":"Henry","cognome_attore":"Fonda"},{"nome_attore":"Martin","cognome_attore":"Balsam"}]}] 
+[20/09/2018 09:36:28] - corrId_5ba34dfcb5c8f5.36625990 - Reached RentalManagementService API 
+[20/09/2018 09:36:28] - corrId_5ba34dfcb5c8f5.36625990 - Processing GetVideosInStorageWithCount request. 
+[20/09/2018 09:36:28] - corrId_5ba34dfcb5c8f5.36625990 - Token validated. 
+[20/09/2018 09:36:28] - corrId_5ba34dfcb5c8f5.36625990 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[20/09/2018 09:36:28] - corrId_5ba34dfcb5c8f5.36625990 - Establishing connection to DB 
+[20/09/2018 09:36:28] - corrId_5ba34dfcb5c8f5.36625990 - Executing query 
+[20/09/2018 09:36:28] - corrId_5ba34dfcb5c8f5.36625990 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 12, 14, 16) 
+[20/09/2018 09:36:28] - corrId_5ba34dfcb5c8f5.36625990 - Executing query 
+[20/09/2018 09:36:28] - corrId_5ba34dfcb5c8f5.36625990 - Actor: [{"id_film":"1","titolo":"Le ali della libert\u00e0","durata":"142","prezzo_giornaliero":"5","tipo":"Drammatico","casa_produttrice_nome":"Castle Rock Entertainment","regista_nome":"Frank","regista_cognome":"Darabont","copie_totali":"2","copie_noleggiate":"1","copie_danneggiate":"0","cast":[{"nome_attore":"Tim","cognome_attore":"Robbins"},{"nome_attore":"Morgan","cognome_attore":"Freeman"},{"nome_attore":"Bob","cognome_attore":"Gunton"}]},{"id_film":"2","titolo":"Il padrino","durata":"175","prezzo_giornaliero":"5","tipo":"Thriller","casa_produttrice_nome":"Paramount Pictures","regista_nome":"Francis","regista_cognome":"Ford Coppola","copie_totali":"5","copie_noleggiate":"0","copie_danneggiate":"0","cast":[{"nome_attore":"Marlon","cognome_attore":"Brando"},{"nome_attore":"Al","cognome_attore":"Pacino"},{"nome_attore":"James","cognome_attore":"Caan"}]},{"id_film":"12","titolo":"Il Signore degli Anelli - Il ritorno del re","durata":"201","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"2","copie_danneggiate":"0","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"14","titolo":"Il Signore degli Anelli - La compagnia dell'Anello","durata":"178","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"3","copie_danneggiate":"1","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"16","titolo":"La parola ai giurati","durata":"96","prezzo_giornaliero":"4.5","tipo":"Thriller","casa_produttrice_nome":"Orion-Nova Productions","regista_nome":"Sidney","regista_cognome":"Lumet","copie_totali":"10","copie_noleggiate":"0","copie_danneggiate":"2","cast":[{"nome_attore":"Henry","cognome_attore":"Fonda"},{"nome_attore":"Martin","cognome_attore":"Balsam"}]}] 
+[20/09/2018 09:36:55] - corrId_5ba34e174eb446.16380897 - Reached CustomerManagementService API 
+[20/09/2018 09:36:55] - corrId_5ba34e174eb446.16380897 - Processing GetAllCustomersWithPremiumCode request. 
+[20/09/2018 09:36:55] - corrId_5ba34e174eb446.16380897 - Token validated. 
+[20/09/2018 09:36:55] - corrId_5ba34e174eb446.16380897 - Establishing connection to DB 
+[20/09/2018 09:36:55] - corrId_5ba34e174eb446.16380897 - Executing query 
+[20/09/2018 09:36:55] - corrId_5ba34e17ee9de0.98092714 - Reached RentalManagementService API 
+[20/09/2018 09:36:55] - corrId_5ba34e17ee9de0.98092714 - Processing GetVideosInStorageWithCount request. 
+[20/09/2018 09:36:55] - corrId_5ba34e17ee9de0.98092714 - Token validated. 
+[20/09/2018 09:36:55] - corrId_5ba34e17ee9de0.98092714 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[20/09/2018 09:36:56] - corrId_5ba34e17ee9de0.98092714 - Establishing connection to DB 
+[20/09/2018 09:36:56] - corrId_5ba34e17ee9de0.98092714 - Executing query 
+[20/09/2018 09:36:56] - corrId_5ba34e17ee9de0.98092714 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 12, 14, 16) 
+[20/09/2018 09:36:56] - corrId_5ba34e17ee9de0.98092714 - Executing query 
+[20/09/2018 09:36:56] - corrId_5ba34e17ee9de0.98092714 - Actor: [{"id_film":"1","titolo":"Le ali della libert\u00e0","durata":"142","prezzo_giornaliero":"5","tipo":"Drammatico","casa_produttrice_nome":"Castle Rock Entertainment","regista_nome":"Frank","regista_cognome":"Darabont","copie_totali":"2","copie_noleggiate":"1","copie_danneggiate":"0","cast":[{"nome_attore":"Tim","cognome_attore":"Robbins"},{"nome_attore":"Morgan","cognome_attore":"Freeman"},{"nome_attore":"Bob","cognome_attore":"Gunton"}]},{"id_film":"2","titolo":"Il padrino","durata":"175","prezzo_giornaliero":"5","tipo":"Thriller","casa_produttrice_nome":"Paramount Pictures","regista_nome":"Francis","regista_cognome":"Ford Coppola","copie_totali":"5","copie_noleggiate":"0","copie_danneggiate":"0","cast":[{"nome_attore":"Marlon","cognome_attore":"Brando"},{"nome_attore":"Al","cognome_attore":"Pacino"},{"nome_attore":"James","cognome_attore":"Caan"}]},{"id_film":"12","titolo":"Il Signore degli Anelli - Il ritorno del re","durata":"201","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"2","copie_danneggiate":"0","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"14","titolo":"Il Signore degli Anelli - La compagnia dell'Anello","durata":"178","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"3","copie_danneggiate":"1","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"16","titolo":"La parola ai giurati","durata":"96","prezzo_giornaliero":"4.5","tipo":"Thriller","casa_produttrice_nome":"Orion-Nova Productions","regista_nome":"Sidney","regista_cognome":"Lumet","copie_totali":"10","copie_noleggiate":"0","copie_danneggiate":"2","cast":[{"nome_attore":"Henry","cognome_attore":"Fonda"},{"nome_attore":"Martin","cognome_attore":"Balsam"}]}] 
+[20/09/2018 09:38:50] - corrId_5ba34e8aa9f7e5.63515639 - Reached RentalManagementService API 
+[20/09/2018 09:38:50] - corrId_5ba34e8aa9f7e5.63515639 - Processing GetVideosInStorageWithCount request. 
+[20/09/2018 09:38:50] - corrId_5ba34e8aa9f7e5.63515639 - Token validated. 
+[20/09/2018 09:38:50] - corrId_5ba34e8aa9f7e5.63515639 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[20/09/2018 09:38:50] - corrId_5ba34e8aa9f7e5.63515639 - Establishing connection to DB 
+[20/09/2018 09:38:50] - corrId_5ba34e8aa9f7e5.63515639 - Executing query 
+[20/09/2018 09:38:50] - corrId_5ba34e8aa9f7e5.63515639 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 12, 14, 16) 
+[20/09/2018 09:38:50] - corrId_5ba34e8aa9f7e5.63515639 - Executing query 
+[20/09/2018 09:38:50] - corrId_5ba34e8aa9f7e5.63515639 - Actor: [{"id_film":"1","titolo":"Le ali della libert\u00e0","durata":"142","prezzo_giornaliero":"5","tipo":"Drammatico","casa_produttrice_nome":"Castle Rock Entertainment","regista_nome":"Frank","regista_cognome":"Darabont","copie_totali":"2","copie_noleggiate":"1","copie_danneggiate":"0","cast":[{"nome_attore":"Tim","cognome_attore":"Robbins"},{"nome_attore":"Morgan","cognome_attore":"Freeman"},{"nome_attore":"Bob","cognome_attore":"Gunton"}]},{"id_film":"2","titolo":"Il padrino","durata":"175","prezzo_giornaliero":"5","tipo":"Thriller","casa_produttrice_nome":"Paramount Pictures","regista_nome":"Francis","regista_cognome":"Ford Coppola","copie_totali":"5","copie_noleggiate":"0","copie_danneggiate":"0","cast":[{"nome_attore":"Marlon","cognome_attore":"Brando"},{"nome_attore":"Al","cognome_attore":"Pacino"},{"nome_attore":"James","cognome_attore":"Caan"}]},{"id_film":"12","titolo":"Il Signore degli Anelli - Il ritorno del re","durata":"201","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"2","copie_danneggiate":"0","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"14","titolo":"Il Signore degli Anelli - La compagnia dell'Anello","durata":"178","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"3","copie_danneggiate":"1","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"16","titolo":"La parola ai giurati","durata":"96","prezzo_giornaliero":"4.5","tipo":"Thriller","casa_produttrice_nome":"Orion-Nova Productions","regista_nome":"Sidney","regista_cognome":"Lumet","copie_totali":"10","copie_noleggiate":"0","copie_danneggiate":"2","cast":[{"nome_attore":"Henry","cognome_attore":"Fonda"},{"nome_attore":"Martin","cognome_attore":"Balsam"}]}] 
+[20/09/2018 10:04:57] - corrId_5ba354a9c44130.86869623 - Reached CustomerManagementService API 
+[20/09/2018 10:04:57] - corrId_5ba354a9c44130.86869623 - Processing GetAllCustomersWithPremiumCode request. 
+[20/09/2018 10:04:57] - corrId_5ba354a9c44130.86869623 - Token validated. 
+[20/09/2018 10:04:57] - corrId_5ba354a9c44130.86869623 - Establishing connection to DB 
+[20/09/2018 10:04:57] - corrId_5ba354a9c44130.86869623 - Executing query 
+[20/09/2018 10:04:59] - corrId_5ba354ab393828.97908189 - Reached GetAllItemsService API 
+[20/09/2018 10:04:59] - corrId_5ba354ab393828.97908189 - Processing GetAllDiscounts request. 
+[20/09/2018 10:04:59] - corrId_5ba354ab393828.97908189 - Token validated. 
+[20/09/2018 10:04:59] - corrId_5ba354ab393828.97908189 - Establishing connection to DB 
+[20/09/2018 10:04:59] - corrId_5ba354ab393828.97908189 - Executing query 
+[20/09/2018 10:05:03] - corrId_5ba354afd0d255.52257190 - Reached GetAllItemsService API 
+[20/09/2018 10:05:03] - corrId_5ba354afd0d255.52257190 - Processing GetAllDiscounts request. 
+[20/09/2018 10:05:03] - corrId_5ba354afd0d255.52257190 - Token validated. 
+[20/09/2018 10:05:03] - corrId_5ba354afd0d255.52257190 - Establishing connection to DB 
+[20/09/2018 10:05:03] - corrId_5ba354afd0d255.52257190 - Executing query 
+[20/09/2018 10:05:18] - corrId_5ba354be320498.92625359 - Reached GetAllItemsService API 
+[20/09/2018 10:05:18] - corrId_5ba354be320498.92625359 - Processing GetAllDiscounts request. 
+[20/09/2018 10:05:18] - corrId_5ba354be320498.92625359 - Token validated. 
+[20/09/2018 10:05:18] - corrId_5ba354be320498.92625359 - Establishing connection to DB 
+[20/09/2018 10:05:18] - corrId_5ba354be320498.92625359 - Executing query 
+[20/09/2018 10:05:30] - corrId_5ba354cac11d53.65235743 - Reached GetAllItemsService API 
+[20/09/2018 10:05:30] - corrId_5ba354cac11d53.65235743 - Processing GetAllDiscounts request. 
+[20/09/2018 10:05:30] - corrId_5ba354cac11d53.65235743 - Token validated. 
+[20/09/2018 10:05:30] - corrId_5ba354cac11d53.65235743 - Establishing connection to DB 
+[20/09/2018 10:05:30] - corrId_5ba354cac11d53.65235743 - Executing query 
+[20/09/2018 10:05:33] - corrId_5ba354cdd0ccd4.55665796 - Reached RentalManagementService API 
+[20/09/2018 10:05:33] - corrId_5ba354cdd0ccd4.55665796 - Processing GetVideosInStorageWithCount request. 
+[20/09/2018 10:05:33] - corrId_5ba354cdd0ccd4.55665796 - Token validated. 
+[20/09/2018 10:05:33] - corrId_5ba354cdd0ccd4.55665796 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[20/09/2018 10:05:33] - corrId_5ba354cdd0ccd4.55665796 - Establishing connection to DB 
+[20/09/2018 10:05:33] - corrId_5ba354cdd0ccd4.55665796 - Executing query 
+[20/09/2018 10:05:33] - corrId_5ba354cdd0ccd4.55665796 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 12, 14, 16) 
+[20/09/2018 10:05:33] - corrId_5ba354cdd0ccd4.55665796 - Executing query 
+[20/09/2018 10:05:33] - corrId_5ba354cdd0ccd4.55665796 - Actor: [{"id_film":"1","titolo":"Le ali della libert\u00e0","durata":"142","prezzo_giornaliero":"5","tipo":"Drammatico","casa_produttrice_nome":"Castle Rock Entertainment","regista_nome":"Frank","regista_cognome":"Darabont","copie_totali":"2","copie_noleggiate":"1","copie_danneggiate":"0","cast":[{"nome_attore":"Tim","cognome_attore":"Robbins"},{"nome_attore":"Morgan","cognome_attore":"Freeman"},{"nome_attore":"Bob","cognome_attore":"Gunton"}]},{"id_film":"2","titolo":"Il padrino","durata":"175","prezzo_giornaliero":"5","tipo":"Thriller","casa_produttrice_nome":"Paramount Pictures","regista_nome":"Francis","regista_cognome":"Ford Coppola","copie_totali":"5","copie_noleggiate":"0","copie_danneggiate":"0","cast":[{"nome_attore":"Marlon","cognome_attore":"Brando"},{"nome_attore":"Al","cognome_attore":"Pacino"},{"nome_attore":"James","cognome_attore":"Caan"}]},{"id_film":"12","titolo":"Il Signore degli Anelli - Il ritorno del re","durata":"201","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"2","copie_danneggiate":"0","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"14","titolo":"Il Signore degli Anelli - La compagnia dell'Anello","durata":"178","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"3","copie_danneggiate":"1","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"16","titolo":"La parola ai giurati","durata":"96","prezzo_giornaliero":"4.5","tipo":"Thriller","casa_produttrice_nome":"Orion-Nova Productions","regista_nome":"Sidney","regista_cognome":"Lumet","copie_totali":"10","copie_noleggiate":"0","copie_danneggiate":"2","cast":[{"nome_attore":"Henry","cognome_attore":"Fonda"},{"nome_attore":"Martin","cognome_attore":"Balsam"}]}] 
+[20/09/2018 11:55:56] - corrId_5ba36eac144670.13661917 - Reached CustomerManagementService API 
+[20/09/2018 11:55:56] - corrId_5ba36eac144670.13661917 - Processing GetAllCustomersWithPremiumCode request. 
+[20/09/2018 11:55:56] - corrId_5ba36eac144670.13661917 - Token validated. 
+[20/09/2018 11:55:56] - corrId_5ba36eac144670.13661917 - Establishing connection to DB 
+[20/09/2018 11:55:56] - corrId_5ba36eac144670.13661917 - Executing query 
+[20/09/2018 12:47:01] - corrId_5ba37aa5784d85.66723303 - Reached StorageManagementService API 
+[20/09/2018 12:47:01] - corrId_5ba37aa5784d85.66723303 - Processing GetVideosInStorage request. 
+[20/09/2018 12:47:01] - corrId_5ba37aa5784d85.66723303 - Token validated. 
+[20/09/2018 12:47:01] - corrId_5ba37aa5784d85.66723303 - Query: SELECT co.id_copia, co.data_scarico, co.danneggiato, co.noleggiato, fi.id_film, fi.titolo, fo.nome
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN fornitore fo
+            ON co.id_fornitore = fo.id_fornitore
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0 
+[20/09/2018 12:47:01] - corrId_5ba37aa5784d85.66723303 - Establishing connection to DB 
+[20/09/2018 12:47:01] - corrId_5ba37aa5784d85.66723303 - Executing query 
+[20/09/2018 12:47:13] - corrId_5ba37ab1e16003.06331588 - Reached StorageManagementService API 
+[20/09/2018 12:47:13] - corrId_5ba37ab1e16003.06331588 - Processing GetAlreadyAvailableMovies request. 
+[20/09/2018 12:47:13] - corrId_5ba37ab1e16003.06331588 - Token validated. 
+[20/09/2018 12:47:13] - corrId_5ba37ab1e16003.06331588 - Establishing connection to DB 
+[20/09/2018 12:47:13] - corrId_5ba37ab1e16003.06331588 - Executing query 
+[20/09/2018 12:47:14] - corrId_5ba37ab20298e6.77996256 - Reached GetAllItemsService API 
+[20/09/2018 12:47:14] - corrId_5ba37ab20298e6.77996256 - Processing GetAllSuppliers request. 
+[20/09/2018 12:47:14] - corrId_5ba37ab20298e6.77996256 - Token validated. 
+[20/09/2018 12:47:14] - corrId_5ba37ab20298e6.77996256 - Establishing connection to DB 
+[20/09/2018 12:47:14] - corrId_5ba37ab20298e6.77996256 - Executing query 
+[20/09/2018 12:47:24] - corrId_5ba37abc02d752.01237864 - Reached StorageManagementService API 
+[20/09/2018 12:47:24] - corrId_5ba37abc02d752.01237864 - Processing UnloadCopies request. 
+[20/09/2018 12:47:24] - corrId_5ba37abc02d752.01237864 - Token validated. 
+[20/09/2018 12:47:24] - corrId_5ba37abc02d752.01237864 - Query: INSERT INTO copia
+            (id_film, id_punto_vendita, id_fornitore)
+            VALUES (12, 1, 3), (12, 1, 3), (12, 1, 3), (12, 1, 3), (12, 1, 3) 
+[20/09/2018 12:47:24] - corrId_5ba37abc02d752.01237864 - Establishing connection to DB 
+[20/09/2018 12:47:24] - corrId_5ba37abc02d752.01237864 - Executing query 
+[20/09/2018 12:47:24] - corrId_5ba37abc725300.24982016 - Reached StorageManagementService API 
+[20/09/2018 12:47:24] - corrId_5ba37abc725300.24982016 - Processing GetVideosInStorage request. 
+[20/09/2018 12:47:24] - corrId_5ba37abc725300.24982016 - Token validated. 
+[20/09/2018 12:47:24] - corrId_5ba37abc725300.24982016 - Query: SELECT co.id_copia, co.data_scarico, co.danneggiato, co.noleggiato, fi.id_film, fi.titolo, fo.nome
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN fornitore fo
+            ON co.id_fornitore = fo.id_fornitore
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0 
+[20/09/2018 12:47:24] - corrId_5ba37abc725300.24982016 - Establishing connection to DB 
+[20/09/2018 12:47:24] - corrId_5ba37abc725300.24982016 - Executing query 
