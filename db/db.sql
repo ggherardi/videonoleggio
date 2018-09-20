@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `videonoleggio` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `videonoleggio`;
--- MySQL dump 10.13  Distrib 5.5.61, for Win64 (AMD64)
+-- MySQL dump 10.13  Distrib 5.5.60, for Win64 (AMD64)
 --
 -- Host: localhost    Database: videonoleggio
 -- ------------------------------------------------------
--- Server version	5.5.61
+-- Server version	5.5.60
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -174,7 +174,7 @@ CREATE TABLE `copia` (
   KEY `fk_partita_film_idx` (`id_film`),
   KEY `fk_partita_punto_vendita_idx` (`id_punto_vendita`),
   KEY `fk_partita_fornitore_idx` (`id_fornitore`)
-) ENGINE=InnoDB AUTO_INCREMENT=95 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -183,7 +183,7 @@ CREATE TABLE `copia` (
 
 LOCK TABLES `copia` WRITE;
 /*!40000 ALTER TABLE `copia` DISABLE KEYS */;
-INSERT INTO `copia` VALUES (1,1,1,1,'2018-07-05 15:13:42',0,1,0),(53,1,1,1,'2018-09-16 16:08:52',0,0,0),(54,1,1,1,'2018-09-16 16:08:52',0,0,1),(55,12,1,4,'2018-06-29 16:09:02',0,1,0),(56,12,1,4,'2018-09-16 16:09:02',0,0,0),(57,12,1,4,'2018-09-16 16:09:02',0,1,0),(58,12,1,4,'2018-09-16 16:09:02',0,0,1),(59,12,1,4,'2018-09-16 16:09:02',0,0,0),(60,12,1,4,'2018-09-16 16:09:02',0,0,0),(61,12,1,4,'2018-09-16 16:09:02',0,0,1),(62,12,1,4,'2018-09-16 16:09:02',0,0,1),(63,12,1,4,'2018-09-16 16:09:02',0,0,1),(64,12,1,4,'2018-09-16 16:09:02',0,0,1),(65,15,2,6,'2018-09-16 17:14:07',0,0,0),(66,15,2,6,'2018-09-16 17:14:07',0,0,0),(67,15,2,6,'2018-09-16 17:14:07',0,0,0),(68,15,2,6,'2018-09-16 17:14:07',0,0,0),(69,15,2,6,'2018-09-16 17:14:07',0,0,0),(70,15,2,6,'2018-09-16 17:14:07',0,1,0),(71,15,2,6,'2018-09-16 17:14:07',0,1,0),(72,15,2,6,'2018-09-16 17:14:07',0,1,0),(73,15,2,6,'2018-09-16 17:14:07',0,1,0),(74,15,2,6,'2018-09-16 17:14:07',0,0,0),(75,2,1,5,'2018-09-19 18:36:07',0,0,0),(76,2,1,5,'2018-09-19 18:36:07',0,0,0),(77,2,1,5,'2018-09-19 18:36:07',0,0,0),(78,2,1,5,'2018-09-19 18:36:07',0,0,0),(79,2,1,5,'2018-09-19 18:36:07',0,0,0),(80,16,1,6,'2018-09-19 18:36:15',1,0,0),(81,16,1,6,'2018-09-19 18:36:15',1,0,0),(82,16,1,6,'2018-09-19 18:36:15',0,0,0),(83,16,1,6,'2018-09-19 18:36:15',0,0,0),(84,16,1,6,'2018-09-19 18:36:15',0,0,0),(85,16,1,6,'2018-09-19 18:36:15',0,0,0),(86,16,1,6,'2018-09-19 18:36:15',0,0,0),(87,16,1,6,'2018-09-19 18:36:15',0,0,0),(88,16,1,6,'2018-09-19 18:36:15',0,0,0),(89,16,1,6,'2018-09-19 18:36:15',0,0,0),(90,14,1,3,'2018-09-19 18:36:26',0,1,0),(91,14,1,3,'2018-09-19 18:36:26',0,1,0),(92,14,1,3,'2018-09-19 18:36:26',0,1,0),(93,14,1,3,'2018-09-19 18:36:26',1,0,0),(94,14,1,3,'2018-09-19 18:36:26',0,0,0);
+INSERT INTO `copia` VALUES (1,1,1,1,'2018-07-05 15:13:42',0,1,0),(53,1,1,1,'2018-09-16 16:08:52',0,0,0),(54,1,1,1,'2018-09-16 16:08:52',0,0,1),(55,12,1,4,'2018-06-29 16:09:02',0,1,0),(56,12,1,4,'2018-09-16 16:09:02',0,0,0),(57,12,1,4,'2018-09-16 16:09:02',0,1,0),(58,12,1,4,'2018-09-16 16:09:02',0,0,1),(59,12,1,4,'2018-09-16 16:09:02',0,0,0),(60,12,1,4,'2018-09-16 16:09:02',0,0,0),(61,12,1,4,'2018-09-16 16:09:02',0,0,1),(62,12,1,4,'2018-09-16 16:09:02',0,0,1),(63,12,1,4,'2018-09-16 16:09:02',0,0,1),(64,12,1,4,'2018-09-16 16:09:02',0,0,1),(65,15,2,6,'2018-09-16 17:14:07',0,0,0),(66,15,2,6,'2018-09-16 17:14:07',0,0,0),(67,15,2,6,'2018-09-16 17:14:07',0,0,0),(68,15,2,6,'2018-09-16 17:14:07',0,0,0),(69,15,2,6,'2018-09-16 17:14:07',0,0,0),(70,15,2,6,'2018-09-16 17:14:07',0,1,0),(71,15,2,6,'2018-09-16 17:14:07',0,1,0),(72,15,2,6,'2018-09-16 17:14:07',0,1,0),(73,15,2,6,'2018-09-16 17:14:07',0,1,0),(74,15,2,6,'2018-09-16 17:14:07',0,0,0),(75,2,1,5,'2018-09-19 18:36:07',0,0,0),(76,2,1,5,'2018-09-19 18:36:07',0,0,0),(77,2,1,5,'2018-09-19 18:36:07',0,0,0),(78,2,1,5,'2018-09-19 18:36:07',0,0,0),(79,2,1,5,'2018-09-19 18:36:07',0,0,0),(80,16,1,6,'2018-09-19 18:36:15',1,0,0),(81,16,1,6,'2018-09-19 18:36:15',1,0,0),(82,16,1,6,'2018-09-19 18:36:15',0,0,0),(83,16,1,6,'2018-09-19 18:36:15',0,0,0),(84,16,1,6,'2018-09-19 18:36:15',0,0,0),(85,16,1,6,'2018-09-19 18:36:15',0,0,0),(86,16,1,6,'2018-09-19 18:36:15',0,0,0),(87,16,1,6,'2018-09-19 18:36:15',0,0,0),(88,16,1,6,'2018-09-19 18:36:15',0,0,0),(89,16,1,6,'2018-09-19 18:36:15',0,0,0),(90,14,1,3,'2018-09-19 18:36:26',0,1,0),(91,14,1,3,'2018-09-19 18:36:26',0,1,0),(92,14,1,3,'2018-09-19 18:36:26',0,1,0),(93,14,1,3,'2018-09-19 18:36:26',1,0,0),(94,14,1,3,'2018-09-19 18:36:26',0,0,0),(95,12,1,3,'2018-09-20 10:47:24',0,0,0),(96,12,1,3,'2018-09-20 10:47:24',0,0,0),(97,12,1,3,'2018-09-20 10:47:24',0,0,0),(98,12,1,3,'2018-09-20 10:47:24',0,0,0),(99,12,1,3,'2018-09-20 10:47:24',0,0,0);
 /*!40000 ALTER TABLE `copia` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -392,6 +392,40 @@ LOCK TABLES `noleggio` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `partita`
+--
+
+DROP TABLE IF EXISTS `partita`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `partita` (
+  `id_partita` int(11) NOT NULL AUTO_INCREMENT,
+  `id_film` int(11) DEFAULT NULL,
+  `id_punto_vendita` int(11) DEFAULT NULL,
+  `id_fornitore` int(11) DEFAULT NULL,
+  `disponibilita_massima` int(11) DEFAULT NULL,
+  `disponibilita_attuale` int(11) DEFAULT NULL,
+  `data_scarico` datetime DEFAULT NULL,
+  PRIMARY KEY (`id_partita`),
+  KEY `fk_partita_film_idx` (`id_film`),
+  KEY `fk_partita_punto_vendita_idx` (`id_punto_vendita`),
+  KEY `fk_partita_fornitore_idx` (`id_fornitore`),
+  CONSTRAINT `fk_partita_punto_vendita` FOREIGN KEY (`id_punto_vendita`) REFERENCES `punto_vendita` (`id_punto_vendita`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_partita_fornitore` FOREIGN KEY (`id_fornitore`) REFERENCES `fornitore` (`id_fornitore`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_partita_film` FOREIGN KEY (`id_film`) REFERENCES `film` (`id_film`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `partita`
+--
+
+LOCK TABLES `partita` WRITE;
+/*!40000 ALTER TABLE `partita` DISABLE KEYS */;
+/*!40000 ALTER TABLE `partita` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `prenotazione`
 --
 
@@ -479,6 +513,29 @@ INSERT INTO `regista` VALUES (1,'Frank','Darabont'),(2,'Quentin','Tarantino'),(3
 UNLOCK TABLES;
 
 --
+-- Table structure for table `sconto`
+--
+
+DROP TABLE IF EXISTS `sconto`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `sconto` (
+  `id_sconto` int(11) NOT NULL AUTO_INCREMENT,
+  `percentuale` float DEFAULT NULL,
+  PRIMARY KEY (`id_sconto`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sconto`
+--
+
+LOCK TABLES `sconto` WRITE;
+/*!40000 ALTER TABLE `sconto` DISABLE KEYS */;
+/*!40000 ALTER TABLE `sconto` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `stato_prenotazione`
 --
 
@@ -539,4 +596,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-09-20  1:41:27
+-- Dump completed on 2018-09-20 15:14:56
