@@ -3889,3 +3889,145 @@ Stack trace:
             AND co.restituito = 0 
 [20/09/2018 12:47:24] - corrId_5ba37abc725300.24982016 - Establishing connection to DB 
 [20/09/2018 12:47:24] - corrId_5ba37abc725300.24982016 - Executing query 
+[20/09/2018 18:28:52] - corrId_5ba3cac4869f31.80714592 - Reached AuthenticationService API 
+[20/09/2018 18:28:52] - corrId_5ba3cac4869f31.80714592 - Processing Login request. 
+[20/09/2018 18:28:52] - corrId_5ba3cac4869f31.80714592 - Establishing connection to DB 
+[20/09/2018 18:28:52] - corrId_5ba3cac4869f31.80714592 - Executing query 
+[20/09/2018 18:28:52] - corrId_5ba3cac4869f31.80714592 - User  validated, generating Token. 
+[20/09/2018 18:28:52] - corrId_5ba3cac4869f31.80714592 - Token generated succesfully. SizKILRFv7hRfOGQBmb4JLMZlcwYEv1I3URIKzbQNp7UYjyzkXptT2Y2QlFTr1Zobsxj1DXUO/F/azOWmakUCvyqCrzF5wR45S90tudnTpS5B4aXIjlgOWA3RAArepQ6n9XWyWotCYdfVm5lybK1URFxKqlTXpd3q0wZdpTRGbJceyzTyOhsg+3XoH41zlZ0eZXC660C4KxBuwFYG4dE3IkXtxg66aHcAcPqX2qBzDhbdE/cfwxWwvr2Bu1Oz0QYaX4/3NRF9djx1n9m/otQbEFjtn4XsFhOFmG30n4PcTI8wXPzxm/waElwFXqpafElJvaHFkRClq8P8HhE3bM9sG3F8CQ4FotzAJ8TbfAh+Fk= 
+[20/09/2018 18:28:53] - corrId_5ba3cac5a68da3.79400032 - Reached AccountManagementService API 
+[20/09/2018 18:28:53] - corrId_5ba3cac5a68da3.79400032 - Processing GetCities request. 
+[20/09/2018 18:28:53] - corrId_5ba3cac5a68da3.79400032 - Token validated. 
+[20/09/2018 18:28:53] - corrId_5ba3cac5a68da3.79400032 - Query: SELECT *
+            FROM citta 
+[20/09/2018 18:28:53] - corrId_5ba3cac5a68da3.79400032 - Establishing connection to DB 
+[20/09/2018 18:28:53] - corrId_5ba3cac5a68da3.79400032 - Executing query 
+[20/09/2018 18:28:53] - corrId_5ba3cac5c69529.70688853 - Reached AccountManagementService API 
+[20/09/2018 18:28:53] - corrId_5ba3cac5c69529.70688853 - Processing GetStores request. 
+[20/09/2018 18:28:53] - corrId_5ba3cac5c69529.70688853 - Token validated. 
+[20/09/2018 18:28:53] - corrId_5ba3cac5c69529.70688853 - Query: SELECT *
+            FROM punto_vendita 
+             
+[20/09/2018 18:28:53] - corrId_5ba3cac5c69529.70688853 - Establishing connection to DB 
+[20/09/2018 18:28:53] - corrId_5ba3cac5c69529.70688853 - Executing query 
+[20/09/2018 18:28:53] - corrId_5ba3cac5cd4c48.30497550 - Reached AccountManagementService API 
+[20/09/2018 18:28:53] - corrId_5ba3cac5cd4c48.30497550 - Processing GetEmployees request. 
+[20/09/2018 18:28:53] - corrId_5ba3cac5cd4c48.30497550 - Token validated. 
+[20/09/2018 18:28:53] - corrId_5ba3cac5cd4c48.30497550 - Query: SELECT dip.id_dipendente, dip.nome as dipendente_nome, dip.cognome as dipendente_cognome,
+                dip.username as dipendente_username, del.nome as delega_nome, del.codice as delega_codice,
+                pv.nome as punto_vendita_nome, dip.id_punto_vendita as punto_vendita_id
+            FROM dipendente as dip
+            INNER JOIN delega as del
+            ON dip.id_delega = del.id_delega
+            INNER JOIN punto_vendita as pv
+            ON dip.id_punto_vendita = pv.id_punto_vendita 
+             
+[20/09/2018 18:28:53] - corrId_5ba3cac5cd4c48.30497550 - Establishing connection to DB 
+[20/09/2018 18:28:53] - corrId_5ba3cac5cd4c48.30497550 - Executing query 
+[20/09/2018 18:28:54] - corrId_5ba3cac68be369.43054235 - Reached StorageManagementService API 
+[20/09/2018 18:28:54] - corrId_5ba3cac68be369.43054235 - Processing GetVideosInStorage request. 
+[20/09/2018 18:28:54] - corrId_5ba3cac68be369.43054235 - Token validated. 
+[20/09/2018 18:28:54] - corrId_5ba3cac68be369.43054235 - Query: SELECT co.id_copia, co.data_scarico, co.danneggiato, co.noleggiato, fi.id_film, fi.titolo, fo.nome
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN fornitore fo
+            ON co.id_fornitore = fo.id_fornitore
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0 
+[20/09/2018 18:28:54] - corrId_5ba3cac68be369.43054235 - Establishing connection to DB 
+[20/09/2018 18:28:54] - corrId_5ba3cac68be369.43054235 - Executing query 
+[20/09/2018 18:39:53] - corrId_5ba3cd59bb9b67.52908345 - Reached CustomerManagementService API 
+[20/09/2018 18:39:53] - corrId_5ba3cd59bb9b67.52908345 - Processing GetAllCustomersWithPremiumCode request. 
+[20/09/2018 18:39:53] - corrId_5ba3cd59bb9b67.52908345 - Token validated. 
+[20/09/2018 18:39:53] - corrId_5ba3cd59bb9b67.52908345 - Establishing connection to DB 
+[20/09/2018 18:39:53] - corrId_5ba3cd59bb9b67.52908345 - Executing query 
+[20/09/2018 18:39:55] - corrId_5ba3cd5b551058.73339353 - Reached RentalManagementService API 
+[20/09/2018 18:39:55] - corrId_5ba3cd5b551058.73339353 - Processing GetVideosInStorageWithCount request. 
+[20/09/2018 18:39:55] - corrId_5ba3cd5b551058.73339353 - Token validated. 
+[20/09/2018 18:39:55] - corrId_5ba3cd5b551058.73339353 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[20/09/2018 18:39:55] - corrId_5ba3cd5b551058.73339353 - Establishing connection to DB 
+[20/09/2018 18:39:55] - corrId_5ba3cd5b551058.73339353 - Executing query 
+[20/09/2018 18:39:55] - corrId_5ba3cd5b551058.73339353 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 12, 14, 16) 
+[20/09/2018 18:39:55] - corrId_5ba3cd5b551058.73339353 - Executing query 
+[20/09/2018 18:39:55] - corrId_5ba3cd5b551058.73339353 - Actor: [{"id_film":"1","titolo":"Le ali della libert\u00e0","durata":"142","prezzo_giornaliero":"5","tipo":"Drammatico","casa_produttrice_nome":"Castle Rock Entertainment","regista_nome":"Frank","regista_cognome":"Darabont","copie_totali":"2","copie_noleggiate":"1","copie_danneggiate":"0","cast":[{"nome_attore":"Tim","cognome_attore":"Robbins"},{"nome_attore":"Morgan","cognome_attore":"Freeman"},{"nome_attore":"Bob","cognome_attore":"Gunton"}]},{"id_film":"2","titolo":"Il padrino","durata":"175","prezzo_giornaliero":"5","tipo":"Thriller","casa_produttrice_nome":"Paramount Pictures","regista_nome":"Francis","regista_cognome":"Ford Coppola","copie_totali":"5","copie_noleggiate":"0","copie_danneggiate":"0","cast":[{"nome_attore":"Marlon","cognome_attore":"Brando"},{"nome_attore":"Al","cognome_attore":"Pacino"},{"nome_attore":"James","cognome_attore":"Caan"}]},{"id_film":"12","titolo":"Il Signore degli Anelli - Il ritorno del re","durata":"201","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"10","copie_noleggiate":"2","copie_danneggiate":"0","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"14","titolo":"Il Signore degli Anelli - La compagnia dell'Anello","durata":"178","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"3","copie_danneggiate":"1","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"16","titolo":"La parola ai giurati","durata":"96","prezzo_giornaliero":"4.5","tipo":"Thriller","casa_produttrice_nome":"Orion-Nova Productions","regista_nome":"Sidney","regista_cognome":"Lumet","copie_totali":"10","copie_noleggiate":"0","copie_danneggiate":"2","cast":[{"nome_attore":"Henry","cognome_attore":"Fonda"},{"nome_attore":"Martin","cognome_attore":"Balsam"}]}] 
+[20/09/2018 18:41:01] - corrId_5ba3cd9d7d3028.78717600 - Reached CustomerManagementService API 
+[20/09/2018 18:41:01] - corrId_5ba3cd9d7d3028.78717600 - Processing EditCustomer request. 
+[20/09/2018 18:41:01] - corrId_5ba3cd9d7d3028.78717600 - Token validated. 
+[20/09/2018 18:41:01] - corrId_5ba3cd9d7d3028.78717600 - Establishing connection to DB 
+[20/09/2018 18:41:01] - corrId_5ba3cd9d7d3028.78717600 - Executing query 
+[20/09/2018 18:41:15] - corrId_5ba3cdaba63051.31124988 - Reached RentalManagementService API 
+[20/09/2018 18:41:15] - corrId_5ba3cdaba63051.31124988 - Processing GetVideosInStorageWithCount request. 
+[20/09/2018 18:41:15] - corrId_5ba3cdaba63051.31124988 - Token validated. 
+[20/09/2018 18:41:15] - corrId_5ba3cdaba63051.31124988 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[20/09/2018 18:41:15] - corrId_5ba3cdaba63051.31124988 - Establishing connection to DB 
+[20/09/2018 18:41:15] - corrId_5ba3cdaba63051.31124988 - Executing query 
+[20/09/2018 18:41:15] - corrId_5ba3cdaba63051.31124988 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 12, 14, 16) 
+[20/09/2018 18:41:15] - corrId_5ba3cdaba63051.31124988 - Executing query 
+[20/09/2018 18:41:15] - corrId_5ba3cdaba63051.31124988 - Actor: [{"id_film":"1","titolo":"Le ali della libert\u00e0","durata":"142","prezzo_giornaliero":"5","tipo":"Drammatico","casa_produttrice_nome":"Castle Rock Entertainment","regista_nome":"Frank","regista_cognome":"Darabont","copie_totali":"2","copie_noleggiate":"1","copie_danneggiate":"0","cast":[{"nome_attore":"Tim","cognome_attore":"Robbins"},{"nome_attore":"Morgan","cognome_attore":"Freeman"},{"nome_attore":"Bob","cognome_attore":"Gunton"}]},{"id_film":"2","titolo":"Il padrino","durata":"175","prezzo_giornaliero":"5","tipo":"Thriller","casa_produttrice_nome":"Paramount Pictures","regista_nome":"Francis","regista_cognome":"Ford Coppola","copie_totali":"5","copie_noleggiate":"0","copie_danneggiate":"0","cast":[{"nome_attore":"Marlon","cognome_attore":"Brando"},{"nome_attore":"Al","cognome_attore":"Pacino"},{"nome_attore":"James","cognome_attore":"Caan"}]},{"id_film":"12","titolo":"Il Signore degli Anelli - Il ritorno del re","durata":"201","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"10","copie_noleggiate":"2","copie_danneggiate":"0","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"14","titolo":"Il Signore degli Anelli - La compagnia dell'Anello","durata":"178","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"3","copie_danneggiate":"1","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"16","titolo":"La parola ai giurati","durata":"96","prezzo_giornaliero":"4.5","tipo":"Thriller","casa_produttrice_nome":"Orion-Nova Productions","regista_nome":"Sidney","regista_cognome":"Lumet","copie_totali":"10","copie_noleggiate":"0","copie_danneggiate":"2","cast":[{"nome_attore":"Henry","cognome_attore":"Fonda"},{"nome_attore":"Martin","cognome_attore":"Balsam"}]}] 
+[20/09/2018 22:22:39] - corrId_5ba4018f5d2411.67502643 - Reached RentalManagementService API 
+[20/09/2018 22:22:39] - corrId_5ba4018f5d2411.67502643 - Processing GetVideosInStorageWithCount request. 
+[20/09/2018 22:22:39] - corrId_5ba4018f5d2411.67502643 - Token validated. 
+[20/09/2018 22:22:39] - corrId_5ba4018f5d2411.67502643 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[20/09/2018 22:22:39] - corrId_5ba4018f5d2411.67502643 - Establishing connection to DB 
+[20/09/2018 22:22:39] - corrId_5ba4018f5d2411.67502643 - Executing query 
+[20/09/2018 22:22:39] - corrId_5ba4018f5d2411.67502643 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 12, 14, 16) 
+[20/09/2018 22:22:39] - corrId_5ba4018f5d2411.67502643 - Executing query 
+[20/09/2018 22:22:39] - corrId_5ba4018f5d2411.67502643 - Actor: [{"id_film":"1","titolo":"Le ali della libert\u00e0","durata":"142","prezzo_giornaliero":"5","tipo":"Drammatico","casa_produttrice_nome":"Castle Rock Entertainment","regista_nome":"Frank","regista_cognome":"Darabont","copie_totali":"2","copie_noleggiate":"1","copie_danneggiate":"0","cast":[{"nome_attore":"Tim","cognome_attore":"Robbins"},{"nome_attore":"Morgan","cognome_attore":"Freeman"},{"nome_attore":"Bob","cognome_attore":"Gunton"}]},{"id_film":"2","titolo":"Il padrino","durata":"175","prezzo_giornaliero":"5","tipo":"Thriller","casa_produttrice_nome":"Paramount Pictures","regista_nome":"Francis","regista_cognome":"Ford Coppola","copie_totali":"5","copie_noleggiate":"0","copie_danneggiate":"0","cast":[{"nome_attore":"Marlon","cognome_attore":"Brando"},{"nome_attore":"Al","cognome_attore":"Pacino"},{"nome_attore":"James","cognome_attore":"Caan"}]},{"id_film":"12","titolo":"Il Signore degli Anelli - Il ritorno del re","durata":"201","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"10","copie_noleggiate":"2","copie_danneggiate":"0","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"14","titolo":"Il Signore degli Anelli - La compagnia dell'Anello","durata":"178","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"3","copie_danneggiate":"1","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"16","titolo":"La parola ai giurati","durata":"96","prezzo_giornaliero":"4.5","tipo":"Thriller","casa_produttrice_nome":"Orion-Nova Productions","regista_nome":"Sidney","regista_cognome":"Lumet","copie_totali":"10","copie_noleggiate":"0","copie_danneggiate":"2","cast":[{"nome_attore":"Henry","cognome_attore":"Fonda"},{"nome_attore":"Martin","cognome_attore":"Balsam"}]}] 

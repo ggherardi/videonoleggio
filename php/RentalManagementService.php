@@ -87,13 +87,16 @@ class RentalManagementService {
         Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
         TokenGenerator::ValidateToken();
         $filters = json_decode($_POST["filters"]);
+        $dbContext->StartTransaction();
         $query = 
-            "SELECT * FROM videonoleggio.copia
+            "LOCK TABLES videonoleggo.copia WRITE;
+            SELECT * FROM videonoleggio.copia
             WHERE id_punto_vendita = %d
             AND id_film = 12
             AND noleggiato = 0
             AND restituito = 0
-            ORDER BY data_scarico desc";
+            ORDER BY data_scarico desc
+            LIMIT 1";
         $query = sprintf($query, $filters->id_punto_vendita);
         Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
         $res = self::ExecuteQuery($query);
@@ -102,7 +105,7 @@ class RentalManagementService {
             // $video = new Video($row);
             $videosArray[] = $row;
         }
-        
+        $dbContext->CommitTransaction();
     }
 
     // Switcha l'operazione richiesta lato client
