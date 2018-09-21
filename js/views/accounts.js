@@ -1,5 +1,6 @@
 var accountManagementService = new AccountManagementService();
 var tableLoader = new Loader("#EmployeesTableContainer", 100, 100);
+var manageAccountContainerLoader = new Loader("#ManageAccountContainer", 150, 150);
 var getAllItemsService;
 var selectStoreContainer =  $("#SelectStoreContainer");
 var employeesTableContainer = $("#EmployeesTableContainer");
@@ -35,6 +36,7 @@ var dataTableOptions = {
 
 function initAccountManager() {
     loader = new Loader("#SelectCityContainer", 25, 25);
+    manageAccountContainerLoader.showLoader();
     tableLoader.showLoader();
     loader.showLoader();
     accountManagementService.getCities()
@@ -93,6 +95,7 @@ function getStoresSuccess(data) {
     }
     selectStoreContainer.html(html);
     tableLoader.hideLoader();
+    manageAccountContainerLoader.hideLoader();
     getEmployees($("#AccountsSelectStore")[0]);
 }
 

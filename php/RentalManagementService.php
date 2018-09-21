@@ -87,25 +87,60 @@ class RentalManagementService {
         Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
         TokenGenerator::ValidateToken();
         $filters = json_decode($_POST["filters"]);
-        $dbContext->StartTransaction();
+        $dbContext-StartTransaction();
         $query = 
-            "LOCK TABLES videonoleggo.copia WRITE;
-            SELECT * FROM videonoleggio.copia
-            WHERE id_punto_vendita = %d
-            AND id_film = 12
+            "SELECT co.id_copia, co.data_scarico
+            FROM co
+            WHERE co.id_punto_vendita = %d
+            AND co.id_film = %d
+            AND co.noleggiato = 0
+            AND co.restituito = 0
+            ORDER BY co.data_scarico desc
+            LIMIT 1";
+        $query = sprintf($query, $filters->id_punto_vendita, $filters->id_film);
+        Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
+        $res = self::ExecuteQuery($query);
+        $array = array();
+        while($row = $res->fetch_assoc()){
+            // $video = new Video($row);
+            $array[] = $row;
+        }
+        $query = 
+            "UPDATE copia
+            WHERE id_copia = %d
             AND noleggiato = 0
             AND restituito = 0
             ORDER BY data_scarico desc
-            LIMIT 1";
-        $query = sprintf($query, $filters->id_punto_vendita);
+            SET
+            noleggiato = 1,
+            data_prenotazione_noleggio = CURRENT_TIMESTAMP,
+            id_dipendente_prenotazione_noleggio = %d";
+        $query = sprintf($query, $filters->id_punto_vendita, $filters->id_film);
         Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
         $res = self::ExecuteQuery($query);
-        $videosArray = array();
-        while($row = $res->fetch_assoc()){
-            // $video = new Video($row);
-            $videosArray[] = $row;
-        }
-        $dbContext->CommitTransaction();
+        $dbContext-CommitTransaction();
+    }
+
+/////// Per sicurezza, mettere il controllo che il video sia prenotato dall'user che sta confermando il noleggio, onde evitare problematiche
+
+    function ClearRentalBookings() {
+        Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
+        TokenGenerator::ValidateToken();
+        $query = 
+            "CALL clearAllExpiredTempRent()";
+        $res = self::ExecuteQuery($query);
+        exit(json_encode($res));
+    }
+
+    function ClearRentalBookingsForUser() {
+        Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
+        TokenGenerator::ValidateToken();
+        $id_dipendente = $_POST["id_dipendente"];
+        $query = 
+            "CALL clearAllExpiredTempRentForUser(%d)";
+        $query = sprintf($query, $id_dipendente);
+        $res = self::ExecuteQuery($query);
+        exit(json_encode($res));
     }
 
     // Switcha l'operazione richiesta lato client
@@ -117,6 +152,12 @@ class RentalManagementService {
                     break;
                 case "getMostRecentCopies":
                     self::GetMostRecentCopies();
+                    break;
+                case "clearRentalBookings":
+                    self::ClearRentalBookings();
+                    break;
+                case "clearRentalBookingsForUser":
+                    self::ClearRentalBookingsForUser();
                     break;
                 default: 
                     exit(json_encode($_POST));

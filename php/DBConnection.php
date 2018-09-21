@@ -67,6 +67,7 @@ class DBConnection {
                 }
                 Logger::Write("No results found", $GLOBALS["CorrelationID"]);                
             }
+            Logger::Write("Query executed successfully", $GLOBALS["CorrelationID"]);
             return $msRes;
         } 
         catch (Throwable $ex) {

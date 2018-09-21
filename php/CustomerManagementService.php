@@ -140,6 +140,22 @@ class CustomerManagementService {
         }    
     }
 
+    function FindCustomerById() {
+        Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
+        TokenGenerator::ValidateToken();
+        $id_cliente = $_POST["id_cliente"];
+        $query = 
+            "SELECT nome, cognome, indirizzo
+            FROM cliente
+            WHERE id_cliente = %d
+            LIMIT 1";
+        $query = sprintf($query, $id_cliente);
+        Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
+        $res = self::ExecuteQuery($query);
+        $row = $res->fetch_assoc();
+        exit(json_encode($row));
+    }
+
     // Switcha l'operazione richiesta lato client
     function Init() {
         try {
@@ -155,6 +171,9 @@ class CustomerManagementService {
                     break;
                 case "editCustomer":
                     self::EditCustomer();
+                    break;
+                case "findCustomerById":
+                    self::FindCustomerById();
                     break;
                 default: 
                     exit(json_encode($_POST));

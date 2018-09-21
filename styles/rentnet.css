@@ -23,6 +23,11 @@
     color: #ff0000;
 }
 
+.call-success {
+    color: #46C744;
+    transition: all .5s ease-in-out;
+}
+
 .simple-button {
     background-color: #100F3A;
     font-size: 10px;

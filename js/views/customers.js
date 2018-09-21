@@ -8,7 +8,6 @@ var dataTableOptions = {
     buttons: true,
     select: true,
     columns: [
-        { data: "id_cliente" },
         { data: "indirizzo" },
         { data: "email" },
         { data: "telefono_casa" },
@@ -22,13 +21,14 @@ var dataTableOptions = {
             data: null,
             defaultContent: ""
         },
+        { data: "id_cliente" },
         { data: "cognome" },
         { data: "nome" },
         { data: "data_nascita" },
         { data: "telefono_cellulare" }
     ],
     columnDefs: [{
-        targets: [ 0, 1, 2, 3, 4, 5, 6, 7],
+        targets: [ 0, 1, 2, 3, 4, 5, 6 ],
         visible: false,
         searchable: false
     }],
@@ -60,7 +60,6 @@ function getAllCustomersWithPremiumCode(data) {
             customers[i].liberatoria = liberatoriaBlobUrl;
         }
             html +=     `<tr>
-                            <td>${customers[i].id_cliente}</td>
                             <td>${customers[i].indirizzo}</td>
                             <td>${customers[i].email}</td>
                             <td>${customers[i].telefono_casa}</td>
@@ -69,6 +68,7 @@ function getAllCustomersWithPremiumCode(data) {
                             <td>${customers[i].nome_fidelizzazione}</td>   
                             <td>${customers[i].percentuale}</td>                     
                             <td></td>
+                            <td>${customers[i].id_cliente}</td>
                             <td>${customers[i].cognome}</td>
                             <td>${customers[i].nome}</td>
                             <td>${formatDateFromString(customers[i].data_nascita)}</td>
@@ -88,7 +88,8 @@ function BuildVideosTableHead() {
     for(var i = 0; i < dataTableOptions.columnDefs[0].targets.length + 1; i++) {
         html += `       <th scope="col"></th>`;
     }
-    html += `           <th scope="col">Cognome</th>
+    html += `           <th scope="col">Matricola</th>
+                        <th scope="col">Cognome</th>
                         <th scope="col">Nome</th>
                         <th scope="col">Data di nascita</th>
                         <th scope="col">Cellulare</th>
@@ -283,7 +284,9 @@ function buildCustomerForm(row) {
                     <input id="CustomerForm_data_nascita" type="date" class="form-control" value="${isEditForm ? switchDateDigitsPosition(row.data_nascita) : ""}" text="${isEditForm ? switchDateDigitsPosition(row.data_nascita) : ""}" required>
                     <label for="CustomerForm_liberatoria" class="mt-2">Liberatoria</label>
                     <div id="CustomerForm_fileInputContainer" class="row px-3">
-                        ${isEditForm && row.liberatoria != "null" ? buildLiberatoriaDynamicTag(row) : `<input id="CustomerForm_liberatoria" type="file" class="form-control" accept="pdf">`}
+                        ${isEditForm && row.liberatoria != "null" ? 
+                            buildLiberatoriaDynamicTag(row) :
+                            `<input id="CustomerForm_liberatoria" type="file" class="form-control" accept="pdf">`}
                     </div>
                     <label for="CustomerForm_fidelizzazione" class="mt-2">Tipo fidelizzazione</label>
                     <div id="CustomerForm_fidelizzazione_container">
@@ -298,7 +301,7 @@ function buildLiberatoriaDynamicTag(row) {
     var fileName = `liberatoria_${row.cognome}_${row.nome}.pdf`;
     return `<div id="CustomerForm_showFile">
                 <a href="${row.liberatoria}" download="${fileName}"><img src="images/adobe.ico" width="25"/><span class="ml-2">${fileName}<span></a>
-                <button class="btn btn-light ml-3" type="button" onclick="showFileInput();" title="Il file verrà eliminato dal server cliccando il pulsante 'Applica modifiche'">Elimina file</btn>
+                <button class="btn btn-light ml-3" type="button" onclick="showFileInput();" title="Il file verrà eliminato dal server cliccando il pulsante 'Applica modifiche'">Elimina file</button>
             </div>`;
 }
 

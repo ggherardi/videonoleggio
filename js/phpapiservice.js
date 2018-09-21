@@ -263,6 +263,14 @@ class CustomersManagementService extends RestClient {
         this.ajaxOptions.contentType = false;
         return super.executeWithToken();        
     }
+
+    findCustomerById(id_cliente) {
+        this.data = {
+            action: "findCustomerById",
+            id_cliente: id_cliente
+        }
+        return super.executeWithToken();   
+    }
 }
 
 class RentalManagementService extends RestClient {
@@ -278,5 +286,20 @@ class RentalManagementService extends RestClient {
             filters: filters
         }
         return super.executeWithToken();        
+    }
+
+    clearRentalBookings() {
+        this.data = {
+            action: "clearRentalBookings"
+        }
+        return super.executeWithToken();
+    }
+
+    clearRentalBookingsForUser(id_dipendente) {
+        this.data = {
+            action: "clearRentalBookingsForUser",
+            id_dipendente: id_dipendente
+        }
+        return super.executeWithToken();
     }
 }

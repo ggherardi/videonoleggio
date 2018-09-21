@@ -10,6 +10,9 @@ class Modal {
  *          text,
  *          action
  *      }
+ *      onHide: {
+ *          delegate
+ *      }
  */ 
     constructor(modalOptions) {
         this.modalOptions = modalOptions;
@@ -23,6 +26,7 @@ class Modal {
     }
 
     reset() {
+        this.sharedModal.off("hide.bs.modal");
         this.cancelButton.text("Chiudi");
         this.cancelButton.off("click")
         this.confirmButton.text("");        
@@ -43,6 +47,9 @@ class Modal {
             this.confirmButton.show();
             this.confirmButton.text(this.modalOptions.confirmButton.text);        
             this.confirmButton.click(this.modalOptions.confirmButton.action);
+        }
+        if(this.modalOptions.onHide) {
+            this.sharedModal.on("hide.bs.modal", this.modalOptions.onHide.action);
         }
     }
 

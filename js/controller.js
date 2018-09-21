@@ -53,7 +53,7 @@ class Menu {
         for(var key in this.menuItems) {
             var item = this.menuItems[key];
             var arePermissionsValid = item.needPermissions ? sharedStorage.loginContext.delega_codice >= item.needPermissions : true;
-            if(arePermissionsValid &&  item.showInMenu == undefined || item.showInMenu) {          
+            if(arePermissionsValid && item.showInMenu == undefined || item.showInMenu) {          
                 this.html += 
                     `<li id='NavItem_${item.name}'>` +
                     `   <span onclick='menuClick(this);' data-view='${item.name}'>${item.title}</span>` +

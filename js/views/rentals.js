@@ -1,7 +1,8 @@
 var rentalManagementService = rentalManagementService || new RentalManagementService();
 var storageManagementService = storageManagementService || new StorageManagementService();
-var getAllItemsService;
+var getAllItemsService = getAllItemsService || new GetAllItemsService();
 var videosTableContainer = $("#VideosTableContainer");
+var RentVideoForm_id_cliente;
 var videosDataTable;
 var videosDataTableOptions = {
     dom: 'Bftpil',
@@ -35,23 +36,29 @@ var videosDataTableOptions = {
     }],
     buttons: [
         { extend: 'copy', text: "Copia" },
-        { text: "Noleggia film", action: rentVideo }
+        { extend: 'selected', text: "Noleggia film", action: rentVideoAction }
         // { extend: 'selectedSingle', text: "Resetta password", action: resetPassword },
         // { extend: 'selectedSingle', text: "Modifica account", action: editEmployee },
         // { extend: 'selectedSingle', text: "Cancella account", action: deleteEmployee }
     ]
 };
  
-function initCustomersTable() {
-    var filters = {
-        id_punto_vendita: sharedStorage.loginContext.punto_vendita_id_punto_vendita
+function initVideoPreviewTable() {
+    var initVideoPreviewTablesSuccess = function() {
+        var filters = {
+            id_punto_vendita: sharedStorage.loginContext.punto_vendita_id_punto_vendita
+        }
+        rentalManagementService.getVideosInStorageWithCount(filters)
+            .done(getVideosInStorageWithCountSuccess)
+            .fail(restCallError)
+            .always(() => loader.hideLoader());
     }
+
     var loader = new Loader(`#${videosTableContainer.attr("id")}`);
     loader.showLoader();
-    rentalManagementService.getVideosInStorageWithCount(filters)
-        .done(getVideosInStorageWithCountSuccess)
-        .fail(restCallError)
-        .always(() => loader.hideLoader());
+    $.when(rentalManagementService.clearRentalBookingsForUser(sharedStorage.loginContext.dipendente_id_dipendente), rentalManagementService.clearRentalBookings())
+        .done(initVideoPreviewTablesSuccess)
+        .fail();
 }
 
 function getVideosInStorageWithCountSuccess(data) {
@@ -165,7 +172,7 @@ function formatCollapsedDetails (row) {
 /* Rent Video Action */
 function rentVideoAction(e, dt, node, config) {
     var row = dt.rows({ selected: true }).data()[0];    
-    var editModalBody = buildCustomerForm(row);
+    var editModalBody = buildRentVideoForm(row);
 
     modalOptions = {
         title: "Noleggia film",
@@ -176,14 +183,24 @@ function rentVideoAction(e, dt, node, config) {
         confirmButton: {
             text: "Conferma noleggio",
             action: formClickDelegate
+        },
+        onHide: {
+            action: () => {
+                if(window.confirm("Uscendo dalla finestra verrà persa la prenotazione per le copie del film selezionato.")) {
+                    rentalManagementService.clearRentalBookingsForUser(sharedStorage.loginContext.dipendente_id_dipendente);
+                } else {
+                    return false;
+                }
+            }
         }
-    }
+    }        
     modal = new Modal(modalOptions);
     modal.open();  
-    loadSelect(row);
+    // loadSelect(row);
 }
 
 function rentVideo() {
+    rentalManagementService.clearRentalBookings();
     var fileInput = $("#CustomerForm_liberatoria");
     var customer = getCustomerFromForm();
     var files = [];
@@ -198,36 +215,75 @@ function rentVideo() {
 }
 
 /* Actions shared functions  */
-function buildCustomerForm(row) {
+function buildRentVideoForm(row) {
     var isEditForm = row != undefined;
-    var html = `<form class="form-signin" onsubmit="${isEditForm ? "editItem()" : "insertItem()"};return false;">
-                    <input id="CustomerForm_id_cliente" type="hidden" value="${isEditForm ? row.id_cliente : ""}">
-                    <label for="CustomerForm_nome" class="mt-2">Nome</label>
-                    <input id="CustomerForm_nome" type="text" class="form-control" value="${isEditForm ? row.nome : ""}" text="${isEditForm ? row.nome : ""}" required>
-                    <label for="CustomerForm_cognome" class="mt-2">Cognome</label>
-                    <input id="CustomerForm_cognome" type="text" class="form-control" value="${isEditForm ? row.cognome : ""}" text="${isEditForm ? row.cognome : ""}" required>
-                    <label for="CustomerForm_indirizzo" class="mt-2">Indirizzo</label>
-                    <input id="CustomerForm_indirizzo" type="text" class="form-control" value="${isEditForm ? row.indirizzo : ""}" text="${isEditForm ? row.indirizzo : ""}" required>
-                    <label for="CustomerForm_telefono_cellulare" class="mt-2">Cellulare</label>
-                    <input id="CustomerForm_telefono_cellulare" type="number" class="form-control" value="${isEditForm ? row.telefono_cellulare : ""}" text="${isEditForm ? row.telefono_cellulare : ""}" required>
-                    <label for="CustomerForm_telefono_casa" class="mt-2">Telefono fisso</label>
-                    <input id="CustomerForm_telefono_casa" type="number" class="form-control" value="${isEditForm ? row.telefono_casa : ""}" text="${isEditForm ? row.telefono_casa : ""}">
-                    <label for="CustomerForm_email" class="mt-2">Email</label>
-                    <input id="CustomerForm_email" type="text" class="form-control" value="${isEditForm ? row.email : ""}" text="${isEditForm ? row.email : ""}" required>
-                    <label for="CustomerForm_data_nascita" class="mt-2">Data di nascita</label>
-                    <input id="CustomerForm_data_nascita" type="date" class="form-control" value="${isEditForm ? switchDateDigitsPosition(row.data_nascita) : ""}" text="${isEditForm ? switchDateDigitsPosition(row.data_nascita) : ""}" required>
-                    <label for="CustomerForm_liberatoria" class="mt-2">Liberatoria</label>
-                    <div id="CustomerForm_fileInputContainer" class="row px-3">
-                        ${isEditForm && row.liberatoria != "null" ? buildLiberatoriaDynamicTag(row) : `<input id="CustomerForm_liberatoria" type="file" class="form-control" accept="pdf">`}
+    var html = `<form class="form-signin" onsubmit="rentVideo();return false;">
+                    <input id="RentVideoForm_id_copia" type="hidden">
+                    <div id="RentVideoFormPreviewTableContainer">
+                        <table class="table">
+                            <thead>
+                                <th>Codice copia</th>
+                                <th>Film</th>
+                                <th>Prezzo</th>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
                     </div>
-                    <label for="CustomerForm_fidelizzazione" class="mt-2">Tipo fidelizzazione</label>
-                    <div id="CustomerForm_fidelizzazione_container">
-                        <select id="CustomerForm_fidelizzazione" class="form-control"></select>
+                    <label for="3" class="mt-2">Cliente che effettua il noleggio</label>
+                    <div id="RentVideoForm_id_cliente_container" class="row px-3">
+                        <input id="RentVideoForm_id_cliente" type="number" class="form-control col-sm-8" placeholder="Inserire la matricola del cliente">
+                        <button class="btn btn-light ml-3" type="button" onclick="findCustomerById();">Cerca cliente</button>
                     </div>
-                    <button id="CustomerForm_insert_button" class="d-none" type="submit">
+                    <button id="RentVideoForm_insert_button" class="d-none" type="submit">
                 </form>`;
     return html;
 }
 
+function buildRentVideoFormPreviewTable() {
+    var html = `<table>
+                    <thead>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </thead>
+                    <tbody><tr><td></td><td></td><td></td>
+                    </tbody>
+                </table>`
+    return html;
+}
+
+function formClickDelegate() {
+
+}
+
+/* Find Customer Form Action */
+function findCustomerById() {
+    var findCustomerSuccess = function(data) {
+        var lightModelCustomer = JSON.parse(data);
+        loader.hideLoader()
+        RentVideoForm_id_cliente = $("#RentVideoForm_id_cliente_container").html();
+        buildCustomerTable(lightModelCustomer)
+    }
+
+    var buildCustomerTable = function(customer) {
+        var html = `<div id="customer-preview" class="col-sm-10 py-3 call-success">${customer.nome} ${customer.cognome} - ${customer.indirizzo}</div>`;
+        html += `<button class="btn btn-light ml-3 col-sm-1" type="button" onclick="restoreFindCustomerInput();">X</button>`;
+        $("#RentVideoForm_id_cliente_container").html(html);
+        setTimeout(() => $("#customer-preview").css("color", "#7D7D7D"), 500);
+    }
+
+    var id_cliente = $("#RentVideoForm_id_cliente").val();
+    var loader = new Loader("#RentVideoForm_id_cliente_container", 50, 50);
+    loader.showLoader();
+    var customersManagementService = new CustomersManagementService();
+    customersManagementService.findCustomerById(id_cliente)
+        .done(findCustomerSuccess)
+        .fail(restCallError);
+}
+
+function restoreFindCustomerInput() {
+    $("#RentVideoForm_id_cliente_container").html(RentVideoForm_id_cliente);
+}
+
 /** Init */
-initCustomersTable();
+initVideoPreviewTable();
