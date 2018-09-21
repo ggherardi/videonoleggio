@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `videonoleggio` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `videonoleggio`;
--- MySQL dump 10.13  Distrib 5.5.61, for Win64 (AMD64)
+-- MySQL dump 10.13  Distrib 5.5.60, for Win64 (AMD64)
 --
 -- Host: localhost    Database: videonoleggio
 -- ------------------------------------------------------
--- Server version	5.5.61
+-- Server version	5.5.60
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -171,11 +171,17 @@ CREATE TABLE `copia` (
   `noleggiato` tinyint(4) DEFAULT '0',
   `restituito` tinyint(4) DEFAULT '0',
   `data_prenotazione_noleggio` timestamp NULL DEFAULT NULL,
+  `id_dipendente_prenotazione_noleggio` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_copia`),
   KEY `fk_partita_film_idx` (`id_film`),
   KEY `fk_partita_punto_vendita_idx` (`id_punto_vendita`),
-  KEY `fk_partita_fornitore_idx` (`id_fornitore`)
-) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8;
+  KEY `fk_partita_fornitore_idx` (`id_fornitore`),
+  KEY `fk_copia_dipendente_idx` (`id_dipendente_prenotazione_noleggio`),
+  CONSTRAINT `fk_copia_film` FOREIGN KEY (`id_film`) REFERENCES `film` (`id_film`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_copia_punto_vendita` FOREIGN KEY (`id_punto_vendita`) REFERENCES `punto_vendita` (`id_punto_vendita`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_copia_fornitore` FOREIGN KEY (`id_fornitore`) REFERENCES `fornitore` (`id_fornitore`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_copia_dipendente` FOREIGN KEY (`id_dipendente_prenotazione_noleggio`) REFERENCES `dipendente` (`id_dipendente`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=110 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -184,7 +190,7 @@ CREATE TABLE `copia` (
 
 LOCK TABLES `copia` WRITE;
 /*!40000 ALTER TABLE `copia` DISABLE KEYS */;
-INSERT INTO `copia` VALUES (1,1,1,1,'2018-07-05 15:13:42',0,1,0,NULL),(53,1,1,1,'2018-09-16 16:08:52',0,0,0,NULL),(54,1,1,1,'2018-09-16 16:08:52',0,0,1,NULL),(55,12,1,4,'2018-06-29 16:09:02',0,1,0,NULL),(56,12,1,4,'2018-09-16 16:09:02',0,0,0,NULL),(57,12,1,4,'2018-09-16 16:09:02',0,0,0,NULL),(58,12,1,4,'2018-09-16 16:09:02',0,0,1,NULL),(59,12,1,4,'2018-09-16 16:09:02',0,0,0,NULL),(60,12,1,4,'2018-09-16 16:09:02',0,0,0,NULL),(61,12,1,4,'2018-09-16 16:09:02',0,0,1,NULL),(62,12,1,4,'2018-09-16 16:09:02',0,0,1,NULL),(63,12,1,4,'2018-09-16 16:09:02',0,0,1,NULL),(64,12,1,4,'2018-09-16 16:09:02',0,0,1,NULL),(65,15,2,6,'2018-09-16 17:14:07',0,0,0,NULL),(66,15,2,6,'2018-09-16 17:14:07',0,0,0,NULL),(67,15,2,6,'2018-09-16 17:14:07',0,0,0,NULL),(68,15,2,6,'2018-09-16 17:14:07',0,0,0,NULL),(69,15,2,6,'2018-09-16 17:14:07',0,0,0,NULL),(70,15,2,6,'2018-09-16 17:14:07',0,0,0,NULL),(71,15,2,6,'2018-09-16 17:14:07',0,0,0,NULL),(72,15,2,6,'2018-09-16 17:14:07',0,0,0,NULL),(73,15,2,6,'2018-09-16 17:14:07',0,1,0,NULL),(74,15,2,6,'2018-09-16 17:14:07',0,0,0,NULL),(75,2,1,5,'2018-09-19 18:36:07',0,0,0,NULL),(76,2,1,5,'2018-09-19 18:36:07',0,0,0,NULL),(77,2,1,5,'2018-09-19 18:36:07',0,0,0,NULL),(78,2,1,5,'2018-09-19 18:36:07',0,0,0,NULL),(79,2,1,5,'2018-09-19 18:36:07',0,0,0,NULL),(80,16,1,6,'2018-09-19 18:36:15',1,0,0,NULL),(81,16,1,6,'2018-09-19 18:36:15',1,0,0,NULL),(82,16,1,6,'2018-09-19 18:36:15',0,0,0,NULL),(83,16,1,6,'2018-09-19 18:36:15',0,0,0,NULL),(84,16,1,6,'2018-09-19 18:36:15',0,0,0,NULL),(85,16,1,6,'2018-09-19 18:36:15',0,0,0,NULL),(86,16,1,6,'2018-09-19 18:36:15',0,0,0,NULL),(87,16,1,6,'2018-09-19 18:36:15',0,0,0,NULL),(88,16,1,6,'2018-09-19 18:36:15',0,0,0,NULL),(89,16,1,6,'2018-09-19 18:36:15',0,0,0,NULL),(90,14,1,3,'2018-09-19 18:36:26',0,1,0,NULL),(91,14,1,3,'2018-09-19 18:36:26',0,1,0,NULL),(92,14,1,3,'2018-09-19 18:36:26',0,1,0,NULL),(93,14,1,3,'2018-09-19 18:36:26',1,0,0,NULL),(94,14,1,3,'2018-09-19 18:36:26',0,0,0,NULL),(95,12,1,3,'2018-09-20 10:47:24',0,0,0,NULL),(96,12,1,3,'2018-09-20 10:47:24',0,0,0,NULL),(97,12,1,3,'2018-09-20 10:47:24',0,0,0,NULL),(98,12,1,3,'2018-09-20 10:47:24',0,0,0,NULL),(99,12,1,3,'2018-09-20 10:47:24',0,0,0,NULL);
+INSERT INTO `copia` VALUES (1,1,1,1,'2018-07-05 15:13:42',0,1,0,NULL,NULL),(53,1,1,1,'2018-09-16 16:08:52',0,0,0,NULL,NULL),(54,1,1,1,'2018-09-16 16:08:52',0,0,1,NULL,NULL),(55,12,1,4,'2018-06-29 16:09:02',0,1,0,NULL,NULL),(56,12,1,4,'2018-09-16 16:09:02',0,0,0,NULL,NULL),(57,12,1,4,'2018-09-16 16:09:02',0,0,0,NULL,NULL),(58,12,1,4,'2018-09-16 16:09:02',0,0,1,NULL,NULL),(59,12,1,4,'2018-09-16 16:09:02',0,0,0,NULL,NULL),(60,12,1,4,'2018-09-16 16:09:02',0,0,0,NULL,NULL),(61,12,1,4,'2018-09-16 16:09:02',0,0,1,NULL,NULL),(62,12,1,4,'2018-09-16 16:09:02',0,0,1,NULL,NULL),(63,12,1,4,'2018-09-16 16:09:02',0,0,1,NULL,NULL),(64,12,1,4,'2018-09-16 16:09:02',0,0,1,NULL,NULL),(65,15,2,6,'2018-09-16 17:14:07',0,0,0,NULL,NULL),(66,15,2,6,'2018-09-16 17:14:07',0,0,0,NULL,NULL),(67,15,2,6,'2018-09-16 17:14:07',0,0,0,NULL,NULL),(68,15,2,6,'2018-09-16 17:14:07',0,0,0,NULL,NULL),(69,15,2,6,'2018-09-16 17:14:07',0,0,0,NULL,NULL),(70,15,2,6,'2018-09-16 17:14:07',0,0,0,NULL,NULL),(71,15,2,6,'2018-09-16 17:14:07',0,0,0,NULL,NULL),(72,15,2,6,'2018-09-16 17:14:07',0,0,0,NULL,NULL),(73,15,2,6,'2018-09-16 17:14:07',0,1,0,NULL,NULL),(74,15,2,6,'2018-09-16 17:14:07',0,0,0,NULL,NULL),(75,2,1,5,'2018-09-19 18:36:07',0,0,0,NULL,NULL),(76,2,1,5,'2018-09-19 18:36:07',0,0,0,NULL,NULL),(77,2,1,5,'2018-09-19 18:36:07',0,0,0,NULL,NULL),(78,2,1,5,'2018-09-19 18:36:07',0,0,0,NULL,NULL),(79,2,1,5,'2018-09-19 18:36:07',0,0,0,NULL,NULL),(80,16,1,6,'2018-09-19 18:36:15',1,0,0,NULL,NULL),(81,16,1,6,'2018-09-19 18:36:15',1,0,0,NULL,NULL),(82,16,1,6,'2018-09-19 18:36:15',0,0,0,NULL,NULL),(83,16,1,6,'2018-09-19 18:36:15',0,0,0,NULL,NULL),(84,16,1,6,'2018-09-19 18:36:15',0,0,0,NULL,NULL),(85,16,1,6,'2018-09-19 18:36:15',0,0,0,NULL,NULL),(86,16,1,6,'2018-09-19 18:36:15',0,0,0,NULL,NULL),(87,16,1,6,'2018-09-19 18:36:15',0,0,0,NULL,NULL),(88,16,1,6,'2018-09-19 18:36:15',0,0,0,NULL,NULL),(89,16,1,6,'2018-09-19 18:36:15',0,0,0,NULL,NULL),(90,14,1,3,'2018-09-19 18:36:26',0,1,0,NULL,NULL),(91,14,1,3,'2018-09-19 18:36:26',0,1,0,NULL,NULL),(92,14,1,3,'2018-09-19 18:36:26',0,1,0,NULL,NULL),(93,14,1,3,'2018-09-19 18:36:26',1,0,0,NULL,NULL),(94,14,1,3,'2018-09-19 18:36:26',0,0,0,NULL,NULL),(95,12,1,3,'2018-09-20 10:47:24',0,0,0,NULL,NULL),(96,12,1,3,'2018-09-20 10:47:24',0,0,0,NULL,NULL),(97,12,1,3,'2018-09-20 10:47:24',0,0,0,NULL,NULL),(98,12,1,3,'2018-09-20 10:47:24',0,0,0,NULL,NULL),(99,12,1,3,'2018-09-20 10:47:24',0,0,0,NULL,NULL),(100,15,1,4,'2018-09-21 11:08:16',0,0,0,NULL,NULL),(101,15,1,4,'2018-09-21 11:08:16',0,0,0,NULL,NULL),(102,15,1,4,'2018-09-21 11:08:16',0,0,0,NULL,NULL),(103,15,1,4,'2018-09-21 11:08:16',0,0,0,NULL,NULL),(104,15,1,4,'2018-09-21 11:08:16',0,0,0,NULL,NULL),(105,3,1,3,'2018-09-21 14:35:18',0,0,0,NULL,NULL),(106,3,1,3,'2018-09-21 14:35:18',0,0,0,NULL,NULL),(107,3,1,3,'2018-09-21 14:35:18',0,0,0,NULL,NULL),(108,3,1,3,'2018-09-21 14:35:18',0,0,0,NULL,NULL),(109,3,1,3,'2018-09-21 14:35:18',0,0,0,NULL,NULL);
 /*!40000 ALTER TABLE `copia` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -394,6 +400,40 @@ INSERT INTO `noleggio` VALUES (4,1,1,31,1,'2017-12-31 23:00:00','2018-01-01 00:0
 UNLOCK TABLES;
 
 --
+-- Table structure for table `partita`
+--
+
+DROP TABLE IF EXISTS `partita`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `partita` (
+  `id_partita` int(11) NOT NULL AUTO_INCREMENT,
+  `id_film` int(11) DEFAULT NULL,
+  `id_punto_vendita` int(11) DEFAULT NULL,
+  `id_fornitore` int(11) DEFAULT NULL,
+  `disponibilita_massima` int(11) DEFAULT NULL,
+  `disponibilita_attuale` int(11) DEFAULT NULL,
+  `data_scarico` datetime DEFAULT NULL,
+  PRIMARY KEY (`id_partita`),
+  KEY `fk_partita_film_idx` (`id_film`),
+  KEY `fk_partita_punto_vendita_idx` (`id_punto_vendita`),
+  KEY `fk_partita_fornitore_idx` (`id_fornitore`),
+  CONSTRAINT `fk_partita_punto_vendita` FOREIGN KEY (`id_punto_vendita`) REFERENCES `punto_vendita` (`id_punto_vendita`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_partita_fornitore` FOREIGN KEY (`id_fornitore`) REFERENCES `fornitore` (`id_fornitore`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_partita_film` FOREIGN KEY (`id_film`) REFERENCES `film` (`id_film`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `partita`
+--
+
+LOCK TABLES `partita` WRITE;
+/*!40000 ALTER TABLE `partita` DISABLE KEYS */;
+/*!40000 ALTER TABLE `partita` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `prenotazione`
 --
 
@@ -478,6 +518,29 @@ LOCK TABLES `regista` WRITE;
 /*!40000 ALTER TABLE `regista` DISABLE KEYS */;
 INSERT INTO `regista` VALUES (1,'Frank','Darabont'),(2,'Quentin','Tarantino'),(3,'Christopher','Nolan'),(4,'Francis','Ford Coppola'),(5,'Steven','Spielberg'),(6,'Peter','Jackson'),(7,'Sergio','Leone'),(8,'Sidney','Lumet');
 /*!40000 ALTER TABLE `regista` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `sconto`
+--
+
+DROP TABLE IF EXISTS `sconto`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `sconto` (
+  `id_sconto` int(11) NOT NULL AUTO_INCREMENT,
+  `percentuale` float DEFAULT NULL,
+  PRIMARY KEY (`id_sconto`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sconto`
+--
+
+LOCK TABLES `sconto` WRITE;
+/*!40000 ALTER TABLE `sconto` DISABLE KEYS */;
+/*!40000 ALTER TABLE `sconto` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -578,10 +641,41 @@ BEGIN
 	ON copia.id_copia = noleggio.id_copia
     SET
     copia.noleggiato = 0,
-    copia.data_prenotazione_noleggio = NULL
+    copia.data_prenotazione_noleggio = NULL,
+    copia.id_dipendente_prenotazione_noleggio = NULL
 	WHERE noleggio.id_copia IS NULL
 	AND copia.noleggiato = 1
     AND copia.data_prenotazione_noleggio < DATE_SUB(NOW(), INTERVAL 10 MINUTE);
+    SET SQL_SAFE_UPDATES = 1;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `clearAllExpiredTempRentForUser` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `clearAllExpiredTempRentForUser`(IN id_dipendente INT)
+BEGIN
+	SET SQL_SAFE_UPDATES = 0;
+	UPDATE copia
+	LEFT OUTER JOIN noleggio
+	ON copia.id_copia = noleggio.id_copia
+    SET
+    copia.noleggiato = 0,
+    copia.data_prenotazione_noleggio = NULL,
+    copia.id_dipendente_prenotazione_noleggio = NULL
+	WHERE noleggio.id_copia IS NULL
+	AND copia.noleggiato = 1
+    AND copia.id_dipendente_prenotazione_noleggio = id_dipendente;
     SET SQL_SAFE_UPDATES = 1;
 END ;;
 DELIMITER ;
@@ -599,4 +693,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-09-21  1:48:28
+-- Dump completed on 2018-09-21 17:00:35
