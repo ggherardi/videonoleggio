@@ -37,7 +37,10 @@ var dataTableOptions = {
         { text: "Nuovo cliente", action: addCustomerAction },
         { extend: 'selectedSingle', text: "Modifica cliente", action: editCustomerAction },
         { extend: 'selectedSingle', text: "Cancella cliente", action: deleteCustomerAction },
-    ]
+    ],
+    language: {
+        "emptyTable": "Nessun cliente trovato."
+      }
 };
     
 function initCustomersTable() {

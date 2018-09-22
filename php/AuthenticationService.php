@@ -8,11 +8,7 @@ $GLOBALS["CorrelationID"] = uniqid("corrId_", true);
 $correlationId = $GLOBALS["CorrelationID"];
 
 class AuthenticationService {
-    private $name;
-    private $surname;
-    private $username;
-    private $email;
-    private $password;
+    private static $authCookieName = "RentNetAuth";
     private $dbContext;
 
     function __construct() { }
@@ -25,12 +21,8 @@ class AuthenticationService {
         return $this->dbContext->ExecuteQuery($query);
     }
 
-    private function Test(){
-        exit(json_encode("test successful"));
-    }
-
     /** Effettua il login al sito con l'username inserito */
-    private function Login() {             
+    public function Login() {             
         try {
             Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
             $credentials = json_decode($_POST["credentials"]);
@@ -45,16 +37,18 @@ class AuthenticationService {
                 ON dip.id_punto_vendita = pv.id_punto_vendita
                 INNER JOIN citta as c
                 ON pv.id_citta = c.id_citta
-                WHERE username = '%s'";
+                WHERE username = '%s'
+                LIMIT 1";
             $query = sprintf($query, addslashes($credentials->username));
             $res = self::ExecuteQuery($query);
-            while($row = $res->fetch_assoc()){
-                $fetchedPassword = $row["password"];
-                $validRow = $row;
-            }
-            if(password_verify($credentials->password, $fetchedPassword)){
-                $user = new LoginContext($validRow);
-                exit(json_encode($user));
+            $row = $res->fetch_assoc();
+            $fetchedPassword = $row["password"];
+
+            if(password_verify($credentials->password, $fetchedPassword)) {                     
+                $loginContext = new LoginContext($row);
+                Logger::Write(sprintf("User %s validated, starting token generation.", $loginContext->username), $GLOBALS["CorrelationID"]);       
+                self::SetAuthenticationCookie($loginContext);
+                exit(json_encode($loginContext));
                 Logger::Write("User $this->username succesfully logged in.", $GLOBALS["CorrelationID"]);
             }
             else{
@@ -67,14 +61,43 @@ class AuthenticationService {
         }
     }
 
+    private function SetAuthenticationCookie($cookieValue) {
+        $cookie = TokenGenerator::GenerateTokenForUser($cookieValue);
+        $cookieDuration = time() + (3600 * 12); // Scade in 12 ore
+        setcookie(self::$authCookieName, $cookie, $cookieDuration, "/", "", false, true);
+        Logger::Write("Authentication cookie has been set: ".$_COOKIE[self::$authCookieName], $GLOBALS["CorrelationID"]);
+    }
+
+    public function Logout() {
+        $user = json_decode(TokenGenerator::ValidateToken());
+        Logger::Write(sprintf("%s", json_encode($user)), $GLOBALS["CorrelationID"]);
+        Logger::Write(sprintf("User %s logging out.", $user->username), $GLOBALS["CorrelationID"]);
+        setcookie(self::$authCookieName, "", time() - 1, "/", "", false, true);
+    }
+
+    public function AuthenticateUser() {             
+        try {            
+            exit(TokenGenerator::ValidateToken());
+        } 
+        catch (Throwable $ex) {
+            Logger::Write("Error occured in " . __FUNCTION__. " -> $ex", $GLOBALS["CorrelationID"]);
+        }
+    }
+
     // Switcha l'operazione richiesta lato client
     function Init(){
-        switch($_POST["action"]){
+        switch($_POST["action"]) {
             case "login":
                 self::Login();
                 break;
+            case "logout":
+                self::Logout();
+                break;
+            case "authenticateUser":
+                self::AuthenticateUser();
+                break;
             default: 
-                echo json_encode($_POST);
+                exit(json_encode($_POST));
                 break;
         }
     }
@@ -92,33 +115,37 @@ catch(Throwable $ex) {
     exit(json_encode($ex->getMessage()));
 }
 
+class AuthenticationCookie {
+    public $username;
+    public $id_dipendente;
+    public $delega_codice;
+
+    public function __construct($row) {
+        $this->username = $row["username"];
+        $this->id_dipendente = $row["id_dipendente"];
+        $this->delega_codice = $row["codice"];
+    }
+}
+
 class LoginContext {
-    public $dipendente_username;
-    public $dipendente_id_dipendente;
+    public $username;
+    public $id_dipendente;
     public $delega_codice;
     public $delega_nome;
     public $punto_vendita_nome;
     public $citta_nome;
     public $punto_vendita_indirizzo;
     public $punto_vendita_id_punto_vendita;
-    public $token;
 
     public function __construct($row) {
-        $this->dipendente_username = $row["username"];
-        $this->dipendente_id_dipendente = $row["id_dipendente"];
+        $this->username = $row["username"];
+        $this->id_dipendente = $row["id_dipendente"];
         $this->delega_codice = $row["codice"];
         $this->delega_nome = $row["delega_nome"];
         $this->punto_vendita_nome = $row["punto_vendita_nome"];
         $this->punto_vendita_indirizzo = $row["punto_vendita_indirizzo"];
         $this->punto_vendita_id_punto_vendita = $row["punto_vendita_id_punto_vendita"];
         $this->citta_nome = $row["citta_nome"];
-        $this->generateTokenForUser();
-    }
-
-    private function generateTokenForUser() {
-        Logger::Write(sprintf("User %s validated, generating Token.", $this->username), $GLOBALS["CorrelationID"]);
-        $token = TokenGenerator::EncryptToken(json_encode($this));
-        $this->token = $token;
     }
 }
 ?>

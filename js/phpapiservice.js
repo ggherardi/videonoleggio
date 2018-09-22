@@ -3,18 +3,6 @@ class RestClient {
         this.ajaxOptions = {};
      }
 
-    executeWithoutToken() {
-        return this.execute();
-    }
-
-    executeWithToken() {
-        this.getToken();
-        this.ajaxOptions.headers = {
-            AUTHORIZATION: `bearer ${this.token}`
-        }
-        return this.execute();
-    }
-
     execute() {
         this.setAjaxOptions();
         return $.ajax(this.ajaxOptions);
@@ -46,56 +34,56 @@ class GetAllItemsService extends RestClient {
         this.data = {
             action: "getAllCities"
         }
-        return super.executeWithToken();        
+        return super.execute();        
     }
 
     getAllStores() {
         this.data = {
             action: "getAllStores"
         }
-        return super.executeWithToken();
+        return super.execute();
     }
 
     getAllEmployees() {
         this.data = {
             action: "getAllEmployees"
         }
-        return super.executeWithToken();
+        return super.execute();
     }
 
     getAllRoles() {
         this.data = {
             action: "getAllRoles"
         }
-        return super.executeWithToken();
+        return super.execute();
     }
 
     getAllFilms() {
         this.data = {
             action: "getAllFilms"
         }
-        return super.executeWithToken();
+        return super.execute();
     }
 
     getAllSuppliers() {
         this.data = {
             action: "getAllSuppliers"
         }
-        return super.executeWithToken();
+        return super.execute();
     }
 
     getAllCustomers() {
         this.data = {
             action: "getAllCustomers"
         }
-        return super.executeWithToken();
+        return super.execute();
     }
     
     getAllDiscounts() {
         this.data = {
             action: "getAllDiscounts"
         }
-        return super.executeWithToken();
+        return super.execute();
     }
 }
 
@@ -114,7 +102,21 @@ class AuthenticationService extends RestClient {
             credentials: credentials,
             action: "login"
         }
-        return super.executeWithoutToken();
+        return super.execute();
+    }
+
+    logout() {
+        this.data = {
+            action: "logout"
+        };
+        return super.execute();
+    }
+
+    authenticateUser() {
+        this.data = {
+            action: "authenticateUser"
+        }
+        return super.execute();
     }
 }
 
@@ -128,7 +130,7 @@ class AccountManagementService extends RestClient {
         this.data = {
             action: "getCities"
         }
-        return super.executeWithToken();        
+        return super.execute();        
     }
 
     getStores(id_citta) {
@@ -136,7 +138,7 @@ class AccountManagementService extends RestClient {
             action: "getStores",
             id_citta: id_citta
         }
-        return super.executeWithToken();
+        return super.execute();
     }
 
     getEmployees(id_punto_vendita) {
@@ -144,7 +146,7 @@ class AccountManagementService extends RestClient {
             action: "getEmployees",
             id_punto_vendita: id_punto_vendita
         }
-        return super.executeWithToken();
+        return super.execute();
     }
 
     deleteEmployee(id_dipendente) {
@@ -152,7 +154,7 @@ class AccountManagementService extends RestClient {
             action: "deleteEmployee",
             id_dipendente: id_dipendente
         }
-        return super.executeWithToken();
+        return super.execute();
     }
 
     insertEmployee(dipendente) {
@@ -161,7 +163,7 @@ class AccountManagementService extends RestClient {
             action: "insertEmployee",
             dipendente: dipendente
         }
-        return super.executeWithToken();
+        return super.execute();
     }
 
     editEmployee(dipendente) {
@@ -170,7 +172,7 @@ class AccountManagementService extends RestClient {
             action: "editEmployee",
             dipendente: dipendente
         }
-        return super.executeWithToken();
+        return super.execute();
     }
 
     resetPassword(id_dipendente) {
@@ -178,7 +180,7 @@ class AccountManagementService extends RestClient {
             action: "resetPassword",
             id_dipendente: id_dipendente
         }
-        return super.executeWithToken();
+        return super.execute();
     }
 }
 
@@ -194,14 +196,14 @@ class StorageManagementService extends RestClient {
             action: "getVideosInStorage",
             filters: filters
         }
-        return super.executeWithToken();        
+        return super.execute();        
     }
 
     getAlreadyAvailableMovies() {
         this.data = {
             action: "getAlreadyAvailableMovies",
         }
-        return super.executeWithToken();        
+        return super.execute();        
     }
 
     unloadCopies(copies) {
@@ -210,7 +212,7 @@ class StorageManagementService extends RestClient {
             action: "unloadCopies",
             copies: copies
         }
-        return super.executeWithToken();        
+        return super.execute();        
     }
 
     loadCopies(copies) {
@@ -219,7 +221,7 @@ class StorageManagementService extends RestClient {
             action: "loadCopies",
             copies: copies
         }
-        return super.executeWithToken();        
+        return super.execute();        
     }
 }
 
@@ -233,7 +235,7 @@ class CustomersManagementService extends RestClient {
         this.data = {
             action: "getAllCustomersWithPremiumCode"
         }
-        return super.executeWithToken();        
+        return super.execute();        
     }
 
     insertNewCustomer(customer, file) {
@@ -243,7 +245,7 @@ class CustomersManagementService extends RestClient {
         this.data.append('action', 'insertNewCustomer');
         this.ajaxOptions.processData = false;
         this.ajaxOptions.contentType = false;
-        return super.executeWithToken();        
+        return super.execute();        
     }
 
     deleteCustomer(id_cliente) {
@@ -251,7 +253,7 @@ class CustomersManagementService extends RestClient {
             action: "deleteCustomer",
             id_cliente: id_cliente
         }
-        return super.executeWithToken();        
+        return super.execute();        
     }
 
     editCustomer(customer, file) {
@@ -261,7 +263,7 @@ class CustomersManagementService extends RestClient {
         this.data.append('action', 'editCustomer');
         this.ajaxOptions.processData = false;
         this.ajaxOptions.contentType = false;
-        return super.executeWithToken();        
+        return super.execute();        
     }
 
     findCustomerById(id_cliente) {
@@ -269,7 +271,7 @@ class CustomersManagementService extends RestClient {
             action: "findCustomerById",
             id_cliente: id_cliente
         }
-        return super.executeWithToken();   
+        return super.execute();   
     }
 }
 
@@ -285,14 +287,14 @@ class RentalManagementService extends RestClient {
             action: "getVideosInStorageWithCount",
             filters: filters
         }
-        return super.executeWithToken();        
+        return super.execute();        
     }
 
     clearRentalBookings() {
         this.data = {
             action: "clearRentalBookings"
         }
-        return super.executeWithToken();
+        return super.execute();
     }
 
     clearRentalBookingsForUser(id_dipendente) {
@@ -300,6 +302,6 @@ class RentalManagementService extends RestClient {
             action: "clearRentalBookingsForUser",
             id_dipendente: id_dipendente
         }
-        return super.executeWithToken();
+        return super.execute();
     }
 }

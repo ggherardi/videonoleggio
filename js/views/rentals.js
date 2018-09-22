@@ -56,7 +56,7 @@ function initVideoPreviewTable() {
 
     var loader = new Loader(`#${videosTableContainer.attr("id")}`);
     loader.showLoader();
-    $.when(rentalManagementService.clearRentalBookingsForUser(sharedStorage.loginContext.dipendente_id_dipendente), rentalManagementService.clearRentalBookings())
+    $.when(rentalManagementService.clearRentalBookingsForUser(sharedStorage.loginContext.id_dipendente), rentalManagementService.clearRentalBookings())
         .done(initVideoPreviewTablesSuccess)
         .fail();
 }
@@ -187,7 +187,7 @@ function rentVideoAction(e, dt, node, config) {
         onHide: {
             action: () => {
                 if(window.confirm("Uscendo dalla finestra verrà persa la prenotazione per le copie del film selezionato.")) {
-                    rentalManagementService.clearRentalBookingsForUser(sharedStorage.loginContext.dipendente_id_dipendente);
+                    rentalManagementService.clearRentalBookingsForUser(sharedStorage.loginContext.id_dipendente);
                 } else {
                     return false;
                 }

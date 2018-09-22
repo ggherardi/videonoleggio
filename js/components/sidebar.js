@@ -1,14 +1,13 @@
-buildSidebarDetails();
+var authenticationService = authenticationService || new AuthenticationService();
 
 function buildSidebarDetails() {
-    // $("#SidebarUsername").text(sharedStorage.loginContext.dipendente_username);
     var details = [
         { key: "Punto vendita", value: sharedStorage.loginContext.punto_vendita_nome },
         { key: "Città", value: sharedStorage.loginContext.citta_nome },
         { key: "Indirizzo", value: sharedStorage.loginContext.punto_vendita_indirizzo }
     ];
     var html = "";
-    html += `<span id="SidebarUsername" class="general_info_title">${sharedStorage.loginContext.dipendente_username}</span>`;
+    html += `<span id="SidebarUsername" class="general_info_title">${sharedStorage.loginContext.username}</span>`;
     html += `<div id="SidebarDelega" class="general_info_title">(${sharedStorage.loginContext.delega_nome})</div>`;
     html += `<div class="simple-button simple-button-small" onclick="logout();">Logout</div>`;
     html += `<ul class="general_info_list">`;
@@ -22,9 +21,15 @@ function buildSidebarDetails() {
 }
 
 function logout() {
-    cookiesManager.disposeCookie(authenticationManager.loginContext)
-    sharedStorage.user = null;
-    $(placeholders.sidebar).html("");
-    $(placeholders.navbar).html("");
-    mainContentController.setView(views.login);
+    authenticationService.logout()
+        .done(() => {
+            sharedStorage.user = null;
+            $(placeholders.sidebar).html("");
+            $(placeholders.navbar).html("");
+            mainContentController.setView(views.login);
+        })
+        .fail(restCallError);
 }
+
+/* Init */
+buildSidebarDetails();

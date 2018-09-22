@@ -16,7 +16,7 @@ function login(sender) {
 
 function loginSuccess(data) {
     sharedStorage.loginContext = JSON.parse(data);
-    cookiesManager.setEncodedCookie(authenticationManager.loginContext, sharedStorage.loginContext, 10);
+    // cookiesManager.setEncodedCookie(authenticationManager.loginContext, sharedStorage.loginContext, 10);
     $("#LoginForm").remove();
     initHomepage();
 }

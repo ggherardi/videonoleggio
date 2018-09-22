@@ -1,8 +1,10 @@
 <?php
 include 'DBConnection.php';
 include 'TokenGenerator.php';
+include 'Constants.php';
 use TokenGenerator;
 use Logger;
+use PermissionsConstants;
 
 $GLOBALS["CorrelationID"] = uniqid("corrId_", true);
 $correlationId = $GLOBALS["CorrelationID"];
@@ -22,7 +24,7 @@ class CustomerManagementService {
 
     function GetAllCustomersWithPremiumCode() {
         Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
-        TokenGenerator::ValidateToken();
+        TokenGenerator::CheckPermissions(PermissionsConstants::ADDETTO, "delega_codice");
         $query = 
             "SELECT *
             FROM cliente

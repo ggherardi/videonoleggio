@@ -17,6 +17,7 @@ var components = {
 
 /* Classes */
 var menu = new Menu(views);
+var authenticationService = new AuthenticationService();
 var mainContentController = new Controller(placeholders.mainContentZone);
 var sidebarController = new Controller("#Sidebar");
 var navbarController = new Controller("#Navbar");
@@ -28,22 +29,29 @@ var mainContentLoader;
 
 /* Document ready */
 $().ready(function() {
-    if(authenticationManager.isUserLogged()) {
-        initHomepage();
-    } else {
-        initLogin();
-    }
+    authenticationService.authenticateUser()
+        .done((data) => {
+            var res = JSON.parse(data);
+            if(res) {
+                initHomepage(res);
+            } else {
+                initLogin();
+            }
+        })
+        .fail((data) => {
+            initLogin();
+        });
 })
 
 /* Init functions */
-function initHomepage() {
-    initUser();
+function initHomepage(loginContext) {
+    initUser(loginContext);
     initMasterpageComponents();
 }
 
-function initUser() {
+function initUser(loginContext) {
     if(!sharedStorage.loginContext) {
-        sharedStorage.loginContext = cookiesManager.getObjectFromCookie(authenticationManager.loginContext);
+        sharedStorage.loginContext = loginContext;
     }
 }
 

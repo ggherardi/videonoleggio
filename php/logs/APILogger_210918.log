@@ -4046,3 +4046,180 @@ talBookings request.
 [21/09/2018 16:51:53] - corrId_5ba50589c24413.44426488 - Establishing connection to DB 
 [21/09/2018 16:51:53] - corrId_5ba50589c24413.44426488 - Executing query 
 [21/09/2018 16:51:53] - corrId_5ba50589c24413.44426488 - Query executed successfully 
+[21/09/2018 21:54:39] - corrId_5ba54c7f3d3599.44879899 - Reached CustomerManagementService API 
+[21/09/2018 21:54:39] - corrId_5ba54c7f3d3599.44879899 - Processing GetAllCustomersWithPremiumCode request. 
+[21/09/2018 21:54:39] - corrId_5ba54c7f3d3599.44879899 - Token validated. 
+[21/09/2018 21:54:39] - corrId_5ba54c7f3d3599.44879899 - Establishing connection to DB 
+[21/09/2018 21:54:39] - corrId_5ba54c7f3d3599.44879899 - Executing query 
+[21/09/2018 21:54:39] - corrId_5ba54c7f3d3599.44879899 - Query executed successfully 
+[21/09/2018 21:54:39] - corrId_5ba54c7f913198.22475974 - Reached RentalManagementService API 
+[21/09/2018 21:54:39] - corrId_5ba54c7f913198.22475974 - Processing ClearRentalBookingsForUser request. 
+[21/09/2018 21:54:39] - corrId_5ba54c7f913198.22475974 - Token validated. 
+[21/09/2018 21:54:39] - corrId_5ba54c7f913198.22475974 - Establishing connection to DB 
+[21/09/2018 21:54:39] - corrId_5ba54c7f913198.22475974 - Executing query 
+[21/09/2018 21:54:39] - corrId_5ba54c7f913198.22475974 - Error while executing query -> PROCEDURE videonoleggio.clearAllExpiredTempRentForUser does not exist 
+[21/09/2018 21:54:39] - corrId_5ba54c7f913198.22475974 - Error occured -> Exception: Exception: PROCEDURE videonoleggio.clearAllExpiredTempRentForUser does not exist in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\RentalManagementService.php(20): DBConnection->ExecuteQuery('CALL clearAllEx...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\RentalManagementService.php(142): RentalManagementService->ExecuteQuery('CALL clearAllEx...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\RentalManagementService.php(160): RentalManagementService->ClearRentalBookingsForUser()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\RentalManagementService.php(178): RentalManagementService->Init()
+#4 {main} in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:76
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\RentalManagementService.php(20): DBConnection->ExecuteQuery('CALL clearAllEx...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\RentalManagementService.php(142): RentalManagementService->ExecuteQuery('CALL clearAllEx...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\RentalManagementService.php(160): RentalManagementService->ClearRentalBookingsForUser()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\RentalManagementService.php(178): RentalManagementService->Init()
+#4 {main} 
+[21/09/2018 21:54:39] - corrId_5ba54c7f9ce987.46089238 - Reached RentalManagementService API 
+[21/09/2018 21:54:39] - corrId_5ba54c7f9ce987.46089238 - Processing ClearRentalBookings request. 
+[21/09/2018 21:54:39] - corrId_5ba54c7f9ce987.46089238 - Token validated. 
+[21/09/2018 21:54:39] - corrId_5ba54c7f9ce987.46089238 - Establishing connection to DB 
+[21/09/2018 21:54:39] - corrId_5ba54c7f9ce987.46089238 - Executing query 
+[21/09/2018 21:54:39] - corrId_5ba54c7f9ce987.46089238 - Query executed successfully 
+[21/09/2018 21:56:05] - corrId_5ba54cd5d5e574.03963819 - Reached RentalManagementService API 
+[21/09/2018 21:56:05] - corrId_5ba54cd5d5e574.03963819 - Processing ClearRentalBookingsForUser request. 
+[21/09/2018 21:56:05] - corrId_5ba54cd5d5e574.03963819 - Token validated. 
+[21/09/2018 21:56:05] - corrId_5ba54cd5d6a154.39963326 - Reached RentalManagementService API 
+[21/09/2018 21:56:05] - corrId_5ba54cd5d5e574.03963819 - Establishing connection to DB 
+[21/09/2018 21:56:05] - corrId_5ba54cd5d6a154.39963326 - Processing ClearRentalBookings request. 
+[21/09/2018 21:56:05] - corrId_5ba54cd5d6a154.39963326 - Token validated. 
+[21/09/2018 21:56:05] - corrId_5ba54cd5d5e574.03963819 - Executing query 
+[21/09/2018 21:56:05] - corrId_5ba54cd5d6a154.39963326 - Establishing connection to DB 
+[21/09/2018 21:56:05] - corrId_5ba54cd5d5e574.03963819 - Error while executing query -> PROCEDURE videonoleggio.clearAllExpiredTempRentForUser does not exist 
+[21/09/2018 21:56:05] - corrId_5ba54cd5d5e574.03963819 - Error occured -> Exception: Exception: PROCEDURE videonoleggio.clearAllExpiredTempRentForUser does not exist in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\RentalManagementService.php(20): DBConnection->ExecuteQuery('CALL clearAllEx...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\RentalManagementService.php(142): RentalManagementService->ExecuteQuery('CALL clearAllEx...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\RentalManagementService.php(160): RentalManagementService->ClearRentalBookingsForUser()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\RentalManagementService.php(178): RentalManagementService->Init()
+#4 {main} in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:76
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\RentalManagementService.php(20): DBConnection->ExecuteQuery('CALL clearAllEx...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\RentalManagementService.php(142): RentalManagementService->ExecuteQuery('CALL clearAllEx...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\RentalManagementService.php(160): RentalManagementService->ClearRentalBookingsForUser()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\RentalManagementService.php(178): RentalManagementService->Init()
+#4 {main} 
+[21/09/2018 21:56:05] - corrId_5ba54cd5d6a154.39963326 - Executing query 
+[21/09/2018 21:56:05] - corrId_5ba54cd5d6a154.39963326 - Query executed successfully 
+[21/09/2018 21:56:10] - corrId_5ba54cda849e59.17296468 - Reached RentalManagementService API 
+[21/09/2018 21:56:10] - corrId_5ba54cda849e59.17296468 - Processing ClearRentalBookingsForUser request. 
+[21/09/2018 21:56:10] - corrId_5ba54cda849e59.17296468 - Token validated. 
+[21/09/2018 21:56:10] - corrId_5ba54cda84dca0.59066131 - Reached RentalManagementService API 
+[21/09/2018 21:56:10] - corrId_5ba54cda84dca0.59066131 - Processing ClearRentalBookings request. 
+[21/09/2018 21:56:10] - corrId_5ba54cda849e59.17296468 - Establishing connection to DB 
+[21/09/2018 21:56:10] - corrId_5ba54cda84dca0.59066131 - Token validated. 
+[21/09/2018 21:56:10] - corrId_5ba54cda84dca0.59066131 - Establishing connection to DB 
+[21/09/2018 21:56:10] - corrId_5ba54cda849e59.17296468 - Executing query 
+[21/09/2018 21:56:10] - corrId_5ba54cda849e59.17296468 - Error while executing query -> PROCEDURE videonoleggio.clearAllExpiredTempRentForUser does not exist 
+[21/09/2018 21:56:10] - corrId_5ba54cda849e59.17296468 - Error occured -> Exception: Exception: PROCEDURE videonoleggio.clearAllExpiredTempRentForUser does not exist in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\RentalManagementService.php(20): DBConnection->ExecuteQuery('CALL clearAllEx...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\RentalManagementService.php(142): RentalManagementService->ExecuteQuery('CALL clearAllEx...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\RentalManagementService.php(160): RentalManagementService->ClearRentalBookingsForUser()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\RentalManagementService.php(178): RentalManagementService->Init()
+#4 {main} in C:\Projects\ProgettiBDC\Videonoleggio\php\DBConnection.php:76
+Stack trace:
+#0 C:\Projects\ProgettiBDC\Videonoleggio\php\RentalManagementService.php(20): DBConnection->ExecuteQuery('CALL clearAllEx...')
+#1 C:\Projects\ProgettiBDC\Videonoleggio\php\RentalManagementService.php(142): RentalManagementService->ExecuteQuery('CALL clearAllEx...')
+#2 C:\Projects\ProgettiBDC\Videonoleggio\php\RentalManagementService.php(160): RentalManagementService->ClearRentalBookingsForUser()
+#3 C:\Projects\ProgettiBDC\Videonoleggio\php\RentalManagementService.php(178): RentalManagementService->Init()
+#4 {main} 
+[21/09/2018 21:56:10] - corrId_5ba54cda84dca0.59066131 - Executing query 
+[21/09/2018 21:56:10] - corrId_5ba54cda84dca0.59066131 - Query executed successfully 
+[21/09/2018 22:09:22] - corrId_5ba54ff2069848.55991640 - Reached CustomerManagementService API 
+[21/09/2018 22:09:22] - corrId_5ba54ff2069848.55991640 - Processing GetAllCustomersWithPremiumCode request. 
+[21/09/2018 22:09:22] - corrId_5ba54ff2069848.55991640 - Token validated. 
+[21/09/2018 22:09:22] - corrId_5ba54ff2069848.55991640 - Establishing connection to DB 
+[21/09/2018 22:09:22] - corrId_5ba54ff2069848.55991640 - Executing query 
+[21/09/2018 22:09:22] - corrId_5ba54ff2069848.55991640 - Query executed successfully 
+[21/09/2018 22:09:28] - corrId_5ba54ff83d8697.71882587 - Reached GetAllItemsService API 
+[21/09/2018 22:09:28] - corrId_5ba54ff83d8697.71882587 - Processing GetAllDiscounts request. 
+[21/09/2018 22:09:28] - corrId_5ba54ff83d8697.71882587 - Token validated. 
+[21/09/2018 22:09:28] - corrId_5ba54ff83d8697.71882587 - Establishing connection to DB 
+[21/09/2018 22:09:28] - corrId_5ba54ff83d8697.71882587 - Executing query 
+[21/09/2018 22:09:28] - corrId_5ba54ff83d8697.71882587 - Query executed successfully 
+[21/09/2018 22:09:31] - corrId_5ba54ffb4d26e9.78313518 - Reached CustomerManagementService API 
+[21/09/2018 22:09:31] - corrId_5ba54ffb4d26e9.78313518 - Processing EditCustomer request. 
+[21/09/2018 22:09:31] - corrId_5ba54ffb4d26e9.78313518 - Token validated. 
+[21/09/2018 22:09:31] - corrId_5ba54ffb4d26e9.78313518 - Establishing connection to DB 
+[21/09/2018 22:09:31] - corrId_5ba54ffb4d26e9.78313518 - Executing query 
+[21/09/2018 22:09:31] - corrId_5ba54ffb4d26e9.78313518 - Query executed successfully 
+[21/09/2018 22:09:31] - corrId_5ba54ffb5479b6.11434243 - Reached CustomerManagementService API 
+[21/09/2018 22:09:31] - corrId_5ba54ffb5479b6.11434243 - Processing GetAllCustomersWithPremiumCode request. 
+[21/09/2018 22:09:31] - corrId_5ba54ffb5479b6.11434243 - Token validated. 
+[21/09/2018 22:09:31] - corrId_5ba54ffb5479b6.11434243 - Establishing connection to DB 
+[21/09/2018 22:09:31] - corrId_5ba54ffb5479b6.11434243 - Executing query 
+[21/09/2018 22:09:31] - corrId_5ba54ffb5479b6.11434243 - Query executed successfully 
+[21/09/2018 22:09:33] - corrId_5ba54ffdd467d7.76935628 - Reached GetAllItemsService API 
+[21/09/2018 22:09:33] - corrId_5ba54ffdd467d7.76935628 - Processing GetAllDiscounts request. 
+[21/09/2018 22:09:33] - corrId_5ba54ffdd467d7.76935628 - Token validated. 
+[21/09/2018 22:09:33] - corrId_5ba54ffdd467d7.76935628 - Establishing connection to DB 
+[21/09/2018 22:09:33] - corrId_5ba54ffdd467d7.76935628 - Executing query 
+[21/09/2018 22:09:33] - corrId_5ba54ffdd467d7.76935628 - Query executed successfully 
+[21/09/2018 22:09:35] - corrId_5ba54fffe01ff9.29133339 - Reached CustomerManagementService API 
+[21/09/2018 22:09:35] - corrId_5ba54fffe01ff9.29133339 - Processing EditCustomer request. 
+[21/09/2018 22:09:35] - corrId_5ba54fffe01ff9.29133339 - Token validated. 
+[21/09/2018 22:09:35] - corrId_5ba54fffe01ff9.29133339 - Establishing connection to DB 
+[21/09/2018 22:09:35] - corrId_5ba54fffe01ff9.29133339 - Executing query 
+[21/09/2018 22:09:35] - corrId_5ba54fffe01ff9.29133339 - Query executed successfully 
+[21/09/2018 22:09:35] - corrId_5ba54fffe67916.53332501 - Reached CustomerManagementService API 
+[21/09/2018 22:09:35] - corrId_5ba54fffe67916.53332501 - Processing GetAllCustomersWithPremiumCode request. 
+[21/09/2018 22:09:35] - corrId_5ba54fffe67916.53332501 - Token validated. 
+[21/09/2018 22:09:35] - corrId_5ba54fffe67916.53332501 - Establishing connection to DB 
+[21/09/2018 22:09:35] - corrId_5ba54fffe67916.53332501 - Executing query 
+[21/09/2018 22:09:35] - corrId_5ba54fffe67916.53332501 - Query executed successfully 
+[21/09/2018 22:19:24] - corrId_5ba5524c12b168.89649897 - Reached CustomerManagementService API 
+[21/09/2018 22:19:24] - corrId_5ba5524c12b168.89649897 - Processing GetAllCustomersWithPremiumCode request. 
+[21/09/2018 22:19:24] - corrId_5ba5524c12b168.89649897 - Token validated. 
+[21/09/2018 22:19:24] - corrId_5ba5524c12b168.89649897 - Establishing connection to DB 
+[21/09/2018 22:19:24] - corrId_5ba5524c12b168.89649897 - Executing query 
+[21/09/2018 22:19:24] - corrId_5ba5524c12b168.89649897 - Query executed successfully 
+[21/09/2018 22:19:24] - corrId_5ba5524cf40913.14799171 - Reached RentalManagementService API 
+[21/09/2018 22:19:25] - corrId_5ba5524cf40913.14799171 - Processing ClearRentalBookingsForUser request. 
+[21/09/2018 22:19:25] - corrId_5ba5524cf40913.14799171 - Token validated. 
+[21/09/2018 22:19:25] - corrId_5ba5524cf40913.14799171 - Establishing connection to DB 
+[21/09/2018 22:19:25] - corrId_5ba5524cf40913.14799171 - Executing query 
+[21/09/2018 22:19:25] - corrId_5ba5524cf40913.14799171 - Query executed successfully 
+[21/09/2018 22:19:25] - corrId_5ba5524d0fc365.82393064 - Reached RentalManagementService API 
+[21/09/2018 22:19:25] - corrId_5ba5524d0fc365.82393064 - Processing ClearRentalBookings request. 
+[21/09/2018 22:19:25] - corrId_5ba5524d0fc365.82393064 - Token validated. 
+[21/09/2018 22:19:25] - corrId_5ba5524d0fc365.82393064 - Establishing connection to DB 
+[21/09/2018 22:19:25] - corrId_5ba5524d0fc365.82393064 - Executing query 
+[21/09/2018 22:19:25] - corrId_5ba5524d0fc365.82393064 - Query executed successfully 
+[21/09/2018 22:19:25] - corrId_5ba5524d159f87.16790224 - Reached RentalManagementService API 
+[21/09/2018 22:19:25] - corrId_5ba5524d159f87.16790224 - Processing GetVideosInStorageWithCount request. 
+[21/09/2018 22:19:25] - corrId_5ba5524d159f87.16790224 - Token validated. 
+[21/09/2018 22:19:25] - corrId_5ba5524d159f87.16790224 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[21/09/2018 22:19:25] - corrId_5ba5524d159f87.16790224 - Establishing connection to DB 
+[21/09/2018 22:19:25] - corrId_5ba5524d159f87.16790224 - Executing query 
+[21/09/2018 22:19:25] - corrId_5ba5524d159f87.16790224 - Query executed successfully 
+[21/09/2018 22:19:25] - corrId_5ba5524d159f87.16790224 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 3, 12, 14, 15, 16) 
+[21/09/2018 22:19:25] - corrId_5ba5524d159f87.16790224 - Executing query 
+[21/09/2018 22:19:25] - corrId_5ba5524d159f87.16790224 - Query executed successfully 
+[21/09/2018 22:19:25] - corrId_5ba5524d159f87.16790224 - Actor: [{"id_film":"1","titolo":"Le ali della libert\u00e0","durata":"142","prezzo_giornaliero":"5","tipo":"Drammatico","casa_produttrice_nome":"Castle Rock Entertainment","regista_nome":"Frank","regista_cognome":"Darabont","copie_totali":"2","copie_noleggiate":"1","copie_danneggiate":"0","cast":[{"nome_attore":"Tim","cognome_attore":"Robbins"},{"nome_attore":"Morgan","cognome_attore":"Freeman"},{"nome_attore":"Bob","cognome_attore":"Gunton"}]},{"id_film":"2","titolo":"Il padrino","durata":"175","prezzo_giornaliero":"5","tipo":"Thriller","casa_produttrice_nome":"Paramount Pictures","regista_nome":"Francis","regista_cognome":"Ford Coppola","copie_totali":"5","copie_noleggiate":"0","copie_danneggiate":"0","cast":[{"nome_attore":"Marlon","cognome_attore":"Brando"},{"nome_attore":"Al","cognome_attore":"Pacino"},{"nome_attore":"James","cognome_attore":"Caan"}]},{"id_film":"3","titolo":"Il cavaliere oscuro","durata":"152","prezzo_giornaliero":"8","tipo":"Thriller","casa_produttrice_nome":"Warner Bros.","regista_nome":"Christopher","regista_cognome":"Nolan","copie_totali":"5","copie_noleggiate":"0","copie_danneggiate":"0","cast":[{"nome_attore":"Christian","cognome_attore":"Bale"},{"nome_attore":"Heath","cognome_attore":"Ledger"},{"nome_attore":"Michael","cognome_attore":"Caine"}]},{"id_film":"12","titolo":"Il Signore degli Anelli - Il ritorno del re","durata":"201","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"10","copie_noleggiate":"1","copie_danneggiate":"0","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"14","titolo":"Il Signore degli Anelli - La compagnia dell'Anello","durata":"178","prezzo_giornaliero":"8","tipo":"Fantasy","casa_produttrice_nome":"New Line Cinema","regista_nome":"Peter","regista_cognome":"Jackson","copie_totali":"5","copie_noleggiate":"3","copie_danneggiate":"1","cast":[{"nome_attore":"Orlando","cognome_attore":"Bloom"},{"nome_attore":"Sean","cognome_attore":"Astin"},{"nome_attore":"Viggo","cognome_attore":"Mortensen"}]},{"id_film":"15","titolo":"Il buono, il brutto, il cattivo","durata":"161","prezzo_giornaliero":"5","tipo":"Western","casa_produttrice_nome":"Produzioni Europee Associate (PEA)","regista_nome":"Sergio","regista_cognome":"Leone","copie_totali":"5","copie_noleggiate":"0","copie_danneggiate":"0","cast":[{"nome_attore":"Clint","cognome_attore":"Eastwood"},{"nome_attore":"Lee","cognome_attore":"Van Cleef"},{"nome_attore":"Eli","cognome_attore":"Wallach"}]},{"id_film":"16","titolo":"La parola ai giurati","durata":"96","prezzo_giornaliero":"4.5","tipo":"Thriller","casa_produttrice_nome":"Orion-Nova Productions","regista_nome":"Sidney","regista_cognome":"Lumet","copie_totali":"10","copie_noleggiate":"0","copie_danneggiate":"2","cast":[{"nome_attore":"Henry","cognome_attore":"Fonda"},{"nome_attore":"Martin","cognome_attore":"Balsam"}]}] 
+[21/09/2018 22:19:31] - corrId_5ba552531b43c8.02927816 - Reached RentalManagementService API 
+[21/09/2018 22:19:31] - corrId_5ba552531b43c8.02927816 - Processing ClearRentalBookingsForUser request. 
+[21/09/2018 22:19:31] - corrId_5ba552531b43c8.02927816 - Token validated. 
+[21/09/2018 22:19:31] - corrId_5ba552531b43c8.02927816 - Establishing connection to DB 
+[21/09/2018 22:19:31] - corrId_5ba552531b43c8.02927816 - Executing query 
+[21/09/2018 22:19:31] - corrId_5ba552531b43c8.02927816 - Query executed successfully 
