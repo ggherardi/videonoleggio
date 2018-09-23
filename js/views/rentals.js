@@ -3,6 +3,7 @@ var storageManagementService = storageManagementService || new StorageManagement
 var getAllItemsService = getAllItemsService || new GetAllItemsService();
 var videosTableContainer = $("#VideosTableContainer");
 var RentVideoForm_id_cliente;
+var rentRates;
 var videosDataTable;
 var videosDataTableOptions = {
     dom: 'Bftpil',
@@ -13,8 +14,8 @@ var videosDataTableOptions = {
         { data: "casa_produttrice_nome" },
         { data: "regista_nome" },
         { data: "regista_cognome" },
-        {   data: "cast"},
-     
+        { data: "cast" },
+        { data: "copie_disponibili" },
         { data: "copie_noleggiate" },
         { data: "copie_danneggiate" },
         {
@@ -30,16 +31,13 @@ var videosDataTableOptions = {
         { data: "copie_totali" },
     ],
     columnDefs: [{
-        targets: [ 0, 1, 2, 3, 4, 5, 6 ],
+        targets: [ 0, 1, 2, 3, 4, 5, 6 , 7],
         visible: false,
         searchable: false
     }],
     buttons: [
         { extend: 'copy', text: "Copia" },
         { extend: 'selected', text: "Noleggia film", action: rentVideoAction }
-        // { extend: 'selectedSingle', text: "Resetta password", action: resetPassword },
-        // { extend: 'selectedSingle', text: "Modifica account", action: editEmployee },
-        // { extend: 'selectedSingle', text: "Cancella account", action: deleteEmployee }
     ]
 };
  
@@ -76,6 +74,7 @@ function getVideosInStorageWithCountSuccess(data) {
                             <td>${videos[i].regista_nome}</td>   
                             <td>${videos[i].regista_cognome}</td>  
                             <td>${videos[i].cast}</td>    
+                            <td>${videos[i].copie_totali - videos[i].copie_danneggiate - videos[i].copie_noleggiate}</td>
                             <td>${videos[i].copie_noleggiate}</td>
                             <td>${videos[i].copie_danneggiate}</td>                            
                             <td></td>
@@ -171,28 +170,50 @@ function formatCollapsedDetails (row) {
 /* ACTIONS */
 /* Rent Video Action */
 function rentVideoAction(e, dt, node, config) {
+    var canRentAllSelectedVideos = function(rows) {
+        for(var i = 0; i < rows.length; i++) {
+            if(rows[i].copie_disponibili == 0) {
+                return false;
+            }        
+        }
+        return true;
+    }
+
     var rows = dt.rows({ selected: true }).data();    
     var editModalBody = buildRentVideoForm();
-    modalOptions = {
-        title: "Noleggia film",
-        body: editModalBody,
-        cancelButton: {
-            text: "Annulla"
-        },
-        confirmButton: {
-            text: "Conferma noleggio",
-            action: formClickDelegate
-        },
-        onHide: {
-            action: () => {
-                if(window.confirm("Uscendo dalla finestra i film selezionati verranno resi nuovamente disponibili.")) {
-                    rentalManagementService.clearRentalBookingsForUser(sharedStorage.loginContext.id_dipendente);
-                } else {
-                    return false;
+    if(canRentAllSelectedVideos(rows)) {
+        modalOptions = {
+            title: "Noleggia film",
+            body: editModalBody,
+            cancelButton: {
+                text: "Annulla"
+            },
+            confirmButton: {
+                text: "Conferma noleggio",
+                action: formClickDelegate
+            },
+            onHide: {
+                action: () => {
+                    if(window.confirm("Uscendo dalla finestra i film selezionati verranno resi nuovamente disponibili.")) {
+                        rentalManagementService.clearRentalBookingsForUser(sharedStorage.loginContext.id_dipendente);
+                    } else {
+                        return false;
+                    }
                 }
+            },
+            size: "large"
+        }          
+    } else {
+        var body = `<span>Sono stati selezionati uno o più video senza disponibilità immediata. 
+                        Si prega di deselezionarli e riprovare</span>`;
+        modalOptions = {
+            title: "Attenzione",
+            body: body,
+            cancelButton: {
+                text: "Annulla"
             }
         }
-    }        
+    }     
     modal = new Modal(modalOptions);
     modal.open();  
     loadAndBuildVideosTable(rows);
@@ -203,6 +224,7 @@ function loadAndBuildVideosTable(rows) {
         var filters = {};
         filters.films = [];
         filters.id_punto_vendita = sharedStorage.loginContext.punto_vendita_id_punto_vendita;
+        filters.id_dipendente = sharedStorage.loginContext.id_dipendente;
         for(var i = 0; i < rows.length; i++) {
             filters.films.push({ id_film: rows[i].id_film, prezzo_giornaliero: rows[i].prezzo_giornaliero, titolo: rows[i].titolo });
         }
@@ -212,15 +234,17 @@ function loadAndBuildVideosTable(rows) {
     var loadAndBuildVideosTableSuccess = function(data) {   
         if(data) {
             var copies = JSON.parse(data);
-            copies = mapCopiesWithFilms(copies);
+            copies = buildCopiesTableObject(copies);
             var html = ``; 
             for(var i = 0; i < copies.length; i++) {
                 html += `<tr>
-                            <td>${copies[i].id_copia}</td>
-                            <td>${copies[i].titolo}</td>
+                            <td class="d-none">${copies[i].id_copia}</td>
+                            <td>${copies[i].titolo}</td>  
+                            <td><input id="RentVideoForm_date_control_${i}" type="date" class="form-control RentVideoForm_date_control" onchange="calculatePrice(this);" required></td>
+                            <td id="RentVideoForm_partial_price_${i}"></td>
                         </tr>`;
             }
-            $("#RentVideoForm_videos_table_body").html(html);  
+            $("#RentVideoForm_videos_table_body").html(html);
             loadDiscounts();
         }
     }
@@ -235,42 +259,31 @@ function loadAndBuildVideosTable(rows) {
         .always(() => loader.hideLoader());
 }
 
-function mapCopiesWithFilms(copies) {
+function calculatePrice(input) {
+    console.log(input);
+}
+
+function buildCopiesTableObject(copies) {
     var ret = [];
     var sortByFilmId = (a, b) => { return parseInt(a.id_film) > b.id_film ? 1 : 0 };
     var tempCopies = copies.sort(sortByFilmId);
-    var tempGlobal_FilmPrices = tempGlobal_FilmPrices.sort(sortByFilmId);
-    for(var i = 0; i < tempCopies; i++) {
-        if(tempGlobal_FilmPrices[i].id_film == tempCopies.id_film) {
-            ret.push({ id_film: tempCopies[i].id_film, titolo: tempGlobal_FilmPrices[i].titolo })
+    var tempGlobal_FilmPrices = Global_FilmPrices.sort(sortByFilmId);
+    for(var i = 0; i < tempCopies.length; i++) {
+        if(tempGlobal_FilmPrices[i].id_film == tempCopies[i].id_film) {
+            var copiesTableObject = {};
+            copiesTableObject.id_film = tempCopies[i].id_film;
+            copiesTableObject.id_copia = tempCopies[i].id_copia;
+            copiesTableObject.titolo = tempGlobal_FilmPrices[i].titolo;
+            copiesTableObject.prezzo_giornaliero = tempGlobal_FilmPrices[i].prezzo_giornaliero;
+            ret.push(copiesTableObject)
         }
     }
     return ret;
 }
 
 function loadDiscounts() {
-    var discountController = new Controller("#RentVideoForm_tariffe_container");
-    discountController.setComponent(components.discountTable);
-}
-
-function rentVideo() {
-    // not implemented yet
-    if(window.confirm("Confermi il noleggio dei film selezionati?")) {
-        console.log("rented");
-        return false;
-    } else {
-        return false;
-    }
-    rentalManagementService.clearRentalBookings();
-    var customer = getCustomerFromForm();
-    var files = [];
-    if(fileInput.length > 0) {
-        files = $("#CustomerForm_liberatoria")[0].files;
-    } else {
-        customer.keepExistingFile = true;
-    }
-    customersManagementService.editCustomer(customer, files[0])
-        .done(actionSuccess)
+    rentalManagementService.getActiveDiscount()
+        .done((data) => rentRates = JSON.parse(data))
         .fail(restCallError);
 }
 
@@ -310,13 +323,15 @@ function restoreFindCustomerInput() {
 
 /* Actions shared functions  */
 function buildRentVideoForm() {
-    var html = `<form class="form-signin" onsubmit="rentVideo();return false;">
+    var html = `<form class="form" onsubmit="rentVideo();return false;">
                     <input id="RentVideoForm_id_copia" type="hidden">
                     <div id="RentVideoFormPreviewTableContainer">
                         <table class="table">
                             <thead>
-                                <th>Codice copia</th>
+                                <th class="d-none">Codice copia</th>
                                 <th>Film</th>
+                                <th>Data riconsegna</th>
+                                <th>Prezzo</th>
                             </thead>
                             <tbody id="RentVideoForm_videos_table_body"></tbody>
                         </table>
@@ -327,7 +342,6 @@ function buildRentVideoForm() {
                         <input id="RentVideoForm_id_cliente" type="number" class="form-control col-sm-8" placeholder="Inserire la matricola del cliente">
                         <button class="btn btn-light ml-3" type="button" onclick="findCustomerById();">Cerca cliente</button>
                     </div>
-                    <div id="RentVideoForm_tariffe_container" class="row px-3"></div>
                     <button id="RentVideoForm_insert_button" class="d-none" type="submit">
                 </form>`;
     return html;
@@ -336,6 +350,28 @@ function buildRentVideoForm() {
 function formClickDelegate() {
     $("#RentVideoForm_insert_button").click();
 }
+
+function rentVideo() {
+    // not implemented yet
+    if(window.confirm("Confermi il noleggio dei film selezionati?")) {
+        console.log("rented");
+        return false;
+    } else {
+        return false;
+    }
+    rentalManagementService.clearRentalBookings();
+    var customer = getCustomerFromForm();
+    var files = [];
+    if(fileInput.length > 0) {
+        files = $("#CustomerForm_liberatoria")[0].files;
+    } else {
+        customer.keepExistingFile = true;
+    }
+    customersManagementService.editCustomer(customer, files[0])
+        .done(actionSuccess)
+        .fail(restCallError);
+}
+
 
 /** Init */
 initVideoPreviewTable();

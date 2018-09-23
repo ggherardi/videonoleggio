@@ -17,6 +17,7 @@ class Modal {
     constructor(modalOptions) {
         this.modalOptions = modalOptions;
         this.sharedModal = $("#SharedModal");
+        this.sharedModalInner = $("#SharedModalInner");
         this.title = $("#SharedModalTitle");
         this.body = $("#SharedModalBody");
         this.cancelButton = $("#ShareModalCancelButton");
@@ -32,6 +33,7 @@ class Modal {
         this.confirmButton.text("");        
         this.confirmButton.off("click");
         this.confirmButton.hide();
+        this.sharedModalInner.removeClass("modal-lg")
         this.title.text("");
         this.body.html("");
     }
@@ -50,6 +52,11 @@ class Modal {
         }
         if(this.modalOptions.onHide) {
             this.sharedModal.on("hide.bs.modal", this.modalOptions.onHide.action);
+        }
+        if(this.modalOptions.size) {
+            if(this.modalOptions.size == "large") {
+                this.sharedModalInner.addClass("modal-lg")
+            }
         }
     }
 

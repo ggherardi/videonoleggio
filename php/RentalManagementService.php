@@ -87,39 +87,46 @@ class RentalManagementService {
     function GetMostRecentCopies() {
         Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
         TokenGenerator::CheckPermissions(PermissionsConstants::ADDETTO, "delega_codice");
-        $filters = json_decode($_POST["filters"]);
         $allCopies = array();
-        for($i = 0; $i < count($filters->films); $i++) {
-            $dbContext-StartTransaction();
-            $query = 
-                "SELECT co.id_copia, co.data_scarico
-                FROM co
-                WHERE co.id_punto_vendita = %d
-                AND co.id_film = %d
-                AND co.noleggiato = 0
-                AND co.restituito = 0
-                ORDER BY co.data_scarico desc
-                LIMIT 1";
-            $query = sprintf($query, $filters->id_punto_vendita, $filters->films[$i]);
-            Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
-            $res = self::ExecuteQuery($query);
-            $row = $res->fetch_assoc();
-            $allCopies[] = $row;
-            $query = 
-                "UPDATE copia
-                WHERE id_copia = %d
-                AND noleggiato = 0
-                AND restituito = 0
-                ORDER BY data_scarico desc
-                SET
-                noleggiato = 1,
-                data_prenotazione_noleggio = CURRENT_TIMESTAMP,
-                id_dipendente_prenotazione_noleggio = %d";
-            $query = sprintf($query, $filters->id_punto_vendita, $filters->id_film);
-            Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
-            $res = self::ExecuteQuery($query);
-            $dbContext-CommitTransaction();
+        try {
+            $filters = json_decode($_POST["filters"]);
+            $this->dbContext->StartTransaction();
+            for($i = 0; $i < count($filters->films); $i++) {
+                Logger::Write("FILTERS: ".json_encode($filters->films[$i]->id_film), $GLOBALS["CorrelationID"]);
+                $query = 
+                    "SELECT co.id_copia, co.data_scarico, co.id_film
+                    FROM copia co
+                    WHERE co.id_punto_vendita = %d
+                    AND co.id_film = %d
+                    AND co.noleggiato = 0
+                    AND co.restituito = 0
+                    ORDER BY co.data_scarico desc
+                    LIMIT 1";
+                $query = sprintf($query, $filters->id_punto_vendita, $filters->films[$i]->id_film);
+                // Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
+                $res = self::ExecuteQuery($query);
+                // Logger::Write("ROW: ".json_encode($row), $GLOBALS["CorrelationID"]);
+                $row = $res->fetch_assoc();
+                $allCopies[] = $row;
+                $query = 
+                    "UPDATE copia             
+                    SET
+                    noleggiato = 1,
+                    data_prenotazione_noleggio = CURRENT_TIMESTAMP,
+                    id_dipendente_prenotazione_noleggio = %d
+                    WHERE id_copia = %d
+                    AND noleggiato = 0
+                    AND restituito = 0";
+                $query = sprintf($query, $filters->id_dipendente, $row["id_copia"]);
+                // Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
+                $res = self::ExecuteQuery($query);
+            }
+            $this->dbContext->CommitTransaction();
+        } catch (Throwable $ex) {
+            $this->dbContext->RollBack();
+            http_response_code(500);
         }
+
         exit(json_encode($allCopies));
     }
 
@@ -161,6 +168,7 @@ class RentalManagementService {
     // Switcha l'operazione richiesta lato client
     function Init() {
         try {
+            $this->dbContext = new DBConnection();
             switch($_POST["action"]) {
                 case "getVideosInStorageWithCount":
                     self::GetVideosInStorageWithCount();
