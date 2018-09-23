@@ -171,9 +171,8 @@ function formatCollapsedDetails (row) {
 /* ACTIONS */
 /* Rent Video Action */
 function rentVideoAction(e, dt, node, config) {
-    var row = dt.rows({ selected: true }).data()[0];    
-    var editModalBody = buildRentVideoForm(row);
-
+    var rows = dt.rows({ selected: true }).data();    
+    var editModalBody = buildRentVideoForm();
     modalOptions = {
         title: "Noleggia film",
         body: editModalBody,
@@ -186,7 +185,7 @@ function rentVideoAction(e, dt, node, config) {
         },
         onHide: {
             action: () => {
-                if(window.confirm("Uscendo dalla finestra verrà persa la prenotazione per le copie del film selezionato.")) {
+                if(window.confirm("Uscendo dalla finestra i film selezionati verranno resi nuovamente disponibili.")) {
                     rentalManagementService.clearRentalBookingsForUser(sharedStorage.loginContext.id_dipendente);
                 } else {
                     return false;
@@ -196,12 +195,73 @@ function rentVideoAction(e, dt, node, config) {
     }        
     modal = new Modal(modalOptions);
     modal.open();  
-    // loadSelect(row);
+    loadAndBuildVideosTable(rows);
+}
+
+function loadAndBuildVideosTable(rows) {
+    var buildFilters = function(rows) {
+        var filters = {};
+        filters.films = [];
+        filters.id_punto_vendita = sharedStorage.loginContext.punto_vendita_id_punto_vendita;
+        for(var i = 0; i < rows.length; i++) {
+            filters.films.push({ id_film: rows[i].id_film, prezzo_giornaliero: rows[i].prezzo_giornaliero, titolo: rows[i].titolo });
+        }
+        return filters;
+    }
+
+    var loadAndBuildVideosTableSuccess = function(data) {   
+        if(data) {
+            var copies = JSON.parse(data);
+            copies = mapCopiesWithFilms(copies);
+            var html = ``; 
+            for(var i = 0; i < copies.length; i++) {
+                html += `<tr>
+                            <td>${copies[i].id_copia}</td>
+                            <td>${copies[i].titolo}</td>
+                        </tr>`;
+            }
+            $("#RentVideoForm_videos_table_body").html(html);  
+            loadDiscounts();
+        }
+    }
+
+    var loader = new Loader("#RentVideoFormPreviewTableContainer");
+    loader.showLoader();
+    var filters = buildFilters(rows);
+    Global_FilmPrices = filters.films;
+    rentalManagementService.getMostRecentCopies(filters)
+        .done(loadAndBuildVideosTableSuccess)
+        .fail(restCallError)
+        .always(() => loader.hideLoader());
+}
+
+function mapCopiesWithFilms(copies) {
+    var ret = [];
+    var sortByFilmId = (a, b) => { return parseInt(a.id_film) > b.id_film ? 1 : 0 };
+    var tempCopies = copies.sort(sortByFilmId);
+    var tempGlobal_FilmPrices = tempGlobal_FilmPrices.sort(sortByFilmId);
+    for(var i = 0; i < tempCopies; i++) {
+        if(tempGlobal_FilmPrices[i].id_film == tempCopies.id_film) {
+            ret.push({ id_film: tempCopies[i].id_film, titolo: tempGlobal_FilmPrices[i].titolo })
+        }
+    }
+    return ret;
+}
+
+function loadDiscounts() {
+    var discountController = new Controller("#RentVideoForm_tariffe_container");
+    discountController.setComponent(components.discountTable);
 }
 
 function rentVideo() {
+    // not implemented yet
+    if(window.confirm("Confermi il noleggio dei film selezionati?")) {
+        console.log("rented");
+        return false;
+    } else {
+        return false;
+    }
     rentalManagementService.clearRentalBookings();
-    var fileInput = $("#CustomerForm_liberatoria");
     var customer = getCustomerFromForm();
     var files = [];
     if(fileInput.length > 0) {
@@ -214,55 +274,18 @@ function rentVideo() {
         .fail(restCallError);
 }
 
-/* Actions shared functions  */
-function buildRentVideoForm(row) {
-    var isEditForm = row != undefined;
-    var html = `<form class="form-signin" onsubmit="rentVideo();return false;">
-                    <input id="RentVideoForm_id_copia" type="hidden">
-                    <div id="RentVideoFormPreviewTableContainer">
-                        <table class="table">
-                            <thead>
-                                <th>Codice copia</th>
-                                <th>Film</th>
-                                <th>Prezzo</th>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
-                    </div>
-                    <label for="3" class="mt-2">Cliente che effettua il noleggio</label>
-                    <div id="RentVideoForm_id_cliente_container" class="row px-3">
-                        <input id="RentVideoForm_id_cliente" type="number" class="form-control col-sm-8" placeholder="Inserire la matricola del cliente">
-                        <button class="btn btn-light ml-3" type="button" onclick="findCustomerById();">Cerca cliente</button>
-                    </div>
-                    <button id="RentVideoForm_insert_button" class="d-none" type="submit">
-                </form>`;
-    return html;
-}
-
-function buildRentVideoFormPreviewTable() {
-    var html = `<table>
-                    <thead>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                    </thead>
-                    <tbody><tr><td></td><td></td><td></td>
-                    </tbody>
-                </table>`
-    return html;
-}
-
-function formClickDelegate() {
-
-}
-
 /* Find Customer Form Action */
 function findCustomerById() {
     var findCustomerSuccess = function(data) {
-        var lightModelCustomer = JSON.parse(data);
-        loader.hideLoader()
-        RentVideoForm_id_cliente = $("#RentVideoForm_id_cliente_container").html();
-        buildCustomerTable(lightModelCustomer)
+        loader.hideLoader();
+        if(data != "null") {
+            $("#RentVideoForm_user_not_found").hide();
+            var customerLightModel = JSON.parse(data);
+            RentVideoForm_id_cliente = $("#RentVideoForm_id_cliente_container").html();
+            buildCustomerTable(customerLightModel)
+        } else {
+            $("#RentVideoForm_user_not_found").show();
+        }
     }
 
     var buildCustomerTable = function(customer) {
@@ -283,6 +306,35 @@ function findCustomerById() {
 
 function restoreFindCustomerInput() {
     $("#RentVideoForm_id_cliente_container").html(RentVideoForm_id_cliente);
+}
+
+/* Actions shared functions  */
+function buildRentVideoForm() {
+    var html = `<form class="form-signin" onsubmit="rentVideo();return false;">
+                    <input id="RentVideoForm_id_copia" type="hidden">
+                    <div id="RentVideoFormPreviewTableContainer">
+                        <table class="table">
+                            <thead>
+                                <th>Codice copia</th>
+                                <th>Film</th>
+                            </thead>
+                            <tbody id="RentVideoForm_videos_table_body"></tbody>
+                        </table>
+                    </div>
+                    <label for="3" class="mt-2">Cliente che effettua il noleggio</label>
+                    <div><span id="RentVideoForm_user_not_found" class="errorSpan">Utente non trovato.</span></div>
+                    <div id="RentVideoForm_id_cliente_container" class="row px-3">
+                        <input id="RentVideoForm_id_cliente" type="number" class="form-control col-sm-8" placeholder="Inserire la matricola del cliente">
+                        <button class="btn btn-light ml-3" type="button" onclick="findCustomerById();">Cerca cliente</button>
+                    </div>
+                    <div id="RentVideoForm_tariffe_container" class="row px-3"></div>
+                    <button id="RentVideoForm_insert_button" class="d-none" type="submit">
+                </form>`;
+    return html;
+}
+
+function formClickDelegate() {
+    $("#RentVideoForm_insert_button").click();
 }
 
 /** Init */

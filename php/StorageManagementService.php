@@ -1,6 +1,8 @@
 <?php
 include 'DBConnection.php';
 include 'TokenGenerator.php';
+include 'Constants.php';
+use PermissionsConstants;
 use TokenGenerator;
 use Logger;
 
@@ -22,7 +24,7 @@ class StorageManagementService {
 
     function GetVideosInStorage() {
         Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
-        TokenGenerator::ValidateToken();
+        TokenGenerator::CheckPermissions(PermissionsConstants::ADDETTO, "delega_codice");
         $filters = json_decode($_POST["filters"]);
         $query = 
             "SELECT co.id_copia, co.data_scarico, co.danneggiato, co.noleggiato, fi.id_film, fi.titolo, fo.nome
@@ -50,7 +52,7 @@ class StorageManagementService {
 
     function GetAlreadyAvailableMovies() {
         Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
-        TokenGenerator::ValidateToken();
+        TokenGenerator::CheckPermissions(PermissionsConstants::ADDETTO, "delega_codice");
         $query = 
             "SELECT *
             FROM film
@@ -65,7 +67,7 @@ class StorageManagementService {
 
     function UnloadCopies() {
         Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
-        TokenGenerator::ValidateToken();
+        TokenGenerator::CheckPermissions(PermissionsConstants::ADDETTO, "delega_codice");
         $copies = json_decode($_POST["copies"]);
         $query = 
             "INSERT INTO copia
@@ -87,7 +89,7 @@ class StorageManagementService {
 
     function LoadCopies() {
         Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
-        TokenGenerator::ValidateToken();
+        TokenGenerator::CheckPermissions(PermissionsConstants::ADDETTO, "delega_codice");
         $copies = json_decode($_POST["copies"]);
         $query = 
             "UPDATE copia

@@ -13,15 +13,6 @@ class RestClient {
         this.ajaxOptions.data = this.data,
         this.ajaxOptions.type = "POST";
     }
-
-    getToken() {
-        var token = '';
-        var loginContext = cookiesManager.getObjectFromCookie(authenticationManager.loginContext);
-        if (loginContext !== undefined) {
-          cookiesManager.refreshCookie(authenticationManager.loginContext, 12);
-          this.token = loginContext.token;
-        }
-      }
 }
 
 class GetAllItemsService extends RestClient {
@@ -245,7 +236,10 @@ class CustomersManagementService extends RestClient {
         this.data.append('action', 'insertNewCustomer');
         this.ajaxOptions.processData = false;
         this.ajaxOptions.contentType = false;
-        return super.execute();        
+        var promise = super.execute();
+        this.ajaxOptions.processData = true;
+        this.ajaxOptions.contentType = true;
+        return promise;        
     }
 
     deleteCustomer(id_cliente) {
@@ -303,5 +297,21 @@ class RentalManagementService extends RestClient {
             id_dipendente: id_dipendente
         }
         return super.execute();
+    }
+
+    getMostRecentCopies(filters) {
+        filters = JSON.stringify(filters);
+        this.data = {
+            action: "getMostRecentCopies",
+            filters: filters
+        }
+        return super.execute();
+    }
+
+    getActiveDiscount() {
+        this.data = {
+            action: "getActiveDiscount",
+        }
+        return super.execute();        
     }
 }

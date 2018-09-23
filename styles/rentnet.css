@@ -28,6 +28,10 @@
     transition: all .5s ease-in-out;
 }
 
+.no-sort::after { display: none!important; }
+
+.no-sort { pointer-events: none!important; cursor: default!important; }
+
 .simple-button {
     background-color: #100F3A;
     font-size: 10px;

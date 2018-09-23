@@ -1,6 +1,8 @@
 <?php
 include 'DBConnection.php';
 include 'TokenGenerator.php';
+include 'Constants.php';
+use PermissionsConstants;
 use TokenGenerator;
 use Logger;
 
@@ -22,7 +24,7 @@ class AccountManagementService {
 
     function GetCities() {
         Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
-        TokenGenerator::ValidateToken();
+        TokenGenerator::CheckPermissions(PermissionsConstants::ADDETTO, "delega_codice");
         $query = 
             "SELECT *
             FROM citta";
@@ -38,7 +40,7 @@ class AccountManagementService {
 
     function GetStores() {
         Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
-        TokenGenerator::ValidateToken();
+        TokenGenerator::CheckPermissions(PermissionsConstants::PROPRIETARIO, "delega_codice");
         $id_citta = json_decode($_POST["id_citta"]); 
         $query = 
             "SELECT *
@@ -57,7 +59,7 @@ class AccountManagementService {
 
     function GetEmployees() {
         Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
-        TokenGenerator::ValidateToken();
+        TokenGenerator::CheckPermissions(PermissionsConstants::PROPRIETARIO, "delega_codice");
         $id_store = json_decode($_POST["id_punto_vendita"]); 
         $query = 
             "SELECT dip.id_dipendente, dip.nome as dipendente_nome, dip.cognome as dipendente_cognome,
@@ -82,7 +84,7 @@ class AccountManagementService {
 
     function DeleteEmployee() {
         Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
-        TokenGenerator::ValidateToken();
+        TokenGenerator::CheckPermissions(PermissionsConstants::PROPRIETARIO, "delega_codice");
         $id_dipendente = $_POST["id_dipendente"]; 
         $query = 
             "DELETE FROM dipendente              
@@ -99,7 +101,7 @@ class AccountManagementService {
 
     function InsertEmployee() {
         Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
-        TokenGenerator::ValidateToken();
+        TokenGenerator::CheckPermissions(PermissionsConstants::PROPRIETARIO, "delega_codice");
         $dip = json_decode($_POST["dipendente"]); 
         $password = $development ? "password" : uniqid();
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);     
@@ -124,7 +126,7 @@ class AccountManagementService {
 
     function EditEmployee() {
         Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
-        TokenGenerator::ValidateToken();
+        TokenGenerator::CheckPermissions(PermissionsConstants::PROPRIETARIO, "delega_codice");
         $dip = json_decode($_POST["dipendente"]); 
         $query = 
             "UPDATE dipendente
@@ -149,7 +151,7 @@ class AccountManagementService {
 
     function ResetPassword() {
         Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
-        TokenGenerator::ValidateToken();
+        TokenGenerator::CheckPermissions(PermissionsConstants::PROPRIETARIO, "delega_codice");
         $id_dipendente = $_POST["id_dipendente"]; 
         $query = 
             "UPDATE dipendente

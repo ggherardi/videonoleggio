@@ -1,6 +1,8 @@
 <?php
 include 'DBConnection.php';
 include 'TokenGenerator.php';
+include 'Constants.php';
+use PermissionsConstants;
 use TokenGenerator;
 use Logger;
 
@@ -22,7 +24,7 @@ class RentalManagementService {
 
     function GetVideosInStorageWithCount() {
         Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
-        TokenGenerator::ValidateToken();
+        TokenGenerator::CheckPermissions(PermissionsConstants::ADDETTO, "delega_codice");
         $filters = json_decode($_POST["filters"]);
         $query = 
             "SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
@@ -75,7 +77,6 @@ class RentalManagementService {
                 }            
             }
         }
-        Logger::Write("Actor: ".json_encode($videosArray), $GLOBALS["CorrelationID"]);    
         exit(json_encode($videosArray));
     }
 
@@ -85,47 +86,48 @@ class RentalManagementService {
 
     function GetMostRecentCopies() {
         Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
-        TokenGenerator::ValidateToken();
+        TokenGenerator::CheckPermissions(PermissionsConstants::ADDETTO, "delega_codice");
         $filters = json_decode($_POST["filters"]);
-        $dbContext-StartTransaction();
-        $query = 
-            "SELECT co.id_copia, co.data_scarico
-            FROM co
-            WHERE co.id_punto_vendita = %d
-            AND co.id_film = %d
-            AND co.noleggiato = 0
-            AND co.restituito = 0
-            ORDER BY co.data_scarico desc
-            LIMIT 1";
-        $query = sprintf($query, $filters->id_punto_vendita, $filters->id_film);
-        Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
-        $res = self::ExecuteQuery($query);
-        $array = array();
-        while($row = $res->fetch_assoc()){
-            // $video = new Video($row);
-            $array[] = $row;
+        $allCopies = array();
+        for($i = 0; $i < count($filters->films); $i++) {
+            $dbContext-StartTransaction();
+            $query = 
+                "SELECT co.id_copia, co.data_scarico
+                FROM co
+                WHERE co.id_punto_vendita = %d
+                AND co.id_film = %d
+                AND co.noleggiato = 0
+                AND co.restituito = 0
+                ORDER BY co.data_scarico desc
+                LIMIT 1";
+            $query = sprintf($query, $filters->id_punto_vendita, $filters->films[$i]);
+            Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
+            $res = self::ExecuteQuery($query);
+            $row = $res->fetch_assoc();
+            $allCopies[] = $row;
+            $query = 
+                "UPDATE copia
+                WHERE id_copia = %d
+                AND noleggiato = 0
+                AND restituito = 0
+                ORDER BY data_scarico desc
+                SET
+                noleggiato = 1,
+                data_prenotazione_noleggio = CURRENT_TIMESTAMP,
+                id_dipendente_prenotazione_noleggio = %d";
+            $query = sprintf($query, $filters->id_punto_vendita, $filters->id_film);
+            Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
+            $res = self::ExecuteQuery($query);
+            $dbContext-CommitTransaction();
         }
-        $query = 
-            "UPDATE copia
-            WHERE id_copia = %d
-            AND noleggiato = 0
-            AND restituito = 0
-            ORDER BY data_scarico desc
-            SET
-            noleggiato = 1,
-            data_prenotazione_noleggio = CURRENT_TIMESTAMP,
-            id_dipendente_prenotazione_noleggio = %d";
-        $query = sprintf($query, $filters->id_punto_vendita, $filters->id_film);
-        Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
-        $res = self::ExecuteQuery($query);
-        $dbContext-CommitTransaction();
+        exit(json_encode($allCopies));
     }
 
 /////// Per sicurezza, mettere il controllo che il video sia prenotato dall'user che sta confermando il noleggio, onde evitare problematiche
 
     function ClearRentalBookings() {
         Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
-        TokenGenerator::ValidateToken();
+        TokenGenerator::CheckPermissions(PermissionsConstants::ADDETTO, "delega_codice");
         $query = 
             "CALL clearAllExpiredTempRent()";
         $res = self::ExecuteQuery($query);
@@ -134,13 +136,26 @@ class RentalManagementService {
 
     function ClearRentalBookingsForUser() {
         Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
-        TokenGenerator::ValidateToken();
+        TokenGenerator::CheckPermissions(PermissionsConstants::ADDETTO, "delega_codice");
         $id_dipendente = $_POST["id_dipendente"];
         $query = 
             "CALL clearAllExpiredTempRentForUser(%d)";
         $query = sprintf($query, $id_dipendente);
         $res = self::ExecuteQuery($query);
         exit(json_encode($res));
+    }
+
+    function GetActiveDiscount() {
+        Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
+        TokenGenerator::CheckPermissions(PermissionsConstants::ADDETTO, "delega_codice");
+        $query = 
+            "SELECT id_tariffa, tariffa
+            FROM tariffa
+            WHERE attiva = 1"; 
+        Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
+        $res = self::ExecuteQuery($query);
+        $row = $res->fetch_assoc();
+        exit(json_encode($row));
     }
 
     // Switcha l'operazione richiesta lato client
@@ -158,6 +173,9 @@ class RentalManagementService {
                     break;
                 case "clearRentalBookingsForUser":
                     self::ClearRentalBookingsForUser();
+                    break;
+                case "getActiveDiscount":
+                    self::GetActiveDiscount();
                     break;
                 default: 
                     exit(json_encode($_POST));

@@ -2,9 +2,9 @@
 include 'DBConnection.php';
 include 'TokenGenerator.php';
 include 'Constants.php';
+use PermissionsConstants;
 use TokenGenerator;
 use Logger;
-use PermissionsConstants;
 
 $GLOBALS["CorrelationID"] = uniqid("corrId_", true);
 $correlationId = $GLOBALS["CorrelationID"];
@@ -47,7 +47,7 @@ class CustomerManagementService {
     function InsertNewCustomer() {
         ob_start();
         Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
-        TokenGenerator::ValidateToken();
+        TokenGenerator::CheckPermissions(PermissionsConstants::ADDETTO, "delega_codice");
         $customer = json_decode($_POST["customer"]);
         if(count($_FILES) > 0) {
             $fileData = self::GetFileData();
@@ -86,7 +86,7 @@ class CustomerManagementService {
 
     function DeleteCustomer() {
         Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
-        TokenGenerator::ValidateToken();
+        TokenGenerator::CheckPermissions(PermissionsConstants::ADDETTO, "delega_codice");
         $id_cliente = $_POST["id_cliente"]; 
         $query = 
             "DELETE FROM cliente              
@@ -103,7 +103,7 @@ class CustomerManagementService {
 
     function EditCustomer() {
         Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
-        TokenGenerator::ValidateToken();
+        TokenGenerator::CheckPermissions(PermissionsConstants::ADDETTO, "delega_codice");
         $customer = json_decode($_POST["customer"]);
         $keepFile = $customer->keepExistingFile;
         if(count($_FILES) > 0) {
@@ -144,7 +144,7 @@ class CustomerManagementService {
 
     function FindCustomerById() {
         Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
-        TokenGenerator::ValidateToken();
+        TokenGenerator::CheckPermissions(PermissionsConstants::ADDETTO, "delega_codice");
         $id_cliente = $_POST["id_cliente"];
         $query = 
             "SELECT nome, cognome, indirizzo

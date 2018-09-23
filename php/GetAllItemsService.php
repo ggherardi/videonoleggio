@@ -1,6 +1,8 @@
 <?php
 include 'DBConnection.php';
 include 'TokenGenerator.php';
+include 'Constants.php';
+use PermissionsConstants;
 use TokenGenerator;
 use Logger;
 
@@ -21,7 +23,7 @@ class GetAllItemsService {
 
     function GetAllCities() {
         Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
-        TokenGenerator::ValidateToken();
+        TokenGenerator::CheckPermissions(PermissionsConstants::ADDETTO, "delega_codice");
         $query = 
             "SELECT *
             FROM citta";
@@ -35,7 +37,7 @@ class GetAllItemsService {
 
     function GetAllStores() {
         Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
-        TokenGenerator::ValidateToken();
+        TokenGenerator::CheckPermissions(PermissionsConstants::PROPRIETARIO, "delega_codice");
         $query = 
             "SELECT *
             FROM punto_vendita"; 
@@ -49,7 +51,7 @@ class GetAllItemsService {
 
     function GetAllEmployees() {
         Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
-        TokenGenerator::ValidateToken();
+        TokenGenerator::CheckPermissions(PermissionsConstants::PROPRIETARIO, "delega_codice");
         $query = 
             "SELECT *
             FROM dipendente";
@@ -63,7 +65,7 @@ class GetAllItemsService {
 
     function GetAllRoles() {
         Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
-        TokenGenerator::ValidateToken();
+        TokenGenerator::CheckPermissions(PermissionsConstants::PROPRIETARIO, "delega_codice");
         $query = 
             "SELECT *
             FROM delega";
@@ -77,7 +79,7 @@ class GetAllItemsService {
 
     function GetAllFilms() {
         Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
-        TokenGenerator::ValidateToken();
+        TokenGenerator::CheckPermissions(PermissionsConstants::ADDETTO, "delega_codice");
         $query = 
             "SELECT *
             FROM film";
@@ -91,7 +93,7 @@ class GetAllItemsService {
 
     function GetAllSuppliers() {
         Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
-        TokenGenerator::ValidateToken();
+        TokenGenerator::CheckPermissions(PermissionsConstants::ADDETTO, "delega_codice");
         $query = 
             "SELECT *
             FROM fornitore";
@@ -105,7 +107,7 @@ class GetAllItemsService {
 
     function GetAllCustomers() {
         Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
-        TokenGenerator::ValidateToken();
+        TokenGenerator::CheckPermissions(PermissionsConstants::ADDETTO, "delega_codice");
         $query = 
             "SELECT *
             FROM cliente";
@@ -119,7 +121,7 @@ class GetAllItemsService {
 
     function GetAllDiscounts() {
         Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
-        TokenGenerator::ValidateToken();
+        TokenGenerator::CheckPermissions(PermissionsConstants::ADDETTO, "delega_codice");
         $query = 
             "SELECT *
             FROM fidelizzazione";

@@ -7,12 +7,14 @@ var views = {
     // bookings: { title: "Prenotazioni", name: "bookings" },
     customers: { title: "Gestione clienti", name: "customers" },
     storage: { title: "Magazzino", name: "storage", needPermissions: permissions.levels.responsabile },
-    accounts: { title: "Gestione dipendenti", name: "accounts", needPermissions: permissions.levels.proprietario }
+    accounts: { title: "Gestione dipendenti", name: "accounts", needPermissions: permissions.levels.proprietario },
+    settings: { title: "<img src='/images/white-cog.png' height='20'>", name: "settings", needPermissions: permissions.levels.proprietario }
 };
 
 var components = {
     navbar: { title: "Navbar" },
-    sidebar: { title: "Sidebar" }
+    sidebar: { title: "Sidebar" },
+    discountTable: { title: "DiscountTable" }
 };
 
 /* Classes */
@@ -26,6 +28,7 @@ var authenticationManager = new AuthenticationManager(cookiesManager);
 
 /* Properties */
 var mainContentLoader;
+var Global_FilmPrices;
 
 /* Document ready */
 $().ready(function() {
