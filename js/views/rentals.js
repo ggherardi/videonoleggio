@@ -4,6 +4,7 @@ var getAllItemsService = getAllItemsService || new GetAllItemsService();
 var videosTableContainer = $("#VideosTableContainer");
 var RentVideoForm_id_cliente;
 var rentRates;
+var customerDiscount;
 var videosDataTable;
 var videosDataTableOptions = {
     dom: 'Bftpil',
@@ -204,8 +205,7 @@ function rentVideoAction(e, dt, node, config) {
             size: "large"
         }          
     } else {
-        var body = `<span>Sono stati selezionati uno o più video senza disponibilità immediata. 
-                        Si prega di deselezionarli e riprovare</span>`;
+        var body = `<span>Sono stati selezionati uno o più video non disponibili. Si prega di deselezionarli e riprovare</span>`;
         modalOptions = {
             title: "Attenzione",
             body: body,
@@ -238,10 +238,12 @@ function loadAndBuildVideosTable(rows) {
             var html = ``; 
             for(var i = 0; i < copies.length; i++) {
                 html += `<tr>
-                            <td class="d-none">${copies[i].id_copia}</td>
+                            <td class="d-none">${copies[i].id_copia}</td>                            
                             <td>${copies[i].titolo}</td>  
-                            <td><input id="RentVideoForm_date_control_${i}" type="date" class="form-control RentVideoForm_date_control" onchange="calculatePrice(this);" required></td>
-                            <td id="RentVideoForm_partial_price_${i}"></td>
+                            <td><span id="RentVideoForm_price_row_${i}">${copies[i].prezzo_giornaliero}</span> €</td>
+                            <td><input id="RentVideoForm_date_control_${i}" type="date" class="form-control RentVideoForm_date_control" onchange="validateAndCalculatePrice_change(this);" required></td>
+                            <td id="RentVideoForm_days_${i}">0</td>
+                            <td><span id="RentVideoForm_partial_price_${i}" class="RentVideoForm_partial_price_class">0</span> €</td>
                         </tr>`;
             }
             $("#RentVideoForm_videos_table_body").html(html);
@@ -259,8 +261,37 @@ function loadAndBuildVideosTable(rows) {
         .always(() => loader.hideLoader());
 }
 
-function calculatePrice(input) {
-    console.log(input);
+function validateAndCalculatePrice_change(input) {
+    var setPriceInTable = function(daysOfRent) {
+        var rowNumber = input.id.split("_")[3];
+        var price = parseFloat($(`#RentVideoForm_price_row_${rowNumber}`).text());
+        var sum = 0;
+        for(var i = 0; i < daysOfRent; i++) {
+            sum += price - ((price * rentRates.tariffa[i < rentRates.tariffa.length - 1 ? i : rentRates.tariffa.length - 1].s) / 100);
+        }
+        $(`#RentVideoForm_partial_price_${rowNumber}`).text(sum);
+        $(`#RentVideoForm_days_${rowNumber}`).text(daysOfRent);
+        calculateTotal();
+    }
+
+    var selectedDate = new Date(`${input.value} 00:00`);
+    var today = new Date();
+    var daysOfRent = Math.ceil((selectedDate - today) / (1000 * 3600 * 24));
+    if(daysOfRent < 1) {
+        input.setCustomValidity("Selezionare almeno un giorno di noleggio")
+    } else {
+        input.setCustomValidity("")
+    }
+    setPriceInTable(daysOfRent);
+}
+
+function calculateTotal() {
+    var allAmounts = $(".RentVideoForm_partial_price_class");
+    var totalAmount = 0;
+    for(var i = 0; i < allAmounts.length; i++) {
+        totalAmount += parseFloat(allAmounts[i].innerText);
+    }
+    $(`#RentVideoForm_importo_totale`).text(`${totalAmount} €`);
 }
 
 function buildCopiesTableObject(copies) {
@@ -274,7 +305,7 @@ function buildCopiesTableObject(copies) {
             copiesTableObject.id_film = tempCopies[i].id_film;
             copiesTableObject.id_copia = tempCopies[i].id_copia;
             copiesTableObject.titolo = tempGlobal_FilmPrices[i].titolo;
-            copiesTableObject.prezzo_giornaliero = tempGlobal_FilmPrices[i].prezzo_giornaliero;
+            copiesTableObject.prezzo_giornaliero = tempGlobal_FilmPrices[i].prezzo_giornaliero.replace("€", "").trim();
             ret.push(copiesTableObject)
         }
     }
@@ -283,7 +314,9 @@ function buildCopiesTableObject(copies) {
 
 function loadDiscounts() {
     rentalManagementService.getActiveDiscount()
-        .done((data) => rentRates = JSON.parse(data))
+        .done((data) => { 
+            rentRates = JSON.parse(data); 
+            rentRates.tariffa = JSON.parse(rentRates.tariffa); })
         .fail(restCallError);
 }
 
@@ -302,7 +335,9 @@ function findCustomerById() {
     }
 
     var buildCustomerTable = function(customer) {
-        var html = `<div id="customer-preview" class="col-sm-10 py-3 call-success">${customer.nome} ${customer.cognome} - ${customer.indirizzo}</div>`;
+        var html = `<div id="customer-preview" class="col-sm-10 py-3 call-success">
+                        <span>${customer.nome} ${customer.cognome} - ${customer.indirizzo}</span>
+                    </div>`;
         html += `<button class="btn btn-light ml-3 col-sm-1" type="button" onclick="restoreFindCustomerInput();">X</button>`;
         $("#RentVideoForm_id_cliente_container").html(html);
         setTimeout(() => $("#customer-preview").css("color", "#7D7D7D"), 500);
@@ -326,12 +361,14 @@ function buildRentVideoForm() {
     var html = `<form class="form" onsubmit="rentVideo();return false;">
                     <input id="RentVideoForm_id_copia" type="hidden">
                     <div id="RentVideoFormPreviewTableContainer">
-                        <table class="table">
+                        <table class="table" id="RentVideoFormPreviewTable">
                             <thead>
                                 <th class="d-none">Codice copia</th>
                                 <th>Film</th>
+                                <th>Prezzo/giorno</th>
                                 <th>Data riconsegna</th>
-                                <th>Prezzo</th>
+                                <th>N. giorni</th>
+                                <th>Importo</th>
                             </thead>
                             <tbody id="RentVideoForm_videos_table_body"></tbody>
                         </table>
@@ -339,8 +376,13 @@ function buildRentVideoForm() {
                     <label for="3" class="mt-2">Cliente che effettua il noleggio</label>
                     <div><span id="RentVideoForm_user_not_found" class="errorSpan">Utente non trovato.</span></div>
                     <div id="RentVideoForm_id_cliente_container" class="row px-3">
-                        <input id="RentVideoForm_id_cliente" type="number" class="form-control col-sm-8" placeholder="Inserire la matricola del cliente">
+                        <input id="RentVideoForm_id_cliente" type="number" class="form-control col-sm-8" placeholder="Inserire la matricola del cliente" required>
                         <button class="btn btn-light ml-3" type="button" onclick="findCustomerById();">Cerca cliente</button>
+                    </div>
+                    <div class="mt-3">
+                        <h3>Totale da pagare:</h3>
+                        <h4 id="RentVideoForm_importo_totale">0 €</h4>
+                        <span id="RentVideoForm_customer_discount"></span>
                     </div>
                     <button id="RentVideoForm_insert_button" class="d-none" type="submit">
                 </form>`;

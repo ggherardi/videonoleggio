@@ -147,8 +147,10 @@ class CustomerManagementService {
         TokenGenerator::CheckPermissions(PermissionsConstants::ADDETTO, "delega_codice");
         $id_cliente = $_POST["id_cliente"];
         $query = 
-            "SELECT nome, cognome, indirizzo
-            FROM cliente
+            "SELECT cl.nome, cl.cognome, cl.indirizzo, fi.nome_fidelizzazione, fi.percentuale
+            FROM cliente cl
+            INNER JOIN fidelizzazione fi
+            ON cl.id_fidelizzazione = fi.id_fidelizzazione
             WHERE id_cliente = %d
             LIMIT 1";
         $query = sprintf($query, $id_cliente);

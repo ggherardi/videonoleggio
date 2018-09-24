@@ -84,10 +84,6 @@
     font-size: 12px;
 }
 
-td.more-details {
-    background: url('../images/details_open.png') no-repeat center;
-    cursor: pointer;
-}
-tr.shown td.more-details {
-    background: url('/images/details_close.png') no-repeat center;
+#RentVideoFormPreviewTable td{
+    vertical-align: middle!important;
 }
