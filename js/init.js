@@ -29,9 +29,11 @@ var authenticationManager = new AuthenticationManager(cookiesManager);
 /* Properties */
 var mainContentLoader;
 var Global_FilmPrices;
+var Browser;
 
 /* Document ready */
 $().ready(function() {
+    initializeCrossBrowserSettings();
     authenticationService.authenticateUser()
         .done((data) => {
             var res = JSON.parse(data);
@@ -45,6 +47,47 @@ $().ready(function() {
             initLogin();
         });
 })
+
+/* Cross Browser Settings */
+function initializeCrossBrowserSettings() {
+    detectBrowser();
+    setStylesCrossBrowser();
+}
+
+function detectBrowser() {
+    isIE = /*@cc_on!@*/false || !!document.documentMode;
+    isEdge = !isIE && !!window.StyleMedia;
+    if(navigator.userAgent.indexOf("Chrome") != -1 && !isEdge)
+    {
+        Browser = 'chrome';
+    }
+    else if(navigator.userAgent.indexOf("Safari") != -1 && !isEdge)
+    {
+        Browser = 'safari';
+    }
+    else if(navigator.userAgent.indexOf("Firefox") != -1 ) 
+    {
+        Browser = 'firefox';
+    }
+    else if((navigator.userAgent.indexOf("MSIE") != -1 ) || (!!document.documentMode == true )) //IF IE > 10
+    {
+        Browser = 'ie';
+    }
+    else if(isEdge)
+    {
+        Browser = 'edge';
+    }
+    else 
+    {
+        Browser = 'other-browser';
+    }
+}
+
+function setStylesCrossBrowser() {
+    if(Browser == "edge") {
+        $(`body`).css(`font-family`, `Arial, Helvetica, sans-serif!important;`);
+    }
+}
 
 /* Init functions */
 function initHomepage(loginContext) {

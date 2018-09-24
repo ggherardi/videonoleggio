@@ -314,4 +314,12 @@ class RentalManagementService extends RestClient {
         }
         return super.execute();        
     }
+
+    rentVideos() {
+        this.data = {
+            action: "rentVideos",
+            videos: videos
+        }
+        return super.execute();
+    }
 }

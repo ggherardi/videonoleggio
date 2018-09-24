@@ -32,7 +32,12 @@ class Controller {
     }
 
     loadCorrelatedScript() {
-        var allScripts = [...document.scripts];
+        var allScripts
+        // try {
+        //     allScripts = [...document.scripts];
+        // } catch {
+            allScripts = [].slice.call(document.scripts)
+        // }
         var alreadyLoadedScript = allScripts.find((el) => { return el.src == this.correlatedScripUrl});
         if(!alreadyLoadedScript) {
             var script = document.createElement("script");

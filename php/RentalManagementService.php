@@ -165,6 +165,32 @@ class RentalManagementService {
         exit(json_encode($row));
     }
 
+    /////////////////////////// PER DOMANI: FINIRE LA QUERY! CICLARE L'ARRAY VIDEOS! /////////////////////
+    function RentVideos() {
+        Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
+        TokenGenerator::CheckPermissions(PermissionsConstants::ADDETTO, "delega_codice");
+        $videos = json_decode($_POST["videos"]);
+        for($i = 0; $i < count($videos); $i++) {
+            $query = 
+            "INSERT INTO noleggio
+            (id_dipendente,
+            id_punto_vendita,
+            id_cliente,
+            id_copia,
+            id_tariffa,
+            data_inizio,
+            data_fine, 
+            prezzo_totale)
+            VALUES
+            (%d, %d, %d, %d, %d, CURRENT_TIMESTAMP, %s, %f";
+            $query = sprintf($query, $filters->id_punto_vendita);
+            Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
+            $res = self::ExecuteQuery($query);
+        }
+
+        exit(json_encode($res));
+    }
+
     // Switcha l'operazione richiesta lato client
     function Init() {
         try {
@@ -184,6 +210,9 @@ class RentalManagementService {
                     break;
                 case "getActiveDiscount":
                     self::GetActiveDiscount();
+                    break;
+                case "rentVideos":
+                    self::RentVideos();
                     break;
                 default: 
                     exit(json_encode($_POST));
