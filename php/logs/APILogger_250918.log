@@ -834,3 +834,2247 @@
             WHERE attiva = 1 
 [25/09/2018 01:35:27] - corrId_5ba974bf204488.32796703 - Executing query 
 [25/09/2018 01:35:27] - corrId_5ba974bf204488.32796703 - Query executed successfully 
+[25/09/2018 11:55:18] - corrId_5baa06062cce03.97888221 - Reached AuthenticationService API 
+[25/09/2018 11:55:18] - corrId_5baa06062cce03.97888221 - Token is valid 
+[25/09/2018 11:55:20] - corrId_5baa0608b88097.90434669 - Reached AuthenticationService API 
+[25/09/2018 11:55:20] - corrId_5baa0608b88097.90434669 - Processing Login request. 
+[25/09/2018 11:55:20] - corrId_5baa0608b88097.90434669 - Establishing connection to DB 
+[25/09/2018 11:55:20] - corrId_5baa0608b88097.90434669 - Executing query 
+[25/09/2018 11:55:20] - corrId_5baa0608b88097.90434669 - Query executed successfully 
+[25/09/2018 11:55:20] - corrId_5baa0608b88097.90434669 - User admin validated, starting token generation. 
+[25/09/2018 11:55:20] - corrId_5baa0608b88097.90434669 - Token generated succesfully. 
+[25/09/2018 11:55:20] - corrId_5baa0608b88097.90434669 - Authentication cookie has been set:  
+[25/09/2018 11:55:22] - corrId_5baa060a965d47.45729618 - Reached RentalManagementService API 
+[25/09/2018 11:55:22] - corrId_5baa060a965d47.45729618 - Establishing connection to DB 
+[25/09/2018 11:55:22] - corrId_5baa060a965d47.45729618 - Processing ClearRentalBookingsForUser request. 
+[25/09/2018 11:55:22] - corrId_5baa060a965d47.45729618 - Token is valid 
+[25/09/2018 11:55:22] - corrId_5baa060a965d47.45729618 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 11:55:22] - corrId_5baa060a965d47.45729618 - Executing query 
+[25/09/2018 11:55:22] - corrId_5baa060a965d47.45729618 - Query executed successfully 
+[25/09/2018 11:55:22] - corrId_5baa060aa16ea2.55343702 - Reached RentalManagementService API 
+[25/09/2018 11:55:22] - corrId_5baa060aa16ea2.55343702 - Establishing connection to DB 
+[25/09/2018 11:55:22] - corrId_5baa060aa16ea2.55343702 - Processing ClearRentalBookings request. 
+[25/09/2018 11:55:22] - corrId_5baa060aa16ea2.55343702 - Token is valid 
+[25/09/2018 11:55:22] - corrId_5baa060aa16ea2.55343702 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 11:55:22] - corrId_5baa060aa16ea2.55343702 - Executing query 
+[25/09/2018 11:55:22] - corrId_5baa060aa16ea2.55343702 - Query executed successfully 
+[25/09/2018 11:55:23] - corrId_5baa060b159cd6.37190615 - Reached RentalManagementService API 
+[25/09/2018 11:55:23] - corrId_5baa060b159cd6.37190615 - Establishing connection to DB 
+[25/09/2018 11:55:23] - corrId_5baa060b159cd6.37190615 - Processing GetVideosInStorageWithCount request. 
+[25/09/2018 11:55:23] - corrId_5baa060b159cd6.37190615 - Token is valid 
+[25/09/2018 11:55:23] - corrId_5baa060b159cd6.37190615 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 11:55:23] - corrId_5baa060b159cd6.37190615 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[25/09/2018 11:55:23] - corrId_5baa060b159cd6.37190615 - Executing query 
+[25/09/2018 11:55:23] - corrId_5baa060b159cd6.37190615 - Query executed successfully 
+[25/09/2018 11:55:23] - corrId_5baa060b159cd6.37190615 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 3, 12, 14, 15, 16) 
+[25/09/2018 11:55:23] - corrId_5baa060b159cd6.37190615 - Executing query 
+[25/09/2018 11:55:23] - corrId_5baa060b159cd6.37190615 - Query executed successfully 
+[25/09/2018 11:55:25] - corrId_5baa060d297d31.06608510 - Reached RentalManagementService API 
+[25/09/2018 11:55:25] - corrId_5baa060d297d31.06608510 - Establishing connection to DB 
+[25/09/2018 11:55:25] - corrId_5baa060d297d31.06608510 - Processing GetMostRecentCopies request. 
+[25/09/2018 11:55:25] - corrId_5baa060d297d31.06608510 - Token is valid 
+[25/09/2018 11:55:25] - corrId_5baa060d297d31.06608510 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 11:55:25] - corrId_5baa060d297d31.06608510 - Starting transaction 
+[25/09/2018 11:55:25] - corrId_5baa060d297d31.06608510 - FILTERS: "2" 
+[25/09/2018 11:55:25] - corrId_5baa060d297d31.06608510 - Executing query 
+[25/09/2018 11:55:25] - corrId_5baa060d297d31.06608510 - Query executed successfully 
+[25/09/2018 11:55:25] - corrId_5baa060d297d31.06608510 - Executing query 
+[25/09/2018 11:55:25] - corrId_5baa060d297d31.06608510 - Query executed successfully 
+[25/09/2018 11:55:25] - corrId_5baa060d297d31.06608510 - Committing transaction 
+[25/09/2018 11:55:25] - corrId_5baa060d941866.58883877 - Reached RentalManagementService API 
+[25/09/2018 11:55:25] - corrId_5baa060d941866.58883877 - Establishing connection to DB 
+[25/09/2018 11:55:25] - corrId_5baa060d941866.58883877 - Processing GetActiveDiscount request. 
+[25/09/2018 11:55:25] - corrId_5baa060d941866.58883877 - Token is valid 
+[25/09/2018 11:55:25] - corrId_5baa060d941866.58883877 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 11:55:25] - corrId_5baa060d941866.58883877 - Query: SELECT id_tariffa, tariffa
+            FROM tariffa
+            WHERE attiva = 1 
+[25/09/2018 11:55:25] - corrId_5baa060d941866.58883877 - Executing query 
+[25/09/2018 11:55:25] - corrId_5baa060d941866.58883877 - Query executed successfully 
+[25/09/2018 11:55:29] - corrId_5baa061166c6b4.47423116 - Reached RentalManagementService API 
+[25/09/2018 11:55:29] - corrId_5baa061166c6b4.47423116 - Establishing connection to DB 
+[25/09/2018 11:55:29] - corrId_5baa061166c6b4.47423116 - Processing ClearRentalBookingsForUser request. 
+[25/09/2018 11:55:29] - corrId_5baa061166c6b4.47423116 - Token is valid 
+[25/09/2018 11:55:29] - corrId_5baa061166c6b4.47423116 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 11:55:29] - corrId_5baa061166c6b4.47423116 - Executing query 
+[25/09/2018 11:55:29] - corrId_5baa061166c6b4.47423116 - Query executed successfully 
+[25/09/2018 11:55:31] - corrId_5baa061364fe51.50062994 - Reached RentalManagementService API 
+[25/09/2018 11:55:31] - corrId_5baa061364fe51.50062994 - Establishing connection to DB 
+[25/09/2018 11:55:31] - corrId_5baa061364fe51.50062994 - Processing GetMostRecentCopies request. 
+[25/09/2018 11:55:31] - corrId_5baa061364fe51.50062994 - Token is valid 
+[25/09/2018 11:55:31] - corrId_5baa061364fe51.50062994 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 11:55:31] - corrId_5baa061364fe51.50062994 - Starting transaction 
+[25/09/2018 11:55:31] - corrId_5baa061364fe51.50062994 - FILTERS: "2" 
+[25/09/2018 11:55:31] - corrId_5baa061364fe51.50062994 - Executing query 
+[25/09/2018 11:55:31] - corrId_5baa061364fe51.50062994 - Query executed successfully 
+[25/09/2018 11:55:31] - corrId_5baa061364fe51.50062994 - Executing query 
+[25/09/2018 11:55:31] - corrId_5baa061364fe51.50062994 - Query executed successfully 
+[25/09/2018 11:55:31] - corrId_5baa061364fe51.50062994 - FILTERS: "3" 
+[25/09/2018 11:55:31] - corrId_5baa061364fe51.50062994 - Executing query 
+[25/09/2018 11:55:31] - corrId_5baa061364fe51.50062994 - Query executed successfully 
+[25/09/2018 11:55:31] - corrId_5baa061364fe51.50062994 - Executing query 
+[25/09/2018 11:55:31] - corrId_5baa061364fe51.50062994 - Query executed successfully 
+[25/09/2018 11:55:31] - corrId_5baa061364fe51.50062994 - FILTERS: "12" 
+[25/09/2018 11:55:31] - corrId_5baa061364fe51.50062994 - Executing query 
+[25/09/2018 11:55:31] - corrId_5baa061364fe51.50062994 - Query executed successfully 
+[25/09/2018 11:55:31] - corrId_5baa061364fe51.50062994 - Executing query 
+[25/09/2018 11:55:31] - corrId_5baa061364fe51.50062994 - Query executed successfully 
+[25/09/2018 11:55:31] - corrId_5baa061364fe51.50062994 - FILTERS: "14" 
+[25/09/2018 11:55:31] - corrId_5baa061364fe51.50062994 - Executing query 
+[25/09/2018 11:55:31] - corrId_5baa061364fe51.50062994 - Query executed successfully 
+[25/09/2018 11:55:31] - corrId_5baa061364fe51.50062994 - Executing query 
+[25/09/2018 11:55:31] - corrId_5baa061364fe51.50062994 - Query executed successfully 
+[25/09/2018 11:55:31] - corrId_5baa061364fe51.50062994 - Committing transaction 
+[25/09/2018 11:55:31] - corrId_5baa0613df4c20.02340022 - Reached RentalManagementService API 
+[25/09/2018 11:55:31] - corrId_5baa0613df4c20.02340022 - Establishing connection to DB 
+[25/09/2018 11:55:31] - corrId_5baa0613df4c20.02340022 - Processing GetActiveDiscount request. 
+[25/09/2018 11:55:31] - corrId_5baa0613df4c20.02340022 - Token is valid 
+[25/09/2018 11:55:31] - corrId_5baa0613df4c20.02340022 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 11:55:31] - corrId_5baa0613df4c20.02340022 - Query: SELECT id_tariffa, tariffa
+            FROM tariffa
+            WHERE attiva = 1 
+[25/09/2018 11:55:31] - corrId_5baa0613df4c20.02340022 - Executing query 
+[25/09/2018 11:55:31] - corrId_5baa0613df4c20.02340022 - Query executed successfully 
+[25/09/2018 12:12:41] - corrId_5baa0a199a54d6.79450157 - Reached CustomerManagementService API 
+[25/09/2018 12:12:41] - corrId_5baa0a199a54d6.79450157 - Processing FindCustomerById request. 
+[25/09/2018 12:12:41] - corrId_5baa0a199a54d6.79450157 - Token is valid 
+[25/09/2018 12:12:41] - corrId_5baa0a199a54d6.79450157 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:12:41] - corrId_5baa0a199a54d6.79450157 - Query: SELECT cl.id_cliente, cl.nome, cl.cognome, cl.indirizzo, fi.nome_fidelizzazione, fi.percentuale
+            FROM cliente cl
+            INNER JOIN fidelizzazione fi
+            ON cl.id_fidelizzazione = fi.id_fidelizzazione
+            WHERE id_cliente = 35
+            LIMIT 1 
+[25/09/2018 12:12:41] - corrId_5baa0a199a54d6.79450157 - Establishing connection to DB 
+[25/09/2018 12:12:41] - corrId_5baa0a199a54d6.79450157 - Executing query 
+[25/09/2018 12:12:41] - corrId_5baa0a199a54d6.79450157 - Query executed successfully 
+[25/09/2018 12:12:44] - corrId_5baa0a1cc39ef1.05360770 - Reached CustomerManagementService API 
+[25/09/2018 12:12:44] - corrId_5baa0a1cc39ef1.05360770 - Processing FindCustomerById request. 
+[25/09/2018 12:12:44] - corrId_5baa0a1cc39ef1.05360770 - Token is valid 
+[25/09/2018 12:12:44] - corrId_5baa0a1cc39ef1.05360770 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:12:44] - corrId_5baa0a1cc39ef1.05360770 - Query: SELECT cl.id_cliente, cl.nome, cl.cognome, cl.indirizzo, fi.nome_fidelizzazione, fi.percentuale
+            FROM cliente cl
+            INNER JOIN fidelizzazione fi
+            ON cl.id_fidelizzazione = fi.id_fidelizzazione
+            WHERE id_cliente = 35
+            LIMIT 1 
+[25/09/2018 12:12:44] - corrId_5baa0a1cc39ef1.05360770 - Establishing connection to DB 
+[25/09/2018 12:12:44] - corrId_5baa0a1cc39ef1.05360770 - Executing query 
+[25/09/2018 12:12:44] - corrId_5baa0a1cc39ef1.05360770 - Query executed successfully 
+[25/09/2018 12:12:48] - corrId_5baa0a20def913.32618000 - Reached AuthenticationService API 
+[25/09/2018 12:12:48] - corrId_5baa0a20def913.32618000 - Token is valid 
+[25/09/2018 12:19:43] - corrId_5baa0bbf3f0ed0.22300021 - Reached RentalManagementService API 
+[25/09/2018 12:19:43] - corrId_5baa0bbf3f0ed0.22300021 - Establishing connection to DB 
+[25/09/2018 12:19:43] - corrId_5baa0bbf3f0ed0.22300021 - Processing ClearRentalBookingsForUser request. 
+[25/09/2018 12:19:43] - corrId_5baa0bbf3f0ed0.22300021 - Token is valid 
+[25/09/2018 12:19:43] - corrId_5baa0bbf3f0ed0.22300021 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:19:43] - corrId_5baa0bbf3f0ed0.22300021 - Executing query 
+[25/09/2018 12:19:43] - corrId_5baa0bbf3f0ed0.22300021 - Query executed successfully 
+[25/09/2018 12:19:43] - corrId_5baa0bbf4acf85.55175354 - Reached RentalManagementService API 
+[25/09/2018 12:19:43] - corrId_5baa0bbf4acf85.55175354 - Establishing connection to DB 
+[25/09/2018 12:19:43] - corrId_5baa0bbf4acf85.55175354 - Processing ClearRentalBookings request. 
+[25/09/2018 12:19:43] - corrId_5baa0bbf4acf85.55175354 - Token is valid 
+[25/09/2018 12:19:43] - corrId_5baa0bbf4acf85.55175354 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:19:43] - corrId_5baa0bbf4acf85.55175354 - Executing query 
+[25/09/2018 12:19:43] - corrId_5baa0bbf4acf85.55175354 - Query executed successfully 
+[25/09/2018 12:19:43] - corrId_5baa0bbfb223c4.72701712 - Reached RentalManagementService API 
+[25/09/2018 12:19:43] - corrId_5baa0bbfb223c4.72701712 - Establishing connection to DB 
+[25/09/2018 12:19:43] - corrId_5baa0bbfb223c4.72701712 - Processing GetVideosInStorageWithCount request. 
+[25/09/2018 12:19:43] - corrId_5baa0bbfb223c4.72701712 - Token is valid 
+[25/09/2018 12:19:43] - corrId_5baa0bbfb223c4.72701712 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:19:43] - corrId_5baa0bbfb223c4.72701712 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[25/09/2018 12:19:43] - corrId_5baa0bbfb223c4.72701712 - Executing query 
+[25/09/2018 12:19:43] - corrId_5baa0bbfb223c4.72701712 - Query executed successfully 
+[25/09/2018 12:19:43] - corrId_5baa0bbfb223c4.72701712 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 3, 12, 14, 15, 16) 
+[25/09/2018 12:19:43] - corrId_5baa0bbfb223c4.72701712 - Executing query 
+[25/09/2018 12:19:43] - corrId_5baa0bbfb223c4.72701712 - Query executed successfully 
+[25/09/2018 12:20:34] - corrId_5baa0bf28ee6c0.91221422 - Reached RentalManagementService API 
+[25/09/2018 12:20:34] - corrId_5baa0bf28ee6c0.91221422 - Establishing connection to DB 
+[25/09/2018 12:20:34] - corrId_5baa0bf28ee6c0.91221422 - Processing GetMostRecentCopies request. 
+[25/09/2018 12:20:34] - corrId_5baa0bf28ee6c0.91221422 - Token is valid 
+[25/09/2018 12:20:34] - corrId_5baa0bf28ee6c0.91221422 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:20:34] - corrId_5baa0bf28ee6c0.91221422 - Starting transaction 
+[25/09/2018 12:20:34] - corrId_5baa0bf28ee6c0.91221422 - Query: SELECT co.id_copia, co.data_scarico, co.id_film
+                    FROM copia co
+                    WHERE co.id_punto_vendita = 1
+                    AND co.id_film = 16
+                    AND co.noleggiato = 0
+                    AND co.restituito = 0
+                    ORDER BY co.data_scarico desc
+                    LIMIT 1 
+[25/09/2018 12:20:34] - corrId_5baa0bf28ee6c0.91221422 - Executing query 
+[25/09/2018 12:20:34] - corrId_5baa0bf28ee6c0.91221422 - Query executed successfully 
+[25/09/2018 12:20:34] - corrId_5baa0bf28ee6c0.91221422 - Query: UPDATE copia             
+                    SET
+                    noleggiato = 1,
+                    data_prenotazione_noleggio = CURRENT_TIMESTAMP,
+                    id_dipendente_prenotazione_noleggio = 1
+                    WHERE id_copia = 80
+                    AND noleggiato = 0
+                    AND restituito = 0 
+[25/09/2018 12:20:34] - corrId_5baa0bf28ee6c0.91221422 - Executing query 
+[25/09/2018 12:20:34] - corrId_5baa0bf28ee6c0.91221422 - Query executed successfully 
+[25/09/2018 12:20:34] - corrId_5baa0bf28ee6c0.91221422 - Committing transaction 
+[25/09/2018 12:20:35] - corrId_5baa0bf31161f2.53602293 - Reached RentalManagementService API 
+[25/09/2018 12:20:35] - corrId_5baa0bf31161f2.53602293 - Establishing connection to DB 
+[25/09/2018 12:20:35] - corrId_5baa0bf31161f2.53602293 - Processing GetActiveDiscount request. 
+[25/09/2018 12:20:35] - corrId_5baa0bf31161f2.53602293 - Token is valid 
+[25/09/2018 12:20:35] - corrId_5baa0bf31161f2.53602293 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:20:35] - corrId_5baa0bf31161f2.53602293 - Query: SELECT id_tariffa, tariffa
+            FROM tariffa
+            WHERE attiva = 1 
+[25/09/2018 12:20:35] - corrId_5baa0bf31161f2.53602293 - Executing query 
+[25/09/2018 12:20:35] - corrId_5baa0bf31161f2.53602293 - Query executed successfully 
+[25/09/2018 12:20:51] - corrId_5baa0c032c50c0.57653733 - Reached CustomerManagementService API 
+[25/09/2018 12:20:51] - corrId_5baa0c032c50c0.57653733 - Processing FindCustomerById request. 
+[25/09/2018 12:20:51] - corrId_5baa0c032c50c0.57653733 - Token is valid 
+[25/09/2018 12:20:51] - corrId_5baa0c032c50c0.57653733 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:20:51] - corrId_5baa0c032c50c0.57653733 - Query: SELECT cl.id_cliente, cl.nome, cl.cognome, cl.indirizzo, fi.nome_fidelizzazione, fi.percentuale
+            FROM cliente cl
+            INNER JOIN fidelizzazione fi
+            ON cl.id_fidelizzazione = fi.id_fidelizzazione
+            WHERE id_cliente = 535
+            LIMIT 1 
+[25/09/2018 12:20:51] - corrId_5baa0c032c50c0.57653733 - Establishing connection to DB 
+[25/09/2018 12:20:51] - corrId_5baa0c032c50c0.57653733 - Executing query 
+[25/09/2018 12:20:51] - corrId_5baa0c032c50c0.57653733 - Query executed successfully 
+[25/09/2018 12:20:54] - corrId_5baa0c06622810.99137000 - Reached CustomerManagementService API 
+[25/09/2018 12:20:54] - corrId_5baa0c06622810.99137000 - Processing FindCustomerById request. 
+[25/09/2018 12:20:54] - corrId_5baa0c06622810.99137000 - Token is valid 
+[25/09/2018 12:20:54] - corrId_5baa0c06622810.99137000 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:20:54] - corrId_5baa0c06622810.99137000 - Query: SELECT cl.id_cliente, cl.nome, cl.cognome, cl.indirizzo, fi.nome_fidelizzazione, fi.percentuale
+            FROM cliente cl
+            INNER JOIN fidelizzazione fi
+            ON cl.id_fidelizzazione = fi.id_fidelizzazione
+            WHERE id_cliente = 35
+            LIMIT 1 
+[25/09/2018 12:20:54] - corrId_5baa0c06622810.99137000 - Establishing connection to DB 
+[25/09/2018 12:20:54] - corrId_5baa0c06622810.99137000 - Executing query 
+[25/09/2018 12:20:54] - corrId_5baa0c06622810.99137000 - Query executed successfully 
+[25/09/2018 12:20:57] - corrId_5baa0c09b47358.61719152 - Reached CustomerManagementService API 
+[25/09/2018 12:20:57] - corrId_5baa0c09b47358.61719152 - Processing FindCustomerById request. 
+[25/09/2018 12:20:57] - corrId_5baa0c09b47358.61719152 - Token is valid 
+[25/09/2018 12:20:57] - corrId_5baa0c09b47358.61719152 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:20:57] - corrId_5baa0c09b47358.61719152 - Query: SELECT cl.id_cliente, cl.nome, cl.cognome, cl.indirizzo, fi.nome_fidelizzazione, fi.percentuale
+            FROM cliente cl
+            INNER JOIN fidelizzazione fi
+            ON cl.id_fidelizzazione = fi.id_fidelizzazione
+            WHERE id_cliente = 35
+            LIMIT 1 
+[25/09/2018 12:20:57] - corrId_5baa0c09b47358.61719152 - Establishing connection to DB 
+[25/09/2018 12:20:57] - corrId_5baa0c09b47358.61719152 - Executing query 
+[25/09/2018 12:20:57] - corrId_5baa0c09b47358.61719152 - Query executed successfully 
+[25/09/2018 12:21:03] - corrId_5baa0c0fb601b0.73707965 - Reached AuthenticationService API 
+[25/09/2018 12:21:03] - corrId_5baa0c0fb601b0.73707965 - Token is valid 
+[25/09/2018 12:21:07] - corrId_5baa0c13bc1192.98014833 - Reached RentalManagementService API 
+[25/09/2018 12:21:07] - corrId_5baa0c13bc1192.98014833 - Establishing connection to DB 
+[25/09/2018 12:21:07] - corrId_5baa0c13bc1192.98014833 - Processing ClearRentalBookingsForUser request. 
+[25/09/2018 12:21:07] - corrId_5baa0c13bc1192.98014833 - Token is valid 
+[25/09/2018 12:21:07] - corrId_5baa0c13bc1192.98014833 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:21:07] - corrId_5baa0c13bc1192.98014833 - Executing query 
+[25/09/2018 12:21:07] - corrId_5baa0c13bc1192.98014833 - Query executed successfully 
+[25/09/2018 12:21:07] - corrId_5baa0c13bf0971.25317215 - Reached RentalManagementService API 
+[25/09/2018 12:21:07] - corrId_5baa0c13bf0971.25317215 - Establishing connection to DB 
+[25/09/2018 12:21:07] - corrId_5baa0c13bf0971.25317215 - Processing ClearRentalBookings request. 
+[25/09/2018 12:21:07] - corrId_5baa0c13bf0971.25317215 - Token is valid 
+[25/09/2018 12:21:07] - corrId_5baa0c13bf0971.25317215 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:21:07] - corrId_5baa0c13bf0971.25317215 - Executing query 
+[25/09/2018 12:21:07] - corrId_5baa0c13bf0971.25317215 - Query executed successfully 
+[25/09/2018 12:21:08] - corrId_5baa0c14339bd7.96829192 - Reached RentalManagementService API 
+[25/09/2018 12:21:08] - corrId_5baa0c14339bd7.96829192 - Establishing connection to DB 
+[25/09/2018 12:21:08] - corrId_5baa0c14339bd7.96829192 - Processing GetVideosInStorageWithCount request. 
+[25/09/2018 12:21:08] - corrId_5baa0c14339bd7.96829192 - Token is valid 
+[25/09/2018 12:21:08] - corrId_5baa0c14339bd7.96829192 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:21:08] - corrId_5baa0c14339bd7.96829192 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[25/09/2018 12:21:08] - corrId_5baa0c14339bd7.96829192 - Executing query 
+[25/09/2018 12:21:08] - corrId_5baa0c14339bd7.96829192 - Query executed successfully 
+[25/09/2018 12:21:08] - corrId_5baa0c14339bd7.96829192 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 3, 12, 14, 15, 16) 
+[25/09/2018 12:21:08] - corrId_5baa0c14339bd7.96829192 - Executing query 
+[25/09/2018 12:21:08] - corrId_5baa0c14339bd7.96829192 - Query executed successfully 
+[25/09/2018 12:21:13] - corrId_5baa0c193245b3.25556692 - Reached RentalManagementService API 
+[25/09/2018 12:21:13] - corrId_5baa0c193245b3.25556692 - Establishing connection to DB 
+[25/09/2018 12:21:13] - corrId_5baa0c193245b3.25556692 - Processing GetMostRecentCopies request. 
+[25/09/2018 12:21:13] - corrId_5baa0c193245b3.25556692 - Token is valid 
+[25/09/2018 12:21:13] - corrId_5baa0c193245b3.25556692 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:21:13] - corrId_5baa0c193245b3.25556692 - Starting transaction 
+[25/09/2018 12:21:13] - corrId_5baa0c193245b3.25556692 - Query: SELECT co.id_copia, co.data_scarico, co.id_film
+                    FROM copia co
+                    WHERE co.id_punto_vendita = 1
+                    AND co.id_film = 1
+                    AND co.noleggiato = 0
+                    AND co.restituito = 0
+                    ORDER BY co.data_scarico desc
+                    LIMIT 1 
+[25/09/2018 12:21:13] - corrId_5baa0c193245b3.25556692 - Executing query 
+[25/09/2018 12:21:13] - corrId_5baa0c193245b3.25556692 - Query executed successfully 
+[25/09/2018 12:21:13] - corrId_5baa0c193245b3.25556692 - Query: UPDATE copia             
+                    SET
+                    noleggiato = 1,
+                    data_prenotazione_noleggio = CURRENT_TIMESTAMP,
+                    id_dipendente_prenotazione_noleggio = 1
+                    WHERE id_copia = 53
+                    AND noleggiato = 0
+                    AND restituito = 0 
+[25/09/2018 12:21:13] - corrId_5baa0c193245b3.25556692 - Executing query 
+[25/09/2018 12:21:13] - corrId_5baa0c193245b3.25556692 - Query executed successfully 
+[25/09/2018 12:21:13] - corrId_5baa0c193245b3.25556692 - Committing transaction 
+[25/09/2018 12:21:13] - corrId_5baa0c19a4f4a0.16851638 - Reached RentalManagementService API 
+[25/09/2018 12:21:13] - corrId_5baa0c19a4f4a0.16851638 - Establishing connection to DB 
+[25/09/2018 12:21:13] - corrId_5baa0c19a4f4a0.16851638 - Processing GetActiveDiscount request. 
+[25/09/2018 12:21:13] - corrId_5baa0c19a4f4a0.16851638 - Token is valid 
+[25/09/2018 12:21:13] - corrId_5baa0c19a4f4a0.16851638 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:21:13] - corrId_5baa0c19a4f4a0.16851638 - Query: SELECT id_tariffa, tariffa
+            FROM tariffa
+            WHERE attiva = 1 
+[25/09/2018 12:21:13] - corrId_5baa0c19a4f4a0.16851638 - Executing query 
+[25/09/2018 12:21:13] - corrId_5baa0c19a4f4a0.16851638 - Query executed successfully 
+[25/09/2018 12:21:17] - corrId_5baa0c1dc28c04.92477423 - Reached CustomerManagementService API 
+[25/09/2018 12:21:17] - corrId_5baa0c1dc28c04.92477423 - Processing FindCustomerById request. 
+[25/09/2018 12:21:17] - corrId_5baa0c1dc28c04.92477423 - Token is valid 
+[25/09/2018 12:21:17] - corrId_5baa0c1dc28c04.92477423 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:21:17] - corrId_5baa0c1dc28c04.92477423 - Query: SELECT cl.id_cliente, cl.nome, cl.cognome, cl.indirizzo, fi.nome_fidelizzazione, fi.percentuale
+            FROM cliente cl
+            INNER JOIN fidelizzazione fi
+            ON cl.id_fidelizzazione = fi.id_fidelizzazione
+            WHERE id_cliente = 35
+            LIMIT 1 
+[25/09/2018 12:21:17] - corrId_5baa0c1dc28c04.92477423 - Establishing connection to DB 
+[25/09/2018 12:21:17] - corrId_5baa0c1dc28c04.92477423 - Executing query 
+[25/09/2018 12:21:17] - corrId_5baa0c1dc28c04.92477423 - Query executed successfully 
+[25/09/2018 12:21:31] - corrId_5baa0c2b9faa41.72885865 - Reached AuthenticationService API 
+[25/09/2018 12:21:31] - corrId_5baa0c2b9faa41.72885865 - Token is valid 
+[25/09/2018 12:21:32] - corrId_5baa0c2cc5f426.63407507 - Reached RentalManagementService API 
+[25/09/2018 12:21:32] - corrId_5baa0c2cc60301.87011522 - Reached RentalManagementService API 
+[25/09/2018 12:21:32] - corrId_5baa0c2cc5f426.63407507 - Establishing connection to DB 
+[25/09/2018 12:21:32] - corrId_5baa0c2cc60301.87011522 - Establishing connection to DB 
+[25/09/2018 12:21:32] - corrId_5baa0c2cc60301.87011522 - Processing ClearRentalBookings request. 
+[25/09/2018 12:21:32] - corrId_5baa0c2cc5f426.63407507 - Processing ClearRentalBookingsForUser request. 
+[25/09/2018 12:21:32] - corrId_5baa0c2cc60301.87011522 - Token is valid 
+[25/09/2018 12:21:32] - corrId_5baa0c2cc5f426.63407507 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:21:32] - corrId_5baa0c2cc60301.87011522 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:21:32] - corrId_5baa0c2cc5f426.63407507 - Executing query 
+[25/09/2018 12:21:32] - corrId_5baa0c2cc60301.87011522 - Executing query 
+[25/09/2018 12:21:32] - corrId_5baa0c2cc60301.87011522 - Query executed successfully 
+[25/09/2018 12:21:32] - corrId_5baa0c2cc5f426.63407507 - Query executed successfully 
+[25/09/2018 12:21:33] - corrId_5baa0c2d3f1444.05880817 - Reached RentalManagementService API 
+[25/09/2018 12:21:33] - corrId_5baa0c2d3f1444.05880817 - Establishing connection to DB 
+[25/09/2018 12:21:33] - corrId_5baa0c2d3f1444.05880817 - Processing GetVideosInStorageWithCount request. 
+[25/09/2018 12:21:33] - corrId_5baa0c2d3f1444.05880817 - Token is valid 
+[25/09/2018 12:21:33] - corrId_5baa0c2d3f1444.05880817 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:21:33] - corrId_5baa0c2d3f1444.05880817 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[25/09/2018 12:21:33] - corrId_5baa0c2d3f1444.05880817 - Executing query 
+[25/09/2018 12:21:33] - corrId_5baa0c2d3f1444.05880817 - Query executed successfully 
+[25/09/2018 12:21:33] - corrId_5baa0c2d3f1444.05880817 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 3, 12, 14, 15, 16) 
+[25/09/2018 12:21:33] - corrId_5baa0c2d3f1444.05880817 - Executing query 
+[25/09/2018 12:21:33] - corrId_5baa0c2d3f1444.05880817 - Query executed successfully 
+[25/09/2018 12:21:34] - corrId_5baa0c2ef2cf72.34908152 - Reached RentalManagementService API 
+[25/09/2018 12:21:34] - corrId_5baa0c2ef2cf72.34908152 - Establishing connection to DB 
+[25/09/2018 12:21:34] - corrId_5baa0c2ef2cf72.34908152 - Processing GetMostRecentCopies request. 
+[25/09/2018 12:21:34] - corrId_5baa0c2ef2cf72.34908152 - Token is valid 
+[25/09/2018 12:21:34] - corrId_5baa0c2ef2cf72.34908152 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:21:34] - corrId_5baa0c2ef2cf72.34908152 - Starting transaction 
+[25/09/2018 12:21:35] - corrId_5baa0c2ef2cf72.34908152 - Query: SELECT co.id_copia, co.data_scarico, co.id_film
+                    FROM copia co
+                    WHERE co.id_punto_vendita = 1
+                    AND co.id_film = 3
+                    AND co.noleggiato = 0
+                    AND co.restituito = 0
+                    ORDER BY co.data_scarico desc
+                    LIMIT 1 
+[25/09/2018 12:21:35] - corrId_5baa0c2ef2cf72.34908152 - Executing query 
+[25/09/2018 12:21:35] - corrId_5baa0c2ef2cf72.34908152 - Query executed successfully 
+[25/09/2018 12:21:35] - corrId_5baa0c2ef2cf72.34908152 - Query: UPDATE copia             
+                    SET
+                    noleggiato = 1,
+                    data_prenotazione_noleggio = CURRENT_TIMESTAMP,
+                    id_dipendente_prenotazione_noleggio = 1
+                    WHERE id_copia = 105
+                    AND noleggiato = 0
+                    AND restituito = 0 
+[25/09/2018 12:21:35] - corrId_5baa0c2ef2cf72.34908152 - Executing query 
+[25/09/2018 12:21:35] - corrId_5baa0c2ef2cf72.34908152 - Query executed successfully 
+[25/09/2018 12:21:35] - corrId_5baa0c2ef2cf72.34908152 - Committing transaction 
+[25/09/2018 12:21:35] - corrId_5baa0c2f698b16.14382094 - Reached RentalManagementService API 
+[25/09/2018 12:21:35] - corrId_5baa0c2f698b16.14382094 - Establishing connection to DB 
+[25/09/2018 12:21:35] - corrId_5baa0c2f698b16.14382094 - Processing GetActiveDiscount request. 
+[25/09/2018 12:21:35] - corrId_5baa0c2f698b16.14382094 - Token is valid 
+[25/09/2018 12:21:35] - corrId_5baa0c2f698b16.14382094 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:21:35] - corrId_5baa0c2f698b16.14382094 - Query: SELECT id_tariffa, tariffa
+            FROM tariffa
+            WHERE attiva = 1 
+[25/09/2018 12:21:35] - corrId_5baa0c2f698b16.14382094 - Executing query 
+[25/09/2018 12:21:35] - corrId_5baa0c2f698b16.14382094 - Query executed successfully 
+[25/09/2018 12:21:39] - corrId_5baa0c330caf68.74359076 - Reached CustomerManagementService API 
+[25/09/2018 12:21:39] - corrId_5baa0c330caf68.74359076 - Processing FindCustomerById request. 
+[25/09/2018 12:21:39] - corrId_5baa0c330caf68.74359076 - Token is valid 
+[25/09/2018 12:21:39] - corrId_5baa0c330caf68.74359076 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:21:39] - corrId_5baa0c330caf68.74359076 - Query: SELECT cl.id_cliente, cl.nome, cl.cognome, cl.indirizzo, fi.nome_fidelizzazione, fi.percentuale
+            FROM cliente cl
+            INNER JOIN fidelizzazione fi
+            ON cl.id_fidelizzazione = fi.id_fidelizzazione
+            WHERE id_cliente = 35
+            LIMIT 1 
+[25/09/2018 12:21:39] - corrId_5baa0c330caf68.74359076 - Establishing connection to DB 
+[25/09/2018 12:21:39] - corrId_5baa0c330caf68.74359076 - Executing query 
+[25/09/2018 12:21:39] - corrId_5baa0c330caf68.74359076 - Query executed successfully 
+[25/09/2018 12:21:55] - corrId_5baa0c43956211.42436887 - Reached AuthenticationService API 
+[25/09/2018 12:21:55] - corrId_5baa0c43956211.42436887 - Token is valid 
+[25/09/2018 12:21:59] - corrId_5baa0c477bd345.11870924 - Reached RentalManagementService API 
+[25/09/2018 12:21:59] - corrId_5baa0c477bd345.11870924 - Establishing connection to DB 
+[25/09/2018 12:21:59] - corrId_5baa0c477c1158.95694190 - Reached RentalManagementService API 
+[25/09/2018 12:21:59] - corrId_5baa0c477c1158.95694190 - Establishing connection to DB 
+[25/09/2018 12:21:59] - corrId_5baa0c477bd345.11870924 - Processing ClearRentalBookingsForUser request. 
+[25/09/2018 12:21:59] - corrId_5baa0c477bd345.11870924 - Token is valid 
+[25/09/2018 12:21:59] - corrId_5baa0c477c1158.95694190 - Processing ClearRentalBookings request. 
+[25/09/2018 12:21:59] - corrId_5baa0c477bd345.11870924 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:21:59] - corrId_5baa0c477bd345.11870924 - Executing query 
+[25/09/2018 12:21:59] - corrId_5baa0c477c1158.95694190 - Token is valid 
+[25/09/2018 12:21:59] - corrId_5baa0c477c1158.95694190 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:21:59] - corrId_5baa0c477c1158.95694190 - Executing query 
+[25/09/2018 12:21:59] - corrId_5baa0c477bd345.11870924 - Query executed successfully 
+[25/09/2018 12:21:59] - corrId_5baa0c477c1158.95694190 - Query executed successfully 
+[25/09/2018 12:21:59] - corrId_5baa0c47e54490.28186246 - Reached RentalManagementService API 
+[25/09/2018 12:21:59] - corrId_5baa0c47e54490.28186246 - Establishing connection to DB 
+[25/09/2018 12:21:59] - corrId_5baa0c47e54490.28186246 - Processing GetVideosInStorageWithCount request. 
+[25/09/2018 12:21:59] - corrId_5baa0c47e54490.28186246 - Token is valid 
+[25/09/2018 12:21:59] - corrId_5baa0c47e54490.28186246 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:21:59] - corrId_5baa0c47e54490.28186246 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[25/09/2018 12:21:59] - corrId_5baa0c47e54490.28186246 - Executing query 
+[25/09/2018 12:21:59] - corrId_5baa0c47e54490.28186246 - Query executed successfully 
+[25/09/2018 12:21:59] - corrId_5baa0c47e54490.28186246 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 3, 12, 14, 15, 16) 
+[25/09/2018 12:21:59] - corrId_5baa0c47e54490.28186246 - Executing query 
+[25/09/2018 12:21:59] - corrId_5baa0c47e54490.28186246 - Query executed successfully 
+[25/09/2018 12:22:01] - corrId_5baa0c49dd06a0.45358272 - Reached RentalManagementService API 
+[25/09/2018 12:22:01] - corrId_5baa0c49dd06a0.45358272 - Establishing connection to DB 
+[25/09/2018 12:22:01] - corrId_5baa0c49dd06a0.45358272 - Processing GetMostRecentCopies request. 
+[25/09/2018 12:22:01] - corrId_5baa0c49dd06a0.45358272 - Token is valid 
+[25/09/2018 12:22:01] - corrId_5baa0c49dd06a0.45358272 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:22:01] - corrId_5baa0c49dd06a0.45358272 - Starting transaction 
+[25/09/2018 12:22:01] - corrId_5baa0c49dd06a0.45358272 - Query: SELECT co.id_copia, co.data_scarico, co.id_film
+                    FROM copia co
+                    WHERE co.id_punto_vendita = 1
+                    AND co.id_film = 2
+                    AND co.noleggiato = 0
+                    AND co.restituito = 0
+                    ORDER BY co.data_scarico desc
+                    LIMIT 1 
+[25/09/2018 12:22:01] - corrId_5baa0c49dd06a0.45358272 - Executing query 
+[25/09/2018 12:22:01] - corrId_5baa0c49dd06a0.45358272 - Query executed successfully 
+[25/09/2018 12:22:01] - corrId_5baa0c49dd06a0.45358272 - Query: UPDATE copia             
+                    SET
+                    noleggiato = 1,
+                    data_prenotazione_noleggio = CURRENT_TIMESTAMP,
+                    id_dipendente_prenotazione_noleggio = 1
+                    WHERE id_copia = 75
+                    AND noleggiato = 0
+                    AND restituito = 0 
+[25/09/2018 12:22:01] - corrId_5baa0c49dd06a0.45358272 - Executing query 
+[25/09/2018 12:22:01] - corrId_5baa0c49dd06a0.45358272 - Query executed successfully 
+[25/09/2018 12:22:01] - corrId_5baa0c49dd06a0.45358272 - Committing transaction 
+[25/09/2018 12:22:02] - corrId_5baa0c4a5ccf05.25072225 - Reached RentalManagementService API 
+[25/09/2018 12:22:02] - corrId_5baa0c4a5ccf05.25072225 - Establishing connection to DB 
+[25/09/2018 12:22:02] - corrId_5baa0c4a5ccf05.25072225 - Processing GetActiveDiscount request. 
+[25/09/2018 12:22:02] - corrId_5baa0c4a5ccf05.25072225 - Token is valid 
+[25/09/2018 12:22:02] - corrId_5baa0c4a5ccf05.25072225 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:22:02] - corrId_5baa0c4a5ccf05.25072225 - Query: SELECT id_tariffa, tariffa
+            FROM tariffa
+            WHERE attiva = 1 
+[25/09/2018 12:22:02] - corrId_5baa0c4a5ccf05.25072225 - Executing query 
+[25/09/2018 12:22:02] - corrId_5baa0c4a5ccf05.25072225 - Query executed successfully 
+[25/09/2018 12:22:05] - corrId_5baa0c4d8fa083.39965401 - Reached CustomerManagementService API 
+[25/09/2018 12:22:05] - corrId_5baa0c4d8fa083.39965401 - Processing FindCustomerById request. 
+[25/09/2018 12:22:05] - corrId_5baa0c4d8fa083.39965401 - Token is valid 
+[25/09/2018 12:22:05] - corrId_5baa0c4d8fa083.39965401 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:22:05] - corrId_5baa0c4d8fa083.39965401 - Query: SELECT cl.id_cliente, cl.nome, cl.cognome, cl.indirizzo, fi.nome_fidelizzazione, fi.percentuale
+            FROM cliente cl
+            INNER JOIN fidelizzazione fi
+            ON cl.id_fidelizzazione = fi.id_fidelizzazione
+            WHERE id_cliente = 35
+            LIMIT 1 
+[25/09/2018 12:22:05] - corrId_5baa0c4d8fa083.39965401 - Establishing connection to DB 
+[25/09/2018 12:22:05] - corrId_5baa0c4d8fa083.39965401 - Executing query 
+[25/09/2018 12:22:05] - corrId_5baa0c4d8fa083.39965401 - Query executed successfully 
+[25/09/2018 12:22:22] - corrId_5baa0c5eef17c9.40130338 - Reached AuthenticationService API 
+[25/09/2018 12:22:22] - corrId_5baa0c5eef17c9.40130338 - Token is valid 
+[25/09/2018 12:22:24] - corrId_5baa0c601800e4.02357537 - Reached RentalManagementService API 
+[25/09/2018 12:22:24] - corrId_5baa0c601800e4.02357537 - Establishing connection to DB 
+[25/09/2018 12:22:24] - corrId_5baa0c60183528.17289035 - Reached RentalManagementService API 
+[25/09/2018 12:22:24] - corrId_5baa0c60183528.17289035 - Establishing connection to DB 
+[25/09/2018 12:22:24] - corrId_5baa0c601800e4.02357537 - Processing ClearRentalBookings request. 
+[25/09/2018 12:22:24] - corrId_5baa0c601800e4.02357537 - Token is valid 
+[25/09/2018 12:22:24] - corrId_5baa0c60183528.17289035 - Processing ClearRentalBookingsForUser request. 
+[25/09/2018 12:22:24] - corrId_5baa0c601800e4.02357537 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:22:24] - corrId_5baa0c60183528.17289035 - Token is valid 
+
+[25/09/2018 12:22:24] - corrId_5baa0c60183528.17289035 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:22:24] - corrId_5baa0c601800e4.02357537 - Query executed successfully 
+[25/09/2018 12:22:24] - corrId_5baa0c60183528.17289035 - Query executed successfully 
+[25/09/2018 12:22:24] - corrId_5baa0c60819488.95747101 - Reached RentalManagementService API 
+[25/09/2018 12:22:24] - corrId_5baa0c60819488.95747101 - Establishing connection to DB 
+[25/09/2018 12:22:24] - corrId_5baa0c60819488.95747101 - Processing GetVideosInStorageWithCount request. 
+[25/09/2018 12:22:24] - corrId_5baa0c60819488.95747101 - Token is valid 
+[25/09/2018 12:22:24] - corrId_5baa0c60819488.95747101 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:22:24] - corrId_5baa0c60819488.95747101 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[25/09/2018 12:22:24] - corrId_5baa0c60819488.95747101 - Executing query 
+[25/09/2018 12:22:24] - corrId_5baa0c60819488.95747101 - Query executed successfully 
+[25/09/2018 12:22:24] - corrId_5baa0c60819488.95747101 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 3, 12, 14, 15, 16) 
+[25/09/2018 12:22:24] - corrId_5baa0c60819488.95747101 - Executing query 
+[25/09/2018 12:22:24] - corrId_5baa0c60819488.95747101 - Query executed successfully 
+[25/09/2018 12:22:26] - corrId_5baa0c620ec8d0.81901464 - Reached RentalManagementService API 
+[25/09/2018 12:22:26] - corrId_5baa0c620ec8d0.81901464 - Establishing connection to DB 
+[25/09/2018 12:22:26] - corrId_5baa0c620ec8d0.81901464 - Processing GetMostRecentCopies request. 
+[25/09/2018 12:22:26] - corrId_5baa0c620ec8d0.81901464 - Token is valid 
+[25/09/2018 12:22:26] - corrId_5baa0c620ec8d0.81901464 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:22:26] - corrId_5baa0c620ec8d0.81901464 - Starting transaction 
+[25/09/2018 12:22:26] - corrId_5baa0c620ec8d0.81901464 - Query: SELECT co.id_copia, co.data_scarico, co.id_film
+                    FROM copia co
+                    WHERE co.id_punto_vendita = 1
+                    AND co.id_film = 2
+                    AND co.noleggiato = 0
+                    AND co.restituito = 0
+                    ORDER BY co.data_scarico desc
+                    LIMIT 1 
+[25/09/2018 12:22:26] - corrId_5baa0c620ec8d0.81901464 - Executing query 
+[25/09/2018 12:22:26] - corrId_5baa0c620ec8d0.81901464 - Query executed successfully 
+[25/09/2018 12:22:26] - corrId_5baa0c620ec8d0.81901464 - Query: UPDATE copia             
+                    SET
+                    noleggiato = 1,
+                    data_prenotazione_noleggio = CURRENT_TIMESTAMP,
+                    id_dipendente_prenotazione_noleggio = 1
+                    WHERE id_copia = 75
+                    AND noleggiato = 0
+                    AND restituito = 0 
+[25/09/2018 12:22:26] - corrId_5baa0c620ec8d0.81901464 - Executing query 
+[25/09/2018 12:22:26] - corrId_5baa0c620ec8d0.81901464 - Query executed successfully 
+[25/09/2018 12:22:26] - corrId_5baa0c620ec8d0.81901464 - Committing transaction 
+[25/09/2018 12:22:26] - corrId_5baa0c627bc470.39809036 - Reached RentalManagementService API 
+[25/09/2018 12:22:26] - corrId_5baa0c627bc470.39809036 - Establishing connection to DB 
+[25/09/2018 12:22:26] - corrId_5baa0c627bc470.39809036 - Processing GetActiveDiscount request. 
+[25/09/2018 12:22:26] - corrId_5baa0c627bc470.39809036 - Token is valid 
+[25/09/2018 12:22:26] - corrId_5baa0c627bc470.39809036 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:22:26] - corrId_5baa0c627bc470.39809036 - Query: SELECT id_tariffa, tariffa
+            FROM tariffa
+            WHERE attiva = 1 
+[25/09/2018 12:22:26] - corrId_5baa0c627bc470.39809036 - Executing query 
+[25/09/2018 12:22:26] - corrId_5baa0c627bc470.39809036 - Query executed successfully 
+[25/09/2018 12:22:29] - corrId_5baa0c6505f211.93432870 - Reached CustomerManagementService API 
+[25/09/2018 12:22:29] - corrId_5baa0c6505f211.93432870 - Processing FindCustomerById request. 
+[25/09/2018 12:22:29] - corrId_5baa0c6505f211.93432870 - Token is valid 
+[25/09/2018 12:22:29] - corrId_5baa0c6505f211.93432870 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:22:29] - corrId_5baa0c6505f211.93432870 - Query: SELECT cl.id_cliente, cl.nome, cl.cognome, cl.indirizzo, fi.nome_fidelizzazione, fi.percentuale
+            FROM cliente cl
+            INNER JOIN fidelizzazione fi
+            ON cl.id_fidelizzazione = fi.id_fidelizzazione
+            WHERE id_cliente = 35
+            LIMIT 1 
+[25/09/2018 12:22:29] - corrId_5baa0c6505f211.93432870 - Establishing connection to DB 
+[25/09/2018 12:22:29] - corrId_5baa0c6505f211.93432870 - Executing query 
+[25/09/2018 12:22:29] - corrId_5baa0c6505f211.93432870 - Query executed successfully 
+[25/09/2018 12:22:36] - corrId_5baa0c6cbaa867.38634731 - Reached AuthenticationService API 
+[25/09/2018 12:22:36] - corrId_5baa0c6cbaa867.38634731 - Token is valid 
+[25/09/2018 12:22:37] - corrId_5baa0c6dd9c558.44858029 - Reached RentalManagementService API 
+[25/09/2018 12:22:37] - corrId_5baa0c6dd9d271.74546697 - Reached RentalManagementService API 
+[25/09/2018 12:22:37] - corrId_5baa0c6dd9c558.44858029 - Establishing connection to DB 
+[25/09/2018 12:22:37] - corrId_5baa0c6dd9d271.74546697 - Establishing connection to DB 
+[25/09/2018 12:22:37] - corrId_5baa0c6dd9c558.44858029 - Processing ClearRentalBookings request. 
+est. 
+[25/09/2018 12:22:37] - corrId_5baa0c6dd9c558.44858029 - Token is valid 
+[25/09/2018 12:22:37] - corrId_5baa0c6dd9d271.74546697 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:22:37] - corrId_5baa0c6dd9c558.44858029 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:22:37] - corrId_5baa0c6dd9d271.74546697 - Executing query 
+[25/09/2018 12:22:37] - corrId_5baa0c6dd9c558.44858029 - Executing query 
+[25/09/2018 12:22:37] - corrId_5baa0c6dd9c558.44858029 - Query executed successfully 
+[25/09/2018 12:22:37] - corrId_5baa0c6dd9d271.74546697 - Query executed successfully 
+[25/09/2018 12:22:38] - corrId_5baa0c6e50f154.18164763 - Reached RentalManagementService API 
+[25/09/2018 12:22:38] - corrId_5baa0c6e50f154.18164763 - Establishing connection to DB 
+[25/09/2018 12:22:38] - corrId_5baa0c6e50f154.18164763 - Processing GetVideosInStorageWithCount request. 
+[25/09/2018 12:22:38] - corrId_5baa0c6e50f154.18164763 - Token is valid 
+[25/09/2018 12:22:38] - corrId_5baa0c6e50f154.18164763 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:22:38] - corrId_5baa0c6e50f154.18164763 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[25/09/2018 12:22:38] - corrId_5baa0c6e50f154.18164763 - Executing query 
+[25/09/2018 12:22:38] - corrId_5baa0c6e50f154.18164763 - Query executed successfully 
+[25/09/2018 12:22:38] - corrId_5baa0c6e50f154.18164763 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 3, 12, 14, 15, 16) 
+[25/09/2018 12:22:38] - corrId_5baa0c6e50f154.18164763 - Executing query 
+[25/09/2018 12:22:38] - corrId_5baa0c6e50f154.18164763 - Query executed successfully 
+[25/09/2018 12:22:40] - corrId_5baa0c7092c4f5.02479611 - Reached RentalManagementService API 
+[25/09/2018 12:22:40] - corrId_5baa0c7092c4f5.02479611 - Establishing connection to DB 
+[25/09/2018 12:22:40] - corrId_5baa0c7092c4f5.02479611 - Processing GetMostRecentCopies request. 
+[25/09/2018 12:22:40] - corrId_5baa0c7092c4f5.02479611 - Token is valid 
+[25/09/2018 12:22:40] - corrId_5baa0c7092c4f5.02479611 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:22:40] - corrId_5baa0c7092c4f5.02479611 - Starting transaction 
+[25/09/2018 12:22:40] - corrId_5baa0c7092c4f5.02479611 - Query: SELECT co.id_copia, co.data_scarico, co.id_film
+                    FROM copia co
+                    WHERE co.id_punto_vendita = 1
+                    AND co.id_film = 2
+                    AND co.noleggiato = 0
+                    AND co.restituito = 0
+                    ORDER BY co.data_scarico desc
+                    LIMIT 1 
+[25/09/2018 12:22:40] - corrId_5baa0c7092c4f5.02479611 - Executing query 
+[25/09/2018 12:22:40] - corrId_5baa0c7092c4f5.02479611 - Query executed successfully 
+[25/09/2018 12:22:40] - corrId_5baa0c7092c4f5.02479611 - Query: UPDATE copia             
+                    SET
+                    noleggiato = 1,
+                    data_prenotazione_noleggio = CURRENT_TIMESTAMP,
+                    id_dipendente_prenotazione_noleggio = 1
+                    WHERE id_copia = 75
+                    AND noleggiato = 0
+                    AND restituito = 0 
+[25/09/2018 12:22:40] - corrId_5baa0c7092c4f5.02479611 - Executing query 
+[25/09/2018 12:22:40] - corrId_5baa0c7092c4f5.02479611 - Query executed successfully 
+[25/09/2018 12:22:40] - corrId_5baa0c7092c4f5.02479611 - Committing transaction 
+[25/09/2018 12:22:41] - corrId_5baa0c71095957.80446652 - Reached RentalManagementService API 
+[25/09/2018 12:22:41] - corrId_5baa0c71095957.80446652 - Establishing connection to DB 
+[25/09/2018 12:22:41] - corrId_5baa0c71095957.80446652 - Processing GetActiveDiscount request. 
+[25/09/2018 12:22:41] - corrId_5baa0c71095957.80446652 - Token is valid 
+[25/09/2018 12:22:41] - corrId_5baa0c71095957.80446652 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:22:41] - corrId_5baa0c71095957.80446652 - Query: SELECT id_tariffa, tariffa
+            FROM tariffa
+            WHERE attiva = 1 
+[25/09/2018 12:22:41] - corrId_5baa0c71095957.80446652 - Executing query 
+[25/09/2018 12:22:41] - corrId_5baa0c71095957.80446652 - Query executed successfully 
+[25/09/2018 12:22:43] - corrId_5baa0c732c2488.84833871 - Reached CustomerManagementService API 
+[25/09/2018 12:22:43] - corrId_5baa0c732c2488.84833871 - Processing FindCustomerById request. 
+[25/09/2018 12:22:43] - corrId_5baa0c732c2488.84833871 - Token is valid 
+[25/09/2018 12:22:43] - corrId_5baa0c732c2488.84833871 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:22:43] - corrId_5baa0c732c2488.84833871 - Query: SELECT cl.id_cliente, cl.nome, cl.cognome, cl.indirizzo, fi.nome_fidelizzazione, fi.percentuale
+            FROM cliente cl
+            INNER JOIN fidelizzazione fi
+            ON cl.id_fidelizzazione = fi.id_fidelizzazione
+            WHERE id_cliente = 35
+            LIMIT 1 
+[25/09/2018 12:22:43] - corrId_5baa0c732c2488.84833871 - Establishing connection to DB 
+[25/09/2018 12:22:43] - corrId_5baa0c732c2488.84833871 - Executing query 
+[25/09/2018 12:22:43] - corrId_5baa0c732c2488.84833871 - Query executed successfully 
+[25/09/2018 12:23:07] - corrId_5baa0c8b2d0196.11917021 - Reached AuthenticationService API 
+[25/09/2018 12:23:07] - corrId_5baa0c8b2d0196.11917021 - Token is valid 
+[25/09/2018 12:23:08] - corrId_5baa0c8c4977b6.55313037 - Reached RentalManagementService API 
+[25/09/2018 12:23:08] - corrId_5baa0c8c4977b6.55313037 - Establishing connection to DB 
+[25/09/2018 12:23:08] - corrId_5baa0c8c4977b6.55313037 - Processing ClearRentalBookingsForUser request. 
+[25/09/2018 12:23:08] - corrId_5baa0c8c4977b6.55313037 - Token is valid 
+[25/09/2018 12:23:08] - corrId_5baa0c8c4977b6.55313037 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:23:08] - corrId_5baa0c8c4977b6.55313037 - Executing query 
+[25/09/2018 12:23:08] - corrId_5baa0c8c4977b6.55313037 - Query executed successfully 
+[25/09/2018 12:23:08] - corrId_5baa0c8c4eba60.60618009 - Reached RentalManagementService API 
+[25/09/2018 12:23:08] - corrId_5baa0c8c4eba60.60618009 - Establishing connection to DB 
+[25/09/2018 12:23:08] - corrId_5baa0c8c4eba60.60618009 - Processing ClearRentalBookings request. 
+[25/09/2018 12:23:08] - corrId_5baa0c8c4eba60.60618009 - Token is valid 
+[25/09/2018 12:23:08] - corrId_5baa0c8c4eba60.60618009 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:23:08] - corrId_5baa0c8c4eba60.60618009 - Executing query 
+[25/09/2018 12:23:08] - corrId_5baa0c8c4eba60.60618009 - Query executed successfully 
+[25/09/2018 12:23:08] - corrId_5baa0c8cb76175.32692955 - Reached RentalManagementService API 
+[25/09/2018 12:23:08] - corrId_5baa0c8cb76175.32692955 - Establishing connection to DB 
+[25/09/2018 12:23:08] - corrId_5baa0c8cb76175.32692955 - Processing GetVideosInStorageWithCount request. 
+[25/09/2018 12:23:08] - corrId_5baa0c8cb76175.32692955 - Token is valid 
+[25/09/2018 12:23:08] - corrId_5baa0c8cb76175.32692955 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:23:08] - corrId_5baa0c8cb76175.32692955 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[25/09/2018 12:23:08] - corrId_5baa0c8cb76175.32692955 - Executing query 
+[25/09/2018 12:23:08] - corrId_5baa0c8cb76175.32692955 - Query executed successfully 
+[25/09/2018 12:23:08] - corrId_5baa0c8cb76175.32692955 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 3, 12, 14, 15, 16) 
+[25/09/2018 12:23:08] - corrId_5baa0c8cb76175.32692955 - Executing query 
+[25/09/2018 12:23:08] - corrId_5baa0c8cb76175.32692955 - Query executed successfully 
+[25/09/2018 12:23:10] - corrId_5baa0c8ee76ba0.95885133 - Reached RentalManagementService API 
+[25/09/2018 12:23:10] - corrId_5baa0c8ee76ba0.95885133 - Establishing connection to DB 
+[25/09/2018 12:23:10] - corrId_5baa0c8ee76ba0.95885133 - Processing GetMostRecentCopies request. 
+[25/09/2018 12:23:10] - corrId_5baa0c8ee76ba0.95885133 - Token is valid 
+[25/09/2018 12:23:10] - corrId_5baa0c8ee76ba0.95885133 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:23:10] - corrId_5baa0c8ee76ba0.95885133 - Starting transaction 
+[25/09/2018 12:23:10] - corrId_5baa0c8ee76ba0.95885133 - Query: SELECT co.id_copia, co.data_scarico, co.id_film
+                    FROM copia co
+                    WHERE co.id_punto_vendita = 1
+                    AND co.id_film = 2
+                    AND co.noleggiato = 0
+                    AND co.restituito = 0
+                    ORDER BY co.data_scarico desc
+                    LIMIT 1 
+[25/09/2018 12:23:10] - corrId_5baa0c8ee76ba0.95885133 - Executing query 
+[25/09/2018 12:23:10] - corrId_5baa0c8ee76ba0.95885133 - Query executed successfully 
+[25/09/2018 12:23:10] - corrId_5baa0c8ee76ba0.95885133 - Query: UPDATE copia             
+                    SET
+                    noleggiato = 1,
+                    data_prenotazione_noleggio = CURRENT_TIMESTAMP,
+                    id_dipendente_prenotazione_noleggio = 1
+                    WHERE id_copia = 75
+                    AND noleggiato = 0
+                    AND restituito = 0 
+[25/09/2018 12:23:10] - corrId_5baa0c8ee76ba0.95885133 - Executing query 
+[25/09/2018 12:23:10] - corrId_5baa0c8ee76ba0.95885133 - Query executed successfully 
+[25/09/2018 12:23:10] - corrId_5baa0c8ee76ba0.95885133 - Committing transaction 
+[25/09/2018 12:23:11] - corrId_5baa0c8f654c25.58314030 - Reached RentalManagementService API 
+[25/09/2018 12:23:11] - corrId_5baa0c8f654c25.58314030 - Establishing connection to DB 
+[25/09/2018 12:23:11] - corrId_5baa0c8f654c25.58314030 - Processing GetActiveDiscount request. 
+[25/09/2018 12:23:11] - corrId_5baa0c8f654c25.58314030 - Token is valid 
+[25/09/2018 12:23:11] - corrId_5baa0c8f654c25.58314030 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:23:11] - corrId_5baa0c8f654c25.58314030 - Query: SELECT id_tariffa, tariffa
+            FROM tariffa
+            WHERE attiva = 1 
+[25/09/2018 12:23:11] - corrId_5baa0c8f654c25.58314030 - Executing query 
+[25/09/2018 12:23:11] - corrId_5baa0c8f654c25.58314030 - Query executed successfully 
+[25/09/2018 12:23:13] - corrId_5baa0c91476f73.55408684 - Reached CustomerManagementService API 
+[25/09/2018 12:23:13] - corrId_5baa0c91476f73.55408684 - Processing FindCustomerById request. 
+[25/09/2018 12:23:13] - corrId_5baa0c91476f73.55408684 - Token is valid 
+[25/09/2018 12:23:13] - corrId_5baa0c91476f73.55408684 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:23:13] - corrId_5baa0c91476f73.55408684 - Query: SELECT cl.id_cliente, cl.nome, cl.cognome, cl.indirizzo, fi.nome_fidelizzazione, fi.percentuale
+            FROM cliente cl
+            INNER JOIN fidelizzazione fi
+            ON cl.id_fidelizzazione = fi.id_fidelizzazione
+            WHERE id_cliente = 35
+            LIMIT 1 
+[25/09/2018 12:23:13] - corrId_5baa0c91476f73.55408684 - Establishing connection to DB 
+[25/09/2018 12:23:13] - corrId_5baa0c91476f73.55408684 - Executing query 
+[25/09/2018 12:23:13] - corrId_5baa0c91476f73.55408684 - Query executed successfully 
+[25/09/2018 12:23:22] - corrId_5baa0c9a256053.82107889 - Reached AuthenticationService API 
+[25/09/2018 12:23:22] - corrId_5baa0c9a256053.82107889 - Token is valid 
+[25/09/2018 12:23:23] - corrId_5baa0c9b5c1dd4.01254907 - Reached RentalManagementService API 
+[25/09/2018 12:23:23] - corrId_5baa0c9b5c2943.24010653 - Reached RentalManagementService API 
+[25/09/2018 12:23:23] - corrId_5baa0c9b5c1dd4.01254907 - Establishing connection to DB 
+[25/09/2018 12:23:23] - corrId_5baa0c9b5c2943.24010653 - Processing ClearRentalBookingsForUser request. 
+[25/09/2018 12:23:23] - corrId_5baa0c9b5c2943.24010653 - Token is valid 
+[25/09/2018 12:23:23] - corrId_5baa0c9b5c1dd4.01254907 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:23:23] - corrId_5baa0c9b5c1dd4.01254907 - Executing query 
+[25/09/2018 12:23:23] - corrId_5baa0c9b5c1dd4.01254907 - Query executed successfully 
+[25/09/2018 12:23:23] - corrId_5baa0c9b5c2943.24010653 - Query executed successfully 
+[25/09/2018 12:23:23] - corrId_5baa0c9bc71762.01876869 - Reached RentalManagementService API 
+[25/09/2018 12:23:23] - corrId_5baa0c9bc71762.01876869 - Establishing connection to DB 
+[25/09/2018 12:23:23] - corrId_5baa0c9bc71762.01876869 - Processing GetVideosInStorageWithCount request. 
+[25/09/2018 12:23:23] - corrId_5baa0c9bc71762.01876869 - Token is valid 
+[25/09/2018 12:23:23] - corrId_5baa0c9bc71762.01876869 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:23:23] - corrId_5baa0c9bc71762.01876869 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[25/09/2018 12:23:23] - corrId_5baa0c9bc71762.01876869 - Executing query 
+[25/09/2018 12:23:23] - corrId_5baa0c9bc71762.01876869 - Query executed successfully 
+[25/09/2018 12:23:23] - corrId_5baa0c9bc71762.01876869 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 3, 12, 14, 15, 16) 
+[25/09/2018 12:23:23] - corrId_5baa0c9bc71762.01876869 - Executing query 
+[25/09/2018 12:23:23] - corrId_5baa0c9bc71762.01876869 - Query executed successfully 
+[25/09/2018 12:23:26] - corrId_5baa0c9e724551.83715281 - Reached RentalManagementService API 
+[25/09/2018 12:23:26] - corrId_5baa0c9e724551.83715281 - Establishing connection to DB 
+[25/09/2018 12:23:26] - corrId_5baa0c9e724551.83715281 - Processing GetMostRecentCopies request. 
+[25/09/2018 12:23:26] - corrId_5baa0c9e724551.83715281 - Token is valid 
+[25/09/2018 12:23:26] - corrId_5baa0c9e724551.83715281 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:23:26] - corrId_5baa0c9e724551.83715281 - Starting transaction 
+[25/09/2018 12:23:26] - corrId_5baa0c9e724551.83715281 - Query: SELECT co.id_copia, co.data_scarico, co.id_film
+                    FROM copia co
+                    WHERE co.id_punto_vendita = 1
+                    AND co.id_film = 14
+                    AND co.noleggiato = 0
+                    AND co.restituito = 0
+                    ORDER BY co.data_scarico desc
+                    LIMIT 1 
+[25/09/2018 12:23:26] - corrId_5baa0c9e724551.83715281 - Executing query 
+[25/09/2018 12:23:26] - corrId_5baa0c9e724551.83715281 - Query executed successfully 
+[25/09/2018 12:23:26] - corrId_5baa0c9e724551.83715281 - Query: UPDATE copia             
+                    SET
+                    noleggiato = 1,
+                    data_prenotazione_noleggio = CURRENT_TIMESTAMP,
+                    id_dipendente_prenotazione_noleggio = 1
+                    WHERE id_copia = 93
+                    AND noleggiato = 0
+                    AND restituito = 0 
+[25/09/2018 12:23:26] - corrId_5baa0c9e724551.83715281 - Executing query 
+[25/09/2018 12:23:26] - corrId_5baa0c9e724551.83715281 - Query executed successfully 
+[25/09/2018 12:23:26] - corrId_5baa0c9e724551.83715281 - Committing transaction 
+[25/09/2018 12:23:26] - corrId_5baa0c9eddc9e0.28026709 - Reached RentalManagementService API 
+[25/09/2018 12:23:26] - corrId_5baa0c9eddc9e0.28026709 - Establishing connection to DB 
+[25/09/2018 12:23:26] - corrId_5baa0c9eddc9e0.28026709 - Processing GetActiveDiscount request. 
+[25/09/2018 12:23:26] - corrId_5baa0c9eddc9e0.28026709 - Token is valid 
+[25/09/2018 12:23:26] - corrId_5baa0c9eddc9e0.28026709 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:23:26] - corrId_5baa0c9eddc9e0.28026709 - Query: SELECT id_tariffa, tariffa
+            FROM tariffa
+            WHERE attiva = 1 
+[25/09/2018 12:23:26] - corrId_5baa0c9eddc9e0.28026709 - Executing query 
+[25/09/2018 12:23:26] - corrId_5baa0c9eddc9e0.28026709 - Query executed successfully 
+[25/09/2018 12:23:29] - corrId_5baa0ca1c3d4c5.53925965 - Reached CustomerManagementService API 
+[25/09/2018 12:23:29] - corrId_5baa0ca1c3d4c5.53925965 - Processing FindCustomerById request. 
+[25/09/2018 12:23:29] - corrId_5baa0ca1c3d4c5.53925965 - Token is valid 
+[25/09/2018 12:23:29] - corrId_5baa0ca1c3d4c5.53925965 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:23:29] - corrId_5baa0ca1c3d4c5.53925965 - Query: SELECT cl.id_cliente, cl.nome, cl.cognome, cl.indirizzo, fi.nome_fidelizzazione, fi.percentuale
+            FROM cliente cl
+            INNER JOIN fidelizzazione fi
+            ON cl.id_fidelizzazione = fi.id_fidelizzazione
+            WHERE id_cliente = 35
+            LIMIT 1 
+[25/09/2018 12:23:29] - corrId_5baa0ca1c3d4c5.53925965 - Establishing connection to DB 
+[25/09/2018 12:23:29] - corrId_5baa0ca1c3d4c5.53925965 - Executing query 
+[25/09/2018 12:23:29] - corrId_5baa0ca1c3d4c5.53925965 - Query executed successfully 
+[25/09/2018 12:25:08] - corrId_5baa0d04b42706.94469484 - Reached AuthenticationService API 
+[25/09/2018 12:25:08] - corrId_5baa0d04b42706.94469484 - Token is valid 
+[25/09/2018 12:25:09] - corrId_5baa0d05db9bb7.07557082 - Reached RentalManagementService API 
+[25/09/2018 12:25:09] - corrId_5baa0d05db9bb7.07557082 - Establishing connection to DB 
+[25/09/2018 12:25:09] - corrId_5baa0d05dc08a7.25575352 - Reached RentalManagementService API 
+[25/09/2018 12:25:09] - corrId_5baa0d05dc08a7.25575352 - Establishing connection to DB 
+[25/09/2018 12:25:09] - corrId_5baa0d05db9bb7.07557082 - Processing ClearRentalBookingsForUser request. 
+[25/09/2018 12:25:09] - corrId_5baa0d05dc08a7.25575352 - Processing ClearRentalBookings request. 
+[25/09/2018 12:25:09] - corrId_5baa0d05db9bb7.07557082 - Token is valid 
+[25/09/2018 12:25:09] - corrId_5baa0d05dc08a7.25575352 - Token is valid 
+[25/09/2018 12:25:09] - corrId_5baa0d05db9bb7.07557082 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:25:09] - corrId_5baa0d05dc08a7.25575352 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:25:09] - corrId_5baa0d05dc08a7.25575352 - Executing query 
+[25/09/2018 12:25:09] - corrId_5baa0d05db9bb7.07557082 - Query executed successfully 
+[25/09/2018 12:25:09] - corrId_5baa0d05dc08a7.25575352 - Query executed successfully 
+[25/09/2018 12:25:10] - corrId_5baa0d06551864.66947605 - Reached RentalManagementService API 
+[25/09/2018 12:25:10] - corrId_5baa0d06551864.66947605 - Establishing connection to DB 
+[25/09/2018 12:25:10] - corrId_5baa0d06551864.66947605 - Processing GetVideosInStorageWithCount request. 
+[25/09/2018 12:25:10] - corrId_5baa0d06551864.66947605 - Token is valid 
+[25/09/2018 12:25:10] - corrId_5baa0d06551864.66947605 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:25:10] - corrId_5baa0d06551864.66947605 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[25/09/2018 12:25:10] - corrId_5baa0d06551864.66947605 - Executing query 
+[25/09/2018 12:25:10] - corrId_5baa0d06551864.66947605 - Query executed successfully 
+[25/09/2018 12:25:10] - corrId_5baa0d06551864.66947605 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 3, 12, 14, 15, 16) 
+[25/09/2018 12:25:10] - corrId_5baa0d06551864.66947605 - Executing query 
+[25/09/2018 12:25:10] - corrId_5baa0d06551864.66947605 - Query executed successfully 
+[25/09/2018 12:25:12] - corrId_5baa0d085da0a3.42521277 - Reached RentalManagementService API 
+[25/09/2018 12:25:12] - corrId_5baa0d085da0a3.42521277 - Establishing connection to DB 
+[25/09/2018 12:25:12] - corrId_5baa0d085da0a3.42521277 - Processing GetMostRecentCopies request. 
+[25/09/2018 12:25:12] - corrId_5baa0d085da0a3.42521277 - Token is valid 
+[25/09/2018 12:25:12] - corrId_5baa0d085da0a3.42521277 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:25:12] - corrId_5baa0d085da0a3.42521277 - Starting transaction 
+[25/09/2018 12:25:12] - corrId_5baa0d085da0a3.42521277 - Query: SELECT co.id_copia, co.data_scarico, co.id_film
+                    FROM copia co
+                    WHERE co.id_punto_vendita = 1
+                    AND co.id_film = 3
+                    AND co.noleggiato = 0
+                    AND co.restituito = 0
+                    ORDER BY co.data_scarico desc
+                    LIMIT 1 
+[25/09/2018 12:25:12] - corrId_5baa0d085da0a3.42521277 - Executing query 
+[25/09/2018 12:25:12] - corrId_5baa0d085da0a3.42521277 - Query executed successfully 
+[25/09/2018 12:25:12] - corrId_5baa0d085da0a3.42521277 - Query: UPDATE copia             
+                    SET
+                    noleggiato = 1,
+                    data_prenotazione_noleggio = CURRENT_TIMESTAMP,
+                    id_dipendente_prenotazione_noleggio = 1
+                    WHERE id_copia = 105
+                    AND noleggiato = 0
+                    AND restituito = 0 
+[25/09/2018 12:25:12] - corrId_5baa0d085da0a3.42521277 - Executing query 
+[25/09/2018 12:25:12] - corrId_5baa0d085da0a3.42521277 - Query executed successfully 
+[25/09/2018 12:25:12] - corrId_5baa0d085da0a3.42521277 - Committing transaction 
+[25/09/2018 12:25:12] - corrId_5baa0d08cffdf7.47113832 - Reached RentalManagementService API 
+[25/09/2018 12:25:12] - corrId_5baa0d08cffdf7.47113832 - Establishing connection to DB 
+[25/09/2018 12:25:12] - corrId_5baa0d08cffdf7.47113832 - Processing GetActiveDiscount request. 
+[25/09/2018 12:25:12] - corrId_5baa0d08cffdf7.47113832 - Token is valid 
+[25/09/2018 12:25:12] - corrId_5baa0d08cffdf7.47113832 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:25:12] - corrId_5baa0d08cffdf7.47113832 - Query: SELECT id_tariffa, tariffa
+            FROM tariffa
+            WHERE attiva = 1 
+[25/09/2018 12:25:12] - corrId_5baa0d08cffdf7.47113832 - Executing query 
+[25/09/2018 12:25:12] - corrId_5baa0d08cffdf7.47113832 - Query executed successfully 
+[25/09/2018 12:25:15] - corrId_5baa0d0b00a436.72864767 - Reached CustomerManagementService API 
+[25/09/2018 12:25:15] - corrId_5baa0d0b00a436.72864767 - Processing FindCustomerById request. 
+[25/09/2018 12:25:15] - corrId_5baa0d0b00a436.72864767 - Token is valid 
+[25/09/2018 12:25:15] - corrId_5baa0d0b00a436.72864767 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:25:15] - corrId_5baa0d0b00a436.72864767 - Query: SELECT cl.id_cliente, cl.nome, cl.cognome, cl.indirizzo, fi.nome_fidelizzazione, fi.percentuale
+            FROM cliente cl
+            INNER JOIN fidelizzazione fi
+            ON cl.id_fidelizzazione = fi.id_fidelizzazione
+            WHERE id_cliente = 35
+            LIMIT 1 
+[25/09/2018 12:25:15] - corrId_5baa0d0b00a436.72864767 - Establishing connection to DB 
+[25/09/2018 12:25:15] - corrId_5baa0d0b00a436.72864767 - Executing query 
+[25/09/2018 12:25:15] - corrId_5baa0d0b00a436.72864767 - Query executed successfully 
+[25/09/2018 12:27:48] - corrId_5baa0da4018363.93265836 - Reached AuthenticationService API 
+[25/09/2018 12:27:48] - corrId_5baa0da4018363.93265836 - Token is valid 
+[25/09/2018 12:27:48] - corrId_5baa0da4df3663.01576918 - Reached RentalManagementService API 
+[25/09/2018 12:27:48] - corrId_5baa0da4df3663.01576918 - Establishing connection to DB 
+[25/09/2018 12:27:48] - corrId_5baa0da4dfa786.63829606 - Reached RentalManagementService API 
+[25/09/2018 12:27:48] - corrId_5baa0da4dfa786.63829606 - Establishing connection to DB 
+[25/09/2018 12:27:48] - corrId_5baa0da4df3663.01576918 - Processing ClearRentalBookingsForUser request. 
+[25/09/2018 12:27:48] - corrId_5baa0da4df3663.01576918 - Token is valid 
+[25/09/2018 12:27:48] - corrId_5baa0da4dfa786.63829606 - Processing ClearRentalBookings request. 
+[25/09/2018 12:27:48] - corrId_5baa0da4dfa786.63829606 - Token is valid 
+ions for user admin (required 10, has 30) 
+[25/09/2018 12:27:48] - corrId_5baa0da4dfa786.63829606 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:27:48] - corrId_5baa0da4dfa786.63829606 - Executing query 
+[25/09/2018 12:27:48] - corrId_5baa0da4dfa786.63829606 - Query executed successfully 
+[25/09/2018 12:27:48] - corrId_5baa0da4df3663.01576918 - Query executed successfully 
+[25/09/2018 12:27:49] - corrId_5baa0da5592fe2.67396858 - Reached RentalManagementService API 
+[25/09/2018 12:27:49] - corrId_5baa0da5592fe2.67396858 - Establishing connection to DB 
+[25/09/2018 12:27:49] - corrId_5baa0da5592fe2.67396858 - Processing GetVideosInStorageWithCount request. 
+[25/09/2018 12:27:49] - corrId_5baa0da5592fe2.67396858 - Token is valid 
+[25/09/2018 12:27:49] - corrId_5baa0da5592fe2.67396858 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:27:49] - corrId_5baa0da5592fe2.67396858 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[25/09/2018 12:27:49] - corrId_5baa0da5592fe2.67396858 - Executing query 
+[25/09/2018 12:27:49] - corrId_5baa0da5592fe2.67396858 - Query executed successfully 
+[25/09/2018 12:27:49] - corrId_5baa0da5592fe2.67396858 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 3, 12, 14, 15, 16) 
+[25/09/2018 12:27:49] - corrId_5baa0da5592fe2.67396858 - Executing query 
+[25/09/2018 12:27:49] - corrId_5baa0da5592fe2.67396858 - Query executed successfully 
+[25/09/2018 12:27:50] - corrId_5baa0da6b5b9a8.78508943 - Reached RentalManagementService API 
+[25/09/2018 12:27:50] - corrId_5baa0da6b5b9a8.78508943 - Establishing connection to DB 
+[25/09/2018 12:27:50] - corrId_5baa0da6b5b9a8.78508943 - Processing GetMostRecentCopies request. 
+[25/09/2018 12:27:50] - corrId_5baa0da6b5b9a8.78508943 - Token is valid 
+[25/09/2018 12:27:50] - corrId_5baa0da6b5b9a8.78508943 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:27:50] - corrId_5baa0da6b5b9a8.78508943 - Starting transaction 
+[25/09/2018 12:27:50] - corrId_5baa0da6b5b9a8.78508943 - Query: SELECT co.id_copia, co.data_scarico, co.id_film
+                    FROM copia co
+                    WHERE co.id_punto_vendita = 1
+                    AND co.id_film = 2
+                    AND co.noleggiato = 0
+                    AND co.restituito = 0
+                    ORDER BY co.data_scarico desc
+                    LIMIT 1 
+[25/09/2018 12:27:50] - corrId_5baa0da6b5b9a8.78508943 - Executing query 
+[25/09/2018 12:27:50] - corrId_5baa0da6b5b9a8.78508943 - Query executed successfully 
+[25/09/2018 12:27:50] - corrId_5baa0da6b5b9a8.78508943 - Query: UPDATE copia             
+                    SET
+                    noleggiato = 1,
+                    data_prenotazione_noleggio = CURRENT_TIMESTAMP,
+                    id_dipendente_prenotazione_noleggio = 1
+                    WHERE id_copia = 75
+                    AND noleggiato = 0
+                    AND restituito = 0 
+[25/09/2018 12:27:50] - corrId_5baa0da6b5b9a8.78508943 - Executing query 
+[25/09/2018 12:27:50] - corrId_5baa0da6b5b9a8.78508943 - Query executed successfully 
+[25/09/2018 12:27:50] - corrId_5baa0da6b5b9a8.78508943 - Committing transaction 
+[25/09/2018 12:27:51] - corrId_5baa0da731efb0.13678787 - Reached RentalManagementService API 
+[25/09/2018 12:27:51] - corrId_5baa0da731efb0.13678787 - Establishing connection to DB 
+[25/09/2018 12:27:51] - corrId_5baa0da731efb0.13678787 - Processing GetActiveDiscount request. 
+[25/09/2018 12:27:51] - corrId_5baa0da731efb0.13678787 - Token is valid 
+[25/09/2018 12:27:51] - corrId_5baa0da731efb0.13678787 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:27:51] - corrId_5baa0da731efb0.13678787 - Query: SELECT id_tariffa, tariffa
+            FROM tariffa
+            WHERE attiva = 1 
+[25/09/2018 12:27:51] - corrId_5baa0da731efb0.13678787 - Executing query 
+[25/09/2018 12:27:51] - corrId_5baa0da731efb0.13678787 - Query executed successfully 
+[25/09/2018 12:27:55] - corrId_5baa0dab50df80.79611256 - Reached CustomerManagementService API 
+[25/09/2018 12:27:55] - corrId_5baa0dab50df80.79611256 - Processing FindCustomerById request. 
+[25/09/2018 12:27:55] - corrId_5baa0dab50df80.79611256 - Token is valid 
+[25/09/2018 12:27:55] - corrId_5baa0dab50df80.79611256 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:27:55] - corrId_5baa0dab50df80.79611256 - Query: SELECT cl.id_cliente, cl.nome, cl.cognome, cl.indirizzo, fi.nome_fidelizzazione, fi.percentuale
+            FROM cliente cl
+            INNER JOIN fidelizzazione fi
+            ON cl.id_fidelizzazione = fi.id_fidelizzazione
+            WHERE id_cliente = 35
+            LIMIT 1 
+[25/09/2018 12:27:55] - corrId_5baa0dab50df80.79611256 - Establishing connection to DB 
+[25/09/2018 12:27:55] - corrId_5baa0dab50df80.79611256 - Executing query 
+[25/09/2018 12:27:55] - corrId_5baa0dab50df80.79611256 - Query executed successfully 
+[25/09/2018 12:28:25] - corrId_5baa0dc93caab5.51774360 - Reached AuthenticationService API 
+[25/09/2018 12:28:25] - corrId_5baa0dc93caab5.51774360 - Token is valid 
+[25/09/2018 12:28:26] - corrId_5baa0dcab842c2.62024709 - Reached RentalManagementService API 
+[25/09/2018 12:28:26] - corrId_5baa0dcab852e8.11581451 - Reached RentalManagementService API 
+[25/09/2018 12:28:26] - corrId_5baa0dcab842c2.62024709 - Establishing connection to DB 
+[25/09/2018 12:28:26] - corrId_5baa0dcab852e8.11581451 - Establishing connection to DB 
+[25/09/2018 12:28:26] - corrId_5baa0dcab852e8.11581451 - Processing ClearRentalBookings request. 
+est. 
+[25/09/2018 12:28:26] - corrId_5baa0dcab842c2.62024709 - Token is valid 
+[25/09/2018 12:28:26] - corrId_5baa0dcab852e8.11581451 - Token is valid 
+[25/09/2018 12:28:26] - corrId_5baa0dcab842c2.62024709 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:28:26] - corrId_5baa0dcab852e8.11581451 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:28:26] - corrId_5baa0dcab842c2.62024709 - Executing query 
+[25/09/2018 12:28:26] - corrId_5baa0dcab852e8.11581451 - Query executed successfully 
+[25/09/2018 12:28:26] - corrId_5baa0dcab842c2.62024709 - Query executed successfully 
+[25/09/2018 12:28:27] - corrId_5baa0dcb2ef432.76264617 - Reached RentalManagementService API 
+[25/09/2018 12:28:27] - corrId_5baa0dcb2ef432.76264617 - Establishing connection to DB 
+[25/09/2018 12:28:27] - corrId_5baa0dcb2ef432.76264617 - Processing GetVideosInStorageWithCount request. 
+[25/09/2018 12:28:27] - corrId_5baa0dcb2ef432.76264617 - Token is valid 
+[25/09/2018 12:28:27] - corrId_5baa0dcb2ef432.76264617 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:28:27] - corrId_5baa0dcb2ef432.76264617 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[25/09/2018 12:28:27] - corrId_5baa0dcb2ef432.76264617 - Executing query 
+[25/09/2018 12:28:27] - corrId_5baa0dcb2ef432.76264617 - Query executed successfully 
+[25/09/2018 12:28:27] - corrId_5baa0dcb2ef432.76264617 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 3, 12, 14, 15, 16) 
+[25/09/2018 12:28:27] - corrId_5baa0dcb2ef432.76264617 - Executing query 
+[25/09/2018 12:28:27] - corrId_5baa0dcb2ef432.76264617 - Query executed successfully 
+[25/09/2018 12:28:35] - corrId_5baa0dd3c201d0.59095462 - Reached RentalManagementService API 
+[25/09/2018 12:28:35] - corrId_5baa0dd3c201d0.59095462 - Establishing connection to DB 
+[25/09/2018 12:28:35] - corrId_5baa0dd3c201d0.59095462 - Processing GetMostRecentCopies request. 
+[25/09/2018 12:28:35] - corrId_5baa0dd3c201d0.59095462 - Token is valid 
+[25/09/2018 12:28:35] - corrId_5baa0dd3c201d0.59095462 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:28:35] - corrId_5baa0dd3c201d0.59095462 - Starting transaction 
+[25/09/2018 12:28:35] - corrId_5baa0dd3c201d0.59095462 - Query: SELECT co.id_copia, co.data_scarico, co.id_film
+                    FROM copia co
+                    WHERE co.id_punto_vendita = 1
+                    AND co.id_film = 2
+                    AND co.noleggiato = 0
+                    AND co.restituito = 0
+                    ORDER BY co.data_scarico desc
+                    LIMIT 1 
+[25/09/2018 12:28:35] - corrId_5baa0dd3c201d0.59095462 - Executing query 
+[25/09/2018 12:28:35] - corrId_5baa0dd3c201d0.59095462 - Query executed successfully 
+[25/09/2018 12:28:35] - corrId_5baa0dd3c201d0.59095462 - Query: UPDATE copia             
+                    SET
+                    noleggiato = 1,
+                    data_prenotazione_noleggio = CURRENT_TIMESTAMP,
+                    id_dipendente_prenotazione_noleggio = 1
+                    WHERE id_copia = 75
+                    AND noleggiato = 0
+                    AND restituito = 0 
+[25/09/2018 12:28:35] - corrId_5baa0dd3c201d0.59095462 - Executing query 
+[25/09/2018 12:28:35] - corrId_5baa0dd3c201d0.59095462 - Query executed successfully 
+[25/09/2018 12:28:35] - corrId_5baa0dd3c201d0.59095462 - Committing transaction 
+[25/09/2018 12:28:36] - corrId_5baa0dd4387d74.37134580 - Reached RentalManagementService API 
+[25/09/2018 12:28:36] - corrId_5baa0dd4387d74.37134580 - Establishing connection to DB 
+[25/09/2018 12:28:36] - corrId_5baa0dd4387d74.37134580 - Processing GetActiveDiscount request. 
+[25/09/2018 12:28:36] - corrId_5baa0dd4387d74.37134580 - Token is valid 
+[25/09/2018 12:28:36] - corrId_5baa0dd4387d74.37134580 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:28:36] - corrId_5baa0dd4387d74.37134580 - Query: SELECT id_tariffa, tariffa
+            FROM tariffa
+            WHERE attiva = 1 
+[25/09/2018 12:28:36] - corrId_5baa0dd4387d74.37134580 - Executing query 
+[25/09/2018 12:28:36] - corrId_5baa0dd4387d74.37134580 - Query executed successfully 
+[25/09/2018 12:28:39] - corrId_5baa0dd7d4b090.49134691 - Reached CustomerManagementService API 
+[25/09/2018 12:28:39] - corrId_5baa0dd7d4b090.49134691 - Processing FindCustomerById request. 
+[25/09/2018 12:28:39] - corrId_5baa0dd7d4b090.49134691 - Token is valid 
+[25/09/2018 12:28:39] - corrId_5baa0dd7d4b090.49134691 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:28:39] - corrId_5baa0dd7d4b090.49134691 - Query: SELECT cl.id_cliente, cl.nome, cl.cognome, cl.indirizzo, fi.nome_fidelizzazione, fi.percentuale
+            FROM cliente cl
+            INNER JOIN fidelizzazione fi
+            ON cl.id_fidelizzazione = fi.id_fidelizzazione
+            WHERE id_cliente = 35
+            LIMIT 1 
+[25/09/2018 12:28:39] - corrId_5baa0dd7d4b090.49134691 - Establishing connection to DB 
+[25/09/2018 12:28:39] - corrId_5baa0dd7d4b090.49134691 - Executing query 
+[25/09/2018 12:28:39] - corrId_5baa0dd7d4b090.49134691 - Query executed successfully 
+[25/09/2018 12:29:02] - corrId_5baa0dee510bb9.54736459 - Reached AuthenticationService API 
+[25/09/2018 12:29:02] - corrId_5baa0dee510bb9.54736459 - Token is valid 
+[25/09/2018 12:29:05] - corrId_5baa0df15e43e8.85875777 - Reached RentalManagementService API 
+[25/09/2018 12:29:05] - corrId_5baa0df15e43e8.85875777 - Establishing connection to DB 
+[25/09/2018 12:29:05] - corrId_5baa0df15e7ad9.64953749 - Reached RentalManagementService API 
+[25/09/2018 12:29:05] - corrId_5baa0df15e7ad9.64953749 - Establishing connection to DB 
+[25/09/2018 12:29:05] - corrId_5baa0df15e43e8.85875777 - Processing ClearRentalBookingsForUser request. 
+[25/09/2018 12:29:05] - corrId_5baa0df15e43e8.85875777 - Token is valid 
+entalBookings request. 
+[25/09/2018 12:29:05] - corrId_5baa0df15e43e8.85875777 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:29:05] - corrId_5baa0df15e7ad9.64953749 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:29:05] - corrId_5baa0df15e7ad9.64953749 - Executing query 
+[25/09/2018 12:29:05] - corrId_5baa0df15e7ad9.64953749 - Query executed successfully 
+[25/09/2018 12:29:05] - corrId_5baa0df15e43e8.85875777 - Executing query 
+[25/09/2018 12:29:05] - corrId_5baa0df15e43e8.85875777 - Query executed successfully 
+[25/09/2018 12:29:05] - corrId_5baa0df1c9fe93.00789743 - Reached RentalManagementService API 
+[25/09/2018 12:29:05] - corrId_5baa0df1c9fe93.00789743 - Establishing connection to DB 
+[25/09/2018 12:29:05] - corrId_5baa0df1c9fe93.00789743 - Processing GetVideosInStorageWithCount request. 
+[25/09/2018 12:29:05] - corrId_5baa0df1c9fe93.00789743 - Token is valid 
+[25/09/2018 12:29:05] - corrId_5baa0df1c9fe93.00789743 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:29:05] - corrId_5baa0df1c9fe93.00789743 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[25/09/2018 12:29:05] - corrId_5baa0df1c9fe93.00789743 - Executing query 
+[25/09/2018 12:29:05] - corrId_5baa0df1c9fe93.00789743 - Query executed successfully 
+[25/09/2018 12:29:05] - corrId_5baa0df1c9fe93.00789743 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 3, 12, 14, 15, 16) 
+[25/09/2018 12:29:05] - corrId_5baa0df1c9fe93.00789743 - Executing query 
+[25/09/2018 12:29:05] - corrId_5baa0df1c9fe93.00789743 - Query executed successfully 
+[25/09/2018 12:29:08] - corrId_5baa0df47eea72.67368654 - Reached RentalManagementService API 
+[25/09/2018 12:29:08] - corrId_5baa0df47eea72.67368654 - Establishing connection to DB 
+[25/09/2018 12:29:08] - corrId_5baa0df47eea72.67368654 - Processing GetMostRecentCopies request. 
+[25/09/2018 12:29:08] - corrId_5baa0df47eea72.67368654 - Token is valid 
+[25/09/2018 12:29:08] - corrId_5baa0df47eea72.67368654 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:29:08] - corrId_5baa0df47eea72.67368654 - Starting transaction 
+[25/09/2018 12:29:08] - corrId_5baa0df47eea72.67368654 - Query: SELECT co.id_copia, co.data_scarico, co.id_film
+                    FROM copia co
+                    WHERE co.id_punto_vendita = 1
+                    AND co.id_film = 2
+                    AND co.noleggiato = 0
+                    AND co.restituito = 0
+                    ORDER BY co.data_scarico desc
+                    LIMIT 1 
+[25/09/2018 12:29:08] - corrId_5baa0df47eea72.67368654 - Executing query 
+[25/09/2018 12:29:08] - corrId_5baa0df47eea72.67368654 - Query executed successfully 
+[25/09/2018 12:29:08] - corrId_5baa0df47eea72.67368654 - Query: UPDATE copia             
+                    SET
+                    noleggiato = 1,
+                    data_prenotazione_noleggio = CURRENT_TIMESTAMP,
+                    id_dipendente_prenotazione_noleggio = 1
+                    WHERE id_copia = 75
+                    AND noleggiato = 0
+                    AND restituito = 0 
+[25/09/2018 12:29:08] - corrId_5baa0df47eea72.67368654 - Executing query 
+[25/09/2018 12:29:08] - corrId_5baa0df47eea72.67368654 - Query executed successfully 
+[25/09/2018 12:29:08] - corrId_5baa0df47eea72.67368654 - Committing transaction 
+[25/09/2018 12:29:08] - corrId_5baa0df4ef1253.11113378 - Reached RentalManagementService API 
+[25/09/2018 12:29:08] - corrId_5baa0df4ef1253.11113378 - Establishing connection to DB 
+[25/09/2018 12:29:08] - corrId_5baa0df4ef1253.11113378 - Processing GetActiveDiscount request. 
+[25/09/2018 12:29:08] - corrId_5baa0df4ef1253.11113378 - Token is valid 
+[25/09/2018 12:29:08] - corrId_5baa0df4ef1253.11113378 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:29:08] - corrId_5baa0df4ef1253.11113378 - Query: SELECT id_tariffa, tariffa
+            FROM tariffa
+            WHERE attiva = 1 
+[25/09/2018 12:29:08] - corrId_5baa0df4ef1253.11113378 - Executing query 
+[25/09/2018 12:29:08] - corrId_5baa0df4ef1253.11113378 - Query executed successfully 
+[25/09/2018 12:29:14] - corrId_5baa0dfa4a99c5.43486328 - Reached CustomerManagementService API 
+[25/09/2018 12:29:14] - corrId_5baa0dfa4a99c5.43486328 - Processing FindCustomerById request. 
+[25/09/2018 12:29:14] - corrId_5baa0dfa4a99c5.43486328 - Token is valid 
+[25/09/2018 12:29:14] - corrId_5baa0dfa4a99c5.43486328 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:29:14] - corrId_5baa0dfa4a99c5.43486328 - Query: SELECT cl.id_cliente, cl.nome, cl.cognome, cl.indirizzo, fi.nome_fidelizzazione, fi.percentuale
+            FROM cliente cl
+            INNER JOIN fidelizzazione fi
+            ON cl.id_fidelizzazione = fi.id_fidelizzazione
+            WHERE id_cliente = 35
+            LIMIT 1 
+[25/09/2018 12:29:14] - corrId_5baa0dfa4a99c5.43486328 - Establishing connection to DB 
+[25/09/2018 12:29:14] - corrId_5baa0dfa4a99c5.43486328 - Executing query 
+[25/09/2018 12:29:14] - corrId_5baa0dfa4a99c5.43486328 - Query executed successfully 
+[25/09/2018 12:29:16] - corrId_5baa0dfc1ffae7.90893358 - Reached RentalManagementService API 
+[25/09/2018 12:29:16] - corrId_5baa0dfc1ffae7.90893358 - Establishing connection to DB 
+[25/09/2018 12:29:16] - corrId_5baa0dfc1ffae7.90893358 - Processing RentVideos request. 
+[25/09/2018 12:29:16] - corrId_5baa0dfc1ffae7.90893358 - Token is valid 
+[25/09/2018 12:29:16] - corrId_5baa0dfc1ffae7.90893358 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:29:16] - corrId_5baa0dfc8a3703.54794001 - Reached RentalManagementService API 
+[25/09/2018 12:29:16] - corrId_5baa0dfc8a3703.54794001 - Establishing connection to DB 
+[25/09/2018 12:29:16] - corrId_5baa0dfc8a3703.54794001 - Processing ClearRentalBookings request. 
+[25/09/2018 12:29:16] - corrId_5baa0dfc8a3703.54794001 - Token is valid 
+[25/09/2018 12:29:16] - corrId_5baa0dfc8a3703.54794001 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:29:16] - corrId_5baa0dfc8a3703.54794001 - Executing query 
+[25/09/2018 12:29:16] - corrId_5baa0dfc8a3703.54794001 - Query executed successfully 
+[25/09/2018 12:29:17] - corrId_5baa0dfd015c36.96969380 - Reached RentalManagementService API 
+[25/09/2018 12:29:17] - corrId_5baa0dfd017890.63402208 - Reached RentalManagementService API 
+[25/09/2018 12:29:17] - corrId_5baa0dfd015c36.96969380 - Establishing connection to DB 
+[25/09/2018 12:29:17] - corrId_5baa0dfd017890.63402208 - Establishing connection to DB 
+[25/09/2018 12:29:17] - corrId_5baa0dfd015c36.96969380 - Processing ClearRentalBookingsForUser request. 
+[25/09/2018 12:29:17] - corrId_5baa0dfd017890.63402208 - Token is valid 
+[25/09/2018 12:29:17] - corrId_5baa0dfd015c36.96969380 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:29:17] - corrId_5baa0dfd017890.63402208 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:29:17] - corrId_5baa0dfd015c36.96969380 - Executing query 
+[25/09/2018 12:29:17] - corrId_5baa0dfd017890.63402208 - Executing query 
+[25/09/2018 12:29:17] - corrId_5baa0dfd017890.63402208 - Query executed successfully 
+[25/09/2018 12:29:17] - corrId_5baa0dfd015c36.96969380 - Query executed successfully 
+[25/09/2018 12:29:17] - corrId_5baa0dfd6edad8.19020638 - Reached RentalManagementService API 
+[25/09/2018 12:29:17] - corrId_5baa0dfd6edad8.19020638 - Establishing connection to DB 
+[25/09/2018 12:29:17] - corrId_5baa0dfd6edad8.19020638 - Processing GetVideosInStorageWithCount request. 
+[25/09/2018 12:29:17] - corrId_5baa0dfd6edad8.19020638 - Token is valid 
+[25/09/2018 12:29:17] - corrId_5baa0dfd6edad8.19020638 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:29:17] - corrId_5baa0dfd6edad8.19020638 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[25/09/2018 12:29:17] - corrId_5baa0dfd6edad8.19020638 - Executing query 
+[25/09/2018 12:29:17] - corrId_5baa0dfd6edad8.19020638 - Query executed successfully 
+[25/09/2018 12:29:17] - corrId_5baa0dfd6edad8.19020638 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 3, 12, 14, 15, 16) 
+[25/09/2018 12:29:17] - corrId_5baa0dfd6edad8.19020638 - Executing query 
+[25/09/2018 12:29:17] - corrId_5baa0dfd6edad8.19020638 - Query executed successfully 
+[25/09/2018 12:29:30] - corrId_5baa0e0ac4e448.65943983 - Reached RentalManagementService API 
+[25/09/2018 12:29:30] - corrId_5baa0e0ac4e448.65943983 - Establishing connection to DB 
+[25/09/2018 12:29:30] - corrId_5baa0e0ac4e448.65943983 - Processing GetMostRecentCopies request. 
+[25/09/2018 12:29:30] - corrId_5baa0e0ac4e448.65943983 - Token is valid 
+[25/09/2018 12:29:30] - corrId_5baa0e0ac4e448.65943983 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:29:30] - corrId_5baa0e0ac4e448.65943983 - Starting transaction 
+[25/09/2018 12:29:30] - corrId_5baa0e0ac4e448.65943983 - Query: SELECT co.id_copia, co.data_scarico, co.id_film
+                    FROM copia co
+                    WHERE co.id_punto_vendita = 1
+                    AND co.id_film = 2
+                    AND co.noleggiato = 0
+                    AND co.restituito = 0
+                    ORDER BY co.data_scarico desc
+                    LIMIT 1 
+[25/09/2018 12:29:30] - corrId_5baa0e0ac4e448.65943983 - Executing query 
+[25/09/2018 12:29:30] - corrId_5baa0e0ac4e448.65943983 - Query executed successfully 
+[25/09/2018 12:29:30] - corrId_5baa0e0ac4e448.65943983 - Query: UPDATE copia             
+                    SET
+                    noleggiato = 1,
+                    data_prenotazione_noleggio = CURRENT_TIMESTAMP,
+                    id_dipendente_prenotazione_noleggio = 1
+                    WHERE id_copia = 75
+                    AND noleggiato = 0
+                    AND restituito = 0 
+[25/09/2018 12:29:30] - corrId_5baa0e0ac4e448.65943983 - Executing query 
+[25/09/2018 12:29:30] - corrId_5baa0e0ac4e448.65943983 - Query executed successfully 
+[25/09/2018 12:29:30] - corrId_5baa0e0ac4e448.65943983 - Committing transaction 
+[25/09/2018 12:29:31] - corrId_5baa0e0b3e9da1.29276480 - Reached RentalManagementService API 
+[25/09/2018 12:29:31] - corrId_5baa0e0b3e9da1.29276480 - Establishing connection to DB 
+[25/09/2018 12:29:31] - corrId_5baa0e0b3e9da1.29276480 - Processing GetActiveDiscount request. 
+[25/09/2018 12:29:31] - corrId_5baa0e0b3e9da1.29276480 - Token is valid 
+[25/09/2018 12:29:31] - corrId_5baa0e0b3e9da1.29276480 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:29:31] - corrId_5baa0e0b3e9da1.29276480 - Query: SELECT id_tariffa, tariffa
+            FROM tariffa
+            WHERE attiva = 1 
+[25/09/2018 12:29:31] - corrId_5baa0e0b3e9da1.29276480 - Executing query 
+[25/09/2018 12:29:31] - corrId_5baa0e0b3e9da1.29276480 - Query executed successfully 
+[25/09/2018 12:29:34] - corrId_5baa0e0e5aabf6.25792724 - Reached CustomerManagementService API 
+[25/09/2018 12:29:34] - corrId_5baa0e0e5aabf6.25792724 - Processing FindCustomerById request. 
+[25/09/2018 12:29:34] - corrId_5baa0e0e5aabf6.25792724 - Token is valid 
+[25/09/2018 12:29:34] - corrId_5baa0e0e5aabf6.25792724 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:29:34] - corrId_5baa0e0e5aabf6.25792724 - Query: SELECT cl.id_cliente, cl.nome, cl.cognome, cl.indirizzo, fi.nome_fidelizzazione, fi.percentuale
+            FROM cliente cl
+            INNER JOIN fidelizzazione fi
+            ON cl.id_fidelizzazione = fi.id_fidelizzazione
+            WHERE id_cliente = 35
+            LIMIT 1 
+[25/09/2018 12:29:34] - corrId_5baa0e0e5aabf6.25792724 - Establishing connection to DB 
+[25/09/2018 12:29:34] - corrId_5baa0e0e5aabf6.25792724 - Executing query 
+[25/09/2018 12:29:34] - corrId_5baa0e0e5aabf6.25792724 - Query executed successfully 
+[25/09/2018 12:29:35] - corrId_5baa0e0fe22464.03088876 - Reached RentalManagementService API 
+[25/09/2018 12:29:35] - corrId_5baa0e0fe22464.03088876 - Establishing connection to DB 
+[25/09/2018 12:29:35] - corrId_5baa0e0fe22464.03088876 - Processing RentVideos request. 
+[25/09/2018 12:29:35] - corrId_5baa0e0fe22464.03088876 - Token is valid 
+[25/09/2018 12:29:35] - corrId_5baa0e0fe22464.03088876 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:29:36] - corrId_5baa0e10605352.91214817 - Reached RentalManagementService API 
+[25/09/2018 12:29:36] - corrId_5baa0e10605352.91214817 - Establishing connection to DB 
+[25/09/2018 12:29:36] - corrId_5baa0e10605352.91214817 - Processing ClearRentalBookings request. 
+[25/09/2018 12:29:36] - corrId_5baa0e10605352.91214817 - Token is valid 
+[25/09/2018 12:29:36] - corrId_5baa0e10605352.91214817 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:29:36] - corrId_5baa0e10605352.91214817 - Executing query 
+[25/09/2018 12:29:36] - corrId_5baa0e10605352.91214817 - Query executed successfully 
+[25/09/2018 12:29:36] - corrId_5baa0e10d19377.48922611 - Reached RentalManagementService API 
+[25/09/2018 12:29:36] - corrId_5baa0e10d19377.48922611 - Establishing connection to DB 
+[25/09/2018 12:29:36] - corrId_5baa0e10d216e4.68026659 - Reached RentalManagementService API 
+[25/09/2018 12:29:36] - corrId_5baa0e10d216e4.68026659 - Establishing connection to DB 
+[25/09/2018 12:29:36] - corrId_5baa0e10d19377.48922611 - Processing ClearRentalBookingsForUser request. 
+[25/09/2018 12:29:36] - corrId_5baa0e10d216e4.68026659 - Processing ClearRentalBookings request. 
+[25/09/2018 12:29:36] - corrId_5baa0e10d19377.48922611 - Token is valid 
+[25/09/2018 12:29:36] - corrId_5baa0e10d19377.48922611 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:29:36] - corrId_5baa0e10d216e4.68026659 - Token is valid 
+[25/09/2018 12:29:36] - corrId_5baa0e10d216e4.68026659 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:29:36] - corrId_5baa0e10d216e4.68026659 - Executing query 
+[25/09/2018 12:29:36] - corrId_5baa0e10d216e4.68026659 - Query executed successfully 
+[25/09/2018 12:29:36] - corrId_5baa0e10d19377.48922611 - Query executed successfully 
+[25/09/2018 12:29:37] - corrId_5baa0e114fb924.61971986 - Reached RentalManagementService API 
+[25/09/2018 12:29:37] - corrId_5baa0e114fb924.61971986 - Establishing connection to DB 
+[25/09/2018 12:29:37] - corrId_5baa0e114fb924.61971986 - Processing GetVideosInStorageWithCount request. 
+[25/09/2018 12:29:37] - corrId_5baa0e114fb924.61971986 - Token is valid 
+[25/09/2018 12:29:37] - corrId_5baa0e114fb924.61971986 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:29:37] - corrId_5baa0e114fb924.61971986 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[25/09/2018 12:29:37] - corrId_5baa0e114fb924.61971986 - Executing query 
+[25/09/2018 12:29:37] - corrId_5baa0e114fb924.61971986 - Query executed successfully 
+[25/09/2018 12:29:37] - corrId_5baa0e114fb924.61971986 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 3, 12, 14, 15, 16) 
+[25/09/2018 12:29:37] - corrId_5baa0e114fb924.61971986 - Executing query 
+[25/09/2018 12:29:37] - corrId_5baa0e114fb924.61971986 - Query executed successfully 
+[25/09/2018 12:31:52] - corrId_5baa0e983a5a11.05444473 - Reached AuthenticationService API 
+[25/09/2018 12:31:52] - corrId_5baa0e983a5a11.05444473 - Token is valid 
+[25/09/2018 12:31:53] - corrId_5baa0e998e2f52.23441469 - Reached RentalManagementService API 
+[25/09/2018 12:31:53] - corrId_5baa0e998e2f52.23441469 - Establishing connection to DB 
+[25/09/2018 12:31:53] - corrId_5baa0e998e7276.79617254 - Reached RentalManagementService API 
+[25/09/2018 12:31:53] - corrId_5baa0e998e2f52.23441469 - Processing ClearRentalBookingsForUser request. 
+[25/09/2018 12:31:53] - corrId_5baa0e998e7276.79617254 - Establishing connection to DB 
+[25/09/2018 12:31:53] - corrId_5baa0e998e2f52.23441469 - Token is valid 
+[25/09/2018 12:31:53] - corrId_5baa0e998e7276.79617254 - Processing ClearRentalBookings request. 
+[25/09/2018 12:31:53] - corrId_5baa0e998e2f52.23441469 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:31:53] - corrId_5baa0e998e7276.79617254 - Token is valid 
+[25/09/2018 12:31:53] - corrId_5baa0e998e2f52.23441469 - Executing query 
+[25/09/2018 12:31:53] - corrId_5baa0e998e7276.79617254 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:31:53] - corrId_5baa0e998e2f52.23441469 - Query executed successfully 
+[25/09/2018 12:31:53] - corrId_5baa0e998e7276.79617254 - Query executed successfully 
+[25/09/2018 12:31:54] - corrId_5baa0e9a060d83.72449062 - Reached RentalManagementService API 
+[25/09/2018 12:31:54] - corrId_5baa0e9a060d83.72449062 - Establishing connection to DB 
+[25/09/2018 12:31:54] - corrId_5baa0e9a060d83.72449062 - Processing GetVideosInStorageWithCount request. 
+[25/09/2018 12:31:54] - corrId_5baa0e9a060d83.72449062 - Token is valid 
+[25/09/2018 12:31:54] - corrId_5baa0e9a060d83.72449062 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:31:54] - corrId_5baa0e9a060d83.72449062 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[25/09/2018 12:31:54] - corrId_5baa0e9a060d83.72449062 - Executing query 
+[25/09/2018 12:31:54] - corrId_5baa0e9a060d83.72449062 - Query executed successfully 
+[25/09/2018 12:31:54] - corrId_5baa0e9a060d83.72449062 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 3, 12, 14, 15, 16) 
+[25/09/2018 12:31:54] - corrId_5baa0e9a060d83.72449062 - Executing query 
+[25/09/2018 12:31:54] - corrId_5baa0e9a060d83.72449062 - Query executed successfully 
+[25/09/2018 12:31:55] - corrId_5baa0e9b95e445.60535426 - Reached RentalManagementService API 
+[25/09/2018 12:31:55] - corrId_5baa0e9b95e445.60535426 - Establishing connection to DB 
+[25/09/2018 12:31:55] - corrId_5baa0e9b95e445.60535426 - Processing GetMostRecentCopies request. 
+[25/09/2018 12:31:55] - corrId_5baa0e9b95e445.60535426 - Token is valid 
+[25/09/2018 12:31:55] - corrId_5baa0e9b95e445.60535426 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:31:55] - corrId_5baa0e9b95e445.60535426 - Starting transaction 
+[25/09/2018 12:31:55] - corrId_5baa0e9b95e445.60535426 - Query: SELECT co.id_copia, co.data_scarico, co.id_film
+                    FROM copia co
+                    WHERE co.id_punto_vendita = 1
+                    AND co.id_film = 2
+                    AND co.noleggiato = 0
+                    AND co.restituito = 0
+                    ORDER BY co.data_scarico desc
+                    LIMIT 1 
+[25/09/2018 12:31:55] - corrId_5baa0e9b95e445.60535426 - Executing query 
+[25/09/2018 12:31:55] - corrId_5baa0e9b95e445.60535426 - Query executed successfully 
+[25/09/2018 12:31:55] - corrId_5baa0e9b95e445.60535426 - Query: UPDATE copia             
+                    SET
+                    noleggiato = 1,
+                    data_prenotazione_noleggio = CURRENT_TIMESTAMP,
+                    id_dipendente_prenotazione_noleggio = 1
+                    WHERE id_copia = 75
+                    AND noleggiato = 0
+                    AND restituito = 0 
+[25/09/2018 12:31:55] - corrId_5baa0e9b95e445.60535426 - Executing query 
+[25/09/2018 12:31:55] - corrId_5baa0e9b95e445.60535426 - Query executed successfully 
+[25/09/2018 12:31:55] - corrId_5baa0e9b95e445.60535426 - Committing transaction 
+[25/09/2018 12:31:56] - corrId_5baa0e9c124697.43242673 - Reached RentalManagementService API 
+[25/09/2018 12:31:56] - corrId_5baa0e9c124697.43242673 - Establishing connection to DB 
+[25/09/2018 12:31:56] - corrId_5baa0e9c124697.43242673 - Processing GetActiveDiscount request. 
+[25/09/2018 12:31:56] - corrId_5baa0e9c124697.43242673 - Token is valid 
+[25/09/2018 12:31:56] - corrId_5baa0e9c124697.43242673 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:31:56] - corrId_5baa0e9c124697.43242673 - Query: SELECT id_tariffa, tariffa
+            FROM tariffa
+            WHERE attiva = 1 
+[25/09/2018 12:31:56] - corrId_5baa0e9c124697.43242673 - Executing query 
+[25/09/2018 12:31:56] - corrId_5baa0e9c124697.43242673 - Query executed successfully 
+[25/09/2018 12:31:57] - corrId_5baa0e9d7190b7.83767219 - Reached CustomerManagementService API 
+[25/09/2018 12:31:57] - corrId_5baa0e9d7190b7.83767219 - Processing FindCustomerById request. 
+[25/09/2018 12:31:57] - corrId_5baa0e9d7190b7.83767219 - Token is valid 
+[25/09/2018 12:31:57] - corrId_5baa0e9d7190b7.83767219 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:31:57] - corrId_5baa0e9d7190b7.83767219 - Query: SELECT cl.id_cliente, cl.nome, cl.cognome, cl.indirizzo, fi.nome_fidelizzazione, fi.percentuale
+            FROM cliente cl
+            INNER JOIN fidelizzazione fi
+            ON cl.id_fidelizzazione = fi.id_fidelizzazione
+            WHERE id_cliente = 35
+            LIMIT 1 
+[25/09/2018 12:31:57] - corrId_5baa0e9d7190b7.83767219 - Establishing connection to DB 
+[25/09/2018 12:31:57] - corrId_5baa0e9d7190b7.83767219 - Executing query 
+[25/09/2018 12:31:57] - corrId_5baa0e9d7190b7.83767219 - Query executed successfully 
+[25/09/2018 12:32:00] - corrId_5baa0ea02f7b16.93196840 - Reached RentalManagementService API 
+[25/09/2018 12:32:00] - corrId_5baa0ea02f7b16.93196840 - Establishing connection to DB 
+[25/09/2018 12:32:00] - corrId_5baa0ea02f7b16.93196840 - Processing RentVideos request. 
+[25/09/2018 12:32:00] - corrId_5baa0ea02f7b16.93196840 - Token is valid 
+[25/09/2018 12:32:00] - corrId_5baa0ea02f7b16.93196840 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:32:00] - corrId_5baa0ea02f7b16.93196840 - VIDEOS: null 
+[25/09/2018 12:32:00] - corrId_5baa0ea09cd261.21189492 - Reached RentalManagementService API 
+[25/09/2018 12:32:00] - corrId_5baa0ea09cd261.21189492 - Establishing connection to DB 
+[25/09/2018 12:32:00] - corrId_5baa0ea09cd261.21189492 - Processing ClearRentalBookings request. 
+[25/09/2018 12:32:00] - corrId_5baa0ea09cd261.21189492 - Token is valid 
+[25/09/2018 12:32:00] - corrId_5baa0ea09cd261.21189492 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:32:00] - corrId_5baa0ea09cd261.21189492 - Executing query 
+[25/09/2018 12:32:00] - corrId_5baa0ea09cd261.21189492 - Query executed successfully 
+[25/09/2018 12:32:01] - corrId_5baa0ea113f759.69800604 - Reached RentalManagementService API 
+[25/09/2018 12:32:01] - corrId_5baa0ea113f759.69800604 - Establishing connection to DB 
+[25/09/2018 12:32:01] - corrId_5baa0ea11435e3.28178483 - Reached RentalManagementService API 
+[25/09/2018 12:32:01] - corrId_5baa0ea11435e3.28178483 - Establishing connection to DB 
+[25/09/2018 12:32:01] - corrId_5baa0ea113f759.69800604 - Processing ClearRentalBookings request. 
+[25/09/2018 12:32:01] - corrId_5baa0ea113f759.69800604 - Token is valid 
+[25/09/2018 12:32:01] - corrId_5baa0ea11435e3.28178483 - Processing ClearRentalBookingsForUser request. 
+[25/09/2018 12:32:01] - corrId_5baa0ea113f759.69800604 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:32:01] - corrId_5baa0ea113f759.69800604 - Executing query 
+ons for user admin (required 10, has 30) 
+[25/09/2018 12:32:01] - corrId_5baa0ea11435e3.28178483 - Executing query 
+[25/09/2018 12:32:01] - corrId_5baa0ea113f759.69800604 - Query executed successfully 
+[25/09/2018 12:32:01] - corrId_5baa0ea11435e3.28178483 - Query executed successfully 
+[25/09/2018 12:32:01] - corrId_5baa0ea1841287.46146303 - Reached RentalManagementService API 
+[25/09/2018 12:32:01] - corrId_5baa0ea1841287.46146303 - Establishing connection to DB 
+[25/09/2018 12:32:01] - corrId_5baa0ea1841287.46146303 - Processing GetVideosInStorageWithCount request. 
+[25/09/2018 12:32:01] - corrId_5baa0ea1841287.46146303 - Token is valid 
+[25/09/2018 12:32:01] - corrId_5baa0ea1841287.46146303 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:32:01] - corrId_5baa0ea1841287.46146303 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[25/09/2018 12:32:01] - corrId_5baa0ea1841287.46146303 - Executing query 
+[25/09/2018 12:32:01] - corrId_5baa0ea1841287.46146303 - Query executed successfully 
+[25/09/2018 12:32:01] - corrId_5baa0ea1841287.46146303 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 3, 12, 14, 15, 16) 
+[25/09/2018 12:32:01] - corrId_5baa0ea1841287.46146303 - Executing query 
+[25/09/2018 12:32:01] - corrId_5baa0ea1841287.46146303 - Query executed successfully 
+[25/09/2018 12:33:11] - corrId_5baa0ee7780839.88714936 - Reached RentalManagementService API 
+[25/09/2018 12:33:11] - corrId_5baa0ee7785210.09976875 - Reached RentalManagementService API 
+[25/09/2018 12:33:11] - corrId_5baa0ee7785210.09976875 - Establishing connection to DB 
+[25/09/2018 12:33:11] - corrId_5baa0ee7780839.88714936 - Processing ClearRentalBookings request. 
+[25/09/2018 12:33:11] - corrId_5baa0ee7785210.09976875 - Processing ClearRentalBookingsForUser request. 
+[25/09/2018 12:33:11] - corrId_5baa0ee7780839.88714936 - Token is valid 
+[25/09/2018 12:33:11] - corrId_5baa0ee7785210.09976875 - Token is valid 
+[25/09/2018 12:33:11] - corrId_5baa0ee7780839.88714936 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:33:11] - corrId_5baa0ee7785210.09976875 - Executing query 
+[25/09/2018 12:33:11] - corrId_5baa0ee7780839.88714936 - Query executed successfully 
+[25/09/2018 12:33:11] - corrId_5baa0ee7e74f91.40132410 - Reached RentalManagementService API 
+[25/09/2018 12:33:11] - corrId_5baa0ee7e74f91.40132410 - Establishing connection to DB 
+[25/09/2018 12:33:11] - corrId_5baa0ee7e74f91.40132410 - Processing GetVideosInStorageWithCount request. 
+[25/09/2018 12:33:11] - corrId_5baa0ee7e74f91.40132410 - Token is valid 
+[25/09/2018 12:33:11] - corrId_5baa0ee7e74f91.40132410 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:33:11] - corrId_5baa0ee7e74f91.40132410 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[25/09/2018 12:33:11] - corrId_5baa0ee7e74f91.40132410 - Executing query 
+[25/09/2018 12:33:11] - corrId_5baa0ee7e74f91.40132410 - Query executed successfully 
+[25/09/2018 12:33:12] - corrId_5baa0ee7e74f91.40132410 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 3, 12, 14, 15, 16) 
+[25/09/2018 12:33:12] - corrId_5baa0ee7e74f91.40132410 - Executing query 
+[25/09/2018 12:33:12] - corrId_5baa0ee7e74f91.40132410 - Query executed successfully 
+[25/09/2018 12:33:13] - corrId_5baa0ee9431034.43853192 - Reached AuthenticationService API 
+[25/09/2018 12:33:13] - corrId_5baa0ee9431034.43853192 - Token is valid 
+[25/09/2018 12:33:14] - corrId_5baa0eea56a369.59010410 - Reached RentalManagementService API 
+[25/09/2018 12:33:14] - corrId_5baa0eea56b179.84250061 - Reached RentalManagementService API 
+[25/09/2018 12:33:14] - corrId_5baa0eea56a369.59010410 - Establishing connection to DB 
+[25/09/2018 12:33:14] - corrId_5baa0eea56b179.84250061 - Processing ClearRentalBookings request. 
+[25/09/2018 12:33:14] - corrId_5baa0eea56a369.59010410 - Processing ClearRentalBookingsForUser request. 
+[25/09/2018 12:33:14] - corrId_5baa0eea56b179.84250061 - Token is valid 
+[25/09/2018 12:33:14] - corrId_5baa0eea56a369.59010410 - Token is valid 
+ions for user admin (required 10, has 30) 
+[25/09/2018 12:33:14] - corrId_5baa0eea56b179.84250061 - Executing query 
+ons for user admin (required 10, has 30) 
+[25/09/2018 12:33:14] - corrId_5baa0eea56a369.59010410 - Executing query 
+[25/09/2018 12:33:14] - corrId_5baa0eea56b179.84250061 - Query executed successfully 
+[25/09/2018 12:33:14] - corrId_5baa0eea56a369.59010410 - Query executed successfully 
+[25/09/2018 12:33:14] - corrId_5baa0eeac1e3e5.28746210 - Reached RentalManagementService API 
+[25/09/2018 12:33:14] - corrId_5baa0eeac1e3e5.28746210 - Establishing connection to DB 
+[25/09/2018 12:33:14] - corrId_5baa0eeac1e3e5.28746210 - Processing GetVideosInStorageWithCount request. 
+[25/09/2018 12:33:14] - corrId_5baa0eeac1e3e5.28746210 - Token is valid 
+[25/09/2018 12:33:14] - corrId_5baa0eeac1e3e5.28746210 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:33:14] - corrId_5baa0eeac1e3e5.28746210 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[25/09/2018 12:33:14] - corrId_5baa0eeac1e3e5.28746210 - Executing query 
+[25/09/2018 12:33:14] - corrId_5baa0eeac1e3e5.28746210 - Query executed successfully 
+[25/09/2018 12:33:14] - corrId_5baa0eeac1e3e5.28746210 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 3, 12, 14, 15, 16) 
+[25/09/2018 12:33:14] - corrId_5baa0eeac1e3e5.28746210 - Executing query 
+[25/09/2018 12:33:14] - corrId_5baa0eeac1e3e5.28746210 - Query executed successfully 
+[25/09/2018 12:33:16] - corrId_5baa0eec167e68.30747900 - Reached RentalManagementService API 
+[25/09/2018 12:33:16] - corrId_5baa0eec167e68.30747900 - Establishing connection to DB 
+[25/09/2018 12:33:16] - corrId_5baa0eec167e68.30747900 - Processing GetMostRecentCopies request. 
+[25/09/2018 12:33:16] - corrId_5baa0eec167e68.30747900 - Token is valid 
+[25/09/2018 12:33:16] - corrId_5baa0eec167e68.30747900 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:33:16] - corrId_5baa0eec167e68.30747900 - Starting transaction 
+[25/09/2018 12:33:16] - corrId_5baa0eec167e68.30747900 - Query: SELECT co.id_copia, co.data_scarico, co.id_film
+                    FROM copia co
+                    WHERE co.id_punto_vendita = 1
+                    AND co.id_film = 2
+                    AND co.noleggiato = 0
+                    AND co.restituito = 0
+                    ORDER BY co.data_scarico desc
+                    LIMIT 1 
+[25/09/2018 12:33:16] - corrId_5baa0eec167e68.30747900 - Executing query 
+[25/09/2018 12:33:16] - corrId_5baa0eec167e68.30747900 - Query executed successfully 
+[25/09/2018 12:33:16] - corrId_5baa0eec167e68.30747900 - Query: UPDATE copia             
+                    SET
+                    noleggiato = 1,
+                    data_prenotazione_noleggio = CURRENT_TIMESTAMP,
+                    id_dipendente_prenotazione_noleggio = 1
+                    WHERE id_copia = 75
+                    AND noleggiato = 0
+                    AND restituito = 0 
+[25/09/2018 12:33:16] - corrId_5baa0eec167e68.30747900 - Executing query 
+[25/09/2018 12:33:16] - corrId_5baa0eec167e68.30747900 - Query executed successfully 
+[25/09/2018 12:33:16] - corrId_5baa0eec167e68.30747900 - Committing transaction 
+[25/09/2018 12:33:16] - corrId_5baa0eec814d10.37601826 - Reached RentalManagementService API 
+[25/09/2018 12:33:16] - corrId_5baa0eec814d10.37601826 - Establishing connection to DB 
+[25/09/2018 12:33:16] - corrId_5baa0eec814d10.37601826 - Processing GetActiveDiscount request. 
+[25/09/2018 12:33:16] - corrId_5baa0eec814d10.37601826 - Token is valid 
+[25/09/2018 12:33:16] - corrId_5baa0eec814d10.37601826 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:33:16] - corrId_5baa0eec814d10.37601826 - Query: SELECT id_tariffa, tariffa
+            FROM tariffa
+            WHERE attiva = 1 
+[25/09/2018 12:33:16] - corrId_5baa0eec814d10.37601826 - Executing query 
+[25/09/2018 12:33:16] - corrId_5baa0eec814d10.37601826 - Query executed successfully 
+[25/09/2018 12:33:19] - corrId_5baa0eefdb5530.99549663 - Reached CustomerManagementService API 
+[25/09/2018 12:33:19] - corrId_5baa0eefdb5530.99549663 - Processing FindCustomerById request. 
+[25/09/2018 12:33:19] - corrId_5baa0eefdb5530.99549663 - Token is valid 
+[25/09/2018 12:33:19] - corrId_5baa0eefdb5530.99549663 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:33:19] - corrId_5baa0eefdb5530.99549663 - Query: SELECT cl.id_cliente, cl.nome, cl.cognome, cl.indirizzo, fi.nome_fidelizzazione, fi.percentuale
+            FROM cliente cl
+            INNER JOIN fidelizzazione fi
+            ON cl.id_fidelizzazione = fi.id_fidelizzazione
+            WHERE id_cliente = 35
+            LIMIT 1 
+[25/09/2018 12:33:19] - corrId_5baa0eefdb5530.99549663 - Establishing connection to DB 
+[25/09/2018 12:33:19] - corrId_5baa0eefdb5530.99549663 - Executing query 
+[25/09/2018 12:33:19] - corrId_5baa0eefdb5530.99549663 - Query executed successfully 
+[25/09/2018 12:33:21] - corrId_5baa0ef1787460.71883098 - Reached RentalManagementService API 
+[25/09/2018 12:33:21] - corrId_5baa0ef1787460.71883098 - Establishing connection to DB 
+[25/09/2018 12:33:21] - corrId_5baa0ef1787460.71883098 - Processing RentVideos request. 
+[25/09/2018 12:33:21] - corrId_5baa0ef1787460.71883098 - Token is valid 
+[25/09/2018 12:33:21] - corrId_5baa0ef1787460.71883098 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:33:21] - corrId_5baa0ef1787460.71883098 - VIDEOS: [{"id_dipendente":"1","id_punto_vendita":"1","id_tariffa":"1","id_cliente":"35","id_film":"2","id_copia":"75","prezzo_totale":"20","data_fine":"2018-09-30"}] 
+[25/09/2018 12:33:21] - corrId_5baa0ef1787460.71883098 - Query:  
+[25/09/2018 12:33:21] - corrId_5baa0ef1787460.71883098 - Executing query 
+[25/09/2018 12:33:21] - corrId_5baa0ef1787460.71883098 - No results found 
+[25/09/2018 12:33:21] - corrId_5baa0ef1787460.71883098 - Query executed successfully 
+[25/09/2018 12:33:21] - corrId_5baa0ef1ead755.92949828 - Reached RentalManagementService API 
+[25/09/2018 12:33:21] - corrId_5baa0ef1ead755.92949828 - Establishing connection to DB 
+[25/09/2018 12:33:21] - corrId_5baa0ef1ead755.92949828 - Processing ClearRentalBookings request. 
+[25/09/2018 12:33:21] - corrId_5baa0ef1ead755.92949828 - Token is valid 
+[25/09/2018 12:33:21] - corrId_5baa0ef1ead755.92949828 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:33:21] - corrId_5baa0ef1ead755.92949828 - Executing query 
+[25/09/2018 12:33:21] - corrId_5baa0ef1ead755.92949828 - Query executed successfully 
+[25/09/2018 12:33:22] - corrId_5baa0ef269b200.36834533 - Reached RentalManagementService API 
+[25/09/2018 12:33:22] - corrId_5baa0ef269d019.97005556 - Reached RentalManagementService API 
+[25/09/2018 12:33:22] - corrId_5baa0ef269b200.36834533 - Establishing connection to DB 
+[25/09/2018 12:33:22] - corrId_5baa0ef269d019.97005556 - Establishing connection to DB 
+[25/09/2018 12:33:22] - corrId_5baa0ef269b200.36834533 - Processing ClearRentalBookingsForUser request. 
+[25/09/2018 12:33:22] - corrId_5baa0ef269d019.97005556 - Processing ClearRentalBookings request. 
+[25/09/2018 12:33:22] - corrId_5baa0ef269b200.36834533 - Token is valid 
+[25/09/2018 12:33:22] - corrId_5baa0ef269d019.97005556 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:33:22] - corrId_5baa0ef269b200.36834533 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:33:22] - corrId_5baa0ef269b200.36834533 - Executing query 
+[25/09/2018 12:33:22] - corrId_5baa0ef269d019.97005556 - Query executed successfully 
+[25/09/2018 12:33:22] - corrId_5baa0ef269b200.36834533 - Query executed successfully 
+[25/09/2018 12:33:22] - corrId_5baa0ef2d720e7.96640539 - Reached RentalManagementService API 
+[25/09/2018 12:33:22] - corrId_5baa0ef2d720e7.96640539 - Establishing connection to DB 
+[25/09/2018 12:33:22] - corrId_5baa0ef2d720e7.96640539 - Processing GetVideosInStorageWithCount request. 
+[25/09/2018 12:33:22] - corrId_5baa0ef2d720e7.96640539 - Token is valid 
+[25/09/2018 12:33:22] - corrId_5baa0ef2d720e7.96640539 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:33:22] - corrId_5baa0ef2d720e7.96640539 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[25/09/2018 12:33:22] - corrId_5baa0ef2d720e7.96640539 - Executing query 
+[25/09/2018 12:33:22] - corrId_5baa0ef2d720e7.96640539 - Query executed successfully 
+[25/09/2018 12:33:22] - corrId_5baa0ef2d720e7.96640539 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 3, 12, 14, 15, 16) 
+[25/09/2018 12:33:22] - corrId_5baa0ef2d720e7.96640539 - Executing query 
+[25/09/2018 12:33:22] - corrId_5baa0ef2d720e7.96640539 - Query executed successfully 
+[25/09/2018 12:33:56] - corrId_5baa0f14753630.46763882 - Reached RentalManagementService API 
+[25/09/2018 12:33:56] - corrId_5baa0f14753630.46763882 - Establishing connection to DB 
+[25/09/2018 12:33:56] - corrId_5baa0f14753630.46763882 - Processing GetMostRecentCopies request. 
+[25/09/2018 12:33:56] - corrId_5baa0f14753630.46763882 - Token is valid 
+[25/09/2018 12:33:56] - corrId_5baa0f14753630.46763882 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:33:56] - corrId_5baa0f14753630.46763882 - Starting transaction 
+[25/09/2018 12:33:56] - corrId_5baa0f14753630.46763882 - Query: SELECT co.id_copia, co.data_scarico, co.id_film
+                    FROM copia co
+                    WHERE co.id_punto_vendita = 1
+                    AND co.id_film = 2
+                    AND co.noleggiato = 0
+                    AND co.restituito = 0
+                    ORDER BY co.data_scarico desc
+                    LIMIT 1 
+[25/09/2018 12:33:56] - corrId_5baa0f14753630.46763882 - Executing query 
+[25/09/2018 12:33:56] - corrId_5baa0f14753630.46763882 - Query executed successfully 
+[25/09/2018 12:33:56] - corrId_5baa0f14753630.46763882 - Query: UPDATE copia             
+                    SET
+                    noleggiato = 1,
+                    data_prenotazione_noleggio = CURRENT_TIMESTAMP,
+                    id_dipendente_prenotazione_noleggio = 1
+                    WHERE id_copia = 75
+                    AND noleggiato = 0
+                    AND restituito = 0 
+[25/09/2018 12:33:56] - corrId_5baa0f14753630.46763882 - Executing query 
+[25/09/2018 12:33:56] - corrId_5baa0f14753630.46763882 - Query executed successfully 
+[25/09/2018 12:33:56] - corrId_5baa0f14753630.46763882 - Committing transaction 
+[25/09/2018 12:33:56] - corrId_5baa0f14ea0b07.16075715 - Reached RentalManagementService API 
+[25/09/2018 12:33:56] - corrId_5baa0f14ea0b07.16075715 - Establishing connection to DB 
+[25/09/2018 12:33:56] - corrId_5baa0f14ea0b07.16075715 - Processing GetActiveDiscount request. 
+[25/09/2018 12:33:56] - corrId_5baa0f14ea0b07.16075715 - Token is valid 
+[25/09/2018 12:33:56] - corrId_5baa0f14ea0b07.16075715 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:33:56] - corrId_5baa0f14ea0b07.16075715 - Query: SELECT id_tariffa, tariffa
+            FROM tariffa
+            WHERE attiva = 1 
+[25/09/2018 12:33:56] - corrId_5baa0f14ea0b07.16075715 - Executing query 
+[25/09/2018 12:33:56] - corrId_5baa0f14ea0b07.16075715 - Query executed successfully 
+[25/09/2018 12:33:59] - corrId_5baa0f17ce0819.11233195 - Reached CustomerManagementService API 
+[25/09/2018 12:33:59] - corrId_5baa0f17ce0819.11233195 - Processing FindCustomerById request. 
+[25/09/2018 12:33:59] - corrId_5baa0f17ce0819.11233195 - Token is valid 
+[25/09/2018 12:33:59] - corrId_5baa0f17ce0819.11233195 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:33:59] - corrId_5baa0f17ce0819.11233195 - Query: SELECT cl.id_cliente, cl.nome, cl.cognome, cl.indirizzo, fi.nome_fidelizzazione, fi.percentuale
+            FROM cliente cl
+            INNER JOIN fidelizzazione fi
+            ON cl.id_fidelizzazione = fi.id_fidelizzazione
+            WHERE id_cliente = 35
+            LIMIT 1 
+[25/09/2018 12:33:59] - corrId_5baa0f17ce0819.11233195 - Establishing connection to DB 
+[25/09/2018 12:33:59] - corrId_5baa0f17ce0819.11233195 - Executing query 
+[25/09/2018 12:33:59] - corrId_5baa0f17ce0819.11233195 - Query executed successfully 
+[25/09/2018 12:34:01] - corrId_5baa0f195ff022.06286004 - Reached RentalManagementService API 
+[25/09/2018 12:34:01] - corrId_5baa0f195ff022.06286004 - Establishing connection to DB 
+[25/09/2018 12:34:01] - corrId_5baa0f195ff022.06286004 - Processing RentVideos request. 
+[25/09/2018 12:34:01] - corrId_5baa0f195ff022.06286004 - Token is valid 
+[25/09/2018 12:34:01] - corrId_5baa0f195ff022.06286004 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:34:01] - corrId_5baa0f195ff022.06286004 - VIDEOS: 1 
+[25/09/2018 12:34:01] - corrId_5baa0f195ff022.06286004 - Query:  
+[25/09/2018 12:34:01] - corrId_5baa0f195ff022.06286004 - Executing query 
+[25/09/2018 12:34:01] - corrId_5baa0f195ff022.06286004 - No results found 
+[25/09/2018 12:34:01] - corrId_5baa0f195ff022.06286004 - Query executed successfully 
+[25/09/2018 12:34:01] - corrId_5baa0f19cd9030.04612369 - Reached RentalManagementService API 
+[25/09/2018 12:34:01] - corrId_5baa0f19cd9030.04612369 - Establishing connection to DB 
+[25/09/2018 12:34:01] - corrId_5baa0f19cd9030.04612369 - Processing ClearRentalBookings request. 
+[25/09/2018 12:34:01] - corrId_5baa0f19cd9030.04612369 - Token is valid 
+[25/09/2018 12:34:01] - corrId_5baa0f19cd9030.04612369 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:34:01] - corrId_5baa0f19cd9030.04612369 - Executing query 
+[25/09/2018 12:34:01] - corrId_5baa0f19cd9030.04612369 - Query executed successfully 
+[25/09/2018 12:34:02] - corrId_5baa0f1a42fc63.99912683 - Reached RentalManagementService API 
+[25/09/2018 12:34:02] - corrId_5baa0f1a4305f9.59993827 - Reached RentalManagementService API 
+[25/09/2018 12:34:02] - corrId_5baa0f1a42fc63.99912683 - Establishing connection to DB 
+[25/09/2018 12:34:02] - corrId_5baa0f1a4305f9.59993827 - Processing ClearRentalBookings request. 
+[25/09/2018 12:34:02] - corrId_5baa0f1a42fc63.99912683 - Processing ClearRentalBookingsForUser request. 
+[25/09/2018 12:34:02] - corrId_5baa0f1a4305f9.59993827 - Token is valid 
+[25/09/2018 12:34:02] - corrId_5baa0f1a42fc63.99912683 - Token is valid 
+[25/09/2018 12:34:02] - corrId_5baa0f1a4305f9.59993827 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:34:02] - corrId_5baa0f1a42fc63.99912683 - Executing query 
+[25/09/2018 12:34:02] - corrId_5baa0f1a4305f9.59993827 - Query executed successfully 
+[25/09/2018 12:34:02] - corrId_5baa0f1a42fc63.99912683 - Query executed successfully 
+[25/09/2018 12:34:02] - corrId_5baa0f1aad4692.50392665 - Reached RentalManagementService API 
+[25/09/2018 12:34:02] - corrId_5baa0f1aad4692.50392665 - Establishing connection to DB 
+[25/09/2018 12:34:02] - corrId_5baa0f1aad4692.50392665 - Processing GetVideosInStorageWithCount request. 
+[25/09/2018 12:34:02] - corrId_5baa0f1aad4692.50392665 - Token is valid 
+[25/09/2018 12:34:02] - corrId_5baa0f1aad4692.50392665 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:34:02] - corrId_5baa0f1aad4692.50392665 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[25/09/2018 12:34:02] - corrId_5baa0f1aad4692.50392665 - Executing query 
+[25/09/2018 12:34:02] - corrId_5baa0f1aad4692.50392665 - Query executed successfully 
+[25/09/2018 12:34:02] - corrId_5baa0f1aad4692.50392665 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 3, 12, 14, 15, 16) 
+[25/09/2018 12:34:02] - corrId_5baa0f1aad4692.50392665 - Executing query 
+[25/09/2018 12:34:02] - corrId_5baa0f1aad4692.50392665 - Query executed successfully 
+[25/09/2018 12:40:32] - corrId_5baa10a00f6267.81363206 - Reached AuthenticationService API 
+[25/09/2018 12:40:32] - corrId_5baa10a00f6267.81363206 - Token is valid 
+[25/09/2018 12:40:33] - corrId_5baa10a12f83a9.59604629 - Reached RentalManagementService API 
+[25/09/2018 12:40:33] - corrId_5baa10a12f83a9.59604629 - Establishing connection to DB 
+[25/09/2018 12:40:33] - corrId_5baa10a12f83a9.59604629 - Processing ClearRentalBookingsForUser request. 
+[25/09/2018 12:40:33] - corrId_5baa10a12f83a9.59604629 - Token is valid 
+[25/09/2018 12:40:33] - corrId_5baa10a12f83a9.59604629 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:40:33] - corrId_5baa10a12f83a9.59604629 - Executing query 
+[25/09/2018 12:40:33] - corrId_5baa10a12f83a9.59604629 - Query executed successfully 
+[25/09/2018 12:40:33] - corrId_5baa10a1337032.68839464 - Reached RentalManagementService API 
+[25/09/2018 12:40:33] - corrId_5baa10a1337032.68839464 - Establishing connection to DB 
+[25/09/2018 12:40:33] - corrId_5baa10a1337032.68839464 - Processing ClearRentalBookings request. 
+[25/09/2018 12:40:33] - corrId_5baa10a1337032.68839464 - Token is valid 
+[25/09/2018 12:40:33] - corrId_5baa10a1337032.68839464 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:40:33] - corrId_5baa10a1337032.68839464 - Executing query 
+[25/09/2018 12:40:33] - corrId_5baa10a1337032.68839464 - Query executed successfully 
+[25/09/2018 12:40:33] - corrId_5baa10a19b3468.16420980 - Reached RentalManagementService API 
+[25/09/2018 12:40:33] - corrId_5baa10a19b3468.16420980 - Establishing connection to DB 
+[25/09/2018 12:40:33] - corrId_5baa10a19b3468.16420980 - Processing GetVideosInStorageWithCount request. 
+[25/09/2018 12:40:33] - corrId_5baa10a19b3468.16420980 - Token is valid 
+[25/09/2018 12:40:33] - corrId_5baa10a19b3468.16420980 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:40:33] - corrId_5baa10a19b3468.16420980 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[25/09/2018 12:40:33] - corrId_5baa10a19b3468.16420980 - Executing query 
+[25/09/2018 12:40:33] - corrId_5baa10a19b3468.16420980 - Query executed successfully 
+[25/09/2018 12:40:33] - corrId_5baa10a19b3468.16420980 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 3, 12, 14, 15, 16) 
+[25/09/2018 12:40:33] - corrId_5baa10a19b3468.16420980 - Executing query 
+[25/09/2018 12:40:33] - corrId_5baa10a19b3468.16420980 - Query executed successfully 
+[25/09/2018 12:40:34] - corrId_5baa10a2ef9088.62039019 - Reached RentalManagementService API 
+[25/09/2018 12:40:34] - corrId_5baa10a2ef9088.62039019 - Establishing connection to DB 
+[25/09/2018 12:40:34] - corrId_5baa10a2ef9088.62039019 - Processing GetMostRecentCopies request. 
+[25/09/2018 12:40:34] - corrId_5baa10a2ef9088.62039019 - Token is valid 
+[25/09/2018 12:40:34] - corrId_5baa10a2ef9088.62039019 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:40:34] - corrId_5baa10a2ef9088.62039019 - Starting transaction 
+[25/09/2018 12:40:34] - corrId_5baa10a2ef9088.62039019 - Query: SELECT co.id_copia, co.data_scarico, co.id_film
+                    FROM copia co
+                    WHERE co.id_punto_vendita = 1
+                    AND co.id_film = 3
+                    AND co.noleggiato = 0
+                    AND co.restituito = 0
+                    ORDER BY co.data_scarico desc
+                    LIMIT 1 
+[25/09/2018 12:40:34] - corrId_5baa10a2ef9088.62039019 - Executing query 
+[25/09/2018 12:40:34] - corrId_5baa10a2ef9088.62039019 - Query executed successfully 
+[25/09/2018 12:40:34] - corrId_5baa10a2ef9088.62039019 - Query: UPDATE copia             
+                    SET
+                    noleggiato = 1,
+                    data_prenotazione_noleggio = CURRENT_TIMESTAMP,
+                    id_dipendente_prenotazione_noleggio = 1
+                    WHERE id_copia = 105
+                    AND noleggiato = 0
+                    AND restituito = 0 
+[25/09/2018 12:40:34] - corrId_5baa10a2ef9088.62039019 - Executing query 
+[25/09/2018 12:40:34] - corrId_5baa10a2ef9088.62039019 - Query executed successfully 
+[25/09/2018 12:40:34] - corrId_5baa10a2ef9088.62039019 - Committing transaction 
+[25/09/2018 12:40:35] - corrId_5baa10a367d564.16650207 - Reached RentalManagementService API 
+[25/09/2018 12:40:35] - corrId_5baa10a367d564.16650207 - Establishing connection to DB 
+[25/09/2018 12:40:35] - corrId_5baa10a367d564.16650207 - Processing GetActiveDiscount request. 
+[25/09/2018 12:40:35] - corrId_5baa10a367d564.16650207 - Token is valid 
+[25/09/2018 12:40:35] - corrId_5baa10a367d564.16650207 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:40:35] - corrId_5baa10a367d564.16650207 - Query: SELECT id_tariffa, tariffa
+            FROM tariffa
+            WHERE attiva = 1 
+[25/09/2018 12:40:35] - corrId_5baa10a367d564.16650207 - Executing query 
+[25/09/2018 12:40:35] - corrId_5baa10a367d564.16650207 - Query executed successfully 
+[25/09/2018 12:40:39] - corrId_5baa10a75f1c17.98985023 - Reached CustomerManagementService API 
+[25/09/2018 12:40:39] - corrId_5baa10a75f1c17.98985023 - Processing FindCustomerById request. 
+[25/09/2018 12:40:39] - corrId_5baa10a75f1c17.98985023 - Token is valid 
+[25/09/2018 12:40:39] - corrId_5baa10a75f1c17.98985023 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:40:39] - corrId_5baa10a75f1c17.98985023 - Query: SELECT cl.id_cliente, cl.nome, cl.cognome, cl.indirizzo, fi.nome_fidelizzazione, fi.percentuale
+            FROM cliente cl
+            INNER JOIN fidelizzazione fi
+            ON cl.id_fidelizzazione = fi.id_fidelizzazione
+            WHERE id_cliente = 35
+            LIMIT 1 
+[25/09/2018 12:40:39] - corrId_5baa10a75f1c17.98985023 - Establishing connection to DB 
+[25/09/2018 12:40:39] - corrId_5baa10a75f1c17.98985023 - Executing query 
+[25/09/2018 12:40:39] - corrId_5baa10a75f1c17.98985023 - Query executed successfully 
+[25/09/2018 12:40:41] - corrId_5baa10a90b6cd0.98859789 - Reached RentalManagementService API 
+[25/09/2018 12:40:41] - corrId_5baa10a90b6cd0.98859789 - Establishing connection to DB 
+[25/09/2018 12:40:41] - corrId_5baa10a90b6cd0.98859789 - Processing RentVideos request. 
+[25/09/2018 12:40:41] - corrId_5baa10a90b6cd0.98859789 - Token is valid 
+[25/09/2018 12:40:41] - corrId_5baa10a90b6cd0.98859789 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:40:41] - corrId_5baa10a90b6cd0.98859789 - VIDEOS: 1 
+[25/09/2018 12:40:41] - corrId_5baa10a90b6cd0.98859789 - Query: INSERT INTO noleggio
+            (id_dipendente,
+            id_punto_vendita,
+            id_cliente,
+            id_copia,
+            id_tariffa,
+            data_inizio,
+            data_fine, 
+            prezzo_totale)
+            VALUES
+            (0, 0, 0, 0, 0, CURRENT_TIMESTAMP, , 0.000000 
+[25/09/2018 12:40:41] - corrId_5baa10a90b6cd0.98859789 - Executing query 
+[25/09/2018 12:40:41] - corrId_5baa10a90b6cd0.98859789 - Error while executing query -> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ' 0.000000' at line 11 
+[25/09/2018 12:40:41] - corrId_5baa10a90b6cd0.98859789 - Error occured -> Exception: Exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ' 0.000000' at line 11 in C:\Websites\BDC\videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Websites\BDC\videonoleggio\php\RentalManagementService.php(22): DBConnection->ExecuteQuery('INSERT INTO nol...')
+#1 C:\Websites\BDC\videonoleggio\php\RentalManagementService.php(187): RentalManagementService->ExecuteQuery('INSERT INTO nol...')
+#2 C:\Websites\BDC\videonoleggio\php\RentalManagementService.php(214): RentalManagementService->RentVideos()
+#3 C:\Websites\BDC\videonoleggio\php\RentalManagementService.php(232): RentalManagementService->Init()
+#4 {main} in C:\Websites\BDC\videonoleggio\php\DBConnection.php:76
+Stack trace:
+#0 C:\Websites\BDC\videonoleggio\php\RentalManagementService.php(22): DBConnection->ExecuteQuery('INSERT INTO nol...')
+#1 C:\Websites\BDC\videonoleggio\php\RentalManagementService.php(187): RentalManagementService->ExecuteQuery('INSERT INTO nol...')
+#2 C:\Websites\BDC\videonoleggio\php\RentalManagementService.php(214): RentalManagementService->RentVideos()
+#3 C:\Websites\BDC\videonoleggio\php\RentalManagementService.php(232): RentalManagementService->Init()
+#4 {main} 
+[25/09/2018 12:43:28] - corrId_5baa1150c64085.03362229 - Reached AuthenticationService API 
+[25/09/2018 12:43:28] - corrId_5baa1150c64085.03362229 - Token is valid 
+[25/09/2018 12:43:29] - corrId_5baa1151e53b33.22508852 - Reached RentalManagementService API 
+[25/09/2018 12:43:29] - corrId_5baa1151e53b33.22508852 - Establishing connection to DB 
+[25/09/2018 12:43:29] - corrId_5baa1151e57e02.77796377 - Reached RentalManagementService API 
+[25/09/2018 12:43:29] - corrId_5baa1151e57e02.77796377 - Establishing connection to DB 
+[25/09/2018 12:43:29] - corrId_5baa1151e53b33.22508852 - Processing ClearRentalBookingsForUser request. 
+[25/09/2018 12:43:29] - corrId_5baa1151e53b33.22508852 - Token is valid 
+[25/09/2018 12:43:29] - corrId_5baa1151e53b33.22508852 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:43:29] - corrId_5baa1151e53b33.22508852 - Executing query 
+[25/09/2018 12:43:29] - corrId_5baa1151e57e02.77796377 - Processing ClearRentalBookings request. 
+[25/09/2018 12:43:29] - corrId_5baa1151e57e02.77796377 - Token is valid 
+[25/09/2018 12:43:29] - corrId_5baa1151e57e02.77796377 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:43:29] - corrId_5baa1151e57e02.77796377 - Executing query 
+[25/09/2018 12:43:29] - corrId_5baa1151e53b33.22508852 - Query executed successfully 
+[25/09/2018 12:43:29] - corrId_5baa1151e57e02.77796377 - Query executed successfully 
+[25/09/2018 12:43:30] - corrId_5baa11525ec386.50072016 - Reached RentalManagementService API 
+[25/09/2018 12:43:30] - corrId_5baa11525ec386.50072016 - Establishing connection to DB 
+[25/09/2018 12:43:30] - corrId_5baa11525ec386.50072016 - Processing GetVideosInStorageWithCount request. 
+[25/09/2018 12:43:30] - corrId_5baa11525ec386.50072016 - Token is valid 
+[25/09/2018 12:43:30] - corrId_5baa11525ec386.50072016 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:43:30] - corrId_5baa11525ec386.50072016 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[25/09/2018 12:43:30] - corrId_5baa11525ec386.50072016 - Executing query 
+[25/09/2018 12:43:30] - corrId_5baa11525ec386.50072016 - Query executed successfully 
+[25/09/2018 12:43:30] - corrId_5baa11525ec386.50072016 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 3, 12, 14, 15, 16) 
+[25/09/2018 12:43:30] - corrId_5baa11525ec386.50072016 - Executing query 
+[25/09/2018 12:43:30] - corrId_5baa11525ec386.50072016 - Query executed successfully 
+[25/09/2018 12:43:32] - corrId_5baa115406ad91.40130375 - Reached RentalManagementService API 
+[25/09/2018 12:43:32] - corrId_5baa115406ad91.40130375 - Establishing connection to DB 
+[25/09/2018 12:43:32] - corrId_5baa115406ad91.40130375 - Processing GetMostRecentCopies request. 
+[25/09/2018 12:43:32] - corrId_5baa115406ad91.40130375 - Token is valid 
+[25/09/2018 12:43:32] - corrId_5baa115406ad91.40130375 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:43:32] - corrId_5baa115406ad91.40130375 - Starting transaction 
+[25/09/2018 12:43:32] - corrId_5baa115406ad91.40130375 - Query: SELECT co.id_copia, co.data_scarico, co.id_film
+                    FROM copia co
+                    WHERE co.id_punto_vendita = 1
+                    AND co.id_film = 2
+                    AND co.noleggiato = 0
+                    AND co.restituito = 0
+                    ORDER BY co.data_scarico desc
+                    LIMIT 1 
+[25/09/2018 12:43:32] - corrId_5baa115406ad91.40130375 - Executing query 
+[25/09/2018 12:43:32] - corrId_5baa115406ad91.40130375 - Query executed successfully 
+[25/09/2018 12:43:32] - corrId_5baa115406ad91.40130375 - Query: UPDATE copia             
+                    SET
+                    noleggiato = 1,
+                    data_prenotazione_noleggio = CURRENT_TIMESTAMP,
+                    id_dipendente_prenotazione_noleggio = 1
+                    WHERE id_copia = 75
+                    AND noleggiato = 0
+                    AND restituito = 0 
+[25/09/2018 12:43:32] - corrId_5baa115406ad91.40130375 - Executing query 
+[25/09/2018 12:43:32] - corrId_5baa115406ad91.40130375 - Query executed successfully 
+[25/09/2018 12:43:32] - corrId_5baa115406ad91.40130375 - Committing transaction 
+[25/09/2018 12:43:32] - corrId_5baa11547d1313.05715947 - Reached RentalManagementService API 
+[25/09/2018 12:43:32] - corrId_5baa11547d1313.05715947 - Establishing connection to DB 
+[25/09/2018 12:43:32] - corrId_5baa11547d1313.05715947 - Processing GetActiveDiscount request. 
+[25/09/2018 12:43:32] - corrId_5baa11547d1313.05715947 - Token is valid 
+[25/09/2018 12:43:32] - corrId_5baa11547d1313.05715947 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:43:32] - corrId_5baa11547d1313.05715947 - Query: SELECT id_tariffa, tariffa
+            FROM tariffa
+            WHERE attiva = 1 
+[25/09/2018 12:43:32] - corrId_5baa11547d1313.05715947 - Executing query 
+[25/09/2018 12:43:32] - corrId_5baa11547d1313.05715947 - Query executed successfully 
+[25/09/2018 12:43:36] - corrId_5baa11586cd356.63807409 - Reached CustomerManagementService API 
+[25/09/2018 12:43:36] - corrId_5baa11586cd356.63807409 - Processing FindCustomerById request. 
+[25/09/2018 12:43:36] - corrId_5baa11586cd356.63807409 - Token is valid 
+[25/09/2018 12:43:36] - corrId_5baa11586cd356.63807409 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:43:36] - corrId_5baa11586cd356.63807409 - Query: SELECT cl.id_cliente, cl.nome, cl.cognome, cl.indirizzo, fi.nome_fidelizzazione, fi.percentuale
+            FROM cliente cl
+            INNER JOIN fidelizzazione fi
+            ON cl.id_fidelizzazione = fi.id_fidelizzazione
+            WHERE id_cliente = 35
+            LIMIT 1 
+[25/09/2018 12:43:36] - corrId_5baa11586cd356.63807409 - Establishing connection to DB 
+[25/09/2018 12:43:36] - corrId_5baa11586cd356.63807409 - Executing query 
+[25/09/2018 12:43:36] - corrId_5baa11586cd356.63807409 - Query executed successfully 
+[25/09/2018 12:43:38] - corrId_5baa115a42acc1.49219537 - Reached RentalManagementService API 
+[25/09/2018 12:43:38] - corrId_5baa115a42acc1.49219537 - Establishing connection to DB 
+[25/09/2018 12:43:38] - corrId_5baa115a42acc1.49219537 - Processing RentVideos request. 
+[25/09/2018 12:43:38] - corrId_5baa115a42acc1.49219537 - Token is valid 
+[25/09/2018 12:43:38] - corrId_5baa115a42acc1.49219537 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:43:38] - corrId_5baa115a42acc1.49219537 - VIDEOS: 1 
+[25/09/2018 12:43:38] - corrId_5baa115a42acc1.49219537 - Query: INSERT INTO noleggio
+            (id_dipendente,
+            id_punto_vendita,
+            id_cliente,
+            id_copia,
+            id_tariffa,
+            data_inizio,
+            data_fine, 
+            prezzo_totale)
+            VALUES
+            (0, 0, 0, 0, 0, CURRENT_TIMESTAMP, , 0.000000 
+[25/09/2018 12:43:38] - corrId_5baa115a42acc1.49219537 - Executing query 
+[25/09/2018 12:43:38] - corrId_5baa115a42acc1.49219537 - Error while executing query -> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ' 0.000000' at line 11 
+[25/09/2018 12:43:38] - corrId_5baa115a42acc1.49219537 - Error occured -> Exception: Exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ' 0.000000' at line 11 in C:\Websites\BDC\videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Websites\BDC\videonoleggio\php\RentalManagementService.php(22): DBConnection->ExecuteQuery('INSERT INTO nol...')
+#1 C:\Websites\BDC\videonoleggio\php\RentalManagementService.php(187): RentalManagementService->ExecuteQuery('INSERT INTO nol...')
+#2 C:\Websites\BDC\videonoleggio\php\RentalManagementService.php(214): RentalManagementService->RentVideos()
+#3 C:\Websites\BDC\videonoleggio\php\RentalManagementService.php(232): RentalManagementService->Init()
+#4 {main} in C:\Websites\BDC\videonoleggio\php\DBConnection.php:76
+Stack trace:
+#0 C:\Websites\BDC\videonoleggio\php\RentalManagementService.php(22): DBConnection->ExecuteQuery('INSERT INTO nol...')
+#1 C:\Websites\BDC\videonoleggio\php\RentalManagementService.php(187): RentalManagementService->ExecuteQuery('INSERT INTO nol...')
+#2 C:\Websites\BDC\videonoleggio\php\RentalManagementService.php(214): RentalManagementService->RentVideos()
+#3 C:\Websites\BDC\videonoleggio\php\RentalManagementService.php(232): RentalManagementService->Init()
+#4 {main} 
+[25/09/2018 12:45:24] - corrId_5baa11c4c0a402.42046628 - Reached RentalManagementService API 
+[25/09/2018 12:45:24] - corrId_5baa11c4c0a402.42046628 - Establishing connection to DB 
+[25/09/2018 12:45:24] - corrId_5baa11c4c0a402.42046628 - Processing RentVideos request. 
+[25/09/2018 12:45:24] - corrId_5baa11c4c0a402.42046628 - Token is valid 
+[25/09/2018 12:45:24] - corrId_5baa11c4c0a402.42046628 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:45:24] - corrId_5baa11c4c0a402.42046628 - VIDEOS: null 
+[25/09/2018 12:45:24] - corrId_5baa11c4c0a402.42046628 - Query: INSERT INTO noleggio
+            (id_dipendente,
+            id_punto_vendita,
+            id_cliente,
+            id_copia,
+            id_tariffa,
+            data_inizio,
+            data_fine, 
+            prezzo_totale)
+            VALUES
+            (0, 0, 0, 0, 0, CURRENT_TIMESTAMP, , 0.000000 
+[25/09/2018 12:45:24] - corrId_5baa11c4c0a402.42046628 - Executing query 
+[25/09/2018 12:45:24] - corrId_5baa11c4c0a402.42046628 - Error while executing query -> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ' 0.000000' at line 11 
+[25/09/2018 12:45:24] - corrId_5baa11c4c0a402.42046628 - Error occured -> Exception: Exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ' 0.000000' at line 11 in C:\Websites\BDC\videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Websites\BDC\videonoleggio\php\RentalManagementService.php(22): DBConnection->ExecuteQuery('INSERT INTO nol...')
+#1 C:\Websites\BDC\videonoleggio\php\RentalManagementService.php(187): RentalManagementService->ExecuteQuery('INSERT INTO nol...')
+#2 C:\Websites\BDC\videonoleggio\php\RentalManagementService.php(214): RentalManagementService->RentVideos()
+#3 C:\Websites\BDC\videonoleggio\php\RentalManagementService.php(232): RentalManagementService->Init()
+#4 {main} in C:\Websites\BDC\videonoleggio\php\DBConnection.php:76
+Stack trace:
+#0 C:\Websites\BDC\videonoleggio\php\RentalManagementService.php(22): DBConnection->ExecuteQuery('INSERT INTO nol...')
+#1 C:\Websites\BDC\videonoleggio\php\RentalManagementService.php(187): RentalManagementService->ExecuteQuery('INSERT INTO nol...')
+#2 C:\Websites\BDC\videonoleggio\php\RentalManagementService.php(214): RentalManagementService->RentVideos()
+#3 C:\Websites\BDC\videonoleggio\php\RentalManagementService.php(232): RentalManagementService->Init()
+#4 {main} 
+[25/09/2018 12:45:41] - corrId_5baa11d543d9e6.65233973 - Reached RentalManagementService API 
+[25/09/2018 12:45:41] - corrId_5baa11d543d9e6.65233973 - Establishing connection to DB 
+[25/09/2018 12:45:41] - corrId_5baa11d543d9e6.65233973 - Processing RentVideos request. 
+[25/09/2018 12:45:41] - corrId_5baa11d543d9e6.65233973 - Token is valid 
+[25/09/2018 12:45:41] - corrId_5baa11d543d9e6.65233973 - Validated permissions for user admin (required 10, has 30) 
+[25/09/2018 12:45:41] - corrId_5baa11d543d9e6.65233973 - VIDEOS: [{"id_dipendente":"1","id_punto_vendita":"1","id_tariffa":"1","id_cliente":"35","id_film":"2","id_copia":"75","prezzo_totale":"20","data_fine":"2018-09-30"}] 
+[25/09/2018 12:45:41] - corrId_5baa11d543d9e6.65233973 - Query: INSERT INTO noleggio
+            (id_dipendente,
+            id_punto_vendita,
+            id_cliente,
+            id_copia,
+            id_tariffa,
+            data_inizio,
+            data_fine, 
+            prezzo_totale)
+            VALUES
+            (0, 0, 0, 0, 0, CURRENT_TIMESTAMP, , 0.000000 
+[25/09/2018 12:45:41] - corrId_5baa11d543d9e6.65233973 - Executing query 
+[25/09/2018 12:45:41] - corrId_5baa11d543d9e6.65233973 - Error while executing query -> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ' 0.000000' at line 11 
+[25/09/2018 12:45:41] - corrId_5baa11d543d9e6.65233973 - Error occured -> Exception: Exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ' 0.000000' at line 11 in C:\Websites\BDC\videonoleggio\php\DBConnection.php:66
+Stack trace:
+#0 C:\Websites\BDC\videonoleggio\php\RentalManagementService.php(22): DBConnection->ExecuteQuery('INSERT INTO nol...')
+#1 C:\Websites\BDC\videonoleggio\php\RentalManagementService.php(187): RentalManagementService->ExecuteQuery('INSERT INTO nol...')
+#2 C:\Websites\BDC\videonoleggio\php\RentalManagementService.php(214): RentalManagementService->RentVideos()
+#3 C:\Websites\BDC\videonoleggio\php\RentalManagementService.php(232): RentalManagementService->Init()
+#4 {main} in C:\Websites\BDC\videonoleggio\php\DBConnection.php:76
+Stack trace:
+#0 C:\Websites\BDC\videonoleggio\php\RentalManagementService.php(22): DBConnection->ExecuteQuery('INSERT INTO nol...')
+#1 C:\Websites\BDC\videonoleggio\php\RentalManagementService.php(187): RentalManagementService->ExecuteQuery('INSERT INTO nol...')
+#2 C:\Websites\BDC\videonoleggio\php\RentalManagementService.php(214): RentalManagementService->RentVideos()
+#3 C:\Websites\BDC\videonoleggio\php\RentalManagementService.php(232): RentalManagementService->Init()
+#4 {main} 

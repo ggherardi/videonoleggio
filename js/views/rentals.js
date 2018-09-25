@@ -372,16 +372,20 @@ function rentVideo() {
                 .fail(restCallError);                    
         }
     }
-    // not implemented yet
+
     if($("#RentVideoForm_user").length == 0) {
         $("#RentVideoForm_id_cliente")[0].setCustomValidity("Selezionare un utente");
         return false;
     }
     if(window.confirm("Confermi il noleggio dei film selezionati?")) {
         var videos = getVideosFromForm();
-        rentalManagementService.rentVideos(videos)
+        if(videos) {
+            rentalManagementService.rentVideos(videos)
             .done(rentVideoSuccess)
             .fail(restCallError);
+        } else {
+            return false;
+        }
     } else {
         return false;
     }    
@@ -391,17 +395,23 @@ function getVideosFromForm() {
     var videos = [];
     var rows = $(".RentVideoForm_row");
     for(var i = 0; i < rows.length; i++) {
-        var video = {
-            id_dipendente: sharedStorage.loginContext.id_dipendnete,
-            id_punto_vendita: punto_vendita_id_punto_vendita,
-            id_tariffa: rentRates.id_tariffa,
-            id_cliente: $("#RentVideoForm_id_cliente"),
-            id_film: $(`#RentVideoForm_id_film_${rows[i]}`).text(),
-            id_copia: $(`#RentVideoForm_id_copia_${rows[i]}`).text(),
-            prezzo_totale: $(`#RentVideoForm_importo_totale`).text(),            
-            data_fine: $(`RentVideoForm_date_control_${i}`).val()
-        }        
-        videos.push(video);
+        try {
+            var video = {
+                id_dipendente: sharedStorage.loginContext.id_dipendente,
+                id_punto_vendita: sharedStorage.loginContext.punto_vendita_id_punto_vendita,
+                id_tariffa: rentRates.id_tariffa,
+                id_cliente: $("#RentVideoForm_id_cliente").val(),
+                id_film: $(`#RentVideoForm_id_film_${i}`).text(),
+                id_copia: $(`#RentVideoForm_id_copia_${i}`).text(),
+                prezzo_totale: $(`#RentVideoForm_importo_totale`).text(),            
+                data_fine: $(`#RentVideoForm_date_control_${i}`).val()
+            }        
+            videos.push(video);
+        }
+        catch(ex) {
+            console.error(ex);
+            return false;
+        }
     }
     return videos;
 }

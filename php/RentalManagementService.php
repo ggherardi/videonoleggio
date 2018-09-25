@@ -47,7 +47,6 @@ class RentalManagementService {
         $res = self::ExecuteQuery($query);
         $videosArray = array();
         while($row = $res->fetch_assoc()){
-            // $video = new Video($row);
             $videosArray[] = $row;
         }
         usort($videosArray, "SortByFilmId");        
@@ -92,7 +91,6 @@ class RentalManagementService {
             $filters = json_decode($_POST["filters"]);
             $this->dbContext->StartTransaction();
             for($i = 0; $i < count($filters->films); $i++) {
-                Logger::Write("FILTERS: ".json_encode($filters->films[$i]->id_film), $GLOBALS["CorrelationID"]);
                 $query = 
                     "SELECT co.id_copia, co.data_scarico, co.id_film
                     FROM copia co
@@ -103,9 +101,8 @@ class RentalManagementService {
                     ORDER BY co.data_scarico desc
                     LIMIT 1";
                 $query = sprintf($query, $filters->id_punto_vendita, $filters->films[$i]->id_film);
-                // Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
+                Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
                 $res = self::ExecuteQuery($query);
-                // Logger::Write("ROW: ".json_encode($row), $GLOBALS["CorrelationID"]);
                 $row = $res->fetch_assoc();
                 $allCopies[] = $row;
                 $query = 
@@ -118,7 +115,7 @@ class RentalManagementService {
                     AND noleggiato = 0
                     AND restituito = 0";
                 $query = sprintf($query, $filters->id_dipendente, $row["id_copia"]);
-                // Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
+                Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
                 $res = self::ExecuteQuery($query);
             }
             $this->dbContext->CommitTransaction();
@@ -183,7 +180,9 @@ class RentalManagementService {
             prezzo_totale)
             VALUES
             (%d, %d, %d, %d, %d, CURRENT_TIMESTAMP, %s, %f";
-            $query = sprintf($query, $filters->id_punto_vendita);
+                    Logger::Write("VIDEOS: ".json_encode($videos), $GLOBALS["CorrelationID"]);
+            $query = sprintf($query, $videos[i]->id_dipendente, $videos[i]->id_punto_vendita, $videos[i]->id_cliente,
+                                $videos[i]->id_copia, $videos[i]->id_tariffa, $videos[i]->data_fine, $videos[i]->prezzo_totale);
             Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
             $res = self::ExecuteQuery($query);
         }

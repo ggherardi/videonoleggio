@@ -315,7 +315,8 @@ class RentalManagementService extends RestClient {
         return super.execute();        
     }
 
-    rentVideos() {
+    rentVideos(videos) {
+        videos = JSON.stringify(videos);
         this.data = {
             action: "rentVideos",
             videos: videos
