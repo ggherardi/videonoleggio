@@ -120,6 +120,7 @@ class RentalManagementService {
             }
             $this->dbContext->CommitTransaction();
         } catch (Throwable $ex) {
+            Logger::Write("Error while processing ". __FUNCTION__ ." request: $ex", $GLOBALS["CorrelationID"]);
             $this->dbContext->RollBack();
             http_response_code(500);
         }
@@ -162,13 +163,30 @@ class RentalManagementService {
         exit(json_encode($row));
     }
 
-    /////////////////////////// PER DOMANI: FINIRE LA QUERY! CICLARE L'ARRAY VIDEOS! /////////////////////
+    /* Inserimento dei noleggi. La query dopo l'Insert serve a calcolare l'importo del noleggio per prevenire manomissioni lato client */
     function RentVideos() {
         Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
         TokenGenerator::CheckPermissions(PermissionsConstants::ADDETTO, "delega_codice");
         $videos = json_decode($_POST["videos"]);
-        for($i = 0; $i < count($videos); $i++) {
-            $query = 
+        try {
+            $this->dbContext->StartTransaction();
+            for($i = 0; $i < count($videos); $i++) {               
+                $noleggio_id = self::InsertRentDetails($videos[$i]);
+                $details = self::GetPriceDetails($noleggio_id);
+                $amount = self::CalculateRentAmount($details, $videos[$i]);
+                self::AddRentAmountToTable($noleggio_id, $amount);
+            }
+            $this->dbContext->CommitTransaction();
+        } catch(Throwable $ex) {
+            Logger::Write("Error while processing ". __FUNCTION__ ." request: $ex", $GLOBALS["CorrelationID"]);
+            $this->dbContext->RollBack();
+            http_response_code(500);
+        }
+        exit(json_encode($res));
+    }
+
+    private function InsertRentDetails($video) {
+        $query = 
             "INSERT INTO noleggio
             (id_dipendente,
             id_punto_vendita,
@@ -176,18 +194,65 @@ class RentalManagementService {
             id_copia,
             id_tariffa,
             data_inizio,
-            data_fine, 
-            prezzo_totale)
+            data_fine)
             VALUES
-            (%d, %d, %d, %d, %d, CURRENT_TIMESTAMP, %s, %f";
-                    Logger::Write("VIDEOS: ".json_encode($videos), $GLOBALS["CorrelationID"]);
-            $query = sprintf($query, $videos[i]->id_dipendente, $videos[i]->id_punto_vendita, $videos[i]->id_cliente,
-                                $videos[i]->id_copia, $videos[i]->id_tariffa, $videos[i]->data_fine, $videos[i]->prezzo_totale);
-            Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
-            $res = self::ExecuteQuery($query);
+            (%d, %d, %d, %d, %d, CURRENT_TIMESTAMP, '%s')";
+        $query = sprintf($query, $video->id_dipendente, $video->id_punto_vendita, $video->id_cliente,
+                            $video->id_copia, $video->id_tariffa, $video->data_fine);
+        Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
+        $res = self::ExecuteQuery($query);                                     
+        if(!$res) {
+            throw("Insert failed");
         }
+        Logger::Write("Rent Insert successful, Id: ".$noleggio_id, $GLOBALS["CorrelationID"]);
+        return $this->dbContext->GetLastID();
+    }
 
-        exit(json_encode($res));
+    private function GetPriceDetails($noleggio_id) {
+        $query = 
+            "SELECT *
+            FROM price_details
+            WHERE id_noleggio = %d
+            LIMIT 1";            
+        $query = sprintf($query, $noleggio_id);
+        Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
+        $res = self::ExecuteQuery($query);
+        $row = $res->fetch_assoc();
+        if(!$row) {
+            throw(sprintf("Price details not found for item with id: ", $noleggio_id));
+        }
+        return $row;
+    }
+
+    private function CalculateRentAmount($details, $video) {
+        $today = time();
+        $endDate = strtotime($video->data_fine);
+        $daysOfRent = ceil(($endDate - $today) / (60 * 60 * 24));
+        $tariffa = json_decode($details["tariffa"]);
+        $amount = 0;
+        for($i = 0; $i < $daysOfRent; $i++) {
+            // Logger::Write("DEBUG amount: ".$details["prezzo_giornaliero"], $GLOBALS["CorrelationID"]);
+            $amount += $details["prezzo_giornaliero"] - (($details["prezzo_giornaliero"] * $tariffa[$i]->s) / 100);
+        }
+        $discountedAmount = $amount - (($amount * $details["percentuale"]) / 100);
+        // Logger::Write("DEBUG: ".$discountedAmount, $GLOBALS["CorrelationID"]);
+        // http_response_code(500);
+        // exit();
+        return $discountedAmount;
+    }
+
+    private function AddRentAmountToTable($noleggio_id, $amount) {
+        $query = 
+            "UPDATE noleggio
+            SET prezzo_totale = %f
+            WHERE id_noleggio = %d";
+        $query = sprintf($query, $amount, $noleggio_id);
+        Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
+        $res = self::ExecuteQuery($query);
+        if(!$res) {
+            throw(sprintf("Could not set rent amount for item with id: ", $noleggio_id));
+        }
+        Logger::Write("Rent Update on amount successful", $GLOBALS["CorrelationID"]);
     }
 
     // Switcha l'operazione richiesta lato client

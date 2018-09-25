@@ -189,7 +189,7 @@ CREATE TABLE `copia` (
 
 LOCK TABLES `copia` WRITE;
 /*!40000 ALTER TABLE `copia` DISABLE KEYS */;
-INSERT INTO `copia` VALUES (1,1,1,1,'2018-07-05 15:13:42',0,1,0,NULL,NULL),(53,1,1,1,'2018-09-16 16:08:52',0,0,0,NULL,NULL),(54,1,1,1,'2018-09-16 16:08:52',0,0,1,NULL,NULL),(55,12,1,4,'2018-06-29 16:09:02',0,1,0,NULL,NULL),(56,12,1,4,'2018-09-16 16:09:02',0,0,0,NULL,NULL),(57,12,1,4,'2018-09-16 16:09:02',0,0,0,NULL,NULL),(58,12,1,4,'2018-09-16 16:09:02',0,0,1,NULL,NULL),(59,12,1,4,'2018-09-16 16:09:02',0,0,0,NULL,NULL),(60,12,1,4,'2018-09-16 16:09:02',0,0,0,NULL,NULL),(61,12,1,4,'2018-09-16 16:09:02',0,0,1,NULL,NULL),(62,12,1,4,'2018-09-16 16:09:02',0,0,1,NULL,NULL),(63,12,1,4,'2018-09-16 16:09:02',0,0,1,NULL,NULL),(64,12,1,4,'2018-09-16 16:09:02',0,0,1,NULL,NULL),(65,15,2,6,'2018-09-16 17:14:07',0,0,0,NULL,NULL),(66,15,2,6,'2018-09-16 17:14:07',0,0,0,NULL,NULL),(67,15,2,6,'2018-09-16 17:14:07',0,0,0,NULL,NULL),(68,15,2,6,'2018-09-16 17:14:07',0,0,0,NULL,NULL),(69,15,2,6,'2018-09-16 17:14:07',0,0,0,NULL,NULL),(70,15,2,6,'2018-09-16 17:14:07',0,0,0,NULL,NULL),(71,15,2,6,'2018-09-16 17:14:07',0,0,0,NULL,NULL),(72,15,2,6,'2018-09-16 17:14:07',0,0,0,NULL,NULL),(73,15,2,6,'2018-09-16 17:14:07',0,1,0,NULL,NULL),(74,15,2,6,'2018-09-16 17:14:07',0,0,0,NULL,NULL),(75,2,1,5,'2018-09-19 18:36:07',0,0,0,NULL,NULL),(76,2,1,5,'2018-09-19 18:36:07',0,0,0,NULL,NULL),(77,2,1,5,'2018-09-19 18:36:07',0,0,0,NULL,NULL),(78,2,1,5,'2018-09-19 18:36:07',0,0,0,NULL,NULL),(79,2,1,5,'2018-09-19 18:36:07',0,0,0,NULL,NULL),(80,16,1,6,'2018-09-19 18:36:15',1,1,0,'2018-09-24 23:35:27',1),(81,16,1,6,'2018-09-19 18:36:15',1,0,0,NULL,NULL),(82,16,1,6,'2018-09-19 18:36:15',0,0,0,NULL,NULL),(83,16,1,6,'2018-09-19 18:36:15',0,0,0,NULL,NULL),(84,16,1,6,'2018-09-19 18:36:15',0,0,0,NULL,NULL),(85,16,1,6,'2018-09-19 18:36:15',0,0,0,NULL,NULL),(86,16,1,6,'2018-09-19 18:36:15',0,0,0,NULL,NULL),(87,16,1,6,'2018-09-19 18:36:15',0,0,0,NULL,NULL),(88,16,1,6,'2018-09-19 18:36:15',0,0,0,NULL,NULL),(89,16,1,6,'2018-09-19 18:36:15',0,0,0,NULL,NULL),(90,14,1,3,'2018-09-19 18:36:26',0,1,0,NULL,NULL),(91,14,1,3,'2018-09-19 18:36:26',0,1,0,NULL,NULL),(92,14,1,3,'2018-09-19 18:36:26',0,1,0,NULL,NULL),(93,14,1,3,'2018-09-19 18:36:26',1,0,0,NULL,NULL),(94,14,1,3,'2018-09-19 18:36:26',0,0,0,NULL,NULL),(95,12,1,3,'2018-09-20 10:47:24',0,0,0,NULL,NULL),(96,12,1,3,'2018-09-20 10:47:24',0,0,0,NULL,NULL),(97,12,1,3,'2018-09-20 10:47:24',0,0,0,NULL,NULL),(98,12,1,3,'2018-09-20 10:47:24',0,0,0,NULL,NULL),(99,12,1,3,'2018-09-20 10:47:24',0,0,0,NULL,NULL),(100,15,1,4,'2018-09-21 11:08:16',0,0,0,NULL,NULL),(101,15,1,4,'2018-09-21 11:08:16',0,0,0,NULL,NULL),(102,15,1,4,'2018-09-21 11:08:16',0,0,0,NULL,NULL),(103,15,1,4,'2018-09-21 11:08:16',0,0,0,NULL,NULL),(104,15,1,4,'2018-09-21 11:08:16',0,0,0,NULL,NULL),(105,3,1,3,'2018-09-21 14:35:18',0,0,0,NULL,NULL),(106,3,1,3,'2018-09-21 14:35:18',0,0,0,NULL,NULL),(107,3,1,3,'2018-09-21 14:35:18',0,0,0,NULL,NULL),(108,3,1,3,'2018-09-21 14:35:18',0,0,0,NULL,NULL),(109,3,1,3,'2018-09-21 14:35:18',0,0,0,NULL,NULL);
+INSERT INTO `copia` VALUES (1,1,1,1,'2018-07-05 15:13:42',0,1,0,NULL,NULL),(53,1,1,1,'2018-09-16 16:08:52',0,0,0,NULL,NULL),(54,1,1,1,'2018-09-16 16:08:52',0,0,1,NULL,NULL),(55,12,1,4,'2018-06-29 16:09:02',0,1,0,NULL,NULL),(56,12,1,4,'2018-09-16 16:09:02',0,0,0,NULL,NULL),(57,12,1,4,'2018-09-16 16:09:02',0,0,0,NULL,NULL),(58,12,1,4,'2018-09-16 16:09:02',0,0,1,NULL,NULL),(59,12,1,4,'2018-09-16 16:09:02',0,0,0,NULL,NULL),(60,12,1,4,'2018-09-16 16:09:02',0,0,0,NULL,NULL),(61,12,1,4,'2018-09-16 16:09:02',0,0,1,NULL,NULL),(62,12,1,4,'2018-09-16 16:09:02',0,0,1,NULL,NULL),(63,12,1,4,'2018-09-16 16:09:02',0,0,1,NULL,NULL),(64,12,1,4,'2018-09-16 16:09:02',0,0,1,NULL,NULL),(65,15,2,6,'2018-09-16 17:14:07',0,0,0,NULL,NULL),(66,15,2,6,'2018-09-16 17:14:07',0,0,0,NULL,NULL),(67,15,2,6,'2018-09-16 17:14:07',0,0,0,NULL,NULL),(68,15,2,6,'2018-09-16 17:14:07',0,0,0,NULL,NULL),(69,15,2,6,'2018-09-16 17:14:07',0,0,0,NULL,NULL),(70,15,2,6,'2018-09-16 17:14:07',0,0,0,NULL,NULL),(71,15,2,6,'2018-09-16 17:14:07',0,0,0,NULL,NULL),(72,15,2,6,'2018-09-16 17:14:07',0,0,0,NULL,NULL),(73,15,2,6,'2018-09-16 17:14:07',0,1,0,NULL,NULL),(74,15,2,6,'2018-09-16 17:14:07',0,0,0,NULL,NULL),(75,2,1,5,'2018-09-19 18:36:07',0,0,0,NULL,NULL),(76,2,1,5,'2018-09-19 18:36:07',0,0,0,NULL,NULL),(77,2,1,5,'2018-09-19 18:36:07',0,0,0,NULL,NULL),(78,2,1,5,'2018-09-19 18:36:07',0,0,0,NULL,NULL),(79,2,1,5,'2018-09-19 18:36:07',0,0,0,NULL,NULL),(80,16,1,6,'2018-09-19 18:36:15',1,1,0,'2018-09-25 23:11:50',1),(81,16,1,6,'2018-09-19 18:36:15',1,0,0,NULL,NULL),(82,16,1,6,'2018-09-19 18:36:15',0,0,0,NULL,NULL),(83,16,1,6,'2018-09-19 18:36:15',0,0,0,NULL,NULL),(84,16,1,6,'2018-09-19 18:36:15',0,0,0,NULL,NULL),(85,16,1,6,'2018-09-19 18:36:15',0,0,0,NULL,NULL),(86,16,1,6,'2018-09-19 18:36:15',0,0,0,NULL,NULL),(87,16,1,6,'2018-09-19 18:36:15',0,0,0,NULL,NULL),(88,16,1,6,'2018-09-19 18:36:15',0,0,0,NULL,NULL),(89,16,1,6,'2018-09-19 18:36:15',0,0,0,NULL,NULL),(90,14,1,3,'2018-09-19 18:36:26',0,1,0,NULL,NULL),(91,14,1,3,'2018-09-19 18:36:26',0,1,0,NULL,NULL),(92,14,1,3,'2018-09-19 18:36:26',0,1,0,NULL,NULL),(93,14,1,3,'2018-09-19 18:36:26',1,0,0,NULL,NULL),(94,14,1,3,'2018-09-19 18:36:26',0,0,0,NULL,NULL),(95,12,1,3,'2018-09-20 10:47:24',0,0,0,NULL,NULL),(96,12,1,3,'2018-09-20 10:47:24',0,0,0,NULL,NULL),(97,12,1,3,'2018-09-20 10:47:24',0,0,0,NULL,NULL),(98,12,1,3,'2018-09-20 10:47:24',0,0,0,NULL,NULL),(99,12,1,3,'2018-09-20 10:47:24',0,0,0,NULL,NULL),(100,15,1,4,'2018-09-21 11:08:16',0,0,0,NULL,NULL),(101,15,1,4,'2018-09-21 11:08:16',0,0,0,NULL,NULL),(102,15,1,4,'2018-09-21 11:08:16',0,0,0,NULL,NULL),(103,15,1,4,'2018-09-21 11:08:16',0,0,0,NULL,NULL),(104,15,1,4,'2018-09-21 11:08:16',0,0,0,NULL,NULL),(105,3,1,3,'2018-09-21 14:35:18',0,0,0,NULL,NULL),(106,3,1,3,'2018-09-21 14:35:18',0,0,0,NULL,NULL),(107,3,1,3,'2018-09-21 14:35:18',0,0,0,NULL,NULL),(108,3,1,3,'2018-09-21 14:35:18',0,0,0,NULL,NULL),(109,3,1,3,'2018-09-21 14:35:18',0,0,0,NULL,NULL);
 /*!40000 ALTER TABLE `copia` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -413,7 +413,7 @@ CREATE TABLE `noleggio` (
   CONSTRAINT `fk_noleggio_copia` FOREIGN KEY (`id_copia`) REFERENCES `copia` (`id_copia`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_noleggio_dipendente` FOREIGN KEY (`id_dipendente`) REFERENCES `dipendente` (`id_dipendente`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_noleggio_punto_vendita` FOREIGN KEY (`id_punto_vendita`) REFERENCES `punto_vendita` (`id_punto_vendita`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -422,7 +422,7 @@ CREATE TABLE `noleggio` (
 
 LOCK TABLES `noleggio` WRITE;
 /*!40000 ALTER TABLE `noleggio` DISABLE KEYS */;
-INSERT INTO `noleggio` VALUES (4,1,1,31,1,NULL,'2017-12-31 23:00:00','2018-01-01 00:00:00',10),(7,1,1,31,55,NULL,'2017-12-31 23:00:00','2018-01-01 00:00:00',10);
+INSERT INTO `noleggio` VALUES (4,1,1,31,1,NULL,'2017-12-31 23:00:00','2018-01-01 00:00:00',10),(7,1,1,31,55,NULL,'2017-12-31 23:00:00','2018-01-01 00:00:00',10),(45,1,1,35,80,1,'2018-09-25 23:11:56','2018-09-30 00:00:00',14.3775);
 /*!40000 ALTER TABLE `noleggio` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -459,6 +459,22 @@ LOCK TABLES `prenotazione` WRITE;
 /*!40000 ALTER TABLE `prenotazione` DISABLE KEYS */;
 /*!40000 ALTER TABLE `prenotazione` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Temporary table structure for view `price_details`
+--
+
+DROP TABLE IF EXISTS `price_details`;
+/*!50001 DROP VIEW IF EXISTS `price_details`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE TABLE `price_details` (
+  `id_noleggio` tinyint NOT NULL,
+  `prezzo_giornaliero` tinyint NOT NULL,
+  `tariffa` tinyint NOT NULL,
+  `percentuale` tinyint NOT NULL
+) ENGINE=MyISAM */;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Table structure for table `punto_vendita`
@@ -701,6 +717,25 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+
+--
+-- Final view structure for view `price_details`
+--
+
+/*!50001 DROP TABLE IF EXISTS `price_details`*/;
+/*!50001 DROP VIEW IF EXISTS `price_details`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `price_details` AS select `no`.`id_noleggio` AS `id_noleggio`,`fil`.`prezzo_giornaliero` AS `prezzo_giornaliero`,`ta`.`tariffa` AS `tariffa`,`fi`.`percentuale` AS `percentuale` from (((((`noleggio` `no` join `copia` `co` on((`no`.`id_copia` = `co`.`id_copia`))) join `film` `fil` on((`co`.`id_film` = `fil`.`id_film`))) join `tariffa` `ta` on((`no`.`id_tariffa` = `ta`.`id_tariffa`))) join `cliente` `cl` on((`no`.`id_cliente` = `cl`.`id_cliente`))) join `fidelizzazione` `fi` on((`cl`.`id_fidelizzazione` = `fi`.`id_fidelizzazione`))) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -711,4 +746,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-09-25  1:40:07
+-- Dump completed on 2018-09-26  1:13:05

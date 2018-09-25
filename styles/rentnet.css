@@ -95,3 +95,8 @@ td.more-details {
 tr.shown td.more-details {
     background: url('/images/details_close.png') no-repeat center;
 }
+
+.countdown {
+    font-size: 12px; 
+    text-align: right;
+}

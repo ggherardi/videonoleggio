@@ -1,6 +1,10 @@
 var rentalManagementService = rentalManagementService || new RentalManagementService();
 var storageManagementService = storageManagementService || new StorageManagementService();
 var getAllItemsService = getAllItemsService || new GetAllItemsService();
+var countDownInterval;
+var timeoutOperationEnd;
+var timeoutOperationEndTime = 300000; /* 5 minuti */ 
+var closedFromTimeout = false;
 var videosTableContainer = $("#VideosTableContainer");
 var RentVideoForm_id_cliente;
 var rentRates;
@@ -195,10 +199,16 @@ function rentVideoAction(e, dt, node, config) {
             },
             onHide: {
                 action: () => {
-                    if(window.confirm("Uscendo dalla finestra i film selezionati verranno resi nuovamente disponibili.")) {
-                        rentalManagementService.clearRentalBookingsForUser(sharedStorage.loginContext.id_dipendente);
+                    if(closedFromTimeout) {
+                        resetTimers();
+                        return;
                     } else {
-                        return false;
+                        if(window.confirm("Uscendo dalla finestra i film selezionati verranno resi nuovamente disponibili.")) {
+                            resetTimers();
+                            rentalManagementService.clearRentalBookingsForUser(sharedStorage.loginContext.id_dipendente);
+                        } else {
+                            return false;
+                        }
                     }
                 }
             },
@@ -215,8 +225,29 @@ function rentVideoAction(e, dt, node, config) {
         }
     }     
     modal = new Modal(modalOptions);
-    modal.open();  
+    modal.open();
+
+    timeoutOperationEnd = setTimeout(() => {
+        window.alert("Il tempo a disposizione per l'operazione è scaduto, si prega di iniziarne una nuova."); 
+        closedFromTimeout = true;
+        modal.close(); 
+    }, timeoutOperationEndTime);
+    countDownInterval = setInterval(countdown, 1000);
     loadAndBuildVideosTable(rows);
+}
+
+function countdown() {
+    timeoutOperationEndTime -= 1000;
+    var minutes = Math.floor((timeoutOperationEndTime % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((timeoutOperationEndTime % (1000 * 60)) / 1000);
+    var time = `${minutes}m ${seconds}s`;
+    $("#RentVideoForm_countdown").text(time);
+}
+
+function resetTimers() {
+    clearTimeout(timeoutOperationEnd);
+    clearInterval(countDownInterval);
+    timeoutOperationEndTime = 300000;
 }
 
 function loadAndBuildVideosTable(rows) {
@@ -244,6 +275,7 @@ function loadAndBuildVideosTable(rows) {
                             <td><span id="RentVideoForm_price_row_${i}">${copies[i].prezzo_giornaliero}</span> €</td>
                             <td><input id="RentVideoForm_date_control_${i}" type="date" class="form-control RentVideoForm_date_control" onchange="validateAndCalculatePrice_change(this);" required></td>
                             <td id="RentVideoForm_days_${i}">0</td>
+                            <td class="d-none"><span id="RentVideoForm_partial_price_${i}_hidden" class="RentVideoForm_partial_price_hidden_class">0</span></td>
                             <td><span id="RentVideoForm_partial_price_${i}" class="RentVideoForm_partial_price_class">0</span> €</td>
                         </tr>`;
             }
@@ -270,9 +302,10 @@ function validateAndCalculatePrice_change(input) {
         for(var i = 0; i < daysOfRent; i++) {
             sum += price - ((price * rentRates.tariffa[i < rentRates.tariffa.length - 1 ? i : rentRates.tariffa.length - 1].s) / 100);
         }
-        $(`#RentVideoForm_partial_price_${rowNumber}`).text(sum.toPrecision(2));
+        $(`#RentVideoForm_partial_price_${rowNumber}`).text(sum.toFixed(2));
+        $(`#RentVideoForm_partial_price_${rowNumber}_hidden`).text(sum.toFixed(2));
         $(`#RentVideoForm_days_${rowNumber}`).text(daysOfRent);
-        calculateTotal();
+        applyDiscountToPrices();
     }
 
     var selectedDate = new Date(`${input.value} 00:00`);
@@ -286,14 +319,17 @@ function validateAndCalculatePrice_change(input) {
     setPriceInTable(daysOfRent);
 }
 
-function calculateTotal() {
-    var allAmounts = $(".RentVideoForm_partial_price_class");
+function applyDiscountToPrices() {
+    var allOriginalPrices = $(".RentVideoForm_partial_price_hidden_class");
+    var allDiscountablePrices = $(".RentVideoForm_partial_price_class");
     var totalAmount = 0;
-    for(var i = 0; i < allAmounts.length; i++) {
-        totalAmount += parseFloat(allAmounts[i].innerText);
+    for(var i = 0; i < allOriginalPrices.length; i++) {        
+        var newSubtotal = parseFloat(allOriginalPrices[i].innerText);
+        newSubtotal -= ((newSubtotal * customerDiscount) / 100);
+        totalAmount += newSubtotal;
+        $(allDiscountablePrices[i]).text(newSubtotal.toFixed(2));
     }
-    totalAmount -= ((totalAmount * customerDiscount) / 100);
-    $(`#RentVideoForm_importo_totale`).text(totalAmount.toPrecision(2));
+    $(`#RentVideoForm_importo_totale`).text(totalAmount.toFixed(2));
 }
 
 function buildCopiesTableObject(copies) {
@@ -332,7 +368,7 @@ function findCustomerById() {
             RentVideoForm_id_cliente = $("#RentVideoForm_id_cliente_container").html();
             buildCustomerTable(customerLightModel)
             customerDiscount = customerLightModel.percentuale;
-            calculateTotal();
+            applyDiscountToPrices();
         } else {
             $("#RentVideoForm_user_not_found").show();
         }
@@ -360,7 +396,7 @@ function findCustomerById() {
 function restoreFindCustomerInput() {
     $("#RentVideoForm_id_cliente_container").html(RentVideoForm_id_cliente);
     customerDiscount = 0;
-    calculateTotal();
+    applyDiscountToPrices();
 }
 
 function rentVideo() {
@@ -444,6 +480,7 @@ function buildRentVideoForm() {
                         <h3>Totale da pagare:</h3>
                         <h4><span id="RentVideoForm_importo_totale">0</span> €</h4>                        
                     </div>
+                    <div class="countdown"><span>Tempo disponibile per portare a termine l'operazione: </span><span id="RentVideoForm_countdown">5m 00s</span></div>
                     <button id="RentVideoForm_insert_button" class="d-none" type="submit">
                 </form>`;
     return html;
