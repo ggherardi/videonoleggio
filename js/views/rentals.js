@@ -248,6 +248,7 @@ function resetTimers() {
     clearTimeout(timeoutOperationEnd);
     clearInterval(countDownInterval);
     timeoutOperationEndTime = 300000;
+    closedFromTimeout = false;
 }
 
 function loadAndBuildVideosTable(rows) {
