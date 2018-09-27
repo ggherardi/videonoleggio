@@ -324,3 +324,19 @@ class RentalManagementService extends RestClient {
         return super.execute();
     }
 }
+
+class RestitutionManagementService extends RestClient {
+    constructor() {
+        super();
+        this.endpoint = "php/RentalManagementService.php";
+    }
+
+    getRentedVideoForUser(filters) {
+        filters = JSON.stringify(filters);
+        this.data = {
+            action: "getRentedVideoForUser",
+            filters: filters
+        }
+        return super.execute();        
+    }
+}

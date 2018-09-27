@@ -403,6 +403,7 @@ function restoreFindCustomerInput() {
 function rentVideo() {
     var rentVideoSuccess = function(data) {
         if(data) {
+            resetTimers();
             modal.openSuccessModal();    
             rentalManagementService.clearRentalBookings()
                 .done(initVideosTable)

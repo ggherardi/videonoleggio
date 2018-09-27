@@ -3,7 +3,7 @@ var views = {
     home: { title: "Home", name: "home" },
     login: { title: "Login", name: "login", showInMenu: false },
     rentals: { title: "Noleggi", name: "rentals" },
-    // returns: { title: "Restituzioni", name: "returns" },
+    restitutions: { title: "Restituzioni", name: "restitutions" },
     // bookings: { title: "Prenotazioni", name: "bookings" },
     customers: { title: "Gestione clienti", name: "customers" },
     storage: { title: "Magazzino", name: "storage", needPermissions: permissions.levels.responsabile },

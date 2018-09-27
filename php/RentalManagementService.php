@@ -11,7 +11,6 @@ $correlationId = $GLOBALS["CorrelationID"];
 $development = true;
 
 class RentalManagementService {
-
     function __construct() { }
 
     /** Metodo per eseguire le Query. Utilizza la classe ausiliare DBConnection */
@@ -124,11 +123,8 @@ class RentalManagementService {
             $this->dbContext->RollBack();
             http_response_code(500);
         }
-
         exit(json_encode($allCopies));
     }
-
-/////// Per sicurezza, mettere il controllo che il video sia prenotato dall'user che sta confermando il noleggio, onde evitare problematiche
 
     function ClearRentalBookings() {
         Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
@@ -305,7 +301,6 @@ catch(Throwable $ex) {
 class Cast {
     public $id_film;
     public $actor;
-
     function __construct($row) {
         $this->id_film = $row->id_film;
         $this->actor = new Actor($row);
@@ -315,7 +310,6 @@ class Cast {
 class Actor {
     public $nome_attore;
     public $cognome_attore;
-
     function __construct($row) {
         $this->nome_attore = $row["attore_nome"];
         $this->cognome_attore = $row["attore_cognome"];

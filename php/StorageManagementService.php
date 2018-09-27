@@ -93,7 +93,9 @@ class StorageManagementService {
         $copies = json_decode($_POST["copies"]);
         $query = 
             "UPDATE copia
-            SET restituito = 1
+            SET 
+            restituito = 1, 
+            data_restituzione_copia = CURRENT_TIMESTAMP
             WHERE id_copia in (%s)";
         $idsString = "";
         for($i = 0; $i < count($copies); $i++) {
