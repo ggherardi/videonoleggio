@@ -165,5 +165,4 @@ function base64ToArrayBuffer(base64) {
     var fileName = reportName;
     link.download = fileName;
     return link;
-    // link.click();
 };

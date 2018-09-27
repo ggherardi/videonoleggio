@@ -6,10 +6,10 @@
     <span>Inserire la matricola del cliente e selezionare i film da restiture.</span>
 </div>
 <br>
-<form>
+<form class="form" onsubmit="findRentedCopiesForUser();return false;">
     <div id="" class="row px-3">
-        <input id="RestituionCustomerIdInput" type="number" class="form-control col-sm-8" placeholder="Inserire la matricola del cliente" required>
-        <button class="btn btn-dark ml-3" type="button" onclick="findRentedCopiesForUser(this);">Cerca cliente</button>
+        <input id="RestitutionCustomerIdInput" type="number" class="form-control col-sm-8" placeholder="Inserire la matricola del cliente" required>
+        <button class="btn btn-dark ml-3" type="submit">Cerca cliente</button>
     </div>
 </form>
-<div id="RentedCopiesTableContainer"></div>
+<div id="RentedCopiesTableContainer" class="mt-5"></div>

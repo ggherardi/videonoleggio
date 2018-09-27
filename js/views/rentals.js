@@ -9,7 +9,7 @@ var videosTableContainer = $("#VideosTableContainer");
 var RentVideoForm_id_cliente;
 var rentRates;
 var customerDiscount = 0;
-var videosDataTable;
+var rentedVideosDataTable;
 var videosDataTableOptions = {
     dom: 'Bftpil',
     buttons: true,
@@ -93,7 +93,7 @@ function getVideosInStorageWithCountSuccess(data) {
     html += `       </tbody>
                 </table>`;
     videosTableContainer.html(html);
-    videosDataTable = $("#VideosTable").DataTable(videosDataTableOptions);
+    rentedVideosDataTable = $("#VideosTable").DataTable(videosDataTableOptions);
     attachCollapseRowEvent();
 }
 
@@ -141,7 +141,7 @@ function formatCastCell(cast) {
 function attachCollapseRowEvent() {
     $('#VideosTable tbody').on('click', 'td.more-details', function() {
         var tr = $(this).closest('tr');
-        var row = videosDataTable.row(tr);
+        var row = rentedVideosDataTable.row(tr);
     
         if (row.child.isShown()) {
             row.child.hide();
@@ -297,7 +297,8 @@ function loadAndBuildVideosTable(rows) {
 
 function validateAndCalculatePrice_change(input) {
     var setPriceInTable = function(daysOfRent) {
-        var rowNumber = input.id.split("_")[3];
+        var splittedInputId = input.id.split("_");
+        var rowNumber = splittedInputId[splittedInputId.length - 1];
         var price = parseFloat($(`#RentVideoForm_price_row_${rowNumber}`).text());
         var sum = 0;
         for(var i = 0; i < daysOfRent; i++) {

@@ -328,7 +328,7 @@ class RentalManagementService extends RestClient {
 class RestitutionManagementService extends RestClient {
     constructor() {
         super();
-        this.endpoint = "php/RentalManagementService.php";
+        this.endpoint = "php/RestitutionManagementService.php";
     }
 
     getRentedVideoForUser(filters) {

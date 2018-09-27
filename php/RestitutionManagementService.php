@@ -25,15 +25,17 @@ class RestitutionManagementService {
         TokenGenerator::CheckPermissions(PermissionsConstants::ADDETTO, "delega_codice");
         $filters = json_decode($_POST["filters"]);
         $query = 
-            "SELECT co.id_copia, co.data_inizio, co.data_fine, co.prezzo_totale, ta.tariffa,
-                    fi.titolo
+            "SELECT co.id_copia, no.data_inizio, no.data_fine, no.prezzo_totale, fi.titolo,
+                cli.nome, cli.cognome, cli.id_cliente, pd.prezzo_giornaliero, pd.tariffa, pd.percentuale
             FROM noleggio no
+            INNER JOIN cliente cli
+            ON no.id_cliente = cli.id_cliente
             INNER JOIN copia co
             ON no.id_copia = co.id_copia
             INNER JOIN film fi
             ON co.id_film = fi.id_film
-            INNER JOIN tariffa ta
-            ON co.id_tariffa = ta.id_tariffa
+            INNER JOIN price_details pd
+            ON no.id_noleggio = pd.id_noleggio
             WHERE co.id_punto_vendita = %d
             AND no.id_cliente = %d";
         $query = sprintf($query, $filters->id_punto_vendita, $filters->id_cliente);

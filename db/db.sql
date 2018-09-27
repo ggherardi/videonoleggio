@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `videonoleggio` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `videonoleggio`;
--- MySQL dump 10.13  Distrib 5.5.60, for Win64 (AMD64)
+-- MySQL dump 10.13  Distrib 5.5.61, for Win64 (AMD64)
 --
 -- Host: localhost    Database: videonoleggio
 -- ------------------------------------------------------
--- Server version	5.5.60
+-- Server version	5.5.61
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -423,42 +423,8 @@ CREATE TABLE `noleggio` (
 
 LOCK TABLES `noleggio` WRITE;
 /*!40000 ALTER TABLE `noleggio` DISABLE KEYS */;
-INSERT INTO `noleggio` VALUES (46,1,1,37,125,1,'2018-09-27 07:27:25','2018-09-29 00:00:00',7.6),(47,1,1,37,135,1,'2018-09-27 07:27:25','2018-09-30 00:00:00',17.6),(48,3,1,40,155,1,'2018-09-27 07:32:49','2018-09-30 00:00:00',18.7),(49,3,1,40,154,1,'2018-09-27 07:32:49','2018-10-03 00:00:00',23.5875),(50,3,1,41,120,1,'2018-09-27 07:33:05','2018-10-07 00:00:00',38.2),(51,2,1,37,136,1,'2018-09-27 07:33:36','2018-09-30 00:00:00',17.6),(52,2,1,42,126,1,'2018-09-27 07:33:59','2018-09-29 00:00:00',8.55),(53,2,1,42,156,1,'2018-09-27 07:33:59','2018-09-30 00:00:00',19.8),(54,4,1,38,137,1,'2018-09-27 07:34:37','2018-09-28 00:00:00',8),(55,4,1,38,157,1,'2018-09-27 07:34:37','2018-09-29 00:00:00',15.2),(56,4,1,38,150,1,'2018-09-27 07:34:37','2018-09-30 00:00:00',13.75);
+INSERT INTO `noleggio` VALUES (46,1,1,37,125,1,'2018-09-27 07:27:25','2018-09-29 00:00:00',7.6),(47,1,1,37,135,1,'2018-09-27 07:27:25','2018-09-30 00:00:00',17.6),(48,3,1,40,155,1,'2018-09-27 07:32:49','2018-09-30 00:00:00',18.7),(49,3,1,40,154,1,'2018-09-27 07:32:49','2018-10-03 00:00:00',23.5875),(50,3,1,41,120,1,'2018-09-27 07:33:05','2018-10-07 00:00:00',38.2),(51,2,1,37,136,1,'2018-09-27 07:33:36','2018-09-30 00:00:00',17.6),(52,2,1,42,126,1,'2018-09-27 07:33:59','2018-09-29 00:00:00',8.55),(53,2,1,42,156,1,'2018-09-27 07:33:59','2018-09-30 00:00:00',19.8),(54,4,1,38,137,1,'2018-09-21 07:34:37','2018-09-24 00:00:00',8),(55,4,1,38,157,1,'2018-09-27 07:34:37','2018-09-29 00:00:00',15.2),(56,4,1,38,150,1,'2018-09-27 07:34:37','2018-09-30 00:00:00',13.75);
 /*!40000 ALTER TABLE `noleggio` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `partita`
---
-
-DROP TABLE IF EXISTS `partita`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `partita` (
-  `id_partita` int(11) NOT NULL AUTO_INCREMENT,
-  `id_film` int(11) DEFAULT NULL,
-  `id_punto_vendita` int(11) DEFAULT NULL,
-  `id_fornitore` int(11) DEFAULT NULL,
-  `disponibilita_massima` int(11) DEFAULT NULL,
-  `disponibilita_attuale` int(11) DEFAULT NULL,
-  `data_scarico` datetime DEFAULT NULL,
-  PRIMARY KEY (`id_partita`),
-  KEY `fk_partita_film_idx` (`id_film`),
-  KEY `fk_partita_punto_vendita_idx` (`id_punto_vendita`),
-  KEY `fk_partita_fornitore_idx` (`id_fornitore`),
-  CONSTRAINT `fk_partita_film` FOREIGN KEY (`id_film`) REFERENCES `film` (`id_film`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_partita_fornitore` FOREIGN KEY (`id_fornitore`) REFERENCES `fornitore` (`id_fornitore`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_partita_punto_vendita` FOREIGN KEY (`id_punto_vendita`) REFERENCES `punto_vendita` (`id_punto_vendita`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `partita`
---
-
-LOCK TABLES `partita` WRITE;
-/*!40000 ALTER TABLE `partita` DISABLE KEYS */;
-/*!40000 ALTER TABLE `partita` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -781,4 +747,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-09-27 17:05:25
+-- Dump completed on 2018-09-28  0:34:50
