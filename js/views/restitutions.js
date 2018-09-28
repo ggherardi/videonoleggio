@@ -7,6 +7,7 @@ var rentedVideosDataTableOptions = {
     buttons: true,
     select: true,
     columns: [
+        { data: "id_noleggio" },
         { data: "percentuale" },
         { data: "prezzo_giornaliero" },
         { data: "tariffa" },
@@ -18,7 +19,7 @@ var rentedVideosDataTableOptions = {
         { data: "giorni_ritardo" }
     ],
     columnDefs: [{
-        targets: [ 0, 1, 2 ],
+        targets: [ 0, 1, 2, 3 ],
         visible: false,
         searchable: false
     }],
@@ -70,6 +71,7 @@ function findRentedCopiesForUserSuccess(data) {
     for(var i = 0; i < videos.length; i++) {
         var oDelay = buildRestitutionDelay(videos[i])
         html +=         `<tr>
+                            <td>${videos[i].id_noleggio}</td>
                             <td>${videos[i].percentuale}</td>
                             <td>${videos[i].prezzo_giornaliero}</td>
                             <td>${videos[i].tariffa}</td>
@@ -144,6 +146,7 @@ function loadAndBuildVideosTable(copies) {
     var html = ``; 
     for(var i = 0; i < copies.length; i++) {
         html += `<tr class="RestitutionForm_row">
+                    <td id="RestitutionForm_row_id_noleggio_${i}" class="d-none">${copies[i].id_noleggio}</td>
                     <td id="RestitutionForm_row_id_copia_${i}">${copies[i].id_copia}</td>                                                      
                     <td>${copies[i].titolo}</td>  
                     <td>${copies[i].giorni_ritardo}</td>
@@ -217,4 +220,31 @@ function buildRestitutionForm() {
 
 function formClickDelegate() {
     $("#RestitutionForm_submit_button").click();
+}
+
+function returnVideo() {
+    var copies = getCopiesFromForm();
+    restitutionManagementService.returnCopies(copies)
+        .done((data) => console.log(data))
+        .fail(restCallError);
+}
+
+function getCopiesFromForm() {
+    var copies = [];
+    var rows = $(".RestitutionForm_row");
+    for(var i = 0; i < rows.length; i++) {
+        try {
+            var copy = {
+                id_noleggio: $(`#RestitutionForm_row_id_noleggio_${i}`).text(),
+                danneggiato: $(`#RestitutionForm_row_cattivo_stato_${i}`).prop(`checked`) ? 1 : 0,
+                prezzo_extra: $(`#RestitutionForm_row_extra_${i}`).text(),
+            }        
+            copies.push(copy);
+        }
+        catch(ex) {
+            console.error(ex);
+            return false;
+        }
+    }
+    return copies;
 }
