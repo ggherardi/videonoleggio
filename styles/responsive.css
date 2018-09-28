@@ -70,12 +70,27 @@
 }
 
 /************
-3. 1380px
+3. 1355px
 ************/
 
-@media only screen and (max-width: 1380px)
+@media only screen and (max-width: 1355px)
 {
-	
+	.logo 
+	{
+		margin-right: 10px;
+	}
+}
+
+/************
+3. 1325px
+************/
+
+@media only screen and (max-width: 1325px)
+{
+	#logoText 
+	{
+		display: none;
+	}
 }
 
 /************
@@ -102,11 +117,27 @@
 }
 
 /************
-4. 1199px
+4. 1175px
 ************/
 
-@media only screen and (max-width: 1199px)
+@media only screen and (max-width: 1175px)
 {
+	/* .main_nav
+	{
+		display: none !important;
+	}
+	.menu
+	{
+		display: block;
+	} */
+	#logoImg 
+	{
+		display: none;
+	}
+	.logo
+	{
+		margin-right: 0;
+	}
 	.super_container
 	{
 		width: 100%;
@@ -314,14 +345,14 @@
 	{
 		font-size: 24px;
 	}
-	.main_nav
+	/* .main_nav
 	{
 		display: none !important;
 	}
 	.menu
 	{
 		display: block;
-	}
+	} */
 	.header_button_2
 	{
 		display: block;

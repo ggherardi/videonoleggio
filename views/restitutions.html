@@ -3,12 +3,13 @@
     <div class="main_subtitle">Restituzione noleggi</div>					
 </div>
 <div class="main_content_scroll mCustomScrollbar">                    
-    <span>Inserire la matricola del cliente e selezionare i film da restiture.</span>
+    <span>Inserire la matricola del cliente per visualizzare tutti i suoi noleggi attivi. Lasciare il campo vuoto se si desiderano visualizzare tutti i noleggi di tutti i clienti.</span><br>
+    <span>Dalla tabella, selezionare i film che si vogliono restituire tenendo premuto CTRL, e premere su "Effettua restituzione".</span>
 </div>
 <br>
 <form class="form" onsubmit="findRentedCopiesForUser();return false;">
     <div id="" class="row px-3">
-        <input id="RestitutionCustomerIdInput" type="number" class="form-control col-sm-8" placeholder="Inserire la matricola del cliente" required>
+        <input id="RestitutionCustomerIdInput" type="number" class="form-control col-sm-8" placeholder="Inserire la matricola del cliente">
         <button class="btn btn-dark ml-3" type="submit">Cerca cliente</button>
     </div>
 </form>

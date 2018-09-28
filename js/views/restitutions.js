@@ -223,9 +223,16 @@ function formClickDelegate() {
 }
 
 function returnVideo() {
+    var returnCopiesSuccess = function(data) {
+        if(data) {
+            modal.openSuccessModal();    
+            findRentedCopiesForUser();                 
+        }
+    }
+
     var copies = getCopiesFromForm();
     restitutionManagementService.returnCopies(copies)
-        .done((data) => console.log(data))
+        .done(returnCopiesSuccess)
         .fail(restCallError);
 }
 
@@ -236,6 +243,7 @@ function getCopiesFromForm() {
         try {
             var copy = {
                 id_noleggio: $(`#RestitutionForm_row_id_noleggio_${i}`).text(),
+                id_copia: $(`#RestitutionForm_row_id_copia_${i}`).text(),
                 danneggiato: $(`#RestitutionForm_row_cattivo_stato_${i}`).prop(`checked`) ? 1 : 0,
                 prezzo_extra: $(`#RestitutionForm_row_extra_${i}`).text(),
             }        

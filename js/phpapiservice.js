@@ -340,11 +340,11 @@ class RestitutionManagementService extends RestClient {
         return super.execute();        
     }
     
-    returnCopies(filters) {
-        filters = JSON.stringify(filters);
+    returnCopies(copies) {
+        copies = JSON.stringify(copies);
         this.data = {
             action: "returnCopies",
-            filters: filters
+            copies: copies
         }
         return super.execute();  
     }

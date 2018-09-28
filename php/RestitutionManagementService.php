@@ -37,8 +37,11 @@ class RestitutionManagementService {
             INNER JOIN price_details pd
             ON no.id_noleggio = pd.id_noleggio
             WHERE co.id_punto_vendita = %d
-            AND no.id_cliente = %d";
-        $query = sprintf($query, $filters->id_punto_vendita, $filters->id_cliente);
+            AND no.id_cliente %s";
+        $query = sprintf($query, $filters->id_punto_vendita, 
+                                $filters->id_cliente ? 
+                                    sprintf("= %d", $filters->id_cliente) :
+                                    sprintf("> 0") );
         Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
         $res = self::ExecuteQuery($query);
         $copiesArray = array();
@@ -52,14 +55,17 @@ class RestitutionManagementService {
         Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
         TokenGenerator::CheckPermissions(PermissionsConstants::ADDETTO, "delega_codice");
         $copies = json_decode($_POST["copies"]);
-        Logger::Write("COPIES ".$copies, $GLOBALS["CorrelationID"]);
+        Logger::Write("COPIES ".json_encode($copies), $GLOBALS["CorrelationID"]);
+        if(!$copies) {
+            throw new Exception("Copies array is empty or null");
+        }
         try {
             $this->dbContext->StartTransaction();
             for($i = 0; $i < count($copies); $i++) {               
-                $details = self::GetRentDetails($copies->id_noleggio);
-                self::ArchiveRent($details);
-                // $amount = self::CalculateRentAmount($details, $videos[$i]);
-                // self::AddRentAmountToTable($noleggio_id, $amount);
+                $details = self::GetRentDetails($copies[$i]->id_noleggio);
+                $archivedRentId = self::ArchiveRent($details);
+                self::DeleteActiveRent($copies[$i]->id_noleggio);
+                self::ResetRentFlagInCopiesTable($copies[$i]->id_copia);
             }
             $this->dbContext->CommitTransaction();
         } catch(Throwable $ex) {
@@ -67,16 +73,19 @@ class RestitutionManagementService {
             $this->dbContext->RollBack();
             http_response_code(500);
         }
-        exit(json_encode(true));
+        exit(json_encode(new RestApiResponse(true, sprintf("Id in storico noleggio: %d", $archivedRentId))));
     }
 
     private function GetRentDetails($id_noleggio) {
         $query = 
             "SELECT * FROM noleggio WHERE id_noleggio = %d LIMIT 1";
-        $query = sprintf($query, $filters->id_noleggio);
+        $query = sprintf($query, $id_noleggio);
         Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
         $res = self::ExecuteQuery($query);
         $row = $res->fetch_assoc();
+        if(!$row) {
+            throw new Exception(sprintf("Couldn't find the rent with id: %d", $id_noleggio));
+        }
         return $row;
     }
 
@@ -100,10 +109,34 @@ class RestitutionManagementService {
         Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
         $res = self::ExecuteQuery($query);                                     
         if(!$res) {
-            throw("Insert failed");
+            throw new Exception("Insert failed");
         }
         Logger::Write("Rent successfully archived, Id: ".$noleggio_id, $GLOBALS["CorrelationID"]);
         return $this->dbContext->GetLastID();
+    }
+
+    private function DeleteActiveRent($id_noleggio) {
+        $query = 
+            "DELETE FROM noleggio WHERE id_noleggio = %d";
+        $query = sprintf($query, $id_noleggio);
+        Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
+        $res = self::ExecuteQuery($query);
+        if(!$res) {
+            throw new Exception(sprintf("Couldn't delete item in table noleggio with id: %d", $id_noleggio));
+        }
+    }
+
+    private function ResetRentFlagInCopiesTable($id_copia) {
+        $query = 
+            "UPDATE copia 
+            SET noleggiato = 0, data_prenotazione_noleggio = NULL, id_dipendente_prenotazione_noleggio = NULL
+            WHERE id_copia = %d";
+        $query = sprintf($query, $id_copia);
+        Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
+        $res = self::ExecuteQuery($query);
+        if(!$res) {
+            throw new Exception(sprintf("Couldn't update item in table copia with id: %d", $id_noleggio));
+        }
     }
 
     // Switcha l'operazione richiesta lato client
@@ -139,5 +172,14 @@ catch(Throwable $ex) {
     Logger::Write("Error occured: $ex", $GLOBALS["CorrelationID"]);
     http_response_code(500);
     exit(json_encode($ex->getMessage()));
+}
+
+class RestApiResponse {
+    public $status;
+    public $message;
+    function __construct($status, $message) {
+        $this->status = $status;
+        $this->message = $message;
+    }
 }
 ?>

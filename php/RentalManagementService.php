@@ -198,7 +198,7 @@ class RentalManagementService {
         Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
         $res = self::ExecuteQuery($query);                                     
         if(!$res) {
-            throw("Insert failed");
+            throw new Exception("Insert failed");
         }
         Logger::Write("Rent Insert successful, Id: ".$noleggio_id, $GLOBALS["CorrelationID"]);
         return $this->dbContext->GetLastID();
@@ -215,7 +215,7 @@ class RentalManagementService {
         $res = self::ExecuteQuery($query);
         $row = $res->fetch_assoc();
         if(!$row) {
-            throw(sprintf("Price details not found for item with id: ", $noleggio_id));
+            throw new Exception(sprintf("Price details not found for item with id: ", $noleggio_id));
         }
         return $row;
     }
@@ -246,7 +246,7 @@ class RentalManagementService {
         Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
         $res = self::ExecuteQuery($query);
         if(!$res) {
-            throw(sprintf("Could not set rent amount for item with id: ", $noleggio_id));
+            throw new Exception(sprintf("Could not set rent amount for item with id: ", $noleggio_id));
         }
         Logger::Write("Rent Update on amount successful", $GLOBALS["CorrelationID"]);
     }
