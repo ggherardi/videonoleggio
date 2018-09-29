@@ -10,7 +10,10 @@ class DBConnection {
     public $Password;
     public $DB;
 
-    function __construct($servername = "127.0.0.1", $username = "root", $password = "root", $db = "videonoleggio"){
+    //PROD
+    //function __construct($servername = "127.0.0.1", $username = "newuser", $password = "password", $db = "videonoleggio") {
+    //DEV
+    function __construct($servername = "127.0.0.1", $username = "root", $password = "root", $db = "videonoleggio") {
         $this->ServerName = $servername;
         $this->UserName = $username;
         $this->Password = $password;
@@ -29,7 +32,7 @@ class DBConnection {
             $this->Connection = new mysqli($this->ServerName, $this->UserName, $this->Password, $this->DB);
             if($this->Connection->connect_errno){
                 Logger::Write(("Error while establishing a connection with the DB -> " . ($this->Connection->connect_error)), $GLOBALS["CorrelationID"]);
-                exit(json_encode($this->Connection->connect_errno));
+                throw new Exception("ERROR! ".$this->Connection->mysqli_error);
             }
         }
         catch (Throwable $ex) {

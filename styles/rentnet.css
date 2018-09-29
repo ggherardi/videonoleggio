@@ -8,6 +8,11 @@
     border: #8583e1!important;
 }
 
+.c-pointer 
+{
+    cursor: pointer;
+}
+
 .form-control::placeholder
 {
     font-style: italic;

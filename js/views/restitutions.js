@@ -7,6 +7,7 @@ var rentedVideosDataTableOptions = {
     buttons: true,
     select: true,
     columns: [
+        { data: "id_cliente" },
         { data: "id_noleggio" },
         { data: "percentuale" },
         { data: "prezzo_giornaliero" },
@@ -19,7 +20,7 @@ var rentedVideosDataTableOptions = {
         { data: "giorni_ritardo" }
     ],
     columnDefs: [{
-        targets: [ 0, 1, 2, 3 ],
+        targets: [ 0, 1, 2, 3, 4 ],
         visible: false,
         searchable: false
     }],
@@ -71,6 +72,7 @@ function findRentedCopiesForUserSuccess(data) {
     for(var i = 0; i < videos.length; i++) {
         var oDelay = buildRestitutionDelay(videos[i])
         html +=         `<tr>
+                            <td>${videos[i].id_cliente}</td>
                             <td>${videos[i].id_noleggio}</td>
                             <td>${videos[i].percentuale}</td>
                             <td>${videos[i].prezzo_giornaliero}</td>
@@ -109,23 +111,48 @@ function BuildRentedCopiesTableHead() {
 /* ACTIONS */
 /* Return video action */
 function returnCopyAction(e, dt, node, config) {
+    var doRowsHaveMultipleCustomers = function(rows) {
+        var check = false;
+        var firstCustomerId = rows[0].id_cliente;
+        for(var i = 1; i < rows.length; i++) {
+            if(rows[i].id_cliente != firstCustomerId) {
+                check = true;
+            }
+        }
+        return check;
+    }
+
     var rows = dt.rows({ selected: true }).data();
-    var editModalBody = buildRestitutionForm();
-    var modalOptions = {
-        title: "Restituzione film",
-        body: editModalBody,
-        cancelButton: {
-            text: "Annulla"
-        },
-        confirmButton: {
-            text: "Conferma restituzione",
-            action: formClickDelegate
-        },
-        size: "large"
-    }              
-    modal = new Modal(modalOptions);
-    modal.open();
-    loadAndBuildVideosTable(rows);
+    if(doRowsHaveMultipleCustomers(rows)) {
+        var body = `<span>Attenzione, le copie selezionate sono attualmente noleggiate da clienti diversi.
+                    Si prega di selezionare copie noleggiate da un unico cliente e riprovare.</span>`;
+        modalOptions = {
+            title: "Attenzione",
+            body: body,
+            cancelButton: {
+                text: "Annulla"
+            }
+        }
+        modal = new Modal(modalOptions);
+        modal.open();
+    } else {
+        var editModalBody = buildRestitutionForm();
+        var modalOptions = {
+            title: "Restituzione film",
+            body: editModalBody,
+            cancelButton: {
+                text: "Annulla"
+            },
+            confirmButton: {
+                text: "Conferma restituzione",
+                action: formClickDelegate
+            },
+            size: "large"
+        }              
+        modal = new Modal(modalOptions);
+        modal.open();
+        loadAndBuildVideosTable(rows);
+    }
 }
 
 function loadAndBuildVideosTable(copies) {
@@ -145,16 +172,20 @@ function loadAndBuildVideosTable(copies) {
 
     var html = ``; 
     for(var i = 0; i < copies.length; i++) {
-        html += `<tr class="RestitutionForm_row">
-                    <td id="RestitutionForm_row_id_noleggio_${i}" class="d-none">${copies[i].id_noleggio}</td>
-                    <td id="RestitutionForm_row_id_copia_${i}">${copies[i].id_copia}</td>                                                      
-                    <td>${copies[i].titolo}</td>  
-                    <td>${copies[i].giorni_ritardo}</td>
-                    <td><input id="RestitutionForm_row_cattivo_stato_${i}" type="checkbox" onchange="badStateClick(this, ${copies[i].prezzo_giornaliero});"/></td>
-                    <td><span id="RestitutionForm_row_extra_${i}" class="RestitutionForm_row_extra_class">${calculateExtra(copies[i])}</span> €</td>
+        var extra = calculateExtra(copies[i]);
+        html += `<tr class="RestitutionForm_row">              
+                    <td data-showfield="${copies[i].id_noleggio}" id="RestitutionForm_row_id_noleggio_${i}" class="d-none">${copies[i].id_noleggio}</td>      
+                    <td data-showfield="${copies[i].id_copia}" id="RestitutionForm_row_id_copia_${i}">${copies[i].id_copia}</td>                                                      
+                    <td data-showfield="${copies[i].titolo}">${copies[i].titolo}</td>  
+                    <td data-showfield="${copies[i].giorni_ritardo}">${copies[i].giorni_ritardo}</td>
+                    <td data-showfield="${copies[i].prezzo_giornaliero * 2} €" data-type="checkbox">
+                        <input id="RestitutionForm_row_cattivo_stato_${i}" type="checkbox" onchange="badStateClick(this, ${copies[i].prezzo_giornaliero});"/>
+                    </td>
+                    <td data-showfield="${extra} €"><span id="RestitutionForm_row_extra_${i}" class="RestitutionForm_row_extra_class">${extra}</span> €</td>                   
                 </tr>`;
     }
     $("#RestitutionForm_table_body").html(html);
+    $("#RestitutionForm_row_id_cliente").val(copies[0].id_cliente);
     calculateTotalExtra();
 }
 
@@ -168,7 +199,9 @@ function badStateClick(input, prezzo_giornaliero) {
     } else {
         price -= badStateFee;
     }
-    $(`#RestitutionForm_row_extra_${rowNumber}`).text(price.toFixed(2));
+    var extraCell = $(`#RestitutionForm_row_extra_${rowNumber}`);
+    extraCell.text(price.toFixed(2));
+    extraCell.parent()[0].dataset["showfield"] = `${price.toFixed(2)} €`;
     calculateTotalExtra();
 }
 
@@ -180,7 +213,7 @@ function calculateTotalExtra() {
         totalExtraAmount += parseFloat(allExtras[i].innerText);
     }
     if(totalExtraAmount > 0) {
-        totalExtraAmountContainer.css("display", "flex");
+        totalExtraAmountContainer.css("display", "block");
     } else {
         totalExtraAmountContainer.hide();
     }
@@ -193,27 +226,27 @@ function buildRestitutionForm() {
                     <div id="RestitutionFormTableContainer">
                         <table class="table" id="RestitutionFormTable">
                             <thead>
-                                <th>Codice copia</th>
-                                <th>Film</th>
-                                <th>Ritardo gg.</th>
-                                <th>Cattivo stato copia</th>
-                                <th>Totale extra</th>
+                                <th data-cellwidth="70" data-showfield="Cod. noleggio" class="d-none"></th>
+                                <th data-cellwidth="60" data-showfield="Mat. copia">Codice copia</th>
+                                <th data-cellwidth="150" data-showfield="Film">Film</th>
+                                <th data-cellwidth="70" data-showfield="Ritardo gg.">Ritardo gg.</t>
+                                <th data-cellwidth="100" data-showfield="Add. cattivo stato">Cattivo stato copia</th>
+                                <th data-cellwidth="70" data-showfield="Totale extra">Totale extra</th>
                             </thead>
                             <tbody id="RestitutionForm_table_body"></tbody>
                         </table>
                     </div>
-                    <div class="contaner">
-                        <div id="RestitutionForm_importo_totale_container" class="hidden mt-3 row">
-                            <div class="col-sm-5">
-                                <h3>Totale extra da pagare:</h3>
-                                <h4><span id="RestitutionForm_importo_totale">0</span> €</h4>                        
-                            </div>
-                            <div class="col-sm-5">
-                                <button>download pdf</button>                      
-                            </div>
+                    <div>
+                        <div id="RestitutionForm_importo_totale_container" class="hidden">
+                            <h3>Totale extra da pagare:</h3>
+                            <h4><span id="RestitutionForm_importo_totale">0</span> €</h4>                        
+                        </div>
+                        <div class="mt-4">
+                            <div class="c-pointer" onclick="initPDF();"><img src="images/adobe.ico" width="25"/><span class="ml-2">Scarica ricevuta<span></div>                     
                         </div>
                     </div>
                     <button id="RestitutionForm_submit_button" class="d-none" type="submit">
+                    <input type="hidden" id="RestitutionForm_row_id_cliente"></inputt>      
                 </form>`;
     return html;
 }
@@ -255,4 +288,116 @@ function getCopiesFromForm() {
         }
     }
     return copies;
+}
+
+var pdf;
+/* PDF Receipt */
+function initPDF() {
+    var id_cliente = $("#RestitutionForm_row_id_cliente").val();
+    var customersManagementService = customersManagementService || new CustomersManagementService();
+    customersManagementService.findCustomerById(id_cliente)
+        .done(generatePDF)
+        .fail(restCallError);
+}
+
+function generatePDF(customer) {
+    this.getAndUpdateHeight = function(extraMargin) {
+        this.currentHeight += 20;
+        if(extraMargin) {
+            this.currentHeight += extraMargin;
+        }
+        return this.currentHeight;
+    }
+
+    this.buildPDFHeader = function() {
+        this.pdfDocument.setFontSize(15);
+        this.pdfDocument.text("Rent Net - Videonoleggi", 160, this.getAndUpdateHeight());
+        this.pdfDocument.text("Ricevuta restituzione noleggi", 160, this.getAndUpdateHeight());
+    }
+
+    this.buildPDFCustomerDetails = function() {
+        this.pdfDocument.setFontSize(10);
+        this.pdfDocument.text(`Sig./Sig.ra ${this.customer.cognome} ${this.customer.nome}`, this.marginLeft, this.getAndUpdateHeight(50));
+        this.pdfDocument.text(`${this.customer.indirizzo}`, this.marginLeft, this.getAndUpdateHeight(-5));
+    }
+
+    this.buildPDFTable = function() {
+        this.pdfDocument.setFontSize(10);
+        var oTable = this.buildTableObject();
+        var totalAmount = $("#RestitutionForm_importo_totale").text();
+        var lastCell = {};
+        for(var i = 0; i < oTable.length; i++) {
+            lastCell.totalWidth = 0;     
+            $.each(oTable[i], (key, obj) => {          
+                this.pdfDocument.cell(35, this.getAndUpdateHeight(30), parseInt(obj.cellWidth), 20, obj.value, i);        
+                lastCell.width = parseInt(obj.cellWidth);
+                lastCell.totalWidth += lastCell.width;
+            });
+            this.pdfDocument.setFontSize(6);
+            lastCell.index = i;
+        }
+        this.pdfDocument.cell((35 + (lastCell.totalWidth - lastCell.width)), this.getAndUpdateHeight(), lastCell.width, 20, `${totalAmount} €`, lastCell.index + 1);
+    }
+
+    this.buildTableObject = function() {
+        HTMLTableCellElement.prototype.getFieldValue = function() {
+            return this.dataset["showfield"];
+        }
+        HTMLTableCellElement.prototype.getFieldType = function() {
+            return this.dataset["type"];
+        }
+        HTMLTableCellElement.prototype.getCellWidth = function() {
+            return this.dataset["cellwidth"];
+        }
+        var getCorrectIndex = function(array, index) {
+            if(!array[index]) {
+                return getCorrectIndex(array, index - 1);
+            }
+            return index;
+        }
+
+        var table = $("#RestitutionFormTable")[0];
+        var oTable = [];
+        var headers = [];
+        var headerRow = table.rows[0].cells;
+        for(var i = 0; i < headerRow.length; i++) {
+            if(headerRow[i].getFieldValue()) {
+                headers.push({ value: headerRow[i].getFieldValue(), cellWidth: headerRow[i].getCellWidth() });
+            }
+        }
+        oTable.push(headers);
+        for(var i = 1; i < table.rows.length; i++) {
+            var row = table.rows[i];
+            var rowData = {};
+            for(var j = 0; j < row.cells.length; j++) {
+                if(row.cells[j].getFieldValue()) {
+                    if(row.cells[j].getFieldType() == "checkbox") {
+                        rowData[headers[getCorrectIndex(headers, j)].value] = { value: row.cells[j].children[0].checked ? row.cells[j].getFieldValue() : `-`, cellWidth: headers[getCorrectIndex(headers, j)].cellWidth };
+                    } else {
+                        rowData[headers[getCorrectIndex(headers, j)].value] = { value: row.cells[j].getFieldValue(), cellWidth: headers[getCorrectIndex(headers, j)].cellWidth };
+                    }                
+                }
+            }
+            oTable.push(rowData);
+        }
+        return oTable;
+    }
+///////////////////////////////////////////////////////////////////////////////////////creare funzione con deferred per scrivere nome file correttamente!
+    /* Init PDF creation */
+    this.customer = JSON.parse(customer);
+    this.pdfDocument = new jsPDF({unit: "pt"});
+    this.currentHeight = 50;
+    this.marginLeft = 30;
+    this.pdfDocument.cellInitialize();
+    this.buildPDFHeader();
+    this.buildPDFCustomerDetails();
+    this.buildPDFTable();
+    pdf = this.pdfDocument;
+    var img = new Image();
+    img.onload = function() {
+        pdf.addImage(this, "JPEG", 30, 40);
+        pdf.save(`Ricevuta_restituzione_noleggio.pdf`);
+    }
+    img.src = `/images/rentnet-logo.jpeg`;
+    // this.pdfDocument.save(`Ricevuta_restituzione_noleggio_${this.customer.nome}_${this.customer.cognome}.pdf`);
 }
