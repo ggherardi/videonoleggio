@@ -2,9 +2,6 @@
 include 'DBConnection.php';
 include 'TokenGenerator.php';
 include 'Constants.php';
-use PermissionsConstants;
-use TokenGenerator;
-use Logger;
 
 $GLOBALS["CorrelationID"] = uniqid("corrId_", true);
 $correlationId = $GLOBALS["CorrelationID"];
@@ -41,7 +38,7 @@ class CustomerManagementService {
             $array[] = $row;
         }
         header("Content-Type: application/pdf");
-        exit(json_encode($array));
+        return $array;
     }
 
     function InsertNewCustomer() {
@@ -69,7 +66,7 @@ class CustomerManagementService {
         $res = self::ExecuteQuery($query);
         ob_clean();
         if($res) {
-            exit(json_encode($res));
+            return $res;
         } else {
             http_response_code(500);
         }
@@ -95,7 +92,7 @@ class CustomerManagementService {
         Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
         $res = self::ExecuteQuery($query);
         if($res) {
-            exit(json_encode($res));
+            return $res;
         } else {
             http_response_code(500);
         }       
@@ -136,7 +133,7 @@ class CustomerManagementService {
                 $customer->id_cliente);
         $res = self::ExecuteQuery($query);
         if($res) {
-            exit(json_encode($res));
+            return $res;
         } else {
             http_response_code(500);
         }    
@@ -157,7 +154,7 @@ class CustomerManagementService {
         Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
         $res = self::ExecuteQuery($query);
         $row = $res->fetch_assoc();
-        exit(json_encode($row));
+        return $row;
     }
 
     // Switcha l'operazione richiesta lato client
@@ -165,19 +162,19 @@ class CustomerManagementService {
         try {
             switch($_POST["action"]) {
                 case "getAllCustomersWithPremiumCode":
-                    self::GetAllCustomersWithPremiumCode();
+                    $res = self::GetAllCustomersWithPremiumCode();
                     break;
                 case "insertNewCustomer":
-                    self::InsertNewCustomer();
+                    $res = self::InsertNewCustomer();
                     break;
                 case "deleteCustomer":
-                    self::DeleteCustomer();
+                    $res = self::DeleteCustomer();
                     break;
                 case "editCustomer":
-                    self::EditCustomer();
+                    $res = self::EditCustomer();
                     break;
                 case "findCustomerById":
-                    self::FindCustomerById();
+                    $res = self::FindCustomerById();
                     break;
                 default: 
                     exit(json_encode($_POST));
@@ -188,6 +185,8 @@ class CustomerManagementService {
             Logger::Write("Error occured -> $ex", $GLOBALS["CorrelationID"]);
             http_response_code(500);
         }
+        Logger::Write("Opreation ". $_POST["action"] ." was successful.", $GLOBALS["CorrelationID"]);
+        exit(json_encode($res));
     }
 }
 

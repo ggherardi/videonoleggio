@@ -41,7 +41,6 @@ var videosDataTableOptions = {
         searchable: false
     }],
     buttons: [
-        { extend: 'copy', text: "Copia" },
         { extend: 'selected', text: "Noleggia film", action: rentVideoAction }
     ]
 };
@@ -223,6 +222,9 @@ function rentVideoAction(e, dt, node, config) {
                 text: "Annulla"
             }
         }
+        modal = new Modal(modalOptions);
+        modal.open();
+        return false;
     }     
     modal = new Modal(modalOptions);
     modal.open();

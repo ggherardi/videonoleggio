@@ -227,13 +227,9 @@ class RentalManagementService {
         $tariffa = json_decode($details["tariffa"]);
         $amount = 0;
         for($i = 0; $i < $daysOfRent; $i++) {
-            // Logger::Write("DEBUG amount: ".$details["prezzo_giornaliero"], $GLOBALS["CorrelationID"]);
             $amount += $details["prezzo_giornaliero"] - (($details["prezzo_giornaliero"] * $tariffa[$i]->s) / 100);
         }
         $discountedAmount = $amount - (($amount * $details["percentuale"]) / 100);
-        // Logger::Write("DEBUG: ".$discountedAmount, $GLOBALS["CorrelationID"]);
-        // http_response_code(500);
-        // exit();
         return $discountedAmount;
     }
 

@@ -5,7 +5,15 @@ class RestClient {
 
     execute() {
         this.setAjaxOptions();
+        $.ajax(this.ajaxOptions).fail(this.redirectIfUnauthorized);
         return $.ajax(this.ajaxOptions);
+    }
+
+    redirectIfUnauthorized(jqXHR, textStatus, errorThrown) {
+        if(jqXHR.status == 401) {
+            CorrelationID = jqXHR.responseText;
+            mainContentController.setView(views.unauthorized);
+        }
     }
 
     setAjaxOptions() {
@@ -347,5 +355,19 @@ class RestitutionManagementService extends RestClient {
             copies: copies
         }
         return super.execute();  
+    }
+}
+
+class BookingManagementService extends RestClient {
+    constructor() {
+        super();
+        this.endpoint = "php/BookingManagementService.php";
+    }
+
+    getComingSoonMovies() {
+        this.data = {
+            action: "getComingSoonMovies"
+        }
+        return super.execute();        
     }
 }

@@ -71,7 +71,9 @@ class TokenGenerator {
             $assoc_array[$key] = $value;
         }
         if(!$oContext || $assoc_array[$fieldToCheck] < $minimumPermissions) {
-            http_response_code(401); 
+            Logger::Write(sprintf("Insufficient permissions for user %s (required %d, has %d)", $oContext->username, $minimumPermissions, $oContext->delega_codice), $GLOBALS["CorrelationID"]);
+            http_response_code(401);
+            exit($GLOBALS["CorrelationID"]);
         }
         Logger::Write(sprintf("Validated permissions for user %s (required %d, has %d)", $oContext->username, $minimumPermissions, $oContext->delega_codice), $GLOBALS["CorrelationID"]);
     }

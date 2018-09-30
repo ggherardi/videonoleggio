@@ -252,7 +252,11 @@ function buildRestitutionForm() {
 }
 
 function formClickDelegate() {
-    $("#RestitutionForm_submit_button").click();
+    if(window.confirm("ATTENZIONE: ricordarsi di salvare la ricevuta prima di procedere con la restituzione.")) {
+        $("#RestitutionForm_submit_button").click();
+    } else {
+        return false;
+    }
 }
 
 function returnVideo() {

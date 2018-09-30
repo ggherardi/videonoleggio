@@ -1,7 +1,6 @@
 /* Settings */
 var views = {
     home: { title: "Home", name: "home" },
-    login: { title: "Login", name: "login", showInMenu: false },
     rentals: { title: "Noleggi", name: "rentals" },
     restitutions: { title: "Restituzioni", name: "restitutions" },
     bookings: { title: "Prenotazioni", name: "bookings" },
@@ -9,7 +8,9 @@ var views = {
     storage: { title: "Magazzino", name: "storage", needPermissions: permissions.levels.responsabile },
     sales: { title: "Vendite", name: "sales", needPermissions: permissions.levels.responsabile },
     accounts: { title: "Gestione dipendenti", name: "accounts", needPermissions: permissions.levels.proprietario },    
-    settings: { title: "<img src='/images/white-cog.png' height='20'>", name: "settings", needPermissions: permissions.levels.proprietario }
+    settings: { title: "<img src='/images/white-cog.png' height='20'>", name: "settings", needPermissions: permissions.levels.proprietario },
+    login: { title: "Login", name: "login", showInMenu: false },
+    unauthorized: { title: "Unauthorized", name: "unauthorized", showInMenu: false }
 };
 
 var components = {
@@ -28,7 +29,7 @@ var cookiesManager = new CookiesManager();
 var authenticationManager = new AuthenticationManager(cookiesManager);
 
 /* Properties */
-var mainContentLoader;
+var CorrelationID;
 var Global_FilmPrices;
 var Browser;
 
