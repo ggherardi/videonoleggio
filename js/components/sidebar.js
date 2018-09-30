@@ -28,7 +28,7 @@ function logout() {
             $(placeholders.navbar).html("");
             mainContentController.setView(views.login);
         })
-        .fail(restCallError);
+        .fail(RestClient.redirectIfUnauthorized);
 }
 
 /* Init */

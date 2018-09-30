@@ -8,14 +8,14 @@ class Logger {
         if(self::$Initialized){
             return;
         }
-        $date = date('dmy');
+        $date = date('Y_m_d');
         self::$LogFileName = "logs/APILogger_$date.log";
         self::$Initialized = true;
     }
 
     // Formatta la data
     private static function GetTimeStamp() {
-        return date("d/m/Y H:i:s");
+        return date("Y-m-d H:i:s");
     }
     
     // Scrive sul file di log la stringa, e utilizza il correlation ID per dare continuità all'operazione

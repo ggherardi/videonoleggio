@@ -5,14 +5,14 @@ class RestClient {
 
     execute() {
         this.setAjaxOptions();
-        $.ajax(this.ajaxOptions).fail(this.redirectIfUnauthorized);
         return $.ajax(this.ajaxOptions);
     }
 
-    redirectIfUnauthorized(jqXHR, textStatus, errorThrown) {
+    static redirectIfUnauthorized(jqXHR, textStatus, errorThrown) {
         if(jqXHR.status == 401) {
             CorrelationID = jqXHR.responseText;
             mainContentController.setView(views.unauthorized);
+            modal.openErrorModal();
         }
     }
 
@@ -369,5 +369,23 @@ class BookingManagementService extends RestClient {
             action: "getComingSoonMovies"
         }
         return super.execute();        
+    }
+
+    getCustomerBookingsAndId(filters) {
+        filters = JSON.stringify(filters);
+        this.data = {
+            action: "getCustomerBookingsAndId",
+            filters: filters
+        }
+        return super.execute();        
+    }
+
+    bookMovies(bookings) {
+        bookings = JSON.stringify(bookings);
+        this.data = {
+            action: "bookMovies",
+            bookings: bookings
+        }
+        return super.execute();   
     }
 }

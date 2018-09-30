@@ -48,7 +48,7 @@ function initCustomersTable() {
     loader.showLoader();
     customersManagementService.getAllCustomersWithPremiumCode()
         .done(getAllCustomersWithPremiumCode)
-        .fail(restCallError)
+        .fail(RestClient.redirectIfUnauthorized)
         .always(() => loader.hideLoader());
 }
 
@@ -181,7 +181,7 @@ function insertItem() {
     var customer = getCustomerFromForm();
     customersManagementService.insertNewCustomer(customer, files[0])
         .done(actionSuccess)
-        .fail(restCallError);
+        .fail(RestClient.redirectIfUnauthorized);
 }
 
 function getCustomerFromForm() {
@@ -228,7 +228,7 @@ function deleteCustomerAction(e, dt, node, config) {
 function deleteItem() {
     customersManagementService.deleteCustomer(this.id_cliente)
         .done(actionSuccess)
-        .fail(restCallError);
+        .fail(RestClient.redirectIfUnauthorized);
 }
 
 /* Edit Customer Action */
@@ -263,7 +263,7 @@ function editItem() {
     }
     customersManagementService.editCustomer(customer, files[0])
         .done(actionSuccess)
-        .fail(restCallError);
+        .fail(RestClient.redirectIfUnauthorized);
 }
 
 /* Actions shared functions  */
@@ -328,7 +328,7 @@ function loadSelect(row) {
     getAllItemsService = new GetAllItemsService();
     getAllItemsService.getAllDiscounts()
         .done(buildSelects.bind(row))
-        .fail(restCallError)
+        .fail(RestClient.redirectIfUnauthorized)
         .always(() => selectLoader.hideLoader());   
 }
 

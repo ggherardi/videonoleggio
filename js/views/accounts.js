@@ -41,7 +41,7 @@ function initAccountManager() {
     loader.showLoader();
     accountManagementService.getCities()
         .done(getCitiesSuccess)
-        .fail(restCallError)
+        .fail(RestClient.redirectIfUnauthorized)
         .always(() => loader.hideLoader());
 }
 
@@ -67,7 +67,7 @@ function getStores(select) {
         loader.showLoader();
         accountManagementService.getStores(cityId)
             .done(getStoresSuccess)
-            .fail(restCallError)
+            .fail(RestClient.redirectIfUnauthorized)
             .always(() => loader.hideLoader());
     } else {
         selectStoreContainer.html("");
@@ -107,7 +107,7 @@ function getEmployees(select) {
         loader.showLoader();
         accountManagementService.getEmployees(storeId)
             .done(getEmployeesSuccess)
-            .fail(restCallError)
+            .fail(RestClient.redirectIfUnauthorized)
             .always(() => loader.hideLoader());
     } else {
         selectStoreContainer.html("");
@@ -180,7 +180,7 @@ function deleteEmployee(e, dt, node, config) {
 function deleteItem() {
     accountManagementService.deleteEmployee(this.dipendente_id)
         .done(deleteItemSuccess)
-        .fail(restCallError);
+        .fail(RestClient.redirectIfUnauthorized);
 }
 
 function deleteItemSuccess(data) {
@@ -213,7 +213,7 @@ function insertItem() {
     var employee = getEmployeeFromFormData();
     accountManagementService.insertEmployee(employee)
         .done(editItemSuccess)
-        .fail(restCallError);
+        .fail(RestClient.redirectIfUnauthorized);
 }
 
 /* Edit Employee */
@@ -294,7 +294,7 @@ function editItem() {
     var employee = getEmployeeFromFormData();
     accountManagementService.editEmployee(employee)
         .done(editItemSuccess)
-        .fail(restCallError);
+        .fail(RestClient.redirectIfUnauthorized);
 }
 
 function getEmployeeFromFormData() {
@@ -337,7 +337,7 @@ function resetPassword(e, dt, node, config) {
 function resetItem() {
     accountManagementService.resetPassword(this.dipendente_id)
         .done(resetPasswordSuccess.bind(this.dipendente_username))
-        .fail(restCallError);
+        .fail(RestClient.redirectIfUnauthorized);
 }
 
 function resetPasswordSuccess(data) {

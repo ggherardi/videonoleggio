@@ -77,4 +77,14 @@ class Modal {
         this.buildModal();
         this.open();
     }
+
+    openErrorModal() {
+        this.reset();
+        this.modalOptions = {
+            title: "Errore",
+            body: "<span>Si è verificato un errore durante l'esecuzione dell'operazione</span>"            
+        }
+        this.buildModal();
+        this.open();
+    }
 }

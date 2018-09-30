@@ -18,6 +18,7 @@ class BookingManagementService {
         return $this->dbContext->ExecuteQuery($query);
     }
 
+    ////////////////////////////////////// RECUPERARE IL COUNT DELLE PRENOTAZIONI E RAGGRUPPARE PER FILM.
     function GetComingSoonMovies() {
         Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
         TokenGenerator::CheckPermissions(PermissionsConstants::ADDETTO, "delega_codice");
@@ -77,65 +78,27 @@ class BookingManagementService {
         $allowedDaysAfterRelease = 7; 
         $maxAllowedDateAfterRelease = ($today / (60 * 60 * 24)) - $allowedDaysAfterRelease; // Recuperare il numero dei giorni dalla tabella impostazione
         $maxAllowedDateAfterRelease = $maxAllowedDateAfterRelease * (60 * 60 * 24);
-        return date("Y-m-d", $maxDaysAfterRelease);
+        return date("Y-m-d", $maxAllowedDateAfterRelease);
     }
 
-    /** Restituisce -1 se l'utente non è stato trovato. -2 se l'utente ha già prenotazioni con un film. Una row con i dettagli dell'utente se l'utente esiste e può prenotare */
+    /** Restituisce -1 se l'utente non è stato trovato. Un array di prenotazioni se l'utente ha già prenotazioni con un film. Una row con i dettagli dell'utente se l'utente esiste e può prenotare */
     function GetCustomerBookingsAndId() {
         Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
         TokenGenerator::CheckPermissions(PermissionsConstants::ADDETTO, "delega_codice");        
         $filters = json_decode($_POST["filters"]);
-        $user = FindCustomerById($filters->id_cliente);
+        $user = self::FindCustomerById($filters->id_cliente);
         if(!$user) {
             return -1;
         }        
-        $query = 
-            "SELECT id_prenotazione
-            FROM prenotazione pr        
-            WHERE pr.id_cliente = %d
-            AND pr.id_film IN %s";
-        
-        // $query = sprintf($query, $filters->id_cliente, $filters->);
-        Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
-        $res = self::ExecuteQuery($query);
-        $moviesArray = array();
-        while($row = $res->fetch_assoc()){
-            $moviesArray[] = $row;
+        $bookings = self::GetBookingsForUser($filters->id_cliente, $filters->array_id_film);
+        if(count($bookings) > 0) {
+            return $bookings;
         }
-        usort($moviesArray, "SortByFilmId");        
-        $query = 
-            "SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
-            FROM cast ca
-            INNER JOIN attore at
-            ON ca.id_attore = at.id_attore
-            WHERE ca.id_film         
-            IN (%s)";
-        $idsString = "";
-        for($i = 0; $i < count($moviesArray); $i++) {            
-            $idsString .= sprintf("%d, ", $moviesArray[$i]["id_film"]);
-        }
-        $idsString = rtrim($idsString);
-        $idsString = rtrim($idsString, ",");
-        $query = sprintf($query, $idsString);
-        Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
-        $res = self::ExecuteQuery($query);
-        $actorsArrays = array();
-        while($row = $res->fetch_assoc()){
-            for($i = 0; $i < count($moviesArray); $i++) {              
-                if($moviesArray[$i]["id_film"] == $row["id_film"]) {    
-                    $actor = new Actor($row);                                
-                    $moviesArray[$i]["cast"][] = $actor;
-                    break;
-                }            
-            }
-        }
-        return $moviesArray;        
+        return $user;        
     }
 
     
-    function FindCustomerById($id_cliente) {
-        Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
-        TokenGenerator::CheckPermissions(PermissionsConstants::ADDETTO, "delega_codice");
+    private function FindCustomerById($id_cliente) {
         $query = 
             "SELECT cl.id_cliente, cl.nome, cl.cognome, cl.indirizzo, fi.nome_fidelizzazione, fi.percentuale
             FROM cliente cl
@@ -150,6 +113,59 @@ class BookingManagementService {
         return $row;
     }
 
+    private function GetBookingsForUser($id_cliente, $moviesArray) {
+        $query = 
+            "SELECT id_film
+            FROM prenotazione pr        
+            WHERE pr.id_cliente = %d
+            AND pr.id_film IN (%s)";
+        $idsString = "";
+        for($i = 0; $i < count($moviesArray); $i++) {            
+            $idsString .= sprintf("%d, ", $moviesArray[$i]);
+        }
+        $idsString = rtrim($idsString);
+        $idsString = rtrim($idsString, ",");
+        $query = sprintf($query, $id_cliente, $idsString);
+        Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
+        $res = self::ExecuteQuery($query);
+        $bookingsArray = array();
+        while($row = $res->fetch_assoc()) {
+            $bookingsArray[] = $row;
+        }
+        return $bookingsArray;
+    }
+
+    function BookMovies() {
+        Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
+        TokenGenerator::CheckPermissions(PermissionsConstants::ADDETTO, "delega_codice");        
+        $bookings = json_decode($_POST["bookings"]);
+        try {
+            $this->dbContext->StartTransaction();
+            for($i = 0; $i < count($bookings); $i++) {
+                $booking = $bookings[$i];
+                $query = 
+                    "INSERT INTO prenotazione
+                    (id_cliente,
+                    id_dipendente,
+                    id_punto_vendita,
+                    id_film,
+                    id_stato_prenotazione)
+                    VALUES
+                    (%d, %d, %d, %d, NULL);";
+                $query = sprintf($query, $booking->id_cliente, $booking->id_dipendente, $booking->id_punto_vendita,
+                                    $booking->id_film);
+                Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
+                $res = self::ExecuteQuery($query);
+            }
+            $this->dbContext->CommitTransaction();
+        } catch (Throwable $ex) {
+            Logger::Write("Error while processing ". __FUNCTION__ ." request: $ex", $GLOBALS["CorrelationID"]);
+            $this->dbContext->RollBack();
+            http_response_code(500);
+        }
+        return $res;        
+    }
+
     // Switcha l'operazione richiesta lato client
     function Init() {
         try {
@@ -160,6 +176,9 @@ class BookingManagementService {
                     break;
                 case "getCustomerBookingsAndId":
                     $res = self::GetCustomerBookingsAndId();
+                    break;
+                case "bookMovies":
+                    $res = self::BookMovies();
                     break;
                 default: 
                     exit(json_encode($_POST));

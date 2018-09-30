@@ -28,7 +28,7 @@ class Discount {
         loader.showLoader();
         rentalManagementService.getActiveDiscount()
             .done(this.buildHtml.bind(this))
-            .fail(restCallError)
+            .fail(RestClient.redirectIfUnauthorized)
             .always(() => loader.hideLoader())
     }
     

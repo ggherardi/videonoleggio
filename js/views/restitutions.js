@@ -39,7 +39,7 @@ function findRentedCopiesForUser() {
     loader.showLoader();
     restitutionManagementService.getRentedVideoForUser(filters)
         .done(findRentedCopiesForUserSuccess)
-        .fail(restCallError);
+        .fail(RestClient.redirectIfUnauthorized);
 }
 
 function findRentedCopiesForUserSuccess(data) {
@@ -270,7 +270,7 @@ function returnVideo() {
     var copies = getCopiesFromForm();
     restitutionManagementService.returnCopies(copies)
         .done(returnCopiesSuccess)
-        .fail(restCallError);
+        .fail(RestClient.redirectIfUnauthorized);
 }
 
 function getCopiesFromForm() {
@@ -300,7 +300,7 @@ function initPDF() {
     var customersManagementService = customersManagementService || new CustomersManagementService();
     customersManagementService.findCustomerById(id_cliente)
         .done(generatePDF)
-        .fail(restCallError);
+        .fail(RestClient.redirectIfUnauthorized);
 }
 
 function generatePDF(customer) {

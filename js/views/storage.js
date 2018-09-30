@@ -36,7 +36,7 @@ function initStorageTable() {
     loader.showLoader();
     storageManagementService.getVideosInStorage(filters)
         .done(getVideosInStorageSuccess)
-        .fail(restCallError)
+        .fail(RestClient.redirectIfUnauthorized)
         .always(() => loader.hideLoader());
 }
 
@@ -146,7 +146,7 @@ function loadVideosAction() {
     }
     storageManagementService.loadCopies(idsToUpdate)
         .done(insertItemSuccess)
-        .fail(restCallError);
+        .fail(RestClient.redirectIfUnauthorized);
 }
 
 /* Unload Videos Actions */
@@ -226,7 +226,7 @@ function insertItem() {
     var storageForm = getStorageFormData(); 
     storageManagementService.unloadCopies(storageForm)
         .done(insertItemSuccess)
-        .fail(restCallError);
+        .fail(RestClient.redirectIfUnauthorized);
 }
 
 function getStorageFormData() {
@@ -244,10 +244,6 @@ function insertItemSuccess(data) {
         modal.openSuccessModal();
         initStorageTable();
     }
-}
-
-function restCallError(jqXHR, textStatus, errorThrown) {
-    console.log(jqXHR.status);
 }
 
 initStorageTable();

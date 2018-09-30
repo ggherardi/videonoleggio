@@ -52,7 +52,7 @@ function initVideosTable() {
         }
         rentalManagementService.getVideosInStorageWithCount(filters)
             .done(getVideosInStorageWithCountSuccess)
-            .fail(restCallError)
+            .fail(RestClient.redirectIfUnauthorized)
             .always(() => loader.hideLoader());
     }
 
@@ -104,7 +104,7 @@ function BuildVideosTableHead() {
     }
     html += `           <th scope="col">Titolo</th>
                         <th scope="col">Durata</th>
-                        <th scope="col">Prezzo giornaliero</th>
+                        <th scope="col">Prezzo/giorno</th>
                         <th scope="col">Genere</th>
                         <th scope="col">Copie</th>
                     </tr>
@@ -293,7 +293,7 @@ function loadAndBuildVideosTable(rows) {
     Global_FilmPrices = filters.films;
     rentalManagementService.getMostRecentCopies(filters)
         .done(loadAndBuildVideosTableSuccess)
-        .fail(restCallError)
+        .fail(RestClient.redirectIfUnauthorized)
         .always(() => loader.hideLoader());
 }
 
@@ -359,7 +359,7 @@ function loadDiscounts() {
         .done((data) => { 
             rentRates = JSON.parse(data); 
             rentRates.tariffa = JSON.parse(rentRates.tariffa); })
-        .fail(restCallError);
+        .fail(RestClient.redirectIfUnauthorized);
 }
 
 /* Find Customer Form Action */
@@ -394,7 +394,7 @@ function findCustomerById() {
     var customersManagementService = new CustomersManagementService();
     customersManagementService.findCustomerById(id_cliente)
         .done(findCustomerSuccess)
-        .fail(restCallError);
+        .fail(RestClient.redirectIfUnauthorized);
 }
 
 function restoreFindCustomerInput() {
@@ -410,7 +410,7 @@ function rentVideo() {
             modal.openSuccessModal();    
             rentalManagementService.clearRentalBookings()
                 .done(initVideosTable)
-                .fail(restCallError);                    
+                .fail(RestClient.redirectIfUnauthorized);                    
         }
     }
 
@@ -423,7 +423,7 @@ function rentVideo() {
         if(videos) {
             rentalManagementService.rentVideos(videos)
             .done(rentVideoSuccess)
-            .fail(restCallError);
+            .fail(RestClient.redirectIfUnauthorized);
         } else {
             return false;
         }

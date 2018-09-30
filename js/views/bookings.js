@@ -1,6 +1,6 @@
 var bookingsManagementService = bookingsManagementService || new BookingManagementService();
 var bookingsTableContainer = $("#BookingsTableContainer");
-var RentVideoForm_id_cliente;
+var BookMovieForm_id_cliente;
 var bookingsDataTable;
 var bookingsDataTableOptions = {
     dom: 'Bftpil',
@@ -81,7 +81,7 @@ function buildBookingsTableHead() {
     }
     html += `           <th scope="col">Titolo</th>
                         <th scope="col">Durata</th>
-                        <th scope="col">Prezzo giornaliero</th>
+                        <th scope="col">Prezzo/giorno</th>
                         <th scope="col">Genere</th>
                         <th scope="col">Data uscita</th>
                     </tr>
@@ -190,7 +190,7 @@ function bookMovieAction(e, dt, node, config) {
 }
 
 function buildBookingVideoForm() {
-    var html = `<form class="form" onsubmit="rentVideo();return false;">
+    var html = `<form class="form" onsubmit="bookMovie();return false;">
                     <div id="BookMovieFormPreviewTableContainer">
                         <table class="table" id="BookMovieFormPreviewTable">
                             <thead>
@@ -204,7 +204,8 @@ function buildBookingVideoForm() {
                     </div>
                     <label for="3" class="mt-2">Cliente che effettua la prenotazione</label>
                     <div><span id="BookMovieForm_user_not_found" class="errorSpan">Utente non trovato.</span></div>
-                    <div id="BookMovieForm_id_cliente_container" class="row px-3">
+                    <div><span id="BookMovieForm_user_already_booked" class="errorSpan">L'utente selezionato ha già prenotato i film evidenziati in rosso.</span></div>
+                    <div id="BookMovieForm_id_cliente_container" class="row px-3 mt-2">
                         <input id="BookMovieForm_id_cliente" type="number" class="form-control col-sm-8" placeholder="Inserire la matricola del cliente" required>
                         <button class="btn btn-dark ml-3" type="button" onclick="findCustomerAndBookingsByCustomerId();">Cerca cliente</button>
                     </div>
@@ -217,7 +218,7 @@ function loadAndBuildBookingsTable(rows) {
     var html = ``;
     for(var i = 0; i < rows.length; i++) {
         html += `<tr class="BookMovieForm_row">
-                    <td id="BookMovieForm_id_film_${i}" class="d-none">${rows[i].id_film}</td>   
+                    <td id="BookMovieForm_id_film_${rows[i].id_film}" class="d-none BookMovieForm_id_film_class">${rows[i].id_film}</td>   
                     <td>${rows[i].titolo}</td>                                                      
                     <td>${rows[i].prezzo_giornaliero}</td>  
                     <td>${rows[i].data_uscita}</td>
@@ -227,12 +228,110 @@ function loadAndBuildBookingsTable(rows) {
 }
 
 function findCustomerAndBookingsByCustomerId() {
-    var customerId = $("#BookMovieForm_id_cliente").val();
-    
+    var resetForm = function() {
+        var tdArray = $(".BookMovieForm_id_film_class");
+        for(var i = 0; i < tdArray.length; i++) {
+            $(tdArray[i]).parent().removeClass("alert alert-danger");
+        }        
+        $("#BookMovieForm_user_not_found").hide();
+        $("#BookMovieForm_user_already_booked").hide();
+    }
+
+    var getCustomerBookingsAndIdSuccess = function(data) {
+        data = JSON.parse(data);
+        if(data) {
+            if(data == -1) {
+                $("#BookMovieForm_user_not_found").show();
+            } else if(!data.id_cliente) {
+                flagAlreadyBookedMovies(data);
+            } else {
+                BookMovieForm_id_cliente = $("#BookMovieForm_id_cliente_container").html();
+                buildCustomerTable(data);
+            }
+        }
+    }
+
+    resetForm();
+    var filters = {
+        id_cliente: $("#BookMovieForm_id_cliente").val(),
+        array_id_film: []
+    };
+    $(".BookMovieForm_id_film_class").each((index, el) => filters.array_id_film.push(el.innerText));
+    bookingsManagementService.getCustomerBookingsAndId(filters)
+        .done(getCustomerBookingsAndIdSuccess)
+        .fail(RestClient.redirectIfUnauthorized);
+}
+
+function buildCustomerTable(customer) {
+    var html = `<div id="BookMovieForm_user" class="col-sm-10 py-3 call-success">
+                    <input id="BookMovieForm_id_cliente" type="hidden" value="${customer.id_cliente}">
+                    <span>${customer.nome} ${customer.cognome} - ${customer.indirizzo}</span>
+                </div>`;
+    html += `<button class="btn btn-light ml-3 col-sm-1" type="button" onclick="restoreFindCustomerInput();">X</button>`;
+    $("#BookMovieForm_id_cliente_container").html(html);
+    setTimeout(() => $("BookMovieForm_user").css("color", "#7D7D7D"), 500);
+}
+
+function restoreFindCustomerInput() {
+    $("#BookMovieForm_id_cliente_container").html(BookMovieForm_id_cliente);
+}
+
+function flagAlreadyBookedMovies(moviesIds) {
+    for(var i = 0; i < moviesIds.length; i++) {
+        $(`#BookMovieForm_id_film_${moviesIds[i].id_film}`).parent().addClass("alert alert-danger");
+    }
+    $("#BookMovieForm_user_already_booked").show();
 }
 
 function formClickDelegate() {
     $("#BookMovieForm_insert_button").click();
+}
+
+function bookMovie() {
+    var bookMovieSuccess = function(data) {
+        if(data) {
+            initBookingsTable();
+            modal.openSuccessModal();                  
+        }
+    }
+
+    if($("#BookMovieForm_user").length == 0) {
+        $("#BookMovieForm_id_cliente")[0].setCustomValidity("Selezionare un utente");
+        return false;
+    }
+    if(window.confirm("Confermi la prenotazione dei film selezionati?")) {
+        var bookings = getBookingsFromForm();
+        if(bookings) {
+            bookingsManagementService.bookMovies(bookings)
+            .done(bookMovieSuccess)
+            .fail(RestClient.redirectIfUnauthorized);
+        } else {
+            return false;
+        }
+    } else {
+        return false;
+    } 
+}
+
+function getBookingsFromForm() {
+    var bookings = [];
+    var rows = $(".BookMovieForm_row");
+    for(var i = 0; i < rows.length; i++) {
+        try {
+            var booking = {
+                id_dipendente: sharedStorage.loginContext.id_dipendente,
+                id_punto_vendita: sharedStorage.loginContext.punto_vendita_id_punto_vendita,
+                id_cliente: $("#BookMovieForm_id_cliente").val(),
+                id_film: $(`.BookMovieForm_id_film_class`)[i].innerText
+            }        
+            bookings.push(booking);
+        }
+        catch(ex) {
+            console.error(ex);
+            return false;
+        }
+    }
+    return bookings;
 }
 
 /* GetActiveBookings Action */
