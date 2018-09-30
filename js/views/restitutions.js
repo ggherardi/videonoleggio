@@ -290,8 +290,7 @@ function getCopiesFromForm() {
     return copies;
 }
 
-var pdf;
-/* PDF Receipt */
+/* PDF Receipt Generator */
 function initPDF() {
     var id_cliente = $("#RestitutionForm_row_id_cliente").val();
     var customersManagementService = customersManagementService || new CustomersManagementService();
@@ -309,16 +308,36 @@ function generatePDF(customer) {
         return this.currentHeight;
     }
 
+    this.buildPDFLogoImage = function() {
+        return new Promise((resolve, reject) => {
+            pdf = this.pdfDocument;
+            var img = new Image();
+            img.src = `/images/rentnet-logo.jpeg`;
+            img.onload = function() {
+                resolve(this);
+            }
+        });
+    }
+
     this.buildPDFHeader = function() {
         this.pdfDocument.setFontSize(15);
-        this.pdfDocument.text("Rent Net - Videonoleggi", 160, this.getAndUpdateHeight());
-        this.pdfDocument.text("Ricevuta restituzione noleggi", 160, this.getAndUpdateHeight());
+        this.pdfDocument.text("Rent Net - Videonoleggi", 160, this.getAndUpdateHeight(10));
     }
 
     this.buildPDFCustomerDetails = function() {
+        this.pdfDocument.text("Ricevuta restituzione noleggi", this.marginLeft, this.getAndUpdateHeight(100));
         this.pdfDocument.setFontSize(10);
-        this.pdfDocument.text(`Sig./Sig.ra ${this.customer.cognome} ${this.customer.nome}`, this.marginLeft, this.getAndUpdateHeight(50));
+        this.pdfDocument.text(`Sig./Sig.ra ${this.customer.cognome} ${this.customer.nome}`, this.marginLeft, this.getAndUpdateHeight());
         this.pdfDocument.text(`${this.customer.indirizzo}`, this.marginLeft, this.getAndUpdateHeight(-5));
+    }
+
+    this.buildPDFBody = function() {
+        this.pdfDocument.setFontSize(8);
+        var body = [`Per ogni giorno di ritardo viene applicata la tariffa giornaliera, sulla quale vengono applicate le scontistiche della propria sottoscrizione e quelle`];
+        body.push(` relative alla tariffa che è stata applicata al momento del noleggio della copia.`);
+        body.push(`I film riconsegnati in cattivo stato o danneggiati dovranno essere rimborsati per un importo pari a due giorni di noleggio senza scontistiche`);
+        body.push(` applicate.`);
+        this.pdfDocument.text(body, this.marginLeft, this.getAndUpdateHeight(50));
     }
 
     this.buildPDFTable = function() {
@@ -329,13 +348,14 @@ function generatePDF(customer) {
         for(var i = 0; i < oTable.length; i++) {
             lastCell.totalWidth = 0;     
             $.each(oTable[i], (key, obj) => {          
-                this.pdfDocument.cell(35, this.getAndUpdateHeight(30), parseInt(obj.cellWidth), 20, obj.value, i);        
+                this.pdfDocument.cell(35, this.getAndUpdateHeight(80), parseInt(obj.cellWidth), 20, obj.value, i);        
                 lastCell.width = parseInt(obj.cellWidth);
                 lastCell.totalWidth += lastCell.width;
             });
             this.pdfDocument.setFontSize(6);
             lastCell.index = i;
         }
+        this.pdfDocument.setFontSize(10);
         this.pdfDocument.cell((35 + (lastCell.totalWidth - lastCell.width)), this.getAndUpdateHeight(), lastCell.width, 20, `${totalAmount} €`, lastCell.index + 1);
     }
 
@@ -382,7 +402,7 @@ function generatePDF(customer) {
         }
         return oTable;
     }
-///////////////////////////////////////////////////////////////////////////////////////creare funzione con deferred per scrivere nome file correttamente!
+
     /* Init PDF creation */
     this.customer = JSON.parse(customer);
     this.pdfDocument = new jsPDF({unit: "pt"});
@@ -391,13 +411,10 @@ function generatePDF(customer) {
     this.pdfDocument.cellInitialize();
     this.buildPDFHeader();
     this.buildPDFCustomerDetails();
+    this.buildPDFBody();
     this.buildPDFTable();
-    pdf = this.pdfDocument;
-    var img = new Image();
-    img.onload = function() {
-        pdf.addImage(this, "JPEG", 30, 40);
-        pdf.save(`Ricevuta_restituzione_noleggio.pdf`);
-    }
-    img.src = `/images/rentnet-logo.jpeg`;
-    // this.pdfDocument.save(`Ricevuta_restituzione_noleggio_${this.customer.nome}_${this.customer.cognome}.pdf`);
+    this.buildPDFLogoImage().then((data) => { 
+        this.pdfDocument.addImage(data, "JPEG", 30, 40);
+        this.pdfDocument.save(`Ricevuta_restituzione_noleggio_${this.customer.nome}_${this.customer.cognome}.pdf`);
+    });
 }
