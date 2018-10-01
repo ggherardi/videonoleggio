@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `videonoleggio` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `videonoleggio`;
--- MySQL dump 10.13  Distrib 5.5.60, for Win64 (AMD64)
+-- MySQL dump 10.13  Distrib 5.5.61, for Win64 (AMD64)
 --
 -- Host: localhost    Database: videonoleggio
 -- ------------------------------------------------------
--- Server version	5.5.60
+-- Server version	5.5.61
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -449,12 +449,12 @@ CREATE TABLE `prenotazione` (
   KEY `fk_prenotazione_film_idx` (`id_film`),
   KEY `fk_prenotazione_stato_prenotazione_idx` (`id_stato_prenotazione`),
   KEY `fk_prenotazione_punto_vendita_idx` (`id_punto_vendita`),
-  CONSTRAINT `fk_prenotazione_stato_prenotazione` FOREIGN KEY (`id_stato_prenotazione`) REFERENCES `stato_prenotazione` (`id_stato_prenotazione`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_prenotazione_cliente` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id_cliente`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_prenotazione_dipendente` FOREIGN KEY (`id_dipendente`) REFERENCES `dipendente` (`id_dipendente`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_prenotazione_film` FOREIGN KEY (`id_film`) REFERENCES `film` (`id_film`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_prenotazione_punto_vendita` FOREIGN KEY (`id_punto_vendita`) REFERENCES `punto_vendita` (`id_punto_vendita`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+  CONSTRAINT `fk_prenotazione_punto_vendita` FOREIGN KEY (`id_punto_vendita`) REFERENCES `punto_vendita` (`id_punto_vendita`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_prenotazione_stato_prenotazione` FOREIGN KEY (`id_stato_prenotazione`) REFERENCES `stato_prenotazione` (`id_stato_prenotazione`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -463,7 +463,7 @@ CREATE TABLE `prenotazione` (
 
 LOCK TABLES `prenotazione` WRITE;
 /*!40000 ALTER TABLE `prenotazione` DISABLE KEYS */;
-INSERT INTO `prenotazione` VALUES (11,38,2,1,4,1),(12,38,2,1,5,1),(14,39,1,1,4,2);
+INSERT INTO `prenotazione` VALUES (12,38,2,1,5,1),(18,38,2,1,4,NULL),(19,39,2,1,4,NULL),(20,40,2,1,4,NULL),(21,41,2,1,4,NULL),(22,42,2,1,4,NULL);
 /*!40000 ALTER TABLE `prenotazione` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -767,4 +767,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-01 16:57:04
+-- Dump completed on 2018-10-01 23:56:36

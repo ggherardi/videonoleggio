@@ -139,11 +139,11 @@ class BookingManagementService {
         $query = sprintf($query, $id_cliente, $id_punto_vendita, $idsString);
         Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
         $res = self::ExecuteQuery($query);
-        $bookingsArray = array();
+        $array = array();
         while($row = $res->fetch_assoc()) {
-            $bookingsArray[] = $row;
+            $array[] = $row;
         }
-        return $bookingsArray;
+        return $array;
     }
 
     function GetUsersForBooking() {
@@ -151,7 +151,7 @@ class BookingManagementService {
         TokenGenerator::CheckPermissions(PermissionsConstants::ADDETTO, "delega_codice"); 
         $booking = json_decode($_POST["booking"]);       
         $query = 
-            "SELECT pr.id_prenotazione, cl.id_cliente, cl.nome, cl.cognome, fi.titolo
+            "SELECT pr.id_prenotazione, cl.id_cliente, cl.nome, cl.cognome, fi.titolo, fi.id_film
             FROM prenotazione pr
             INNER JOIN film fi
             ON pr.id_film = fi.id_film
@@ -167,7 +167,7 @@ class BookingManagementService {
         while($row = $res->fetch_assoc()) {
             $array[] = $row;
         }
-        return $array;   
+        return (count($array) > 0 ? $array : false);  
     }
 
     function BookMovies() {
@@ -201,6 +201,26 @@ class BookingManagementService {
         return $res;        
     }
 
+    function DeleteBookings() {
+        Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
+        TokenGenerator::CheckPermissions(PermissionsConstants::ADDETTO, "delega_codice");        
+        $bookingsIds = json_decode($_POST["bookingsIds"]);
+        Logger::Write("BOOKINGS: ".json_encode($bookingsIds), $GLOBALS["CorrelationID"]);
+        $query = 
+            "DELETE FROM prenotazione
+            WHERE id_prenotazione IN (%s)";
+        $idsString = "";
+        for($i = 0; $i < count($bookingsIds); $i++) {            
+            $idsString .= sprintf("%d, ", $bookingsIds[$i]);
+        }
+        $idsString = rtrim($idsString);
+        $idsString = rtrim($idsString, ",");
+        $query = sprintf($query, $idsString);
+        Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
+        $res = self::ExecuteQuery($query);
+        return $res;    
+    }
+
     // Switcha l'operazione richiesta lato client
     function Init() {
         try {
@@ -218,6 +238,9 @@ class BookingManagementService {
                 case "bookMovies":
                     $res = self::BookMovies();
                     break;
+                case "deleteBookings":
+                    $res = self::DeleteBookings();
+                    break;
                 default: 
                     exit(json_encode($_POST));
                     break;
@@ -226,6 +249,7 @@ class BookingManagementService {
         catch(Throwable $ex) {
             Logger::Write("Error occured -> $ex", $GLOBALS["CorrelationID"]);
             http_response_code(500);
+            exit();
         }
         Logger::Write("Opreation ". $_POST["action"] ." was successful.", $GLOBALS["CorrelationID"]);
         exit(json_encode($res));

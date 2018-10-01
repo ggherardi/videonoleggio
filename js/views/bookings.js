@@ -35,6 +35,21 @@ var bookingsDataTableOptions = {
         { extend: 'selectedSingle', text: "Visualizza prenotazioni", action: getActiveBookingsAction }
     ]
 };
+var usersForBookingDataTable;
+var usersForBookingDataTableOptions = {
+    dom: 'Bftpi',
+    buttons: true,
+    select: true,
+    columns: [
+        { data: "id_prenotazione" },
+        { data: "id_cliente" },
+        { data: "nome" },
+        { data: "cognome" },
+    ],
+    buttons: [
+        { extend: 'selected', text: "Annulla prenotazione", action: deleteBookings },
+    ]
+};
 
 function initBookingsTable() {
     var loader = new Loader(`#${bookingsTableContainer.attr("id")}`);
@@ -48,26 +63,26 @@ function getComingSoonMoviesSuccess(data) {
     var bookings = JSON.parse(data);
     var html = `<table class="table mt-3" id="BookingsTable">`
     html +=         buildBookingsTableHead();
-    html +=        `<tbody>`;            
+    html +=        `<tbody>`;
     for(var i = 0; i < bookings.length; i++) {
         var oMovieRelease = formatMovieReleaseObject(bookings[i])
-        var castCellRender = formatCastCell(bookings[i].cast); 
+        var castCellRender = formatCastCell(bookings[i].cast);
         bookings[i].cast = castCellRender;
             html +=     `<tr>
                             <td>${bookings[i].id_film}</td>
-                            <td>${bookings[i].casa_produttrice_nome}</td>                             
-                            <td>${bookings[i].regista_nome}</td>   
-                            <td>${bookings[i].regista_cognome}</td>  
-                            <td>${bookings[i].cast}</td>                                
+                            <td>${bookings[i].casa_produttrice_nome}</td>
+                            <td>${bookings[i].regista_nome}</td>
+                            <td>${bookings[i].regista_cognome}</td>
+                            <td>${bookings[i].cast}</td>
                             <td></td>
                             <td>${bookings[i].titolo}</td>
                             <td>${bookings[i].durata} minuti</td>
                             <td>${bookings[i].prezzo_giornaliero} €</td>
                             <td>${bookings[i].tipo}</td>
-                            <td>${bookings[i].numero_prenotazioni}</td> 
+                            <td>${bookings[i].numero_prenotazioni}</td>
                             <td class="${oMovieRelease.cssClass}">${oMovieRelease.value}</td>
                         </tr>`;
-    }	
+    }
     html += `       </tbody>
                 </table>`;
     bookingsTableContainer.html(html);
@@ -119,7 +134,7 @@ function attachCollapseRowEvent() {
     $('#BookingsTable tbody').on('click', 'td.more-details', function() {
         var tr = $(this).closest('tr');
         var row = bookingsDataTable.row(tr);
-    
+
         if (row.child.isShown()) {
             row.child.hide();
             tr.removeClass('shown');
@@ -156,7 +171,7 @@ function bookMovieAction(e, dt, node, config) {
         for(var i = 0; i < rows.length; i++) {
             if(rows[i].data_uscita.toLowerCase().indexOf("uscito") > -1) {
                 return false;
-            }        
+            }
         }
         return true;
     }
@@ -173,7 +188,7 @@ function bookMovieAction(e, dt, node, config) {
                 text: "Conferma prenotazione",
                 action: formClickDelegate
             }
-        }          
+        }
         modal = new Modal(modalOptions);
         modal.open();
         loadAndBuildBookingsTable(rows);
@@ -206,7 +221,7 @@ function buildBookingVideoForm() {
                     </div>
                     <label for="3" class="mt-2">Cliente che effettua la prenotazione</label>
                     <div><span id="BookMovieForm_user_not_found" class="errorSpan">Utente non trovato.</span></div>
-                    <div><span id="BookMovieForm_user_already_booked" class="errorSpan">L'utente selezionato ha già prenotato i film evidenziati in rosso.</span></div>
+                    <div><span id="BookMovieForm_user_already_booked" class="errorSpan">L'utente selezionato ha già prenotato i film evidenziati.</span></div>
                     <div id="BookMovieForm_id_cliente_container" class="row px-3 mt-2">
                         <input id="BookMovieForm_id_cliente" type="number" class="form-control col-sm-8" placeholder="Inserire la matricola del cliente" required>
                         <button class="btn btn-dark ml-3" type="button" onclick="findCustomerAndBookingsByCustomerId();">Cerca cliente</button>
@@ -220,9 +235,9 @@ function loadAndBuildBookingsTable(rows) {
     var html = ``;
     for(var i = 0; i < rows.length; i++) {
         html += `<tr class="BookMovieForm_row">
-                    <td id="BookMovieForm_id_film_${rows[i].id_film}" class="d-none BookMovieForm_id_film_class">${rows[i].id_film}</td>   
-                    <td>${rows[i].titolo}</td>                                                      
-                    <td>${rows[i].prezzo_giornaliero}</td>  
+                    <td id="BookMovieForm_id_film_${rows[i].id_film}" class="d-none BookMovieForm_id_film_class">${rows[i].id_film}</td>
+                    <td>${rows[i].titolo}</td>
+                    <td>${rows[i].prezzo_giornaliero}</td>
                     <td>${rows[i].data_uscita}</td>
                 </tr>`;
     }
@@ -234,7 +249,7 @@ function findCustomerAndBookingsByCustomerId() {
         var tdArray = $(".BookMovieForm_id_film_class");
         for(var i = 0; i < tdArray.length; i++) {
             $(tdArray[i]).parent().removeClass("alert alert-danger");
-        }        
+        }
         $("#BookMovieForm_user_not_found").hide();
         $("#BookMovieForm_user_already_booked").hide();
     }
@@ -294,7 +309,7 @@ function bookMovie() {
     var bookMovieSuccess = function(data) {
         if(data) {
             initBookingsTable();
-            modal.openSuccessModal();                  
+            modal.openSuccessModal();
         }
     }
 
@@ -313,7 +328,7 @@ function bookMovie() {
         }
     } else {
         return false;
-    } 
+    }
 }
 
 function getBookingsFromForm() {
@@ -326,7 +341,7 @@ function getBookingsFromForm() {
                 id_punto_vendita: sharedStorage.loginContext.punto_vendita_id_punto_vendita,
                 id_cliente: $("#BookMovieForm_id_cliente").val(),
                 id_film: $(`.BookMovieForm_id_film_class`)[i].innerText
-            }        
+            }
             bookings.push(booking);
         }
         catch(ex) {
@@ -339,45 +354,99 @@ function getBookingsFromForm() {
 
 /* GetActiveBookings Action */
 function getActiveBookingsAction(e, dt, node, config) {
-    var getActiveBookingsActionSuccess = function(data) {
-        if(data) {
-            var users = JSON.parse(data);
-            var body = buildUsersForBookingTable();
-            modalOptions = {
-                title: "Prenotazioni attive",
-                body: body
-            }          
-            modal = new Modal(modalOptions);
-            modal.open();
-            loadAndBuildBookingsTable(rows);
-        }
-    }
-
     var row = dt.rows({ selected: true }).data()[0];
     var booking = {
         id_film: row.id_film,
         id_punto_vendita: sharedStorage.loginContext.punto_vendita_id_punto_vendita
     }
     bookingsManagementService.getUsersForBooking(booking)
-        .done((data) => console.log(data))
+        .done(getActiveBookingsActionSuccess.bind(row))
         .fail(RestClient.redirectIfUnauthorized);
 }
 
-function buildUsersForBookingTable() {
-    var html = `<form class="form" onsubmit="bookMovie();return false;">
+function getActiveBookingsActionSuccess(data) {
+    data = JSON.parse(data);
+    if(data) {
+        var body = buildUsersForBookingTable(data[0].id_film);
+        modalOptions = {
+            title: `Prenotazioni attive: ${this.titolo}`,
+            body: body
+        }
+        modal = new Modal(modalOptions);
+        modal.open();
+        loadAndFillUsersForBookingsTable(data);
+        usersForBookingDataTable = $("#UsersForBookingTable").DataTable(usersForBookingDataTableOptions);
+    } else {
+        modalOptions = {
+            title: `Nessuna prenotazione trovata`,
+            body: "<span>Non è stata trovata nessuna prenotazione per il film selezionato.</span>"
+        }
+        modal = new Modal(modalOptions);
+        modal.open();
+    }
+}
+
+function buildUsersForBookingTable(id_film) {
+    var html = `<div>
                     <div id="UsersForBookingContainer">
                         <table class="table" id="UsersForBookingTable">
                             <thead>
-                                <th class="d-none">Id prenotazione</th>
-                                <th>Film</th>
+                                <th>Codice prenotazione</th>
+                                <th>Matricola cliente</th>
                                 <th>Nome</th>
                                 <th>Cognome</th>
                             </thead>
                             <tbody id="UsersForBookingTable_body"></tbody>
                         </table>
+                        <input id="UsersForBooking_id_film" type="hidden" value="${id_film}">
                     </div>
-                </form>`;
+                </div>`;
     return html;
+}
+
+function loadAndFillUsersForBookingsTable(rows) {
+    var html = ``;
+    for(var i = 0; i < rows.length; i++) {
+        html += `<tr class="UsersForBookingRow">
+                    <td id="UsersForBooking_id_prenotazione_${rows[i].id_prenotazione}" class="UsersForBooking_id_prenotazione_class">${rows[i].id_prenotazione}</td>
+                    <td id="UsersForBooking_id_cliente_${rows[i].id_cliente}" class="UsersForBooking_id_cliente_class">${rows[i].id_cliente}</td>
+                    <td>${rows[i].nome}</td>
+                    <td>${rows[i].cognome}</td>
+                </tr>`;
+    }
+    $("#UsersForBookingTable_body").html(html);
+}
+
+function deleteBookings(e, dt, node, config) {
+    var deleteBookingsSuccess = function(data) {
+        if(data) {
+            bookingsManagementService.getUsersForBooking(this)
+                .done(getActiveBookingsActionSuccess.bind(this))
+                .fail(RestClient.redirectIfUnauthorized);
+        }
+    }
+
+    var booking = {
+        id_film: $("#UsersForBooking_id_film").val(),
+        id_punto_vendita: sharedStorage.loginContext.punto_vendita_id_punto_vendita
+    }
+    var bookingsIdsArray = [];
+    var rows = dt.rows({selected: true}).data();
+    for(var i = 0; i < rows.length; i++) {
+        bookingsIdsArray.push(rows[i].id_prenotazione);
+    }
+    bookingsManagementService.deleteBookings(bookingsIdsArray)
+        .done(deleteBookingsSuccess.bind(booking))
+        .fail(RestClient.redirectIfUnauthorized);
+}
+
+function getBookingIds() {
+    var ids = $(".UsersForBooking_id_prenotazione_class");
+    var array = [];
+    for(var i = 0; i < ids.length; i++) {
+        array.push(ids[i].innerText);
+    }
+    return array;
 }
 
 /* Init */

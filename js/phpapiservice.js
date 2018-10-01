@@ -398,4 +398,13 @@ class BookingManagementService extends RestClient {
         }
         return super.execute();   
     }
+
+    deleteBookings(bookingsIds) {
+        bookingsIds = JSON.stringify(bookingsIds);
+        this.data = {
+            action: "deleteBookings",
+            bookingsIds: bookingsIds
+        }
+        return super.execute();  
+    }
 }
