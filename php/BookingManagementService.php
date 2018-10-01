@@ -18,7 +18,6 @@ class BookingManagementService {
         return $this->dbContext->ExecuteQuery($query);
     }
 
-    ////////////////////////////////////// RECUPERARE IL COUNT DELLE PRENOTAZIONI E RAGGRUPPARE PER FILM.
     function GetComingSoonMovies() {
         Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
         TokenGenerator::CheckPermissions(PermissionsConstants::ADDETTO, "delega_codice");
