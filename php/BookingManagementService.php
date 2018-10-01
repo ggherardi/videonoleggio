@@ -22,11 +22,12 @@ class BookingManagementService {
     function GetComingSoonMovies() {
         Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
         TokenGenerator::CheckPermissions(PermissionsConstants::ADDETTO, "delega_codice");
+        $id_punto_vendita = json_decode($_POST["id_punto_vendita"]);
         $maxDateToShowBookings = self::GetDateForBookingFilter();
         $query = 
             "SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero, fi.data_uscita,
                     ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
-                    COUNT(pr.id_prenotazione) as numero_prenotazioni
+                    COUNT(prenotazioni.id_prenotazione) as numero_prenotazioni
             FROM film fi        
             INNER JOIN genere ge
             ON fi.id_genere = ge.id_genere
@@ -34,17 +35,22 @@ class BookingManagementService {
             ON fi.id_casa_produttrice = cp.id_casa_produttrice
             INNER JOIN regista re
             ON fi.id_regista = re.id_regista
-            LEFT JOIN prenotazione pr
-            ON fi.id_film = pr.id_film             
+            LEFT JOIN (SELECT id_prenotazione, id_film 
+                        FROM prenotazione 
+                        WHERE id_punto_vendita = %d) as prenotazioni
+            ON fi.id_film = prenotazioni.id_film           
             WHERE fi.inUscita = 1
             OR fi.data_uscita > '%s'
             GROUP BY fi.id_film";
-        $query = sprintf($query, $maxDateToShowBookings);
+        $query = sprintf($query, $id_punto_vendita, $maxDateToShowBookings);
         Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
         $res = self::ExecuteQuery($query);
         $moviesArray = array();
         while($row = $res->fetch_assoc()){
             $moviesArray[] = $row;
+        }
+        if(count($moviesArray) < 1) {
+            return [];
         }
         usort($moviesArray, "SortByFilmId");        
         $query = 
@@ -94,7 +100,7 @@ class BookingManagementService {
         if(!$user) {
             return -1;
         }        
-        $bookings = self::GetBookingsForUser($filters->id_cliente, $filters->array_id_film);
+        $bookings = self::GetBookingsForUser($filters->id_cliente, $filters->id_punto_vendita, $filters->array_id_film);
         if(count($bookings) > 0) {
             return $bookings;
         }
@@ -117,11 +123,12 @@ class BookingManagementService {
         return $row;
     }
 
-    private function GetBookingsForUser($id_cliente, $moviesArray) {
+    private function GetBookingsForUser($id_cliente, $id_punto_vendita, $moviesArray) {
         $query = 
             "SELECT id_film
             FROM prenotazione pr        
             WHERE pr.id_cliente = %d
+            AND pr.id_punto_vendita = %d
             AND pr.id_film IN (%s)";
         $idsString = "";
         for($i = 0; $i < count($moviesArray); $i++) {            
@@ -129,7 +136,7 @@ class BookingManagementService {
         }
         $idsString = rtrim($idsString);
         $idsString = rtrim($idsString, ",");
-        $query = sprintf($query, $id_cliente, $idsString);
+        $query = sprintf($query, $id_cliente, $id_punto_vendita, $idsString);
         Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
         $res = self::ExecuteQuery($query);
         $bookingsArray = array();
@@ -137,6 +144,30 @@ class BookingManagementService {
             $bookingsArray[] = $row;
         }
         return $bookingsArray;
+    }
+
+    function GetUsersForBooking() {
+        Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
+        TokenGenerator::CheckPermissions(PermissionsConstants::ADDETTO, "delega_codice"); 
+        $booking = json_decode($_POST["booking"]);       
+        $query = 
+            "SELECT pr.id_prenotazione, cl.id_cliente, cl.nome, cl.cognome, fi.titolo
+            FROM prenotazione pr
+            INNER JOIN film fi
+            ON pr.id_film = fi.id_film
+            INNER JOIN cliente cl
+            ON pr.id_cliente = cl.id_cliente
+            WHERE pr.id_film = %d
+            AND pr.id_punto_vendita = %d";
+        $idsString = "";
+        $query = sprintf($query, $booking->id_film, $booking->id_punto_vendita);
+        Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
+        $res = self::ExecuteQuery($query);
+        $array = array();
+        while($row = $res->fetch_assoc()) {
+            $array[] = $row;
+        }
+        return $array;   
     }
 
     function BookMovies() {
@@ -180,6 +211,9 @@ class BookingManagementService {
                     break;
                 case "getCustomerBookingsAndId":
                     $res = self::GetCustomerBookingsAndId();
+                    break;
+                case "getUsersForBooking":
+                    $res = self::GetUsersForBooking();
                     break;
                 case "bookMovies":
                     $res = self::BookMovies();

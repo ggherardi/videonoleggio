@@ -39,7 +39,7 @@ var bookingsDataTableOptions = {
 function initBookingsTable() {
     var loader = new Loader(`#${bookingsTableContainer.attr("id")}`);
     loader.showLoader();
-    bookingsManagementService.getComingSoonMovies()
+    bookingsManagementService.getComingSoonMovies(sharedStorage.loginContext.punto_vendita_id_punto_vendita)
         .done(getComingSoonMoviesSuccess)
         .fail();
 }
@@ -162,8 +162,7 @@ function bookMovieAction(e, dt, node, config) {
     }
     var rows = dt.rows({ selected: true }).data();
     if(canBookMovies(rows)) {
-        var row = dt.rows({ selected: true }).data();    
-        var editModalBody = buildBookingVideoForm(row);
+        var editModalBody = buildBookingVideoForm();
         modalOptions = {
             title: "Prenota film",
             body: editModalBody,
@@ -177,7 +176,7 @@ function bookMovieAction(e, dt, node, config) {
         }          
         modal = new Modal(modalOptions);
         modal.open();
-        loadAndBuildBookingsTable(row);
+        loadAndBuildBookingsTable(rows);
     } else {
         var body = `<span>Sono stati selezionati uno o più film già usciti. Si prega di deselezionarli e riprovare.</span>`;
         modalOptions = {
@@ -257,6 +256,7 @@ function findCustomerAndBookingsByCustomerId() {
     resetForm();
     var filters = {
         id_cliente: $("#BookMovieForm_id_cliente").val(),
+        id_punto_vendita: sharedStorage.loginContext.punto_vendita_id_punto_vendita,
         array_id_film: []
     };
     $(".BookMovieForm_id_film_class").each((index, el) => filters.array_id_film.push(el.innerText));
@@ -338,8 +338,46 @@ function getBookingsFromForm() {
 }
 
 /* GetActiveBookings Action */
-function getActiveBookingsAction() {
+function getActiveBookingsAction(e, dt, node, config) {
+    var getActiveBookingsActionSuccess = function(data) {
+        if(data) {
+            var users = JSON.parse(data);
+            var body = buildUsersForBookingTable();
+            modalOptions = {
+                title: "Prenotazioni attive",
+                body: body
+            }          
+            modal = new Modal(modalOptions);
+            modal.open();
+            loadAndBuildBookingsTable(rows);
+        }
+    }
 
+    var row = dt.rows({ selected: true }).data()[0];
+    var booking = {
+        id_film: row.id_film,
+        id_punto_vendita: sharedStorage.loginContext.punto_vendita_id_punto_vendita
+    }
+    bookingsManagementService.getUsersForBooking(booking)
+        .done((data) => console.log(data))
+        .fail(RestClient.redirectIfUnauthorized);
+}
+
+function buildUsersForBookingTable() {
+    var html = `<form class="form" onsubmit="bookMovie();return false;">
+                    <div id="UsersForBookingContainer">
+                        <table class="table" id="UsersForBookingTable">
+                            <thead>
+                                <th class="d-none">Id prenotazione</th>
+                                <th>Film</th>
+                                <th>Nome</th>
+                                <th>Cognome</th>
+                            </thead>
+                            <tbody id="UsersForBookingTable_body"></tbody>
+                        </table>
+                    </div>
+                </form>`;
+    return html;
 }
 
 /* Init */

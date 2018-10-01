@@ -364,9 +364,10 @@ class BookingManagementService extends RestClient {
         this.endpoint = "php/BookingManagementService.php";
     }
 
-    getComingSoonMovies() {
+    getComingSoonMovies(id_punto_vendita) {
         this.data = {
-            action: "getComingSoonMovies"
+            action: "getComingSoonMovies",
+            id_punto_vendita: id_punto_vendita
         }
         return super.execute();        
     }
@@ -376,6 +377,15 @@ class BookingManagementService extends RestClient {
         this.data = {
             action: "getCustomerBookingsAndId",
             filters: filters
+        }
+        return super.execute();        
+    }
+
+    getUsersForBooking(booking) {
+        booking = JSON.stringify(booking);
+        this.data = {
+            action: "getUsersForBooking",
+            booking: booking
         }
         return super.execute();        
     }
