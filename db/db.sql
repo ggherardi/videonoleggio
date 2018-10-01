@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `videonoleggio` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `videonoleggio`;
--- MySQL dump 10.13  Distrib 5.5.61, for Win64 (AMD64)
+-- MySQL dump 10.13  Distrib 5.5.60, for Win64 (AMD64)
 --
 -- Host: localhost    Database: videonoleggio
 -- ------------------------------------------------------
--- Server version	5.5.61
+-- Server version	5.5.60
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -310,7 +310,7 @@ CREATE TABLE `film` (
 
 LOCK TABLES `film` WRITE;
 /*!40000 ALTER TABLE `film` DISABLE KEYS */;
-INSERT INTO `film` VALUES (1,1,1,1,'Le ali della libertà',142,5,0,NULL),(2,4,2,2,'Il padrino',175,5,0,NULL),(3,3,2,3,'Il cavaliere oscuro',152,8,0,NULL),(4,2,2,4,'Pulp fiction',154,6,1,'2018-10-10'),(5,5,1,9,'Schindler\'s List',195,5,1,'2018-10-01'),(12,6,4,5,'Il Signore degli Anelli - Il ritorno del re',201,8,0,'2018-09-27'),(14,6,4,5,'Il Signore degli Anelli - La compagnia dell\'Anello',178,8,0,NULL),(15,7,5,6,'Il buono, il brutto, il cattivo',161,5,0,NULL),(16,8,2,7,'La parola ai giurati',96,4.5,0,NULL);
+INSERT INTO `film` VALUES (1,1,1,1,'Le ali della libertà',142,5,0,NULL),(2,4,2,2,'Il padrino',175,5,0,NULL),(3,3,2,3,'Il cavaliere oscuro',152,8,0,NULL),(4,2,2,4,'Pulp fiction',154,6,1,'2018-10-10'),(5,5,1,9,'Schindler\'s List',195,5,1,'2018-10-03'),(12,6,4,5,'Il Signore degli Anelli - Il ritorno del re',201,8,1,'2018-09-27'),(14,6,4,5,'Il Signore degli Anelli - La compagnia dell\'Anello',178,8,0,NULL),(15,7,5,6,'Il buono, il brutto, il cattivo',161,5,0,NULL),(16,8,2,7,'La parola ai giurati',96,4.5,0,NULL);
 /*!40000 ALTER TABLE `film` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -454,7 +454,7 @@ CREATE TABLE `prenotazione` (
   CONSTRAINT `fk_prenotazione_dipendente` FOREIGN KEY (`id_dipendente`) REFERENCES `dipendente` (`id_dipendente`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_prenotazione_film` FOREIGN KEY (`id_film`) REFERENCES `film` (`id_film`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_prenotazione_punto_vendita` FOREIGN KEY (`id_punto_vendita`) REFERENCES `punto_vendita` (`id_punto_vendita`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -463,7 +463,7 @@ CREATE TABLE `prenotazione` (
 
 LOCK TABLES `prenotazione` WRITE;
 /*!40000 ALTER TABLE `prenotazione` DISABLE KEYS */;
-INSERT INTO `prenotazione` VALUES (11,38,2,1,4,NULL),(12,38,2,1,5,NULL);
+INSERT INTO `prenotazione` VALUES (11,38,2,1,4,1),(12,38,2,1,5,1),(14,39,1,1,4,2);
 /*!40000 ALTER TABLE `prenotazione` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -570,7 +570,7 @@ CREATE TABLE `stato_prenotazione` (
   `id_stato_prenotazione` int(11) NOT NULL AUTO_INCREMENT,
   `stato` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id_stato_prenotazione`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -579,6 +579,7 @@ CREATE TABLE `stato_prenotazione` (
 
 LOCK TABLES `stato_prenotazione` WRITE;
 /*!40000 ALTER TABLE `stato_prenotazione` DISABLE KEYS */;
+INSERT INTO `stato_prenotazione` VALUES (1,'10'),(2,'20');
 /*!40000 ALTER TABLE `stato_prenotazione` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -766,4 +767,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-01  1:08:18
+-- Dump completed on 2018-10-01 16:57:04

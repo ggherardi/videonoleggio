@@ -25,16 +25,20 @@ class BookingManagementService {
         $maxDateToShowBookings = self::GetDateForBookingFilter();
         $query = 
             "SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero, fi.data_uscita,
-                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    COUNT(pr.id_prenotazione) as numero_prenotazioni
             FROM film fi        
             INNER JOIN genere ge
             ON fi.id_genere = ge.id_genere
             INNER JOIN casa_produttrice cp
             ON fi.id_casa_produttrice = cp.id_casa_produttrice
             INNER JOIN regista re
-            ON fi.id_regista = re.id_regista            
+            ON fi.id_regista = re.id_regista
+            LEFT JOIN prenotazione pr
+            ON fi.id_film = pr.id_film             
             WHERE fi.inUscita = 1
-            OR fi.data_uscita > '%s'";
+            OR fi.data_uscita > '%s'
+            GROUP BY fi.id_film";
         $query = sprintf($query, $maxDateToShowBookings);
         Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
         $res = self::ExecuteQuery($query);

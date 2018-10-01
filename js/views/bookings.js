@@ -22,6 +22,7 @@ var bookingsDataTableOptions = {
         { data: "durata" },
         { data: "prezzo_giornaliero" },
         { data: "tipo" },
+        { data: "numero_prenotazioni" },
         { data: "data_uscita" },
     ],
     columnDefs: [{
@@ -62,7 +63,8 @@ function getComingSoonMoviesSuccess(data) {
                             <td>${bookings[i].titolo}</td>
                             <td>${bookings[i].durata} minuti</td>
                             <td>${bookings[i].prezzo_giornaliero} €</td>
-                            <td>${bookings[i].tipo}</td> 
+                            <td>${bookings[i].tipo}</td>
+                            <td>${bookings[i].numero_prenotazioni}</td> 
                             <td class="${oMovieRelease.cssClass}">${oMovieRelease.value}</td>
                         </tr>`;
     }	
@@ -83,6 +85,7 @@ function buildBookingsTableHead() {
                         <th scope="col">Durata</th>
                         <th scope="col">Prezzo/giorno</th>
                         <th scope="col">Genere</th>
+                        <th scope="col">Prenotazioni</th>
                         <th scope="col">Data uscita</th>
                     </tr>
                 </thead>`;
