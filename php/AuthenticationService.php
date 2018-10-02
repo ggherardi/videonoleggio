@@ -48,8 +48,8 @@ class AuthenticationService {
                 $loginContext = new LoginContext($row);
                 Logger::Write(sprintf("User %s validated, starting token generation.", $loginContext->username), $GLOBALS["CorrelationID"]);       
                 self::SetAuthenticationCookie($loginContext);
-                exit(json_encode($loginContext));
                 Logger::Write("User $this->username succesfully logged in.", $GLOBALS["CorrelationID"]);
+                exit(json_encode($loginContext));
             }
             else{
                 http_response_code(401);                
@@ -70,7 +70,6 @@ class AuthenticationService {
 
     public function Logout() {
         $user = json_decode(TokenGenerator::ValidateToken());
-        Logger::Write(sprintf("%s", json_encode($user)), $GLOBALS["CorrelationID"]);
         Logger::Write(sprintf("User %s logging out.", $user->username), $GLOBALS["CorrelationID"]);
         setcookie(self::$authCookieName, "", time() - 1, "/", "", false, true);
     }

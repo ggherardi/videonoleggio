@@ -16,7 +16,7 @@ function login(sender) {
 
 function loginSuccess(data) {
     sharedStorage.loginContext = JSON.parse(data);
-    // cookiesManager.setEncodedCookie(authenticationManager.loginContext, sharedStorage.loginContext, 10);
+    sharedStorage.loginContext.isAdmin = sharedStorage.loginContext.delega_codice >= 30;
     $("#LoginForm").remove();
     initHomepage();
 }

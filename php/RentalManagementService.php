@@ -48,7 +48,7 @@ class RentalManagementService {
         while($row = $res->fetch_assoc()){
             $videosArray[] = $row;
         }
-        usort($videosArray, "SortByFilmId");        
+        usort($videosArray, array($this, "SortByFilmId"));        
         $query = 
             "SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
             FROM cast ca

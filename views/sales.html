@@ -1,3 +1,23 @@
-<div>Scelta data</div>
+<!-- <div>Scelta data</div>
 <table>Punti vendita</table><td>città, nome, guadagno nel range di date</td>
-<button>Pulsante che mostra quanto hanno guadagnato quei dipendenti in quel range di date</button>
+<button>Pulsante che mostra quanto hanno guadagnato quei dipendenti in quel range di date</button> -->
+<div class="main_title_container d-flex flex-column align-items-start justify-content-end">
+    <div class="main_subtitle">Prenotazioni film in uscita</div>					
+</div>
+<div class="main_content_scroll mCustomScrollbar">                    
+    <span>Selezionare un range di date per visualizzare l'incasso del punto vendita. Espandendo la tabella, si visualizzano gli incassi dei singoli dipendenti.</span><br>
+</div>
+<br>
+<form>
+    <div class="row" style="width:50%">
+        <span class="col-sm-6">Data iniziale</span>
+        <span class="col-sm-6">Data finale</span>
+    </div>
+    <div class="row" style="width:50%">
+        <input id="inputSalesStartDate" class="form-control col-sm-6" type="date">
+        <input id="inputSalesEndDate" class="form-control col-sm-6" type="date">
+    </div>    
+    <button type="submit" onclick="" class="d-none"></button>
+</form>
+<br>
+<div id="SalesTableContainer" class="mt-5"></div>

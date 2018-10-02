@@ -408,3 +408,19 @@ class BookingManagementService extends RestClient {
         return super.execute();  
     }
 }
+
+class SalesManagementService extends RestClient {
+    constructor() {
+        super();
+        this.endpoint = "php/SalesManagementService.php";
+    }
+
+    getStoresAndSales(filters) {
+        filters = JSON.stringify(filters);
+        this.data = {
+            action: "getStoresAndSales",
+            filters: filters
+        }
+        return super.execute();        
+    }
+}

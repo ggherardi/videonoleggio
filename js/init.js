@@ -100,6 +100,7 @@ function initHomepage(loginContext) {
 function initUser(loginContext) {
     if(!sharedStorage.loginContext) {
         sharedStorage.loginContext = loginContext;
+        sharedStorage.loginContext.isAdmin = sharedStorage.loginContext.delega_codice >= 30;
     }
 }
 
@@ -143,7 +144,16 @@ function formatDateFromString(dateString) {
     return `${day < 10 ? `0${day}` : day}-${month < 10 ? `0${month}` : month}-${year}`;
 }
 
+function formatDateGenericToday() {
+    var today = new Date();
+    var day = today.getDate();
+    var month = today.getMonth() + 1;
+    var year = today.getFullYear();
+    return `${year}-${month < 10 ? `0${month}` : month}-${day < 10 ? `0${day}` : day}`;
+}
+
 function switchDateDigitsPosition(dateString) {
+    dateString = dateString.replace(/\//g, "-");
     var arr = dateString.split("-");
     var newDateString = `${arr[2]}-${arr[1]}-${arr[0]}`;
     return newDateString;

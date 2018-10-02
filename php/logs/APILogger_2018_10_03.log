@@ -1,0 +1,438 @@
+[2018-10-03 00:39:18] - corrId_5bb3f396b5ec36.28462939 - Reached AuthenticationService API 
+[2018-10-03 00:39:18] - corrId_5bb3f396b5ec36.28462939 - Token is valid 
+[2018-10-03 00:43:30] - corrId_5bb3f492e9c834.19621264 - Reached AuthenticationService API 
+[2018-10-03 00:43:30] - corrId_5bb3f492e9c834.19621264 - Token is valid 
+[2018-10-03 00:43:45] - corrId_5bb3f4a1e03fa1.62207134 - Reached StorageManagementService API 
+[2018-10-03 00:43:45] - corrId_5bb3f4a1e03fa1.62207134 - Processing GetVideosInStorage request. 
+[2018-10-03 00:43:45] - corrId_5bb3f4a1e03fa1.62207134 - Token is valid 
+[2018-10-03 00:43:45] - corrId_5bb3f4a1e03fa1.62207134 - Validated permissions for user admin (required 10, has 30) 
+[2018-10-03 00:43:45] - corrId_5bb3f4a1e03fa1.62207134 - Query: SELECT co.id_copia, co.data_scarico, co.danneggiato, co.noleggiato, fi.id_film, fi.titolo, fo.nome
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN fornitore fo
+            ON co.id_fornitore = fo.id_fornitore
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0 
+[2018-10-03 00:43:45] - corrId_5bb3f4a1e03fa1.62207134 - Establishing connection to DB 
+[2018-10-03 00:43:45] - corrId_5bb3f4a1e03fa1.62207134 - Executing query 
+[2018-10-03 00:43:45] - corrId_5bb3f4a1e03fa1.62207134 - Query executed successfully 
+[2018-10-03 00:45:22] - corrId_5bb3f5024ca7d0.01607778 - Reached AuthenticationService API 
+[2018-10-03 00:45:22] - corrId_5bb3f5024ca7d0.01607778 - Token is valid 
+[2018-10-03 00:46:27] - corrId_5bb3f543414888.53841224 - Reached AuthenticationService API 
+[2018-10-03 00:46:27] - corrId_5bb3f543414888.53841224 - Token is valid 
+[2018-10-03 00:46:59] - corrId_5bb3f563445c36.85150235 - Reached StorageManagementService API 
+[2018-10-03 00:46:59] - corrId_5bb3f563445c36.85150235 - Processing GetVideosInStorage request. 
+[2018-10-03 00:46:59] - corrId_5bb3f563445c36.85150235 - Token is valid 
+[2018-10-03 00:46:59] - corrId_5bb3f563445c36.85150235 - Validated permissions for user admin (required 10, has 30) 
+[2018-10-03 00:46:59] - corrId_5bb3f563445c36.85150235 - Query: SELECT co.id_copia, co.data_scarico, co.danneggiato, co.noleggiato, fi.id_film, fi.titolo, fo.nome
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN fornitore fo
+            ON co.id_fornitore = fo.id_fornitore
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0 
+[2018-10-03 00:46:59] - corrId_5bb3f563445c36.85150235 - Establishing connection to DB 
+[2018-10-03 00:46:59] - corrId_5bb3f563445c36.85150235 - Executing query 
+[2018-10-03 00:46:59] - corrId_5bb3f563445c36.85150235 - Query executed successfully 
+[2018-10-03 00:47:21] - corrId_5bb3f57938e6c0.41215761 - Reached AuthenticationService API 
+[2018-10-03 00:47:21] - corrId_5bb3f57938e6c0.41215761 - Token is valid 
+[2018-10-03 00:47:39] - corrId_5bb3f58b722305.43981068 - Reached AuthenticationService API 
+[2018-10-03 00:47:39] - corrId_5bb3f58b722305.43981068 - Token is valid 
+[2018-10-03 00:47:39] - corrId_5bb3f58bc7a252.50154810 - Reached SalesManagementService API 
+[2018-10-03 00:47:39] - corrId_5bb3f58bc7a252.50154810 - Establishing connection to DB 
+[2018-10-03 00:47:39] - corrId_5bb3f58bc7a252.50154810 - Processing GetStoresAndSales request. 
+[2018-10-03 00:47:39] - corrId_5bb3f58bc7a252.50154810 - Token is valid 
+[2018-10-03 00:47:39] - corrId_5bb3f58bc7a252.50154810 - Validated permissions for user admin (required 10, has 30) 
+[2018-10-03 00:47:39] - corrId_5bb3f58bc7a252.50154810 - Query: SELECT pv.id_punto_vendita, pv.nome, pv.indirizzo, ci.nome, SUM(no.prezzo_totale)
+            FROM punto_vendita pv
+            INNER JOIN citta ci
+            ON pv.id_citta = ci.id_citta 
+            INNER JOIN noleggio no
+            ON no.id_punto_vendita = pv.id_punto_vendita
+            WHERE no.data_inizio >= ''
+            AND no.data_fine <= ' 23:59'
+             
+[2018-10-03 00:47:39] - corrId_5bb3f58bc7a252.50154810 - Executing query 
+[2018-10-03 00:47:39] - corrId_5bb3f58bc7a252.50154810 - Query executed successfully 
+[2018-10-03 00:47:39] - corrId_5bb3f58bc7a252.50154810 - Opreation getStoresAndSales was successful. 
+[2018-10-03 00:54:00] - corrId_5bb3f708e30626.86476307 - Reached AuthenticationService API 
+[2018-10-03 00:54:00] - corrId_5bb3f708e30626.86476307 - Token is valid 
+[2018-10-03 00:54:01] - corrId_5bb3f709968853.54760425 - Reached SalesManagementService API 
+[2018-10-03 00:54:01] - corrId_5bb3f709968853.54760425 - Establishing connection to DB 
+[2018-10-03 00:54:01] - corrId_5bb3f709968853.54760425 - Processing GetStoresAndSales request. 
+[2018-10-03 00:54:01] - corrId_5bb3f709968853.54760425 - Token is valid 
+[2018-10-03 00:54:01] - corrId_5bb3f709968853.54760425 - Validated permissions for user admin (required 10, has 30) 
+[2018-10-03 00:54:01] - corrId_5bb3f709968853.54760425 - Query: SELECT pv.id_punto_vendita, pv.nome, pv.indirizzo, ci.nome as citta_nome, SUM(no.prezzo_totale) as incasso_giornaliero
+            FROM punto_vendita pv
+            INNER JOIN citta ci
+            ON pv.id_citta = ci.id_citta 
+            INNER JOIN noleggio no
+            ON no.id_punto_vendita = pv.id_punto_vendita
+            WHERE no.data_inizio >= ''
+            AND no.data_inizio <= ' 23:59'
+             
+[2018-10-03 00:54:01] - corrId_5bb3f709968853.54760425 - Executing query 
+[2018-10-03 00:54:01] - corrId_5bb3f709968853.54760425 - Query executed successfully 
+[2018-10-03 00:54:01] - corrId_5bb3f709968853.54760425 - Opreation getStoresAndSales was successful. 
+[2018-10-03 00:55:03] - corrId_5bb3f7471afb61.61450100 - Reached StorageManagementService API 
+[2018-10-03 00:55:03] - corrId_5bb3f7471afb61.61450100 - Processing GetVideosInStorage request. 
+[2018-10-03 00:55:03] - corrId_5bb3f7471afb61.61450100 - Token is valid 
+[2018-10-03 00:55:03] - corrId_5bb3f7471afb61.61450100 - Validated permissions for user admin (required 10, has 30) 
+[2018-10-03 00:55:03] - corrId_5bb3f7471afb61.61450100 - Query: SELECT co.id_copia, co.data_scarico, co.danneggiato, co.noleggiato, fi.id_film, fi.titolo, fo.nome
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN fornitore fo
+            ON co.id_fornitore = fo.id_fornitore
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0 
+[2018-10-03 00:55:03] - corrId_5bb3f7471afb61.61450100 - Establishing connection to DB 
+[2018-10-03 00:55:03] - corrId_5bb3f7471afb61.61450100 - Executing query 
+[2018-10-03 00:55:03] - corrId_5bb3f7471afb61.61450100 - Query executed successfully 
+[2018-10-03 00:55:03] - corrId_5bb3f7474d9ce3.57994570 - Reached SalesManagementService API 
+[2018-10-03 00:55:03] - corrId_5bb3f7474d9ce3.57994570 - Establishing connection to DB 
+[2018-10-03 00:55:03] - corrId_5bb3f7474d9ce3.57994570 - Processing GetStoresAndSales request. 
+[2018-10-03 00:55:03] - corrId_5bb3f7474d9ce3.57994570 - Token is valid 
+[2018-10-03 00:55:03] - corrId_5bb3f7474d9ce3.57994570 - Validated permissions for user admin (required 10, has 30) 
+[2018-10-03 00:55:03] - corrId_5bb3f7474d9ce3.57994570 - Query: SELECT pv.id_punto_vendita, pv.nome, pv.indirizzo, ci.nome as citta_nome, SUM(no.prezzo_totale) as incasso_giornaliero
+            FROM punto_vendita pv
+            INNER JOIN citta ci
+            ON pv.id_citta = ci.id_citta 
+            INNER JOIN noleggio no
+            ON no.id_punto_vendita = pv.id_punto_vendita
+            WHERE no.data_inizio >= ''
+            AND no.data_inizio <= ' 23:59'
+             
+[2018-10-03 00:55:03] - corrId_5bb3f7474d9ce3.57994570 - Executing query 
+[2018-10-03 00:55:03] - corrId_5bb3f7474d9ce3.57994570 - Query executed successfully 
+[2018-10-03 00:55:03] - corrId_5bb3f7474d9ce3.57994570 - ARRAY: Array 
+[2018-10-03 00:55:03] - corrId_5bb3f7474d9ce3.57994570 - Opreation getStoresAndSales was successful. 
+[2018-10-03 01:03:27] - corrId_5bb3f93f05d0b7.40768630 - Reached StorageManagementService API 
+[2018-10-03 01:03:27] - corrId_5bb3f93f05d0b7.40768630 - Processing GetVideosInStorage request. 
+[2018-10-03 01:03:27] - corrId_5bb3f93f05d0b7.40768630 - Token is valid 
+[2018-10-03 01:03:27] - corrId_5bb3f93f05d0b7.40768630 - Validated permissions for user admin (required 10, has 30) 
+[2018-10-03 01:03:27] - corrId_5bb3f93f05d0b7.40768630 - Query: SELECT co.id_copia, co.data_scarico, co.danneggiato, co.noleggiato, fi.id_film, fi.titolo, fo.nome
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN fornitore fo
+            ON co.id_fornitore = fo.id_fornitore
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0 
+[2018-10-03 01:03:27] - corrId_5bb3f93f05d0b7.40768630 - Establishing connection to DB 
+[2018-10-03 01:03:27] - corrId_5bb3f93f05d0b7.40768630 - Executing query 
+[2018-10-03 01:03:27] - corrId_5bb3f93f05d0b7.40768630 - Query executed successfully 
+[2018-10-03 01:03:27] - corrId_5bb3f93f45d5b7.59876802 - Reached SalesManagementService API 
+[2018-10-03 01:03:27] - corrId_5bb3f93f45d5b7.59876802 - Establishing connection to DB 
+[2018-10-03 01:03:27] - corrId_5bb3f93f45d5b7.59876802 - Processing GetStoresAndSales request. 
+[2018-10-03 01:03:27] - corrId_5bb3f93f45d5b7.59876802 - Token is valid 
+[2018-10-03 01:03:27] - corrId_5bb3f93f45d5b7.59876802 - Validated permissions for user admin (required 10, has 30) 
+[2018-10-03 01:03:27] - corrId_5bb3f93f45d5b7.59876802 - Query: SELECT pv.id_punto_vendita, pv.nome, pv.indirizzo, ci.nome as citta_nome, SUM(no.prezzo_totale) as incasso_giornaliero
+            FROM punto_vendita pv
+            INNER JOIN citta ci
+            ON pv.id_citta = ci.id_citta 
+            INNER JOIN noleggio no
+            ON no.id_punto_vendita = pv.id_punto_vendita
+            WHERE no.data_inizio >= ''
+            AND no.data_inizio <= ' 23:59'
+             
+[2018-10-03 01:03:27] - corrId_5bb3f93f45d5b7.59876802 - Executing query 
+[2018-10-03 01:03:27] - corrId_5bb3f93f45d5b7.59876802 - Query executed successfully 
+[2018-10-03 01:03:27] - corrId_5bb3f93f45d5b7.59876802 - ARRAY: 1 
+[2018-10-03 01:03:27] - corrId_5bb3f93f45d5b7.59876802 - Opreation getStoresAndSales was successful. 
+[2018-10-03 01:05:57] - corrId_5bb3f9d55fa918.40669058 - Reached StorageManagementService API 
+[2018-10-03 01:05:57] - corrId_5bb3f9d55fa918.40669058 - Processing GetVideosInStorage request. 
+[2018-10-03 01:05:57] - corrId_5bb3f9d55fa918.40669058 - Token is valid 
+[2018-10-03 01:05:57] - corrId_5bb3f9d55fa918.40669058 - Validated permissions for user admin (required 10, has 30) 
+[2018-10-03 01:05:57] - corrId_5bb3f9d55fa918.40669058 - Query: SELECT co.id_copia, co.data_scarico, co.danneggiato, co.noleggiato, fi.id_film, fi.titolo, fo.nome
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN fornitore fo
+            ON co.id_fornitore = fo.id_fornitore
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0 
+[2018-10-03 01:05:57] - corrId_5bb3f9d55fa918.40669058 - Establishing connection to DB 
+[2018-10-03 01:05:57] - corrId_5bb3f9d55fa918.40669058 - Executing query 
+[2018-10-03 01:05:57] - corrId_5bb3f9d55fa918.40669058 - Query executed successfully 
+[2018-10-03 01:05:59] - corrId_5bb3f9d71f5e40.10986470 - Reached AuthenticationService API 
+[2018-10-03 01:05:59] - corrId_5bb3f9d71f5e40.10986470 - Token is valid 
+[2018-10-03 01:05:59] - corrId_5bb3f9d7efa239.25526138 - Reached SalesManagementService API 
+[2018-10-03 01:05:59] - corrId_5bb3f9d7efa239.25526138 - Establishing connection to DB 
+[2018-10-03 01:05:59] - corrId_5bb3f9d7efa239.25526138 - Processing GetStoresAndSales request. 
+[2018-10-03 01:05:59] - corrId_5bb3f9d7efa239.25526138 - Token is valid 
+[2018-10-03 01:05:59] - corrId_5bb3f9d7efa239.25526138 - Validated permissions for user admin (required 10, has 30) 
+[2018-10-03 01:05:59] - corrId_5bb3f9d7efa239.25526138 - Query: SELECT pv.id_punto_vendita, pv.nome, pv.indirizzo, ci.nome as citta_nome, SUM(no.prezzo_totale) as incasso_giornaliero
+            FROM punto_vendita pv
+            INNER JOIN citta ci
+            ON pv.id_citta = ci.id_citta 
+            INNER JOIN noleggio no
+            ON no.id_punto_vendita = pv.id_punto_vendita
+            WHERE no.data_inizio >= ''
+            AND no.data_inizio <= ' 23:59'
+             
+[2018-10-03 01:05:59] - corrId_5bb3f9d7efa239.25526138 - Executing query 
+[2018-10-03 01:06:00] - corrId_5bb3f9d7efa239.25526138 - Query executed successfully 
+[2018-10-03 01:06:00] - corrId_5bb3f9d7efa239.25526138 - ARRAY: 1 
+[2018-10-03 01:06:00] - corrId_5bb3f9d7efa239.25526138 - Opreation getStoresAndSales was successful. 
+[2018-10-03 01:06:17] - corrId_5bb3f9e9ef1e70.42333929 - Reached StorageManagementService API 
+[2018-10-03 01:06:17] - corrId_5bb3f9e9ef1e70.42333929 - Processing GetVideosInStorage request. 
+[2018-10-03 01:06:17] - corrId_5bb3f9e9ef1e70.42333929 - Token is valid 
+[2018-10-03 01:06:17] - corrId_5bb3f9e9ef1e70.42333929 - Validated permissions for user admin (required 10, has 30) 
+[2018-10-03 01:06:17] - corrId_5bb3f9e9ef1e70.42333929 - Query: SELECT co.id_copia, co.data_scarico, co.danneggiato, co.noleggiato, fi.id_film, fi.titolo, fo.nome
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN fornitore fo
+            ON co.id_fornitore = fo.id_fornitore
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0 
+[2018-10-03 01:06:17] - corrId_5bb3f9e9ef1e70.42333929 - Establishing connection to DB 
+[2018-10-03 01:06:17] - corrId_5bb3f9e9ef1e70.42333929 - Executing query 
+[2018-10-03 01:06:17] - corrId_5bb3f9e9ef1e70.42333929 - Query executed successfully 
+[2018-10-03 01:06:35] - corrId_5bb3f9fb7e2355.69443543 - Reached SalesManagementService API 
+[2018-10-03 01:06:35] - corrId_5bb3f9fb7e2355.69443543 - Establishing connection to DB 
+[2018-10-03 01:06:35] - corrId_5bb3f9fb7e2355.69443543 - Processing GetStoresAndSales request. 
+[2018-10-03 01:06:35] - corrId_5bb3f9fb7e2355.69443543 - Token is valid 
+[2018-10-03 01:06:35] - corrId_5bb3f9fb7e2355.69443543 - Validated permissions for user admin (required 10, has 30) 
+[2018-10-03 01:06:35] - corrId_5bb3f9fb7e2355.69443543 - Query: SELECT pv.id_punto_vendita, pv.nome, pv.indirizzo, ci.nome as citta_nome, SUM(no.prezzo_totale) as incasso_giornaliero
+            FROM punto_vendita pv
+            INNER JOIN citta ci
+            ON pv.id_citta = ci.id_citta 
+            INNER JOIN noleggio no
+            ON no.id_punto_vendita = pv.id_punto_vendita
+            WHERE no.data_inizio >= ''
+            AND no.data_inizio <= ' 23:59'
+             
+[2018-10-03 01:06:35] - corrId_5bb3f9fb7e2355.69443543 - Executing query 
+[2018-10-03 01:06:35] - corrId_5bb3f9fb7e2355.69443543 - Query executed successfully 
+[2018-10-03 01:06:35] - corrId_5bb3f9fb7e2355.69443543 - ARRAY: 1 
+[2018-10-03 01:06:35] - corrId_5bb3f9fb7e2355.69443543 - Opreation getStoresAndSales was successful. 
+[2018-10-03 01:07:33] - corrId_5bb3fa354175e2.22010123 - Reached StorageManagementService API 
+[2018-10-03 01:07:33] - corrId_5bb3fa354175e2.22010123 - Processing GetVideosInStorage request. 
+[2018-10-03 01:07:33] - corrId_5bb3fa354175e2.22010123 - Token is valid 
+[2018-10-03 01:07:33] - corrId_5bb3fa354175e2.22010123 - Validated permissions for user admin (required 10, has 30) 
+[2018-10-03 01:07:33] - corrId_5bb3fa354175e2.22010123 - Query: SELECT co.id_copia, co.data_scarico, co.danneggiato, co.noleggiato, fi.id_film, fi.titolo, fo.nome
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN fornitore fo
+            ON co.id_fornitore = fo.id_fornitore
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0 
+[2018-10-03 01:07:33] - corrId_5bb3fa354175e2.22010123 - Establishing connection to DB 
+[2018-10-03 01:07:33] - corrId_5bb3fa354175e2.22010123 - Executing query 
+[2018-10-03 01:07:33] - corrId_5bb3fa354175e2.22010123 - Query executed successfully 
+[2018-10-03 01:07:33] - corrId_5bb3fa35a86038.44522560 - Reached SalesManagementService API 
+[2018-10-03 01:07:33] - corrId_5bb3fa35a86038.44522560 - Establishing connection to DB 
+[2018-10-03 01:07:33] - corrId_5bb3fa35a86038.44522560 - Processing GetStoresAndSales request. 
+[2018-10-03 01:07:33] - corrId_5bb3fa35a86038.44522560 - Token is valid 
+[2018-10-03 01:07:33] - corrId_5bb3fa35a86038.44522560 - Validated permissions for user admin (required 10, has 30) 
+[2018-10-03 01:07:33] - corrId_5bb3fa35a86038.44522560 - DATE: 0 
+[2018-10-03 01:07:33] - corrId_5bb3fa35a86038.44522560 - Query: SELECT pv.id_punto_vendita, pv.nome, pv.indirizzo, ci.nome as citta_nome, SUM(no.prezzo_totale) as incasso_giornaliero
+            FROM punto_vendita pv
+            INNER JOIN citta ci
+            ON pv.id_citta = ci.id_citta 
+            INNER JOIN noleggio no
+            ON no.id_punto_vendita = pv.id_punto_vendita
+            WHERE no.data_inizio >= ''
+            AND no.data_inizio <= ' 23:59'
+             
+[2018-10-03 01:07:33] - corrId_5bb3fa35a86038.44522560 - Executing query 
+[2018-10-03 01:07:33] - corrId_5bb3fa35a86038.44522560 - Query executed successfully 
+[2018-10-03 01:07:33] - corrId_5bb3fa35a86038.44522560 - Opreation getStoresAndSales was successful. 
+[2018-10-03 01:07:53] - corrId_5bb3fa490ae909.76766040 - Reached AuthenticationService API 
+[2018-10-03 01:07:53] - corrId_5bb3fa490ae909.76766040 - Token is valid 
+[2018-10-03 01:07:53] - corrId_5bb3fa49575e68.43717336 - Reached StorageManagementService API 
+[2018-10-03 01:07:53] - corrId_5bb3fa49575e68.43717336 - Processing GetVideosInStorage request. 
+[2018-10-03 01:07:53] - corrId_5bb3fa49575e68.43717336 - Token is valid 
+[2018-10-03 01:07:53] - corrId_5bb3fa49575e68.43717336 - Validated permissions for user admin (required 10, has 30) 
+[2018-10-03 01:07:53] - corrId_5bb3fa49575e68.43717336 - Query: SELECT co.id_copia, co.data_scarico, co.danneggiato, co.noleggiato, fi.id_film, fi.titolo, fo.nome
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN fornitore fo
+            ON co.id_fornitore = fo.id_fornitore
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0 
+[2018-10-03 01:07:53] - corrId_5bb3fa49575e68.43717336 - Establishing connection to DB 
+[2018-10-03 01:07:53] - corrId_5bb3fa49575e68.43717336 - Executing query 
+[2018-10-03 01:07:53] - corrId_5bb3fa49575e68.43717336 - Query executed successfully 
+[2018-10-03 01:07:53] - corrId_5bb3fa49c9ae90.61426169 - Reached SalesManagementService API 
+[2018-10-03 01:07:53] - corrId_5bb3fa49c9ae90.61426169 - Establishing connection to DB 
+[2018-10-03 01:07:53] - corrId_5bb3fa49c9ae90.61426169 - Processing GetStoresAndSales request. 
+[2018-10-03 01:07:53] - corrId_5bb3fa49c9ae90.61426169 - Token is valid 
+[2018-10-03 01:07:53] - corrId_5bb3fa49c9ae90.61426169 - Validated permissions for user admin (required 10, has 30) 
+[2018-10-03 01:07:53] - corrId_5bb3fa49c9ae90.61426169 - DATE: 1 
+[2018-10-03 01:07:53] - corrId_5bb3fa49c9ae90.61426169 - Query: SELECT pv.id_punto_vendita, pv.nome, pv.indirizzo, ci.nome as citta_nome, SUM(no.prezzo_totale) as incasso_giornaliero
+            FROM punto_vendita pv
+            INNER JOIN citta ci
+            ON pv.id_citta = ci.id_citta 
+            INNER JOIN noleggio no
+            ON no.id_punto_vendita = pv.id_punto_vendita
+            WHERE no.data_inizio >= '2018-03-10'
+            AND no.data_inizio <= '2018-03-10 23:59'
+             
+[2018-10-03 01:07:53] - corrId_5bb3fa49c9ae90.61426169 - Executing query 
+[2018-10-03 01:07:53] - corrId_5bb3fa49c9ae90.61426169 - Query executed successfully 
+[2018-10-03 01:07:53] - corrId_5bb3fa49c9ae90.61426169 - Opreation getStoresAndSales was successful. 
+[2018-10-03 01:09:12] - corrId_5bb3fa98105f85.69446840 - Reached StorageManagementService API 
+[2018-10-03 01:09:12] - corrId_5bb3fa98105f85.69446840 - Processing GetVideosInStorage request. 
+[2018-10-03 01:09:12] - corrId_5bb3fa98105f85.69446840 - Token is valid 
+[2018-10-03 01:09:12] - corrId_5bb3fa98105f85.69446840 - Validated permissions for user admin (required 10, has 30) 
+[2018-10-03 01:09:12] - corrId_5bb3fa98105f85.69446840 - Query: SELECT co.id_copia, co.data_scarico, co.danneggiato, co.noleggiato, fi.id_film, fi.titolo, fo.nome
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN fornitore fo
+            ON co.id_fornitore = fo.id_fornitore
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0 
+[2018-10-03 01:09:12] - corrId_5bb3fa98105f85.69446840 - Establishing connection to DB 
+[2018-10-03 01:09:12] - corrId_5bb3fa98105f85.69446840 - Executing query 
+[2018-10-03 01:09:12] - corrId_5bb3fa98105f85.69446840 - Query executed successfully 
+[2018-10-03 01:09:39] - corrId_5bb3fab30881b0.14952335 - Reached SalesManagementService API 
+[2018-10-03 01:09:39] - corrId_5bb3fab30881b0.14952335 - Establishing connection to DB 
+[2018-10-03 01:09:39] - corrId_5bb3fab30881b0.14952335 - Processing GetStoresAndSales request. 
+[2018-10-03 01:09:39] - corrId_5bb3fab30881b0.14952335 - Token is valid 
+[2018-10-03 01:09:39] - corrId_5bb3fab30881b0.14952335 - Validated permissions for user admin (required 10, has 30) 
+[2018-10-03 01:09:39] - corrId_5bb3fab30881b0.14952335 - DATE: 1 
+[2018-10-03 01:09:39] - corrId_5bb3fab30881b0.14952335 - Query: SELECT pv.id_punto_vendita, pv.nome, pv.indirizzo, ci.nome as citta_nome, SUM(no.prezzo_totale) as incasso_giornaliero
+            FROM punto_vendita pv
+            INNER JOIN citta ci
+            ON pv.id_citta = ci.id_citta 
+            INNER JOIN noleggio no
+            ON no.id_punto_vendita = pv.id_punto_vendita
+            WHERE no.data_inizio >= '2018-03-10'
+            AND no.data_inizio <= '2018-03-10 23:59'
+             
+[2018-10-03 01:09:39] - corrId_5bb3fab30881b0.14952335 - Executing query 
+[2018-10-03 01:09:39] - corrId_5bb3fab30881b0.14952335 - Query executed successfully 
+[2018-10-03 01:09:39] - corrId_5bb3fab30881b0.14952335 - Opreation getStoresAndSales was successful. 
+[2018-10-03 01:11:16] - corrId_5bb3fb1416ffc9.86955166 - Reached AuthenticationService API 
+[2018-10-03 01:11:16] - corrId_5bb3fb1416ffc9.86955166 - Token is valid 
+[2018-10-03 01:11:17] - corrId_5bb3fb15e34f34.06803350 - Reached SalesManagementService API 
+[2018-10-03 01:11:17] - corrId_5bb3fb15e34f34.06803350 - Establishing connection to DB 
+[2018-10-03 01:11:17] - corrId_5bb3fb15e34f34.06803350 - Processing GetStoresAndSales request. 
+[2018-10-03 01:11:17] - corrId_5bb3fb15e34f34.06803350 - Token is valid 
+[2018-10-03 01:11:17] - corrId_5bb3fb15e34f34.06803350 - Validated permissions for user admin (required 10, has 30) 
+[2018-10-03 01:11:17] - corrId_5bb3fb15e34f34.06803350 - DATE: 1 
+[2018-10-03 01:11:17] - corrId_5bb3fb15e34f34.06803350 - Query: SELECT pv.id_punto_vendita, pv.nome, pv.indirizzo, ci.nome as citta_nome, SUM(no.prezzo_totale) as incasso_giornaliero
+            FROM punto_vendita pv
+            INNER JOIN citta ci
+            ON pv.id_citta = ci.id_citta 
+            INNER JOIN noleggio no
+            ON no.id_punto_vendita = pv.id_punto_vendita
+            WHERE no.data_inizio >= ''
+            AND no.data_inizio <= ' 23:59'
+             
+[2018-10-03 01:11:17] - corrId_5bb3fb15e34f34.06803350 - Executing query 
+[2018-10-03 01:11:17] - corrId_5bb3fb15e34f34.06803350 - Query executed successfully 
+[2018-10-03 01:11:17] - corrId_5bb3fb15e34f34.06803350 - Opreation getStoresAndSales was successful. 
+[2018-10-03 01:11:40] - corrId_5bb3fb2c787130.40893960 - Reached AuthenticationService API 
+[2018-10-03 01:11:40] - corrId_5bb3fb2c787130.40893960 - Token is valid 
+[2018-10-03 01:11:40] - corrId_5bb3fb2ccfc143.55918351 - Reached SalesManagementService API 
+[2018-10-03 01:11:40] - corrId_5bb3fb2ccfc143.55918351 - Establishing connection to DB 
+[2018-10-03 01:11:40] - corrId_5bb3fb2ccfc143.55918351 - Processing GetStoresAndSales request. 
+[2018-10-03 01:11:40] - corrId_5bb3fb2ccfc143.55918351 - Token is valid 
+[2018-10-03 01:11:40] - corrId_5bb3fb2ccfc143.55918351 - Validated permissions for user admin (required 10, has 30) 
+[2018-10-03 01:11:40] - corrId_5bb3fb2ccfc143.55918351 - DATE: 1 
+[2018-10-03 01:11:40] - corrId_5bb3fb2ccfc143.55918351 - Query: SELECT pv.id_punto_vendita, pv.nome, pv.indirizzo, ci.nome as citta_nome, SUM(no.prezzo_totale) as incasso_giornaliero
+            FROM punto_vendita pv
+            INNER JOIN citta ci
+            ON pv.id_citta = ci.id_citta 
+            INNER JOIN noleggio no
+            ON no.id_punto_vendita = pv.id_punto_vendita
+            WHERE no.data_inizio >= ''
+            AND no.data_inizio <= ' 23:59'
+             
+[2018-10-03 01:11:40] - corrId_5bb3fb2ccfc143.55918351 - Executing query 
+[2018-10-03 01:11:40] - corrId_5bb3fb2ccfc143.55918351 - Query executed successfully 
+[2018-10-03 01:11:40] - corrId_5bb3fb2ccfc143.55918351 - Opreation getStoresAndSales was successful. 
+[2018-10-03 01:12:16] - corrId_5bb3fb50b3bd78.82948938 - Reached StorageManagementService API 
+[2018-10-03 01:12:16] - corrId_5bb3fb50b3bd78.82948938 - Processing GetVideosInStorage request. 
+[2018-10-03 01:12:16] - corrId_5bb3fb50b3bd78.82948938 - Token is valid 
+[2018-10-03 01:12:16] - corrId_5bb3fb50b3bd78.82948938 - Validated permissions for user admin (required 10, has 30) 
+[2018-10-03 01:12:16] - corrId_5bb3fb50b3bd78.82948938 - Query: SELECT co.id_copia, co.data_scarico, co.danneggiato, co.noleggiato, fi.id_film, fi.titolo, fo.nome
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN fornitore fo
+            ON co.id_fornitore = fo.id_fornitore
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0 
+[2018-10-03 01:12:16] - corrId_5bb3fb50b3bd78.82948938 - Establishing connection to DB 
+[2018-10-03 01:12:16] - corrId_5bb3fb50b3bd78.82948938 - Executing query 
+[2018-10-03 01:12:16] - corrId_5bb3fb50b3bd78.82948938 - Query executed successfully 
+[2018-10-03 01:12:22] - corrId_5bb3fb5616ce74.36304496 - Reached SalesManagementService API 
+[2018-10-03 01:12:22] - corrId_5bb3fb5616ce74.36304496 - Establishing connection to DB 
+[2018-10-03 01:12:22] - corrId_5bb3fb5616ce74.36304496 - Processing GetStoresAndSales request. 
+[2018-10-03 01:12:22] - corrId_5bb3fb5616ce74.36304496 - Token is valid 
+[2018-10-03 01:12:22] - corrId_5bb3fb5616ce74.36304496 - Validated permissions for user admin (required 10, has 30) 
+[2018-10-03 01:12:22] - corrId_5bb3fb5616ce74.36304496 - DATE: 1 
+[2018-10-03 01:12:22] - corrId_5bb3fb5616ce74.36304496 - Query: SELECT pv.id_punto_vendita, pv.nome, pv.indirizzo, ci.nome as citta_nome, SUM(no.prezzo_totale) as incasso_giornaliero
+            FROM punto_vendita pv
+            INNER JOIN citta ci
+            ON pv.id_citta = ci.id_citta 
+            INNER JOIN noleggio no
+            ON no.id_punto_vendita = pv.id_punto_vendita
+            WHERE no.data_inizio >= ''
+            AND no.data_inizio <= ' 23:59'
+             
+[2018-10-03 01:12:22] - corrId_5bb3fb5616ce74.36304496 - Executing query 
+[2018-10-03 01:12:22] - corrId_5bb3fb5616ce74.36304496 - Query executed successfully 
+[2018-10-03 01:12:22] - corrId_5bb3fb5616ce74.36304496 - Opreation getStoresAndSales was successful. 
+[2018-10-03 01:14:49] - corrId_5bb3fbe9a61bd9.07464102 - Reached AuthenticationService API 
+[2018-10-03 01:14:49] - corrId_5bb3fbe9a61bd9.07464102 - Token is valid 
+[2018-10-03 01:14:49] - corrId_5bb3fbe9da7398.74296264 - Reached StorageManagementService API 
+[2018-10-03 01:14:49] - corrId_5bb3fbe9da7398.74296264 - Processing GetVideosInStorage request. 
+[2018-10-03 01:14:49] - corrId_5bb3fbe9da7398.74296264 - Token is valid 
+[2018-10-03 01:14:49] - corrId_5bb3fbe9da7398.74296264 - Validated permissions for user admin (required 10, has 30) 
+[2018-10-03 01:14:49] - corrId_5bb3fbe9da7398.74296264 - Query: SELECT co.id_copia, co.data_scarico, co.danneggiato, co.noleggiato, fi.id_film, fi.titolo, fo.nome
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN fornitore fo
+            ON co.id_fornitore = fo.id_fornitore
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0 
+[2018-10-03 01:14:49] - corrId_5bb3fbe9da7398.74296264 - Establishing connection to DB 
+[2018-10-03 01:14:49] - corrId_5bb3fbe9da7398.74296264 - Executing query 
+[2018-10-03 01:14:49] - corrId_5bb3fbe9da7398.74296264 - Query executed successfully 
+[2018-10-03 01:15:05] - corrId_5bb3fbf9785a22.33862596 - Reached AuthenticationService API 
+[2018-10-03 01:15:05] - corrId_5bb3fbf9785a22.33862596 - Token is valid 
+[2018-10-03 01:15:05] - corrId_5bb3fbf9d32e56.35352530 - Reached StorageManagementService API 
+[2018-10-03 01:15:05] - corrId_5bb3fbf9d32e56.35352530 - Processing GetVideosInStorage request. 
+[2018-10-03 01:15:05] - corrId_5bb3fbf9d32e56.35352530 - Token is valid 
+[2018-10-03 01:15:05] - corrId_5bb3fbf9d32e56.35352530 - Validated permissions for user admin (required 10, has 30) 
+[2018-10-03 01:15:05] - corrId_5bb3fbf9d32e56.35352530 - Query: SELECT co.id_copia, co.data_scarico, co.danneggiato, co.noleggiato, fi.id_film, fi.titolo, fo.nome
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN fornitore fo
+            ON co.id_fornitore = fo.id_fornitore
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0 
+[2018-10-03 01:15:05] - corrId_5bb3fbf9d32e56.35352530 - Establishing connection to DB 
+[2018-10-03 01:15:05] - corrId_5bb3fbf9d32e56.35352530 - Executing query 
+[2018-10-03 01:15:05] - corrId_5bb3fbf9d32e56.35352530 - Query executed successfully 
+[2018-10-03 01:15:06] - corrId_5bb3fbfa1dafa5.91055441 - Reached SalesManagementService API 
+[2018-10-03 01:15:06] - corrId_5bb3fbfa1dafa5.91055441 - Establishing connection to DB 
+[2018-10-03 01:15:06] - corrId_5bb3fbfa1dafa5.91055441 - Processing GetStoresAndSales request. 
+[2018-10-03 01:15:06] - corrId_5bb3fbfa1dafa5.91055441 - Token is valid 
+[2018-10-03 01:15:06] - corrId_5bb3fbfa1dafa5.91055441 - Validated permissions for user admin (required 10, has 30) 
+[2018-10-03 01:15:06] - corrId_5bb3fbfa1dafa5.91055441 - DATE: 1 
+[2018-10-03 01:15:06] - corrId_5bb3fbfa1dafa5.91055441 - Query: SELECT pv.id_punto_vendita, pv.nome, pv.indirizzo, ci.nome as citta_nome, SUM(no.prezzo_totale) as incasso_giornaliero
+            FROM punto_vendita pv
+            INNER JOIN citta ci
+            ON pv.id_citta = ci.id_citta 
+            INNER JOIN noleggio no
+            ON no.id_punto_vendita = pv.id_punto_vendita
+            WHERE no.data_inizio >= '2018-10-03'
+            AND no.data_inizio <= '2018-10-03 23:59'
+             
+[2018-10-03 01:15:06] - corrId_5bb3fbfa1dafa5.91055441 - Executing query 
+[2018-10-03 01:15:06] - corrId_5bb3fbfa1dafa5.91055441 - Query executed successfully 
+[2018-10-03 01:15:06] - corrId_5bb3fbfa1dafa5.91055441 - Opreation getStoresAndSales was successful. 
