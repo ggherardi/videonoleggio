@@ -60,7 +60,7 @@ function initVideosTable() {
     loader.showLoader();
     $.when(rentalManagementService.clearRentalBookingsForUser(sharedStorage.loginContext.id_dipendente), rentalManagementService.clearRentalBookings())
         .done(initVideoPreviewTablesSuccess)
-        .fail();
+        .fail(RestClient.redirectIfUnauthorized);
 }
 
 function getVideosInStorageWithCountSuccess(data) {

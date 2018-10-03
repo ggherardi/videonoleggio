@@ -423,4 +423,13 @@ class SalesManagementService extends RestClient {
         }
         return super.execute();        
     }
+
+    getSalesForEmployees(filters) {
+        filters = JSON.stringify(filters);
+        this.data = {
+            action: "getSalesForEmployees",
+            filters: filters
+        }
+        return super.execute();        
+    }
 }

@@ -63,7 +63,7 @@ class RestitutionManagementService {
             $this->dbContext->StartTransaction();
             for($i = 0; $i < count($copies); $i++) {               
                 $details = self::GetRentDetails($copies[$i]->id_noleggio);
-                $archivedRentId = self::ArchiveRent($details);
+                $archivedRentId = self::ArchiveRent($details, $copies[$i]->prezzo_extra);
                 self::DeleteActiveRent($copies[$i]->id_noleggio);
                 self::ResetRentFlagInCopiesTable($copies[$i]->id_copia);
             }
@@ -105,7 +105,7 @@ class RestitutionManagementService {
             (%d, %d, %d, %d, %d, '%s', '%s', %f, %f)";
         $query = sprintf($query, $row["id_dipendente"], $row["id_punto_vendita"], $row["id_cliente"], $row["id_copia"], 
                             $row["id_tariffa"], $row["data_inizio"], $row["data_fine"], $row["prezzo_totale"], 
-                            $prezzo_extra != null ? $prezzo : 0);
+                            ($prezzo_extra != null ? $prezzo_extra : 0));
         Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
         $res = self::ExecuteQuery($query);                                     
         if(!$res) {

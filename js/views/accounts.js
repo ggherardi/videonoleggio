@@ -81,7 +81,7 @@ function getStoresSuccess(data) {
         html += `<div class="row">
                     <span class="col-sm-6">Selezionare il punto vendita:</span>
                     <div class="col-sm-6 row">
-                        <select id="AccountsSelectStore" class="col-sm-12" onchange="getEmployees(this);">
+                        <select id="AccountsSelectStore" class="col-sm-12 form-control" onchange="getEmployees(this);">
                             <option>-seleziona-</option>
                             <option value="-1" selected>Tutti</option>`;
         for(var i = 0; i < stores.length; i++) {

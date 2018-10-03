@@ -80,6 +80,31 @@ class DBConnection {
         }
     }
 
+    function ExecuteMultiQuery($query = "") {
+        try {
+            Logger::Write("Executing multi query", $GLOBALS["CorrelationID"]);
+            // Logger::Write($query, $GLOBALS["CorrelationID"]);
+            $msRes = $this->getConnection()->multi_query($query);
+            if(!$msRes) {     
+                if($this->Connection->error){
+                    throw new Exception($this->Connection->error);   
+                }
+                Logger::Write("No results found", $GLOBALS["CorrelationID"]);                
+            }
+            Logger::Write("Multi query executed successfully", $GLOBALS["CorrelationID"]);
+            return $msRes;
+        } 
+        catch (Throwable $ex) {
+            $exMessage = $ex->getMessage();
+            Logger::Write("Error while executing multi query -> $exMessage", $GLOBALS["CorrelationID"]);
+            throw new Exception($ex);
+        }
+    }
+
+    function GetPublicConnection() {
+        return $this->Connection;
+    }
+
     function GetLastID() {
         return $this->Connection->insert_id;
     }

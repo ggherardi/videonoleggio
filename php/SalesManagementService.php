@@ -20,28 +20,69 @@ class SalesManagementService {
 
     function GetStoresAndSales() {
         Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
-        TokenGenerator::CheckPermissions(PermissionsConstants::ADDETTO, "delega_codice");
+        TokenGenerator::CheckPermissions(PermissionsConstants::RESPONSABILE, "delega_codice");
         $filters = json_decode($_POST["filters"]);
-        Logger::Write("DATE: ".count($filters->data_inizio), $GLOBALS["CorrelationID"]);
-
         $query = 
-            "SELECT pv.id_punto_vendita, pv.nome, pv.indirizzo, ci.nome as citta_nome, SUM(no.prezzo_totale) as incasso_giornaliero
+            "SELECT pv.id_punto_vendita, pv.nome, pv.indirizzo, ci.nome as citta_nome, noleggi.incasso_giornaliero
             FROM punto_vendita pv
             INNER JOIN citta ci
             ON pv.id_citta = ci.id_citta 
-            INNER JOIN noleggio no
-            ON no.id_punto_vendita = pv.id_punto_vendita
-            WHERE no.data_inizio >= '%s'
-            AND no.data_inizio <= '%s'
-            %s"; // WHERE
-        $whereCondition = sprintf("AND pv.id_punto_vendita = (%d)", $filters->id_punto_vendita);
-        $query = sprintf($query, $filters->data_inizio, sprintf("%s 23:59", $filters->data_fine), ($id_punto_vendita > 0 ? $whereCondition : ""));          
+            LEFT JOIN (SELECT SUM(no.prezzo_totale) as incasso_giornaliero, no.id_noleggio, no.id_punto_vendita 
+                        FROM noleggio no 
+                        WHERE no.data_inizio >= '%s' 
+                        AND no.data_inizio <= '%s') as noleggi
+            ON noleggi.id_punto_vendita = pv.id_punto_vendita            
+            %s
+            GROUP BY pv.id_punto_vendita;"; 
+        $whereCondition = sprintf("WHERE pv.id_punto_vendita = %d", $filters->id_punto_vendita);
+        $query = sprintf($query, $filters->data_inizio, sprintf("%s 23:59", $filters->data_fine), ($filters->id_punto_vendita > 0 ? $whereCondition : ""));          
         Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
         $res = self::ExecuteQuery($query);
         $array = array();
         while($row = $res->fetch_assoc()){
             $array[] = $row;
         }
+        return count($array) > 0 ? $array : [];
+    }
+
+    
+    function GetSalesForEmployees() {
+        Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
+        TokenGenerator::CheckPermissions(PermissionsConstants::RESPONSABILE, "delega_codice");
+        $filters = json_decode($_POST["filters"]);
+        $query = 
+            "SELECT id_dipendente, nome, cognome
+            FROM dipendente
+            WHERE id_punto_vendita = %1\$d;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM noleggio no
+            WHERE no.id_punto_vendita = %1\$d
+            AND no.data_inizio >= '%2\$s'
+            AND no.data_inizio <= '%3\$s'
+            GROUP BY no.id_dipendente;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM storico_noleggio no
+            WHERE no.id_punto_vendita = %1\$d
+            AND no.data_inizio >= '%2\$s'
+            AND no.data_inizio <= '%3\$s'
+            GROUP BY no.id_dipendente;";                     
+        $query = sprintf($query, $filters->id_punto_vendita, $filters->data_inizio, sprintf("%s 23:59", $filters->data_fine));          
+        Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
+        $this->dbContext->ExecuteMultiQuery($query);
+        $array = array();
+        $mysqli = $this->dbContext->GetPublicConnection();
+        $i = 0;
+        do {
+            Logger::Write("LOOP N. ".$i++, $GLOBALS["CorrelationID"]);
+            $res = $mysqli->store_result();
+            $array[] = $res->fetch_all(MYSQLI_ASSOC);
+            if(!$mysqli->more_results()) {
+                break;
+            }            
+        } while($mysqli->next_result());
+
         return count($array) > 0 ? $array : [];
     }
 
@@ -52,6 +93,9 @@ class SalesManagementService {
             switch($_POST["action"]) {
                 case "getStoresAndSales":
                     $res = self::GetStoresAndSales();
+                    break;
+                case "getSalesForEmployees":
+                    $res = self::GetSalesForEmployees();
                     break;
                 default: 
                     exit(json_encode($_POST));
