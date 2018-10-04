@@ -29,6 +29,9 @@ var employeesSalesTableOptions = {
         { data: "nome" },
         { data: "cognome" },
         { data: "incasso" },
+    ],
+    order: [
+        [3, "desc"]
     ]
 };
 
@@ -103,8 +106,9 @@ function buildSalesTableHead() {
 
 /* ACTIONS */
 /* Action Get Sales for Employees */
-function getSalesForEmployees() {
+function getSalesForEmployees(e, dt, node, config) {
     var filters = getFilters();
+    filters.id_punto_vendita = dt.rows({ selected: true }).data()[0].id_punto_vendita;
     salesManagementService.getSalesForEmployees(filters)
         .done(getSalesForEmployeesSuccess)
         .done(RestClient.redirectIfUnauthorized);
@@ -115,6 +119,8 @@ function getSalesForEmployeesSuccess(data) {
     sortByIdDipendente = function(a, b) { return a.id_dipendente > b.id_dipendente ? 1 : 0; };
     var employeesArray = result[0].sort(sortByIdDipendente);
     var salesArray = [...result[1], ...result[2]].sort(sortByIdDipendente);
+    var salesArrayWithSums = getSalesArrayWithSums(salesArray);
+    console.log(salesArrayWithSums);
     var body = `<div id="EmployeesSalesTableContainer"></div>`;
     modalOptions = {
         title: "Incassi per dipendente",
@@ -126,25 +132,21 @@ function getSalesForEmployeesSuccess(data) {
     modal = new Modal(modalOptions);
     modal.open();
     buildEmployeesSalesTable(employeesArray);
-    // var mergedArray = mergeArrays(employeesArray, salesArray);
+    fillEmployeesSalesTableWithSums(salesArrayWithSums);
+    employeesSalesTable = $("#EmployeesSalesTable").DataTable(employeesSalesTableOptions);
 }
 
-// function mergeArrays(array1, array2) {
-//     var mergedArray = [];
-//     var iterator = (array1.length >= array2.length ? array1 : array2);
-//     var aux = array1.length >= array2.length ? array2 : array1;
-//     var auxIndex = 0;
-//     for(var i = 0; i < iterator.length; i++) {
-//         if(iterator[i].id_dipendente == aux[auxIndex].id_dipendente) {
-//             mergedArray.push(Object.assign({}, iterator[i], aux[auxIndex]));
-//             auxIndex++;
-//         } else {
-//             mergedArray.push(Object.assign({}, iterator[i], { prezzo_totale: 0.0 }))
-//         }
-        
-//     }
-//     return mergedArray;
-// }
+function getSalesArrayWithSums(salesArray) {
+    var newArray = [];
+    for(var i = 0; i < salesArray.length; i++) {
+        var sale = salesArray[i];
+        var id = sale.id_dipendente;
+        newArray[id] = newArray[id] == undefined 
+            ? { id_dipendente: id, incasso_totale: parseFloat(sale.incasso_totale) } 
+            : { id_dipendente: id, incasso_totale: newArray[id].incasso_totale + parseFloat(sale.incasso_totale) };
+    }
+    return newArray.filter((a) => a);
+}
 
 function buildEmployeesSalesTable(employees) {
     var html = `<table class="table mt-3" id="EmployeesSalesTable">`
@@ -156,25 +158,34 @@ function buildEmployeesSalesTable(employees) {
                             <td>${employee.id_dipendente}</td>                             
                             <td>${employee.nome}</td>                             
                             <td>${employee.cognome}</td>
-                            <td><span id="${i}"></span> €</td>
+                            <td><span id="SalesForEmployee_${employee.id_dipendente}">0.00</span> €</td>
                         </tr>`;
     }	
     html += `       </tbody>
                 </table>`;
     $("#EmployeesSalesTableContainer").html(html);
-    employeesSalesTable = $("#EmployeesSalesTable").DataTable(employeesSalesTableOptions);
 }
 
 function buildEmployeesSalesTableHead() {
     var html = `<thead>
                     <tr>
-                        <th scope="col">Id dipendente</th>
+                        <th scope="col">Matricola</th>
                         <th scope="col">Nome</th>
                         <th scope="col">Cognome</th>
                         <th scope="col">Incasso</th>
                     </tr>
                 </thead>`;
     return html;
+}
+
+function fillEmployeesSalesTableWithSums(array) {
+    ////// AGGIUNGERE FORMULA PER CONTROLLARE CHE SIA UNA UNICA GIORNATA PER VALUTARE IL PREMIO PRODUZIONE, INOLTRE AGGIUNGERE UN CALCOLO SUI GIORNI IN BASE ALLE DATE (DA MOSTRARE ANCHE NEL TITOLO DEL MODALE, SE E' SOLO UN GIORNO ECC.)
+    for(var i = 0; i < array.length; i++) {
+        var incasso = array[i].incasso_totale;
+        var saleSpan =  $(`#SalesForEmployee_${array[i].id_dipendente}`);
+        saleSpan.text(new Number(incasso).toFixed(2));
+        saleSpan.parent().addClass(`alert ${incasso < 50 ? "alert-danger" : incasso < 100 ? "alert-warning" : incasso < 150 ? "alert-info" : "alert-success"}`)
+    }
 }
 
 /* Shared functions */

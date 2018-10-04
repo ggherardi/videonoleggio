@@ -29,8 +29,8 @@ var dataTableOptions = {
         { extend: 'copy', text: "Copia" },
         { text: "Nuovo dipendente", action: insertEmployee },
         { extend: 'selectedSingle', text: "Resetta password", action: resetPassword },
-        { extend: 'selectedSingle', text: "Modifica account", action: editEmployee },
-        { extend: 'selectedSingle', text: "Cancella account", action: deleteEmployee }
+        { extend: 'selectedSingle', text: "Modifica account", action: editEmployee }
+        // { extend: 'selectedSingle', text: "Cancella account", action: deleteEmployee }
     ]
 };
 
@@ -251,7 +251,7 @@ function buildEmployeeForm(row) {
                     <input id="EmployeeForm_nome" type="text" class="form-control" value="${isEditForm ? row.dipendente_nome : ""}" text="${isEditForm ? row.dipendente_nome : ""}">
                     <label for="EmployeeForm_cognome" class="mt-2">Cognome</label>
                     <input id="EmployeeForm_cognome" type="text" class="form-control" value="${isEditForm ? row.dipendente_cognome : ""}" text="${isEditForm ? row.dipendente_cognome : ""}">
-                    <label for="EmployeeForm_ruolo" class="mt-2">Punto vendita</label>
+                    <label for="EmployeeForm_ruolo" class="mt-2">Ruolo</label>
                     <div id="EmployeeForm_ruolo_container">
                         <select id="EmployeeForm_ruolo" class="form-control"></select>
                     </div>

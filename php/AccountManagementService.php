@@ -8,7 +8,7 @@ use Logger;
 
 $GLOBALS["CorrelationID"] = uniqid("corrId_", true);
 $correlationId = $GLOBALS["CorrelationID"];
-$development = true;
+$GLOBALS["development"] = true;
 
 class AccountManagementService {
 
@@ -103,7 +103,7 @@ class AccountManagementService {
         Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
         TokenGenerator::CheckPermissions(PermissionsConstants::PROPRIETARIO, "delega_codice");
         $dip = json_decode($_POST["dipendente"]); 
-        $password = $development ? "password" : uniqid();
+        $password = $GLOBALS["development"] ? "password" : uniqid();
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);     
         $query = 
             "INSERT INTO dipendente (id_delega, id_punto_vendita, nome, cognome, username, password)
