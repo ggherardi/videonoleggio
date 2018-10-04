@@ -21,6 +21,16 @@ var salesDataTableOptions = {
         { extend: 'selectedSingle', text: "Visualizza incassi dipendenti", action: getSalesForEmployees }
     ]
 };
+var employeesSalesTable;
+var employeesSalesTableOptions = {
+    dom: 'ftpil',
+    columns: [
+        { data: "id_punto_vendita" },
+        { data: "nome" },
+        { data: "cognome" },
+        { data: "incasso" },
+    ]
+};
 
 function initSalesView() {
     prefillDates();
@@ -35,6 +45,7 @@ function prefillDates() {
 
 function initSalesTable() {
     var filters = getFilters();
+    filters.id_punto_vendita = sharedStorage.loginContext.isAdmin ? 0 : filters.id_punto_vendita;
     var loader = new Loader(`#${salesDataTableContainer.attr("id")}`);
     loader.showLoader();
     salesManagementService.getStoresAndSales(filters)
@@ -100,14 +111,77 @@ function getSalesForEmployees() {
 }
 
 function getSalesForEmployeesSuccess(data) {
-    console.log(data);
+    var result = JSON.parse(data);
+    sortByIdDipendente = function(a, b) { return a.id_dipendente > b.id_dipendente ? 1 : 0; };
+    var employeesArray = result[0].sort(sortByIdDipendente);
+    var salesArray = [...result[1], ...result[2]].sort(sortByIdDipendente);
+    var body = `<div id="EmployeesSalesTableContainer"></div>`;
+    modalOptions = {
+        title: "Incassi per dipendente",
+        body: body,
+        cancelButton: {
+            text: "Annulla"
+        }
+    }
+    modal = new Modal(modalOptions);
+    modal.open();
+    buildEmployeesSalesTable(employeesArray);
+    // var mergedArray = mergeArrays(employeesArray, salesArray);
+}
+
+// function mergeArrays(array1, array2) {
+//     var mergedArray = [];
+//     var iterator = (array1.length >= array2.length ? array1 : array2);
+//     var aux = array1.length >= array2.length ? array2 : array1;
+//     var auxIndex = 0;
+//     for(var i = 0; i < iterator.length; i++) {
+//         if(iterator[i].id_dipendente == aux[auxIndex].id_dipendente) {
+//             mergedArray.push(Object.assign({}, iterator[i], aux[auxIndex]));
+//             auxIndex++;
+//         } else {
+//             mergedArray.push(Object.assign({}, iterator[i], { prezzo_totale: 0.0 }))
+//         }
+        
+//     }
+//     return mergedArray;
+// }
+
+function buildEmployeesSalesTable(employees) {
+    var html = `<table class="table mt-3" id="EmployeesSalesTable">`
+    html +=         buildEmployeesSalesTableHead();
+    html +=        `<tbody>`;            
+    for(var i = 0; i < employees.length; i++) {
+        var employee = employees[i];            
+            html +=     `<tr>
+                            <td>${employee.id_dipendente}</td>                             
+                            <td>${employee.nome}</td>                             
+                            <td>${employee.cognome}</td>
+                            <td><span id="${i}"></span> €</td>
+                        </tr>`;
+    }	
+    html += `       </tbody>
+                </table>`;
+    $("#EmployeesSalesTableContainer").html(html);
+    employeesSalesTable = $("#EmployeesSalesTable").DataTable(employeesSalesTableOptions);
+}
+
+function buildEmployeesSalesTableHead() {
+    var html = `<thead>
+                    <tr>
+                        <th scope="col">Id dipendente</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Cognome</th>
+                        <th scope="col">Incasso</th>
+                    </tr>
+                </thead>`;
+    return html;
 }
 
 /* Shared functions */
 function getFilters() {
     var dates = getDatesFromInputs();
     return {
-        id_punto_vendita: sharedStorage.loginContext.isAdmin ? 0 : sharedStorage.loginContext.punto_vendita_id_punto_vendita,
+        id_punto_vendita: sharedStorage.loginContext.punto_vendita_id_punto_vendita,
         data_inizio: dates.data_inizio,
         data_fine: dates.data_fine
     };
@@ -119,6 +193,5 @@ function getDatesFromInputs() {
         data_fine: $("#inputSalesEndDate").val()
     }        
 }
-
 /* Init */
 initSalesView();

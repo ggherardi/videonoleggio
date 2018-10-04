@@ -2288,3 +2288,1338 @@ Stack trace:
 [2018-10-04 01:09:25] - corrId_5bb54c25166546.54509657 - LOOP N. 1 
 [2018-10-04 01:09:25] - corrId_5bb54c25166546.54509657 - LOOP N. 2 
 [2018-10-04 01:09:25] - corrId_5bb54c25166546.54509657 - Opreation getSalesForEmployees was successful. 
+[2018-10-04 09:06:59] - corrId_5bb5bc13ca9307.39546535 - Reached AuthenticationService API 
+[2018-10-04 09:06:59] - corrId_5bb5bc13ca9307.39546535 - Token is valid 
+[2018-10-04 09:07:02] - corrId_5bb5bc16bd7ee6.75936992 - Reached AuthenticationService API 
+[2018-10-04 09:07:02] - corrId_5bb5bc16bd7ee6.75936992 - Token is valid 
+[2018-10-04 09:07:08] - corrId_5bb5bc1c382845.81075771 - Reached AuthenticationService API 
+[2018-10-04 09:07:08] - corrId_5bb5bc1c382845.81075771 - Processing Login request. 
+[2018-10-04 09:07:08] - corrId_5bb5bc1c382845.81075771 - Establishing connection to DB 
+[2018-10-04 09:07:08] - corrId_5bb5bc1c382845.81075771 - Executing query 
+[2018-10-04 09:07:08] - corrId_5bb5bc1c382845.81075771 - Query executed successfully 
+[2018-10-04 09:07:08] - corrId_5bb5bc1c382845.81075771 - User admin validated, starting token generation. 
+[2018-10-04 09:07:08] - corrId_5bb5bc1c382845.81075771 - Token generated succesfully. 
+[2018-10-04 09:07:08] - corrId_5bb5bc1c382845.81075771 - Authentication cookie has been set:  
+[2018-10-04 09:07:08] - corrId_5bb5bc1c382845.81075771 - User  succesfully logged in. 
+[2018-10-04 09:07:12] - corrId_5bb5bc203b78c6.49569693 - Reached CustomerManagementService API 
+[2018-10-04 09:07:12] - corrId_5bb5bc203b78c6.49569693 - Processing GetAllCustomersWithPremiumCode request. 
+[2018-10-04 09:07:12] - corrId_5bb5bc203b78c6.49569693 - Token is valid 
+[2018-10-04 09:07:12] - corrId_5bb5bc203b78c6.49569693 - Validated permissions for user admin (required 10, has 30) 
+[2018-10-04 09:07:12] - corrId_5bb5bc203b78c6.49569693 - Establishing connection to DB 
+[2018-10-04 09:07:12] - corrId_5bb5bc203b78c6.49569693 - Executing query 
+[2018-10-04 09:07:12] - corrId_5bb5bc203b78c6.49569693 - Query executed successfully 
+[2018-10-04 09:07:12] - corrId_5bb5bc203b78c6.49569693 - Opreation getAllCustomersWithPremiumCode was successful. 
+[2018-10-04 09:07:14] - corrId_5bb5bc22af9023.79363780 - Reached BookingManagementService API 
+[2018-10-04 09:07:14] - corrId_5bb5bc22af9023.79363780 - Establishing connection to DB 
+[2018-10-04 09:07:14] - corrId_5bb5bc22af9023.79363780 - Processing GetComingSoonMovies request. 
+[2018-10-04 09:07:14] - corrId_5bb5bc22af9023.79363780 - Token is valid 
+[2018-10-04 09:07:14] - corrId_5bb5bc22af9023.79363780 - Validated permissions for user admin (required 10, has 30) 
+[2018-10-04 09:07:14] - corrId_5bb5bc22af9023.79363780 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero, fi.data_uscita,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    COUNT(prenotazioni.id_prenotazione) as numero_prenotazioni
+            FROM film fi        
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista
+            LEFT JOIN (SELECT id_prenotazione, id_film 
+                        FROM prenotazione 
+                        WHERE id_punto_vendita = 1) as prenotazioni
+            ON fi.id_film = prenotazioni.id_film           
+            WHERE fi.inUscita = 1
+            OR fi.data_uscita > '2018-09-27'
+            GROUP BY fi.id_film 
+[2018-10-04 09:07:14] - corrId_5bb5bc22af9023.79363780 - Executing query 
+[2018-10-04 09:07:14] - corrId_5bb5bc22af9023.79363780 - Query executed successfully 
+[2018-10-04 09:07:14] - corrId_5bb5bc22af9023.79363780 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (4, 5, 12) 
+[2018-10-04 09:07:14] - corrId_5bb5bc22af9023.79363780 - Executing query 
+[2018-10-04 09:07:14] - corrId_5bb5bc22af9023.79363780 - Query executed successfully 
+[2018-10-04 09:07:14] - corrId_5bb5bc22af9023.79363780 - Opreation getComingSoonMovies was successful. 
+[2018-10-04 09:07:19] - corrId_5bb5bc271c58e2.74979594 - Reached StorageManagementService API 
+[2018-10-04 09:07:19] - corrId_5bb5bc271c58e2.74979594 - Processing GetVideosInStorage request. 
+[2018-10-04 09:07:19] - corrId_5bb5bc271c58e2.74979594 - Token is valid 
+[2018-10-04 09:07:19] - corrId_5bb5bc271c58e2.74979594 - Validated permissions for user admin (required 10, has 30) 
+[2018-10-04 09:07:19] - corrId_5bb5bc271c58e2.74979594 - Query: SELECT co.id_copia, co.data_scarico, co.danneggiato, co.noleggiato, fi.id_film, fi.titolo, fo.nome
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN fornitore fo
+            ON co.id_fornitore = fo.id_fornitore
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0 
+[2018-10-04 09:07:19] - corrId_5bb5bc271c58e2.74979594 - Establishing connection to DB 
+[2018-10-04 09:07:19] - corrId_5bb5bc271c58e2.74979594 - Executing query 
+[2018-10-04 09:07:19] - corrId_5bb5bc271c58e2.74979594 - Query executed successfully 
+[2018-10-04 09:07:23] - corrId_5bb5bc2be72ba3.70307032 - Reached SalesManagementService API 
+[2018-10-04 09:07:23] - corrId_5bb5bc2be72ba3.70307032 - Establishing connection to DB 
+[2018-10-04 09:07:23] - corrId_5bb5bc2be72ba3.70307032 - Processing GetStoresAndSales request. 
+[2018-10-04 09:07:23] - corrId_5bb5bc2be72ba3.70307032 - Token is valid 
+[2018-10-04 09:07:23] - corrId_5bb5bc2be72ba3.70307032 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 09:07:23] - corrId_5bb5bc2be72ba3.70307032 - Query: SELECT pv.id_punto_vendita, pv.nome, pv.indirizzo, ci.nome as citta_nome, noleggi.incasso_giornaliero
+            FROM punto_vendita pv
+            INNER JOIN citta ci
+            ON pv.id_citta = ci.id_citta 
+            LEFT JOIN (SELECT SUM(no.prezzo_totale) as incasso_giornaliero, no.id_noleggio, no.id_punto_vendita 
+                        FROM noleggio no 
+                        WHERE no.data_inizio >= '2018-10-04' 
+                        AND no.data_inizio <= '2018-10-04 23:59') as noleggi
+            ON noleggi.id_punto_vendita = pv.id_punto_vendita            
+            
+            GROUP BY pv.id_punto_vendita; 
+[2018-10-04 09:07:23] - corrId_5bb5bc2be72ba3.70307032 - Executing query 
+[2018-10-04 09:07:23] - corrId_5bb5bc2be72ba3.70307032 - Query executed successfully 
+[2018-10-04 09:07:23] - corrId_5bb5bc2be72ba3.70307032 - Opreation getStoresAndSales was successful. 
+[2018-10-04 09:08:38] - corrId_5bb5bc7602d092.89855772 - Reached AuthenticationService API 
+[2018-10-04 09:08:38] - corrId_5bb5bc7602d092.89855772 - Token is valid 
+[2018-10-04 09:09:02] - corrId_5bb5bc8e9366d5.23114829 - Reached SalesManagementService API 
+[2018-10-04 09:09:02] - corrId_5bb5bc8e9366d5.23114829 - Establishing connection to DB 
+[2018-10-04 09:09:02] - corrId_5bb5bc8e9366d5.23114829 - Processing GetStoresAndSales request. 
+[2018-10-04 09:09:02] - corrId_5bb5bc8e9366d5.23114829 - Token is valid 
+[2018-10-04 09:09:02] - corrId_5bb5bc8e9366d5.23114829 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 09:09:02] - corrId_5bb5bc8e9366d5.23114829 - Query: SELECT pv.id_punto_vendita, pv.nome, pv.indirizzo, ci.nome as citta_nome, noleggi.incasso_giornaliero
+            FROM punto_vendita pv
+            INNER JOIN citta ci
+            ON pv.id_citta = ci.id_citta 
+            LEFT JOIN (SELECT SUM(no.prezzo_totale) as incasso_giornaliero, no.id_noleggio, no.id_punto_vendita 
+                        FROM noleggio no 
+                        WHERE no.data_inizio >= '2018-10-04' 
+                        AND no.data_inizio <= '2018-10-04 23:59') as noleggi
+            ON noleggi.id_punto_vendita = pv.id_punto_vendita            
+            
+            GROUP BY pv.id_punto_vendita; 
+[2018-10-04 09:09:02] - corrId_5bb5bc8e9366d5.23114829 - Executing query 
+[2018-10-04 09:09:02] - corrId_5bb5bc8e9366d5.23114829 - Query executed successfully 
+[2018-10-04 09:09:02] - corrId_5bb5bc8e9366d5.23114829 - Opreation getStoresAndSales was successful. 
+[2018-10-04 09:09:09] - corrId_5bb5bc9584cbc2.83089610 - Reached SalesManagementService API 
+[2018-10-04 09:09:09] - corrId_5bb5bc9584cbc2.83089610 - Establishing connection to DB 
+[2018-10-04 09:09:09] - corrId_5bb5bc9584cbc2.83089610 - Processing GetStoresAndSales request. 
+[2018-10-04 09:09:09] - corrId_5bb5bc9584cbc2.83089610 - Token is valid 
+[2018-10-04 09:09:09] - corrId_5bb5bc9584cbc2.83089610 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 09:09:09] - corrId_5bb5bc9584cbc2.83089610 - Query: SELECT pv.id_punto_vendita, pv.nome, pv.indirizzo, ci.nome as citta_nome, noleggi.incasso_giornaliero
+            FROM punto_vendita pv
+            INNER JOIN citta ci
+            ON pv.id_citta = ci.id_citta 
+            LEFT JOIN (SELECT SUM(no.prezzo_totale) as incasso_giornaliero, no.id_noleggio, no.id_punto_vendita 
+                        FROM noleggio no 
+                        WHERE no.data_inizio >= '2018-10-03' 
+                        AND no.data_inizio <= '2018-10-04 23:59') as noleggi
+            ON noleggi.id_punto_vendita = pv.id_punto_vendita            
+            
+            GROUP BY pv.id_punto_vendita; 
+[2018-10-04 09:09:09] - corrId_5bb5bc9584cbc2.83089610 - Executing query 
+[2018-10-04 09:09:09] - corrId_5bb5bc9584cbc2.83089610 - Query executed successfully 
+[2018-10-04 09:09:09] - corrId_5bb5bc9584cbc2.83089610 - Opreation getStoresAndSales was successful. 
+[2018-10-04 09:09:11] - corrId_5bb5bc975432c1.67476817 - Reached SalesManagementService API 
+[2018-10-04 09:09:11] - corrId_5bb5bc975432c1.67476817 - Establishing connection to DB 
+[2018-10-04 09:09:11] - corrId_5bb5bc975432c1.67476817 - Processing GetStoresAndSales request. 
+[2018-10-04 09:09:11] - corrId_5bb5bc975432c1.67476817 - Token is valid 
+[2018-10-04 09:09:11] - corrId_5bb5bc975432c1.67476817 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 09:09:11] - corrId_5bb5bc975432c1.67476817 - Query: SELECT pv.id_punto_vendita, pv.nome, pv.indirizzo, ci.nome as citta_nome, noleggi.incasso_giornaliero
+            FROM punto_vendita pv
+            INNER JOIN citta ci
+            ON pv.id_citta = ci.id_citta 
+            LEFT JOIN (SELECT SUM(no.prezzo_totale) as incasso_giornaliero, no.id_noleggio, no.id_punto_vendita 
+                        FROM noleggio no 
+                        WHERE no.data_inizio >= '2018-10-01' 
+                        AND no.data_inizio <= '2018-10-04 23:59') as noleggi
+            ON noleggi.id_punto_vendita = pv.id_punto_vendita            
+            
+            GROUP BY pv.id_punto_vendita; 
+[2018-10-04 09:09:11] - corrId_5bb5bc975432c1.67476817 - Executing query 
+[2018-10-04 09:09:11] - corrId_5bb5bc975432c1.67476817 - Query executed successfully 
+[2018-10-04 09:09:11] - corrId_5bb5bc975432c1.67476817 - Opreation getStoresAndSales was successful. 
+[2018-10-04 09:31:46] - corrId_5bb5c1e2475ac7.13527980 - Reached SalesManagementService API 
+[2018-10-04 09:31:46] - corrId_5bb5c1e2475ac7.13527980 - Establishing connection to DB 
+[2018-10-04 09:31:46] - corrId_5bb5c1e2475ac7.13527980 - Processing GetSalesForEmployees request. 
+[2018-10-04 09:31:46] - corrId_5bb5c1e2475ac7.13527980 - Token is valid 
+[2018-10-04 09:31:46] - corrId_5bb5c1e2475ac7.13527980 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 09:31:46] - corrId_5bb5c1e2475ac7.13527980 - Query: SELECT id_dipendente, nome, cognome
+            FROM dipendente
+            WHERE id_punto_vendita = 0;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM noleggio no
+            WHERE no.id_punto_vendita = 0
+            AND no.data_inizio >= '2018-10-01'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM storico_noleggio no
+            WHERE no.id_punto_vendita = 0
+            AND no.data_inizio >= '2018-10-01'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente; 
+[2018-10-04 09:31:46] - corrId_5bb5c1e2475ac7.13527980 - Executing multi query 
+[2018-10-04 09:31:46] - corrId_5bb5c1e2475ac7.13527980 - Multi query executed successfully 
+[2018-10-04 09:31:46] - corrId_5bb5c1e2475ac7.13527980 - LOOP N. 0 
+[2018-10-04 09:31:46] - corrId_5bb5c1e2475ac7.13527980 - LOOP N. 1 
+[2018-10-04 09:31:46] - corrId_5bb5c1e2475ac7.13527980 - LOOP N. 2 
+[2018-10-04 09:31:46] - corrId_5bb5c1e2475ac7.13527980 - Opreation getSalesForEmployees was successful. 
+[2018-10-04 09:32:40] - corrId_5bb5c218ec82b3.45311191 - Reached SalesManagementService API 
+[2018-10-04 09:32:40] - corrId_5bb5c218ec82b3.45311191 - Establishing connection to DB 
+[2018-10-04 09:32:40] - corrId_5bb5c218ec82b3.45311191 - Processing GetSalesForEmployees request. 
+[2018-10-04 09:32:40] - corrId_5bb5c218ec82b3.45311191 - Token is valid 
+[2018-10-04 09:32:40] - corrId_5bb5c218ec82b3.45311191 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 09:32:40] - corrId_5bb5c218ec82b3.45311191 - Query: SELECT id_dipendente, nome, cognome
+            FROM dipendente
+            WHERE id_punto_vendita = 0;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM noleggio no
+            WHERE no.id_punto_vendita = 0
+            AND no.data_inizio >= '2018-10-01'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM storico_noleggio no
+            WHERE no.id_punto_vendita = 0
+            AND no.data_inizio >= '2018-10-01'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente; 
+[2018-10-04 09:32:40] - corrId_5bb5c218ec82b3.45311191 - Executing multi query 
+[2018-10-04 09:32:40] - corrId_5bb5c218ec82b3.45311191 - Multi query executed successfully 
+[2018-10-04 09:32:40] - corrId_5bb5c218ec82b3.45311191 - LOOP N. 0 
+[2018-10-04 09:32:40] - corrId_5bb5c218ec82b3.45311191 - LOOP N. 1 
+[2018-10-04 09:32:40] - corrId_5bb5c218ec82b3.45311191 - LOOP N. 2 
+[2018-10-04 09:32:41] - corrId_5bb5c218ec82b3.45311191 - Opreation getSalesForEmployees was successful. 
+[2018-10-04 09:33:22] - corrId_5bb5c242a59685.15176449 - Reached SalesManagementService API 
+[2018-10-04 09:33:22] - corrId_5bb5c242a59685.15176449 - Establishing connection to DB 
+[2018-10-04 09:33:22] - corrId_5bb5c242a59685.15176449 - Processing GetSalesForEmployees request. 
+[2018-10-04 09:33:22] - corrId_5bb5c242a59685.15176449 - Token is valid 
+[2018-10-04 09:33:22] - corrId_5bb5c242a59685.15176449 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 09:33:22] - corrId_5bb5c242a59685.15176449 - Query: SELECT id_dipendente, nome, cognome
+            FROM dipendente
+            WHERE id_punto_vendita = 0;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM noleggio no
+            WHERE no.id_punto_vendita = 0
+            AND no.data_inizio >= '2018-10-01'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM storico_noleggio no
+            WHERE no.id_punto_vendita = 0
+            AND no.data_inizio >= '2018-10-01'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente; 
+[2018-10-04 09:33:22] - corrId_5bb5c242a59685.15176449 - Executing multi query 
+[2018-10-04 09:33:22] - corrId_5bb5c242a59685.15176449 - Multi query executed successfully 
+[2018-10-04 09:33:22] - corrId_5bb5c242a59685.15176449 - LOOP N. 0 
+[2018-10-04 09:33:22] - corrId_5bb5c242a59685.15176449 - LOOP N. 1 
+[2018-10-04 09:33:22] - corrId_5bb5c242a59685.15176449 - LOOP N. 2 
+[2018-10-04 09:33:22] - corrId_5bb5c242a59685.15176449 - Opreation getSalesForEmployees was successful. 
+[2018-10-04 09:33:25] - corrId_5bb5c245a049a0.83002392 - Reached AuthenticationService API 
+[2018-10-04 09:33:25] - corrId_5bb5c245a049a0.83002392 - Token is valid 
+[2018-10-04 09:33:27] - corrId_5bb5c2474d1af7.22442671 - Reached SalesManagementService API 
+[2018-10-04 09:33:27] - corrId_5bb5c2474d1af7.22442671 - Establishing connection to DB 
+[2018-10-04 09:33:27] - corrId_5bb5c2474d1af7.22442671 - Processing GetStoresAndSales request. 
+[2018-10-04 09:33:27] - corrId_5bb5c2474d1af7.22442671 - Token is valid 
+[2018-10-04 09:33:27] - corrId_5bb5c2474d1af7.22442671 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 09:33:27] - corrId_5bb5c2474d1af7.22442671 - Query: SELECT pv.id_punto_vendita, pv.nome, pv.indirizzo, ci.nome as citta_nome, noleggi.incasso_giornaliero
+            FROM punto_vendita pv
+            INNER JOIN citta ci
+            ON pv.id_citta = ci.id_citta 
+            LEFT JOIN (SELECT SUM(no.prezzo_totale) as incasso_giornaliero, no.id_noleggio, no.id_punto_vendita 
+                        FROM noleggio no 
+                        WHERE no.data_inizio >= '2018-10-04' 
+                        AND no.data_inizio <= '2018-10-04 23:59') as noleggi
+            ON noleggi.id_punto_vendita = pv.id_punto_vendita            
+            
+            GROUP BY pv.id_punto_vendita; 
+[2018-10-04 09:33:27] - corrId_5bb5c2474d1af7.22442671 - Executing query 
+[2018-10-04 09:33:27] - corrId_5bb5c2474d1af7.22442671 - Query executed successfully 
+[2018-10-04 09:33:27] - corrId_5bb5c2474d1af7.22442671 - Opreation getStoresAndSales was successful. 
+[2018-10-04 09:33:31] - corrId_5bb5c24b176370.89438850 - Reached SalesManagementService API 
+[2018-10-04 09:33:31] - corrId_5bb5c24b176370.89438850 - Establishing connection to DB 
+[2018-10-04 09:33:31] - corrId_5bb5c24b176370.89438850 - Processing GetSalesForEmployees request. 
+[2018-10-04 09:33:31] - corrId_5bb5c24b176370.89438850 - Token is valid 
+[2018-10-04 09:33:31] - corrId_5bb5c24b176370.89438850 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 09:33:31] - corrId_5bb5c24b176370.89438850 - Query: SELECT id_dipendente, nome, cognome
+            FROM dipendente
+            WHERE id_punto_vendita = 1;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM storico_noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente; 
+[2018-10-04 09:33:31] - corrId_5bb5c24b176370.89438850 - Executing multi query 
+[2018-10-04 09:33:31] - corrId_5bb5c24b176370.89438850 - Multi query executed successfully 
+[2018-10-04 09:33:31] - corrId_5bb5c24b176370.89438850 - LOOP N. 0 
+[2018-10-04 09:33:31] - corrId_5bb5c24b176370.89438850 - LOOP N. 1 
+[2018-10-04 09:33:31] - corrId_5bb5c24b176370.89438850 - LOOP N. 2 
+[2018-10-04 09:33:31] - corrId_5bb5c24b176370.89438850 - Opreation getSalesForEmployees was successful. 
+[2018-10-04 09:35:54] - corrId_5bb5c2dad90c63.21735565 - Reached AuthenticationService API 
+[2018-10-04 09:35:54] - corrId_5bb5c2dad90c63.21735565 - Token is valid 
+[2018-10-04 09:35:59] - corrId_5bb5c2df65ebe3.21684353 - Reached SalesManagementService API 
+[2018-10-04 09:35:59] - corrId_5bb5c2df65ebe3.21684353 - Establishing connection to DB 
+[2018-10-04 09:35:59] - corrId_5bb5c2df65ebe3.21684353 - Processing GetStoresAndSales request. 
+[2018-10-04 09:35:59] - corrId_5bb5c2df65ebe3.21684353 - Token is valid 
+[2018-10-04 09:35:59] - corrId_5bb5c2df65ebe3.21684353 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 09:35:59] - corrId_5bb5c2df65ebe3.21684353 - Query: SELECT pv.id_punto_vendita, pv.nome, pv.indirizzo, ci.nome as citta_nome, noleggi.incasso_giornaliero
+            FROM punto_vendita pv
+            INNER JOIN citta ci
+            ON pv.id_citta = ci.id_citta 
+            LEFT JOIN (SELECT SUM(no.prezzo_totale) as incasso_giornaliero, no.id_noleggio, no.id_punto_vendita 
+                        FROM noleggio no 
+                        WHERE no.data_inizio >= '2018-10-04' 
+                        AND no.data_inizio <= '2018-10-04 23:59') as noleggi
+            ON noleggi.id_punto_vendita = pv.id_punto_vendita            
+            
+            GROUP BY pv.id_punto_vendita; 
+[2018-10-04 09:35:59] - corrId_5bb5c2df65ebe3.21684353 - Executing query 
+[2018-10-04 09:35:59] - corrId_5bb5c2df65ebe3.21684353 - Query executed successfully 
+[2018-10-04 09:35:59] - corrId_5bb5c2df65ebe3.21684353 - Opreation getStoresAndSales was successful. 
+[2018-10-04 09:36:18] - corrId_5bb5c2f2810b55.29325934 - Reached SalesManagementService API 
+[2018-10-04 09:36:18] - corrId_5bb5c2f2810b55.29325934 - Establishing connection to DB 
+[2018-10-04 09:36:18] - corrId_5bb5c2f2810b55.29325934 - Processing GetSalesForEmployees request. 
+[2018-10-04 09:36:18] - corrId_5bb5c2f2810b55.29325934 - Token is valid 
+[2018-10-04 09:36:18] - corrId_5bb5c2f2810b55.29325934 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 09:36:18] - corrId_5bb5c2f2810b55.29325934 - Query: SELECT id_dipendente, nome, cognome
+            FROM dipendente
+            WHERE id_punto_vendita = 1;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM storico_noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente; 
+[2018-10-04 09:36:18] - corrId_5bb5c2f2810b55.29325934 - Executing multi query 
+[2018-10-04 09:36:18] - corrId_5bb5c2f2810b55.29325934 - Multi query executed successfully 
+[2018-10-04 09:36:18] - corrId_5bb5c2f2810b55.29325934 - LOOP N. 0 
+[2018-10-04 09:36:18] - corrId_5bb5c2f2810b55.29325934 - LOOP N. 1 
+[2018-10-04 09:36:18] - corrId_5bb5c2f2810b55.29325934 - LOOP N. 2 
+[2018-10-04 09:36:18] - corrId_5bb5c2f2810b55.29325934 - Opreation getSalesForEmployees was successful. 
+[2018-10-04 09:41:08] - corrId_5bb5c4140e6c69.43065936 - Reached AuthenticationService API 
+[2018-10-04 09:41:08] - corrId_5bb5c4140e6c69.43065936 - Token is valid 
+[2018-10-04 09:41:12] - corrId_5bb5c418698aa7.22570765 - Reached AuthenticationService API 
+[2018-10-04 09:41:12] - corrId_5bb5c418698aa7.22570765 - Processing Login request. 
+[2018-10-04 09:41:12] - corrId_5bb5c418698aa7.22570765 - Establishing connection to DB 
+[2018-10-04 09:41:12] - corrId_5bb5c418698aa7.22570765 - Executing query 
+[2018-10-04 09:41:12] - corrId_5bb5c418698aa7.22570765 - Query executed successfully 
+[2018-10-04 09:41:12] - corrId_5bb5c418698aa7.22570765 - User admin validated, starting token generation. 
+[2018-10-04 09:41:12] - corrId_5bb5c418698aa7.22570765 - Token generated succesfully. 
+[2018-10-04 09:41:12] - corrId_5bb5c418698aa7.22570765 - Authentication cookie has been set:  
+[2018-10-04 09:41:12] - corrId_5bb5c418698aa7.22570765 - User  succesfully logged in. 
+[2018-10-04 09:41:14] - corrId_5bb5c41a636439.53300051 - Reached SalesManagementService API 
+[2018-10-04 09:41:14] - corrId_5bb5c41a636439.53300051 - Establishing connection to DB 
+[2018-10-04 09:41:14] - corrId_5bb5c41a636439.53300051 - Processing GetStoresAndSales request. 
+[2018-10-04 09:41:14] - corrId_5bb5c41a636439.53300051 - Token is valid 
+[2018-10-04 09:41:14] - corrId_5bb5c41a636439.53300051 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 09:41:14] - corrId_5bb5c41a636439.53300051 - Query: SELECT pv.id_punto_vendita, pv.nome, pv.indirizzo, ci.nome as citta_nome, noleggi.incasso_giornaliero
+            FROM punto_vendita pv
+            INNER JOIN citta ci
+            ON pv.id_citta = ci.id_citta 
+            LEFT JOIN (SELECT SUM(no.prezzo_totale) as incasso_giornaliero, no.id_noleggio, no.id_punto_vendita 
+                        FROM noleggio no 
+                        WHERE no.data_inizio >= '2018-10-04' 
+                        AND no.data_inizio <= '2018-10-04 23:59') as noleggi
+            ON noleggi.id_punto_vendita = pv.id_punto_vendita            
+            
+            GROUP BY pv.id_punto_vendita; 
+[2018-10-04 09:41:14] - corrId_5bb5c41a636439.53300051 - Executing query 
+[2018-10-04 09:41:14] - corrId_5bb5c41a636439.53300051 - Query executed successfully 
+[2018-10-04 09:41:14] - corrId_5bb5c41a636439.53300051 - Opreation getStoresAndSales was successful. 
+[2018-10-04 09:41:17] - corrId_5bb5c41dc03665.26605518 - Reached SalesManagementService API 
+[2018-10-04 09:41:17] - corrId_5bb5c41dc03665.26605518 - Establishing connection to DB 
+[2018-10-04 09:41:17] - corrId_5bb5c41dc03665.26605518 - Processing GetSalesForEmployees request. 
+[2018-10-04 09:41:17] - corrId_5bb5c41dc03665.26605518 - Token is valid 
+[2018-10-04 09:41:17] - corrId_5bb5c41dc03665.26605518 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 09:41:17] - corrId_5bb5c41dc03665.26605518 - Query: SELECT id_dipendente, nome, cognome
+            FROM dipendente
+            WHERE id_punto_vendita = 1;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM storico_noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente; 
+[2018-10-04 09:41:17] - corrId_5bb5c41dc03665.26605518 - Executing multi query 
+[2018-10-04 09:41:17] - corrId_5bb5c41dc03665.26605518 - Multi query executed successfully 
+[2018-10-04 09:41:17] - corrId_5bb5c41dc03665.26605518 - LOOP N. 0 
+[2018-10-04 09:41:17] - corrId_5bb5c41dc03665.26605518 - LOOP N. 1 
+[2018-10-04 09:41:17] - corrId_5bb5c41dc03665.26605518 - LOOP N. 2 
+[2018-10-04 09:41:17] - corrId_5bb5c41dc03665.26605518 - Opreation getSalesForEmployees was successful. 
+[2018-10-04 10:55:29] - corrId_5bb5d581dd8a81.33413351 - Reached AuthenticationService API 
+[2018-10-04 10:55:29] - corrId_5bb5d581dd8a81.33413351 - Token is valid 
+[2018-10-04 10:55:52] - corrId_5bb5d5981d6628.59991989 - Reached SalesManagementService API 
+[2018-10-04 10:55:52] - corrId_5bb5d5981d6628.59991989 - Establishing connection to DB 
+[2018-10-04 10:55:52] - corrId_5bb5d5981d6628.59991989 - Processing GetStoresAndSales request. 
+[2018-10-04 10:55:52] - corrId_5bb5d5981d6628.59991989 - Token is valid 
+[2018-10-04 10:55:52] - corrId_5bb5d5981d6628.59991989 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 10:55:52] - corrId_5bb5d5981d6628.59991989 - Query: SELECT pv.id_punto_vendita, pv.nome, pv.indirizzo, ci.nome as citta_nome, noleggi.incasso_giornaliero
+            FROM punto_vendita pv
+            INNER JOIN citta ci
+            ON pv.id_citta = ci.id_citta 
+            LEFT JOIN (SELECT SUM(no.prezzo_totale) as incasso_giornaliero, no.id_noleggio, no.id_punto_vendita 
+                        FROM noleggio no 
+                        WHERE no.data_inizio >= '2018-10-04' 
+                        AND no.data_inizio <= '2018-10-04 23:59') as noleggi
+            ON noleggi.id_punto_vendita = pv.id_punto_vendita            
+            
+            GROUP BY pv.id_punto_vendita; 
+[2018-10-04 10:55:52] - corrId_5bb5d5981d6628.59991989 - Executing query 
+[2018-10-04 10:55:52] - corrId_5bb5d5981d6628.59991989 - Query executed successfully 
+[2018-10-04 10:55:52] - corrId_5bb5d5981d6628.59991989 - Opreation getStoresAndSales was successful. 
+[2018-10-04 10:55:54] - corrId_5bb5d59ab4ce54.31525629 - Reached SalesManagementService API 
+[2018-10-04 10:55:54] - corrId_5bb5d59ab4ce54.31525629 - Establishing connection to DB 
+[2018-10-04 10:55:54] - corrId_5bb5d59ab4ce54.31525629 - Processing GetSalesForEmployees request. 
+[2018-10-04 10:55:54] - corrId_5bb5d59ab4ce54.31525629 - Token is valid 
+[2018-10-04 10:55:54] - corrId_5bb5d59ab4ce54.31525629 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 10:55:54] - corrId_5bb5d59ab4ce54.31525629 - Query: SELECT id_dipendente, nome, cognome
+            FROM dipendente
+            WHERE id_punto_vendita = 1;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM storico_noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente; 
+[2018-10-04 10:55:54] - corrId_5bb5d59ab4ce54.31525629 - Executing multi query 
+[2018-10-04 10:55:54] - corrId_5bb5d59ab4ce54.31525629 - Multi query executed successfully 
+[2018-10-04 10:55:54] - corrId_5bb5d59ab4ce54.31525629 - LOOP N. 0 
+[2018-10-04 10:55:54] - corrId_5bb5d59ab4ce54.31525629 - LOOP N. 1 
+[2018-10-04 10:55:54] - corrId_5bb5d59ab4ce54.31525629 - LOOP N. 2 
+[2018-10-04 10:55:54] - corrId_5bb5d59ab4ce54.31525629 - Opreation getSalesForEmployees was successful. 
+[2018-10-04 11:01:57] - corrId_5bb5d705dcd231.07045498 - Reached SalesManagementService API 
+[2018-10-04 11:01:57] - corrId_5bb5d705dcd231.07045498 - Establishing connection to DB 
+[2018-10-04 11:01:57] - corrId_5bb5d705dcd231.07045498 - Processing GetStoresAndSales request. 
+[2018-10-04 11:01:57] - corrId_5bb5d705dcd231.07045498 - Token is valid 
+[2018-10-04 11:01:57] - corrId_5bb5d705dcd231.07045498 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 11:01:57] - corrId_5bb5d705dcd231.07045498 - Query: SELECT pv.id_punto_vendita, pv.nome, pv.indirizzo, ci.nome as citta_nome, noleggi.incasso_giornaliero
+            FROM punto_vendita pv
+            INNER JOIN citta ci
+            ON pv.id_citta = ci.id_citta 
+            LEFT JOIN (SELECT SUM(no.prezzo_totale) as incasso_giornaliero, no.id_noleggio, no.id_punto_vendita 
+                        FROM noleggio no 
+                        WHERE no.data_inizio >= '2018-10-04' 
+                        AND no.data_inizio <= '2018-10-04 23:59') as noleggi
+            ON noleggi.id_punto_vendita = pv.id_punto_vendita            
+            
+            GROUP BY pv.id_punto_vendita; 
+[2018-10-04 11:01:57] - corrId_5bb5d705dcd231.07045498 - Executing query 
+[2018-10-04 11:01:57] - corrId_5bb5d705dcd231.07045498 - Query executed successfully 
+[2018-10-04 11:01:57] - corrId_5bb5d705dcd231.07045498 - Opreation getStoresAndSales was successful. 
+[2018-10-04 11:02:05] - corrId_5bb5d70d12e398.77775694 - Reached SalesManagementService API 
+[2018-10-04 11:02:05] - corrId_5bb5d70d12e398.77775694 - Establishing connection to DB 
+[2018-10-04 11:02:05] - corrId_5bb5d70d12e398.77775694 - Processing GetStoresAndSales request. 
+[2018-10-04 11:02:05] - corrId_5bb5d70d12e398.77775694 - Token is valid 
+[2018-10-04 11:02:05] - corrId_5bb5d70d12e398.77775694 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 11:02:05] - corrId_5bb5d70d12e398.77775694 - Query: SELECT pv.id_punto_vendita, pv.nome, pv.indirizzo, ci.nome as citta_nome, noleggi.incasso_giornaliero
+            FROM punto_vendita pv
+            INNER JOIN citta ci
+            ON pv.id_citta = ci.id_citta 
+            LEFT JOIN (SELECT SUM(no.prezzo_totale) as incasso_giornaliero, no.id_noleggio, no.id_punto_vendita 
+                        FROM noleggio no 
+                        WHERE no.data_inizio >= '2018-10-04' 
+                        AND no.data_inizio <= '2018-10-04 23:59') as noleggi
+            ON noleggi.id_punto_vendita = pv.id_punto_vendita            
+            
+            GROUP BY pv.id_punto_vendita; 
+[2018-10-04 11:02:05] - corrId_5bb5d70d12e398.77775694 - Executing query 
+[2018-10-04 11:02:05] - corrId_5bb5d70d12e398.77775694 - Query executed successfully 
+[2018-10-04 11:02:05] - corrId_5bb5d70d12e398.77775694 - Opreation getStoresAndSales was successful. 
+[2018-10-04 11:02:07] - corrId_5bb5d70f6bccb7.09050350 - Reached SalesManagementService API 
+[2018-10-04 11:02:07] - corrId_5bb5d70f6bccb7.09050350 - Establishing connection to DB 
+[2018-10-04 11:02:07] - corrId_5bb5d70f6bccb7.09050350 - Processing GetSalesForEmployees request. 
+[2018-10-04 11:02:07] - corrId_5bb5d70f6bccb7.09050350 - Token is valid 
+[2018-10-04 11:02:07] - corrId_5bb5d70f6bccb7.09050350 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 11:02:07] - corrId_5bb5d70f6bccb7.09050350 - Query: SELECT id_dipendente, nome, cognome
+            FROM dipendente
+            WHERE id_punto_vendita = 1;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM storico_noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente; 
+[2018-10-04 11:02:07] - corrId_5bb5d70f6bccb7.09050350 - Executing multi query 
+[2018-10-04 11:02:07] - corrId_5bb5d70f6bccb7.09050350 - Multi query executed successfully 
+[2018-10-04 11:02:07] - corrId_5bb5d70f6bccb7.09050350 - LOOP N. 0 
+[2018-10-04 11:02:07] - corrId_5bb5d70f6bccb7.09050350 - LOOP N. 1 
+[2018-10-04 11:02:07] - corrId_5bb5d70f6bccb7.09050350 - LOOP N. 2 
+[2018-10-04 11:02:07] - corrId_5bb5d70f6bccb7.09050350 - Opreation getSalesForEmployees was successful. 
+[2018-10-04 11:06:43] - corrId_5bb5d823394f70.70052806 - Reached AuthenticationService API 
+[2018-10-04 11:06:43] - corrId_5bb5d823394f70.70052806 - Token is valid 
+[2018-10-04 11:06:47] - corrId_5bb5d827f24ed0.49025965 - Reached SalesManagementService API 
+[2018-10-04 11:06:47] - corrId_5bb5d827f24ed0.49025965 - Establishing connection to DB 
+[2018-10-04 11:06:47] - corrId_5bb5d827f24ed0.49025965 - Processing GetStoresAndSales request. 
+[2018-10-04 11:06:47] - corrId_5bb5d827f24ed0.49025965 - Token is valid 
+[2018-10-04 11:06:48] - corrId_5bb5d827f24ed0.49025965 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 11:06:48] - corrId_5bb5d827f24ed0.49025965 - Query: SELECT pv.id_punto_vendita, pv.nome, pv.indirizzo, ci.nome as citta_nome, noleggi.incasso_giornaliero
+            FROM punto_vendita pv
+            INNER JOIN citta ci
+            ON pv.id_citta = ci.id_citta 
+            LEFT JOIN (SELECT SUM(no.prezzo_totale) as incasso_giornaliero, no.id_noleggio, no.id_punto_vendita 
+                        FROM noleggio no 
+                        WHERE no.data_inizio >= '2018-10-04' 
+                        AND no.data_inizio <= '2018-10-04 23:59') as noleggi
+            ON noleggi.id_punto_vendita = pv.id_punto_vendita            
+            
+            GROUP BY pv.id_punto_vendita; 
+[2018-10-04 11:06:48] - corrId_5bb5d827f24ed0.49025965 - Executing query 
+[2018-10-04 11:06:48] - corrId_5bb5d827f24ed0.49025965 - Query executed successfully 
+[2018-10-04 11:06:48] - corrId_5bb5d827f24ed0.49025965 - Opreation getStoresAndSales was successful. 
+[2018-10-04 11:06:55] - corrId_5bb5d82f9ec795.28387213 - Reached SalesManagementService API 
+[2018-10-04 11:06:55] - corrId_5bb5d82f9ec795.28387213 - Establishing connection to DB 
+[2018-10-04 11:06:55] - corrId_5bb5d82f9ec795.28387213 - Processing GetSalesForEmployees request. 
+[2018-10-04 11:06:55] - corrId_5bb5d82f9ec795.28387213 - Token is valid 
+[2018-10-04 11:06:55] - corrId_5bb5d82f9ec795.28387213 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 11:06:55] - corrId_5bb5d82f9ec795.28387213 - Query: SELECT id_dipendente, nome, cognome
+            FROM dipendente
+            WHERE id_punto_vendita = 1;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM storico_noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente; 
+[2018-10-04 11:06:55] - corrId_5bb5d82f9ec795.28387213 - Executing multi query 
+[2018-10-04 11:06:55] - corrId_5bb5d82f9ec795.28387213 - Multi query executed successfully 
+[2018-10-04 11:06:55] - corrId_5bb5d82f9ec795.28387213 - LOOP N. 0 
+[2018-10-04 11:06:55] - corrId_5bb5d82f9ec795.28387213 - LOOP N. 1 
+[2018-10-04 11:06:55] - corrId_5bb5d82f9ec795.28387213 - LOOP N. 2 
+[2018-10-04 11:06:55] - corrId_5bb5d82f9ec795.28387213 - Opreation getSalesForEmployees was successful. 
+[2018-10-04 11:07:40] - corrId_5bb5d85ceb65c7.61185362 - Reached SalesManagementService API 
+[2018-10-04 11:07:40] - corrId_5bb5d85ceb65c7.61185362 - Establishing connection to DB 
+[2018-10-04 11:07:40] - corrId_5bb5d85ceb65c7.61185362 - Processing GetSalesForEmployees request. 
+[2018-10-04 11:07:40] - corrId_5bb5d85ceb65c7.61185362 - Token is valid 
+[2018-10-04 11:07:40] - corrId_5bb5d85ceb65c7.61185362 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 11:07:40] - corrId_5bb5d85ceb65c7.61185362 - Query: SELECT id_dipendente, nome, cognome
+            FROM dipendente
+            WHERE id_punto_vendita = 1;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM storico_noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente; 
+[2018-10-04 11:07:40] - corrId_5bb5d85ceb65c7.61185362 - Executing multi query 
+[2018-10-04 11:07:41] - corrId_5bb5d85ceb65c7.61185362 - Multi query executed successfully 
+[2018-10-04 11:07:41] - corrId_5bb5d85ceb65c7.61185362 - LOOP N. 0 
+[2018-10-04 11:07:41] - corrId_5bb5d85ceb65c7.61185362 - LOOP N. 1 
+[2018-10-04 11:07:41] - corrId_5bb5d85ceb65c7.61185362 - LOOP N. 2 
+[2018-10-04 11:07:41] - corrId_5bb5d85ceb65c7.61185362 - Opreation getSalesForEmployees was successful. 
+[2018-10-04 11:07:46] - corrId_5bb5d86249ba81.21802513 - Reached SalesManagementService API 
+[2018-10-04 11:07:46] - corrId_5bb5d86249ba81.21802513 - Establishing connection to DB 
+[2018-10-04 11:07:46] - corrId_5bb5d86249ba81.21802513 - Processing GetSalesForEmployees request. 
+[2018-10-04 11:07:46] - corrId_5bb5d86249ba81.21802513 - Token is valid 
+[2018-10-04 11:07:46] - corrId_5bb5d86249ba81.21802513 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 11:07:46] - corrId_5bb5d86249ba81.21802513 - Query: SELECT id_dipendente, nome, cognome
+            FROM dipendente
+            WHERE id_punto_vendita = 1;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM storico_noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente; 
+[2018-10-04 11:07:46] - corrId_5bb5d86249ba81.21802513 - Executing multi query 
+[2018-10-04 11:07:46] - corrId_5bb5d86249ba81.21802513 - Multi query executed successfully 
+[2018-10-04 11:07:46] - corrId_5bb5d86249ba81.21802513 - LOOP N. 0 
+[2018-10-04 11:07:46] - corrId_5bb5d86249ba81.21802513 - LOOP N. 1 
+[2018-10-04 11:07:46] - corrId_5bb5d86249ba81.21802513 - LOOP N. 2 
+[2018-10-04 11:07:46] - corrId_5bb5d86249ba81.21802513 - Opreation getSalesForEmployees was successful. 
+[2018-10-04 11:07:49] - corrId_5bb5d8654952f8.34322416 - Reached SalesManagementService API 
+[2018-10-04 11:07:49] - corrId_5bb5d8654952f8.34322416 - Establishing connection to DB 
+[2018-10-04 11:07:49] - corrId_5bb5d8654952f8.34322416 - Processing GetSalesForEmployees request. 
+[2018-10-04 11:07:49] - corrId_5bb5d8654952f8.34322416 - Token is valid 
+[2018-10-04 11:07:49] - corrId_5bb5d8654952f8.34322416 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 11:07:49] - corrId_5bb5d8654952f8.34322416 - Query: SELECT id_dipendente, nome, cognome
+            FROM dipendente
+            WHERE id_punto_vendita = 1;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM storico_noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente; 
+[2018-10-04 11:07:49] - corrId_5bb5d8654952f8.34322416 - Executing multi query 
+[2018-10-04 11:07:49] - corrId_5bb5d8654952f8.34322416 - Multi query executed successfully 
+[2018-10-04 11:07:49] - corrId_5bb5d8654952f8.34322416 - LOOP N. 0 
+[2018-10-04 11:07:49] - corrId_5bb5d8654952f8.34322416 - LOOP N. 1 
+[2018-10-04 11:07:49] - corrId_5bb5d8654952f8.34322416 - LOOP N. 2 
+[2018-10-04 11:07:49] - corrId_5bb5d8654952f8.34322416 - Opreation getSalesForEmployees was successful. 
+[2018-10-04 11:07:54] - corrId_5bb5d86abd0750.01266887 - Reached SalesManagementService API 
+[2018-10-04 11:07:54] - corrId_5bb5d86abd0750.01266887 - Establishing connection to DB 
+[2018-10-04 11:07:54] - corrId_5bb5d86abd0750.01266887 - Processing GetSalesForEmployees request. 
+[2018-10-04 11:07:54] - corrId_5bb5d86abd0750.01266887 - Token is valid 
+[2018-10-04 11:07:54] - corrId_5bb5d86abd0750.01266887 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 11:07:54] - corrId_5bb5d86abd0750.01266887 - Query: SELECT id_dipendente, nome, cognome
+            FROM dipendente
+            WHERE id_punto_vendita = 1;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM storico_noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente; 
+[2018-10-04 11:07:54] - corrId_5bb5d86abd0750.01266887 - Executing multi query 
+[2018-10-04 11:07:54] - corrId_5bb5d86abd0750.01266887 - Multi query executed successfully 
+[2018-10-04 11:07:54] - corrId_5bb5d86abd0750.01266887 - LOOP N. 0 
+[2018-10-04 11:07:54] - corrId_5bb5d86abd0750.01266887 - LOOP N. 1 
+[2018-10-04 11:07:54] - corrId_5bb5d86abd0750.01266887 - LOOP N. 2 
+[2018-10-04 11:07:54] - corrId_5bb5d86abd0750.01266887 - Opreation getSalesForEmployees was successful. 
+[2018-10-04 11:08:14] - corrId_5bb5d87e3e9ba6.91562264 - Reached SalesManagementService API 
+[2018-10-04 11:08:14] - corrId_5bb5d87e3e9ba6.91562264 - Establishing connection to DB 
+[2018-10-04 11:08:14] - corrId_5bb5d87e3e9ba6.91562264 - Processing GetSalesForEmployees request. 
+[2018-10-04 11:08:14] - corrId_5bb5d87e3e9ba6.91562264 - Token is valid 
+[2018-10-04 11:08:14] - corrId_5bb5d87e3e9ba6.91562264 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 11:08:14] - corrId_5bb5d87e3e9ba6.91562264 - Query: SELECT id_dipendente, nome, cognome
+            FROM dipendente
+            WHERE id_punto_vendita = 1;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM storico_noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente; 
+[2018-10-04 11:08:14] - corrId_5bb5d87e3e9ba6.91562264 - Executing multi query 
+[2018-10-04 11:08:14] - corrId_5bb5d87e3e9ba6.91562264 - Multi query executed successfully 
+[2018-10-04 11:08:14] - corrId_5bb5d87e3e9ba6.91562264 - LOOP N. 0 
+[2018-10-04 11:08:14] - corrId_5bb5d87e3e9ba6.91562264 - LOOP N. 1 
+[2018-10-04 11:08:14] - corrId_5bb5d87e3e9ba6.91562264 - LOOP N. 2 
+[2018-10-04 11:08:14] - corrId_5bb5d87e3e9ba6.91562264 - Opreation getSalesForEmployees was successful. 
+[2018-10-04 11:08:43] - corrId_5bb5d89ba81aa5.79537308 - Reached AuthenticationService API 
+[2018-10-04 11:08:43] - corrId_5bb5d89ba81aa5.79537308 - Token is valid 
+[2018-10-04 11:10:37] - corrId_5bb5d90d553d10.94902406 - Reached SalesManagementService API 
+[2018-10-04 11:10:37] - corrId_5bb5d90d553d10.94902406 - Establishing connection to DB 
+[2018-10-04 11:10:37] - corrId_5bb5d90d553d10.94902406 - Processing GetStoresAndSales request. 
+[2018-10-04 11:10:37] - corrId_5bb5d90d553d10.94902406 - Token is valid 
+[2018-10-04 11:10:37] - corrId_5bb5d90d553d10.94902406 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 11:10:37] - corrId_5bb5d90d553d10.94902406 - Query: SELECT pv.id_punto_vendita, pv.nome, pv.indirizzo, ci.nome as citta_nome, noleggi.incasso_giornaliero
+            FROM punto_vendita pv
+            INNER JOIN citta ci
+            ON pv.id_citta = ci.id_citta 
+            LEFT JOIN (SELECT SUM(no.prezzo_totale) as incasso_giornaliero, no.id_noleggio, no.id_punto_vendita 
+                        FROM noleggio no 
+                        WHERE no.data_inizio >= '2018-10-04' 
+                        AND no.data_inizio <= '2018-10-04 23:59') as noleggi
+            ON noleggi.id_punto_vendita = pv.id_punto_vendita            
+            
+            GROUP BY pv.id_punto_vendita; 
+[2018-10-04 11:10:37] - corrId_5bb5d90d553d10.94902406 - Executing query 
+[2018-10-04 11:10:37] - corrId_5bb5d90d553d10.94902406 - Query executed successfully 
+[2018-10-04 11:10:37] - corrId_5bb5d90d553d10.94902406 - Opreation getStoresAndSales was successful. 
+[2018-10-04 11:10:40] - corrId_5bb5d910861c24.62568567 - Reached SalesManagementService API 
+[2018-10-04 11:10:40] - corrId_5bb5d910861c24.62568567 - Establishing connection to DB 
+[2018-10-04 11:10:40] - corrId_5bb5d910861c24.62568567 - Processing GetSalesForEmployees request. 
+[2018-10-04 11:10:40] - corrId_5bb5d910861c24.62568567 - Token is valid 
+[2018-10-04 11:10:40] - corrId_5bb5d910861c24.62568567 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 11:10:40] - corrId_5bb5d910861c24.62568567 - Query: SELECT id_dipendente, nome, cognome
+            FROM dipendente
+            WHERE id_punto_vendita = 1;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM storico_noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente; 
+[2018-10-04 11:10:40] - corrId_5bb5d910861c24.62568567 - Executing multi query 
+[2018-10-04 11:10:40] - corrId_5bb5d910861c24.62568567 - Multi query executed successfully 
+[2018-10-04 11:10:40] - corrId_5bb5d910861c24.62568567 - LOOP N. 0 
+[2018-10-04 11:10:40] - corrId_5bb5d910861c24.62568567 - LOOP N. 1 
+[2018-10-04 11:10:40] - corrId_5bb5d910861c24.62568567 - LOOP N. 2 
+[2018-10-04 11:10:40] - corrId_5bb5d910861c24.62568567 - Opreation getSalesForEmployees was successful. 
+[2018-10-04 11:10:53] - corrId_5bb5d91dc676b0.78590455 - Reached SalesManagementService API 
+[2018-10-04 11:10:53] - corrId_5bb5d91dc676b0.78590455 - Establishing connection to DB 
+[2018-10-04 11:10:53] - corrId_5bb5d91dc676b0.78590455 - Processing GetSalesForEmployees request. 
+[2018-10-04 11:10:53] - corrId_5bb5d91dc676b0.78590455 - Token is valid 
+[2018-10-04 11:10:53] - corrId_5bb5d91dc676b0.78590455 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 11:10:53] - corrId_5bb5d91dc676b0.78590455 - Query: SELECT id_dipendente, nome, cognome
+            FROM dipendente
+            WHERE id_punto_vendita = 1;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM storico_noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente; 
+[2018-10-04 11:10:53] - corrId_5bb5d91dc676b0.78590455 - Executing multi query 
+[2018-10-04 11:10:53] - corrId_5bb5d91dc676b0.78590455 - Multi query executed successfully 
+[2018-10-04 11:10:53] - corrId_5bb5d91dc676b0.78590455 - LOOP N. 0 
+[2018-10-04 11:10:53] - corrId_5bb5d91dc676b0.78590455 - LOOP N. 1 
+[2018-10-04 11:10:53] - corrId_5bb5d91dc676b0.78590455 - LOOP N. 2 
+[2018-10-04 11:10:53] - corrId_5bb5d91dc676b0.78590455 - Opreation getSalesForEmployees was successful. 
+[2018-10-04 11:10:58] - corrId_5bb5d922e6dc73.02492567 - Reached SalesManagementService API 
+[2018-10-04 11:10:58] - corrId_5bb5d922e6dc73.02492567 - Establishing connection to DB 
+[2018-10-04 11:10:58] - corrId_5bb5d922e6dc73.02492567 - Processing GetSalesForEmployees request. 
+[2018-10-04 11:10:58] - corrId_5bb5d922e6dc73.02492567 - Token is valid 
+[2018-10-04 11:10:58] - corrId_5bb5d922e6dc73.02492567 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 11:10:58] - corrId_5bb5d922e6dc73.02492567 - Query: SELECT id_dipendente, nome, cognome
+            FROM dipendente
+            WHERE id_punto_vendita = 1;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM storico_noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente; 
+[2018-10-04 11:10:58] - corrId_5bb5d922e6dc73.02492567 - Executing multi query 
+[2018-10-04 11:10:58] - corrId_5bb5d922e6dc73.02492567 - Multi query executed successfully 
+[2018-10-04 11:10:58] - corrId_5bb5d922e6dc73.02492567 - LOOP N. 0 
+[2018-10-04 11:10:58] - corrId_5bb5d922e6dc73.02492567 - LOOP N. 1 
+[2018-10-04 11:10:58] - corrId_5bb5d922e6dc73.02492567 - LOOP N. 2 
+[2018-10-04 11:10:58] - corrId_5bb5d922e6dc73.02492567 - Opreation getSalesForEmployees was successful. 
+[2018-10-04 11:11:29] - corrId_5bb5d941a8e339.20010753 - Reached AuthenticationService API 
+[2018-10-04 11:11:29] - corrId_5bb5d941a8e339.20010753 - Token is valid 
+[2018-10-04 11:11:33] - corrId_5bb5d9451ca9e7.72587817 - Reached SalesManagementService API 
+[2018-10-04 11:11:33] - corrId_5bb5d9451ca9e7.72587817 - Establishing connection to DB 
+[2018-10-04 11:11:33] - corrId_5bb5d9451ca9e7.72587817 - Processing GetStoresAndSales request. 
+[2018-10-04 11:11:33] - corrId_5bb5d9451ca9e7.72587817 - Token is valid 
+[2018-10-04 11:11:33] - corrId_5bb5d9451ca9e7.72587817 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 11:11:33] - corrId_5bb5d9451ca9e7.72587817 - Query: SELECT pv.id_punto_vendita, pv.nome, pv.indirizzo, ci.nome as citta_nome, noleggi.incasso_giornaliero
+            FROM punto_vendita pv
+            INNER JOIN citta ci
+            ON pv.id_citta = ci.id_citta 
+            LEFT JOIN (SELECT SUM(no.prezzo_totale) as incasso_giornaliero, no.id_noleggio, no.id_punto_vendita 
+                        FROM noleggio no 
+                        WHERE no.data_inizio >= '2018-10-04' 
+                        AND no.data_inizio <= '2018-10-04 23:59') as noleggi
+            ON noleggi.id_punto_vendita = pv.id_punto_vendita            
+            
+            GROUP BY pv.id_punto_vendita; 
+[2018-10-04 11:11:33] - corrId_5bb5d9451ca9e7.72587817 - Executing query 
+[2018-10-04 11:11:33] - corrId_5bb5d9451ca9e7.72587817 - Query executed successfully 
+[2018-10-04 11:11:33] - corrId_5bb5d9451ca9e7.72587817 - Opreation getStoresAndSales was successful. 
+[2018-10-04 11:11:35] - corrId_5bb5d9476136f5.74311250 - Reached SalesManagementService API 
+[2018-10-04 11:11:35] - corrId_5bb5d9476136f5.74311250 - Establishing connection to DB 
+[2018-10-04 11:11:35] - corrId_5bb5d9476136f5.74311250 - Processing GetSalesForEmployees request. 
+[2018-10-04 11:11:35] - corrId_5bb5d9476136f5.74311250 - Token is valid 
+[2018-10-04 11:11:35] - corrId_5bb5d9476136f5.74311250 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 11:11:35] - corrId_5bb5d9476136f5.74311250 - Query: SELECT id_dipendente, nome, cognome
+            FROM dipendente
+            WHERE id_punto_vendita = 1;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM storico_noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente; 
+[2018-10-04 11:11:35] - corrId_5bb5d9476136f5.74311250 - Executing multi query 
+[2018-10-04 11:11:35] - corrId_5bb5d9476136f5.74311250 - Multi query executed successfully 
+[2018-10-04 11:11:35] - corrId_5bb5d9476136f5.74311250 - LOOP N. 0 
+[2018-10-04 11:11:35] - corrId_5bb5d9476136f5.74311250 - LOOP N. 1 
+[2018-10-04 11:11:35] - corrId_5bb5d9476136f5.74311250 - LOOP N. 2 
+[2018-10-04 11:11:35] - corrId_5bb5d9476136f5.74311250 - Opreation getSalesForEmployees was successful. 
+[2018-10-04 11:11:54] - corrId_5bb5d95a7f7170.43098961 - Reached AuthenticationService API 
+[2018-10-04 11:11:54] - corrId_5bb5d95a7f7170.43098961 - Token is valid 
+[2018-10-04 11:13:49] - corrId_5bb5d9cded0200.77141414 - Reached SalesManagementService API 
+[2018-10-04 11:13:49] - corrId_5bb5d9cded0200.77141414 - Establishing connection to DB 
+[2018-10-04 11:13:49] - corrId_5bb5d9cded0200.77141414 - Processing GetStoresAndSales request. 
+[2018-10-04 11:13:49] - corrId_5bb5d9cded0200.77141414 - Token is valid 
+[2018-10-04 11:13:49] - corrId_5bb5d9cded0200.77141414 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 11:13:50] - corrId_5bb5d9cded0200.77141414 - Query: SELECT pv.id_punto_vendita, pv.nome, pv.indirizzo, ci.nome as citta_nome, noleggi.incasso_giornaliero
+            FROM punto_vendita pv
+            INNER JOIN citta ci
+            ON pv.id_citta = ci.id_citta 
+            LEFT JOIN (SELECT SUM(no.prezzo_totale) as incasso_giornaliero, no.id_noleggio, no.id_punto_vendita 
+                        FROM noleggio no 
+                        WHERE no.data_inizio >= '2018-10-04' 
+                        AND no.data_inizio <= '2018-10-04 23:59') as noleggi
+            ON noleggi.id_punto_vendita = pv.id_punto_vendita            
+            
+            GROUP BY pv.id_punto_vendita; 
+[2018-10-04 11:13:50] - corrId_5bb5d9cded0200.77141414 - Executing query 
+[2018-10-04 11:13:50] - corrId_5bb5d9cded0200.77141414 - Query executed successfully 
+[2018-10-04 11:13:50] - corrId_5bb5d9cded0200.77141414 - Opreation getStoresAndSales was successful. 
+[2018-10-04 11:13:52] - corrId_5bb5d9d0a3a005.93075214 - Reached SalesManagementService API 
+[2018-10-04 11:13:52] - corrId_5bb5d9d0a3a005.93075214 - Establishing connection to DB 
+[2018-10-04 11:13:52] - corrId_5bb5d9d0a3a005.93075214 - Processing GetSalesForEmployees request. 
+[2018-10-04 11:13:52] - corrId_5bb5d9d0a3a005.93075214 - Token is valid 
+[2018-10-04 11:13:52] - corrId_5bb5d9d0a3a005.93075214 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 11:13:52] - corrId_5bb5d9d0a3a005.93075214 - Query: SELECT id_dipendente, nome, cognome
+            FROM dipendente
+            WHERE id_punto_vendita = 1;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM storico_noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente; 
+[2018-10-04 11:13:52] - corrId_5bb5d9d0a3a005.93075214 - Executing multi query 
+[2018-10-04 11:13:52] - corrId_5bb5d9d0a3a005.93075214 - Multi query executed successfully 
+[2018-10-04 11:13:52] - corrId_5bb5d9d0a3a005.93075214 - LOOP N. 0 
+[2018-10-04 11:13:52] - corrId_5bb5d9d0a3a005.93075214 - LOOP N. 1 
+[2018-10-04 11:13:52] - corrId_5bb5d9d0a3a005.93075214 - LOOP N. 2 
+[2018-10-04 11:13:52] - corrId_5bb5d9d0a3a005.93075214 - Opreation getSalesForEmployees was successful. 
+[2018-10-04 11:15:57] - corrId_5bb5da4d9e4f57.92949272 - Reached AuthenticationService API 
+[2018-10-04 11:15:57] - corrId_5bb5da4d9e4f57.92949272 - Token is valid 
+[2018-10-04 11:17:36] - corrId_5bb5dab08e2948.33859273 - Reached SalesManagementService API 
+[2018-10-04 11:17:36] - corrId_5bb5dab08e2948.33859273 - Establishing connection to DB 
+[2018-10-04 11:17:36] - corrId_5bb5dab08e2948.33859273 - Processing GetStoresAndSales request. 
+[2018-10-04 11:17:36] - corrId_5bb5dab08e2948.33859273 - Token is valid 
+[2018-10-04 11:17:36] - corrId_5bb5dab08e2948.33859273 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 11:17:36] - corrId_5bb5dab08e2948.33859273 - Query: SELECT pv.id_punto_vendita, pv.nome, pv.indirizzo, ci.nome as citta_nome, noleggi.incasso_giornaliero
+            FROM punto_vendita pv
+            INNER JOIN citta ci
+            ON pv.id_citta = ci.id_citta 
+            LEFT JOIN (SELECT SUM(no.prezzo_totale) as incasso_giornaliero, no.id_noleggio, no.id_punto_vendita 
+                        FROM noleggio no 
+                        WHERE no.data_inizio >= '2018-10-04' 
+                        AND no.data_inizio <= '2018-10-04 23:59') as noleggi
+            ON noleggi.id_punto_vendita = pv.id_punto_vendita            
+            
+            GROUP BY pv.id_punto_vendita; 
+[2018-10-04 11:17:36] - corrId_5bb5dab08e2948.33859273 - Executing query 
+[2018-10-04 11:17:36] - corrId_5bb5dab08e2948.33859273 - Query executed successfully 
+[2018-10-04 11:17:36] - corrId_5bb5dab08e2948.33859273 - Opreation getStoresAndSales was successful. 
+[2018-10-04 11:17:39] - corrId_5bb5dab3398d31.52214746 - Reached SalesManagementService API 
+[2018-10-04 11:17:39] - corrId_5bb5dab3398d31.52214746 - Establishing connection to DB 
+[2018-10-04 11:17:39] - corrId_5bb5dab3398d31.52214746 - Processing GetSalesForEmployees request. 
+[2018-10-04 11:17:39] - corrId_5bb5dab3398d31.52214746 - Token is valid 
+[2018-10-04 11:17:39] - corrId_5bb5dab3398d31.52214746 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 11:17:39] - corrId_5bb5dab3398d31.52214746 - Query: SELECT id_dipendente, nome, cognome
+            FROM dipendente
+            WHERE id_punto_vendita = 1;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM storico_noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente; 
+[2018-10-04 11:17:39] - corrId_5bb5dab3398d31.52214746 - Executing multi query 
+[2018-10-04 11:17:39] - corrId_5bb5dab3398d31.52214746 - Multi query executed successfully 
+[2018-10-04 11:17:39] - corrId_5bb5dab3398d31.52214746 - LOOP N. 0 
+[2018-10-04 11:17:39] - corrId_5bb5dab3398d31.52214746 - LOOP N. 1 
+[2018-10-04 11:17:39] - corrId_5bb5dab3398d31.52214746 - LOOP N. 2 
+[2018-10-04 11:17:39] - corrId_5bb5dab3398d31.52214746 - Opreation getSalesForEmployees was successful. 
+[2018-10-04 11:20:57] - corrId_5bb5db79310002.72977769 - Reached AuthenticationService API 
+[2018-10-04 11:20:57] - corrId_5bb5db79310002.72977769 - Token is valid 
+[2018-10-04 11:20:58] - corrId_5bb5db7ad14ee8.80393580 - Reached SalesManagementService API 
+[2018-10-04 11:20:58] - corrId_5bb5db7ad14ee8.80393580 - Establishing connection to DB 
+[2018-10-04 11:20:58] - corrId_5bb5db7ad14ee8.80393580 - Processing GetStoresAndSales request. 
+[2018-10-04 11:20:58] - corrId_5bb5db7ad14ee8.80393580 - Token is valid 
+[2018-10-04 11:20:58] - corrId_5bb5db7ad14ee8.80393580 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 11:20:58] - corrId_5bb5db7ad14ee8.80393580 - Query: SELECT pv.id_punto_vendita, pv.nome, pv.indirizzo, ci.nome as citta_nome, noleggi.incasso_giornaliero
+            FROM punto_vendita pv
+            INNER JOIN citta ci
+            ON pv.id_citta = ci.id_citta 
+            LEFT JOIN (SELECT SUM(no.prezzo_totale) as incasso_giornaliero, no.id_noleggio, no.id_punto_vendita 
+                        FROM noleggio no 
+                        WHERE no.data_inizio >= '2018-10-04' 
+                        AND no.data_inizio <= '2018-10-04 23:59') as noleggi
+            ON noleggi.id_punto_vendita = pv.id_punto_vendita            
+            
+            GROUP BY pv.id_punto_vendita; 
+[2018-10-04 11:20:58] - corrId_5bb5db7ad14ee8.80393580 - Executing query 
+[2018-10-04 11:20:58] - corrId_5bb5db7ad14ee8.80393580 - Query executed successfully 
+[2018-10-04 11:20:58] - corrId_5bb5db7ad14ee8.80393580 - Opreation getStoresAndSales was successful. 
+[2018-10-04 11:21:01] - corrId_5bb5db7d29e803.65021454 - Reached SalesManagementService API 
+[2018-10-04 11:21:01] - corrId_5bb5db7d29e803.65021454 - Establishing connection to DB 
+[2018-10-04 11:21:01] - corrId_5bb5db7d29e803.65021454 - Processing GetSalesForEmployees request. 
+[2018-10-04 11:21:01] - corrId_5bb5db7d29e803.65021454 - Token is valid 
+[2018-10-04 11:21:01] - corrId_5bb5db7d29e803.65021454 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 11:21:01] - corrId_5bb5db7d29e803.65021454 - Query: SELECT id_dipendente, nome, cognome
+            FROM dipendente
+            WHERE id_punto_vendita = 1;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM storico_noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente; 
+[2018-10-04 11:21:01] - corrId_5bb5db7d29e803.65021454 - Executing multi query 
+[2018-10-04 11:21:01] - corrId_5bb5db7d29e803.65021454 - Multi query executed successfully 
+[2018-10-04 11:21:01] - corrId_5bb5db7d29e803.65021454 - LOOP N. 0 
+[2018-10-04 11:21:01] - corrId_5bb5db7d29e803.65021454 - LOOP N. 1 
+[2018-10-04 11:21:01] - corrId_5bb5db7d29e803.65021454 - LOOP N. 2 
+[2018-10-04 11:21:01] - corrId_5bb5db7d29e803.65021454 - Opreation getSalesForEmployees was successful. 
+[2018-10-04 11:21:13] - corrId_5bb5db8947f954.33770234 - Reached SalesManagementService API 
+[2018-10-04 11:21:13] - corrId_5bb5db8947f954.33770234 - Establishing connection to DB 
+[2018-10-04 11:21:13] - corrId_5bb5db8947f954.33770234 - Processing GetSalesForEmployees request. 
+[2018-10-04 11:21:13] - corrId_5bb5db8947f954.33770234 - Token is valid 
+[2018-10-04 11:21:13] - corrId_5bb5db8947f954.33770234 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 11:21:13] - corrId_5bb5db8947f954.33770234 - Query: SELECT id_dipendente, nome, cognome
+            FROM dipendente
+            WHERE id_punto_vendita = 1;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM storico_noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente; 
+[2018-10-04 11:21:13] - corrId_5bb5db8947f954.33770234 - Executing multi query 
+[2018-10-04 11:21:13] - corrId_5bb5db8947f954.33770234 - Multi query executed successfully 
+[2018-10-04 11:21:13] - corrId_5bb5db8947f954.33770234 - LOOP N. 0 
+[2018-10-04 11:21:13] - corrId_5bb5db8947f954.33770234 - LOOP N. 1 
+[2018-10-04 11:21:13] - corrId_5bb5db8947f954.33770234 - LOOP N. 2 
+[2018-10-04 11:21:13] - corrId_5bb5db8947f954.33770234 - Opreation getSalesForEmployees was successful. 
+[2018-10-04 11:23:44] - corrId_5bb5dc20ca7544.54249018 - Reached AuthenticationService API 
+[2018-10-04 11:23:44] - corrId_5bb5dc20ca7544.54249018 - Token is valid 
+[2018-10-04 11:24:57] - corrId_5bb5dc69db4e79.33457660 - Reached SalesManagementService API 
+[2018-10-04 11:24:57] - corrId_5bb5dc69db4e79.33457660 - Establishing connection to DB 
+[2018-10-04 11:24:57] - corrId_5bb5dc69db4e79.33457660 - Processing GetStoresAndSales request. 
+[2018-10-04 11:24:57] - corrId_5bb5dc69db4e79.33457660 - Token is valid 
+[2018-10-04 11:24:57] - corrId_5bb5dc69db4e79.33457660 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 11:24:57] - corrId_5bb5dc69db4e79.33457660 - Query: SELECT pv.id_punto_vendita, pv.nome, pv.indirizzo, ci.nome as citta_nome, noleggi.incasso_giornaliero
+            FROM punto_vendita pv
+            INNER JOIN citta ci
+            ON pv.id_citta = ci.id_citta 
+            LEFT JOIN (SELECT SUM(no.prezzo_totale) as incasso_giornaliero, no.id_noleggio, no.id_punto_vendita 
+                        FROM noleggio no 
+                        WHERE no.data_inizio >= '2018-10-04' 
+                        AND no.data_inizio <= '2018-10-04 23:59') as noleggi
+            ON noleggi.id_punto_vendita = pv.id_punto_vendita            
+            
+            GROUP BY pv.id_punto_vendita; 
+[2018-10-04 11:24:57] - corrId_5bb5dc69db4e79.33457660 - Executing query 
+[2018-10-04 11:24:57] - corrId_5bb5dc69db4e79.33457660 - Query executed successfully 
+[2018-10-04 11:24:57] - corrId_5bb5dc69db4e79.33457660 - Opreation getStoresAndSales was successful. 
+[2018-10-04 11:25:03] - corrId_5bb5dc6ff21a94.58796324 - Reached SalesManagementService API 
+[2018-10-04 11:25:03] - corrId_5bb5dc6ff21a94.58796324 - Establishing connection to DB 
+[2018-10-04 11:25:03] - corrId_5bb5dc6ff21a94.58796324 - Processing GetSalesForEmployees request. 
+[2018-10-04 11:25:03] - corrId_5bb5dc6ff21a94.58796324 - Token is valid 
+[2018-10-04 11:25:04] - corrId_5bb5dc6ff21a94.58796324 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 11:25:04] - corrId_5bb5dc6ff21a94.58796324 - Query: SELECT id_dipendente, nome, cognome
+            FROM dipendente
+            WHERE id_punto_vendita = 1;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM storico_noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente; 
+[2018-10-04 11:25:04] - corrId_5bb5dc6ff21a94.58796324 - Executing multi query 
+[2018-10-04 11:25:04] - corrId_5bb5dc6ff21a94.58796324 - Multi query executed successfully 
+[2018-10-04 11:25:04] - corrId_5bb5dc6ff21a94.58796324 - LOOP N. 0 
+[2018-10-04 11:25:04] - corrId_5bb5dc6ff21a94.58796324 - LOOP N. 1 
+[2018-10-04 11:25:04] - corrId_5bb5dc6ff21a94.58796324 - LOOP N. 2 
+[2018-10-04 11:25:04] - corrId_5bb5dc6ff21a94.58796324 - Opreation getSalesForEmployees was successful. 
+[2018-10-04 11:53:29] - corrId_5bb5e319e96cf8.00428968 - Reached AuthenticationService API 
+[2018-10-04 11:53:29] - corrId_5bb5e319e96cf8.00428968 - Token is valid 
+[2018-10-04 12:29:50] - corrId_5bb5eb9e01aa28.83996250 - Reached SalesManagementService API 
+[2018-10-04 12:29:50] - corrId_5bb5eb9e01aa28.83996250 - Establishing connection to DB 
+[2018-10-04 12:29:50] - corrId_5bb5eb9e01aa28.83996250 - Processing GetStoresAndSales request. 
+[2018-10-04 12:29:50] - corrId_5bb5eb9e01aa28.83996250 - Token is valid 
+[2018-10-04 12:29:50] - corrId_5bb5eb9e01aa28.83996250 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 12:29:50] - corrId_5bb5eb9e01aa28.83996250 - Query: SELECT pv.id_punto_vendita, pv.nome, pv.indirizzo, ci.nome as citta_nome, noleggi.incasso_giornaliero
+            FROM punto_vendita pv
+            INNER JOIN citta ci
+            ON pv.id_citta = ci.id_citta 
+            LEFT JOIN (SELECT SUM(no.prezzo_totale) as incasso_giornaliero, no.id_noleggio, no.id_punto_vendita 
+                        FROM noleggio no 
+                        WHERE no.data_inizio >= '2018-10-04' 
+                        AND no.data_inizio <= '2018-10-04 23:59') as noleggi
+            ON noleggi.id_punto_vendita = pv.id_punto_vendita            
+            
+            GROUP BY pv.id_punto_vendita; 
+[2018-10-04 12:29:50] - corrId_5bb5eb9e01aa28.83996250 - Executing query 
+[2018-10-04 12:29:50] - corrId_5bb5eb9e01aa28.83996250 - Query executed successfully 
+[2018-10-04 12:29:50] - corrId_5bb5eb9e01aa28.83996250 - Opreation getStoresAndSales was successful. 
+[2018-10-04 12:57:10] - corrId_5bb5f2069c1a23.80335921 - Reached AuthenticationService API 
+[2018-10-04 12:57:10] - corrId_5bb5f2069c1a23.80335921 - Token is valid 
+[2018-10-04 12:57:12] - corrId_5bb5f2089ba137.29819596 - Reached SalesManagementService API 
+[2018-10-04 12:57:12] - corrId_5bb5f2089ba137.29819596 - Establishing connection to DB 
+[2018-10-04 12:57:12] - corrId_5bb5f2089ba137.29819596 - Processing GetStoresAndSales request. 
+[2018-10-04 12:57:12] - corrId_5bb5f2089ba137.29819596 - Token is valid 
+[2018-10-04 12:57:12] - corrId_5bb5f2089ba137.29819596 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 12:57:12] - corrId_5bb5f2089ba137.29819596 - Query: SELECT pv.id_punto_vendita, pv.nome, pv.indirizzo, ci.nome as citta_nome, noleggi.incasso_giornaliero
+            FROM punto_vendita pv
+            INNER JOIN citta ci
+            ON pv.id_citta = ci.id_citta 
+            LEFT JOIN (SELECT SUM(no.prezzo_totale) as incasso_giornaliero, no.id_noleggio, no.id_punto_vendita 
+                        FROM noleggio no 
+                        WHERE no.data_inizio >= '2018-10-04' 
+                        AND no.data_inizio <= '2018-10-04 23:59') as noleggi
+            ON noleggi.id_punto_vendita = pv.id_punto_vendita            
+            
+            GROUP BY pv.id_punto_vendita; 
+[2018-10-04 12:57:12] - corrId_5bb5f2089ba137.29819596 - Executing query 
+[2018-10-04 12:57:12] - corrId_5bb5f2089ba137.29819596 - Query executed successfully 
+[2018-10-04 12:57:12] - corrId_5bb5f2089ba137.29819596 - Opreation getStoresAndSales was successful. 
+[2018-10-04 12:57:17] - corrId_5bb5f20d897561.05225986 - Reached SalesManagementService API 
+[2018-10-04 12:57:17] - corrId_5bb5f20d897561.05225986 - Establishing connection to DB 
+[2018-10-04 12:57:17] - corrId_5bb5f20d897561.05225986 - Processing GetSalesForEmployees request. 
+[2018-10-04 12:57:17] - corrId_5bb5f20d897561.05225986 - Token is valid 
+[2018-10-04 12:57:17] - corrId_5bb5f20d897561.05225986 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 12:57:17] - corrId_5bb5f20d897561.05225986 - Query: SELECT id_dipendente, nome, cognome
+            FROM dipendente
+            WHERE id_punto_vendita = 1;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM storico_noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente; 
+[2018-10-04 12:57:17] - corrId_5bb5f20d897561.05225986 - Executing multi query 
+[2018-10-04 12:57:17] - corrId_5bb5f20d897561.05225986 - Multi query executed successfully 
+[2018-10-04 12:57:17] - corrId_5bb5f20d897561.05225986 - LOOP N. 0 
+[2018-10-04 12:57:17] - corrId_5bb5f20d897561.05225986 - LOOP N. 1 
+[2018-10-04 12:57:17] - corrId_5bb5f20d897561.05225986 - LOOP N. 2 
+[2018-10-04 12:57:17] - corrId_5bb5f20d897561.05225986 - Opreation getSalesForEmployees was successful. 
+[2018-10-04 12:58:04] - corrId_5bb5f23c994115.11630232 - Reached AuthenticationService API 
+[2018-10-04 12:58:04] - corrId_5bb5f23c994115.11630232 - Token is valid 
+[2018-10-04 12:58:05] - corrId_5bb5f23da0a6a9.91650992 - Reached SalesManagementService API 
+[2018-10-04 12:58:05] - corrId_5bb5f23da0a6a9.91650992 - Establishing connection to DB 
+[2018-10-04 12:58:05] - corrId_5bb5f23da0a6a9.91650992 - Processing GetStoresAndSales request. 
+[2018-10-04 12:58:05] - corrId_5bb5f23da0a6a9.91650992 - Token is valid 
+[2018-10-04 12:58:05] - corrId_5bb5f23da0a6a9.91650992 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 12:58:05] - corrId_5bb5f23da0a6a9.91650992 - Query: SELECT pv.id_punto_vendita, pv.nome, pv.indirizzo, ci.nome as citta_nome, noleggi.incasso_giornaliero
+            FROM punto_vendita pv
+            INNER JOIN citta ci
+            ON pv.id_citta = ci.id_citta 
+            LEFT JOIN (SELECT SUM(no.prezzo_totale) as incasso_giornaliero, no.id_noleggio, no.id_punto_vendita 
+                        FROM noleggio no 
+                        WHERE no.data_inizio >= '2018-10-04' 
+                        AND no.data_inizio <= '2018-10-04 23:59') as noleggi
+            ON noleggi.id_punto_vendita = pv.id_punto_vendita            
+            
+            GROUP BY pv.id_punto_vendita; 
+[2018-10-04 12:58:05] - corrId_5bb5f23da0a6a9.91650992 - Executing query 
+[2018-10-04 12:58:05] - corrId_5bb5f23da0a6a9.91650992 - Query executed successfully 
+[2018-10-04 12:58:05] - corrId_5bb5f23da0a6a9.91650992 - Opreation getStoresAndSales was successful. 
+[2018-10-04 12:58:11] - corrId_5bb5f243a59ec7.75765165 - Reached SalesManagementService API 
+[2018-10-04 12:58:11] - corrId_5bb5f243a59ec7.75765165 - Establishing connection to DB 
+[2018-10-04 12:58:11] - corrId_5bb5f243a59ec7.75765165 - Processing GetSalesForEmployees request. 
+[2018-10-04 12:58:11] - corrId_5bb5f243a59ec7.75765165 - Token is valid 
+[2018-10-04 12:58:11] - corrId_5bb5f243a59ec7.75765165 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 12:58:11] - corrId_5bb5f243a59ec7.75765165 - Query: SELECT id_dipendente, nome, cognome
+            FROM dipendente
+            WHERE id_punto_vendita = 1;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM storico_noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente; 
+[2018-10-04 12:58:11] - corrId_5bb5f243a59ec7.75765165 - Executing multi query 
+[2018-10-04 12:58:11] - corrId_5bb5f243a59ec7.75765165 - Multi query executed successfully 
+[2018-10-04 12:58:11] - corrId_5bb5f243a59ec7.75765165 - LOOP N. 0 
+[2018-10-04 12:58:11] - corrId_5bb5f243a59ec7.75765165 - LOOP N. 1 
+[2018-10-04 12:58:11] - corrId_5bb5f243a59ec7.75765165 - LOOP N. 2 
+[2018-10-04 12:58:11] - corrId_5bb5f243a59ec7.75765165 - Opreation getSalesForEmployees was successful. 
+[2018-10-04 12:58:26] - corrId_5bb5f2521c7690.18645059 - Reached AuthenticationService API 
+[2018-10-04 12:58:26] - corrId_5bb5f2521c7690.18645059 - Token is valid 
+[2018-10-04 12:58:27] - corrId_5bb5f2539072c6.64504379 - Reached SalesManagementService API 
+[2018-10-04 12:58:27] - corrId_5bb5f2539072c6.64504379 - Establishing connection to DB 
+[2018-10-04 12:58:27] - corrId_5bb5f2539072c6.64504379 - Processing GetStoresAndSales request. 
+[2018-10-04 12:58:27] - corrId_5bb5f2539072c6.64504379 - Token is valid 
+[2018-10-04 12:58:27] - corrId_5bb5f2539072c6.64504379 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 12:58:27] - corrId_5bb5f2539072c6.64504379 - Query: SELECT pv.id_punto_vendita, pv.nome, pv.indirizzo, ci.nome as citta_nome, noleggi.incasso_giornaliero
+            FROM punto_vendita pv
+            INNER JOIN citta ci
+            ON pv.id_citta = ci.id_citta 
+            LEFT JOIN (SELECT SUM(no.prezzo_totale) as incasso_giornaliero, no.id_noleggio, no.id_punto_vendita 
+                        FROM noleggio no 
+                        WHERE no.data_inizio >= '2018-10-04' 
+                        AND no.data_inizio <= '2018-10-04 23:59') as noleggi
+            ON noleggi.id_punto_vendita = pv.id_punto_vendita            
+            
+            GROUP BY pv.id_punto_vendita; 
+[2018-10-04 12:58:27] - corrId_5bb5f2539072c6.64504379 - Executing query 
+[2018-10-04 12:58:27] - corrId_5bb5f2539072c6.64504379 - Query executed successfully 
+[2018-10-04 12:58:27] - corrId_5bb5f2539072c6.64504379 - Opreation getStoresAndSales was successful. 
+[2018-10-04 12:58:29] - corrId_5bb5f255ee3f42.56289749 - Reached SalesManagementService API 
+[2018-10-04 12:58:29] - corrId_5bb5f255ee3f42.56289749 - Establishing connection to DB 
+[2018-10-04 12:58:30] - corrId_5bb5f255ee3f42.56289749 - Processing GetSalesForEmployees request. 
+[2018-10-04 12:58:30] - corrId_5bb5f255ee3f42.56289749 - Token is valid 
+[2018-10-04 12:58:30] - corrId_5bb5f255ee3f42.56289749 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 12:58:30] - corrId_5bb5f255ee3f42.56289749 - Query: SELECT id_dipendente, nome, cognome
+            FROM dipendente
+            WHERE id_punto_vendita = 1;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM storico_noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente; 
+[2018-10-04 12:58:30] - corrId_5bb5f255ee3f42.56289749 - Executing multi query 
+[2018-10-04 12:58:30] - corrId_5bb5f255ee3f42.56289749 - Multi query executed successfully 
+[2018-10-04 12:58:30] - corrId_5bb5f255ee3f42.56289749 - LOOP N. 0 
+[2018-10-04 12:58:30] - corrId_5bb5f255ee3f42.56289749 - LOOP N. 1 
+[2018-10-04 12:58:30] - corrId_5bb5f255ee3f42.56289749 - LOOP N. 2 
+[2018-10-04 12:58:30] - corrId_5bb5f255ee3f42.56289749 - Opreation getSalesForEmployees was successful. 
+[2018-10-04 12:58:58] - corrId_5bb5f2729bba58.65444694 - Reached AuthenticationService API 
+[2018-10-04 12:58:58] - corrId_5bb5f2729bba58.65444694 - Token is valid 
+[2018-10-04 12:59:00] - corrId_5bb5f2740cb6d9.23081984 - Reached SalesManagementService API 
+[2018-10-04 12:59:00] - corrId_5bb5f2740cb6d9.23081984 - Establishing connection to DB 
+[2018-10-04 12:59:00] - corrId_5bb5f2740cb6d9.23081984 - Processing GetStoresAndSales request. 
+[2018-10-04 12:59:00] - corrId_5bb5f2740cb6d9.23081984 - Token is valid 
+[2018-10-04 12:59:00] - corrId_5bb5f2740cb6d9.23081984 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 12:59:00] - corrId_5bb5f2740cb6d9.23081984 - Query: SELECT pv.id_punto_vendita, pv.nome, pv.indirizzo, ci.nome as citta_nome, noleggi.incasso_giornaliero
+            FROM punto_vendita pv
+            INNER JOIN citta ci
+            ON pv.id_citta = ci.id_citta 
+            LEFT JOIN (SELECT SUM(no.prezzo_totale) as incasso_giornaliero, no.id_noleggio, no.id_punto_vendita 
+                        FROM noleggio no 
+                        WHERE no.data_inizio >= '2018-10-04' 
+                        AND no.data_inizio <= '2018-10-04 23:59') as noleggi
+            ON noleggi.id_punto_vendita = pv.id_punto_vendita            
+            
+            GROUP BY pv.id_punto_vendita; 
+[2018-10-04 12:59:00] - corrId_5bb5f2740cb6d9.23081984 - Executing query 
+[2018-10-04 12:59:00] - corrId_5bb5f2740cb6d9.23081984 - Query executed successfully 
+[2018-10-04 12:59:00] - corrId_5bb5f2740cb6d9.23081984 - Opreation getStoresAndSales was successful. 
+[2018-10-04 12:59:02] - corrId_5bb5f276615554.13125324 - Reached SalesManagementService API 
+[2018-10-04 12:59:02] - corrId_5bb5f276615554.13125324 - Establishing connection to DB 
+[2018-10-04 12:59:02] - corrId_5bb5f276615554.13125324 - Processing GetSalesForEmployees request. 
+[2018-10-04 12:59:02] - corrId_5bb5f276615554.13125324 - Token is valid 
+[2018-10-04 12:59:02] - corrId_5bb5f276615554.13125324 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 12:59:02] - corrId_5bb5f276615554.13125324 - Query: SELECT id_dipendente, nome, cognome
+            FROM dipendente
+            WHERE id_punto_vendita = 1;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM storico_noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente; 
+[2018-10-04 12:59:02] - corrId_5bb5f276615554.13125324 - Executing multi query 
+[2018-10-04 12:59:02] - corrId_5bb5f276615554.13125324 - Multi query executed successfully 
+[2018-10-04 12:59:02] - corrId_5bb5f276615554.13125324 - LOOP N. 0 
+[2018-10-04 12:59:02] - corrId_5bb5f276615554.13125324 - LOOP N. 1 
+[2018-10-04 12:59:02] - corrId_5bb5f276615554.13125324 - LOOP N. 2 
+[2018-10-04 12:59:02] - corrId_5bb5f276615554.13125324 - Opreation getSalesForEmployees was successful. 
+[2018-10-04 12:59:51] - corrId_5bb5f2a7092080.39465591 - Reached AuthenticationService API 
+[2018-10-04 12:59:51] - corrId_5bb5f2a7092080.39465591 - Token is valid 
+[2018-10-04 13:00:00] - corrId_5bb5f2b05a6b12.42215764 - Reached SalesManagementService API 
+[2018-10-04 13:00:00] - corrId_5bb5f2b05a6b12.42215764 - Establishing connection to DB 
+[2018-10-04 13:00:00] - corrId_5bb5f2b05a6b12.42215764 - Processing GetStoresAndSales request. 
+[2018-10-04 13:00:00] - corrId_5bb5f2b05a6b12.42215764 - Token is valid 
+[2018-10-04 13:00:00] - corrId_5bb5f2b05a6b12.42215764 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 13:00:00] - corrId_5bb5f2b05a6b12.42215764 - Query: SELECT pv.id_punto_vendita, pv.nome, pv.indirizzo, ci.nome as citta_nome, noleggi.incasso_giornaliero
+            FROM punto_vendita pv
+            INNER JOIN citta ci
+            ON pv.id_citta = ci.id_citta 
+            LEFT JOIN (SELECT SUM(no.prezzo_totale) as incasso_giornaliero, no.id_noleggio, no.id_punto_vendita 
+                        FROM noleggio no 
+                        WHERE no.data_inizio >= '2018-10-04' 
+                        AND no.data_inizio <= '2018-10-04 23:59') as noleggi
+            ON noleggi.id_punto_vendita = pv.id_punto_vendita            
+            
+            GROUP BY pv.id_punto_vendita; 
+[2018-10-04 13:00:00] - corrId_5bb5f2b05a6b12.42215764 - Executing query 
+[2018-10-04 13:00:00] - corrId_5bb5f2b05a6b12.42215764 - Query executed successfully 
+[2018-10-04 13:00:00] - corrId_5bb5f2b05a6b12.42215764 - Opreation getStoresAndSales was successful. 
+[2018-10-04 13:00:02] - corrId_5bb5f2b2efacb7.05545393 - Reached SalesManagementService API 
+[2018-10-04 13:00:02] - corrId_5bb5f2b2efacb7.05545393 - Establishing connection to DB 
+[2018-10-04 13:00:02] - corrId_5bb5f2b2efacb7.05545393 - Processing GetSalesForEmployees request. 
+[2018-10-04 13:00:02] - corrId_5bb5f2b2efacb7.05545393 - Token is valid 
+[2018-10-04 13:00:02] - corrId_5bb5f2b2efacb7.05545393 - Validated permissions for user admin (required 20, has 30) 
+[2018-10-04 13:00:02] - corrId_5bb5f2b2efacb7.05545393 - Query: SELECT id_dipendente, nome, cognome
+            FROM dipendente
+            WHERE id_punto_vendita = 1;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente;
+            
+            SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
+            FROM storico_noleggio no
+            WHERE no.id_punto_vendita = 1
+            AND no.data_inizio >= '2018-10-04'
+            AND no.data_inizio <= '2018-10-04 23:59'
+            GROUP BY no.id_dipendente; 
+[2018-10-04 13:00:03] - corrId_5bb5f2b2efacb7.05545393 - Executing multi query 
+[2018-10-04 13:00:03] - corrId_5bb5f2b2efacb7.05545393 - Multi query executed successfully 
+[2018-10-04 13:00:03] - corrId_5bb5f2b2efacb7.05545393 - LOOP N. 0 
+[2018-10-04 13:00:03] - corrId_5bb5f2b2efacb7.05545393 - LOOP N. 1 
+[2018-10-04 13:00:03] - corrId_5bb5f2b2efacb7.05545393 - LOOP N. 2 
+[2018-10-04 13:00:03] - corrId_5bb5f2b2efacb7.05545393 - Opreation getSalesForEmployees was successful. 
