@@ -1,4 +1,7 @@
 var salesManagementService = salesManagementService || new SalesManagementService();
+var dateStart;
+var dateEnd;
+var daysRange;
 var salesDataTableContainer = $("#SalesTableContainer");
 var salesDataTable;
 var salesDataTableOptions = {
@@ -121,19 +124,25 @@ function getSalesForEmployeesSuccess(data) {
     var salesArray = [...result[1], ...result[2]].sort(sortByIdDipendente);
     var salesArrayWithSums = getSalesArrayWithSums(salesArray);
     console.log(salesArrayWithSums);
+    var titleNumberOfDays = `(${daysRange > 1 ? `${daysRange} giorni` : "1 giorno"}:`;
+    var titleDatesRange = `${daysRange > 1 ? `dal ${dateStart} al ${dateEnd}` : `${dateStart}`})`;
+    var title = `Incassi ${titleNumberOfDays} ${titleDatesRange}`;
     var body = `<div id="EmployeesSalesTableContainer"></div>`;
     modalOptions = {
-        title: "Incassi per dipendente",
+        title: title,
         body: body,
         cancelButton: {
-            text: "Annulla"
+            text: "Chiudi"
         }
     }
     modal = new Modal(modalOptions);
     modal.open();
+    var loader = new Loader("#EmployeesSalesTableContainer");
+    loader.showLoader();
     buildEmployeesSalesTable(employeesArray);
     fillEmployeesSalesTableWithSums(salesArrayWithSums);
     employeesSalesTable = $("#EmployeesSalesTable").DataTable(employeesSalesTableOptions);
+    loader.hideLoader();
 }
 
 function getSalesArrayWithSums(salesArray) {
@@ -158,7 +167,7 @@ function buildEmployeesSalesTable(employees) {
                             <td>${employee.id_dipendente}</td>                             
                             <td>${employee.nome}</td>                             
                             <td>${employee.cognome}</td>
-                            <td><span id="SalesForEmployee_${employee.id_dipendente}">0.00</span> €</td>
+                            <td><span id="SalesForEmployee_${employee.id_dipendente}" class="SalesForEmployeeClass">0.00</span> €</td>
                         </tr>`;
     }	
     html += `       </tbody>
@@ -179,18 +188,32 @@ function buildEmployeesSalesTableHead() {
 }
 
 function fillEmployeesSalesTableWithSums(array) {
-    ////// AGGIUNGERE FORMULA PER CONTROLLARE CHE SIA UNA UNICA GIORNATA PER VALUTARE IL PREMIO PRODUZIONE, INOLTRE AGGIUNGERE UN CALCOLO SUI GIORNI IN BASE ALLE DATE (DA MOSTRARE ANCHE NEL TITOLO DEL MODALE, SE E' SOLO UN GIORNO ECC.)
+    var minSalesForBonus = {
+        noBonus: 50 * daysRange,
+        bonus1: 100 * daysRange,
+        bonus2: 150 * daysRange,
+        bonus3: 200 * daysRange
+    }
+    $(".SalesForEmployeeClass").length;
     for(var i = 0; i < array.length; i++) {
         var incasso = array[i].incasso_totale;
         var saleSpan =  $(`#SalesForEmployee_${array[i].id_dipendente}`);
         saleSpan.text(new Number(incasso).toFixed(2));
-        saleSpan.parent().addClass(`alert ${incasso < 50 ? "alert-danger" : incasso < 100 ? "alert-warning" : incasso < 150 ? "alert-info" : "alert-success"}`)
+        saleSpan.removeClass("alert alert-danger");
+        saleSpan.parent().addClass(`alert ${
+            incasso < minSalesForBonus.noBonus 
+            ? "alert-danger"
+            : incasso < minSalesForBonus.bonus1 ? "alert-warning" 
+            : incasso < minSalesForBonus.bonus2 ? "alert-info" : "alert-success"}`)
     }
 }
 
 /* Shared functions */
 function getFilters() {
     var dates = getDatesFromInputs();
+    dateStart = dates.data_inizio;
+    dateEnd = dates.data_fine;
+    calculateDaysRange();
     return {
         id_punto_vendita: sharedStorage.loginContext.punto_vendita_id_punto_vendita,
         data_inizio: dates.data_inizio,
@@ -203,6 +226,10 @@ function getDatesFromInputs() {
         data_inizio: $("#inputSalesStartDate").val(),
         data_fine: $("#inputSalesEndDate").val()
     }        
+}
+
+function calculateDaysRange() {
+    daysRange = (new Date(dateEnd) - new Date(dateStart)) / (1000 * 3600 * 24);
 }
 /* Init */
 initSalesView();
