@@ -2425,3 +2425,551 @@
 [2018-10-05 12:46:30] - corrId_5bb7410670bf11.17489749 - LOOP N. 1 
 [2018-10-05 12:46:30] - corrId_5bb7410670bf11.17489749 - LOOP N. 2 
 [2018-10-05 12:46:30] - corrId_5bb7410670bf11.17489749 - Opreation getSalesForEmployees was successful. 
+[2018-10-05 19:05:11] - corrId_5bb799c72eed51.13254040 - Reached AuthenticationService API 
+[2018-10-05 19:05:11] - corrId_5bb799c72eed51.13254040 - Token is valid 
+[2018-10-05 19:05:13] - corrId_5bb799c91b8612.36331874 - Reached AuthenticationService API 
+[2018-10-05 19:05:13] - corrId_5bb799c91b8612.36331874 - Processing Login request. 
+[2018-10-05 19:05:13] - corrId_5bb799c91b8612.36331874 - Establishing connection to DB 
+[2018-10-05 19:05:13] - corrId_5bb799c91b8612.36331874 - Executing query 
+[2018-10-05 19:05:13] - corrId_5bb799c91b8612.36331874 - Query executed successfully 
+[2018-10-05 19:05:13] - corrId_5bb799c91b8612.36331874 - User admin validated, starting token generation. 
+[2018-10-05 19:05:13] - corrId_5bb799c91b8612.36331874 - Token generated succesfully. 
+[2018-10-05 19:05:13] - corrId_5bb799c91b8612.36331874 - Authentication cookie has been set:  
+[2018-10-05 19:05:13] - corrId_5bb799c91b8612.36331874 - User  succesfully logged in. 
+[2018-10-05 19:05:42] - corrId_5bb799e6708d57.32088268 - Reached AuthenticationService API 
+[2018-10-05 19:05:42] - corrId_5bb799e6708d57.32088268 - Token is valid 
+[2018-10-05 19:05:42] - corrId_5bb799e68e94e8.53499619 - Reached BookingManagementService API 
+[2018-10-05 19:05:42] - corrId_5bb799e68e94e8.53499619 - Establishing connection to DB 
+[2018-10-05 19:05:42] - corrId_5bb799e68e94e8.53499619 - Processing GetComingSoonMovies request. 
+[2018-10-05 19:05:42] - corrId_5bb799e68e94e8.53499619 - Token is valid 
+[2018-10-05 19:05:42] - corrId_5bb799e68e94e8.53499619 - Validated permissions for user admin (required 10, has 30) 
+[2018-10-05 19:05:42] - corrId_5bb799e68e94e8.53499619 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero, fi.data_uscita,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    COUNT(prenotazioni.id_prenotazione) as numero_prenotazioni
+            FROM film fi        
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista
+            LEFT JOIN (SELECT id_prenotazione, id_film 
+                        FROM prenotazione 
+                        WHERE id_punto_vendita = 1) as prenotazioni
+            ON fi.id_film = prenotazioni.id_film           
+            WHERE fi.inUscita = 1
+            OR fi.data_uscita > '2018-09-28'
+            GROUP BY fi.id_film 
+[2018-10-05 19:05:42] - corrId_5bb799e68e94e8.53499619 - Executing query 
+[2018-10-05 19:05:42] - corrId_5bb799e68e94e8.53499619 - Query executed successfully 
+[2018-10-05 19:05:42] - corrId_5bb799e68e94e8.53499619 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (4, 5, 12) 
+[2018-10-05 19:05:42] - corrId_5bb799e68e94e8.53499619 - Executing query 
+[2018-10-05 19:05:42] - corrId_5bb799e68e94e8.53499619 - Query executed successfully 
+[2018-10-05 19:05:42] - corrId_5bb799e68e94e8.53499619 - Opreation getComingSoonMovies was successful. 
+[2018-10-05 19:14:10] - corrId_5bb79be2d08721.71881784 - Reached AuthenticationService API 
+[2018-10-05 19:14:10] - corrId_5bb79be2d08721.71881784 - Token is valid 
+[2018-10-05 19:14:10] - corrId_5bb79be2e9acd0.61619402 - Reached BookingManagementService API 
+[2018-10-05 19:14:10] - corrId_5bb79be2e9acd0.61619402 - Establishing connection to DB 
+[2018-10-05 19:14:10] - corrId_5bb79be2e9acd0.61619402 - Processing GetComingSoonMovies request. 
+[2018-10-05 19:14:10] - corrId_5bb79be2e9acd0.61619402 - Token is valid 
+[2018-10-05 19:14:10] - corrId_5bb79be2e9acd0.61619402 - Validated permissions for user admin (required 10, has 30) 
+[2018-10-05 19:14:10] - corrId_5bb79be2e9acd0.61619402 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero, fi.data_uscita,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    COUNT(prenotazioni.id_prenotazione) as numero_prenotazioni
+            FROM film fi        
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista
+            LEFT JOIN (SELECT id_prenotazione, id_film 
+                        FROM prenotazione 
+                        WHERE id_punto_vendita = 1) as prenotazioni
+            ON fi.id_film = prenotazioni.id_film           
+            WHERE fi.inUscita = 1
+            OR fi.data_uscita > '2018-09-28'
+            GROUP BY fi.id_film 
+[2018-10-05 19:14:10] - corrId_5bb79be2e9acd0.61619402 - Executing query 
+[2018-10-05 19:14:10] - corrId_5bb79be2e9acd0.61619402 - Query executed successfully 
+[2018-10-05 19:14:10] - corrId_5bb79be2e9acd0.61619402 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (4, 5, 12) 
+[2018-10-05 19:14:10] - corrId_5bb79be2e9acd0.61619402 - Executing query 
+[2018-10-05 19:14:10] - corrId_5bb79be2e9acd0.61619402 - Query executed successfully 
+[2018-10-05 19:14:10] - corrId_5bb79be2e9acd0.61619402 - Opreation getComingSoonMovies was successful. 
+[2018-10-05 19:19:20] - corrId_5bb79d189143d7.85439486 - Reached AuthenticationService API 
+[2018-10-05 19:19:20] - corrId_5bb79d189143d7.85439486 - Token is valid 
+[2018-10-05 19:19:41] - corrId_5bb79d2d76ebf4.45573030 - Reached AuthenticationService API 
+[2018-10-05 19:19:41] - corrId_5bb79d2d76ebf4.45573030 - Processing Login request. 
+[2018-10-05 19:19:41] - corrId_5bb79d2d76ebf4.45573030 - Establishing connection to DB 
+[2018-10-05 19:19:41] - corrId_5bb79d2d76ebf4.45573030 - Executing query 
+[2018-10-05 19:19:41] - corrId_5bb79d2d76ebf4.45573030 - Query executed successfully 
+[2018-10-05 19:19:41] - corrId_5bb79d2d76ebf4.45573030 - User guest validated, starting token generation. 
+[2018-10-05 19:19:41] - corrId_5bb79d2d76ebf4.45573030 - Token generated succesfully. 
+[2018-10-05 19:19:41] - corrId_5bb79d2d76ebf4.45573030 - Authentication cookie has been set:  
+[2018-10-05 19:19:41] - corrId_5bb79d2d76ebf4.45573030 - User  succesfully logged in. 
+[2018-10-05 19:19:41] - corrId_5bb79d2d9e3b52.89843242 - Reached BookingManagementService API 
+[2018-10-05 19:19:41] - corrId_5bb79d2d9e3b52.89843242 - Establishing connection to DB 
+[2018-10-05 19:19:41] - corrId_5bb79d2d9e3b52.89843242 - Processing GetComingSoonMovies request. 
+[2018-10-05 19:19:41] - corrId_5bb79d2d9e3b52.89843242 - Token is valid 
+[2018-10-05 19:19:41] - corrId_5bb79d2d9e3b52.89843242 - Validated permissions for user guest (required 10, has 30) 
+[2018-10-05 19:19:41] - corrId_5bb79d2d9e3b52.89843242 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero, fi.data_uscita,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    COUNT(prenotazioni.id_prenotazione) as numero_prenotazioni
+            FROM film fi        
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista
+            LEFT JOIN (SELECT id_prenotazione, id_film 
+                        FROM prenotazione 
+                        WHERE id_punto_vendita = 1) as prenotazioni
+            ON fi.id_film = prenotazioni.id_film           
+            WHERE fi.inUscita = 1
+            OR fi.data_uscita > '2018-09-28'
+            GROUP BY fi.id_film 
+[2018-10-05 19:19:41] - corrId_5bb79d2d9e3b52.89843242 - Executing query 
+[2018-10-05 19:19:41] - corrId_5bb79d2d9e3b52.89843242 - Query executed successfully 
+[2018-10-05 19:19:41] - corrId_5bb79d2d9e3b52.89843242 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (4, 5, 12) 
+[2018-10-05 19:19:41] - corrId_5bb79d2d9e3b52.89843242 - Executing query 
+[2018-10-05 19:19:41] - corrId_5bb79d2d9e3b52.89843242 - Query executed successfully 
+[2018-10-05 19:19:41] - corrId_5bb79d2d9e3b52.89843242 - Opreation getComingSoonMovies was successful. 
+[2018-10-05 19:19:43] - corrId_5bb79d2f309bf2.12419407 - Reached RentalManagementService API 
+[2018-10-05 19:19:43] - corrId_5bb79d2f309bf2.12419407 - Establishing connection to DB 
+[2018-10-05 19:19:43] - corrId_5bb79d2f309bf2.12419407 - Processing ClearRentalBookingsForUser request. 
+[2018-10-05 19:19:43] - corrId_5bb79d2f309bf2.12419407 - Token is valid 
+[2018-10-05 19:19:43] - corrId_5bb79d2f309bf2.12419407 - Validated permissions for user guest (required 10, has 30) 
+[2018-10-05 19:19:43] - corrId_5bb79d2f309bf2.12419407 - Executing query 
+[2018-10-05 19:19:43] - corrId_5bb79d2f309bf2.12419407 - Query executed successfully 
+[2018-10-05 19:19:43] - corrId_5bb79d2f3a5fe9.50102714 - Reached RentalManagementService API 
+[2018-10-05 19:19:43] - corrId_5bb79d2f3a5fe9.50102714 - Establishing connection to DB 
+[2018-10-05 19:19:43] - corrId_5bb79d2f3a5fe9.50102714 - Processing ClearRentalBookings request. 
+[2018-10-05 19:19:43] - corrId_5bb79d2f3a5fe9.50102714 - Token is valid 
+[2018-10-05 19:19:43] - corrId_5bb79d2f3a5fe9.50102714 - Validated permissions for user guest (required 10, has 30) 
+[2018-10-05 19:19:43] - corrId_5bb79d2f3a5fe9.50102714 - Executing query 
+[2018-10-05 19:19:43] - corrId_5bb79d2f3a5fe9.50102714 - Query executed successfully 
+[2018-10-05 19:19:43] - corrId_5bb79d2f3f4211.26957542 - Reached RentalManagementService API 
+[2018-10-05 19:19:43] - corrId_5bb79d2f3f4211.26957542 - Establishing connection to DB 
+[2018-10-05 19:19:43] - corrId_5bb79d2f3f4211.26957542 - Processing GetVideosInStorageWithCount request. 
+[2018-10-05 19:19:43] - corrId_5bb79d2f3f4211.26957542 - Token is valid 
+[2018-10-05 19:19:43] - corrId_5bb79d2f3f4211.26957542 - Validated permissions for user guest (required 10, has 30) 
+[2018-10-05 19:19:43] - corrId_5bb79d2f3f4211.26957542 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[2018-10-05 19:19:43] - corrId_5bb79d2f3f4211.26957542 - Executing query 
+[2018-10-05 19:19:43] - corrId_5bb79d2f3f4211.26957542 - Query executed successfully 
+[2018-10-05 19:19:43] - corrId_5bb79d2f3f4211.26957542 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 3, 14, 15) 
+[2018-10-05 19:19:43] - corrId_5bb79d2f3f4211.26957542 - Executing query 
+[2018-10-05 19:19:43] - corrId_5bb79d2f3f4211.26957542 - Query executed successfully 
+[2018-10-05 19:19:45] - corrId_5bb79d316ad546.46769643 - Reached BookingManagementService API 
+[2018-10-05 19:19:45] - corrId_5bb79d316ad546.46769643 - Establishing connection to DB 
+[2018-10-05 19:19:45] - corrId_5bb79d316ad546.46769643 - Processing GetComingSoonMovies request. 
+[2018-10-05 19:19:45] - corrId_5bb79d316ad546.46769643 - Token is valid 
+[2018-10-05 19:19:45] - corrId_5bb79d316ad546.46769643 - Validated permissions for user guest (required 10, has 30) 
+[2018-10-05 19:19:45] - corrId_5bb79d316ad546.46769643 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero, fi.data_uscita,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    COUNT(prenotazioni.id_prenotazione) as numero_prenotazioni
+            FROM film fi        
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista
+            LEFT JOIN (SELECT id_prenotazione, id_film 
+                        FROM prenotazione 
+                        WHERE id_punto_vendita = 1) as prenotazioni
+            ON fi.id_film = prenotazioni.id_film           
+            WHERE fi.inUscita = 1
+            OR fi.data_uscita > '2018-09-28'
+            GROUP BY fi.id_film 
+[2018-10-05 19:19:45] - corrId_5bb79d316ad546.46769643 - Executing query 
+[2018-10-05 19:19:45] - corrId_5bb79d316ad546.46769643 - Query executed successfully 
+[2018-10-05 19:19:45] - corrId_5bb79d316ad546.46769643 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (4, 5, 12) 
+[2018-10-05 19:19:45] - corrId_5bb79d316ad546.46769643 - Executing query 
+[2018-10-05 19:19:45] - corrId_5bb79d316ad546.46769643 - Query executed successfully 
+[2018-10-05 19:19:45] - corrId_5bb79d316ad546.46769643 - Opreation getComingSoonMovies was successful. 
+[2018-10-05 19:19:47] - corrId_5bb79d33abde34.79294676 - Reached CustomerManagementService API 
+[2018-10-05 19:19:47] - corrId_5bb79d33abde34.79294676 - Processing GetAllCustomersWithPremiumCode request. 
+[2018-10-05 19:19:47] - corrId_5bb79d33abde34.79294676 - Token is valid 
+[2018-10-05 19:19:47] - corrId_5bb79d33abde34.79294676 - Validated permissions for user guest (required 10, has 30) 
+[2018-10-05 19:19:47] - corrId_5bb79d33abde34.79294676 - Establishing connection to DB 
+[2018-10-05 19:19:47] - corrId_5bb79d33abde34.79294676 - Executing query 
+[2018-10-05 19:19:47] - corrId_5bb79d33abde34.79294676 - Query executed successfully 
+[2018-10-05 19:19:47] - corrId_5bb79d33abde34.79294676 - Opreation getAllCustomersWithPremiumCode was successful. 
+[2018-10-05 19:19:48] - corrId_5bb79d348c9e01.92168519 - Reached StorageManagementService API 
+[2018-10-05 19:19:48] - corrId_5bb79d348c9e01.92168519 - Processing GetVideosInStorage request. 
+[2018-10-05 19:19:48] - corrId_5bb79d348c9e01.92168519 - Token is valid 
+[2018-10-05 19:19:48] - corrId_5bb79d348c9e01.92168519 - Validated permissions for user guest (required 10, has 30) 
+[2018-10-05 19:19:48] - corrId_5bb79d348c9e01.92168519 - Query: SELECT co.id_copia, co.data_scarico, co.danneggiato, co.noleggiato, fi.id_film, fi.titolo, fo.nome
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN fornitore fo
+            ON co.id_fornitore = fo.id_fornitore
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0 
+[2018-10-05 19:19:48] - corrId_5bb79d348c9e01.92168519 - Establishing connection to DB 
+[2018-10-05 19:19:48] - corrId_5bb79d348c9e01.92168519 - Executing query 
+[2018-10-05 19:19:48] - corrId_5bb79d348c9e01.92168519 - Query executed successfully 
+[2018-10-05 19:19:49] - corrId_5bb79d35b7db50.25183881 - Reached CustomerManagementService API 
+[2018-10-05 19:19:49] - corrId_5bb79d35b7db50.25183881 - Processing GetAllCustomersWithPremiumCode request. 
+[2018-10-05 19:19:49] - corrId_5bb79d35b7db50.25183881 - Token is valid 
+[2018-10-05 19:19:49] - corrId_5bb79d35b7db50.25183881 - Validated permissions for user guest (required 10, has 30) 
+[2018-10-05 19:19:49] - corrId_5bb79d35b7db50.25183881 - Establishing connection to DB 
+[2018-10-05 19:19:49] - corrId_5bb79d35b7db50.25183881 - Executing query 
+[2018-10-05 19:19:49] - corrId_5bb79d35b7db50.25183881 - Query executed successfully 
+[2018-10-05 19:19:49] - corrId_5bb79d35b7db50.25183881 - Opreation getAllCustomersWithPremiumCode was successful. 
+[2018-10-05 19:19:50] - corrId_5bb79d3684f6b6.93058897 - Reached AccountManagementService API 
+[2018-10-05 19:19:50] - corrId_5bb79d3684f6b6.93058897 - Processing GetCities request. 
+[2018-10-05 19:19:50] - corrId_5bb79d3684f6b6.93058897 - Token is valid 
+[2018-10-05 19:19:50] - corrId_5bb79d3684f6b6.93058897 - Validated permissions for user guest (required 10, has 30) 
+[2018-10-05 19:19:50] - corrId_5bb79d3684f6b6.93058897 - Query: SELECT *
+            FROM citta 
+[2018-10-05 19:19:50] - corrId_5bb79d3684f6b6.93058897 - Establishing connection to DB 
+[2018-10-05 19:19:50] - corrId_5bb79d3684f6b6.93058897 - Executing query 
+[2018-10-05 19:19:50] - corrId_5bb79d3684f6b6.93058897 - Query executed successfully 
+[2018-10-05 19:19:50] - corrId_5bb79d36a436e5.52843241 - Reached AccountManagementService API 
+[2018-10-05 19:19:50] - corrId_5bb79d36a436e5.52843241 - Processing GetStores request. 
+[2018-10-05 19:19:50] - corrId_5bb79d36a436e5.52843241 - Token is valid 
+[2018-10-05 19:19:50] - corrId_5bb79d36a436e5.52843241 - Validated permissions for user guest (required 30, has 30) 
+[2018-10-05 19:19:50] - corrId_5bb79d36a436e5.52843241 - Query: SELECT *
+            FROM punto_vendita 
+             
+[2018-10-05 19:19:50] - corrId_5bb79d36a436e5.52843241 - Establishing connection to DB 
+[2018-10-05 19:19:50] - corrId_5bb79d36a436e5.52843241 - Executing query 
+[2018-10-05 19:19:50] - corrId_5bb79d36a436e5.52843241 - Query executed successfully 
+[2018-10-05 19:19:50] - corrId_5bb79d36adfab3.39384408 - Reached AccountManagementService API 
+[2018-10-05 19:19:50] - corrId_5bb79d36adfab3.39384408 - Processing GetEmployees request. 
+[2018-10-05 19:19:50] - corrId_5bb79d36adfab3.39384408 - Token is valid 
+[2018-10-05 19:19:50] - corrId_5bb79d36adfab3.39384408 - Validated permissions for user guest (required 30, has 30) 
+[2018-10-05 19:19:50] - corrId_5bb79d36adfab3.39384408 - Query: SELECT dip.id_dipendente, dip.nome as dipendente_nome, dip.cognome as dipendente_cognome,
+                dip.username as dipendente_username, del.nome as delega_nome, del.codice as delega_codice,
+                pv.nome as punto_vendita_nome, dip.id_punto_vendita as punto_vendita_id
+            FROM dipendente as dip
+            INNER JOIN delega as del
+            ON dip.id_delega = del.id_delega
+            INNER JOIN punto_vendita as pv
+            ON dip.id_punto_vendita = pv.id_punto_vendita 
+             
+[2018-10-05 19:19:50] - corrId_5bb79d36adfab3.39384408 - Establishing connection to DB 
+[2018-10-05 19:19:50] - corrId_5bb79d36adfab3.39384408 - Executing query 
+[2018-10-05 19:19:50] - corrId_5bb79d36adfab3.39384408 - Query executed successfully 
+[2018-10-05 19:19:55] - corrId_5bb79d3bb71724.17496033 - Reached AccountManagementService API 
+[2018-10-05 19:19:55] - corrId_5bb79d3bb71724.17496033 - Processing GetStores request. 
+[2018-10-05 19:19:55] - corrId_5bb79d3bb71724.17496033 - Token is valid 
+[2018-10-05 19:19:55] - corrId_5bb79d3bb71724.17496033 - Validated permissions for user guest (required 30, has 30) 
+[2018-10-05 19:19:55] - corrId_5bb79d3bb71724.17496033 - Query: SELECT *
+            FROM punto_vendita 
+            WHERE id_citta = 1 
+[2018-10-05 19:19:55] - corrId_5bb79d3bb71724.17496033 - Establishing connection to DB 
+[2018-10-05 19:19:55] - corrId_5bb79d3bb71724.17496033 - Executing query 
+[2018-10-05 19:19:55] - corrId_5bb79d3bb71724.17496033 - Query executed successfully 
+[2018-10-05 19:19:55] - corrId_5bb79d3bbea889.44233582 - Reached AccountManagementService API 
+[2018-10-05 19:19:55] - corrId_5bb79d3bbea889.44233582 - Processing GetEmployees request. 
+[2018-10-05 19:19:55] - corrId_5bb79d3bbea889.44233582 - Token is valid 
+[2018-10-05 19:19:55] - corrId_5bb79d3bbea889.44233582 - Validated permissions for user guest (required 30, has 30) 
+[2018-10-05 19:19:55] - corrId_5bb79d3bbea889.44233582 - Query: SELECT dip.id_dipendente, dip.nome as dipendente_nome, dip.cognome as dipendente_cognome,
+                dip.username as dipendente_username, del.nome as delega_nome, del.codice as delega_codice,
+                pv.nome as punto_vendita_nome, dip.id_punto_vendita as punto_vendita_id
+            FROM dipendente as dip
+            INNER JOIN delega as del
+            ON dip.id_delega = del.id_delega
+            INNER JOIN punto_vendita as pv
+            ON dip.id_punto_vendita = pv.id_punto_vendita 
+             
+[2018-10-05 19:19:55] - corrId_5bb79d3bbea889.44233582 - Establishing connection to DB 
+[2018-10-05 19:19:55] - corrId_5bb79d3bbea889.44233582 - Executing query 
+[2018-10-05 19:19:55] - corrId_5bb79d3bbea889.44233582 - Query executed successfully 
+[2018-10-05 19:19:57] - corrId_5bb79d3d4c9c21.89403285 - Reached AccountManagementService API 
+[2018-10-05 19:19:57] - corrId_5bb79d3d4c9c21.89403285 - Processing GetEmployees request. 
+[2018-10-05 19:19:57] - corrId_5bb79d3d4c9c21.89403285 - Token is valid 
+[2018-10-05 19:19:57] - corrId_5bb79d3d4c9c21.89403285 - Validated permissions for user guest (required 30, has 30) 
+[2018-10-05 19:19:57] - corrId_5bb79d3d4c9c21.89403285 - Query: SELECT dip.id_dipendente, dip.nome as dipendente_nome, dip.cognome as dipendente_cognome,
+                dip.username as dipendente_username, del.nome as delega_nome, del.codice as delega_codice,
+                pv.nome as punto_vendita_nome, dip.id_punto_vendita as punto_vendita_id
+            FROM dipendente as dip
+            INNER JOIN delega as del
+            ON dip.id_delega = del.id_delega
+            INNER JOIN punto_vendita as pv
+            ON dip.id_punto_vendita = pv.id_punto_vendita 
+            WHERE dip.id_punto_vendita = 6 
+[2018-10-05 19:19:57] - corrId_5bb79d3d4c9c21.89403285 - Establishing connection to DB 
+[2018-10-05 19:19:57] - corrId_5bb79d3d4c9c21.89403285 - Executing query 
+[2018-10-05 19:19:57] - corrId_5bb79d3d4c9c21.89403285 - Query executed successfully 
+[2018-10-05 19:19:59] - corrId_5bb79d3fca89c4.29560684 - Reached AuthenticationService API 
+[2018-10-05 19:19:59] - corrId_5bb79d3fca89c4.29560684 - Token is valid 
+[2018-10-05 19:19:59] - corrId_5bb79d3fd60342.19118267 - Reached BookingManagementService API 
+[2018-10-05 19:19:59] - corrId_5bb79d3fd60342.19118267 - Establishing connection to DB 
+[2018-10-05 19:19:59] - corrId_5bb79d3fd60342.19118267 - Processing GetComingSoonMovies request. 
+[2018-10-05 19:19:59] - corrId_5bb79d3fd60342.19118267 - Token is valid 
+[2018-10-05 19:19:59] - corrId_5bb79d3fd60342.19118267 - Validated permissions for user guest (required 10, has 30) 
+[2018-10-05 19:19:59] - corrId_5bb79d3fd60342.19118267 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero, fi.data_uscita,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    COUNT(prenotazioni.id_prenotazione) as numero_prenotazioni
+            FROM film fi        
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista
+            LEFT JOIN (SELECT id_prenotazione, id_film 
+                        FROM prenotazione 
+                        WHERE id_punto_vendita = 1) as prenotazioni
+            ON fi.id_film = prenotazioni.id_film           
+            WHERE fi.inUscita = 1
+            OR fi.data_uscita > '2018-09-28'
+            GROUP BY fi.id_film 
+[2018-10-05 19:19:59] - corrId_5bb79d3fd60342.19118267 - Executing query 
+[2018-10-05 19:19:59] - corrId_5bb79d3fd60342.19118267 - Query executed successfully 
+[2018-10-05 19:19:59] - corrId_5bb79d3fd60342.19118267 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (4, 5, 12) 
+[2018-10-05 19:19:59] - corrId_5bb79d3fd60342.19118267 - Executing query 
+[2018-10-05 19:19:59] - corrId_5bb79d3fd60342.19118267 - Query executed successfully 
+[2018-10-05 19:19:59] - corrId_5bb79d3fd60342.19118267 - Opreation getComingSoonMovies was successful. 
+[2018-10-05 19:20:01] - corrId_5bb79d415ff9d3.71092414 - Reached AccountManagementService API 
+[2018-10-05 19:20:01] - corrId_5bb79d415ff9d3.71092414 - Processing GetCities request. 
+[2018-10-05 19:20:01] - corrId_5bb79d415ff9d3.71092414 - Token is valid 
+[2018-10-05 19:20:01] - corrId_5bb79d415ff9d3.71092414 - Validated permissions for user guest (required 10, has 30) 
+[2018-10-05 19:20:01] - corrId_5bb79d415ff9d3.71092414 - Query: SELECT *
+            FROM citta 
+[2018-10-05 19:20:01] - corrId_5bb79d415ff9d3.71092414 - Establishing connection to DB 
+[2018-10-05 19:20:01] - corrId_5bb79d415ff9d3.71092414 - Executing query 
+[2018-10-05 19:20:01] - corrId_5bb79d415ff9d3.71092414 - Query executed successfully 
+[2018-10-05 19:20:01] - corrId_5bb79d41813925.21467396 - Reached AccountManagementService API 
+[2018-10-05 19:20:01] - corrId_5bb79d41813925.21467396 - Processing GetStores request. 
+[2018-10-05 19:20:01] - corrId_5bb79d41813925.21467396 - Token is valid 
+[2018-10-05 19:20:01] - corrId_5bb79d41813925.21467396 - Validated permissions for user guest (required 30, has 30) 
+[2018-10-05 19:20:01] - corrId_5bb79d41813925.21467396 - Query: SELECT *
+            FROM punto_vendita 
+             
+[2018-10-05 19:20:01] - corrId_5bb79d41813925.21467396 - Establishing connection to DB 
+[2018-10-05 19:20:01] - corrId_5bb79d41813925.21467396 - Executing query 
+[2018-10-05 19:20:01] - corrId_5bb79d41813925.21467396 - Query executed successfully 
+[2018-10-05 19:20:01] - corrId_5bb79d418f2313.54196558 - Reached AccountManagementService API 
+[2018-10-05 19:20:01] - corrId_5bb79d418f2313.54196558 - Processing GetEmployees request. 
+[2018-10-05 19:20:01] - corrId_5bb79d418f2313.54196558 - Token is valid 
+[2018-10-05 19:20:01] - corrId_5bb79d418f2313.54196558 - Validated permissions for user guest (required 30, has 30) 
+[2018-10-05 19:20:01] - corrId_5bb79d418f2313.54196558 - Query: SELECT dip.id_dipendente, dip.nome as dipendente_nome, dip.cognome as dipendente_cognome,
+                dip.username as dipendente_username, del.nome as delega_nome, del.codice as delega_codice,
+                pv.nome as punto_vendita_nome, dip.id_punto_vendita as punto_vendita_id
+            FROM dipendente as dip
+            INNER JOIN delega as del
+            ON dip.id_delega = del.id_delega
+            INNER JOIN punto_vendita as pv
+            ON dip.id_punto_vendita = pv.id_punto_vendita 
+             
+[2018-10-05 19:20:01] - corrId_5bb79d418f2313.54196558 - Establishing connection to DB 
+[2018-10-05 19:20:01] - corrId_5bb79d418f2313.54196558 - Executing query 
+[2018-10-05 19:20:01] - corrId_5bb79d418f2313.54196558 - Query executed successfully 
+[2018-10-05 19:20:04] - corrId_5bb79d44900881.94469100 - Reached AccountManagementService API 
+[2018-10-05 19:20:04] - corrId_5bb79d44900881.94469100 - Processing GetStores request. 
+[2018-10-05 19:20:04] - corrId_5bb79d44900881.94469100 - Token is valid 
+[2018-10-05 19:20:04] - corrId_5bb79d44900881.94469100 - Validated permissions for user guest (required 30, has 30) 
+[2018-10-05 19:20:04] - corrId_5bb79d44900881.94469100 - Query: SELECT *
+            FROM punto_vendita 
+            WHERE id_citta = 2 
+[2018-10-05 19:20:04] - corrId_5bb79d44900881.94469100 - Establishing connection to DB 
+[2018-10-05 19:20:04] - corrId_5bb79d44900881.94469100 - Executing query 
+[2018-10-05 19:20:04] - corrId_5bb79d44900881.94469100 - Query executed successfully 
+[2018-10-05 19:20:06] - corrId_5bb79d463701e7.73385545 - Reached AccountManagementService API 
+[2018-10-05 19:20:06] - corrId_5bb79d463701e7.73385545 - Processing GetStores request. 
+[2018-10-05 19:20:06] - corrId_5bb79d463701e7.73385545 - Token is valid 
+[2018-10-05 19:20:06] - corrId_5bb79d463701e7.73385545 - Validated permissions for user guest (required 30, has 30) 
+[2018-10-05 19:20:06] - corrId_5bb79d463701e7.73385545 - Query: SELECT *
+            FROM punto_vendita 
+            WHERE id_citta = 1 
+[2018-10-05 19:20:06] - corrId_5bb79d463701e7.73385545 - Establishing connection to DB 
+[2018-10-05 19:20:06] - corrId_5bb79d463701e7.73385545 - Executing query 
+[2018-10-05 19:20:06] - corrId_5bb79d463701e7.73385545 - Query executed successfully 
+[2018-10-05 19:20:06] - corrId_5bb79d463ba575.02554229 - Reached AccountManagementService API 
+[2018-10-05 19:20:06] - corrId_5bb79d463ba575.02554229 - Processing GetEmployees request. 
+[2018-10-05 19:20:06] - corrId_5bb79d463ba575.02554229 - Token is valid 
+[2018-10-05 19:20:06] - corrId_5bb79d463ba575.02554229 - Validated permissions for user guest (required 30, has 30) 
+[2018-10-05 19:20:06] - corrId_5bb79d463ba575.02554229 - Query: SELECT dip.id_dipendente, dip.nome as dipendente_nome, dip.cognome as dipendente_cognome,
+                dip.username as dipendente_username, del.nome as delega_nome, del.codice as delega_codice,
+                pv.nome as punto_vendita_nome, dip.id_punto_vendita as punto_vendita_id
+            FROM dipendente as dip
+            INNER JOIN delega as del
+            ON dip.id_delega = del.id_delega
+            INNER JOIN punto_vendita as pv
+            ON dip.id_punto_vendita = pv.id_punto_vendita 
+             
+[2018-10-05 19:20:06] - corrId_5bb79d463ba575.02554229 - Establishing connection to DB 
+[2018-10-05 19:20:06] - corrId_5bb79d463ba575.02554229 - Executing query 
+[2018-10-05 19:20:06] - corrId_5bb79d463ba575.02554229 - Query executed successfully 
+[2018-10-05 19:20:40] - corrId_5bb79d68c3f765.37187594 - Reached RentalManagementService API 
+[2018-10-05 19:20:40] - corrId_5bb79d68c3f765.37187594 - Establishing connection to DB 
+[2018-10-05 19:20:40] - corrId_5bb79d68c47469.69616421 - Reached RentalManagementService API 
+[2018-10-05 19:20:40] - corrId_5bb79d68c3f765.37187594 - Processing ClearRentalBookingsForUser request. 
+[2018-10-05 19:20:40] - corrId_5bb79d68c47469.69616421 - Establishing connection to DB 
+[2018-10-05 19:20:40] - corrId_5bb79d68c3f765.37187594 - Token is valid 
+[2018-10-05 19:20:40] - corrId_5bb79d68c3f765.37187594 - Validated permissions for user admin (required 10, has 30) 
+[2018-10-05 19:20:40] - corrId_5bb79d68c3f765.37187594 - Executing query 
+ntalBookings request. 
+[2018-10-05 19:20:40] - corrId_5bb79d68c47469.69616421 - Token is valid 
+[2018-10-05 19:20:40] - corrId_5bb79d68c3f765.37187594 - Query executed successfully 
+[2018-10-05 19:20:40] - corrId_5bb79d68c47469.69616421 - Validated permissions for user admin (required 10, has 30) 
+[2018-10-05 19:20:40] - corrId_5bb79d68c47469.69616421 - Executing query 
+[2018-10-05 19:20:40] - corrId_5bb79d68c47469.69616421 - Query executed successfully 
+[2018-10-05 19:20:40] - corrId_5bb79d68cd3e61.66525154 - Reached RentalManagementService API 
+[2018-10-05 19:20:40] - corrId_5bb79d68cd3e61.66525154 - Establishing connection to DB 
+[2018-10-05 19:20:40] - corrId_5bb79d68cd3e61.66525154 - Processing GetVideosInStorageWithCount request. 
+[2018-10-05 19:20:40] - corrId_5bb79d68cd3e61.66525154 - Token is valid 
+[2018-10-05 19:20:40] - corrId_5bb79d68cd3e61.66525154 - Validated permissions for user admin (required 10, has 30) 
+[2018-10-05 19:20:40] - corrId_5bb79d68cd3e61.66525154 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[2018-10-05 19:20:40] - corrId_5bb79d68cd3e61.66525154 - Executing query 
+[2018-10-05 19:20:40] - corrId_5bb79d68cd3e61.66525154 - Query executed successfully 
+[2018-10-05 19:20:40] - corrId_5bb79d68cd3e61.66525154 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 3, 14, 15) 
+[2018-10-05 19:20:40] - corrId_5bb79d68cd3e61.66525154 - Executing query 
+[2018-10-05 19:20:40] - corrId_5bb79d68cd3e61.66525154 - Query executed successfully 
+[2018-10-05 19:20:44] - corrId_5bb79d6c60f3d0.71805058 - Reached RentalManagementService API 
+[2018-10-05 19:20:44] - corrId_5bb79d6c60f3d0.71805058 - Establishing connection to DB 
+[2018-10-05 19:20:44] - corrId_5bb79d6c6170e1.14498004 - Reached RentalManagementService API 
+[2018-10-05 19:20:44] - corrId_5bb79d6c60f3d0.71805058 - Processing ClearRentalBookingsForUser request. 
+[2018-10-05 19:20:44] - corrId_5bb79d6c6170e1.14498004 - Establishing connection to DB 
+[2018-10-05 19:20:44] - corrId_5bb79d6c60f3d0.71805058 - Token is valid 
+[2018-10-05 19:20:44] - corrId_5bb79d6c60f3d0.71805058 - Validated permissions for user guest (required 10, has 30) 
+[2018-10-05 19:20:44] - corrId_5bb79d6c60f3d0.71805058 - Executing query 
+[2018-10-05 19:20:44] - corrId_5bb79d6c6170e1.14498004 - Processing ClearRentalBookings request. 
+[2018-10-05 19:20:44] - corrId_5bb79d6c6170e1.14498004 - Token is valid 
+[2018-10-05 19:20:44] - corrId_5bb79d6c60f3d0.71805058 - Query executed successfully 
+[2018-10-05 19:20:44] - corrId_5bb79d6c6170e1.14498004 - Validated permissions for user guest (required 10, has 30) 
+[2018-10-05 19:20:44] - corrId_5bb79d6c6170e1.14498004 - Executing query 
+[2018-10-05 19:20:44] - corrId_5bb79d6c6170e1.14498004 - Query executed successfully 
+[2018-10-05 19:20:44] - corrId_5bb79d6c68c405.24204185 - Reached RentalManagementService API 
+[2018-10-05 19:20:44] - corrId_5bb79d6c68c405.24204185 - Establishing connection to DB 
+[2018-10-05 19:20:44] - corrId_5bb79d6c68c405.24204185 - Processing GetVideosInStorageWithCount request. 
+[2018-10-05 19:20:44] - corrId_5bb79d6c68c405.24204185 - Token is valid 
+[2018-10-05 19:20:44] - corrId_5bb79d6c68c405.24204185 - Validated permissions for user guest (required 10, has 30) 
+[2018-10-05 19:20:44] - corrId_5bb79d6c68c405.24204185 - Query: SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+                    ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
+                    count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
+            FROM copia co
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            INNER JOIN genere ge
+            ON fi.id_genere = ge.id_genere
+            INNER JOIN casa_produttrice cp
+            ON fi.id_casa_produttrice = cp.id_casa_produttrice
+            INNER JOIN regista re
+            ON fi.id_regista = re.id_regista            
+            WHERE co.id_punto_vendita = 1
+            AND co.restituito = 0
+            GROUP BY fi.id_film 
+[2018-10-05 19:20:44] - corrId_5bb79d6c68c405.24204185 - Executing query 
+[2018-10-05 19:20:44] - corrId_5bb79d6c68c405.24204185 - Query executed successfully 
+[2018-10-05 19:20:44] - corrId_5bb79d6c68c405.24204185 - Query: SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
+            FROM cast ca
+            INNER JOIN attore at
+            ON ca.id_attore = at.id_attore
+            WHERE ca.id_film         
+            IN (1, 2, 3, 14, 15) 
+[2018-10-05 19:20:44] - corrId_5bb79d6c68c405.24204185 - Executing query 
+[2018-10-05 19:20:44] - corrId_5bb79d6c68c405.24204185 - Query executed successfully 
+[2018-10-05 19:20:48] - corrId_5bb79d705a6d00.21419814 - Reached RentalManagementService API 
+[2018-10-05 19:20:48] - corrId_5bb79d705a6d00.21419814 - Establishing connection to DB 
+[2018-10-05 19:20:48] - corrId_5bb79d705a6d00.21419814 - Processing GetMostRecentCopies request. 
+[2018-10-05 19:20:48] - corrId_5bb79d705a6d00.21419814 - Token is valid 
+[2018-10-05 19:20:48] - corrId_5bb79d705a6d00.21419814 - Validated permissions for user guest (required 10, has 30) 
+[2018-10-05 19:20:48] - corrId_5bb79d705a6d00.21419814 - Starting transaction 
+[2018-10-05 19:20:48] - corrId_5bb79d705a6d00.21419814 - Query: SELECT co.id_copia, co.data_scarico, co.id_film
+                    FROM copia co
+                    WHERE co.id_punto_vendita = 1
+                    AND co.id_film = 2
+                    AND co.noleggiato = 0
+                    AND co.restituito = 0
+                    ORDER BY co.data_scarico desc
+                    LIMIT 1 
+[2018-10-05 19:20:48] - corrId_5bb79d705a6d00.21419814 - Executing query 
+[2018-10-05 19:20:48] - corrId_5bb79d705a6d00.21419814 - Query executed successfully 
+[2018-10-05 19:20:48] - corrId_5bb79d705a6d00.21419814 - Query: UPDATE copia             
+                    SET
+                    noleggiato = 1,
+                    data_prenotazione_noleggio = CURRENT_TIMESTAMP,
+                    id_dipendente_prenotazione_noleggio = 39
+                    WHERE id_copia = 130
+                    AND noleggiato = 0
+                    AND restituito = 0 
+[2018-10-05 19:20:48] - corrId_5bb79d705a6d00.21419814 - Executing query 
+[2018-10-05 19:20:48] - corrId_5bb79d705a6d00.21419814 - Query executed successfully 
+[2018-10-05 19:20:48] - corrId_5bb79d705a6d00.21419814 - Committing transaction 
+[2018-10-05 19:20:48] - corrId_5bb79d7061fe61.51095769 - Reached RentalManagementService API 
+[2018-10-05 19:20:48] - corrId_5bb79d7061fe61.51095769 - Establishing connection to DB 
+[2018-10-05 19:20:48] - corrId_5bb79d7061fe61.51095769 - Processing GetActiveDiscount request. 
+[2018-10-05 19:20:48] - corrId_5bb79d7061fe61.51095769 - Token is valid 
+[2018-10-05 19:20:48] - corrId_5bb79d7061fe61.51095769 - Validated permissions for user guest (required 10, has 30) 
+[2018-10-05 19:20:48] - corrId_5bb79d7061fe61.51095769 - Query: SELECT id_tariffa, tariffa
+            FROM tariffa
+            WHERE attiva = 1 
+[2018-10-05 19:20:48] - corrId_5bb79d7061fe61.51095769 - Executing query 
+[2018-10-05 19:20:48] - corrId_5bb79d7061fe61.51095769 - Query executed successfully 
+[2018-10-05 19:20:55] - corrId_5bb79d77379238.31563551 - Reached RentalManagementService API 
+[2018-10-05 19:20:55] - corrId_5bb79d77379238.31563551 - Establishing connection to DB 
+[2018-10-05 19:20:55] - corrId_5bb79d77379238.31563551 - Processing ClearRentalBookingsForUser request. 
+[2018-10-05 19:20:55] - corrId_5bb79d77379238.31563551 - Token is valid 
+[2018-10-05 19:20:55] - corrId_5bb79d77379238.31563551 - Validated permissions for user guest (required 10, has 30) 
+[2018-10-05 19:20:55] - corrId_5bb79d77379238.31563551 - Executing query 
+[2018-10-05 19:20:55] - corrId_5bb79d77379238.31563551 - Query executed successfully 

@@ -537,29 +537,6 @@ INSERT INTO `regista` VALUES (1,'Frank','Darabont'),(2,'Quentin','Tarantino'),(3
 UNLOCK TABLES;
 
 --
--- Table structure for table `sconto`
---
-
-DROP TABLE IF EXISTS `sconto`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `sconto` (
-  `id_sconto` int(11) NOT NULL AUTO_INCREMENT,
-  `percentuale` float DEFAULT NULL,
-  PRIMARY KEY (`id_sconto`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `sconto`
---
-
-LOCK TABLES `sconto` WRITE;
-/*!40000 ALTER TABLE `sconto` DISABLE KEYS */;
-/*!40000 ALTER TABLE `sconto` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `stato_prenotazione`
 --
 
@@ -767,4 +744,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-05  1:35:06
+-- Dump completed on 2018-10-05 19:23:13
