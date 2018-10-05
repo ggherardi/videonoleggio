@@ -261,8 +261,13 @@ function editItem() {
     } else {
         customer.keepExistingFile = true;
     }
+    var loader = new Loader("#SharedModalBody");
+    loader.showLoader();
     customersManagementService.editCustomer(customer, files[0])
-        .done(actionSuccess)
+        .done((data) => { 
+            loader.hideLoader(); 
+            actionSuccess(data);
+        })
         .fail(RestClient.redirectIfUnauthorized);
 }
 

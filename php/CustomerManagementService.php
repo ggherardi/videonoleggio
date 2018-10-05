@@ -185,7 +185,7 @@ class CustomerManagementService {
             Logger::Write("Error occured -> $ex", $GLOBALS["CorrelationID"]);
             http_response_code(500);
         }
-        Logger::Write("Opreation ". $_POST["action"] ." was successful.", $GLOBALS["CorrelationID"]);
+        Logger::Write("Operation ". $_POST["action"] ." was successful.", $GLOBALS["CorrelationID"]);
         exit(json_encode($res));
     }
 }

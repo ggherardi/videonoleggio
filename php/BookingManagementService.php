@@ -250,7 +250,7 @@ class BookingManagementService {
             http_response_code(500);
             exit();
         }
-        Logger::Write("Opreation ". $_POST["action"] ." was successful.", $GLOBALS["CorrelationID"]);
+        Logger::Write("Operation ". $_POST["action"] ." was successful.", $GLOBALS["CorrelationID"]);
         exit(json_encode($res));
     }
 }
