@@ -37,10 +37,31 @@ var dataTableOptions = {
         { text: "Nuovo cliente", action: addCustomerAction },
         { extend: 'selectedSingle', text: "Modifica cliente", action: editCustomerAction },
         { extend: 'selectedSingle', text: "Cancella cliente", action: deleteCustomerAction },
+        { extend: 'selectedSingle', text: "Noleggi attivi", action: seeActiveRentalsAction },
+        { extend: 'selectedSingle', text: "Noleggi passati", action: seeArchivedRentalsAction },
     ],
     language: {
         "emptyTable": "Nessun cliente trovato."
       }
+};
+var rentedCopiesTableContainer = $("#RentedCopiesTableContainer");
+var rentedVideosDataTable;
+var rentedVideosDataTableOptions = {
+    dom: 'ftpil',
+    columns: [
+        { data: "id_cliente" },
+        { data: "id_noleggio" },
+        { data: "id_copia" },
+        { data: "titolo" },
+        { data: "data_inizio" },
+        { data: "data_fine" },
+        { data: "giorni_ritardo" }
+    ],
+    columnDefs: [{
+        targets: [ 0, 1 ],
+        visible: false,
+        searchable: false
+    }]
 };
     
 function initCustomersTable() {
@@ -271,7 +292,117 @@ function editItem() {
         .fail(RestClient.redirectIfUnauthorized);
 }
 
-/* Actions shared functions  */
+/* See Active Rentals Action */
+function seeActiveRentalsAction(e, dt, node, config) {
+    var row = dt.rows({ selected: true }).data()[0];
+    findRentedCopies(row, false);
+}
+
+/* See Archived Rentals Action */
+function seeArchivedRentalsAction(e, dt, node, config) {
+    var row = dt.rows({ selected: true }).data()[0];
+    findRentedCopies(row, true);
+}
+
+/* Customer's Rentals shared functions */
+function findRentedCopies(row, archive) {
+    var filters = {
+        id_punto_vendita: sharedStorage.loginContext.punto_vendita_id_punto_vendita,
+        id_cliente: row.id_cliente
+    }
+    var loader = new Loader("#SharedModalBody");
+    loader.showLoader();
+    modalOptions = {
+        title: `Noleggi ${archive ? "passati" : "attivi"} - ${row.nome} ${row.cognome}`,
+        body: "<div id='RentedVideoTableContainer'></div>",
+        cancelButton: {
+            text: "Chiudi"
+        },
+        size: "large"
+    }
+    modal = new Modal(modalOptions);
+    modal.open();  
+
+    var restitutionManagementService = restitutionManagementService || new RestitutionManagementService();
+    var restCall;
+    if(archive) {
+        restCall = restitutionManagementService.getArchivedVideoForUser(filters)
+
+    } else {
+        restCall = restitutionManagementService.getRentedVideoForUser(filters)
+    }
+    restCall
+        .done(findRentedCopiesSuccess)
+        .fail(RestClient.redirectIfUnauthorized)
+        .always(() => loader.hideLoader());
+}
+
+function findRentedCopiesSuccess(data) {
+    if(data) {
+        rentals = JSON.parse(data);
+        buildRentalsTable(rentals);
+    }
+}
+
+function buildRentalsTable(rentals) {
+    var buildRestitutionDelay = function(row) {
+        var oDelay = {
+            days: 0,
+            cssClass: ""
+        }
+        var rentEndDate = new Date(row.data_fine);
+        var today = new Date();   
+        var delayMilliseconds = today - rentEndDate;     
+        if(delayMilliseconds > 0) {
+            oDelay.days = Math.floor(delayMilliseconds / (1000 * 60 * 60 * 24));
+            if(oDelay.days > 0 && oDelay.days < 3) {
+                oDelay.cssClass = "alert alert-warning";
+            } else if (oDelay.days >= 3) {
+                oDelay.cssClass = "alert alert-danger";
+            }
+        }
+        return oDelay;
+    }
+
+    var tableName = "RentedvideoTable";
+    var html = `<table class="table mt-3" id="${tableName}">`
+    html +=         BuildRentedCopiesTableHead();
+    html +=        `<tbody>`;            
+    for(var i = 0; i < rentals.length; i++) {
+        var oDelay = buildRestitutionDelay(rentals[i])
+        html +=         `<tr>
+                            <td>${rentals[i].id_cliente}</td>
+                            <td>${rentals[i].id_noleggio}</td>
+                            <td>${rentals[i].id_copia}</td>                             
+                            <td>${rentals[i].titolo}</td> 
+                            <td>${formatDateFromString(rentals[i].data_inizio)}</td>
+                            <td>${formatDateFromString(rentals[i].data_fine)}</td>  
+                            <td class="${oDelay.cssClass}">${oDelay.days}</td>
+                        </tr>`;
+    }	
+    html += `       </tbody>
+                </table>`;
+    $("#RentedVideoTableContainer").html(html);
+    rentedVideosDataTable = $(`#${tableName}`).DataTable(rentedVideosDataTableOptions);
+}
+
+function BuildRentedCopiesTableHead() {
+    var html = `<thead>
+                    <tr>`;
+    for(var i = 0; i < rentedVideosDataTableOptions.columnDefs[0].targets.length; i++) {
+        html += `       <th scope="col"></th>`;
+    }
+    html += `           <th scope="col">Cod. copia</th>
+                        <th scope="col">Titolo film</th>
+                        <th scope="col">Inizio noleggio</th>
+                        <th scope="col">Fine noleggio</th>
+                        <th scope="col">Ritardo gg.</th>
+                    </tr>
+                </thead>`;
+    return html;
+}
+
+/* Edit/New Actions shared functions  */
 function buildCustomerForm(row) {
     var isEditForm = row != undefined;
     var html = `<form class="form-signin" onsubmit="${isEditForm ? "editItem()" : "insertItem()"};return false;">
@@ -298,7 +429,7 @@ function buildCustomerForm(row) {
                     </div>
                     <label for="CustomerForm_fidelizzazione" class="mt-2">Tipo fidelizzazione</label>
                     <div id="CustomerForm_fidelizzazione_container">
-                        <select id="CustomerForm_fidelizzazione" class="form-control"></select>
+                        <select id="CustomerForm_fidelizzazione" class="form-control" ${parseInt(sharedStorage.loginContext.delega_codice) >= 20 ? "" : "disabled"}></select>
                     </div>
                     <button id="CustomerForm_insert_button" class="d-none" type="submit">
                 </form>`;

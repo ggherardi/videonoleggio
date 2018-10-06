@@ -49,7 +49,7 @@ function findRentedCopiesForUserSuccess(data) {
     var buildRestitutionDelay = function(row) {
         var oDelay = {
             days: 0,
-            cssCalss: ""
+            cssClass: ""
         }
         var rentEndDate = new Date(row.data_fine);
         var today = new Date();   

@@ -348,6 +348,15 @@ class RestitutionManagementService extends RestClient {
         return super.execute();        
     }
     
+    getArchivedVideoForUser(filters) {
+        filters = JSON.stringify(filters);
+        this.data = {
+            action: "getArchivedVideoForUser",
+            filters: filters
+        }
+        return super.execute();        
+    }
+
     returnCopies(copies) {
         copies = JSON.stringify(copies);
         this.data = {

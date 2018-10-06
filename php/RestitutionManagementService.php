@@ -51,6 +51,35 @@ class RestitutionManagementService {
         exit(json_encode($copiesArray));
     }
 
+    function GetArchivedVideoForUser() {
+        Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
+        TokenGenerator::CheckPermissions(PermissionsConstants::ADDETTO, "delega_codice");
+        $filters = json_decode($_POST["filters"]);
+        $query = 
+            "SELECT co.id_copia, no.id_storico_noleggio, no.data_inizio, no.data_fine, no.prezzo_totale, fi.titolo,
+                cli.nome, cli.cognome, cli.id_cliente
+            FROM storico_noleggio no
+            INNER JOIN cliente cli
+            ON no.id_cliente = cli.id_cliente
+            INNER JOIN copia co
+            ON no.id_copia = co.id_copia
+            INNER JOIN film fi
+            ON co.id_film = fi.id_film
+            WHERE co.id_punto_vendita = %d
+            AND no.id_cliente %s";
+        $query = sprintf($query, $filters->id_punto_vendita, 
+                                $filters->id_cliente ? 
+                                    sprintf("= %d", $filters->id_cliente) :
+                                    sprintf("> 0") );
+        Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
+        $res = self::ExecuteQuery($query);
+        $copiesArray = array();
+        while($row = $res->fetch_assoc()){
+            $copiesArray[] = $row;
+        }
+        exit(json_encode($copiesArray));
+    }
+
     function ReturnCopies() {
         Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
         TokenGenerator::CheckPermissions(PermissionsConstants::ADDETTO, "delega_codice");
@@ -147,9 +176,12 @@ class RestitutionManagementService {
                 case "getRentedVideoForUser":
                     self::GetRentedVideoForUser();
                     break;
+                case "getArchivedVideoForUser":
+                    self::GetArchivedVideoForUser();
+                    break;
                 case "returnCopies":
                     self::ReturnCopies();
-                    break;
+                    break;                    
                 default: 
                     exit(json_encode($_POST));
                     break;
