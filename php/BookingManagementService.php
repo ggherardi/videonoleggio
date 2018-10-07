@@ -36,10 +36,11 @@ class BookingManagementService {
             ON fi.id_regista = re.id_regista
             LEFT JOIN (SELECT id_prenotazione, id_film 
                         FROM prenotazione 
-                        WHERE id_punto_vendita = %d) as prenotazioni
+                        WHERE id_punto_vendita = %d
+                        AND ritirato = 0) as prenotazioni
             ON fi.id_film = prenotazioni.id_film           
             WHERE fi.inUscita = 1
-            OR fi.data_uscita > '%s'
+            AND fi.data_uscita > '%s'
             GROUP BY fi.id_film";
         $query = sprintf($query, $id_punto_vendita, $maxDateToShowBookings);
         Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
@@ -182,10 +183,9 @@ class BookingManagementService {
                     (id_cliente,
                     id_dipendente,
                     id_punto_vendita,
-                    id_film,
-                    id_stato_prenotazione)
+                    id_film)
                     VALUES
-                    (%d, %d, %d, %d, NULL);";
+                    (%d, %d, %d, %d);";
                 $query = sprintf($query, $booking->id_cliente, $booking->id_dipendente, $booking->id_punto_vendita,
                                     $booking->id_film);
                 Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);

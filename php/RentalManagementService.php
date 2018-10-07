@@ -26,7 +26,7 @@ class RentalManagementService {
         TokenGenerator::CheckPermissions(PermissionsConstants::ADDETTO, "delega_codice");
         $filters = json_decode($_POST["filters"]);
         $query = 
-            "SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero,
+            "SELECT fi.id_film, fi.titolo, fi.durata, fi.prezzo_giornaliero, fi.inUscita,
                     ge.tipo, cp.nome as casa_produttrice_nome, re.nome as regista_nome, re.cognome as regista_cognome,
                     count(*) as copie_totali, SUM(co.noleggiato) as copie_noleggiate, SUM(co.danneggiato) as copie_danneggiate
             FROM copia co
@@ -171,8 +171,13 @@ class RentalManagementService {
                 $details = self::GetPriceDetails($noleggio_id);
                 $amount = self::CalculateRentAmount($details, $videos[$i]);
                 self::AddRentAmountToTable($noleggio_id, $amount);
+                Logger::Write("INUSCITA: ".$videos[$i]->inUscita, $GLOBALS["CorrelationID"]);
+                if($videos[$i]->inUscita == 1) {
+                    self::SetBookingStatusAsRented($videos[$i]);
+                }
             }
             $this->dbContext->CommitTransaction();
+            $res = true;
         } catch(Throwable $ex) {
             Logger::Write("Error while processing ". __FUNCTION__ ." request: $ex", $GLOBALS["CorrelationID"]);
             $this->dbContext->RollBack();
@@ -245,6 +250,22 @@ class RentalManagementService {
             throw new Exception(sprintf("Could not set rent amount for item with id: ", $noleggio_id));
         }
         Logger::Write("Rent Update on amount successful", $GLOBALS["CorrelationID"]);
+    }
+
+    private function SetBookingStatusAsRented($video) {
+        $query = 
+            "UPDATE prenotazione
+            SET ritirato = 1
+            WHERE id_cliente = %d
+            AND id_punto_vendita = %d
+            AND id_film = %d";
+        $query = sprintf($query, $video->id_cliente, $video->id_punto_vendita, $video->id_film);
+        Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
+        $res = self::ExecuteQuery($query);
+        if(!$res) {
+            Logger::Write("No bookings found", $GLOBALS["CorrelationID"]);
+        }
+        Logger::Write("Booking status succesfully set to 1", $GLOBALS["CorrelationID"]);
     }
 
     // Switcha l'operazione richiesta lato client

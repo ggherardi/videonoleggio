@@ -56,8 +56,8 @@ class RestitutionManagementService {
         TokenGenerator::CheckPermissions(PermissionsConstants::ADDETTO, "delega_codice");
         $filters = json_decode($_POST["filters"]);
         $query = 
-            "SELECT co.id_copia, no.id_storico_noleggio, no.data_inizio, no.data_fine, no.prezzo_totale, fi.titolo,
-                cli.nome, cli.cognome, cli.id_cliente
+            "SELECT co.id_copia, no.id_storico_noleggio, no.data_inizio, no.data_fine, no.prezzo_totale, no.data_effettiva_restituzione,
+                fi.titolo, cli.nome, cli.cognome, cli.id_cliente
             FROM storico_noleggio no
             INNER JOIN cliente cli
             ON no.id_cliente = cli.id_cliente
@@ -119,6 +119,7 @@ class RestitutionManagementService {
     }
 
     private function ArchiveRent($row, $prezzo_extra) {
+        $today = date("Y-m-d", time());
         $query = 
             "INSERT INTO storico_noleggio
             (id_dipendente,
@@ -128,12 +129,13 @@ class RestitutionManagementService {
             id_tariffa,
             data_inizio,
             data_fine,
+            data_effettiva_restituzione,
             prezzo_totale,
             prezzo_extra)
             VALUES
-            (%d, %d, %d, %d, %d, '%s', '%s', %f, %f)";
+            (%d, %d, %d, %d, %d, '%s', '%s', '%s', %f, %f)";
         $query = sprintf($query, $row["id_dipendente"], $row["id_punto_vendita"], $row["id_cliente"], $row["id_copia"], 
-                            $row["id_tariffa"], $row["data_inizio"], $row["data_fine"], $row["prezzo_totale"], 
+                            $row["id_tariffa"], $row["data_inizio"], $row["data_fine"], $today, $row["prezzo_totale"], 
                             ($prezzo_extra != null ? $prezzo_extra : 0));
         Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
         $res = self::ExecuteQuery($query);                                     

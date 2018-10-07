@@ -26,8 +26,8 @@ DROP TABLE IF EXISTS `attore`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `attore` (
   `id_attore` int(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(45) DEFAULT NULL,
-  `cognome` varchar(45) DEFAULT NULL,
+  `nome` varchar(45) NOT NULL,
+  `cognome` varchar(45) NOT NULL,
   PRIMARY KEY (`id_attore`)
 ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -51,7 +51,7 @@ DROP TABLE IF EXISTS `casa_produttrice`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `casa_produttrice` (
   `id_casa_produttrice` int(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(45) DEFAULT NULL,
+  `nome` varchar(45) NOT NULL,
   PRIMARY KEY (`id_casa_produttrice`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -75,8 +75,8 @@ DROP TABLE IF EXISTS `cast`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cast` (
   `id_cast` int(11) NOT NULL AUTO_INCREMENT,
-  `id_attore` int(11) DEFAULT NULL,
-  `id_film` int(11) DEFAULT NULL,
+  `id_attore` int(11) NOT NULL,
+  `id_film` int(11) NOT NULL,
   PRIMARY KEY (`id_cast`),
   KEY `fk_attore_film_idx` (`id_attore`),
   KEY `fk_cast_film_idx` (`id_film`),
@@ -104,7 +104,7 @@ DROP TABLE IF EXISTS `citta`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `citta` (
   `id_citta` int(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(45) DEFAULT NULL,
+  `nome` varchar(45) NOT NULL,
   PRIMARY KEY (`id_citta`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -129,13 +129,13 @@ DROP TABLE IF EXISTS `cliente`;
 CREATE TABLE `cliente` (
   `id_cliente` int(11) NOT NULL AUTO_INCREMENT,
   `id_fidelizzazione` int(11) NOT NULL,
-  `nome` varchar(45) DEFAULT NULL,
-  `cognome` varchar(45) DEFAULT NULL,
-  `indirizzo` varchar(45) DEFAULT NULL,
+  `nome` varchar(45) NOT NULL,
+  `cognome` varchar(45) NOT NULL,
+  `indirizzo` varchar(45) NOT NULL,
   `telefono_casa` varchar(12) DEFAULT NULL,
-  `telefono_cellulare` varchar(12) DEFAULT NULL,
+  `telefono_cellulare` varchar(12) NOT NULL,
   `email` varchar(45) DEFAULT NULL,
-  `data_nascita` date DEFAULT NULL,
+  `data_nascita` date NOT NULL,
   `liberatoria` mediumblob,
   PRIMARY KEY (`id_cliente`),
   KEY `fk_cliente_fidelizzazione_idx` (`id_fidelizzazione`),
@@ -149,7 +149,7 @@ CREATE TABLE `cliente` (
 
 LOCK TABLES `cliente` WRITE;
 /*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
-INSERT INTO `cliente` VALUES (35,2,'Gianmattia','Gherardi','Largo Giuseppe Veratti 37','062396543','3483421216','giama@gmail.it','1986-10-04',NULL),(37,3,'Alfredino','Fallaci','Via Catullo 28','','03424748796','AlfredinoFallaci@armyspy.com','1971-02-03',NULL),(38,4,'Lucilla','Lucchese','Piazza Guglielmo Pepe 105','065415313','03980819008','LucillaLucchese@teleworm.us','1956-05-12',NULL),(39,4,'Gilberto','Padovano','Via Alfredo Fusco 13','063315481','03860998312','GilbertoPadovano@rhyta.com','1956-10-25',NULL),(40,2,'Fiamma','Lettiere','Corso Garibaldi 107','063215820','03359018922','FiammaLettiere@armyspy.com','1952-07-02',NULL),(41,3,'Ermenegildo','Trevisano','Via del Piave 30','06121612013','03174247508','ErmenegildoTrevisano@teleworm.us','1976-01-11',NULL),(42,1,'Sabrina','Longo','Via Genova 32','','03875842360',' SabrinaLongo@jourrapide.com','1995-10-11',NULL);
+INSERT INTO `cliente` VALUES (35,2,'Gianmattia','Gherardi','Largo Giuseppe Veratti 35','062396543','3483421212','giama@gmail.it','1986-10-04',NULL),(37,3,'Alfredino','Fallaci','Via Catullo 28','','03424748796','AlfredinoFallaci@armyspy.com','1971-02-03',NULL),(38,4,'Lucilla','Lucchese','Piazza Guglielmo Pepe 105','065415313','03980819008','LucillaLucchese@teleworm.us','1956-05-12',NULL),(39,4,'Gilberto','Padovano','Via Alfredo Fusco 13','063315481','03860998312','GilbertoPadovano@rhyta.com','1956-10-25',NULL),(40,2,'Fiamma','Lettiere','Corso Garibaldi 105','063215820','03359018922','FiammaLettiere@armyspy.com','1952-07-02',NULL),(41,3,'Ermenegildo','Trevisano','Via del Piave 30','06121612013','03174247508','ErmenegildoTrevisano@teleworm.us','1976-01-11',NULL),(42,1,'Sabrina','Longo','Via Genova 32','','03875842360',' SabrinaLongo@jourrapide.com','1995-10-11',NULL);
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -162,10 +162,10 @@ DROP TABLE IF EXISTS `copia`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `copia` (
   `id_copia` int(11) NOT NULL AUTO_INCREMENT,
-  `id_film` int(11) DEFAULT NULL,
-  `id_punto_vendita` int(11) DEFAULT NULL,
-  `id_fornitore` int(11) DEFAULT NULL,
-  `data_scarico` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `id_film` int(11) NOT NULL,
+  `id_punto_vendita` int(11) NOT NULL,
+  `id_fornitore` int(11) NOT NULL,
+  `data_scarico` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `danneggiato` tinyint(4) DEFAULT '0',
   `restituito` tinyint(4) DEFAULT '0',
   `data_restituzione_copia` datetime DEFAULT NULL,
@@ -177,11 +177,11 @@ CREATE TABLE `copia` (
   KEY `fk_copia_punto_vendita_idx` (`id_punto_vendita`),
   KEY `fk_copia_fornitore_idx` (`id_fornitore`),
   KEY `fk_copia_dipendente_idx` (`id_dipendente_prenotazione_noleggio`),
-  CONSTRAINT `fk_copia_dipendente` FOREIGN KEY (`id_dipendente_prenotazione_noleggio`) REFERENCES `dipendente` (`id_dipendente`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_copia_film` FOREIGN KEY (`id_film`) REFERENCES `film` (`id_film`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_copia_fornitore` FOREIGN KEY (`id_fornitore`) REFERENCES `fornitore` (`id_fornitore`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_copia_punto_vendita` FOREIGN KEY (`id_punto_vendita`) REFERENCES `punto_vendita` (`id_punto_vendita`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=165 DEFAULT CHARSET=utf8;
+  CONSTRAINT `fk_copia_punto_vendita` FOREIGN KEY (`id_punto_vendita`) REFERENCES `punto_vendita` (`id_punto_vendita`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_copia_dipendente` FOREIGN KEY (`id_dipendente_prenotazione_noleggio`) REFERENCES `dipendente` (`id_dipendente`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=175 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -190,7 +190,7 @@ CREATE TABLE `copia` (
 
 LOCK TABLES `copia` WRITE;
 /*!40000 ALTER TABLE `copia` DISABLE KEYS */;
-INSERT INTO `copia` VALUES (120,1,1,1,'2018-09-27 07:00:43',0,0,NULL,1,'2018-09-27 07:32:55',3),(121,1,1,1,'2018-09-27 07:00:43',0,0,NULL,1,'2018-10-03 22:25:20',3),(122,1,1,1,'2018-09-27 07:00:43',0,0,NULL,1,'2018-10-03 22:19:59',5),(123,1,1,1,'2018-09-27 07:00:43',0,1,'2018-09-27 09:00:59',0,NULL,NULL),(124,1,1,1,'2018-09-27 07:00:43',0,1,'2018-09-27 09:00:59',0,NULL,NULL),(125,2,1,2,'2018-09-27 07:01:29',0,0,NULL,1,'2018-09-29 23:23:08',3),(126,2,1,2,'2018-09-27 07:01:29',0,0,NULL,1,'2018-09-27 07:33:43',2),(127,2,1,2,'2018-09-27 07:01:29',0,0,NULL,1,'2018-10-04 16:40:37',40),(128,2,1,2,'2018-09-27 07:01:29',0,0,NULL,1,'2018-09-28 19:27:29',2),(129,2,1,2,'2018-09-27 07:01:29',0,0,NULL,1,'2018-09-30 09:43:49',2),(130,2,1,2,'2018-09-27 07:01:29',0,0,NULL,0,NULL,NULL),(131,2,1,2,'2018-09-27 07:01:29',0,0,NULL,0,NULL,NULL),(132,2,1,2,'2018-09-27 07:01:29',0,0,NULL,0,NULL,NULL),(133,2,1,2,'2018-09-27 07:01:29',0,0,NULL,0,NULL,NULL),(134,2,1,2,'2018-09-27 07:01:29',0,0,NULL,0,NULL,NULL),(135,3,1,4,'2018-09-27 07:01:37',0,0,NULL,1,'2018-10-03 18:41:39',3),(136,3,1,4,'2018-09-27 07:01:37',0,0,NULL,0,NULL,NULL),(137,3,1,4,'2018-09-27 07:01:37',0,0,NULL,0,NULL,NULL),(138,3,1,4,'2018-09-27 07:01:37',0,0,NULL,1,'2018-09-28 18:16:32',3),(139,3,1,4,'2018-09-27 07:01:37',0,0,NULL,0,NULL,NULL),(140,3,1,4,'2018-09-27 07:01:37',0,0,NULL,0,NULL,NULL),(141,3,1,4,'2018-09-27 07:01:37',0,0,NULL,0,NULL,NULL),(142,3,1,4,'2018-09-27 07:01:37',0,0,NULL,0,NULL,NULL),(143,3,1,4,'2018-09-27 07:01:37',0,0,NULL,0,NULL,NULL),(144,3,1,4,'2018-09-27 07:01:37',0,0,NULL,0,NULL,NULL),(145,15,1,6,'2018-09-27 07:01:44',0,0,NULL,0,NULL,NULL),(146,15,1,6,'2018-09-27 07:01:44',0,0,NULL,0,NULL,NULL),(147,15,1,6,'2018-09-27 07:01:44',0,0,NULL,0,NULL,NULL),(148,15,1,6,'2018-09-27 07:01:44',0,0,NULL,0,NULL,NULL),(149,15,1,6,'2018-09-27 07:01:44',0,0,NULL,0,NULL,NULL),(150,15,1,5,'2018-09-27 07:01:50',0,0,NULL,1,'2018-10-03 22:26:21',2),(151,15,1,5,'2018-09-27 07:01:50',0,0,NULL,0,NULL,NULL),(152,15,1,5,'2018-09-27 07:01:50',0,0,NULL,0,NULL,NULL),(153,15,1,5,'2018-09-27 07:01:50',0,0,NULL,0,NULL,NULL),(154,15,1,5,'2018-09-27 07:01:50',0,0,NULL,1,'2018-10-03 22:25:20',3),(155,14,1,2,'2018-09-27 07:02:03',0,0,NULL,1,'2018-09-27 07:32:35',3),(156,14,1,2,'2018-09-27 07:02:03',0,0,NULL,1,'2018-09-27 07:33:43',2),(157,14,1,2,'2018-09-27 07:02:03',0,0,NULL,1,'2018-10-03 18:41:39',3),(158,14,1,2,'2018-09-27 07:02:03',0,0,NULL,1,'2018-09-29 23:23:08',3),(159,14,1,2,'2018-09-27 07:02:03',0,0,NULL,1,'2018-10-03 22:25:20',3),(160,14,1,2,'2018-09-27 07:02:03',0,0,NULL,1,'2018-10-03 22:26:21',2),(161,14,1,2,'2018-09-27 07:02:03',0,0,NULL,0,NULL,NULL),(162,14,1,2,'2018-09-27 07:02:03',0,0,NULL,0,NULL,NULL),(163,14,1,2,'2018-09-27 07:02:03',0,0,NULL,0,NULL,NULL),(164,14,1,2,'2018-09-27 07:02:03',0,0,NULL,0,NULL,NULL);
+INSERT INTO `copia` VALUES (120,1,1,1,'2018-09-27 07:00:43',0,0,NULL,1,'2018-09-27 07:32:55',3),(121,1,1,1,'2018-09-27 07:00:43',0,0,NULL,1,'2018-10-03 22:25:20',3),(122,1,1,1,'2018-09-27 07:00:43',0,0,NULL,1,'2018-10-03 22:19:59',5),(123,1,1,1,'2018-09-27 07:00:43',0,1,'2018-09-27 09:00:59',0,NULL,NULL),(124,1,1,1,'2018-09-27 07:00:43',0,1,'2018-09-27 09:00:59',0,NULL,NULL),(125,2,1,2,'2018-09-27 07:01:29',0,0,NULL,1,'2018-09-29 23:23:08',3),(126,2,1,2,'2018-09-27 07:01:29',0,0,NULL,1,'2018-09-27 07:33:43',2),(127,2,1,2,'2018-09-27 07:01:29',0,0,NULL,1,'2018-10-04 16:40:37',40),(128,2,1,2,'2018-09-27 07:01:29',0,0,NULL,1,'2018-09-28 19:27:29',2),(129,2,1,2,'2018-09-27 07:01:29',0,0,NULL,1,'2018-09-30 09:43:49',2),(130,2,1,2,'2018-09-27 07:01:29',0,0,NULL,0,NULL,NULL),(131,2,1,2,'2018-09-27 07:01:29',0,0,NULL,0,NULL,NULL),(132,2,1,2,'2018-09-27 07:01:29',0,0,NULL,0,NULL,NULL),(133,2,1,2,'2018-09-27 07:01:29',0,0,NULL,0,NULL,NULL),(134,2,1,2,'2018-09-27 07:01:29',0,0,NULL,0,NULL,NULL),(135,3,1,4,'2018-09-27 07:01:37',0,0,NULL,1,'2018-10-03 18:41:39',3),(136,3,1,4,'2018-09-27 07:01:37',0,0,NULL,0,NULL,NULL),(137,3,1,4,'2018-09-27 07:01:37',0,0,NULL,0,NULL,NULL),(138,3,1,4,'2018-09-27 07:01:37',0,0,NULL,1,'2018-09-28 18:16:32',3),(139,3,1,4,'2018-09-27 07:01:37',0,0,NULL,0,NULL,NULL),(140,3,1,4,'2018-09-27 07:01:37',0,0,NULL,0,NULL,NULL),(141,3,1,4,'2018-09-27 07:01:37',0,0,NULL,0,NULL,NULL),(142,3,1,4,'2018-09-27 07:01:37',0,0,NULL,0,NULL,NULL),(143,3,1,4,'2018-09-27 07:01:37',0,0,NULL,0,NULL,NULL),(144,3,1,4,'2018-09-27 07:01:37',0,0,NULL,0,NULL,NULL),(145,15,1,6,'2018-09-27 07:01:44',0,0,NULL,0,NULL,NULL),(146,15,1,6,'2018-09-27 07:01:44',0,0,NULL,0,NULL,NULL),(147,15,1,6,'2018-09-27 07:01:44',0,0,NULL,0,NULL,NULL),(148,15,1,6,'2018-09-27 07:01:44',0,0,NULL,0,NULL,NULL),(149,15,1,6,'2018-09-27 07:01:44',0,0,NULL,0,NULL,NULL),(150,15,1,5,'2018-09-27 07:01:50',0,0,NULL,1,'2018-10-03 22:26:21',2),(151,15,1,5,'2018-09-27 07:01:50',0,0,NULL,0,NULL,NULL),(152,15,1,5,'2018-09-27 07:01:50',0,0,NULL,0,NULL,NULL),(153,15,1,5,'2018-09-27 07:01:50',0,0,NULL,0,NULL,NULL),(154,15,1,5,'2018-09-27 07:01:50',0,0,NULL,1,'2018-10-03 22:25:20',3),(155,14,1,2,'2018-09-27 07:02:03',0,0,NULL,1,'2018-09-27 07:32:35',3),(156,14,1,2,'2018-09-27 07:02:03',0,0,NULL,1,'2018-09-27 07:33:43',2),(157,14,1,2,'2018-09-27 07:02:03',0,0,NULL,0,NULL,NULL),(158,14,1,2,'2018-09-27 07:02:03',0,0,NULL,1,'2018-09-29 23:23:08',3),(159,14,1,2,'2018-09-27 07:02:03',0,0,NULL,1,'2018-10-03 22:25:20',3),(160,14,1,2,'2018-09-27 07:02:03',0,0,NULL,1,'2018-10-03 22:26:21',2),(161,14,1,2,'2018-09-27 07:02:03',0,0,NULL,0,NULL,NULL),(162,14,1,2,'2018-09-27 07:02:03',0,0,NULL,0,NULL,NULL),(163,14,1,2,'2018-09-27 07:02:03',0,0,NULL,0,NULL,NULL),(164,14,1,2,'2018-09-27 07:02:03',0,0,NULL,0,NULL,NULL),(165,5,1,1,'2018-10-06 19:44:14',0,0,NULL,1,'2018-10-06 20:04:20',1),(166,5,1,1,'2018-10-06 19:44:14',0,0,NULL,0,NULL,NULL),(167,5,1,1,'2018-10-06 19:44:14',0,0,NULL,0,NULL,NULL),(168,5,1,1,'2018-10-06 19:44:14',0,0,NULL,0,NULL,NULL),(169,5,1,1,'2018-10-06 19:44:14',0,0,NULL,0,NULL,NULL),(170,5,1,1,'2018-10-06 19:44:14',0,0,NULL,0,NULL,NULL),(171,5,1,1,'2018-10-06 19:44:14',0,0,NULL,0,NULL,NULL),(172,5,1,1,'2018-10-06 19:44:14',0,0,NULL,0,NULL,NULL),(173,5,1,1,'2018-10-06 19:44:14',0,0,NULL,0,NULL,NULL),(174,5,1,1,'2018-10-06 19:44:14',0,0,NULL,0,NULL,NULL);
 /*!40000 ALTER TABLE `copia` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -203,8 +203,8 @@ DROP TABLE IF EXISTS `delega`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `delega` (
   `id_delega` int(11) NOT NULL AUTO_INCREMENT,
-  `codice` varchar(45) DEFAULT NULL,
-  `nome` varchar(45) DEFAULT NULL,
+  `codice` varchar(45) NOT NULL,
+  `nome` varchar(45) NOT NULL,
   PRIMARY KEY (`id_delega`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -228,12 +228,12 @@ DROP TABLE IF EXISTS `dipendente`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `dipendente` (
   `id_dipendente` int(11) NOT NULL AUTO_INCREMENT,
-  `id_delega` int(11) DEFAULT NULL,
-  `id_punto_vendita` int(11) DEFAULT NULL,
-  `nome` varchar(45) DEFAULT NULL,
-  `cognome` varchar(45) DEFAULT NULL,
-  `username` varchar(45) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
+  `id_delega` int(11) NOT NULL,
+  `id_punto_vendita` int(11) NOT NULL,
+  `nome` varchar(45) NOT NULL,
+  `cognome` varchar(45) NOT NULL,
+  `username` varchar(45) NOT NULL,
+  `password` varchar(255) NOT NULL,
   PRIMARY KEY (`id_dipendente`),
   KEY `fk_dipendente_delega_idx` (`id_delega`),
   KEY `fk_dipendente_punto_vendita_idx` (`id_punto_vendita`),
@@ -261,8 +261,8 @@ DROP TABLE IF EXISTS `fidelizzazione`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `fidelizzazione` (
   `id_fidelizzazione` int(11) NOT NULL AUTO_INCREMENT,
-  `nome_fidelizzazione` varchar(45) DEFAULT NULL,
-  `percentuale` float DEFAULT NULL,
+  `nome_fidelizzazione` varchar(45) NOT NULL,
+  `percentuale` float NOT NULL,
   PRIMARY KEY (`id_fidelizzazione`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -286,12 +286,12 @@ DROP TABLE IF EXISTS `film`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `film` (
   `id_film` int(11) NOT NULL AUTO_INCREMENT,
-  `id_regista` int(11) DEFAULT NULL,
-  `id_genere` int(11) DEFAULT NULL,
-  `id_casa_produttrice` int(11) DEFAULT NULL,
-  `titolo` varchar(100) DEFAULT NULL,
-  `durata` int(11) DEFAULT NULL,
-  `prezzo_giornaliero` float DEFAULT NULL,
+  `id_regista` int(11) NOT NULL,
+  `id_genere` int(11) NOT NULL,
+  `id_casa_produttrice` int(11) NOT NULL,
+  `titolo` varchar(100) NOT NULL,
+  `durata` int(11) NOT NULL,
+  `prezzo_giornaliero` float NOT NULL,
   `inUscita` tinyint(4) DEFAULT '0',
   `data_uscita` date DEFAULT NULL,
   PRIMARY KEY (`id_film`),
@@ -323,7 +323,7 @@ DROP TABLE IF EXISTS `fornitore`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `fornitore` (
   `id_fornitore` int(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(45) DEFAULT NULL,
+  `nome` varchar(45) NOT NULL,
   PRIMARY KEY (`id_fornitore`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -347,7 +347,7 @@ DROP TABLE IF EXISTS `genere`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `genere` (
   `id_genere` int(11) NOT NULL AUTO_INCREMENT,
-  `tipo` varchar(45) DEFAULT NULL,
+  `tipo` varchar(45) NOT NULL,
   PRIMARY KEY (`id_genere`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -371,8 +371,8 @@ DROP TABLE IF EXISTS `impostazione`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `impostazione` (
   `id_impostazione` int(11) NOT NULL AUTO_INCREMENT,
-  `chiave` varchar(100) DEFAULT NULL,
-  `valore` varchar(10) DEFAULT NULL,
+  `chiave` varchar(100) NOT NULL,
+  `valore` varchar(10) NOT NULL,
   PRIMARY KEY (`id_impostazione`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -416,7 +416,7 @@ CREATE TABLE `noleggio` (
   CONSTRAINT `fk_noleggio_dipendente` FOREIGN KEY (`id_dipendente`) REFERENCES `dipendente` (`id_dipendente`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_noleggio_punto_vendita` FOREIGN KEY (`id_punto_vendita`) REFERENCES `punto_vendita` (`id_punto_vendita`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_noleggio_tariffa` FOREIGN KEY (`id_tariffa`) REFERENCES `tariffa` (`id_tariffa`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=86 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=94 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -425,7 +425,7 @@ CREATE TABLE `noleggio` (
 
 LOCK TABLES `noleggio` WRITE;
 /*!40000 ALTER TABLE `noleggio` DISABLE KEYS */;
-INSERT INTO `noleggio` VALUES (48,3,1,40,155,1,'2018-09-23 07:32:49','2018-09-26 00:00:00',18.7,NULL),(50,3,1,41,120,1,'2018-09-27 07:33:05','2018-10-07 00:00:00',38.2,NULL),(52,2,1,42,126,1,'2018-09-27 07:33:59','2018-09-29 00:00:00',8.55,NULL),(53,2,1,42,156,1,'2018-09-27 07:33:59','2018-09-30 00:00:00',19.8,NULL),(58,3,1,38,138,1,'2018-09-28 18:17:49','2018-09-30 00:00:00',15.2,NULL),(65,2,1,41,128,1,'2018-09-28 19:27:49','2018-09-30 00:00:00',7.6,NULL),(68,3,1,40,125,1,'2018-09-29 23:23:23','2018-10-03 00:00:00',11.6875,NULL),(69,3,1,40,158,1,'2018-09-29 23:23:23','2018-10-04 00:00:00',24.14,NULL),(72,2,1,40,129,1,'2018-09-30 09:44:00','2018-10-03 00:00:00',11.6875,NULL),(73,3,1,40,135,1,'2018-10-03 18:41:55','2018-10-07 00:00:00',24.14,NULL),(74,3,1,40,157,1,'2018-10-03 18:41:55','2018-10-08 00:00:00',30.94,NULL),(78,5,1,42,122,1,'2018-10-03 22:20:15','2018-10-07 00:00:00',12.375,NULL),(80,3,1,38,121,1,'2018-10-03 22:25:46','2018-10-07 00:00:00',13.75,NULL),(81,3,1,38,159,1,'2018-10-03 22:25:46','2018-10-07 00:00:00',22,NULL),(82,3,1,38,154,1,'2018-10-03 22:25:46','2018-10-07 00:00:00',13.75,NULL),(83,2,1,40,160,1,'2018-10-03 22:26:47','2018-10-09 00:00:00',30.94,NULL),(84,2,1,40,150,1,'2018-10-03 22:26:47','2018-10-09 00:00:00',19.3375,NULL),(85,40,1,40,127,1,'2018-10-04 16:40:50','2018-10-05 00:00:00',4.25,NULL);
+INSERT INTO `noleggio` VALUES (48,3,1,40,155,1,'2018-09-23 07:32:49','2018-09-26 00:00:00',18.7,NULL),(50,3,1,41,120,1,'2018-09-27 07:33:05','2018-10-07 00:00:00',38.2,NULL),(52,2,1,42,126,1,'2018-09-27 07:33:59','2018-09-29 00:00:00',8.55,NULL),(53,2,1,42,156,1,'2018-09-27 07:33:59','2018-09-30 00:00:00',19.8,NULL),(58,3,1,38,138,1,'2018-09-28 18:17:49','2018-09-30 00:00:00',15.2,NULL),(65,2,1,41,128,1,'2018-09-28 19:27:49','2018-09-30 00:00:00',7.6,NULL),(68,3,1,40,125,1,'2018-09-29 23:23:23','2018-10-03 00:00:00',11.6875,NULL),(69,3,1,40,158,1,'2018-09-29 23:23:23','2018-10-04 00:00:00',24.14,NULL),(72,2,1,40,129,1,'2018-09-30 09:44:00','2018-10-03 00:00:00',11.6875,NULL),(73,3,1,40,135,1,'2018-10-03 18:41:55','2018-10-07 00:00:00',24.14,NULL),(78,5,1,42,122,1,'2018-10-03 22:20:15','2018-10-07 00:00:00',12.375,NULL),(80,3,1,38,121,1,'2018-10-03 22:25:46','2018-10-07 00:00:00',13.75,NULL),(81,3,1,38,159,1,'2018-10-03 22:25:46','2018-10-07 00:00:00',22,NULL),(82,3,1,38,154,1,'2018-10-03 22:25:46','2018-10-07 00:00:00',13.75,NULL),(83,2,1,40,160,1,'2018-10-03 22:26:47','2018-10-09 00:00:00',30.94,NULL),(84,2,1,40,150,1,'2018-10-03 22:26:47','2018-10-09 00:00:00',19.3375,NULL),(85,40,1,40,127,1,'2018-10-04 16:40:50','2018-10-05 00:00:00',4.25,NULL),(93,1,1,38,165,1,'2018-10-06 20:06:06','2018-10-08 00:00:00',9.5,NULL);
 /*!40000 ALTER TABLE `noleggio` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -442,19 +442,17 @@ CREATE TABLE `prenotazione` (
   `id_dipendente` int(11) NOT NULL,
   `id_punto_vendita` int(11) NOT NULL,
   `id_film` int(11) NOT NULL,
-  `id_stato_prenotazione` int(11) DEFAULT NULL,
+  `ritirato` tinyint(4) DEFAULT '0',
   PRIMARY KEY (`id_prenotazione`),
   KEY `fk_prenotazione_cliente_idx` (`id_cliente`),
   KEY `fk_prenotazione_dipendente_idx` (`id_dipendente`),
   KEY `fk_prenotazione_film_idx` (`id_film`),
-  KEY `fk_prenotazione_stato_prenotazione_idx` (`id_stato_prenotazione`),
   KEY `fk_prenotazione_punto_vendita_idx` (`id_punto_vendita`),
   CONSTRAINT `fk_prenotazione_cliente` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id_cliente`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_prenotazione_dipendente` FOREIGN KEY (`id_dipendente`) REFERENCES `dipendente` (`id_dipendente`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_prenotazione_film` FOREIGN KEY (`id_film`) REFERENCES `film` (`id_film`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_prenotazione_punto_vendita` FOREIGN KEY (`id_punto_vendita`) REFERENCES `punto_vendita` (`id_punto_vendita`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_prenotazione_stato_prenotazione` FOREIGN KEY (`id_stato_prenotazione`) REFERENCES `stato_prenotazione` (`id_stato_prenotazione`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+  CONSTRAINT `fk_prenotazione_punto_vendita` FOREIGN KEY (`id_punto_vendita`) REFERENCES `punto_vendita` (`id_punto_vendita`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -463,7 +461,7 @@ CREATE TABLE `prenotazione` (
 
 LOCK TABLES `prenotazione` WRITE;
 /*!40000 ALTER TABLE `prenotazione` DISABLE KEYS */;
-INSERT INTO `prenotazione` VALUES (12,38,2,1,5,1),(18,38,2,1,4,NULL),(19,39,2,1,4,NULL),(20,40,2,1,4,NULL),(21,41,2,1,4,NULL),(22,42,2,1,4,NULL);
+INSERT INTO `prenotazione` VALUES (18,38,2,1,4,NULL),(19,39,2,1,4,NULL),(20,40,2,1,4,NULL),(21,41,2,1,4,NULL),(22,42,2,1,4,NULL),(23,38,1,1,5,1),(24,39,1,1,5,0),(25,40,1,1,5,0);
 /*!40000 ALTER TABLE `prenotazione` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -492,9 +490,9 @@ DROP TABLE IF EXISTS `punto_vendita`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `punto_vendita` (
   `id_punto_vendita` int(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(45) DEFAULT NULL,
-  `indirizzo` varchar(45) DEFAULT NULL,
-  `id_citta` int(11) DEFAULT NULL,
+  `id_citta` int(11) NOT NULL,
+  `nome` varchar(45) NOT NULL,
+  `indirizzo` varchar(45) NOT NULL,
   PRIMARY KEY (`id_punto_vendita`),
   KEY `fk_punto_vendita_citta_idx` (`id_citta`),
   CONSTRAINT `fk_punto_vendita_citta` FOREIGN KEY (`id_citta`) REFERENCES `citta` (`id_citta`) ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -507,7 +505,7 @@ CREATE TABLE `punto_vendita` (
 
 LOCK TABLES `punto_vendita` WRITE;
 /*!40000 ALTER TABLE `punto_vendita` DISABLE KEYS */;
-INSERT INTO `punto_vendita` VALUES (1,'Roma01','Largo Giuseppe Veratti 37',4),(2,'Roma02','Via Riccardo Morandi 32',4),(3,'Roma03','Viale Marconi 5',4),(4,'Roma04','Via Tuscolana 112',4),(5,'Genova01','Via Marcello Prestinari 12',1),(6,'Genova02','Via Martiri della libertà 22',1),(7,'Genova03','Via Cantore 150',1),(8,'Trieste01','Viale Gabriele d\'Annunzio 2',5),(9,'Trieste02','Via Dandolo Enrico 8',5),(10,'Torino01','Via Adamello 16',3),(11,'Torino02','Via Stelvio 27',3),(12,'Torino03','Via Principessa Clotilde 123',3),(13,'Torino04','Corso Principe Oddone 23',3);
+INSERT INTO `punto_vendita` VALUES (1,4,'Roma01','Largo Giuseppe Veratti 37'),(2,4,'Roma02','Via Riccardo Morandi 32'),(3,4,'Roma03','Viale Marconi 5'),(4,4,'Roma04','Via Tuscolana 112'),(5,1,'Genova01','Via Marcello Prestinari 12'),(6,1,'Genova02','Via Martiri della libertà 22'),(7,1,'Genova03','Via Cantore 150'),(8,5,'Trieste01','Viale Gabriele d\'Annunzio 2'),(9,5,'Trieste02','Via Dandolo Enrico 8'),(10,3,'Torino01','Via Adamello 16'),(11,3,'Torino02','Via Stelvio 27'),(12,3,'Torino03','Via Principessa Clotilde 123'),(13,3,'Torino04','Corso Principe Oddone 23');
 /*!40000 ALTER TABLE `punto_vendita` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -520,8 +518,8 @@ DROP TABLE IF EXISTS `regista`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `regista` (
   `id_regista` int(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(45) DEFAULT NULL,
-  `cognome` varchar(45) DEFAULT NULL,
+  `nome` varchar(45) NOT NULL,
+  `cognome` varchar(45) NOT NULL,
   PRIMARY KEY (`id_regista`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -534,30 +532,6 @@ LOCK TABLES `regista` WRITE;
 /*!40000 ALTER TABLE `regista` DISABLE KEYS */;
 INSERT INTO `regista` VALUES (1,'Frank','Darabont'),(2,'Quentin','Tarantino'),(3,'Christopher','Nolan'),(4,'Francis','Ford Coppola'),(5,'Steven','Spielberg'),(6,'Peter','Jackson'),(7,'Sergio','Leone'),(8,'Sidney','Lumet');
 /*!40000 ALTER TABLE `regista` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `stato_prenotazione`
---
-
-DROP TABLE IF EXISTS `stato_prenotazione`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `stato_prenotazione` (
-  `id_stato_prenotazione` int(11) NOT NULL AUTO_INCREMENT,
-  `stato` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id_stato_prenotazione`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `stato_prenotazione`
---
-
-LOCK TABLES `stato_prenotazione` WRITE;
-/*!40000 ALTER TABLE `stato_prenotazione` DISABLE KEYS */;
-INSERT INTO `stato_prenotazione` VALUES (1,'10'),(2,'20');
-/*!40000 ALTER TABLE `stato_prenotazione` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -576,6 +550,7 @@ CREATE TABLE `storico_noleggio` (
   `id_tariffa` int(11) NOT NULL,
   `data_inizio` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `data_fine` datetime NOT NULL,
+  `data_effettiva_restituzione` date NOT NULL,
   `prezzo_totale` float NOT NULL,
   `prezzo_extra` float DEFAULT NULL,
   PRIMARY KEY (`id_storico_noleggio`),
@@ -589,7 +564,7 @@ CREATE TABLE `storico_noleggio` (
   CONSTRAINT `fk_storico_noleggio_dipendente` FOREIGN KEY (`id_dipendente`) REFERENCES `dipendente` (`id_dipendente`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_storico_noleggio_punto_vendita` FOREIGN KEY (`id_punto_vendita`) REFERENCES `punto_vendita` (`id_punto_vendita`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_storico_noleggio_tariffa` FOREIGN KEY (`id_tariffa`) REFERENCES `tariffa` (`id_tariffa`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -598,7 +573,7 @@ CREATE TABLE `storico_noleggio` (
 
 LOCK TABLES `storico_noleggio` WRITE;
 /*!40000 ALTER TABLE `storico_noleggio` DISABLE KEYS */;
-INSERT INTO `storico_noleggio` VALUES (1,4,1,38,150,1,'2018-09-27 07:34:37','2018-09-30 00:00:00',13.75,0),(2,4,1,38,150,1,'2018-09-27 07:34:37','2018-09-30 00:00:00',13.75,0),(3,4,1,38,157,1,'2018-09-27 07:34:37','2018-09-29 00:00:00',15.2,0),(4,4,1,38,150,1,'2018-09-27 07:34:37','2018-09-30 00:00:00',13.75,0),(5,3,1,38,157,1,'2018-09-28 18:17:49','2018-10-01 00:00:00',22,0),(6,3,1,38,150,1,'2018-09-28 18:17:49','2018-10-02 00:00:00',17.75,0),(8,2,1,40,150,1,'2018-09-28 18:35:10','2018-09-30 00:00:00',8.075,0),(9,3,1,41,139,1,'2018-09-28 18:18:30','2018-10-04 00:00:00',35.52,0),(10,3,1,41,151,1,'2018-09-28 18:18:30','2018-10-05 00:00:00',26.2,0),(11,2,1,41,139,1,'2018-09-28 19:27:49','2018-10-04 00:00:00',35.52,0),(12,2,1,41,158,1,'2018-09-28 19:27:49','2018-09-30 00:00:00',12.16,0),(13,2,1,41,139,1,'2018-09-28 19:27:49','2018-10-04 00:00:00',35.52,0),(14,2,1,41,158,1,'2018-09-28 19:27:49','2018-09-30 00:00:00',12.16,0),(15,1,1,37,125,1,'2018-09-27 07:27:25','2018-09-29 00:00:00',7.6,0),(16,1,1,37,135,1,'2018-09-27 07:27:25','2018-09-30 00:00:00',17.6,0),(17,2,1,37,136,1,'2018-09-27 07:33:36','2018-09-30 00:00:00',17.6,0),(18,4,1,38,137,1,'2018-09-21 07:34:37','2018-09-24 00:00:00',8,0),(19,3,1,38,127,1,'2018-09-28 18:17:49','2018-09-29 00:00:00',5,0),(20,3,1,40,154,1,'2018-09-27 07:32:49','2018-10-03 00:00:00',23.5875,0),(21,2,1,40,157,1,'2018-09-28 18:35:10','2018-09-30 00:00:00',12.92,0),(22,2,1,40,154,1,'2018-09-30 09:44:00','2018-10-03 00:00:00',11.6875,0),(23,2,1,41,135,1,'2018-09-29 23:36:43','2018-10-05 00:00:00',29.12,0),(24,5,1,41,136,1,'2018-10-03 22:13:52','2018-10-08 00:00:00',22.72,0),(25,5,1,41,130,1,'2018-10-03 22:13:52','2018-10-07 00:00:00',11,0),(26,5,1,41,121,1,'2018-10-03 22:13:52','2018-10-07 00:00:00',11,0),(27,2,1,41,127,1,'2018-09-29 23:36:43','2018-10-04 00:00:00',14.2,0),(28,5,1,42,130,1,'2018-10-03 22:20:15','2018-10-07 00:00:00',12.375,10);
+INSERT INTO `storico_noleggio` VALUES (1,4,1,38,150,1,'2018-10-06 20:20:48','2018-09-30 00:00:00','2018-10-06',13.75,0),(2,4,1,38,150,1,'2018-10-06 20:20:28','2018-09-30 00:00:00','2018-10-06',13.75,0),(3,4,1,38,157,1,'2018-10-06 20:20:28','2018-09-29 00:00:00','2018-10-06',15.2,0),(4,4,1,38,150,1,'2018-10-06 20:20:28','2018-09-30 00:00:00','2018-10-06',13.75,0),(5,3,1,38,157,1,'2018-10-06 20:20:28','2018-10-01 00:00:00','2018-10-06',22,0),(6,3,1,38,150,1,'2018-10-06 20:20:28','2018-10-02 00:00:00','2018-10-06',17.75,0),(8,2,1,40,150,1,'2018-10-06 20:20:28','2018-09-30 00:00:00','2018-10-06',8.075,0),(9,3,1,41,139,1,'2018-10-06 20:20:28','2018-10-04 00:00:00','2018-10-06',35.52,0),(10,3,1,41,151,1,'2018-10-06 20:20:28','2018-10-05 00:00:00','2018-10-06',26.2,0),(11,2,1,41,139,1,'2018-10-06 20:20:28','2018-10-04 00:00:00','2018-10-06',35.52,0),(12,2,1,41,158,1,'2018-10-06 20:20:28','2018-09-30 00:00:00','2018-10-06',12.16,0),(13,2,1,41,139,1,'2018-10-06 20:20:28','2018-10-04 00:00:00','2018-10-06',35.52,0),(14,2,1,41,158,1,'2018-10-06 20:20:28','2018-09-30 00:00:00','2018-10-06',12.16,0),(15,1,1,37,125,1,'2018-10-06 20:20:28','2018-09-29 00:00:00','2018-10-06',7.6,0),(16,1,1,37,135,1,'2018-10-06 20:20:28','2018-09-30 00:00:00','2018-10-06',17.6,0),(17,2,1,37,136,1,'2018-10-06 20:20:28','2018-09-30 00:00:00','2018-10-06',17.6,0),(18,4,1,38,137,1,'2018-10-06 20:20:28','2018-09-24 00:00:00','2018-10-06',8,0),(19,3,1,38,127,1,'2018-10-06 20:20:28','2018-09-29 00:00:00','2018-10-06',5,0),(20,3,1,40,154,1,'2018-10-06 20:20:28','2018-10-03 00:00:00','2018-10-06',23.5875,0),(21,2,1,40,157,1,'2018-10-06 20:20:28','2018-09-30 00:00:00','2018-10-06',12.92,0),(22,2,1,40,154,1,'2018-10-06 20:20:28','2018-10-03 00:00:00','2018-10-06',11.6875,0),(23,2,1,41,135,1,'2018-10-06 20:20:28','2018-10-05 00:00:00','2018-10-06',29.12,0),(24,5,1,41,136,1,'2018-10-06 20:20:28','2018-10-08 00:00:00','2018-10-06',22.72,0),(25,5,1,41,130,1,'2018-10-06 20:20:28','2018-10-07 00:00:00','2018-10-06',11,0),(26,5,1,41,121,1,'2018-10-06 20:20:28','2018-10-07 00:00:00','2018-10-06',11,0),(27,2,1,41,127,1,'2018-10-06 20:20:28','2018-10-04 00:00:00','2018-10-06',14.2,0),(28,5,1,42,130,1,'2018-10-06 20:20:28','2018-10-07 00:00:00','2018-10-06',12.375,10),(31,3,1,40,157,1,'2018-10-03 18:41:55','2018-10-08 00:00:00','2018-10-06',30.94,16);
 /*!40000 ALTER TABLE `storico_noleggio` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -744,4 +719,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-05 19:23:13
+-- Dump completed on 2018-10-07  2:51:17

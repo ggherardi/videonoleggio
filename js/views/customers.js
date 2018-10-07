@@ -45,8 +45,8 @@ var dataTableOptions = {
       }
 };
 var rentedCopiesTableContainer = $("#RentedCopiesTableContainer");
-var rentedVideosDataTable;
-var rentedVideosDataTableOptions = {
+var customerRentedVideosDataTable;
+var customerRentedVideosDataTableOptions = {
     dom: 'ftpil',
     columns: [
         { data: "id_cliente" },
@@ -364,11 +364,13 @@ function buildRentalsTable(rentals) {
         return oDelay;
     }
 
-    var tableName = "RentedvideoTable";
+    var isFromArchive = rentals[0].data_effettiva_restituzione != undefined;
+    var tableName = "CustomersRentedVideosTable";
     var html = `<table class="table mt-3" id="${tableName}">`
-    html +=         BuildRentedCopiesTableHead();
+    html +=         BuildRentedCopiesTableHead(isFromArchive);
     html +=        `<tbody>`;            
     for(var i = 0; i < rentals.length; i++) {
+        var endDate = formatDateFromString(rentals[i].data_effettiva_restituzione ? rentals[i].data_effettiva_restituzione : rentals[i].data_fine);
         var oDelay = buildRestitutionDelay(rentals[i])
         html +=         `<tr>
                             <td>${rentals[i].id_cliente}</td>
@@ -376,26 +378,26 @@ function buildRentalsTable(rentals) {
                             <td>${rentals[i].id_copia}</td>                             
                             <td>${rentals[i].titolo}</td> 
                             <td>${formatDateFromString(rentals[i].data_inizio)}</td>
-                            <td>${formatDateFromString(rentals[i].data_fine)}</td>  
+                            <td>${endDate}</td>  
                             <td class="${oDelay.cssClass}">${oDelay.days}</td>
                         </tr>`;
     }	
     html += `       </tbody>
                 </table>`;
     $("#RentedVideoTableContainer").html(html);
-    rentedVideosDataTable = $(`#${tableName}`).DataTable(rentedVideosDataTableOptions);
+    customerRentedVideosDataTable = $(`#${tableName}`).DataTable(customerRentedVideosDataTableOptions);
 }
 
-function BuildRentedCopiesTableHead() {
+function BuildRentedCopiesTableHead(isFromArchive) {
     var html = `<thead>
                     <tr>`;
-    for(var i = 0; i < rentedVideosDataTableOptions.columnDefs[0].targets.length; i++) {
+    for(var i = 0; i < customerRentedVideosDataTableOptions.columnDefs[0].targets.length; i++) {
         html += `       <th scope="col"></th>`;
     }
     html += `           <th scope="col">Cod. copia</th>
                         <th scope="col">Titolo film</th>
                         <th scope="col">Inizio noleggio</th>
-                        <th scope="col">Fine noleggio</th>
+                        <th scope="col">${isFromArchive ? "Data restituzione" : "Data fine"}</th>
                         <th scope="col">Ritardo gg.</th>
                     </tr>
                 </thead>`;

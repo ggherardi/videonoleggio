@@ -53,10 +53,14 @@ class StorageManagementService {
     function GetAlreadyAvailableMovies() {
         Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
         TokenGenerator::CheckPermissions(PermissionsConstants::ADDETTO, "delega_codice");
+        $today = date("Y-m-d", time());
         $query = 
             "SELECT *
             FROM film
-            WHERE inUscita = 0";
+            WHERE inUscita = 0
+            OR data_uscita <= '%s'";
+        $query = sprintf($query, $today);
+        Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
         $res = self::ExecuteQuery($query);
         $array = array();
         while($row = $res->fetch_assoc()){

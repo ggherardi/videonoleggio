@@ -15,6 +15,7 @@ var videosDataTableOptions = {
     buttons: true,
     select: true,
     columns: [
+        { data: "inUscita" },
         { data: "id_film" },
         { data: "casa_produttrice_nome" },
         { data: "regista_nome" },
@@ -36,7 +37,7 @@ var videosDataTableOptions = {
         { data: "copie_totali" },
     ],
     columnDefs: [{
-        targets: [ 0, 1, 2, 3, 4, 5, 6, 7],
+        targets: [ 0, 1, 2, 3, 4, 5, 6, 7, 8],
         visible: false,
         searchable: false
     }],
@@ -73,6 +74,7 @@ function getVideosInStorageWithCountSuccess(data) {
         var castCellRender = formatCastCell(videos[i].cast); 
         videos[i].cast = castCellRender;
             html +=     `<tr>
+                            <td>${videos[i].inUscita}</td>
                             <td>${videos[i].id_film}</td>
                             <td>${videos[i].casa_produttrice_nome}</td>                             
                             <td>${videos[i].regista_nome}</td>   
@@ -271,7 +273,9 @@ function loadAndBuildVideosTable(rows) {
             copies = buildCopiesTableObject(copies);
             var html = ``; 
             for(var i = 0; i < copies.length; i++) {
+                var inUscita = this.filter(x => x.id_film == copies[i].id_film)[0].inUscita;
                 html += `<tr class="RentVideoForm_row">
+                            <td id="RentVideoForm_inUscita_${i}" class="d-none">${inUscita}</td>    
                             <td id="RentVideoForm_id_film_${i}" class="d-none">${copies[i].id_film}</td>   
                             <td id="RentVideoForm_id_copia_${i}" class="d-none">${copies[i].id_copia}</td>                                                      
                             <td>${copies[i].titolo}</td>  
@@ -292,7 +296,7 @@ function loadAndBuildVideosTable(rows) {
     var filters = buildFilters(rows);
     Global_FilmPrices = filters.films;
     rentalManagementService.getMostRecentCopies(filters)
-        .done(loadAndBuildVideosTableSuccess)
+        .done(loadAndBuildVideosTableSuccess.bind(rows))
         .fail(RestClient.redirectIfUnauthorized)
         .always(() => loader.hideLoader());
 }
@@ -438,6 +442,7 @@ function getVideosFromForm() {
     for(var i = 0; i < rows.length; i++) {
         try {
             var video = {
+                inUscita: $(`#RentVideoForm_inUscita_${i}`).text(),
                 id_dipendente: sharedStorage.loginContext.id_dipendente,
                 id_punto_vendita: sharedStorage.loginContext.punto_vendita_id_punto_vendita,
                 id_tariffa: rentRates.id_tariffa,
