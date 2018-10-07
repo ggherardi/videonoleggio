@@ -77,7 +77,7 @@ function openGuide() {
             </div>
             <div class="mt-3">
                 <a href="/documentazione/source/scriptPHP.7z" download>Scarica i servizi PHP</a><br>
-                <a href="/documentazione/source/scriptJS.7z" download>Scarica i file JS</a>
+                <a href="/documentazione/source/scriptJS.7z" download>Scarica i file JS</a><br>
                 <a href="/documentazione/source/scriptSQL.7z" download>Scarica gli script SQL</a>
             </div>`;
     modalOptions = {
