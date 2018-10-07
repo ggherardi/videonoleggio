@@ -13,6 +13,11 @@
     cursor: pointer;
 }
 
+.bold
+{
+    font-weight: bold;
+}
+
 .form-control::placeholder
 {
     font-style: italic;

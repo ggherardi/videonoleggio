@@ -27,6 +27,7 @@ class CustomerManagementService {
             FROM cliente
             INNER JOIN fidelizzazione
             on cliente.id_fidelizzazione = fidelizzazione.id_fidelizzazione";
+        Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
         $res = self::ExecuteQuery($query);
         $array = array();
         while($row = $res->fetch_assoc()){
@@ -63,6 +64,7 @@ class CustomerManagementService {
             $customer->telefono_cellulare, 
             $customer->email,
             $customer->data_nascita);
+        Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
         $res = self::ExecuteQuery($query);
         ob_clean();
         if($res) {

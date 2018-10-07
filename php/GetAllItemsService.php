@@ -133,6 +133,20 @@ class GetAllItemsService {
         exit(json_encode($array));
     }
 
+    function GetAllSettings() {
+        Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
+        TokenGenerator::CheckPermissions(PermissionsConstants::PROPRIETARIO, "delega_codice");
+        $query = 
+            "SELECT *
+            FROM impostazione";
+        $res = self::ExecuteQuery($query);
+        $array = array();
+        while($row = $res->fetch_assoc()){
+            $array[] = $row;
+        }
+        exit(json_encode($array));
+    }
+
     // Switcha l'operazione richiesta lato client
     function Init() {
         try {
@@ -160,6 +174,9 @@ class GetAllItemsService {
                     break;
                 case "getAllDiscounts":
                     self::GetAllDiscounts();
+                    break;
+                case "getAllSettings":
+                    self::GetAllSettings();
                     break;
                 default: 
                     exit(json_encode($_POST));

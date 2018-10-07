@@ -364,7 +364,7 @@ function buildRentalsTable(rentals) {
         return oDelay;
     }
 
-    var isFromArchive = rentals[0].data_effettiva_restituzione != undefined;
+    var isFromArchive = rentals.length > 0 ? rentals[0].data_effettiva_restituzione != undefined : false;
     var tableName = "CustomersRentedVideosTable";
     var html = `<table class="table mt-3" id="${tableName}">`
     html +=         BuildRentedCopiesTableHead(isFromArchive);

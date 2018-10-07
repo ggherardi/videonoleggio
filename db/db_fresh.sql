@@ -127,11 +127,11 @@ CREATE TABLE `copia` (
   KEY `fk_copia_punto_vendita_idx` (`id_punto_vendita`),
   KEY `fk_copia_fornitore_idx` (`id_fornitore`),
   KEY `fk_copia_dipendente_idx` (`id_dipendente_prenotazione_noleggio`),
+  CONSTRAINT `fk_copia_dipendente` FOREIGN KEY (`id_dipendente_prenotazione_noleggio`) REFERENCES `dipendente` (`id_dipendente`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_copia_film` FOREIGN KEY (`id_film`) REFERENCES `film` (`id_film`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_copia_fornitore` FOREIGN KEY (`id_fornitore`) REFERENCES `fornitore` (`id_fornitore`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_copia_punto_vendita` FOREIGN KEY (`id_punto_vendita`) REFERENCES `punto_vendita` (`id_punto_vendita`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_copia_dipendente` FOREIGN KEY (`id_dipendente_prenotazione_noleggio`) REFERENCES `dipendente` (`id_dipendente`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=175 DEFAULT CHARSET=utf8;
+  CONSTRAINT `fk_copia_punto_vendita` FOREIGN KEY (`id_punto_vendita`) REFERENCES `punto_vendita` (`id_punto_vendita`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=190 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -252,9 +252,9 @@ DROP TABLE IF EXISTS `impostazione`;
 CREATE TABLE `impostazione` (
   `id_impostazione` int(11) NOT NULL AUTO_INCREMENT,
   `chiave` varchar(100) NOT NULL,
-  `valore` varchar(10) NOT NULL,
+  `valore` varchar(500) NOT NULL,
   PRIMARY KEY (`id_impostazione`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -267,7 +267,6 @@ DROP TABLE IF EXISTS `noleggio`;
 CREATE TABLE `noleggio` (
   `id_noleggio` int(11) NOT NULL AUTO_INCREMENT,
   `id_dipendente` int(11) NOT NULL,
-  `id_punto_vendita` int(11) NOT NULL,
   `id_cliente` int(11) NOT NULL,
   `id_copia` int(11) NOT NULL,
   `id_tariffa` int(11) NOT NULL,
@@ -276,7 +275,6 @@ CREATE TABLE `noleggio` (
   `prezzo_totale` float DEFAULT NULL,
   `prezzo_extra` float DEFAULT NULL,
   PRIMARY KEY (`id_noleggio`),
-  KEY `fk_noleggio_punto_vendita_idx` (`id_punto_vendita`),
   KEY `fk_noleggio_cliente_idx` (`id_cliente`),
   KEY `fk_noleggio_dipendente_idx` (`id_dipendente`),
   KEY `fk_noleggio_copia_idx` (`id_copia`),
@@ -284,9 +282,8 @@ CREATE TABLE `noleggio` (
   CONSTRAINT `fk_noleggio_cliente` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id_cliente`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_noleggio_copia` FOREIGN KEY (`id_copia`) REFERENCES `copia` (`id_copia`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_noleggio_dipendente` FOREIGN KEY (`id_dipendente`) REFERENCES `dipendente` (`id_dipendente`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_noleggio_punto_vendita` FOREIGN KEY (`id_punto_vendita`) REFERENCES `punto_vendita` (`id_punto_vendita`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_noleggio_tariffa` FOREIGN KEY (`id_tariffa`) REFERENCES `tariffa` (`id_tariffa`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=94 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=98 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -300,19 +297,16 @@ CREATE TABLE `prenotazione` (
   `id_prenotazione` int(11) NOT NULL AUTO_INCREMENT,
   `id_cliente` int(11) NOT NULL,
   `id_dipendente` int(11) NOT NULL,
-  `id_punto_vendita` int(11) NOT NULL,
   `id_film` int(11) NOT NULL,
   `ritirato` tinyint(4) DEFAULT '0',
   PRIMARY KEY (`id_prenotazione`),
   KEY `fk_prenotazione_cliente_idx` (`id_cliente`),
   KEY `fk_prenotazione_dipendente_idx` (`id_dipendente`),
   KEY `fk_prenotazione_film_idx` (`id_film`),
-  KEY `fk_prenotazione_punto_vendita_idx` (`id_punto_vendita`),
   CONSTRAINT `fk_prenotazione_cliente` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id_cliente`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_prenotazione_dipendente` FOREIGN KEY (`id_dipendente`) REFERENCES `dipendente` (`id_dipendente`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_prenotazione_film` FOREIGN KEY (`id_film`) REFERENCES `film` (`id_film`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_prenotazione_punto_vendita` FOREIGN KEY (`id_punto_vendita`) REFERENCES `punto_vendita` (`id_punto_vendita`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
+  CONSTRAINT `fk_prenotazione_film` FOREIGN KEY (`id_film`) REFERENCES `film` (`id_film`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -374,7 +368,6 @@ DROP TABLE IF EXISTS `storico_noleggio`;
 CREATE TABLE `storico_noleggio` (
   `id_storico_noleggio` bigint(20) NOT NULL AUTO_INCREMENT,
   `id_dipendente` int(11) NOT NULL,
-  `id_punto_vendita` int(11) NOT NULL,
   `id_cliente` int(11) NOT NULL,
   `id_copia` int(11) NOT NULL,
   `id_tariffa` int(11) NOT NULL,
@@ -387,14 +380,12 @@ CREATE TABLE `storico_noleggio` (
   KEY `fk_storico_noleggio_cliente_idx` (`id_cliente`),
   KEY `fk_storico_noleggio_copia_idx` (`id_copia`),
   KEY `fk_storico_noleggio_dipendente_idx` (`id_dipendente`),
-  KEY `fk_storico_noleggio_punto_vendita_idx` (`id_punto_vendita`),
   KEY `fk_storico_noleggio_tariffa_idx` (`id_tariffa`),
   CONSTRAINT `fk_storico_noleggio_cliente` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id_cliente`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_storico_noleggio_copia` FOREIGN KEY (`id_copia`) REFERENCES `copia` (`id_copia`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_storico_noleggio_dipendente` FOREIGN KEY (`id_dipendente`) REFERENCES `dipendente` (`id_dipendente`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_storico_noleggio_punto_vendita` FOREIGN KEY (`id_punto_vendita`) REFERENCES `punto_vendita` (`id_punto_vendita`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_storico_noleggio_tariffa` FOREIGN KEY (`id_tariffa`) REFERENCES `tariffa` (`id_tariffa`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -529,4 +520,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-07  2:51:55
+-- Dump completed on 2018-10-07 14:57:32

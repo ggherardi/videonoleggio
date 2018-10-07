@@ -84,6 +84,13 @@ class GetAllItemsService extends RestClient {
         }
         return super.execute();
     }
+
+    getAllSettings() {
+        this.data = {
+            action: "getAllSettings"
+        }
+        return super.execute();
+    }
 }
 
 class AuthenticationService extends RestClient {
@@ -438,6 +445,22 @@ class SalesManagementService extends RestClient {
         this.data = {
             action: "getSalesForEmployees",
             filters: filters
+        }
+        return super.execute();        
+    }
+}
+
+class SettingsManagementService extends RestClient {
+    constructor() {
+        super();
+        this.endpoint = "php/SettingsManagementService.php";
+    }
+
+    editSettings(setting) {
+        setting = JSON.stringify(setting);
+        this.data = {
+            action: "editSettings",
+            setting: setting
         }
         return super.execute();        
     }

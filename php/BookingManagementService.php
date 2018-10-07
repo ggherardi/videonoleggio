@@ -35,9 +35,11 @@ class BookingManagementService {
             INNER JOIN regista re
             ON fi.id_regista = re.id_regista
             LEFT JOIN (SELECT id_prenotazione, id_film 
-                        FROM prenotazione 
-                        WHERE id_punto_vendita = %d
-                        AND ritirato = 0) as prenotazioni
+                        FROM prenotazione pr
+                        INNER JOIN dipendente di
+                        ON pr.id_dipendente = di.id_dipendente
+                        WHERE di.id_punto_vendita = %d
+                        AND pr.ritirato = 0) as prenotazioni
             ON fi.id_film = prenotazioni.id_film           
             WHERE fi.inUscita = 1
             AND fi.data_uscita > '%s'
@@ -85,8 +87,11 @@ class BookingManagementService {
     /** Restituisce la data odierna meno il numero di giorni stabilito perché vengano visualizzati i video nella tabella delle prenotazioni */
     private function GetDateForBookingFilter() {
         $today = time();
-        $allowedDaysAfterRelease = 7; 
-        $maxAllowedDateAfterRelease = ($today / (60 * 60 * 24)) - $allowedDaysAfterRelease; // Recuperare il numero dei giorni dalla tabella impostazione
+        $query = "SELECT valore FROM impostazione WHERE chiave = 'giorni_visibilita_prenotazioni'";
+        $res = self::ExecuteQuery($query);
+        $row = $res->fetch_assoc();
+        $allowedDaysAfterRelease = $row["valore"]; 
+        $maxAllowedDateAfterRelease = ($today / (60 * 60 * 24)) - $allowedDaysAfterRelease;
         $maxAllowedDateAfterRelease = $maxAllowedDateAfterRelease * (60 * 60 * 24);
         return date("Y-m-d", $maxAllowedDateAfterRelease);
     }
@@ -126,9 +131,11 @@ class BookingManagementService {
     private function GetBookingsForUser($id_cliente, $id_punto_vendita, $moviesArray) {
         $query = 
             "SELECT id_film
-            FROM prenotazione pr        
+            FROM prenotazione pr
+            INNER JOIN dipendente di
+            ON pr.id_dipendente = di.id_dipendente   
             WHERE pr.id_cliente = %d
-            AND pr.id_punto_vendita = %d
+            AND di.id_punto_vendita = %d
             AND pr.id_film IN (%s)";
         $idsString = "";
         for($i = 0; $i < count($moviesArray); $i++) {            
@@ -157,8 +164,11 @@ class BookingManagementService {
             ON pr.id_film = fi.id_film
             INNER JOIN cliente cl
             ON pr.id_cliente = cl.id_cliente
+            INNER JOIN dipendente di
+            ON pr.id_dipendente = di.id_dipendente
             WHERE pr.id_film = %d
-            AND pr.id_punto_vendita = %d";
+            AND di.id_punto_vendita = %d
+            AND ritirato = 0";
         $idsString = "";
         $query = sprintf($query, $booking->id_film, $booking->id_punto_vendita);
         Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
@@ -182,12 +192,10 @@ class BookingManagementService {
                     "INSERT INTO prenotazione
                     (id_cliente,
                     id_dipendente,
-                    id_punto_vendita,
                     id_film)
                     VALUES
-                    (%d, %d, %d, %d);";
-                $query = sprintf($query, $booking->id_cliente, $booking->id_dipendente, $booking->id_punto_vendita,
-                                    $booking->id_film);
+                    (%d, %d, %d);";
+                $query = sprintf($query, $booking->id_cliente, $booking->id_dipendente, $booking->id_film);
                 Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
                 $res = self::ExecuteQuery($query);
             }

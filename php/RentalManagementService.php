@@ -48,6 +48,10 @@ class RentalManagementService {
         while($row = $res->fetch_assoc()){
             $videosArray[] = $row;
         }
+        if(count($videosArray) < 1) {
+            exit(json_encode(array()));
+        }
+        Logger::Write("VIDEOSARRAY: ".count($videosArray), $GLOBALS["CorrelationID"]);
         usort($videosArray, array($this, "SortByFilmId"));        
         $query = 
             "SELECT ca.id_film, at.nome as attore_nome, at.cognome as attore_cognome                    
@@ -187,18 +191,19 @@ class RentalManagementService {
     }
 
     private function InsertRentDetails($video) {
+        Logger::Write("INSERTRENTDETAILS: ", $GLOBALS["CorrelationID"]);
         $query = 
             "INSERT INTO noleggio
             (id_dipendente,
-            id_punto_vendita,
             id_cliente,
             id_copia,
             id_tariffa,
             data_inizio,
             data_fine)
             VALUES
-            (%d, %d, %d, %d, %d, CURRENT_TIMESTAMP, '%s')";
-        $query = sprintf($query, $video->id_dipendente, $video->id_punto_vendita, $video->id_cliente,
+            (%d, %d, %d, %d, CURRENT_TIMESTAMP, '%s')";
+            Logger::Write("QUERY: ".$query, $GLOBALS["CorrelationID"]);
+        $query = sprintf($query, $video->id_dipendente, $video->id_cliente,
                             $video->id_copia, $video->id_tariffa, $video->data_fine);
         Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
         $res = self::ExecuteQuery($query);                                     
@@ -254,11 +259,13 @@ class RentalManagementService {
 
     private function SetBookingStatusAsRented($video) {
         $query = 
-            "UPDATE prenotazione
-            SET ritirato = 1
-            WHERE id_cliente = %d
-            AND id_punto_vendita = %d
-            AND id_film = %d";
+            "UPDATE prenotazione pr
+            INNER JOIN dipendente di
+            ON pr.id_dipendente = di.id_dipendente
+            SET pr.ritirato = 1
+            WHERE pr.id_cliente = %d
+            AND di.id_punto_vendita = %d
+            AND pr.id_film = %d";
         $query = sprintf($query, $video->id_cliente, $video->id_punto_vendita, $video->id_film);
         Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
         $res = self::ExecuteQuery($query);

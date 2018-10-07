@@ -76,13 +76,14 @@ function initSalesTableSuccess(data) {
         html +=         buildSalesTableHead();
         html +=        `<tbody>`;            
         for(var i = 0; i < sales.length; i++) {
-            var sale = sales[i];            
+            var sale = sales[i];
+            var incasso = new Number(getNumberFromNull(sale.incasso_giornaliero) + getNumberFromNull(sale.s_incasso_giornaliero)).toFixed(2);
                 html +=     `<tr>
                                 <td>${sale.id_punto_vendita}</td>
                                 <td>${sale.nome}</td>                             
                                 <td>${sale.citta}</td>
                                 <td>${sale.indirizzo}</td>   
-                                <td><span>${new Number(sale.incasso_giornaliero).toFixed(2)}</span> €</td>
+                                <td><span>${incasso}</span> €</td>
                             </tr>`;
         }	
         html += `       </tbody>
@@ -107,6 +108,10 @@ function buildSalesTableHead() {
     return html;
 }
 
+function getNumberFromNull(value) {
+    return value != undefined && value != null ? parseFloat(value) : 0.0;
+}
+
 /* ACTIONS */
 /* Action Get Sales for Employees */
 function getSalesForEmployees(e, dt, node, config) {
@@ -123,7 +128,6 @@ function getSalesForEmployeesSuccess(data) {
     var employeesArray = result[0].sort(sortByIdDipendente);
     var salesArray = [...result[1], ...result[2]].sort(sortByIdDipendente);
     var salesArrayWithSums = getSalesArrayWithSums(salesArray);
-    console.log(salesArrayWithSums);
     var titleNumberOfDays = `(${daysRange > 1 ? `${daysRange} giorni` : "1 giorno"}:`;
     var titleDatesRange = `${daysRange > 1 ? `dal ${dateStart} al ${dateEnd}` : `${dateStart}`})`;
     var title = `Incassi ${titleNumberOfDays} ${titleDatesRange}`;

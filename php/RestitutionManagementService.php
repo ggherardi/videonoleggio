@@ -94,7 +94,7 @@ class RestitutionManagementService {
                 $details = self::GetRentDetails($copies[$i]->id_noleggio);
                 $archivedRentId = self::ArchiveRent($details, $copies[$i]->prezzo_extra);
                 self::DeleteActiveRent($copies[$i]->id_noleggio);
-                self::ResetRentFlagInCopiesTable($copies[$i]->id_copia);
+                self::ResetRentFlagInCopiesTable($copies[$i]->danneggiato, $copies[$i]->id_copia);
             }
             $this->dbContext->CommitTransaction();
         } catch(Throwable $ex) {
@@ -123,7 +123,6 @@ class RestitutionManagementService {
         $query = 
             "INSERT INTO storico_noleggio
             (id_dipendente,
-            id_punto_vendita,
             id_cliente,
             id_copia,
             id_tariffa,
@@ -133,8 +132,8 @@ class RestitutionManagementService {
             prezzo_totale,
             prezzo_extra)
             VALUES
-            (%d, %d, %d, %d, %d, '%s', '%s', '%s', %f, %f)";
-        $query = sprintf($query, $row["id_dipendente"], $row["id_punto_vendita"], $row["id_cliente"], $row["id_copia"], 
+            (%d, %d, %d, %d, '%s', '%s', '%s', %f, %f)";
+        $query = sprintf($query, $row["id_dipendente"], $row["id_cliente"], $row["id_copia"], 
                             $row["id_tariffa"], $row["data_inizio"], $row["data_fine"], $today, $row["prezzo_totale"], 
                             ($prezzo_extra != null ? $prezzo_extra : 0));
         Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
@@ -157,12 +156,15 @@ class RestitutionManagementService {
         }
     }
 
-    private function ResetRentFlagInCopiesTable($id_copia) {
+    private function ResetRentFlagInCopiesTable($danneggiato, $id_copia) {
         $query = 
             "UPDATE copia 
-            SET noleggiato = 0, data_prenotazione_noleggio = NULL, id_dipendente_prenotazione_noleggio = NULL
+            SET noleggiato = 0, 
+                data_prenotazione_noleggio = NULL, 
+                id_dipendente_prenotazione_noleggio = NULL, 
+                danneggiato = %d
             WHERE id_copia = %d";
-        $query = sprintf($query, $id_copia);
+        $query = sprintf($query, $danneggiato, $id_copia);
         Logger::Write("Query: ".$query, $GLOBALS["CorrelationID"]);
         $res = self::ExecuteQuery($query);
         if(!$res) {

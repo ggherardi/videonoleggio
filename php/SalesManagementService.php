@@ -23,16 +23,28 @@ class SalesManagementService {
         TokenGenerator::CheckPermissions(PermissionsConstants::RESPONSABILE, "delega_codice");
         $filters = json_decode($_POST["filters"]);
         $query = 
-            "SELECT pv.id_punto_vendita, pv.nome, pv.indirizzo, ci.nome as citta_nome, noleggi.incasso_giornaliero
+            "SELECT pv.id_punto_vendita, pv.nome, pv.indirizzo, ci.nome as citta_nome, 
+                    noleggi.incasso_giornaliero as incasso_giornaliero, storico_noleggi.incasso_giornaliero as s_incasso_giornaliero
             FROM punto_vendita pv
             INNER JOIN citta ci
             ON pv.id_citta = ci.id_citta 
-            LEFT JOIN (SELECT SUM(no.prezzo_totale) as incasso_giornaliero, no.id_noleggio, no.id_punto_vendita 
+            LEFT JOIN (SELECT SUM(no.prezzo_totale) as incasso_giornaliero, di.id_punto_vendita 
                         FROM noleggio no 
-                        WHERE no.data_inizio >= '%s' 
-                        AND no.data_inizio <= '%s') as noleggi
-            ON noleggi.id_punto_vendita = pv.id_punto_vendita            
-            %s
+                        INNER JOIN dipendente di
+                        ON no.id_dipendente = di.id_dipendente
+                        WHERE no.data_inizio >= '%1\$s' 
+                        AND no.data_inizio <= '%2\$s'
+                        GROUP BY di.id_punto_vendita) as noleggi
+            ON noleggi.id_punto_vendita = pv.id_punto_vendita     
+            LEFT JOIN (SELECT SUM(sn.prezzo_totale) as incasso_giornaliero, di.id_punto_vendita 
+                        FROM storico_noleggio sn 
+                        INNER JOIN dipendente di
+                        ON sn.id_dipendente = di.id_dipendente
+                        WHERE sn.data_inizio >= '%1\$s' 
+                        AND sn.data_inizio <= '%2\$s'
+                        GROUP BY di.id_punto_vendita) as storico_noleggi
+            ON storico_noleggi.id_punto_vendita = pv.id_punto_vendita               
+            %3\$s
             GROUP BY pv.id_punto_vendita;"; 
         $whereCondition = sprintf("WHERE pv.id_punto_vendita = %d", $filters->id_punto_vendita);
         $query = sprintf($query, $filters->data_inizio, sprintf("%s 23:59", $filters->data_fine), ($filters->id_punto_vendita > 0 ? $whereCondition : ""));          
@@ -57,14 +69,18 @@ class SalesManagementService {
             
             SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
             FROM noleggio no
-            WHERE no.id_punto_vendita = %1\$d
+            INNER JOIN dipendente di
+            ON no.id_dipendente = di.id_dipendente
+            WHERE di.id_punto_vendita = %1\$d
             AND no.data_inizio >= '%2\$s'
             AND no.data_inizio <= '%3\$s'
             GROUP BY no.id_dipendente;
             
             SELECT SUM(no.prezzo_totale) as incasso_totale, no.id_dipendente
             FROM storico_noleggio no
-            WHERE no.id_punto_vendita = %1\$d
+            INNER JOIN dipendente di
+            ON no.id_dipendente = di.id_dipendente
+            WHERE di.id_punto_vendita = %1\$d
             AND no.data_inizio >= '%2\$s'
             AND no.data_inizio <= '%3\$s'
             GROUP BY no.id_dipendente;";                     
@@ -75,7 +91,6 @@ class SalesManagementService {
         $mysqli = $this->dbContext->GetPublicConnection();
         $i = 0;
         do {
-            Logger::Write("LOOP N. ".$i++, $GLOBALS["CorrelationID"]);
             $res = $mysqli->store_result();
             $array[] = $res->fetch_all(MYSQLI_ASSOC);
             if(!$mysqli->more_results()) {
