@@ -38,3 +38,56 @@ function loginFail(jqXHR, textStatus, errorThrown) {
     errorSpan.show();
     errorSpan.text(errorText);
 }
+
+function openGuide() {
+    body = "<h3>Credenziali per l'accesso al sito</h3>";
+    body += `<table class="table mt-2">
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Password</th>
+                        <th>Ruolo</th>
+                        <th>P. vendita</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>guest</td>
+                        <td>password</td>
+                        <td>Proprietario</td>
+                        <td>Roma01</td>
+                    </tr>
+                    <tr>
+                        <td>marrosroma01</td>
+                        <td>password</td>
+                        <td>Responsabile</td>
+                        <td>Roma01</td>
+                    </tr>
+                    <tr>
+                        <td>luiverroma01</td>
+                        <td>password</td>
+                        <td>Addetto</td>
+                        <td>Roma01</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div>
+                <span>Una volta effettuato l'accesso al sito come proprietario, è possibile reperire le altre utenze dalla pagina "Gestione dipendenti". La password è uguale per tutti ed è "password".</span><br>
+                <span>Utilizzare i link di seguito, invece, per scaricare gli zip contenti gli script PHP, i file JS e gli schema SQL.</span>
+            </div>
+            <div class="mt-3">
+                <a href="/documentazione/source/scriptPHP.7z" download>Scarica i servizi PHP</a><br>
+                <a href="/documentazione/source/scriptJS.7z" download>Scarica i file JS</a>
+                <a href="/documentazione/source/scriptSQL.7z" download>Scarica gli script SQL</a>
+            </div>`;
+    modalOptions = {
+        title: "Guida all'accesso al sito",
+        body: body,
+        cancelButton: {
+            text: "Chiudi"
+        }
+    }
+
+    modal = new Modal(modalOptions);
+    modal.open(); 
+}
