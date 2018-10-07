@@ -234,6 +234,7 @@ function getDatesFromInputs() {
 
 function calculateDaysRange() {
     daysRange = (new Date(dateEnd) - new Date(dateStart)) / (1000 * 3600 * 24);
+    daysRange = daysRange == 0 ? 1 : daysRange;
 }
 /* Init */
 initSalesView();

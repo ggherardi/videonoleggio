@@ -22,7 +22,6 @@ var dataTableOptions = {
         searchable: false
     }],
     buttons: [
-        { extend: 'copy', text: "Copia" },
         { extend: 'selected', text: "Carico merce", action: loadVideos },
         { text: "Scarico merce", action: unloadVideos },
     ]
@@ -153,13 +152,13 @@ function loadVideosAction() {
 function unloadVideos() {
     var body = buildStorageForm();
     modalOptions = {
-        title: "Scaricamento nuove copie",
+        title: "Scarico nuove copie",
         body: body,
         cancelButton: {
             text: "Annulla"
         },
         confirmButton: {
-            text: "Carica copie",
+            text: "Scarica copie",
             action: insertItemDelegate
         }
     }

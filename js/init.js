@@ -5,7 +5,7 @@ var views = {
     restitutions: { title: "Restituzioni", name: "restitutions" },
     bookings: { title: "Prenotazioni", name: "bookings" },
     customers: { title: "Gestione clienti", name: "customers" },
-    storage: { title: "Magazzino", name: "storage", needPermissions: permissions.levels.responsabile },
+    storage: { title: "Magazzino", name: "storage" },
     sales: { title: "Vendite", name: "sales", needPermissions: permissions.levels.responsabile },
     accounts: { title: "Gestione dipendenti", name: "accounts", needPermissions: permissions.levels.proprietario },    
     settings: { title: "<img src='/images/white-cog.png' height='20'>", name: "settings", needPermissions: permissions.levels.proprietario },

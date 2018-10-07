@@ -33,10 +33,9 @@ var dataTableOptions = {
         searchable: false
     }],
     buttons: [
-        { extend: 'copy', text: "Copia" },
         { text: "Nuovo cliente", action: addCustomerAction },
         { extend: 'selectedSingle', text: "Modifica cliente", action: editCustomerAction },
-        { extend: 'selectedSingle', text: "Cancella cliente", action: deleteCustomerAction },
+        { extend: 'selectedSingle', text: "Cancella cliente", action: deleteCustomerAction, className: `${sharedStorage.loginContext.delega_codice >= 20 ? "" : "hidden"}` },
         { extend: 'selectedSingle', text: "Noleggi attivi", action: seeActiveRentalsAction },
         { extend: 'selectedSingle', text: "Noleggi passati", action: seeArchivedRentalsAction },
     ],

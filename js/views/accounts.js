@@ -26,7 +26,6 @@ var dataTableOptions = {
         searchable: false
     }],
     buttons: [
-        { extend: 'copy', text: "Copia" },
         { text: "Nuovo dipendente", action: insertEmployee },
         { extend: 'selectedSingle', text: "Resetta password", action: resetPassword },
         { extend: 'selectedSingle', text: "Modifica account", action: editEmployee }

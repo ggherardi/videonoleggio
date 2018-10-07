@@ -85,7 +85,7 @@ class CustomerManagementService {
 
     function DeleteCustomer() {
         Logger::Write("Processing ". __FUNCTION__ ." request.", $GLOBALS["CorrelationID"]);
-        TokenGenerator::CheckPermissions(PermissionsConstants::ADDETTO, "delega_codice");
+        TokenGenerator::CheckPermissions(PermissionsConstants::RESPONSABILE, "delega_codice");
         $id_cliente = $_POST["id_cliente"]; 
         $query = 
             "DELETE FROM cliente              
