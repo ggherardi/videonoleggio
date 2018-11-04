@@ -73,9 +73,10 @@ function openGuide() {
             </table>
             <div>
                 <span>Una volta effettuato l'accesso al sito come proprietario, è possibile reperire le altre utenze dalla pagina "Gestione dipendenti". La password è uguale per tutti ed è "password".</span><br>
-                <span>Utilizzare i link di seguito, invece, per scaricare gli zip contenti gli script PHP, i file JS e gli schema SQL.</span>
+                <span>Utilizzare i link di seguito, invece, per scaricare la documentazione e gli zip contenti gli script PHP, i file JS e gli schema SQL.</span>
             </div>
             <div class="mt-3">
+                <a href="/documentazione/RelazioneTecnicaWebApplication RentNet.pdf" download>Scarica la documentazione</a><br>
                 <a href="/documentazione/source/scriptPHP.7z" download>Scarica i servizi PHP</a><br>
                 <a href="/documentazione/source/scriptJS.7z" download>Scarica i file JS</a><br>
                 <a href="/documentazione/source/scriptSQL.7z" download>Scarica gli script SQL</a>
